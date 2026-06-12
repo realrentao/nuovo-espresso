@@ -91,21 +91,21 @@
       <p style="font-weight:600;margin-bottom:8px;">💬 Dialoghi 对话</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
         <div style="background:#f0f0f0;padding:10px;border-radius:6px;border-left:3px solid var(--ne-orange);font-size:14px;">
-          <strong>👤 Valeria:</strong> Ciao, sono Valeria, e tu come ti chiami?<br>
+          <strong>👤 Valeria:</strong></strong> <span class="ds-text" onclick="speak('Ciao, sono Valeria, e tu come ti chiami?')">Ciao, sono Valeria, e tu come ti chiami?</span><br>
           <strong>👤 Cecilia:</strong> Io Cecilia.
         </div>
         <div style="background:#f0f0f0;padding:10px;border-radius:6px;border-left:3px solid var(--ne-orange);font-size:14px;">
-          <strong>👤 Giovanni:</strong> Buongiorno, sono Giovanni Muti.<br>
+          <strong>👤 Giovanni:</strong></strong> <span class="ds-text" onclick="speak('Buongiorno, sono Giovanni Muti.')">Buongiorno, sono Giovanni Muti.</span><br>
           <strong>👤 Carlo:</strong> Piacere, Carlo De Giuli.
         </div>
         <div style="background:#f0f0f0;padding:10px;border-radius:6px;border-left:3px solid var(--ne-orange);font-size:14px;">
-          <strong>👤 Sig.ra:</strong> Scusi, Lei come si chiama?<br>
-          <strong>👤 Franca:</strong> Franca Cucci. E Lei?<br>
+          <strong>👤 Sig.ra:</strong></strong> <span class="ds-text" onclick="speak('Scusi, Lei come si chiama?')">Scusi, Lei come si chiama?</span><br>
+          <strong>👤 Franca:</strong></strong> <span class="ds-text" onclick="speak('Franca Cucci. E Lei?')">Franca Cucci. E Lei?</span><br>
           <strong>👤 Paola:</strong> Anch'io mi chiamo Cucci, Paola Cucci.
         </div>
         <div style="background:#f0f0f0;padding:10px;border-radius:6px;border-left:3px solid var(--ne-orange);font-size:14px;">
-          <strong>👤 Sig.ra:</strong> La signora Genovesi?<br>
-          <strong>👤 Sig.ra G:</strong> Sì, sono io.<br>
+          <strong>👤 Sig.ra:</strong></strong> <span class="ds-text" onclick="speak('La signora Genovesi?')">La signora Genovesi?</span><br>
+          <strong>👤 Sig.ra G:</strong></strong> <span class="ds-text" onclick="speak('Sì, sono io.')">Sì, sono io.</span><br>
           <strong>👤 Sig. Ragazzi:</strong> Marcello Ragazzi.
         </div>
       </div>
@@ -182,7 +182,7 @@
         <div class="vocab-card" onclick="speak('zeta')" style="padding:4px;"><div class="it" style="font-size:18px;">Z</div><div class="cn" style="font-size:10px;">zeta</div></div>
       </div>
       <div style="margin-top:8px;padding:8px 12px;background:#fef0e0;border-radius:6px;">
-        <p style="font-size:12px;"><strong>Lettere straniere:</strong> J (i lunga) · K (kappa) · W (doppia vu) · X (ics) · Y (ipsilon)</p>
+        <p style="font-size:12px;"><strong>Lettere straniere:</strong></strong> <span class="ds-text" onclick="speak('J (i lunga) · K (kappa) · W (doppia vu) · X (ics) · Y (ipsilon)')">J (i lunga) · K (kappa) · W (doppia vu) · X (ics) · Y (ipsilon)</span></p>
       </div>
     </div>
   </div>
@@ -312,12 +312,12 @@
     <div class="interactive-block">
       <div style="background:#f5f0e0;border-radius:8px;padding:14px;border:1px solid var(--ne-gold);">
         <p style="font-weight:600;">📞 对话</p>
-        <p><strong>A</strong><br>
-        <strong>B</strong></p>
-        <p><strong>A</strong><br>
-        <strong>B</strong></p>
-        <p><strong>A</strong><br>
-        <strong>B</strong></p>
+        <p><strong class="ds-btn">A</strong> <span class="ds-text" onclick="speak('Qual è il Suo indirizzo?')">Qual è il Suo indirizzo?</span><br>
+        <strong class="ds-btn">B</strong> <span class="ds-text" onclick="speak('Via Garibaldi, 12.')">Via Garibaldi, 12.</span></p>
+        <p><strong class="ds-btn">A</strong> <span class="ds-text" onclick="speak('E il Suo numero di telefono?')">E il Suo numero di telefono?</span><br>
+        <strong class="ds-btn">B</strong> <span class="ds-text" onclick="speak('055 1234567. Però ho anche il cellulare: 349 2547577.')">055 1234567. Però ho anche il cellulare: 349 2547577.</span></p>
+        <p><strong class="ds-btn">A</strong> <span class="ds-text" onclick="speak('Come, scusi?')">Come, scusi?</span><br>
+        <strong class="ds-btn">B</strong> <span class="ds-text" onclick="speak('349 2547577.')">349 2547577.</span></p>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;">
         <div>
@@ -388,7 +388,7 @@
       <div style="margin-top:12px;">
         <p style="font-weight:600;font-size:14px;">❓ Interrogativi 疑问词</p>
         <p><strong>Come</strong> ti chiami? · <strong>Di dove</strong> sei? · <strong>Qual</strong> è il tuo numero?</p>
-        <p><strong>Preposizione di:</strong> Sono <strong>di</strong> Genova.</p>
+        <p><strong>Preposizione di:</strong></strong> <span class="ds-text" onclick="speak('Sono')">Sono</span><strong>di</strong> Genova.</p>
       </div>
     </div>
   </div>
@@ -427,10 +427,10 @@
     <div class="source-box">
       <div class="label">☕ Caffè culturale 1</div>
       <p>In Italia i saluti cambiano in base al momento della giornata:</p>
-      <p><strong>Mattina (5-13):</strong> Buongiorno!</p>
-      <p><strong>Pomeriggio (13-19):</strong> Buon pomeriggio! (meno usato)</p>
-      <p><strong>Sera (19-23):</strong> Buonasera!</p>
-      <p><strong>Notte (23-5):</strong> Buonanotte!</p>
+      <p><strong>Mattina (5-13):</strong></strong> <span class="ds-text" onclick="speak('Buongiorno!')">Buongiorno!</span></p>
+      <p><strong>Pomeriggio (13-19):</strong></strong> <span class="ds-text" onclick="speak('Buon pomeriggio! (meno usato)')">Buon pomeriggio! (meno usato)</span></p>
+      <p><strong>Sera (19-23):</strong></strong> <span class="ds-text" onclick="speak('Buonasera!')">Buonasera!</span></p>
+      <p><strong>Notte (23-5):</strong></strong> <span class="ds-text" onclick="speak('Buonanotte!')">Buonanotte!</span></p>
       <p>Esiste anche <strong>Salve!</strong> — un saluto informale ma educato, adatto a qualsiasi ora.</p>
       <p><strong>Ciao!</strong> è il saluto informale più comune, usato tra amici.</p>
     </div>
