@@ -98,9 +98,13 @@ const AUDIO_KEYS = {
   'zeta': 'zeta',
 };
 // Audio Loader - dynamically loads individual base64 audio files
+let currentAudio = null;
 const audioCache = {};
 
 function speak(text) {
+  // 打断正在播放的音频
+  stopAllAudio();
+
   const key = AUDIO_KEYS[text] || AUDIO_KEYS[text.toLowerCase()];
   if (!key) {
     if ('speechSynthesis' in window) {
@@ -114,6 +118,7 @@ function speak(text) {
   if (audioCache[key]) {
     audioCache[key].currentTime = 0;
     audioCache[key].play().catch(() => {});
+    currentAudio = audioCache[key];
     return;
   }
   
@@ -140,8 +145,22 @@ function speak(text) {
   document.head.appendChild(script);
 }
 
+function stopAllAudio() {
+  // 打断 Audio 对象播放
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    currentAudio = null;
+  }
+  // 打断 Web Speech API
+  if ('speechSynthesis' in window) {
+    speechSynthesis.cancel();
+  }
+}
+
 function playAudio(key, dataUri) {
   const audio = new Audio(dataUri);
   audioCache[key] = audio;
+  currentAudio = audio;
   audio.play().catch(() => {});
 }
