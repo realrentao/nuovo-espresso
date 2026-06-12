@@ -1,7 +1,7 @@
 // Audio Manifest - maps words to their base64 JS files
 const AUDIO_KEYS = {
-  '055 1234567. Però ho anche il cellulare: 349 2547577.': '055_1234567_per_ho_anche_il_cellulare_349_2547577',
-  '349 2547577.': '349_2547577',
+  '055 1234567. Però ho anche il cellulare: 349 2547577.': 'telefono_055_1234567',
+  '349 2547577.': 'cellulare_349_2547577',
   'Buon pomeriggio! (meno usato)': 'buon_pomeriggio_meno_usato',
   'Buonanotte!': 'buonanotte',
   'Buonasera!': 'buonasera',
@@ -12,7 +12,7 @@ const AUDIO_KEYS = {
   'Come, scusi?': 'come_scusi',
   'E il Suo numero di telefono?': 'e_il_suo_numero_di_telefono',
   'Franca Cucci. E Lei?': 'franca_cucci_e_lei',
-  'J (i lunga) · K (kappa) · W (doppia vu) · X (ics) · Y (ipsilon)': 'j_i_lunga_k_kappa_w_doppia_vu_x_ics_y_ipsilon',
+  'J (i lunga) · K (kappa) · W (doppia vu) · X (ics) · Y (ipsilon)': 'lettere_straniere',
   'La signora Genovesi?': 'la_signora_genovesi',
   'Lei è italiana?': 'lei_italiana',
   'No, sono austriaco. E tu?': 'no_sono_austriaco_e_tu',
@@ -21,7 +21,7 @@ const AUDIO_KEYS = {
   'Scusi, Lei come si chiama?': 'scusi_lei_come_si_chiama',
   'Sei tedesco?': 'sei_tedesco',
   'Sono': 'sono',
-  'Sì, sono io.': 's_sono_io',
+  'Sì, sono io.': 'si_sono_io',
   'Sì. E Lei? È inglese?': 's_e_lei_inglese',
   'Via Garibaldi, 12.': 'via_garibaldi_12',
   'a': 'a',
@@ -97,70 +97,58 @@ const AUDIO_KEYS = {
   'zero': 'zero',
   'zeta': 'zeta',
 };
-// Audio Loader - dynamically loads individual base64 audio files
+
+// Audio Loader - fetch-based, more reliable than <script> injection
 let currentAudio = null;
 const audioCache = {};
 
 function speak(text) {
-  // 打断正在播放的音频
   stopAllAudio();
 
-  const key = AUDIO_KEYS[text] || AUDIO_KEYS[text.toLowerCase()];
+  var key = AUDIO_KEYS[text] || AUDIO_KEYS[text.toLowerCase()];
   if (!key) {
     if ('speechSynthesis' in window) {
-      const u = new SpeechSynthesisUtterance(text);
+      var u = new SpeechSynthesisUtterance(text);
       u.lang = 'it-IT'; u.rate = 0.85;
       speechSynthesis.speak(u);
     }
     return;
   }
-  
+
   if (audioCache[key]) {
     audioCache[key].currentTime = 0;
-    audioCache[key].play().catch(() => {});
+    audioCache[key].play().catch(function(){});
     currentAudio = audioCache[key];
     return;
   }
-  
-  const varName = 'AD_' + key;
-  if (window[varName]) {
-    playAudio(key, window[varName]);
-    return;
-  }
-  
-  const script = document.createElement('script');
-  script.src = 'audio/d/' + key + '.js';
-  script.onload = function() {
-    if (window[varName]) {
-      playAudio(key, window[varName]);
-    }
-  };
-  script.onerror = function() {
-    if ('speechSynthesis' in window) {
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'it-IT'; u.rate = 0.85;
-      speechSynthesis.speak(u);
-    }
-  };
-  document.head.appendChild(script);
+
+  fetch('audio/d/' + key + '.js')
+    .then(function(r) { return r.text(); })
+    .then(function(jsText) {
+      var m = jsText.match(/"(data:audio[^"]+)"/);
+      if (m) {
+        var audio = new Audio(m[1]);
+        audioCache[key] = audio;
+        currentAudio = audio;
+        audio.play().catch(function(){});
+      }
+    })
+    .catch(function() {
+      if ('speechSynthesis' in window) {
+        var u = new SpeechSynthesisUtterance(text);
+        u.lang = 'it-IT'; u.rate = 0.85;
+        speechSynthesis.speak(u);
+      }
+    });
 }
 
 function stopAllAudio() {
-  // 打断 Audio 对象播放
   if (currentAudio) {
     currentAudio.pause();
     currentAudio.currentTime = 0;
     currentAudio = null;
   }
-  // 打断 Web Speech API
   if ('speechSynthesis' in window) {
     speechSynthesis.cancel();
   }
-}
-
-function playAudio(key, dataUri) {
-  const audio = new Audio(dataUri);
-  audioCache[key] = audio;
-  currentAudio = audio;
-  audio.play().catch(() => {});
 }
