@@ -1,11 +1,29 @@
 // Audio Manifest - maps words to their base64 JS files
 const AUDIO_KEYS = {
+  '055 1234567. Però ho anche il cellulare: 349 2547577.': '055_1234567_per_ho_anche_il_cellulare_349_2547577',
+  '349 2547577.': '349_2547577',
+  'Buon pomeriggio! (meno usato)': 'buon_pomeriggio_meno_usato',
+  'Buonanotte!': 'buonanotte',
+  'Buonasera!': 'buonasera',
+  'Buongiorno!': 'buongiorno',
+  'Buongiorno, sono Giovanni Muti.': 'buongiorno_sono_giovanni_muti',
+  'Ciao, sono Valeria, e tu come ti chiami?': 'ciao_sono_valeria_e_tu_come_ti_chiami',
   'Come si scrive?': 'come_si_scrive',
+  'Come, scusi?': 'come_scusi',
+  'E il Suo numero di telefono?': 'e_il_suo_numero_di_telefono',
+  'Franca Cucci. E Lei?': 'franca_cucci_e_lei',
+  'J (i lunga) · K (kappa) · W (doppia vu) · X (ics) · Y (ipsilon)': 'j_i_lunga_k_kappa_w_doppia_vu_x_ics_y_ipsilon',
+  'La signora Genovesi?': 'la_signora_genovesi',
   'Lei è italiana?': 'lei_italiana',
   'No, sono austriaco. E tu?': 'no_sono_austriaco_e_tu',
   'No, sono irlandese. Sono di Dublino. E Lei?': 'no_sono_irlandese_sono_di_dublino_e_lei',
+  'Qual è il Suo indirizzo?': 'qual_il_suo_indirizzo',
+  'Scusi, Lei come si chiama?': 'scusi_lei_come_si_chiama',
   'Sei tedesco?': 'sei_tedesco',
+  'Sono': 'sono',
+  'Sì, sono io.': 's_sono_io',
   'Sì. E Lei? È inglese?': 's_e_lei_inglese',
+  'Via Garibaldi, 12.': 'via_garibaldi_12',
   'a': 'a',
   'a domani': 'a_domani',
   'a presto': 'a_presto',
@@ -79,14 +97,12 @@ const AUDIO_KEYS = {
   'zero': 'zero',
   'zeta': 'zeta',
 };
-
 // Audio Loader - dynamically loads individual base64 audio files
 const audioCache = {};
 
 function speak(text) {
   const key = AUDIO_KEYS[text] || AUDIO_KEYS[text.toLowerCase()];
   if (!key) {
-    // Fallback to Web Speech API
     if ('speechSynthesis' in window) {
       const u = new SpeechSynthesisUtterance(text);
       u.lang = 'it-IT'; u.rate = 0.85;
@@ -95,21 +111,18 @@ function speak(text) {
     return;
   }
   
-  // Check if already loaded
   if (audioCache[key]) {
     audioCache[key].currentTime = 0;
     audioCache[key].play().catch(() => {});
     return;
   }
   
-  // Try global variable (already loaded via script tag)
   const varName = 'AD_' + key;
   if (window[varName]) {
     playAudio(key, window[varName]);
     return;
   }
   
-  // Dynamically load the JS file
   const script = document.createElement('script');
   script.src = 'audio/d/' + key + '.js';
   script.onload = function() {
@@ -118,7 +131,6 @@ function speak(text) {
     }
   };
   script.onerror = function() {
-    // Fallback
     if ('speechSynthesis' in window) {
       const u = new SpeechSynthesisUtterance(text);
       u.lang = 'it-IT'; u.rate = 0.85;

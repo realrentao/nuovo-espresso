@@ -1,3 +1,2 @@
-# Audio files are large - download separately if needed
-audio/d/
+# Only exclude raw MP3 files, keep base64 JS files for web
 audio/*.mp3
