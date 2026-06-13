@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Eserciziario · 练习册 · NUOVO Espresso 1</title><link rel="stylesheet" href="css/ne-styles.css"><script src="audio/ne-audio-data.js"></script><script src="js/ne-audio-player.js"></script><style>
+.source-box{background:#f5efe6;border-left:3px solid var(--ne-gold);border-radius:0 8px 8px 0;padding:14px 18px;margin:14px 0;font-size:14px;line-height:1.8}
+.source-box .label{font-size:11px;color:var(--ne-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.interactive-block{background:#fff;border:1px solid var(--border-light);border-radius:10px;padding:16px;margin:12px 0}
+.ds-text{cursor:pointer;border-bottom:1px dashed #ccc;transition:all .2s}.ds-text:hover{background:#fff3cd}
+.highlight-word{display:inline-block;background:#fff3cd;padding:0 6px;border-radius:3px;font-weight:600;cursor:pointer;transition:background .2s}
+.highlight-word:hover{background:#ffc107}
+.wrong{background:#ffcccc!important;border-color:var(--ne-red)!important;opacity:0.6}
+.correct{background:#ccffcc!important;border-color:var(--ne-green)!important}
+.grammar-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.grammar-pair{grid-template-columns:1fr}}
+.ex-num{display:inline-block;background:var(--ne-blue);color:#fff;padding:2px 12px;border-radius:4px;font-size:12px;font-weight:600;margin-bottom:8px}
+.unit-ex-section{background:white;border-radius:var(--card-radius);box-shadow:var(--card-shadow);padding:24px;margin-bottom:20px;border:1px solid var(--border-light);border-left:4px solid var(--ne-orange)}
+.unit-ex-section h3{font-family:var(--font-serif);font-size:18px;font-weight:700;margin-bottom:4px;color:var(--ne-blue)}
+.unit-ex-section .ex-sub{font-size:13px;color:var(--ne-muted);margin-bottom:16px}
+.score-bar{position:sticky;top:56px;z-index:999;background:white;border-bottom:1px solid var(--border-light);padding:8px 24px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.score-bar .score-item{font-size:13px;font-weight:600}
+.score-bar .score-item .num{color:var(--ne-red);font-size:16px}
+</style></head><body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 1 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home 首页</a></li>
+      <li><a href="facciamo-punto.html">Ripasso 复习</a></li>
+      <li><a href="grammatica-riassuntiva.html">Grammatica 语法</a></li>
+      <li><a href="#unita1" class="active">Esercizi 练习</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <a href="index.html" class="back-link">← Torna al corso</a>
+  <div class="unit-badge">📝 Eserciziario</div>
+  <h1>练习册</h1>
+  <p class="subtitle" style="margin-bottom:8px;">50 esercizi interattivi per tutto il corso! · 全课程 50 道交互练习题！</p>
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px;">
+    <span style="background:white;border:1px solid var(--border-light);border-radius:100px;padding:6px 16px;font-size:13px;color:var(--ne-muted);">📖 Unità 1-2 · 基础</span>
+    <span style="background:white;border:1px solid var(--border-light);border-radius:100px;padding:6px 16px;font-size:13px;color:var(--ne-muted);">🍝 Unità 3-4 · 餐饮与休闲</span>
+    <span style="background:white;border:1px solid var(--border-light);border-radius:100px;padding:6px 16px;font-size:13px;color:var(--ne-muted);">🏨 Unità 5-6 · 酒店与城市</span>
+    <span style="background:white;border:1px solid var(--border-light);border-radius:100px;padding:6px 16px;font-size:13px;color:var(--ne-muted);">✈️ Unità 7-8 · 过去时与食物</span>
+    <span style="background:white;border:1px solid var(--border-light);border-radius:100px;padding:6px 16px;font-size:13px;color:var(--ne-muted);">⏰ Unità 9-10 · 日常与家庭</span>
+  </div>
+</section>
+
+<div class="score-bar" id="scoreBar">
+  <span class="score-item">📊 进度: <span class="num" id="doneCount">0</span>/50</span>
+  <span class="score-item">✅ 正确: <span class="num" id="correctCount">0</span></span>
+  <span class="score-item" style="font-size:12px;color:var(--ne-muted);">点击选项即时反馈</span>
+</div>
+
+<div class="unit-content">
+
+  <!-- ===== UNITA 1 ===== -->
+  <div class="unit-ex-section" id="unita1">
+    <h3>📖 Unità 1 · Primi contatti</h3>
+    <p class="ex-sub">问候、自我介绍、字母拼写、数字 0-20</p>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 1</span>
+      <div class="q-text">"Io ____ di Shanghai." 选择正确的动词形式</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,true)">A. sono</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. sei</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. è</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. ha</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 2</span>
+      <div class="q-text">"Come ti ____?" — 正确的反身代词是？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. chiamo</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. chiama</div>
+        <div class="quiz-option" onclick="cq(this,true)">C. chiami</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. chiamano</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 3</span>
+      <div class="q-text">"C + i" 在意大利语中如何发音？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,true)">A. /tʃ/ (ch 音)</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. /k/ (k 音)</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. /s/ (s 音)</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. /g/ (g 音)</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 4</span>
+      <div class="q-text">哪个是意大利语的"晚安"？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. Buongiorno</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. Buonasera</div>
+        <div class="quiz-option" onclick="cq(this,true)">C. Buonanotte</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. Arrivederci</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 5</span>
+      <div class="q-text">"Lui ____ un libro." 选择正确的 avere 变位</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. ho</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. hai</div>
+        <div class="quiz-option" onclick="cq(this,true)">C. ha</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. hanno</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== UNITA 2 ===== -->
+  <div class="unit-ex-section">
+    <h3>👥 Unità 2 · Io e gli altri</h3>
+    <p class="ex-sub">介绍他人、-are 动词、冠词 il/la、介词 a/in/di</p>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 6</span>
+      <div class="q-text">"Noi (parlare) ____ italiano." 正确的 -are 变位是？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. parlo</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. parla</div>
+        <div class="quiz-option" onclick="cq(this,true)">C. parliamo</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. parlano</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 7</span>
+      <div class="q-text">"Lavoro ____ un ufficio." 选择正确的前置词</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. a</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. di</div>
+        <div class="quiz-option" onclick="cq(this,true)">C. in</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. da</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 8</span>
+      <div class="q-text">"____ studente" (那个男学生) 选择正确的定冠词</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. il</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. lo</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. la</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. l'</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 9</span>
+      <div class="q-text">"Come ____?" (你怎么样？) 的正确问候语是？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. Come va?</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. Come stai?</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. Come sta?</div>
+        <div class="quiz-option" onclick="cq(this,true)">D. 以上都正确</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 10</span>
+      <div class="q-text">"Lei (lavorare) ____ in una scuola." 选择正确的变位</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. lavoro</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. lavori</div>
+        <div class="quiz-option" onclick="cq(this,true)">C. lavora</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. lavorano</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== UNITA 3 ===== -->
+  <div class="unit-ex-section">
+    <h3>🍝 Unità 3 · Buon appetito!</h3>
+    <p class="ex-sub">点餐、-ere动词、volere/preferire、名词复数</p>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 11</span>
+      <div class="q-text">"Io (volere) ____ un caffè." 选择正确的变位</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,true)">A. voglio</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. vuoi</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. vuole</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. vogliamo</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 12</span>
+      <div class="q-text">"ragazza" 的复数形式是？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. ragazzo</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. ragazze</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. ragazzi</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. ragazza</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 13</span>
+      <div class="q-text">"Voi (prendere) ____ il dolce?" 选择正确的 -ere 变位</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. prendi</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. prende</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. prendiamo</div>
+        <div class="quiz-option" onclick="cq(this,true)">D. prendete</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 14</span>
+      <div class="q-text">在餐厅结账时，你应该说：</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. Il menù, per favore</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. Il conto, per favore</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. Buon appetito</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. Il tavolo, per favore</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 15</span>
+      <div class="q-text">"Loro (preferire) ____ la pizza." 正确的 -isco 变位是？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. preferisce</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. preferisci</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. preferiamo</div>
+        <div class="quiz-option" onclick="cq(this,true)">D. preferiscono</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== UNITA 4 ===== -->
+  <div class="unit-ex-section">
+    <h3>🎯 Unità 4 · Tempo libero</h3>
+    <p class="ex-sub">休闲活动、-ire 动词、piacere、频率副词</p>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 16</span>
+      <div class="q-text">"A me ____ gli animali." 选择正确的 piacere 变位</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. piace</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. piacciono</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. piaci</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. piaccio</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 17</span>
+      <div class="q-text">"Io (dormire) ____ otto ore." 选择正确的 -ire 变位</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. dormi</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. dormo</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. dorme</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. dormiamo</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 18</span>
+      <div class="q-text">以下哪个表示"经常"？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. sempre</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. spesso</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. mai</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. raramente</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 19</span>
+      <div class="q-text">"Tu che cosa (fare) ____ nel tempo libero?" — 正确的变位是？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. faccio</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. fai</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. fa</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. fanno</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 20</span>
+      <div class="q-text">"Non ____ al cinema." (我不去电影院) — 选择正确的动词</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. vado</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. vai</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. va</div>
+        <div class="quiz-option" onclick="cq(this,true)">D. vado (与 non 一起: Non vado al cinema.)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== UNITA 5 ===== -->
+  <div class="unit-ex-section">
+    <h3>🏨 Unità 5 · In albergo</h3>
+    <p class="ex-sub">酒店预订、c'è/ci sono、potere/venire、日期月份</p>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 21</span>
+      <div class="q-text">"Scusi, ____ una camera libera?" — 选择正确的形式</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,true)">A. c'è</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. ci sono</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. essere</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. hanno</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 22</span>
+      <div class="q-text">"Noi (potere) ____ pagare con la carta." — 正确的变位？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. posso</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. puoi</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. può</div>
+        <div class="quiz-option" onclick="cq(this,true)">D. possiamo</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 23</span>
+      <div class="q-text">"Quanto ____ una notte?" — 选择正确的动词</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. costi</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. costa</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. costano</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. costiamo</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 24</span>
+      <div class="q-text">意大利语的"星期四"是？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,true)">A. giovedì</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. martedì</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. venerdì</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. sabato</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 25</span>
+      <div class="q-text">"Loro (venire) ____ da Roma." — 正确的 venire 变位？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. viene</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. vieni</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. veniamo</div>
+        <div class="quiz-option" onclick="cq(this,true)">D. vengono</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== UNITA 6 ===== -->
+  <div class="unit-ex-section">
+    <h3>🗺️ Unità 6 · In giro per l'Italia</h3>
+    <p class="ex-sub">城市描述、问路指路、dovere/sapere、指示形容词</p>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 26</span>
+      <div class="q-text">"Scusi, per la stazione?" 意思是？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. 这是什么？</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. 请问去车站怎么走？</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. 请给我一张地图</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. 到站了吗？</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 27</span>
+      <div class="q-text">"Io non (sapere) ____ il numero." — 正确的 sapere 变位？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,true)">A. so</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. sai</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. sa</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. sanno</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 28</span>
+      <div class="q-text">"A che ora ____ la banca?" (银行几点开门？) — 正确的动词？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. chiudi</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. apre</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. apri</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. aprono</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 29</span>
+      <div class="q-text">意大利语"当然！"怎么说？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. Grazie</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. Per favore</div>
+        <div class="quiz-option" onclick="cq(this,true)">C. Certo!</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. Scusi</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 30</span>
+      <div class="q-text">"____ libro è interessante." (那本书) — 选择正确的指示形容词</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. Questo</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. Quel</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. Questa</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. Quella</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== UNITA 7 ===== -->
+  <div class="unit-ex-section">
+    <h3>✈️ Unità 7 · Andiamo in vacanza!</h3>
+    <p class="ex-sub">近过去时 (passato prossimo)、天气、绝对最高级</p>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 31</span>
+      <div class="q-text">"Ieri io (mangiare) ____ una pizza." — 正确的近过去时是？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,true)">A. ho mangiato</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. ha mangiato</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. hai mangiato</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. sono mangiato</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 32</span>
+      <div class="q-text">"Loro (partire) ____ per Roma ieri." — 正确的近过去时？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. hanno partito</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. ha partito</div>
+        <div class="quiz-option" onclick="cq(this,true)">C. sono partiti</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. sei partito</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 33</span>
+      <div class="q-text">"Il cibo era ____!" (超级好吃) — 选择正确的最高级</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,true)">A. buonissimo</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. più buono</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. buono</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. buono più</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 34</span>
+      <div class="q-text">意大利语"Fa bel tempo" 的意思是？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. 天气不好</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. 天气好</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. 时间很晚</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. 心情很好</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 35</span>
+      <div class="q-text">"Noi (vedere) ____ un bel film." — 正确的近过去时？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. abbiamo veduto</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. abbiamo visto</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. siamo visti</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. abbiamo vedito</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== UNITA 8 ===== -->
+  <div class="unit-ex-section">
+    <h3>🍇 Unità 8 · Sapori d'Italia</h3>
+    <p class="ex-sub">季节与食物、部分冠词、preferire、购物用语</p>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 36</span>
+      <div class="q-text">"Vorrei ____ pane, per favore." (一些面包) — 选择正确的部分冠词</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. il</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. del</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. un</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. lo</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 37</span>
+      <div class="q-text">意大利语的"草莓"怎么说？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. mela</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. fragola</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. arancia</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. uva</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 38</span>
+      <div class="q-text">"Io ____ comprare della verdura." (我需要) — 正确的 dovere 变位？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,true)">A. devo</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. deve</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. devi</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. dobbiamo</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 39</span>
+      <div class="q-text">"Quanto ____ le mele?" (苹果多少钱？) — 正确的动词？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. costa</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. costano</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. costi</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. costiamo</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 40</span>
+      <div class="q-text">"Loro (preferire) ____ la frutta di stagione." — 正确的 preferire 变位？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. preferiscono</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. preferisce</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. preferiamo</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. preferite</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== UNITA 9 ===== -->
+  <div class="unit-ex-section">
+    <h3>⏰ Unità 9 · Vita quotidiana</h3>
+    <p class="ex-sub">日常作息、反身动词、时间表达、邀约</p>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 41</span>
+      <div class="q-text">"Io (svegliarsi) ____ alle sette." — 正确的反身动词变位？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. ti svegli</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. si sveglia</div>
+        <div class="quiz-option" onclick="cq(this,true)">C. mi sveglio</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. ci svegliamo</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 42</span>
+      <div class="q-text">"Lui (alzarsi) ____ tardi." — 正确的反身动词？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. mi alzo</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. ti alzi</div>
+        <div class="quiz-option" onclick="cq(this,true)">C. si alza</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. ci alziamo</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 43</span>
+      <div class="q-text">"Che ora è?" 的正确回答是？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. Sono le otto.</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. È l'una.</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. Sono le due e mezza.</div>
+        <div class="quiz-option" onclick="cq(this,true)">D. 以上都可能是正确回答</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 44</span>
+      <div class="q-text">"Noi (divertirsi) ____ molto alla festa." — 正确的变位？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. mi diverto</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. ti diverti</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. si diverte</div>
+        <div class="quiz-option" onclick="cq(this,true)">D. ci divertiamo</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 45</span>
+      <div class="q-text">"Di solito" 的意思是？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. 总是</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. 通常</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. 从不</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. 有时</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== UNITA 10 ===== -->
+  <div class="unit-ex-section">
+    <h3>👨‍👩‍👧‍👦 Unità 10 · La famiglia</h3>
+    <p class="ex-sub">家庭描述、物主形容词、比较级、反身动词近过去时</p>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 46</span>
+      <div class="q-text">"____ padre è medico." (我的爸爸是医生) — 正确的物主形容词？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,true)">A. Mio</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. Il mio</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. La mia</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. I miei</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 47</span>
+      <div class="q-text">"Quanti ____ hai?" (你几岁了？) — 选择正确的词</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. anni</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. annos</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. anno</div>
+        <div class="quiz-option" onclick="cq(this,true)">D. anni (Quanti anni hai?)</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 48</span>
+      <div class="q-text">"Ieri Maria (lavarsi) ____ i capelli." — 反身动词近过去时？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. si è lavato</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. si è lavata</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. ha lavato</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. si ha lavato</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 49</span>
+      <div class="q-text">"Le mie ____ sono simpatiche." (我的姐妹们很可爱) — 正确的物主形式？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,true)">A. sorelle (Le mie sorelle)</div>
+        <div class="quiz-option" onclick="cq(this,false)">B. sorella (La mia sorella)</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. fratelli (I miei fratelli)</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. sorelle (Le sorelle mie)</div>
+      </div>
+    </div>
+
+    <div class="quiz-question">
+      <span class="ex-num">ES. 50</span>
+      <div class="q-text">"Marco è ____ alto ____ Luca." (Marco 比 Luca 高) — 正确的形式？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="cq(this,false)">A. più … che</div>
+        <div class="quiz-option" onclick="cq(this,true)">B. più … di</div>
+        <div class="quiz-option" onclick="cq(this,false)">C. meno … che</div>
+        <div class="quiz-option" onclick="cq(this,false)">D. tanto … quanto</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:24px;">
+    <a href="grammatica-riassuntiva.html" class="btn-secondary">← Grammatica riassuntiva</a>
+    <a href="index.html" class="btn-primary">Torna alla home →</a>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="footer-logo">NUOVO Espresso 1</div><p>Eserciziario · 50 esercizi interattivi · Basato su Nuovo Espresso 1 (ALMA Edizioni)</p></footer>
+<script>
+function updateScore() {
+  const done = document.querySelectorAll('.quiz-option.correct, .quiz-option.wrong').length;
+  const correct = document.querySelectorAll('.quiz-option.correct').length;
+  document.getElementById('doneCount').textContent = done;
+  document.getElementById('correctCount').textContent = correct;
+}
+
+window.addEventListener('scroll',()=>{const st=document.documentElement.scrollTop;document.getElementById('scrollProgress').style.width=(st/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%';document.getElementById('topNav').classList.toggle('scrolled',st>50);});
+function cq(el,c){
+  const p=el.closest('.quiz-question');
+  p.querySelectorAll('.quiz-option').forEach(o=>{o.classList.remove('wrong');o.style.pointerEvents=''});
+  p.querySelectorAll('.quiz-result').forEach(r=>r.remove());
+  if(c){
+    el.classList.add('correct');
+    p.querySelectorAll('.quiz-option').forEach(o=>o.style.pointerEvents='none');
+    el.insertAdjacentHTML('afterend','<div class="quiz-result" style="color:var(--ne-green);font-weight:700;margin-top:6px;">✅ 正确！</div>')
+  }else{
+    el.classList.add('wrong');
+    el.insertAdjacentHTML('afterend','<div class="quiz-result" style="color:var(--ne-red);font-weight:600;margin-top:6px;">❌ 再想想！</div>')
+  }
+  updateScore();
+}
+</script>
+</body>
+</html>
