@@ -114,7 +114,84 @@
   </div>
 
   <div class="unit-section">
-    <h2>🎯 Esercizi 练习</h2>
+        <div class="comm-box">
+      <p style="font-weight:600;margin-bottom:6px;">💬 Per comunicare 实用表达</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:14px;">
+        <div><span class="highlight-word" onclick="speak('Come va?')">Come va?</span><br><small>你好吗</small></div>
+        <div><span class="highlight-word" onclick="speak('Bene, grazie')">Bene, grazie</span><br><small>很好谢谢</small></div>
+        <div><span class="highlight-word" onclick="speak('Che lavoro fai?')">Che lavoro fai?</span><br><small>你做什么工作</small></div>
+        <div><span class="highlight-word" onclick="speak('Faccio lo studente')">Faccio lo studente</span><br><small>我是学生</small></div>
+        <div><span class="highlight-word" onclick="speak('Quanti anni hai?')">Quanti anni hai?</span><br><small>你几岁</small></div>
+        <div><span class="highlight-word" onclick="speak('Abito a Roma')">Abito a Roma</span><br><small>我住在罗马</small></div>
+        <div><span class="highlight-word" onclick="speak('Di dove sei?')">Di dove sei?</span><br><small>你来自哪里</small></div>
+        <div><span class="highlight-word" onclick="speak('Piacere!')">Piacere!</span><br><small>很高兴认识你</small></div>
+      </div>
+    </div>
+
+
+      <div class="interactive-block">
+      <p style="font-weight:600;margin-bottom:8px;">📝 Vocabolario 词汇 <span style="font-weight:400;color:var(--ne-muted);font-size:12px;">（点击听发音）</span></p>
+      <div class="vocab-grid" style="grid-template-columns:repeat(auto-fill,minmax(130px,1fr));">
+<div class="vocab-card" onclick="speak('medico')"><div class="it">👨‍⚕️ medico</div><div class="cn">医生</div></div>
+<div class="vocab-card" onclick="speak('avvocato')"><div class="it">⚖️ avvocato</div><div class="cn">律师</div></div>
+<div class="vocab-card" onclick="speak('ingegnere')"><div class="it">🔧 ingegnere</div><div class="cn">工程师</div></div>
+<div class="vocab-card" onclick="speak('giornalista')"><div class="it">📰 giornalista</div><div class="cn">记者</div></div>
+<div class="vocab-card" onclick="speak('commerciante')"><div class="it">🏪 commerciante</div><div class="cn">商人</div></div>
+<div class="vocab-card" onclick="speak('cuoco')"><div class="it">👨‍🍳 cuoco</div><div class="cn">厨师</div></div>
+<div class="vocab-card" onclick="speak('pensionato')"><div class="it">🧓 pensionato</div><div class="cn">退休人员</div></div>
+<div class="vocab-card" onclick="speak('disoccupato')"><div class="it">📉 disoccupato</div><div class="cn">失业者</div></div>      </div>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;margin-bottom:8px;">💬 Dialogo — Che lavoro fai?</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="background:#f0f0f0;padding:10px;border-radius:6px;border-left:3px solid var(--ne-orange);font-size:14px;">
+          <strong>Marco:</strong> <span class="ds-text" onclick="speak('Ciao, come va?')">Ciao, come va?</span><br>
+          <strong>Lucia:</strong> <span class="ds-text" onclick="speak('Bene, grazie. E tu?')">Bene, grazie. E tu?</span><br>
+          <strong>Marco:</strong> <span class="ds-text" onclick="speak('Non c'è male. Che lavoro fai?')">Non c'è male. Che lavoro fai?</span><br>
+          <strong>Lucia:</strong> <span class="ds-text" onclick="speak('Faccio l'insegnante. E tu?')">Faccio l'insegnante. E tu?</span><br>
+          <strong>Marco:</strong> <span class="ds-text" onclick="speak('Io sono studente di medicina.')">Io sono studente di medicina.</span><br>        </div>
+      </div>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;color:var(--ne-red);margin-bottom:6px;">📚 LAVORARE (工作)</p>
+      <table class="grammar-table">
+            <tr><td>io</td><td class="highlight-it">lavoro</td></tr>
+            <tr><td>tu</td><td class="highlight-it">lavori</td></tr>
+            <tr><td>lui/lei/Lei</td><td class="highlight-it">lavora</td></tr>
+            <tr><td>noi</td><td class="highlight-it">lavoriamo</td></tr>
+            <tr><td>voi</td><td class="highlight-it">lavorate</td></tr>
+            <tr><td>loro</td><td class="highlight-it">lavorano</td></tr>      </table>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;color:var(--ne-blue);margin-bottom:6px;">📚 FARE (做) — presente</p>
+      <table class="grammar-table">
+            <tr><td>io</td><td class="highlight-it">faccio | faccio lo studente</td></tr>
+            <tr><td>tu</td><td class="highlight-it">fai | che lavoro fai?</td></tr>
+            <tr><td>lui/lei/Lei</td><td class="highlight-it">fa | fa il medico</td></tr>
+            <tr><td>noi</td><td class="highlight-it">facciamo | facciamo colazione</td></tr>
+            <tr><td>voi</td><td class="highlight-it">fate | che lavoro fate?</td></tr>
+            <tr><td>loro</td><td class="highlight-it">fanno | fanno gli ingegneri</td></tr>      </table>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;margin-bottom:8px;">🔢 Numeri 20-100 数字</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:4px;">
+        <div class="vocab-card" onclick="speak('venti')" style="padding:4px;"><div class="it" style="font-size:14px;">20</div><div class="cn" style="font-size:10px;">venti</div></div>
+        <div class="vocab-card" onclick="speak('trenta')" style="padding:4px;"><div class="it" style="font-size:14px;">30</div><div class="cn" style="font-size:10px;">trenta</div></div>
+        <div class="vocab-card" onclick="speak('quaranta')" style="padding:4px;"><div class="it" style="font-size:14px;">40</div><div class="cn" style="font-size:10px;">quaranta</div></div>
+        <div class="vocab-card" onclick="speak('cinquanta')" style="padding:4px;"><div class="it" style="font-size:14px;">50</div><div class="cn" style="font-size:10px;">cinquanta</div></div>
+        <div class="vocab-card" onclick="speak('sessanta')" style="padding:4px;"><div class="it" style="font-size:14px;">60</div><div class="cn" style="font-size:10px;">sessanta</div></div>
+        <div class="vocab-card" onclick="speak('settanta')" style="padding:4px;"><div class="it" style="font-size:14px;">70</div><div class="cn" style="font-size:10px;">settanta</div></div>
+        <div class="vocab-card" onclick="speak('ottanta')" style="padding:4px;"><div class="it" style="font-size:14px;">80</div><div class="cn" style="font-size:10px;">ottanta</div></div>
+        <div class="vocab-card" onclick="speak('novanta')" style="padding:4px;"><div class="it" style="font-size:14px;">90</div><div class="cn" style="font-size:10px;">novanta</div></div>
+        <div class="vocab-card" onclick="speak('cento')" style="padding:4px;"><div class="it" style="font-size:14px;">100</div><div class="cn" style="font-size:10px;">cento</div></div>
+      </div>
+    </div>
+
+  <h2>🎯 Esercizi 练习</h2>
 <div class="quiz-question"><div class="q-text">1. "Come stai?" 的恰当回答是？</div><div class="quiz-options"><div class="quiz-option" onclick="cq(this,true)">A. Bene, grazie</div>
 <div class="quiz-option" onclick="cq(this,false)">B. Sono italiano</div>
 <div class="quiz-option" onclick="cq(this,false)">C. Ho 20 anni</div>
@@ -131,7 +208,57 @@
 <div class="quiz-option" onclick="cq(this,false)">D. -amo</div>
 </div></div>
 
-  </div>
+  
+<div class="quiz-question"><div class="q-text">4. "Lavoro" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 学生</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 老师</div>
+<div class="quiz-option" onclick="cq(this,true)">C. 工作</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 学校</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">5. "Abitare" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 吃饭</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 工作</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 学习</div>
+<div class="quiz-option" onclick="cq(this,true)">D. 居住</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">6. "Voi" 对应的 -are 动词词尾是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. -iamo</div>
+<div class="quiz-option" onclick="cq(this,true)">B. -ate</div>
+<div class="quiz-option" onclick="cq(this,false)">C. -ano</div>
+<div class="quiz-option" onclick="cq(this,false)">D. -o</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">7. "quaranta" 是多少？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 14</div>
+<div class="quiz-option" onclick="cq(this,true)">B. 40</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 44</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 4</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">8. 以下哪个是 "学生" 的意大利语？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,true)">A. studente</div>
+<div class="quiz-option" onclick="cq(this,false)">B. insegnante</div>
+<div class="quiz-option" onclick="cq(this,false)">C. lavoro</div>
+<div class="quiz-option" onclick="cq(this,false)">D. medico</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">9. "Come va?" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 你是谁</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 你叫什么</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 你几岁</div>
+<div class="quiz-option" onclick="cq(this,true)">D. 你好吗</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">10. "Noi parliamo" 中的 "parliamo" 是第几人称？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 第二人称单数</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 第三人称复数</div>
+<div class="quiz-option" onclick="cq(this,true)">C. 第一人称复数</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 第二人称复数</div>
+</div></div>
+
+</div>
   <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:24px;">
     <a href="index.html" class="btn-secondary">← 返回首页</a>
     <a href="unita-3.html" class="btn-primary">Unità 3: Buon appetito! →</a>
