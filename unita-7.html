@@ -69,11 +69,66 @@
   </div>
 
   <div class="unit-section">
-    <h2>🎯 Esercizi 练习</h2>
+        <div class="comm-box">
+      <p style="font-weight:600;margin-bottom:6px;">💬 Per comunicare 实用表达</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:14px;">
+        <div><span class="highlight-word" onclick="speak('Cosa hai fatto?')">Cosa hai fatto?</span><br><small>你做了什么？</small></div>
+        <div><span class="highlight-word" onclick="speak('Sono andato/a…')">Sono andato/a…</span><br><small>我去了…</small></div>
+        <div><span class="highlight-word" onclick="speak('È stato bellissimo!')">È stato bellissimo!</span><br><small>太棒了！</small></div>
+        <div><span class="highlight-word" onclick="speak('Com'era il tempo?')">Com'era il tempo?</span><br><small>天气怎么样？</small></div>
+        <div><span class="highlight-word" onclick="speak('C'era il sole.')">C'era il sole.</span><br><small>是晴天。</small></div>
+        <div><span class="highlight-word" onclick="speak('Ho visitato…')">Ho visitato…</span><br><small>我参观了…</small></div>
+        <div><span class="highlight-word" onclick="speak('Che bello!')">Che bello!</span><br><small>太棒了！</small></div>
+        <div><span class="highlight-word" onclick="speak('Non mi è piaciuto.')">Non mi è piaciuto.</span><br><small>我不喜欢。</small></div>
+      </div>
+    </div>
+
+
+      <div class="interactive-block">
+      <p style="font-weight:600;margin-bottom:8px;">📝 Vocabolario 词汇 <span style="font-weight:400;color:var(--ne-muted);font-size:12px;">（点击听发音）</span></p>
+      <div class="vocab-grid" style="grid-template-columns:repeat(auto-fill,minmax(130px,1fr));">
+<div class="vocab-card" onclick="speak('sole')"><div class="it">☀️ sole</div><div class="cn">太阳</div></div>
+<div class="vocab-card" onclick="speak('pioggia')"><div class="it">🌧️ pioggia</div><div class="cn">雨</div></div>
+<div class="vocab-card" onclick="speak('neve')"><div class="it">❄️ neve</div><div class="cn">雪</div></div>
+<div class="vocab-card" onclick="speak('nuvola')"><div class="it">☁️ nuvola</div><div class="cn">云</div></div>
+<div class="vocab-card" onclick="speak('vento')"><div class="it">🌬️ vento</div><div class="cn">风</div></div>
+<div class="vocab-card" onclick="speak('temporale')"><div class="it">⛈️ temporale</div><div class="cn">雷雨</div></div>
+<div class="vocab-card" onclick="speak('freddo')"><div class="it">🥶 freddo</div><div class="cn">冷</div></div>
+<div class="vocab-card" onclick="speak('caldo')"><div class="it">🥵 caldo</div><div class="cn">热</div></div>
+<div class="vocab-card" onclick="speak('nebbia')"><div class="it">🌫️ nebbia</div><div class="cn">雾</div></div>      </div>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;margin-bottom:8px;">💬 Dialogo — Le vacanze 假期</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="background:#f0f0f0;padding:10px;border-radius:6px;border-left:3px solid var(--ne-orange);font-size:14px;">
+          <strong>Maria:</strong> <span class="ds-text" onclick="speak('Ciao, cosa hai fatto ieri?')">Ciao, cosa hai fatto ieri?</span><br>
+          <strong>Luigi:</strong> <span class="ds-text" onclick="speak('Sono andato al mare con gli amici.')">Sono andato al mare con gli amici.</span><br>
+          <strong>Maria:</strong> <span class="ds-text" onclick="speak('Che bello! Com'era il tempo?')">Che bello! Com'era il tempo?</span><br>
+          <strong>Luigi:</strong> <span class="ds-text" onclick="speak('C'era il sole e faceva molto caldo.')">C'era il sole e faceva molto caldo.</span><br>
+          <strong>Maria:</strong> <span class="ds-text" onclick="speak('Io sono rimasta a casa. Ho letto un libro.')">Io sono rimasta a casa. Ho letto un libro.</span><br>
+          <strong>Luigi:</strong> <span class="ds-text" onclick="speak('Dove sei stata in vacanza quest'anno?')">Dove sei stata in vacanza quest'anno?</span><br>        </div>
+      </div>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;color:var(--ne-blue);margin-bottom:6px;">📚 Altri participi irregolari 更多不规则过去分词</p>
+      <table class="grammar-table">
+            <tr><td>chiedere →</td><td class="highlight-it">chiesto</td></tr>
+            <tr><td>rispondere →</td><td class="highlight-it">risposto</td></tr>
+            <tr><td>offrire →</td><td class="highlight-it">offerto</td></tr>
+            <tr><td>chiudere →</td><td class="highlight-it">chiuso</td></tr>
+            <tr><td>decidere →</td><td class="highlight-it">deciso</td></tr>
+            <tr><td>perdere →</td><td class="highlight-it">perso</td></tr>
+            <tr><td>mettere →</td><td class="highlight-it">messo</td></tr>
+            <tr><td>piangere →</td><td class="highlight-it">pianto</td></tr>      </table>
+    </div>
+
+  <h2>🎯 Esercizi 练习</h2>
 <div class="quiz-question"><div class="q-text">1. "Fare" 的过去分词是？</div><div class="quiz-options"><div class="quiz-option" onclick="cq(this,true)">A. fatto</div>
 <div class="quiz-option" onclick="cq(this,false)">B. fato</div>
-<div class="quiz-option" onclick="cq(this,true)">C. fatto</div>
-<div class="quiz-option" onclick="cq(this,true)">D. fatto</div>
+<div class="quiz-option" onclick="cq(this,false)">C. facciuto</div>
+<div class="quiz-option" onclick="cq(this,false)">D. faceva</div>
 </div></div>
 <div class="quiz-question"><div class="q-text">2. 用 ESSERE 的过去时，主语是女性时过去分词要？</div><div class="quiz-options"><div class="quiz-option" onclick="cq(this,true)">A. 加 -a</div>
 <div class="quiz-option" onclick="cq(this,false)">B. 加 -o</div>
@@ -86,7 +141,57 @@
 <div class="quiz-option" onclick="cq(this,false)">D. 我吃了</div>
 </div></div>
 
-  </div>
+  
+<div class="quiz-question"><div class="q-text">4. "Scrivere" 的过去分词是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. scritto</div>
+<div class="quiz-option" onclick="cq(this,false)">B. scrievuto</div>
+<div class="quiz-option" onclick="cq(this,true)">C. scritto</div>
+<div class="quiz-option" onclick="cq(this,false)">D. scrive</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">5. "Sono andato a Roma" 我是什么性别？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 女性</div>
+<div class="quiz-option" onclick="cq(this,true)">B. 男性</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 不知道</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 复数</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">6. 意大利语 "天气好" 怎么说？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. Fa freddo</div>
+<div class="quiz-option" onclick="cq(this,false)">B. Piove</div>
+<div class="quiz-option" onclick="cq(this,false)">C. Nevica</div>
+<div class="quiz-option" onclick="cq(this,true)">D. Fa bel tempo</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">7. "Spiaggia" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,true)">A. 海滩</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 山</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 湖</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 河</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">8. "Ha visitato il museo" 中谁参观的？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 我</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 你</div>
+<div class="quiz-option" onclick="cq(this,true)">C. 他/她</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 我们</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">9. "cominciare" 的过去分词是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. cominciato</div>
+<div class="quiz-option" onclick="cq(this,false)">B. cominciuto</div>
+<div class="quiz-option" onclick="cq(this,false)">C. comincio</div>
+<div class="quiz-option" onclick="cq(this,true)">D. cominciato</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">10. 用 avere 助动词的过去分词是否变化？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 要随主语变化</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 要随宾语变化</div>
+<div class="quiz-option" onclick="cq(this,true)">C. 一般不变化</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 总是变化</div>
+</div></div>
+
+</div>
   <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:24px;">
     <a href="unita-6.html" class="btn-secondary">← Unità 6</a>
     <a href="unita-8.html" class="btn-primary">Unità 8: Sapori d'Italia →</a>
