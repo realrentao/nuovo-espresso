@@ -65,7 +65,63 @@
   </div>
 
   <div class="unit-section">
-    <h2>🎯 Esercizi 练习</h2>
+        <div class="comm-box">
+      <p style="font-weight:600;margin-bottom:6px;">💬 Per comunicare 实用表达</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:14px;">
+        <div><span class="highlight-word" onclick="speak('Quanto costa?')">Quanto costa?</span><br><small>多少钱？</small></div>
+        <div><span class="highlight-word" onclick="speak('Vorrei della…')">Vorrei della…</span><br><small>我想要一些…</small></div>
+        <div><span class="highlight-word" onclick="speak('Buonissimo!')">Buonissimo!</span><br><small>太好吃了！</small></div>
+        <div><span class="highlight-word" onclick="speak('È di stagione?')">È di stagione?</span><br><small>是当季的吗？</small></div>
+        <div><span class="highlight-word" onclick="speak('Al chilo?')">Al chilo?</span><br><small>按公斤吗？</small></div>
+        <div><span class="highlight-word" onclick="speak('Un chilo, per favore.')">Un chilo, per favore.</span><br><small>请来一公斤。</small></div>
+        <div><span class="highlight-word" onclick="speak('Assaggia!')">Assaggia!</span><br><small>尝尝看！</small></div>
+        <div><span class="highlight-word" onclick="speak('È squisito!')">È squisito!</span><br><small>美味极了！</small></div>
+      </div>
+    </div>
+
+
+      <div class="interactive-block">
+      <p style="font-weight:600;margin-bottom:8px;">📝 Vocabolario 词汇 <span style="font-weight:400;color:var(--ne-muted);font-size:12px;">（点击听发音）</span></p>
+      <div class="vocab-grid" style="grid-template-columns:repeat(auto-fill,minmax(130px,1fr));">
+<div class="vocab-card" onclick="speak('carne')"><div class="it">🥩 carne</div><div class="cn">肉</div></div>
+<div class="vocab-card" onclick="speak('pollo')"><div class="it">🍗 pollo</div><div class="cn">鸡肉</div></div>
+<div class="vocab-card" onclick="speak('manzo')"><div class="it">🥩 manzo</div><div class="cn">牛肉</div></div>
+<div class="vocab-card" onclick="speak('maiale')"><div class="it">🐷 maiale</div><div class="cn">猪肉</div></div>
+<div class="vocab-card" onclick="speak('carota')"><div class="it">🥕 carota</div><div class="cn">胡萝卜</div></div>
+<div class="vocab-card" onclick="speak('lattuga')"><div class="it">🥬 lattuga</div><div class="cn">生菜</div></div>
+<div class="vocab-card" onclick="speak('patata')"><div class="it">🥔 patata</div><div class="cn">土豆</div></div>
+<div class="vocab-card" onclick="speak('melanzana')"><div class="it">🍆 melanzana</div><div class="cn">茄子</div></div>
+<div class="vocab-card" onclick="speak('cipolla')"><div class="it">🧅 cipolla</div><div class="cn">洋葱</div></div>
+<div class="vocab-card" onclick="speak('aglio')"><div class="it">🧄 aglio</div><div class="cn">蒜</div></div>
+<div class="vocab-card" onclick="speak('pepe')"><div class="it">🌶️ pepe</div><div class="cn">胡椒</div></div>
+<div class="vocab-card" onclick="speak('sale')"><div class="it">🧂 sale</div><div class="cn">盐</div></div>      </div>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;margin-bottom:8px;">💬 Dal fruttivendolo 在水果店</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="background:#f0f0f0;padding:10px;border-radius:6px;border-left:3px solid var(--ne-orange);font-size:14px;">
+          <strong>Cliente:</strong> <span class="ds-text" onclick="speak('Buongiorno, vorrei della frutta fresca.')">Buongiorno, vorrei della frutta fresca.</span><br>
+          <strong>Fruttivendolo:</strong> <span class="ds-text" onclick="speak('Certo! Abbiamo delle mele, delle arance e delle banane.')">Certo! Abbiamo delle mele, delle arance e delle banane.</span><br>
+          <strong>Cliente:</strong> <span class="ds-text" onclick="speak('Quanto costano le mele?')">Quanto costano le mele?</span><br>
+          <strong>Fruttivendolo:</strong> <span class="ds-text" onclick="speak('3 euro al chilo. Ne vuole un chilo?')">3 euro al chilo. Ne vuole un chilo?</span><br>
+          <strong>Cliente:</strong> <span class="ds-text" onclick="speak('Sì, grazie. E anche dell'insalata.')">Sì, grazie. E anche dell'insalata.</span><br>
+          <strong>Fruttivendolo:</strong> <span class="ds-text" onclick="speak('Ecco a Lei. Sono 5 euro in tutto.')">Ecco a Lei. Sono 5 euro in tutto.</span><br>        </div>
+      </div>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;color:var(--ne-red);margin-bottom:6px;">📚 VENDERE (卖) - ere</p>
+      <table class="grammar-table">
+            <tr><td>io</td><td class="highlight-it">vendo</td></tr>
+            <tr><td>tu</td><td class="highlight-it">vendi</td></tr>
+            <tr><td>lui/lei</td><td class="highlight-it">vende</td></tr>
+            <tr><td>noi</td><td class="highlight-it">vendiamo</td></tr>
+            <tr><td>voi</td><td class="highlight-it">vendete</td></tr>
+            <tr><td>loro</td><td class="highlight-it">vendono</td></tr>      </table>
+    </div>
+
+  <h2>🎯 Esercizi 练习</h2>
 <div class="quiz-question"><div class="q-text">1. "Del pane" 中的 "del" 是什么？</div><div class="quiz-options"><div class="quiz-option" onclick="cq(this,true)">A. 部分冠词</div>
 <div class="quiz-option" onclick="cq(this,false)">B. 定冠词</div>
 <div class="quiz-option" onclick="cq(this,false)">C. 前置词</div>
@@ -82,7 +138,57 @@
 <div class="quiz-option" onclick="cq(this,false)">D. cipolla</div>
 </div></div>
 
-  </div>
+  
+<div class="quiz-question"><div class="q-text">4. "Dei pomodori" 用的什么冠词？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,true)">A. 部分冠词</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 定冠词</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 不定冠词</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 介词</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">5. 意大利 "特级初榨橄榄油" 怎么说？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. olio semplice</div>
+<div class="quiz-option" onclick="cq(this,false)">B. olio di semi</div>
+<div class="quiz-option" onclick="cq(this,false)">C. olio d'oliva</div>
+<div class="quiz-option" onclick="cq(this,true)">D. olio extravergine d'oliva</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">6. "Primavera" 是哪个季节？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,true)">A. 春天</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 夏天</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 秋天</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 冬天</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">7. "La ricetta" 是什么意思？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 菜单</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 厨房</div>
+<div class="quiz-option" onclick="cq(this,true)">C. 食谱</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 食材</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">8. "Assaggiare" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 购买</div>
+<div class="quiz-option" onclick="cq(this,true)">B. 品尝</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 烹饪</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 切</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">9. "Della frutta" 中 frutta 是什么性别？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 阳性</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 中性</div>
+<div class="quiz-option" onclick="cq(this,true)">C. 阴性</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 复数</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">10. "Pesce" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,true)">A. 鱼</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 肉</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 菜</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 水果</div>
+</div></div>
+
+</div>
   <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:24px;">
     <a href="unita-7.html" class="btn-secondary">← Unità 7</a>
     <a href="unita-9.html" class="btn-primary">Unità 9: Vita quotidiana →</a>
