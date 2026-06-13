@@ -69,7 +69,71 @@
   </div>
 
   <div class="unit-section">
-    <h2>🎯 Esercizi 练习</h2>
+        <div class="comm-box">
+      <p style="font-weight:600;margin-bottom:6px;">💬 Per comunicare 实用表达</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:14px;">
+        <div><span class="highlight-word" onclick="speak('A che ora ti alzi?')">A che ora ti alzi?</span><br><small>你几点起床？</small></div>
+        <div><span class="highlight-word" onclick="speak('Mi sveglio alle 7.')">Mi sveglio alle 7.</span><br><small>我7点醒来。</small></div>
+        <div><span class="highlight-word" onclick="speak('Faccio colazione.')">Faccio colazione.</span><br><small>我吃早餐。</small></div>
+        <div><span class="highlight-word" onclick="speak('Vado al lavoro.')">Vado al lavoro.</span><br><small>我去上班。</small></div>
+        <div><span class="highlight-word" onclick="speak('Torno a casa.')">Torno a casa.</span><br><small>我回家。</small></div>
+        <div><span class="highlight-word" onclick="speak('Guardo la TV.')">Guardo la TV.</span><br><small>我看电视。</small></div>
+        <div><span class="highlight-word" onclick="speak('Vado a letto.')">Vado a letto.</span><br><small>我去睡觉。</small></div>
+        <div><span class="highlight-word" onclick="speak('Che giornata!')">Che giornata!</span><br><small>多么忙碌的一天！</small></div>
+      </div>
+    </div>
+
+
+      <div class="interactive-block">
+      <p style="font-weight:600;margin-bottom:8px;">📝 Vocabolario 词汇 <span style="font-weight:400;color:var(--ne-muted);font-size:12px;">（点击听发音）</span></p>
+      <div class="vocab-grid" style="grid-template-columns:repeat(auto-fill,minmax(130px,1fr));">
+<div class="vocab-card" onclick="speak('lavarsi i denti')"><div class="it">🪥 lavarsi i denti</div><div class="cn">刷牙</div></div>
+<div class="vocab-card" onclick="speak('farsi la doccia')"><div class="it">🚿 farsi la doccia</div><div class="cn">淋浴</div></div>
+<div class="vocab-card" onclick="speak('radersi')"><div class="it">🪒 radersi</div><div class="cn">刮胡子</div></div>
+<div class="vocab-card" onclick="speak('pettinarsi')"><div class="it">💇 pettinarsi</div><div class="cn">梳头</div></div>
+<div class="vocab-card" onclick="speak('mettersi')"><div class="it">👔 mettersi</div><div class="cn">穿上</div></div>
+<div class="vocab-card" onclick="speak('togliersi')"><div class="it">🧥 togliersi</div><div class="cn">脱下</div></div>
+<div class="vocab-card" onclick="speak('sedersi')"><div class="it">🪑 sedersi</div><div class="cn">坐下</div></div>
+<div class="vocab-card" onclick="speak('riposarsi')"><div class="it">😴 riposarsi</div><div class="cn">休息</div></div>
+<div class="vocab-card" onclick="speak('farsi')"><div class="it">🔄 farsi</div><div class="cn">做(反身)</div></div>      </div>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;margin-bottom:8px;">💬 Dialogo — La giornata 一天的生活</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="background:#f0f0f0;padding:10px;border-radius:6px;border-left:3px solid var(--ne-orange);font-size:14px;">
+          <strong>A:</strong> <span class="ds-text" onclick="speak('A che ora ti alzi di solito?')">A che ora ti alzi di solito?</span><br>
+          <strong>B:</strong> <span class="ds-text" onclick="speak('Mi alzo alle 7:00. Poi mi lavo e faccio colazione.')">Mi alzo alle 7:00. Poi mi lavo e faccio colazione.</span><br>
+          <strong>A:</strong> <span class="ds-text" onclick="speak('E a che ora esci di casa?')">E a che ora esci di casa?</span><br>
+          <strong>B:</strong> <span class="ds-text" onclick="speak('Esco alle 8:00 e vado al lavoro.')">Esco alle 8:00 e vado al lavoro.</span><br>
+          <strong>A:</strong> <span class="ds-text" onclick="speak('A che ora torni a casa?')">A che ora torni a casa?</span><br>
+          <strong>B:</strong> <span class="ds-text" onclick="speak('Di solito torno alle 18:00. Poi ceno e guardo la TV.')">Di solito torno alle 18:00. Poi ceno e guardo la TV.</span><br>        </div>
+      </div>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;color:var(--ne-red);margin-bottom:6px;">📚 DIVERTIRSI (玩得开心) - ire</p>
+      <table class="grammar-table">
+            <tr><td>io</td><td class="highlight-it">mi diverto</td></tr>
+            <tr><td>tu</td><td class="highlight-it">ti diverti</td></tr>
+            <tr><td>lui/lei</td><td class="highlight-it">si diverte</td></tr>
+            <tr><td>noi</td><td class="highlight-it">ci divertiamo</td></tr>
+            <tr><td>voi</td><td class="highlight-it">vi divertite</td></tr>
+            <tr><td>loro</td><td class="highlight-it">si divertono</td></tr>      </table>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;color:var(--ne-blue);margin-bottom:6px;">📚 Altri verbi riflessivi 更多反身动词</p>
+      <table class="grammar-table">
+            <tr><td>chiamarsi</td><td class="highlight-it">名叫</td></tr>
+            <tr><td>sentirsi</td><td class="highlight-it">感觉</td></tr>
+            <tr><td>incontrarsi</td><td class="highlight-it">见面</td></tr>
+            <tr><td>mettersi</td><td class="highlight-it">穿/放置</td></tr>
+            <tr><td>alzarsi</td><td class="highlight-it">起床</td></tr>
+            <tr><td>addormentarsi</td><td class="highlight-it">入睡</td></tr>      </table>
+    </div>
+
+  <h2>🎯 Esercizi 练习</h2>
 <div class="quiz-question"><div class="q-text">1. 反身动词 "alzarsi" 的 "noi" 是？</div><div class="quiz-options"><div class="quiz-option" onclick="cq(this,true)">A. ci alziamo</div>
 <div class="quiz-option" onclick="cq(this,false)">B. mi alzo</div>
 <div class="quiz-option" onclick="cq(this,false)">C. si alza</div>
@@ -86,7 +150,57 @@
 <div class="quiz-option" onclick="cq(this,false)">D. alzarsi</div>
 </div></div>
 
-  </div>
+  
+<div class="quiz-question"><div class="q-text">4. "Vestirsi" 中 "loro" 的形式是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. vi vestite</div>
+<div class="quiz-option" onclick="cq(this,false)">B. si veste</div>
+<div class="quiz-option" onclick="cq(this,true)">C. si vestono</div>
+<div class="quiz-option" onclick="cq(this,false)">D. ci vestiamo</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">5. "A che ora ti svegli?" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,true)">A. 你几点醒来</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 你几点睡觉</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 你几点起床</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 你几点吃饭</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">6. "Di solito" 指的是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 有时</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 从不</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 总是</div>
+<div class="quiz-option" onclick="cq(this,true)">D. 通常</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">7. "Pranzo" 在意大利一般是几点？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 11:00</div>
+<div class="quiz-option" onclick="cq(this,true)">B. 12:00-13:30</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 14:00-15:00</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 10:00</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">8. "Dopo cena" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 晚饭前</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 午饭前</div>
+<div class="quiz-option" onclick="cq(this,true)">C. 晚饭后</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 午饭后</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">9. "Il fine settimana" 指的是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,true)">A. 周末</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 工作日</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 假期</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 节日</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">10. "Fare la doccia" 是什么意思？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 吃早餐</div>
+<div class="quiz-option" onclick="cq(this,true)">B. 淋浴</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 穿衣服</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 刷牙</div>
+</div></div>
+
+</div>
   <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:24px;">
     <a href="unita-8.html" class="btn-secondary">← Unità 8</a>
     <a href="unita-10.html" class="btn-primary">Unità 10: La famiglia →</a>
