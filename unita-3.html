@@ -99,7 +99,60 @@
   </div>
 
   <div class="unit-section">
-    <h2>🎯 Esercizi 练习</h2>
+        <div class="comm-box">
+      <p style="font-weight:600;margin-bottom:6px;">💬 Per comunicare 实用表达</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:14px;">
+        <div><span class="highlight-word" onclick="speak('Buon appetito!')">Buon appetito!</span><br><small>祝好胃口！</small></div>
+        <div><span class="highlight-word" onclick="speak('Cosa desidera?')">Cosa desidera?</span><br><small>您想要什么？</small></div>
+        <div><span class="highlight-word" onclick="speak('Vorrei…')">Vorrei…</span><br><small>我想要…</small></div>
+        <div><span class="highlight-word" onclick="speak('Quanto viene?')">Quanto viene?</span><br><small>多少钱？</small></div>
+        <div><span class="highlight-word" onclick="speak('Il conto, per favore.')">Il conto, per favore.</span><br><small>请结账。</small></div>
+        <div><span class="highlight-word" onclick="speak('È tutto?')">È tutto?</span><br><small>就这些吗？</small></div>
+        <div><span class="highlight-word" onclick="speak('Da bere?')">Da bere?</span><br><small>喝的呢？</small></div>
+        <div><span class="highlight-word" onclick="speak('Un caffè, grazie.')">Un caffè, grazie.</span><br><small>一杯咖啡，谢谢。</small></div>
+      </div>
+    </div>
+
+
+      <div class="interactive-block">
+      <p style="font-weight:600;margin-bottom:8px;">📝 Vocabolario 词汇 <span style="font-weight:400;color:var(--ne-muted);font-size:12px;">（点击听发音）</span></p>
+      <div class="vocab-grid" style="grid-template-columns:repeat(auto-fill,minmax(130px,1fr));">
+<div class="vocab-card" onclick="speak('tavolo')"><div class="it">🪑 tavolo</div><div class="cn">桌子</div></div>
+<div class="vocab-card" onclick="speak('sedia')"><div class="it">🪑 sedia</div><div class="cn">椅子</div></div>
+<div class="vocab-card" onclick="speak('cameriere')"><div class="it">👨‍🍳 cameriere</div><div class="cn">服务员</div></div>
+<div class="vocab-card" onclick="speak('menù')"><div class="it">📋 menù</div><div class="cn">菜单</div></div>
+<div class="vocab-card" onclick="speak('forchetta')"><div class="it">🍴 forchetta</div><div class="cn">叉子</div></div>
+<div class="vocab-card" onclick="speak('coltello')"><div class="it">🔪 coltello</div><div class="cn">刀</div></div>
+<div class="vocab-card" onclick="speak('cucchiaio')"><div class="it">🥄 cucchiaio</div><div class="cn">勺子</div></div>
+<div class="vocab-card" onclick="speak('tovagliolo')"><div class="it">🧻 tovagliolo</div><div class="cn">餐巾</div></div>
+<div class="vocab-card" onclick="speak('mancia')"><div class="it">💶 mancia</div><div class="cn">小费</div></div>      </div>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;margin-bottom:8px;">💬 Al ristorante — Ordinare 点餐</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="background:#f0f0f0;padding:10px;border-radius:6px;border-left:3px solid var(--ne-orange);font-size:14px;">
+          <strong>Cameriere:</strong> <span class="ds-text" onclick="speak('Buonasera, cosa desiderano?')">Buonasera, cosa desiderano?</span><br>
+          <strong>Cliente A:</strong> <span class="ds-text" onclick="speak('Io prendo gli spaghetti al pomodoro.')">Io prendo gli spaghetti al pomodoro.</span><br>
+          <strong>Cliente B:</strong> <span class="ds-text" onclick="speak('Per me una pizza margherita.')">Per me una pizza margherita.</span><br>
+          <strong>Cameriere:</strong> <span class="ds-text" onclick="speak('Da bere?')">Da bere?</span><br>
+          <strong>Cliente A:</strong> <span class="ds-text" onclick="speak('Un'acqua naturale, per favore.')">Un'acqua naturale, per favore.</span><br>
+          <strong>Cliente B:</strong> <span class="ds-text" onclick="speak('Io una birra piccola.')">Io una birra piccola.</span><br>        </div>
+      </div>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;color:var(--ne-red);margin-bottom:6px;">📚 BERE (喝) - irregolare</p>
+      <table class="grammar-table">
+            <tr><td>io</td><td class="highlight-it">bevo</td></tr>
+            <tr><td>tu</td><td class="highlight-it">bevi</td></tr>
+            <tr><td>lui/lei</td><td class="highlight-it">beve</td></tr>
+            <tr><td>noi</td><td class="highlight-it">beviamo</td></tr>
+            <tr><td>voi</td><td class="highlight-it">bevete</td></tr>
+            <tr><td>loro</td><td class="highlight-it">bevono</td></tr>      </table>
+    </div>
+
+  <h2>🎯 Esercizi 练习</h2>
 <div class="quiz-question"><div class="q-text">1. "Vorrei un caffè" 中的 Vorrei 是什么动词形式？</div><div class="quiz-options"><div class="quiz-option" onclick="cq(this,true)">A. Volere 的条件式</div>
 <div class="quiz-option" onclick="cq(this,false)">B. Avere 的将来时</div>
 <div class="quiz-option" onclick="cq(this,false)">C. Essere 的过去时</div>
@@ -116,7 +169,57 @@
 <div class="quiz-option" onclick="cq(this,false)">D. Grazie mille</div>
 </div></div>
 
-  </div>
+  
+<div class="quiz-question"><div class="q-text">4. "Prendere" 中 "loro" 的形式是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. prendete</div>
+<div class="quiz-option" onclick="cq(this,false)">B. prendiamo</div>
+<div class="quiz-option" onclick="cq(this,true)">C. prendono</div>
+<div class="quiz-option" onclick="cq(this,false)">D. prendo</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">5. 意大利人早餐通常喝？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,true)">A. cappuccino</div>
+<div class="quiz-option" onclick="cq(this,false)">B. tè</div>
+<div class="quiz-option" onclick="cq(this,false)">C. succo</div>
+<div class="quiz-option" onclick="cq(this,false)">D. acqua</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">6. "il conto" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 杯子</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 前菜</div>
+<div class="quiz-option" onclick="cq(this,true)">C. 账单</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 甜点</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">7. "Pizza" 的复数是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,true)">A. pizze</div>
+<div class="quiz-option" onclick="cq(this,false)">B. pizzi</div>
+<div class="quiz-option" onclick="cq(this,false)">C. pizzas</div>
+<div class="quiz-option" onclick="cq(this,false)">D. pizza</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">8. "acqua frizzante" 是什么水？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 纯净水</div>
+<div class="quiz-option" onclick="cq(this,true)">B. 气泡水</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 矿泉水</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 热水</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">9. "Vorrei prenotare" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 我想要结账</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 我想要点餐</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 我想要推荐</div>
+<div class="quiz-option" onclick="cq(this,true)">D. 我想要预订</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">10. "bicchiere" 是什么意思？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,true)">A. 杯子</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 瓶子</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 盘子</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 碗</div>
+</div></div>
+
+</div>
   <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:24px;">
     <a href="unita-2.html" class="btn-secondary">← Unità 2</a>
     <a href="unita-4.html" class="btn-primary">Unità 4: Tempo libero →</a>
