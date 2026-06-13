@@ -68,7 +68,73 @@
   </div>
 
   <div class="unit-section">
-    <h2>🎯 Esercizi 练习</h2>
+        <div class="comm-box">
+      <p style="font-weight:600;margin-bottom:6px;">💬 Per comunicare 实用表达</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:14px;">
+        <div><span class="highlight-word" onclick="speak('Mi scusi, dov'è…?')">Mi scusi, dov'è…?</span><br><small>请问…在哪里？</small></div>
+        <div><span class="highlight-word" onclick="speak('Per andare a…?')">Per andare a…?</span><br><small>去…怎么走？</small></div>
+        <div><span class="highlight-word" onclick="speak('Qui vicino?')">Qui vicino?</span><br><small>这附近吗？</small></div>
+        <div><span class="highlight-word" onclick="speak('A piedi o in autobus?')">A piedi o in autobus?</span><br><small>走路还是公交？</small></div>
+        <div><span class="highlight-word" onclick="speak('È lontano?')">È lontano?</span><br><small>远吗？</small></div>
+        <div><span class="highlight-word" onclick="speak('Prego.')">Prego.</span><br><small>不客气。</small></div>
+        <div><span class="highlight-word" onclick="speak('Buona giornata!')">Buona giornata!</span><br><small>祝好！</small></div>
+        <div><span class="highlight-word" onclick="speak('Grazie dell'aiuto!')">Grazie dell'aiuto!</span><br><small>谢谢你的帮助！</small></div>
+      </div>
+    </div>
+
+
+      <div class="interactive-block">
+      <p style="font-weight:600;margin-bottom:8px;">📝 Vocabolario 词汇 <span style="font-weight:400;color:var(--ne-muted);font-size:12px;">（点击听发音）</span></p>
+      <div class="vocab-grid" style="grid-template-columns:repeat(auto-fill,minmax(130px,1fr));">
+<div class="vocab-card" onclick="speak('stazione')"><div class="it">🚉 stazione</div><div class="cn">火车站</div></div>
+<div class="vocab-card" onclick="speak('aeroporto')"><div class="it">✈️ aeroporto</div><div class="cn">机场</div></div>
+<div class="vocab-card" onclick="speak('autobus')"><div class="it">🚌 autobus</div><div class="cn">公交车</div></div>
+<div class="vocab-card" onclick="speak('fermata')"><div class="it">🚏 fermata</div><div class="cn">车站(公交)</div></div>
+<div class="vocab-card" onclick="speak('museo')"><div class="it">🏛️ museo</div><div class="cn">博物馆</div></div>
+<div class="vocab-card" onclick="speak('chiesa')"><div class="it">⛪ chiesa</div><div class="cn">教堂</div></div>
+<div class="vocab-card" onclick="speak('supermercato')"><div class="it">🛒 supermercato</div><div class="cn">超市</div></div>
+<div class="vocab-card" onclick="speak('farmacia')"><div class="it">💊 farmacia</div><div class="cn">药店</div></div>
+<div class="vocab-card" onclick="speak('ufficio postale')"><div class="it">📮 ufficio postale</div><div class="cn">邮局</div></div>      </div>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;margin-bottom:8px;">💬 Dialogo — Chiedere indicazioni 问路</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="background:#f0f0f0;padding:10px;border-radius:6px;border-left:3px solid var(--ne-orange);font-size:14px;">
+          <strong>Turista:</strong> <span class="ds-text" onclick="speak('Mi scusi, per andare al Duomo?')">Mi scusi, per andare al Duomo?</span><br>
+          <strong>Persona:</strong> <span class="ds-text" onclick="speak('Sempre dritto fino al semaforo, poi a sinistra.')">Sempre dritto fino al semaforo, poi a sinistra.</span><br>
+          <strong>Turista:</strong> <span class="ds-text" onclick="speak('Quanto dista?')">Quanto dista?</span><br>
+          <strong>Persona:</strong> <span class="ds-text" onclick="speak('Cinque minuti a piedi. Non è lontano.')">Cinque minuti a piedi. Non è lontano.</span><br>
+          <strong>Turista:</strong> <span class="ds-text" onclick="speak('Grazie mille!')">Grazie mille!</span><br>
+          <strong>Persona:</strong> <span class="ds-text" onclick="speak('Prego, buona giornata!')">Prego, buona giornata!</span><br>        </div>
+      </div>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;color:var(--ne-red);margin-bottom:6px;">📚 ANDARE (去) - irregolare</p>
+      <table class="grammar-table">
+            <tr><td>io</td><td class="highlight-it">vado</td></tr>
+            <tr><td>tu</td><td class="highlight-it">vai</td></tr>
+            <tr><td>lui/lei</td><td class="highlight-it">va</td></tr>
+            <tr><td>noi</td><td class="highlight-it">andiamo</td></tr>
+            <tr><td>voi</td><td class="highlight-it">andate</td></tr>
+            <tr><td>loro</td><td class="highlight-it">vanno</td></tr>      </table>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;color:var(--ne-blue);margin-bottom:6px;">📍 Preposizioni di luogo 地点介词</p>
+      <table class="grammar-table">
+            <tr><td>a destra</td><td class="highlight-it">向右</td></tr>
+            <tr><td>a sinistra</td><td class="highlight-it">向左</td></tr>
+            <tr><td>sempre dritto</td><td class="highlight-it">直走</td></tr>
+            <tr><td>davanti a</td><td class="highlight-it">在前面</td></tr>
+            <tr><td>dietro a</td><td class="highlight-it">在后面</td></tr>
+            <tr><td>vicino a</td><td class="highlight-it">在附近</td></tr>
+            <tr><td>lontano da</td><td class="highlight-it">远离</td></tr>
+            <tr><td>tra/fra</td><td class="highlight-it">在...之间</td></tr>      </table>
+    </div>
+
+  <h2>🎯 Esercizi 练习</h2>
 <div class="quiz-question"><div class="q-text">1. "Dovere" 中 "noi" 的形式是？</div><div class="quiz-options"><div class="quiz-option" onclick="cq(this,true)">A. dobbiamo</div>
 <div class="quiz-option" onclick="cq(this,false)">B. devono</div>
 <div class="quiz-option" onclick="cq(this,false)">C. dovete</div>
@@ -85,7 +151,57 @@
 <div class="quiz-option" onclick="cq(this,false)">D. 足球</div>
 </div></div>
 
-  </div>
+  
+<div class="quiz-question"><div class="q-text">4. "Sapere" 中 "loro" 的形式是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,true)">A. sanno</div>
+<div class="quiz-option" onclick="cq(this,false)">B. sapete</div>
+<div class="quiz-option" onclick="cq(this,false)">C. sappiamo</div>
+<div class="quiz-option" onclick="cq(this,false)">D. sanno</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">5. 意大利语 "火车站" 是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. aeroporto</div>
+<div class="quiz-option" onclick="cq(this,false)">B. porto</div>
+<div class="quiz-option" onclick="cq(this,false)">C. autobus</div>
+<div class="quiz-option" onclick="cq(this,true)">D. stazione</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">6. "Sempre dritto" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 向左转</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 向右转</div>
+<div class="quiz-option" onclick="cq(this,true)">C. 直走</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 往回走</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">7. "all'angolo" 是什么意思？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 在街对面</div>
+<div class="quiz-option" onclick="cq(this,true)">B. 在转角处</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 在尽头</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 在中心</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">8. "Mi scusi" 在问路时意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,true)">A. 对不起/打扰一下</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 谢谢</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 你好</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 再见</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">9. "Quanto dista?" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 在哪里</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 什么时候开门</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 哪个方向</div>
+<div class="quiz-option" onclick="cq(this,true)">D. 多远</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">10. "davanti a" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 后面</div>
+<div class="quiz-option" onclick="cq(this,true)">B. 前面</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 旁边</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 对面</div>
+</div></div>
+
+</div>
   <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:24px;">
     <a href="unita-5.html" class="btn-secondary">← Unità 5</a>
     <a href="unita-7.html" class="btn-primary">Unità 7: Andiamo in vacanza! →</a>
