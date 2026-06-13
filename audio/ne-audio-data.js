@@ -1,4 +1,4 @@
-// Audio Manifest - maps words to their base64 JS files
+// Audio Manifest
 const AUDIO_KEYS = {
   '055 1234567. Però ho anche il cellulare: 349 2547577.': 'telefono_055_1234567',
   '349 2547577.': 'cellulare_349_2547577',
@@ -6,21 +6,28 @@ const AUDIO_KEYS = {
   'Buonanotte!': 'buonanotte',
   'Buonasera!': 'buonasera',
   'Buongiorno!': 'buongiorno',
+  'Buongiorno! — Buona sera, dottore!': 'buongiorno_buona_sera_dottore',
   'Buongiorno, sono Giovanni Muti.': 'buongiorno_sono_giovanni_muti',
+  'Ciao, Giorgio! — Oh, ciao Francesca! Come stai?': 'ciao_giorgio_oh_ciao_francesca_come_stai',
   'Ciao, sono Valeria, e tu come ti chiami?': 'ciao_sono_valeria_e_tu_come_ti_chiami',
   'Come si scrive?': 'come_si_scrive',
   'Come, scusi?': 'come_scusi',
   'E il Suo numero di telefono?': 'e_il_suo_numero_di_telefono',
   'Franca Cucci. E Lei?': 'franca_cucci_e_lei',
+  'Io Cecilia.': 'io_cecilia',
   'J (i lunga) · K (kappa) · W (doppia vu) · X (ics) · Y (ipsilon)': 'lettere_straniere',
   'La signora Genovesi?': 'la_signora_genovesi',
   'Lei è italiana?': 'lei_italiana',
+  'Marcello Ragazzi.': 'marcello_ragazzi',
   'No, sono austriaco. E tu?': 'no_sono_austriaco_e_tu',
   'No, sono irlandese. Sono di Dublino. E Lei?': 'no_sono_irlandese_sono_di_dublino_e_lei',
+  'No?': 'no',
+  'Piacere, Carlo De Giuli.': 'piacere_carlo_de_giuli',
   'Qual è il Suo indirizzo?': 'qual_il_suo_indirizzo',
   'Scusi, Lei come si chiama?': 'scusi_lei_come_si_chiama',
   'Sei tedesco?': 'sei_tedesco',
   'Sono': 'sono',
+  'Sono tedesco.': 'sono_tedesco',
   'Sì, sono io.': 'si_sono_io',
   'Sì. E Lei? È inglese?': 's_e_lei_inglese',
   'Via Garibaldi, 12.': 'via_garibaldi_12',
@@ -97,14 +104,11 @@ const AUDIO_KEYS = {
   'zero': 'zero',
   'zeta': 'zeta',
 };
-
-// Audio Loader - fetch-based, more reliable than <script> injection
 let currentAudio = null;
 const audioCache = {};
 
 function speak(text) {
   stopAllAudio();
-
   var key = AUDIO_KEYS[text] || AUDIO_KEYS[text.toLowerCase()];
   if (!key) {
     if ('speechSynthesis' in window) {
@@ -114,14 +118,12 @@ function speak(text) {
     }
     return;
   }
-
   if (audioCache[key]) {
     audioCache[key].currentTime = 0;
     audioCache[key].play().catch(function(){});
     currentAudio = audioCache[key];
     return;
   }
-
   fetch('audio/d/' + key + '.js')
     .then(function(r) { return r.text(); })
     .then(function(jsText) {
