@@ -99,7 +99,59 @@
   </div>
 
   <div class="unit-section">
-    <h2>🎯 Esercizi 练习</h2>
+        <div class="comm-box">
+      <p style="font-weight:600;margin-bottom:6px;">💬 Per comunicare 实用表达</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:14px;">
+        <div><span class="highlight-word" onclick="speak('Che cosa fai?')">Che cosa fai?</span><br><small>你在做什么？</small></div>
+        <div><span class="highlight-word" onclick="speak('Mi piace leggere.')">Mi piace leggere.</span><br><small>我喜欢阅读。</small></div>
+        <div><span class="highlight-word" onclick="speak('Preferisco lo sport.')">Preferisco lo sport.</span><br><small>我更喜欢运动。</small></div>
+        <div><span class="highlight-word" onclick="speak('Anche a me!')">Anche a me!</span><br><small>我也喜欢！</small></div>
+        <div><span class="highlight-word" onclick="speak('Non mi piace.')">Non mi piace.</span><br><small>我不喜欢。</small></div>
+        <div><span class="highlight-word" onclick="speak('Che ora è?')">Che ora è?</span><br><small>几点了？</small></div>
+        <div><span class="highlight-word" onclick="speak('Di solito…')">Di solito…</span><br><small>通常…</small></div>
+        <div><span class="highlight-word" onclick="speak('Qualche volta…')">Qualche volta…</span><br><small>有时…</small></div>
+      </div>
+    </div>
+
+
+      <div class="interactive-block">
+      <p style="font-weight:600;margin-bottom:8px;">📝 Vocabolario 词汇 <span style="font-weight:400;color:var(--ne-muted);font-size:12px;">（点击听发音）</span></p>
+      <div class="vocab-grid" style="grid-template-columns:repeat(auto-fill,minmax(130px,1fr));">
+<div class="vocab-card" onclick="speak('cantare')"><div class="it">🎤 cantare</div><div class="cn">唱歌</div></div>
+<div class="vocab-card" onclick="speak('suonare')"><div class="it">🎸 suonare</div><div class="cn">演奏乐器</div></div>
+<div class="vocab-card" onclick="speak('dipingere')"><div class="it">🎨 dipingere</div><div class="cn">画画</div></div>
+<div class="vocab-card" onclick="speak('correre')"><div class="it">🏃 correre</div><div class="cn">跑步</div></div>
+<div class="vocab-card" onclick="speak('nuotare')"><div class="it">🏊 nuotare</div><div class="cn">游泳</div></div>
+<div class="vocab-card" onclick="speak('viaggiare')"><div class="it">✈️ viaggiare</div><div class="cn">旅行</div></div>
+<div class="vocab-card" onclick="speak('fotografare')"><div class="it">📷 fotografare</div><div class="cn">拍照</div></div>
+<div class="vocab-card" onclick="speak('fare shopping')"><div class="it">🛍️ fare shopping</div><div class="cn">购物</div></div>
+<div class="vocab-card" onclick="speak('rilassarsi')"><div class="it">🧘 rilassarsi</div><div class="cn">放松</div></div>      </div>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;margin-bottom:8px;">💬 Dialogo — Tempo libero 自由时间</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="background:#f0f0f0;padding:10px;border-radius:6px;border-left:3px solid var(--ne-orange);font-size:14px;">
+          <strong>Anna:</strong> <span class="ds-text" onclick="speak('Che cosa fai nel tempo libero?')">Che cosa fai nel tempo libero?</span><br>
+          <strong>Paolo:</strong> <span class="ds-text" onclick="speak('Di solito leggo o guardo la TV. E tu?')">Di solito leggo o guardo la TV. E tu?</span><br>
+          <strong>Anna:</strong> <span class="ds-text" onclick="speak('A me piace molto cucinare e fare sport.')">A me piace molto cucinare e fare sport.</span><br>
+          <strong>Paolo:</strong> <span class="ds-text" onclick="speak('Che sport fai?')">Che sport fai?</span><br>
+          <strong>Anna:</strong> <span class="ds-text" onclick="speak('Faccio nuoto e yoga. Ti piacerebbe provare?')">Faccio nuoto e yoga. Ti piacerebbe provare?</span><br>        </div>
+      </div>
+    </div>
+
+      <div class="interactive-block">
+      <p style="font-weight:600;color:var(--ne-red);margin-bottom:6px;">📚 CAPIRE (理解) - ire (isc)</p>
+      <table class="grammar-table">
+            <tr><td>io</td><td class="highlight-it">capisco</td></tr>
+            <tr><td>tu</td><td class="highlight-it">capisci</td></tr>
+            <tr><td>lui/lei</td><td class="highlight-it">capisce</td></tr>
+            <tr><td>noi</td><td class="highlight-it">capiamo</td></tr>
+            <tr><td>voi</td><td class="highlight-it">capite</td></tr>
+            <tr><td>loro</td><td class="highlight-it">capiscono</td></tr>      </table>
+    </div>
+
+  <h2>🎯 Esercizi 练习</h2>
 <div class="quiz-question"><div class="q-text">1. "Mi piace" 后面跟什么？</div><div class="quiz-options"><div class="quiz-option" onclick="cq(this,true)">A. 单数名词/动词</div>
 <div class="quiz-option" onclick="cq(this,false)">B. 复数名词</div>
 <div class="quiz-option" onclick="cq(this,false)">C. 形容词</div>
@@ -116,7 +168,57 @@
 <div class="quiz-option" onclick="cq(this,false)">D. 经常</div>
 </div></div>
 
-  </div>
+  
+<div class="quiz-question"><div class="q-text">4. "Preferire" 中 "tu" 的形式是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. preferisco</div>
+<div class="quiz-option" onclick="cq(this,true)">B. preferisci</div>
+<div class="quiz-option" onclick="cq(this,false)">C. preferisce</div>
+<div class="quiz-option" onclick="cq(this,false)">D. preferiamo</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">5. "Domenica" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 星期一</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 星期五</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 星期六</div>
+<div class="quiz-option" onclick="cq(this,true)">D. 星期日</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">6. "Sono le otto e un quarto" 是几点？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 8:00</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 8:30</div>
+<div class="quiz-option" onclick="cq(this,true)">C. 8:15</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 8:45</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">7. "Anche a me" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,true)">A. 我也喜欢</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 我不喜欢</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 我更喜欢</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 我讨厌</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">8. "Che cosa fai?" 的意思是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 你是谁？</div>
+<div class="quiz-option" onclick="cq(this,true)">B. 你做什么？</div>
+<div class="quiz-option" onclick="cq(this,false)">C. 你好吗？</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 你喜欢吗？</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">9. "qualche volta" 是什么意思？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,false)">A. 总是</div>
+<div class="quiz-option" onclick="cq(this,false)">B. 从不</div>
+<div class="quiz-option" onclick="cq(this,true)">C. 有时</div>
+<div class="quiz-option" onclick="cq(this,false)">D. 经常</div>
+</div></div>
+
+<div class="quiz-question"><div class="q-text">10. "Dormire" 中 "loro" 的形式是？</div><div class="quiz-options">
+<div class="quiz-option" onclick="cq(this,true)">A. dormono</div>
+<div class="quiz-option" onclick="cq(this,false)">B. dormete</div>
+<div class="quiz-option" onclick="cq(this,false)">C. dormiamo</div>
+<div class="quiz-option" onclick="cq(this,false)">D. dormi</div>
+</div></div>
+
+</div>
   <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:24px;">
     <a href="unita-3.html" class="btn-secondary">← Unità 3</a>
     <a href="unita-5.html" class="btn-primary">Unità 5: In albergo →</a>
