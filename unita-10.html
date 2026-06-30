@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 10 · La famiglia · NUOVO Espresso 1</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+    <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    .alphabet-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .alphabet-table th { background: linear-gradient(135deg, var(--ne-cream), #FDEBD0); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); }
+    .alphabet-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); cursor: pointer; transition: all 0.2s; }
+    .alphabet-table tr:last-child td { border-bottom: none; }
+    .alphabet-table td:hover { background: rgba(241,196,15,0.15); color: var(--ne-red); }
+    .alphabet-table .foreign { color: var(--ne-muted); font-size: 12px; font-style: italic; }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 1 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 10 · A1</div>
+  <h1>&#x1F46A; La famiglia</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">家庭 · p.133-148</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">家庭介绍 · 照片描述 · 物主形容词 · 比较级最高级 · 自反动词近过去时 · sposarsi</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: La mia famiglia -->
+  <h3>1. La mia famiglia · p.134, es.2</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">Ascolta e completa.（听录音并补充关于家庭的对话。）</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Quanti siete in famiglia?')">A: Quanti siete in famiglia?</span></td><td class="zh">A: 你们家有几口人？</td></tr>
+    <tr><td><span class="it" onclick="speak('Siamo in quattro: mio padre, mia madre, mio fratello e io.')">B: Siamo in quattro: mio padre, mia madre, mio fratello e io.</span></td><td class="zh">B: 我们四口人：我爸爸、我妈妈、我哥哥和我。</td></tr>
+    <tr><td><span class="it" onclick="speak('Hai fratelli o sorelle?')">A: Hai fratelli o sorelle?</span></td><td class="zh">A: 你有兄弟姐妹吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Ho un fratello. Lui si chiama Marco e ha 15 anni.')">B: Ho un fratello. Lui si chiama Marco e ha 15 anni.</span></td><td class="zh">B: 我有一个哥哥。他叫马尔科，15岁。</td></tr>
+    <tr><td><span class="it" onclick="speak('Vivi da solo o con la tua famiglia?')">A: Vivi da solo o con la tua famiglia?</span></td><td class="zh">A: 你一个人住还是和你的家人住？</td></tr>
+    <tr><td><span class="it" onclick="speak('Vivo con i miei genitori.')">B: Vivo con i miei genitori.</span></td><td class="zh">B: 我和我的父母住。</td></tr>
+    <tr><td><span class="it" onclick="speak('E tu, sei figlio unico?')">A: E tu, sei figlio unico?</span></td><td class="zh">A: 你呢，你是独生子吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, sono figlio unico.')">C: Sì, sono figlio unico.</span></td><td class="zh">C: 是的，我是独生子。</td></tr>
+  </table>
+
+  <!-- Dialogo 2: La lettera di Andrea -->
+  <h3>2. La lettera di Andrea · p.134, es.3</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">Leggi la lettera.（阅读Andrea的信。）</p>
+  <div style="background:var(--ne-cream);border:1px solid var(--border-light);border-radius:8px;padding:16px;margin:12px 0;font-size:14px;">
+    <p style="font-weight:600;">Cara Valeria,</p>
+    <p style="margin-top:8px;"><span class="it" onclick="speak('Come stai? Io bene. Ti mando una foto della mia famiglia.')">Come stai? Io bene. Ti mando una foto della mia famiglia.</span></p>
+    <p><span class="it" onclick="speak('Nella foto ci sono io con la mia famiglia. Accanto a me c\'è Laura, la mia ragazza. I miei genitori sono dietro di noi. Davanti a noi c\'è il mio cane, Leo. A destra ci sono i miei fratelli: Luca e Francesco. Luca suona la chitarra e Francesco legge un libro. Tutti siamo molto felici!')">Nella foto ci sono io con la mia famiglia. Accanto a me c'è Laura, la mia ragazza. I miei genitori sono dietro di noi. Davanti a noi c'è il mio cane, Leo. A destra ci sono i miei fratelli: Luca e Francesco. Luca suona la chitarra e Francesco legge un libro. Tutti siamo molto felici!</span></p>
+    <p style="margin-top:8px;"><span class="it" onclick="speak('E tu? Hai una foto della tua famiglia? Mandamela!')">E tu? Hai una foto della tua famiglia? Mandamela!</span></p>
+    <p style="margin-top:8px;"><span class="it" onclick="speak('Un abbraccio, Andrea.')">Un abbraccio,</p>
+    <p style="font-weight:600;">Andrea</span></p>
+  </div>
+
+  <h3>中文翻译</h3>
+  <div style="background:#fff;border:1px solid var(--border-light);border-radius:8px;padding:16px;margin:12px 0;font-size:13px;color:var(--ne-muted);">
+    <p>亲爱的Valeria，</p>
+    <p>你好吗？我很好。我给你寄一张我家人的照片。</p>
+    <p>照片里是我和我的家人。我旁边是我的女朋友Laura。我父母在我们后面。我们前面是我的狗Leo。右边是我的兄弟们：Luca和Francesco。Luca在弹吉他，Francesco在读书。我们都很开心！</p>
+    <p>你呢？你有你家人的照片吗？寄给我！</p>
+    <p>拥抱你，Andrea</p>
+  </div>
+
+  <!-- Dialogo 3: Vivi da solo o con la tua famiglia? -->
+  <h3>3. Vivi da solo o con la tua famiglia? · p.136, es.4</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">Ascolta e completa.（听录音并补充。）</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Vivi da solo?')">A: Vivi da solo?</span></td><td class="zh">A: 你一个人住吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('No, vivo con la mia famiglia.')">B: No, vivo con la mia famiglia.</span></td><td class="zh">B: 不，我和我的家人住。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quanti siete?')">A: Quanti siete?</span></td><td class="zh">A: 你们家有几口人？</td></tr>
+    <tr><td><span class="it" onclick="speak('Siamo cinque: mio padre, mia madre, mia sorella, mio fratello e io.')">B: Siamo cinque: mio padre, mia madre, mia sorella, mio fratello e io.</span></td><td class="zh">B: 我们五口人：我爸爸、我妈妈、我姐姐、我弟弟和我。</td></tr>
+    <tr><td><span class="it" onclick="speak('Hai animali?')">A: Hai animali?</span></td><td class="zh">A: 你有宠物吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, abbiamo un gatto.')">B: Sì, abbiamo un gatto.</span></td><td class="zh">B: 是的，我们有一只猫。</td></tr>
+    <tr><td><span class="it" onclick="speak('Che bello!')">A: Che bello!</span></td><td class="zh">A: 太好了！</td></tr>
+  </table>
+
+  <!-- Dialogo 4: Il matrimonio in Italia -->
+  <h3>4. Il matrimonio in Italia · p.142, es.14</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">讨论话题 — 意大利的婚礼习俗。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Gli italiani si sposano sempre più tardi. L\'età media per il matrimonio è 35 anni per gli uomini e 32 per le donne.')">Gli italiani si sposano sempre più tardi. L'età media per il matrimonio è 35 anni per gli uomini e 32 per le donne.</span></td><td class="zh">意大利人结婚越来越晚。平均结婚年龄男性35岁，女性32岁。</td></tr>
+    <tr><td><span class="it" onclick="speak('Molte coppie italiane oggi preferiscono convivere prima del matrimonio.')">Molte coppie italiane oggi preferiscono convivere prima del matrimonio.</span></td><td class="zh">如今许多意大利情侣选择婚前同居。</td></tr>
+    <tr><td><span class="it" onclick="speak('Dopo il matrimonio, molti restano nella casa dei genitori per qualche anno.')">Dopo il matrimonio, molti restano nella casa dei genitori per qualche anno.</span></td><td class="zh">婚后很多人会继续在父母家住几年。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>家庭关系 (Famiglia)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il padre')">il padre / il papà</td><td>s.m.</td><td>父亲/爸爸</td></tr>
+    <tr><td class="it" onclick="speak('la madre')">la madre / la mamma</td><td>s.f.</td><td>母亲/妈妈</td></tr>
+    <tr><td class="it" onclick="speak('i genitori')">i genitori</td><td>s.m.pl.</td><td>父母</td></tr>
+    <tr><td class="it" onclick="speak('il marito')">il marito</td><td>s.m.</td><td>丈夫</td></tr>
+    <tr><td class="it" onclick="speak('la moglie')">la moglie</td><td>s.f.</td><td>妻子</td></tr>
+    <tr><td class="it" onclick="speak('il fratello')">il fratello</td><td>s.m.</td><td>兄弟</td></tr>
+    <tr><td class="it" onclick="speak('la sorella')">la sorella</td><td>s.f.</td><td>姐妹</td></tr>
+    <tr><td class="it" onclick="speak('i fratelli')">i fratelli</td><td>s.m.pl.</td><td>兄弟/兄弟姐妹们</td></tr>
+    <tr><td class="it" onclick="speak('il figlio')">il figlio</td><td>s.m.</td><td>儿子</td></tr>
+    <tr><td class="it" onclick="speak('la figlia')">la figlia</td><td>s.f.</td><td>女儿</td></tr>
+    <tr><td class="it" onclick="speak('i figli')">i figli</td><td>s.m.pl.</td><td>孩子们/子女们</td></tr>
+    <tr><td class="it" onclick="speak('il nonno')">il nonno</td><td>s.m.</td><td>爷爷/外公</td></tr>
+    <tr><td class="it" onclick="speak('la nonna')">la nonna</td><td>s.f.</td><td>奶奶/外婆</td></tr>
+    <tr><td class="it" onclick="speak('i nonni')">i nonni</td><td>s.m.pl.</td><td>祖父母</td></tr>
+    <tr><td class="it" onclick="speak('il nipote')">il nipote (m.)</td><td>s.m.</td><td>孙子/侄子/外甥</td></tr>
+    <tr><td class="it" onclick="speak('la nipote')">la nipote (f.)</td><td>s.f.</td><td>孙女/侄女/外甥女</td></tr>
+    <tr><td class="it" onclick="speak('i nipoti')">i nipoti</td><td>s.m.pl.</td><td>孙辈/侄辈</td></tr>
+    <tr><td class="it" onclick="speak('lo zio')">lo zio</td><td>s.m.</td><td>叔叔/舅舅/姨父/姑父</td></tr>
+    <tr><td class="it" onclick="speak('la zia')">la zia</td><td>s.f.</td><td>阿姨/姑姑/舅妈/婶婶</td></tr>
+    <tr><td class="it" onclick="speak('il cugino')">il cugino</td><td>s.m.</td><td>堂/表兄弟</td></tr>
+    <tr><td class="it" onclick="speak('la cugina')">la cugina</td><td>s.f.</td><td>堂/表姐妹</td></tr>
+    <tr><td class="it" onclick="speak('il suocero')">il suocero</td><td>s.m.</td><td>岳父/公公</td></tr>
+    <tr><td class="it" onclick="speak('la suocera')">la suocera</td><td>s.f.</td><td>岳母/婆婆</td></tr>
+    <tr><td class="it" onclick="speak('il cognato')">il cognato</td><td>s.m.</td><td>连襟/姐夫/妹夫</td></tr>
+    <tr><td class="it" onclick="speak('la cognata')">la cognata</td><td>s.f.</td><td>妯娌/嫂子/弟媳</td></tr>
+    <tr><td class="it" onclick="speak('il genero')">il genero</td><td>s.m.</td><td>女婿</td></tr>
+    <tr><td class="it" onclick="speak('la nuora')">la nuora</td><td>s.f.</td><td>儿媳</td></tr>
+    <tr><td class="it" onclick="speak('il patrigno')">il patrigno</td><td>s.m.</td><td>继父</td></tr>
+    <tr><td class="it" onclick="speak('la matrigna')">la matrigna</td><td>s.f.</td><td>继母</td></tr>
+    <tr><td class="it" onclick="speak('il figliastro')">il figliastro</td><td>s.m.</td><td>继子</td></tr>
+    <tr><td class="it" onclick="speak('la figliastra')">la figliastra</td><td>s.f.</td><td>继女</td></tr>
+    <tr><td class="it" onclick="speak('il bambino')">il/la bambino/a</td><td>s.m./s.f.</td><td>小孩</td></tr>
+    <tr><td class="it" onclick="speak('figlio unico')">figlio unico / figlia unica</td><td>s.m./s.f.</td><td>独生子/独生女</td></tr>
+    <tr><td class="it" onclick="speak('il gemello')">il gemello / la gemella</td><td>s.m./s.f.</td><td>双胞胎</td></tr>
+    <tr><td class="it" onclick="speak('i gemelli')">i gemelli / le gemelle</td><td>s.m.pl./s.f.pl.</td><td>双胞胎（男/女）</td></tr>
+  </table>
+
+  <h3>家庭与关系常用表达</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('Quanti siete in famiglia?')">Quanti siete in famiglia?</td><td>你们家有几口人？</td></tr>
+    <tr><td class="it" onclick="speak('Siamo in...')">Siamo in...</td><td>我们总共...口人</td></tr>
+    <tr><td class="it" onclick="speak('Vivi da solo?')">Vivi da solo? / Vive da solo?</td><td>你一个人住吗？</td></tr>
+    <tr><td class="it" onclick="speak('Hai fratelli o sorelle?')">Hai fratelli o sorelle?</td><td>你有兄弟姐妹吗？</td></tr>
+    <tr><td class="it" onclick="speak('Sono figlio unico.')">Sono figlio unico.</td><td>我是独生子。</td></tr>
+    <tr><td class="it" onclick="speak('Abiti con i tuoi?')">Abiti con i tuoi?</td><td>你和父母住吗？（口语）</td></tr>
+    <tr><td class="it" onclick="speak('il mio ragazzo')">il mio ragazzo / la mia ragazza</td><td>我的男朋友/女朋友</td></tr>
+    <tr><td class="it" onclick="speak('il mio fidanzato')">il mio fidanzato / la mia fidanzata</td><td>我的未婚夫/未婚妻</td></tr>
+    <tr><td class="it" onclick="speak('da solo')">da solo / da sola</td><td>独自（男/女）</td></tr>
+    <tr><td class="it" onclick="speak('insieme')">insieme</td><td>一起</td></tr>
+  </table>
+
+  <h3>婚姻与关系状态</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('sposato')">sposato/a</td><td>已婚的</td></tr>
+    <tr><td class="it" onclick="speak('single')">single / celibe / nubile</td><td>单身的（男/女）</td></tr>
+    <tr><td class="it" onclick="speak('divorziato')">divorziato/a</td><td>离婚的</td></tr>
+    <tr><td class="it" onclick="speak('separato')">separato/a</td><td>分居的</td></tr>
+    <tr><td class="it" onclick="speak('vedovo')">vedovo/a</td><td>丧偶的</td></tr>
+    <tr><td class="it" onclick="speak('convivere')">convivere</td><td>同居</td></tr>
+    <tr><td class="it" onclick="speak('sposarsi')">sposarsi</td><td>结婚</td></tr>
+    <tr><td class="it" onclick="speak('separarsi')">separarsi</td><td>分居</td></tr>
+    <tr><td class="it" onclick="speak('divorziare')">divorziare</td><td>离婚</td></tr>
+    <tr><td class="it" onclick="speak('il matrimonio')">il matrimonio</td><td>婚礼/婚姻</td></tr>
+    <tr><td class="it" onclick="speak('la luna di miele')">la luna di miele</td><td>蜜月</td></tr>
+    <tr><td class="it" onclick="speak('il testimone')">il/la testimone</td><td>证婚人</td></tr>
+    <tr><td class="it" onclick="speak('la festa di nozze')">la festa di nozze</td><td>婚宴</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Possessive Adjectives -->
+  <h3>1. 物主形容词 (Aggettivi possessivi) · p.138</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>阳性单数</th><th>阳性复数</th><th>阴性单数</th><th>阴性复数</th><th>中文</th></tr>
+      <tr><td>1ª sing.</td><td><span class="verb">mio</span></td><td><span class="verb">miei</span></td><td><span class="verb">mia</span></td><td><span class="verb">mie</span></td><td>我的</td></tr>
+      <tr><td>2ª sing.</td><td><span class="verb">tuo</span></td><td><span class="verb">tuoi</span></td><td><span class="verb">tua</span></td><td><span class="verb">tue</span></td><td>你的</td></tr>
+      <tr><td>3ª sing.</td><td><span class="verb">suo</span></td><td><span class="verb">suoi</span></td><td><span class="verb">sua</span></td><td><span class="verb">sue</span></td><td>他/她/它的</td></tr>
+      <tr><td>尊称</td><td><span class="verb">Suo</span></td><td><span class="verb">Suoi</span></td><td><span class="verb">Sua</span></td><td><span class="verb">Sue</span></td><td>您的</td></tr>
+      <tr><td>1ª plur.</td><td><span class="verb">nostro</span></td><td><span class="verb">nostri</span></td><td><span class="verb">nostra</span></td><td><span class="verb">nostre</span></td><td>我们的</td></tr>
+      <tr><td>2ª plur.</td><td><span class="verb">vostro</span></td><td><span class="verb">vostri</span></td><td><span class="verb">vostra</span></td><td><span class="verb">vostre</span></td><td>你们的</td></tr>
+      <tr><td>3ª plur.</td><td><span class="verb">loro</span></td><td><span class="verb">loro</span></td><td><span class="verb">loro</span></td><td><span class="verb">loro</span></td><td>他们的</td></tr>
+    </table>
+
+    <p style="font-weight:600;margin:16px 0 6px;">完整形式（带冠词）:</p>
+    <table>
+      <tr><th>人称</th><th>阳性单数</th><th>阳性复数</th><th>阴性单数</th><th>阴性复数</th></tr>
+      <tr><td>我的</td><td class="verb" onclick="speak('il mio libro')">il mio libro</td><td class="verb" onclick="speak('i miei libri')">i miei libri</td><td class="verb" onclick="speak('la mia casa')">la mia casa</td><td class="verb" onclick="speak('le mie case')">le mie case</td></tr>
+      <tr><td>你的</td><td class="verb" onclick="speak('il tuo libro')">il tuo libro</td><td class="verb" onclick="speak('i tuoi libri')">i tuoi libri</td><td class="verb" onclick="speak('la tua casa')">la tua casa</td><td class="verb" onclick="speak('le tue case')">le tue case</td></tr>
+      <tr><td>他/她/它的</td><td class="verb" onclick="speak('il suo libro')">il suo libro</td><td class="verb" onclick="speak('i suoi libri')">i suoi libri</td><td class="verb" onclick="speak('la sua casa')">la sua casa</td><td class="verb" onclick="speak('le sue case')">le sue case</td></tr>
+      <tr><td>您的</td><td class="verb" onclick="speak('il Suo libro')">il Suo libro</td><td class="verb" onclick="speak('i Suoi libri')">i Suoi libri</td><td class="verb" onclick="speak('la Sua casa')">la Sua casa</td><td class="verb" onclick="speak('le Sue case')">le Sue case</td></tr>
+      <tr><td>我们的</td><td class="verb" onclick="speak('il nostro libro')">il nostro libro</td><td class="verb" onclick="speak('i nostri libri')">i nostri libri</td><td class="verb" onclick="speak('la nostra casa')">la nostra casa</td><td class="verb" onclick="speak('le nostre case')">le nostre case</td></tr>
+      <tr><td>你们的</td><td class="verb" onclick="speak('il vostro libro')">il vostro libro</td><td class="verb" onclick="speak('i vostri libri')">i vostri libri</td><td class="verb" onclick="speak('la vostra casa')">la vostra casa</td><td class="verb" onclick="speak('le vostre case')">le vostre case</td></tr>
+      <tr><td>他们的</td><td class="verb" onclick="speak('il loro libro')">il loro libro</td><td class="verb" onclick="speak('i loro libri')">i loro libri</td><td class="verb" onclick="speak('la loro casa')">la loro casa</td><td class="verb" onclick="speak('le loro case')">le loro case</td></tr>
+    </table>
+
+    <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 14px;margin-top:12px;font-size:13px;">
+      <strong>&#x26A0;&#xFE0F; 冠词使用规则</strong><br>
+      &bull; 一般情况：<strong>需要冠词</strong> — il mio libro, la tua casa<br>
+      &bull; 单数亲属名词（mio, tuo, suo, nostro, vostro）：<strong>不需要冠词</strong> — mio fratello, tua sorella<br>
+      &bull; 复数亲属名词：<strong>需要冠词</strong> — i miei fratelli, le tue sorelle<br>
+      &bull; loro（无论单复数）：<strong>需要冠词</strong> — il loro fratello, i loro genitori<br>
+      &bull; 带其他形容词的亲属名词：<strong>需要冠词</strong> — il mio caro fratello<br>
+      &bull; 昵称/爱称形式的亲属名词：<strong>需要冠词</strong> — la mia sorellina
+    </div>
+
+    <p style="font-weight:600;margin:16px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Mio padre è medico.')">1. Mio padre è medico.</span></td><td>我父亲是医生。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mia madre è insegnante.')">2. Mia madre è insegnante.</span></td><td>我母亲是老师。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il mio libro è sul tavolo.')">3. Il mio libro è sul tavolo.</span></td><td>我的书在桌子上。</td></tr>
+      <tr><td><span class="it" onclick="speak('I miei fratelli sono più grandi di me.')">4. I miei fratelli sono più grandi di me.</span></td><td>我的哥哥们比我大。</td></tr>
+      <tr><td><span class="it" onclick="speak('La Sua camera è al terzo piano.')">5. La Sua camera è al terzo piano.</span></td><td>您的房间在三楼。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il loro cane è molto simpatico.')">6. Il loro cane è molto simpatico.</span></td><td>他们的狗很可爱。</td></tr>
+      <tr><td><span class="it" onclick="speak('Tuo zio abita a Milano?')">7. Tuo zio abita a Milano?</span></td><td>你叔叔住在米兰吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('I tuoi genitori sono qui?')">8. I tuoi genitori sono qui?</span></td><td>你的父母在这里吗？</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Passato prossimo of reflexive verbs -->
+  <h3>2. 自反动词的近过去时 · p.142</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>动词</th><th>近过去时（io）</th><th>中文</th></tr>
+      <tr><td><span class="verb" onclick="speak('sposarsi')">sposarsi</span></td><td class="verb" onclick="speak('mi sono sposato')">mi sono sposato/a</td><td>我结婚了</td></tr>
+      <tr><td><span class="verb" onclick="speak('separarsi')">separarsi</span></td><td class="verb" onclick="speak('mi sono separato')">mi sono separato/a</td><td>我分居了</td></tr>
+      <tr><td><span class="verb" onclick="speak('trasferirsi')">trasferirsi</span></td><td class="verb" onclick="speak('mi sono trasferito')">mi sono trasferito/a</td><td>我搬走了</td></tr>
+      <tr><td><span class="verb" onclick="speak('vedersi')">vedersi</span></td><td class="verb" onclick="speak('mi sono visto')">mi sono visto/a</td><td>我见到了（某人）</td></tr>
+    </table>
+
+    <p style="font-weight:600;margin:16px 0 6px;">完整变位 — sposarsi（结婚）:</p>
+    <table>
+      <tr><th>人称</th><th>阳性</th><th>阴性</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('mi sono sposato')">mi sono sposato</span></td><td><span class="verb" onclick="speak('mi sono sposata')">mi sono sposata</span></td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('ti sei sposato')">ti sei sposato</span></td><td><span class="verb" onclick="speak('ti sei sposata')">ti sei sposata</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb" onclick="speak('si è sposato')">si è sposato</span></td><td><span class="verb" onclick="speak('si è sposata')">si è sposata</span></td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('ci siamo sposati')">ci siamo sposati</span></td><td><span class="verb" onclick="speak('ci siamo sposate')">ci siamo sposate</span></td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('vi siete sposati')">vi siete sposati</span></td><td><span class="verb" onclick="speak('vi siete sposate')">vi siete sposate</span></td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('si sono sposati')">si sono sposati</span></td><td><span class="verb" onclick="speak('si sono sposate')">si sono sposate</span></td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Comparative and Superlative -->
+  <h3>3. 比较级和最高级</h3>
+  <div class="grammar-box">
+    <p style="font-weight:600;margin-bottom:6px;">相对最高级:</p>
+    <table>
+      <tr><th>结构</th><th>示例</th><th>中文</th></tr>
+      <tr><td>articolo + nome + <span class="verb">più/meno</span> + aggettivo</td><td class="it" onclick="speak('È il più bel ragazzo.')">È il più bel ragazzo.</td><td>他是最帅的男孩。</td></tr>
+      <tr><td></td><td class="it" onclick="speak('È il meno caro ristorante.')">È il meno caro ristorante.</td><td>这是最便宜的餐厅。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 10 · p.148</h2>
+
+  <h3>&#x1F3DB;&#xFE0F; La famiglia italiana（意大利家庭）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('In Italia la famiglia è molto importante. I legami familiari sono forti e spesso i figli restano a casa dei genitori fino a tardi. L\'età media in cui i giovani italiani lasciano la casa dei genitori è 30 anni.')">In Italia la famiglia è molto importante. I legami familiari sono forti e spesso i figli restano a casa dei genitori fino a tardi. L'età media in cui i giovani italiani lasciano la casa dei genitori è 30 anni.</p>
+    <p class="it" onclick="speak('Molti giovani, dopo il matrimonio, tendono ad abitare vicino ai genitori. Le visite ai genitori sono molto frequenti.')">Molti giovani, dopo il matrimonio, tendono ad abitare vicino ai genitori. Le visite ai genitori sono molto frequenti.</p>
+    <p class="it" onclick="speak('Negli ultimi anni sono aumentate le coppie di fatto e le famiglie ricostituite.')">Negli ultimi anni sono aumentate le coppie di fatto e le famiglie ricostituite.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p>在意大利，家庭非常重要。家庭纽带很牢固，子女通常很晚才离开父母家。意大利年轻人离开父母家的平均年龄是30岁。</p>
+    <p>许多年轻人婚后倾向于住在父母附近。探望父母非常频繁。</p>
+    <p>近年来，事实婚姻和重组家庭增加了。</p>
+  </div>
+
+  <div class="grammar-box">
+    <p style="font-weight:600;margin-bottom:8px;">数据参考（p.143, es.14）:</p>
+    <table>
+      <tr><td>Il <strong>27%</strong> degli italiani vive vicino alla casa della madre.</td><td>27%的意大利人住在母亲家附近。</td></tr>
+      <tr><td>Il <strong>70,2%</strong> delle figlie femmine fa visita alla madre ogni giorno.</td><td>70.2%的女儿每天探望母亲。</td></tr>
+      <tr><td>Il <strong>65%</strong> dei figli maschi fa visita alla madre ogni giorno.</td><td>65%的儿子每天探望母亲。</td></tr>
+      <tr><td>Il <strong>42,9%</strong> dei figli telefona alla madre più volte a settimana.</td><td>42.9%的子女每周给母亲打好几次电话。</td></tr>
+    </table>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化对比:</strong><br>
+    1. E nel tuo Paese, a che età i figli lasciano la casa dei genitori? — 在你的国家，子女多大离开父母家？<br>
+    2. I legami familiari sono forti? — 家庭纽带牢固吗？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 10 — La festa di compleanno · p.148</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Prima di guardare il video:</p>
+  <ul style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 20px;">
+    <li>观察视频截图，猜测是谁的生日</li>
+  </ul>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Mentre guardi:</p>
+  <ul style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 20px;">
+    <li>观看视频，识别视频中的家庭成员</li>
+    <li>判断正误</li>
+  </ul>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Dopo aver guardato:</p>
+  <ul style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 20px;">
+    <li>描述自己最近一次家庭聚会</li>
+    <li>使用物主形容词介绍自己的家庭照片</li>
+  </ul>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Attività extra:</strong><br>
+    &bull; 用物主形容词介绍一张家庭照片<br>
+    &bull; 用自反动词近过去时谈论婚姻经历<br>
+    &bull; 比较级练习：描述家庭成员之间的异同
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-9.html" class="prev-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+  <a href="facciamo-punto.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 1</div>
+  <p>Corso di lingua italiana per stranieri · Livello A1</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

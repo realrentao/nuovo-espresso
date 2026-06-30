@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 6 · In giro per l'Italia · NUOVO Espresso 1</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+    <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    .alphabet-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .alphabet-table th { background: linear-gradient(135deg, var(--ne-cream), #FDEBD0); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); }
+    .alphabet-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); cursor: pointer; transition: all 0.2s; }
+    .alphabet-table tr:last-child td { border-bottom: none; }
+    .alphabet-table td:hover { background: rgba(241,196,15,0.15); color: var(--ne-red); }
+    .alphabet-table .foreign { color: var(--ne-muted); font-size: 12px; font-style: italic; }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 1 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 6 · A1</div>
+  <h1>&#x1F3DB;&#xFE0F; In giro per l'Italia</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">意大利漫步 · p.73-86</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">描述城市 · 问路与指路 · 形容词性数变化 · conoscere/sapere/dovere · questo/quello</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <h3>1. Che città è? · p.74, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">描述城市特征的对话。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Com\'è la città?')">A: Com'è la città?</span></td><td class="zh">A: 这座城市怎么样？</td></tr>
+    <tr><td><span class="it" onclick="speak('È una città molto antica, con molti monumenti.')">B: È una città molto antica, con molti monumenti.</span></td><td class="zh">B: 是一座非常古老的城市，有很多纪念碑。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ci sono molti turisti?')">A: Ci sono molti turisti?</span></td><td class="zh">A: 有很多游客吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, molti. È una città molto famosa.')">B: Sì, molti. È una città molto famosa.</span></td><td class="zh">B: 是的，很多。这是一座非常著名的城市。</td></tr>
+  </table>
+
+  <h3>2. Un fine settimana a Padova · p.76, es.2</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">在帕多瓦度周末的对话。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Dove vai questo fine settimana?')">A: Dove vai questo fine settimana?</span></td><td class="zh">A: 这个周末你去哪里？</td></tr>
+    <tr><td><span class="it" onclick="speak('Vado a Padova.')">B: Vado a Padova.</span></td><td class="zh">B: 我去帕多瓦。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ah, conosci Padova?')">A: Ah, conosci Padova?</span></td><td class="zh">A: 啊，你了解帕多瓦吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, è una città molto bella. È vicina a Venezia.')">B: Sì, è una città molto bella. È vicina a Venezia.</span></td><td class="zh">B: 是的，是一座非常美丽的城市。离威尼斯很近。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quanto tempo ci vuole per andare da Milano a Padova?')">A: Quanto tempo ci vuole per andare da Milano a Padova?</span></td><td class="zh">A: 从米兰到帕多瓦需要多长时间？</td></tr>
+    <tr><td><span class="it" onclick="speak('Circa due ore in treno.')">B: Circa due ore in treno.</span></td><td class="zh">B: 乘火车大约两小时。</td></tr>
+    <tr><td><span class="it" onclick="speak('Cosa c\'è da vedere a Padova?')">A: Cosa c'è da vedere a Padova?</span></td><td class="zh">A: 帕多瓦有什么可看的？</td></tr>
+    <tr><td><span class="it" onclick="speak('La Cappella degli Scrovegni, il Palazzo della Ragione, il Caffè Pedrocchi...')">B: La Cappella degli Scrovegni, il Palazzo della Ragione, il Caffè Pedrocchi...</span></td><td class="zh">B: 斯克罗威尼礼拜堂、理性宫、佩德罗基咖啡馆...</td></tr>
+    <tr><td><span class="it" onclick="speak('E i negozi? Sono aperti la domenica?')">A: E i negozi? Sono aperti la domenica?</span></td><td class="zh">A: 商店呢？周日开门吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Mah, di solito sì.')">B: Mah, di solito sì.</span></td><td class="zh">B: 嗯，通常开门的。</td></tr>
+  </table>
+
+  <h3>3. Scusi, dov'è la stazione? · p.79, es.8</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">问路的对话。</p>
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">对话1</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Scusi, per la stazione, per favore?')">A: Scusi, per la stazione, per favore?</span></td><td class="zh">A: 请问，去火车站怎么走？</td></tr>
+    <tr><td><span class="it" onclick="speak('Vada sempre dritto.')">B: Vada sempre dritto.</span></td><td class="zh">B: 请一直往前走。</td></tr>
+    <tr><td><span class="it" onclick="speak('Grazie.')">A: Grazie.</span></td><td class="zh">A: 谢谢。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">对话2</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Scusi, dov\'è la stazione?')">A: Scusi, dov'è la stazione?</span></td><td class="zh">A: 请问，车站在哪里？</td></tr>
+    <tr><td><span class="it" onclick="speak('È laggiù.')">B: È laggiù.</span></td><td class="zh">B: 在那边。</td></tr>
+    <tr><td><span class="it" onclick="speak('Grazie mille.')">A: Grazie mille.</span></td><td class="zh">A: 非常感谢。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">对话3</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Mi scusi, c\'è un supermercato qui vicino?')">A: Mi scusi, c'è un supermercato qui vicino?</span></td><td class="zh">A: 请问，附近有超市吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, in via Garibaldi.')">B: Sì, in via Garibaldi.</span></td><td class="zh">B: 有的，在加里波第街。</td></tr>
+    <tr><td><span class="it" onclick="speak('È lontano?')">A: È lontano?</span></td><td class="zh">A: 远吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('No, è abbastanza vicino.')">B: No, è abbastanza vicino.</span></td><td class="zh">B: 不，相当近。</td></tr>
+    <tr><td><span class="it" onclick="speak('Grazie.')">A: Grazie.</span></td><td class="zh">A: 谢谢。</td></tr>
+    <tr><td><span class="it" onclick="speak('Di niente.')">B: Di niente.</span></td><td class="zh">B: 不客气。</td></tr>
+  </table>
+
+  <h3>4. Sa dov'è il Palazzo della Ragione? · p.82, es.13</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">询问具体地点的详细路线对话。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Sa dov\'è il Palazzo della Ragione?')">A: Sa dov'è il Palazzo della Ragione?</span></td><td class="zh">A: 您知道理性宫在哪里吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('No, mi dispiace, non lo so. Non sono di qui.')">B: No, mi dispiace, non lo so. Non sono di qui.</span></td><td class="zh">B: 不，很抱歉，我不知道。我不是本地人。</td></tr>
+    <tr><td><span class="it" onclick="speak('Allora, scusi tanto.')">A: Allora, scusi tanto.</span></td><td class="zh">A: 那，非常抱歉。</td></tr>
+  </table>
+  <p style="font-size:13px;color:var(--ne-muted);margin:8px 0;">(... 问另一个人 ...)</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Sa dov\'è il Palazzo della Ragione?')">A: Sa dov'è il Palazzo della Ragione?</span></td><td class="zh">A: 您知道理性宫在哪里吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, certo. Lei esce dall\'albergo, va dritto fino al terzo incrocio, poi gira a destra, va dritto fino a un semaforo, poi gira a sinistra e subito dopo c\'è la Cassa di Risparmio.')">C: Sì, certo. Lei esce dall'albergo, va dritto fino al terzo incrocio, poi gira a destra, va dritto fino a un semaforo, poi gira a sinistra e subito dopo c'è la Cassa di Risparmio.</span></td><td class="zh">C: 好的。您出酒店，直走到第三个十字路口，然后右转，直走红绿灯处，然后左转，紧挨着就是储蓄银行。</td></tr>
+    <tr><td><span class="it" onclick="speak('La ringrazio molto.')">A: La ringrazio molto.</span></td><td class="zh">A: 非常感谢您。</td></tr>
+    <tr><td><span class="it" onclick="speak('Prego, si figuri.')">C: Prego, si figuri.</span></td><td class="zh">C: 请别客气。</td></tr>
+  </table>
+
+  <h3>5. A che ora? · p.84, es.17</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">询问营业时间的对话。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Scusi, a che ora apre la banca?')">A: Scusi, a che ora apre la banca?</span></td><td class="zh">A: 请问，银行几点开门？</td></tr>
+    <tr><td><span class="it" onclick="speak('La banca apre alle 8.30.')">B: La banca apre alle 8.30.</span></td><td class="zh">B: 银行8:30开门。</td></tr>
+    <tr><td><span class="it" onclick="speak('E chiude a che ora?')">A: E chiude a che ora?</span></td><td class="zh">A: 几点关门？</td></tr>
+    <tr><td><span class="it" onclick="speak('Chiude alle 13.30 e poi riapre dalle 15 alle 16.')">B: Chiude alle 13.30 e poi riapre dalle 15 alle 16.</span></td><td class="zh">B: 13:30关门，然后15点到16点再开门。</td></tr>
+    <tr><td><span class="it" onclick="speak('È aperta anche il sabato?')">A: È aperta anche il sabato?</span></td><td class="zh">A: 周六也开门吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('No, la banca è chiusa il sabato e la domenica.')">B: No, la banca è chiusa il sabato e la domenica.</span></td><td class="zh">B: 不，银行周六和周日关门。</td></tr>
+    <tr><td><span class="it" onclick="speak('Grazie.')">A: Grazie.</span></td><td class="zh">A: 谢谢。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>城市描述 (Descrivere una città)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la città')">la città</td><td>s.f.</td><td>城市</td></tr>
+    <tr><td class="it" onclick="speak('il paese')">il paese</td><td>s.m.</td><td>城镇/国家</td></tr>
+    <tr><td class="it" onclick="speak('il monumento')">il monumento</td><td>s.m.</td><td>纪念碑/景点</td></tr>
+    <tr><td class="it" onclick="speak('il museo')">il museo</td><td>s.m.</td><td>博物馆</td></tr>
+    <tr><td class="it" onclick="speak('la chiesa')">la chiesa</td><td>s.f.</td><td>教堂</td></tr>
+    <tr><td class="it" onclick="speak('il teatro')">il teatro</td><td>s.m.</td><td>剧院</td></tr>
+    <tr><td class="it" onclick="speak('il cinema')">il cinema</td><td>s.m.</td><td>电影院</td></tr>
+    <tr><td class="it" onclick="speak('la piazza')">la piazza</td><td>s.f.</td><td>广场</td></tr>
+    <tr><td class="it" onclick="speak('la via')">la via / la strada</td><td>s.f.</td><td>街道</td></tr>
+    <tr><td class="it" onclick="speak('il ponte')">il ponte</td><td>s.m.</td><td>桥</td></tr>
+    <tr><td class="it" onclick="speak('il parco')">il parco</td><td>s.m.</td><td>公园</td></tr>
+    <tr><td class="it" onclick="speak('il giardino')">il giardino</td><td>s.m.</td><td>花园</td></tr>
+    <tr><td class="it" onclick="speak('il palazzo')">il palazzo</td><td>s.m.</td><td>宫殿/大楼</td></tr>
+    <tr><td class="it" onclick="speak('la statua')">la statua</td><td>s.f.</td><td>雕像</td></tr>
+    <tr><td class="it" onclick="speak('l\'arte')">l'arte</td><td>s.f.</td><td>艺术</td></tr>
+    <tr><td class="it" onclick="speak('il turista')">il turista</td><td>s.m.</td><td>游客</td></tr>
+    <tr><td class="it" onclick="speak('il negozio')">il negozio</td><td>s.m.</td><td>商店</td></tr>
+  </table>
+
+  <h3>城市形容词 (Aggettivi per la città)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('antico')">antico / antica</td><td>古老的</td></tr>
+    <tr><td class="it" onclick="speak('moderno')">moderno / moderna</td><td>现代的</td></tr>
+    <tr><td class="it" onclick="speak('bello')">bello / bella</td><td>美丽的</td></tr>
+    <tr><td class="it" onclick="speak('famoso')">famoso / famosa</td><td>著名的</td></tr>
+    <tr><td class="it" onclick="speak('tranquillo')">tranquillo / tranquilla</td><td>安静的</td></tr>
+    <tr><td class="it" onclick="speak('grande')">grande</td><td>大的</td></tr>
+    <tr><td class="it" onclick="speak('piccolo')">piccolo / piccola</td><td>小的</td></tr>
+    <tr><td class="it" onclick="speak('interessante')">interessante</td><td>有趣的</td></tr>
+    <tr><td class="it" onclick="speak('turistico')">turistico / turistica</td><td>旅游的</td></tr>
+    <tr><td class="it" onclick="speak('vicino')">vicino / vicina</td><td>近的</td></tr>
+    <tr><td class="it" onclick="speak('lontano')">lontano / lontana</td><td>远的</td></tr>
+  </table>
+
+  <h3>问路 (Chiedere indicazioni)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('Scusi, per la stazione?')">Scusi, per la stazione?</td><td>请问，去火车站怎么走？</td></tr>
+    <tr><td class="it" onclick="speak('Scusi, dov\'è...?')">Scusi, dov'è...?</td><td>请问...在哪里？</td></tr>
+    <tr><td class="it" onclick="speak('Sa dov\'è...?')">Sa dov'è...?</td><td>您知道...在哪里吗？</td></tr>
+    <tr><td class="it" onclick="speak('C\'è un/una... qui vicino?')">C'è un/una... qui vicino?</td><td>附近有...吗？</td></tr>
+    <tr><td class="it" onclick="speak('È lontano?')">È lontano?</td><td>远吗？</td></tr>
+    <tr><td class="it" onclick="speak('Quanto tempo ci vuole?')">Quanto tempo ci vuole?</td><td>需要多少时间？</td></tr>
+    <tr><td class="it" onclick="speak('Si può andare a piedi?')">Si può andare a piedi?</td><td>可以步行去吗？</td></tr>
+  </table>
+
+  <h3>指路 (Dare indicazioni)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('Vada sempre dritto.')">Vada sempre dritto.</td><td>请一直往前走。</td></tr>
+    <tr><td class="it" onclick="speak('Va\' sempre dritto.')">Va' sempre dritto.</td><td>一直往前走。（非正式）</td></tr>
+    <tr><td class="it" onclick="speak('Gira a destra.')">Gira a destra / sinistra.</td><td>向右/左转。</td></tr>
+    <tr><td class="it" onclick="speak('Attraversa la piazza.')">Attraversa la piazza.</td><td>穿过广场。</td></tr>
+    <tr><td class="it" onclick="speak('Al primo incrocio...')">Al primo / secondo incrocio...</td><td>在第一/二个十字路口...</td></tr>
+    <tr><td class="it" onclick="speak('Al semaforo...')">Al semaforo...</td><td>在红绿灯...</td></tr>
+    <tr><td class="it" onclick="speak('È laggiù.')">È laggiù.</td><td>在那边。</td></tr>
+    <tr><td class="it" onclick="speak('È di fronte a...')">È di fronte a...</td><td>在...对面。</td></tr>
+    <tr><td class="it" onclick="speak('È accanto a...')">È accanto a...</td><td>在...旁边。</td></tr>
+    <tr><td class="it" onclick="speak('È all\'angolo.')">È all'angolo.</td><td>在拐角处。</td></tr>
+    <tr><td class="it" onclick="speak('È vicino a...')">È vicino a...</td><td>在...附近。</td></tr>
+    <tr><td class="it" onclick="speak('È lontano da...')">È lontano da...</td><td>离...远。</td></tr>
+  </table>
+
+  <h3>城市设施 (Servizi della città)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la stazione')">la stazione</td><td>火车站</td></tr>
+    <tr><td class="it" onclick="speak('l\'aeroporto')">l'aeroporto</td><td>机场</td></tr>
+    <tr><td class="it" onclick="speak('la fermata dell\'autobus')">la fermata dell'autobus</td><td>公交车站</td></tr>
+    <tr><td class="it" onclick="speak('la farmacia')">la farmacia</td><td>药店</td></tr>
+    <tr><td class="it" onclick="speak('l\'ospedale')">l'ospedale</td><td>医院</td></tr>
+    <tr><td class="it" onclick="speak('il supermercato')">il supermercato</td><td>超市</td></tr>
+    <tr><td class="it" onclick="speak('la banca')">la banca</td><td>银行</td></tr>
+    <tr><td class="it" onclick="speak('l\'ufficio postale')">l'ufficio postale</td><td>邮局</td></tr>
+    <tr><td class="it" onclick="speak('il parcheggio')">il parcheggio</td><td>停车场</td></tr>
+    <tr><td class="it" onclick="speak('la biblioteca')">la biblioteca</td><td>图书馆</td></tr>
+    <tr><td class="it" onclick="speak('la scuola')">la scuola</td><td>学校</td></tr>
+    <tr><td class="it" onclick="speak('l\'ufficio del turismo')">l'ufficio del turismo</td><td>旅游局</td></tr>
+    <tr><td class="it" onclick="speak('il municipio')">il municipio</td><td>市政厅</td></tr>
+  </table>
+
+  <h3>开放时间 (Orari di apertura)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('A che ora apre...?')">A che ora apre...?</td><td>...几点开门？</td></tr>
+    <tr><td class="it" onclick="speak('A che ora chiude...?')">A che ora chiude...?</td><td>...几点关门？</td></tr>
+    <tr><td class="it" onclick="speak('È aperto?')">È aperto/a?</td><td>开门了吗？</td></tr>
+    <tr><td class="it" onclick="speak('È chiuso?')">È chiuso/a?</td><td>关门了吗？</td></tr>
+    <tr><td class="it" onclick="speak('È aperto dalle... alle...')">È aperto dalle... alle...</td><td>从...点到...点开门。</td></tr>
+    <tr><td class="it" onclick="speak('è chiuso il lunedì')">è chiuso il lunedì / la domenica</td><td>周一/周日关门</td></tr>
+    <tr><td class="it" onclick="speak('la pausa pranzo')">la pausa pranzo</td><td>午餐休息时间</td></tr>
+    <tr><td class="it" onclick="speak('orario continuato')">orario continuato</td><td>连续营业时间（无午休）</td></tr>
+  </table>
+
+  <h3>表达遗憾和感谢</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('Che peccato!')">Che peccato!</td><td>真可惜！</td></tr>
+    <tr><td class="it" onclick="speak('Mi dispiace.')">Mi dispiace.</td><td>对不起/很遗憾。</td></tr>
+    <tr><td class="it" onclick="speak('Scusi tanto.')">Scusi tanto.</td><td>非常抱歉。（正式）</td></tr>
+    <tr><td class="it" onclick="speak('La ringrazio molto.')">La ringrazio molto.</td><td>非常感谢您。（正式）</td></tr>
+    <tr><td class="it" onclick="speak('Grazie mille.')">Grazie mille.</td><td>非常感谢。</td></tr>
+    <tr><td class="it" onclick="speak('Non c\'è di che.')">Non c'è di che.</td><td>不客气。</td></tr>
+    <tr><td class="it" onclick="speak('Di niente.')">Di niente.</td><td>没什么。</td></tr>
+    <tr><td class="it" onclick="speak('Prego, si figuri.')">Prego, si figuri.</td><td>请别客气。（正式）</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Aggettivi -->
+  <h3>1. 形容词 (Aggettivi) — 性与数变化 · p.78</h3>
+  <div class="grammar-box">
+    <p style="font-size:14px;color:var(--ne-muted);margin-bottom:8px;">形容词必须与所修饰的名词保持性数一致。</p>
+    <table>
+      <tr><th>类型</th><th>单数</th><th>复数</th><th>示例</th></tr>
+      <tr><td>-o / -a</td><td>-o (m.) / -a (f.)</td><td>-i (m.) / -e (f.)</td><td><span class="it" onclick="speak('famoso')">famoso</span> / <span class="it" onclick="speak('famosa')">famosa</span> / <span class="it" onclick="speak('famosi')">famosi</span> / <span class="it" onclick="speak('famose')">famose</span></td></tr>
+      <tr><td>-e</td><td>-e (m./f.)</td><td>-i (m./f.)</td><td><span class="it" onclick="speak('interessante')">interessante</span> / <span class="it" onclick="speak('interessanti')">interessanti</span></td></tr>
+      <tr><td>-co / -ca</td><td>-co (m.) / -ca (f.)</td><td>-chi (m.) / -che (f.)</td><td><span class="it" onclick="speak('pubblico')">pubblico</span> / <span class="it" onclick="speak('pubblica')">pubblica</span> / <span class="it" onclick="speak('pubblici')">pubblici</span> / <span class="it" onclick="speak('pubbliche')">pubbliche</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">形容词位置:</p>
+    <table>
+      <tr><td>通常位于名词后面</td><td><span class="it" onclick="speak('una città tranquilla')">una città tranquilla</span></td></tr>
+      <tr><td>少数位于名词前面</td><td><span class="it" onclick="speak('una bella città')">una <strong>bella</strong> città</span></td></tr>
+      <tr><td>多个形容词</td><td><span class="it" onclick="speak('una città antica e molto bella')">una città <strong>antica e molto bella</strong></span></td></tr>
+    </table>
+  </div>
+
+  <!-- 2. questo / quello -->
+  <h3>2. 指示形容词 (Aggettivi dimostrativi) — questo, quello</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th></th><th>阳性单数</th><th>阴性单数</th><th>阳性复数</th><th>阴性复数</th></tr>
+      <tr><td><span class="verb">questo</span>（这个）</td><td>questo libro</td><td>questa città</td><td>questi libri</td><td>queste città</td></tr>
+      <tr><td><span class="verb">quello</span>（那个）</td><td>quel / quell' / quello</td><td>quella / quell'</td><td>quei / quegli</td><td>quelle</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">quello 的详细形式:</p>
+    <table>
+      <tr><th>位置</th><th>定冠词</th><th>quello的形式</th><th>示例</th></tr>
+      <tr><td>辅音前</td><td>il</td><td><span class="verb">quel</span></td><td><span class="it" onclick="speak('quel libro')">quel libro</span></td></tr>
+      <tr><td>s+辅音/gn/ps/z前</td><td>lo</td><td><span class="verb">quello</span></td><td><span class="it" onclick="speak('quello studente')">quello studente</span></td></tr>
+      <tr><td>元音前</td><td>l'</td><td><span class="verb">quell'</span></td><td><span class="it" onclick="speak('quell\'amico')">quell'amico</span></td></tr>
+      <tr><td>复数辅音前</td><td>i</td><td><span class="verb">quei</span></td><td><span class="it" onclick="speak('quei libri')">quei libri</span></td></tr>
+      <tr><td>复数s+辅音/元音前</td><td>gli</td><td><span class="verb">quegli</span></td><td><span class="it" onclick="speak('quegli studenti')">quegli studenti</span></td></tr>
+      <tr><td>复数阴性</td><td>le</td><td><span class="verb">quelle</span></td><td><span class="it" onclick="speak('quelle città')">quelle città</span></td></tr>
+    </table>
+  </div>
+
+  <!-- 3. conoscere -->
+  <h3>3. 动词 conoscere（认识/了解）— 现在时</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>变位</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('conosco')">conosco</span></td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('conosci')">conosci</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb" onclick="speak('conosce')">conosce</span></td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('conosciamo')">conosciamo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('conoscete')">conoscete</span></td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('conoscono')">conoscono</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Conosci Padova?')">Conosci Padova?</span></td><td>你了解帕多瓦吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Conosco una buona pizzeria.')">Conosco una buona pizzeria.</span></td><td>我知道一家好披萨店。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non conosco quella persona.')">Non conosco quella persona.</span></td><td>我不认识那个人。</td></tr>
+      <tr><td><span class="it" onclick="speak('Conosciamo Firenze.')">Conosciamo Firenze.</span></td><td>我们了解佛罗伦萨。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. sapere -->
+  <h3>4. 动词 sapere（知道）— 现在时</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>变位</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('so')">so</span></td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('sai')">sai</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb" onclick="speak('sa')">sa</span></td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('sappiamo')">sappiamo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('sapete')">sapete</span></td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('sanno')">sanno</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Sa dov\'è la stazione?')">Sa dov'è la stazione?</span></td><td>您知道车站在哪里吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('So parlare italiano.')">So parlare italiano.</span></td><td>我会说意大利语。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non so dov\'è.')">Non so dov'è.</span></td><td>我不知道它在哪。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sai che ore sono?')">Sai che ore sono?</span></td><td>你知道几点了吗？</td></tr>
+    </table>
+    <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 14px;margin-top:12px;font-size:13px;">
+      <strong>&#x26A0;&#xFE0F; conoscere vs. sapere</strong>:<br>
+      <strong>conoscere</strong> 表示"认识/了解某人或某地"；<strong>sapere</strong> 表示"知道事实/信息"或"会做某事"。
+    </div>
+  </div>
+
+  <!-- 5. dovere -->
+  <h3>5. 动词 dovere（必须/应该）— 现在时</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>变位</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('devo')">devo</span></td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('devi')">devi</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb" onclick="speak('deve')">deve</span></td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('dobbiamo')">dobbiamo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('dovete')">dovete</span></td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('devono')">devono</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Devo andare alla stazione.')">Devo andare alla stazione.</span></td><td>我必须去车站。</td></tr>
+      <tr><td><span class="it" onclick="speak('Devi girare a sinistra.')">Devi girare a sinistra.</span></td><td>你必须左转。</td></tr>
+      <tr><td><span class="it" onclick="speak('Deve attraversare la piazza.')">Deve attraversare la piazza.</span></td><td>您需要穿过广场。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dobbiamo prenotare.')">Dobbiamo prenotare.</span></td><td>我们必须预订。</td></tr>
+    </table>
+  </div>
+
+  <!-- 6. Preposizioni di e su -->
+  <h3>6. 介词 di 和 su — 缩合形式</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>介词</th><th>il</th><th>lo</th><th>l'</th><th>la</th><th>i</th><th>gli</th><th>le</th></tr>
+      <tr><td><span class="verb">di</span></td><td>del</td><td>dello</td><td>dell'</td><td>della</td><td>dei</td><td>degli</td><td>delle</td></tr>
+      <tr><td><span class="verb">su</span></td><td>sul</td><td>sullo</td><td>sull'</td><td>sulla</td><td>sui</td><td>sugli</td><td>sulle</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Il libro del professore.')">Il libro del professore. (di + il)</span></td><td>教授的书（所属）</td></tr>
+      <tr><td><span class="it" onclick="speak('Un po\' di pane.')">Un po' di pane. (di)</span></td><td>一些面包（部分）</td></tr>
+      <tr><td><span class="it" onclick="speak('Sul tavolo c\'è un libro.')">Sul tavolo c'è un libro. (su + il)</span></td><td>桌子上有一本书。（在...上面）</td></tr>
+      <tr><td><span class="it" onclick="speak('La ringrazio dell\'aiuto.')">La ringrazio dell'aiuto. (di + l')</span></td><td>感谢您的帮助。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 6 · p.86</h2>
+
+  <h3>&#x1F3DB;&#xFE0F; Le città italiane</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('L\'Italia è ricca di città d\'arte famose in tutto il mondo. Ogni città ha una sua storia e delle tradizioni uniche.')">L'Italia è ricca di città d'arte famose in tutto il mondo. Ogni città ha una sua storia e delle tradizioni uniche.</p>
+    <p class="it" onclick="speak('Firenze è considerata la culla del Rinascimento. Venezia è una città unica al mondo, costruita sull\'acqua. Roma, la capitale, è una città millenaria con monumenti di epoca romana, rinascimentale e barocca.')">Firenze è considerata la culla del Rinascimento. Venezia è una città unica al mondo, costruita sull'acqua. Roma, la capitale, è una città millenaria con monumenti di epoca romana, rinascimentale e barocca.</p>
+    <p class="it" onclick="speak('Milano è il centro economico e della moda. Napoli è famosa per la sua cucina e per il suo golfo.')">Milano è il centro economico e della moda. Napoli è famosa per la sua cucina e per il suo golfo.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p>意大利拥有许多世界闻名的艺术城市。每座城市都有其独特的历史和传统。</p>
+    <p><strong>佛罗伦萨</strong>被认为是文艺复兴的摇篮。<strong>威尼斯</strong>是世界上独一无二的城市，建在水上。<strong>罗马</strong>是首都，是一座千年古城，拥有罗马时期、文艺复兴时期和巴洛克时期的纪念碑。</p>
+    <p><strong>米兰</strong>是经济和时尚中心。<strong>那不勒斯</strong>以其美食和海湾闻名。</p>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化对比:</strong><br>
+    1. Hai mai visitato una città italiana? Quale? — 你参观过意大利城市吗？哪个？<br>
+    2. Quale città italiana ti piacerebbe visitare? — 你想参观哪个意大利城市？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 6 — Una gita a Firenze · p.86</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Prima di guardare il video:</p>
+  <ul style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 20px;">
+    <li>观察视频截图，猜测这是哪个城市</li>
+  </ul>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Mentre guardi:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Benvenuti a Firenze!')">Benvenuti a Firenze!</span></td><td class="zh">欢迎来到佛罗伦萨！</td></tr>
+    <tr><td><span class="it" onclick="speak('Questa è Piazza della Signoria.')">Questa è Piazza della Signoria.</span></td><td class="zh">这是领主广场。</td></tr>
+    <tr><td><span class="it" onclick="speak('Il Duomo è molto bello.')">Il Duomo è molto bello.</span></td><td class="zh">大教堂非常美丽。</td></tr>
+    <tr><td><span class="it" onclick="speak('Dov\'è Ponte Vecchio?')">Dov'è Ponte Vecchio?</span></td><td class="zh">老桥在哪里？</td></tr>
+    <tr><td><span class="it" onclick="speak('È laggiù, vicino al fiume.')">È laggiù, vicino al fiume.</span></td><td class="zh">在那边，靠近河边。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">es. Vero o falso?</p>
+  <ul style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 20px;">
+    <li>理解视频中出现的佛罗伦萨地标</li>
+    <li>判断与视频内容相关的正误陈述</li>
+  </ul>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 讨论视频中出现的佛罗伦萨地标<br>
+    &bull; 角色扮演：问路和指路
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-5.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">&larr; Torna al corso</a>
+  <a href="unita-7.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 1</div>
+  <p>Corso di lingua italiana per stranieri · Livello A1</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

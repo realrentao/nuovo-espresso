@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 2 · Io e gli altri · NUOVO Espresso 1</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+    <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    .alphabet-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .alphabet-table th { background: linear-gradient(135deg, var(--ne-cream), #FDEBD0); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); }
+    .alphabet-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); cursor: pointer; transition: all 0.2s; }
+    .alphabet-table tr:last-child td { border-bottom: none; }
+    .alphabet-table td:hover { background: rgba(241,196,15,0.15); color: var(--ne-red); }
+    .alphabet-table .foreign { color: var(--ne-muted); font-size: 12px; font-style: italic; }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 1 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 2 · A1</div>
+  <h1>👥 Io e gli altri</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">我和他人 · p.17-29</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">问候应答 · 介绍他人 · 谈论职业和年龄 · 学习 -are 动词变位、定冠词/不定冠词、前置介词</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>💬 Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Come va? -->
+  <h3>1. Come va? · p.17, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">Come stanno queste persone? Ascolta e completa i dialoghi.（这些人怎么样了？听录音并补充对话。）</p>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">对话1 — 正式，问候女士</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Buongiorno signora, come sta?')">A: Buongiorno signora, come sta?</span></td><td class="zh">A: 早上好女士，您好吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Bene, grazie. E Lei?')">B: Bene, grazie. E Lei?</span></td><td class="zh">B: 好，谢谢。您呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Benissimo, grazie.')">A: Benissimo, grazie.</span></td><td class="zh">A: 非常好，谢谢。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">对话2 — 非正式，朋友之间</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ehi, ciao Guido. Come stai?')">A: Ehi, ciao Guido. Come stai?</span></td><td class="zh">A: 嘿，嗨圭多。你好吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Ah, oggi sto proprio male.')">B: Ah, oggi sto proprio male.</span></td><td class="zh">B: 啊，今天我真的不太好。</td></tr>
+    <tr><td><span class="it" onclick="speak('Oh, mi dispiace.')">A: Oh, mi dispiace.</span></td><td class="zh">A: 哦，我很遗憾。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">对话3 — 中性问候</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ciao, come va?')">A: Ciao, come va?</span></td><td class="zh">A: 嗨，怎么样？</td></tr>
+    <tr><td><span class="it" onclick="speak('Eh, non c\'è male.')">B: Eh, non c'è male.</span></td><td class="zh">B: 呃，还不错。</td></tr>
+  </table>
+
+  <h3>回答从积极到消极排序</h3>
+  <table class="dialog-table">
+    <tr><th style="background:var(--ne-cream);">+++</th><th style="background:var(--ne-cream);">++</th><th style="background:var(--ne-cream);">+</th><th style="background:var(--ne-cream);">-</th><th style="background:var(--ne-cream);">--</th></tr>
+    <tr>
+      <td><span class="it" onclick="speak('Benissimo')">Benissimo</span></td>
+      <td><span class="it" onclick="speak('Bene, grazie')">Bene, grazie</span></td>
+      <td><span class="it" onclick="speak('Non c\'è male')">Non c'è male</span></td>
+      <td><span class="it" onclick="speak('Male')">Male</span></td>
+      <td><span class="it" onclick="speak('Oh, oggi sto proprio male')">Oh, oggi sto proprio male</span></td>
+    </tr>
+  </table>
+
+  <!-- Dialogo 2: Piacere! -->
+  <h3>2. Piacere! · p.18, es.2</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">正式/非正式转换练习。</p>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">非正式版</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ciao Giuliana. Come stai?')">A: Ciao Giuliana. Come stai?</span></td><td class="zh">A: 嗨朱莉亚娜，你好吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Bene, grazie. E tu?')">B: Bene, grazie. E tu?</span></td><td class="zh">B: 好，谢谢。你呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Non c\'è male, grazie. Ah, Ti presento il signor Lucchetti. Signor Lucchetti, la signora Vinci.')">A: Non c'è male, grazie. Ah, Ti presento il signor Lucchetti. Signor Lucchetti, la signora Vinci.</span></td><td class="zh">A: 还不错，谢谢。啊，我给你介绍卢凯蒂先生。卢凯蒂先生，这位是芬奇女士。</td></tr>
+    <tr><td><span class="it" onclick="speak('Piacere.')">B: Piacere.</span></td><td class="zh">B: 幸会。</td></tr>
+    <tr><td><span class="it" onclick="speak('Molto lieto.')">A: Molto lieto.</span></td><td class="zh">A: 很高兴认识您。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">正式版</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Buonasera signora Vinci. Come sta?')">A: Buonasera signora Vinci. Come sta?</span></td><td class="zh">A: 晚上好芬奇女士，您好吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Bene, grazie. E Lei?')">B: Bene, grazie. E Lei?</span></td><td class="zh">B: 好，谢谢。您呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Non c\'è male, grazie. Ah, Le presento il signor Lucchetti. Signor Lucchetti, la signora Vinci.')">A: Non c'è male, grazie. Ah, Le presento il signor Lucchetti. Signor Lucchetti, la signora Vinci.</span></td><td class="zh">A: 还不错，谢谢。啊，我给您介绍卢凯蒂先生。卢凯蒂先生，这位是芬奇女士。</td></tr>
+    <tr><td><span class="it" onclick="speak('Piacere.')">B: Piacere.</span></td><td class="zh">B: 幸会。</td></tr>
+    <tr><td><span class="it" onclick="speak('Molto lieto.')">A: Molto lieto.</span></td><td class="zh">A: 很高兴认识您。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Una mia amica -->
+  <h3>3. Una mia amica · p.19, es.3</h3>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ehi, Massimo, ciao! Come stai?')">A: Ehi, Massimo, ciao! Come stai?</span></td><td class="zh">A: 嘿，马西莫，嗨！你好吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Ah, Roberto, ciao! Io sto benissimo. E tu?')">B: Ah, Roberto, ciao! Io sto benissimo. E tu?</span></td><td class="zh">B: 啊，罗伯托，嗨！我非常好。你呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Anch\'io, grazie. Questa è Susana, una mia amica portoghese, di Lisbona. E questo è Massimo, un mio amico.')">A: Anch'io, grazie. Questa è Susana, una mia amica portoghese, di Lisbona. E questo è Massimo, un mio amico.</span></td><td class="zh">A: 我也是，谢谢。这是苏萨娜，我的一个葡萄牙朋友，来自里斯本。这是马西莫，我的一个朋友。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ciao!')">B: Ciao!</span></td><td class="zh">B: 嗨！</td></tr>
+    <tr><td><span class="it" onclick="speak('Piacere!')">C: Piacere!</span></td><td class="zh">C: 幸会！</td></tr>
+    <tr><td><span class="it" onclick="speak('Sai, Susana parla molto bene l\'italiano.')">A: Sai, Susana parla molto bene l'italiano.</span></td><td class="zh">A: 你知道吗，苏萨娜意大利语说得非常好。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ah, sì? Io invece purtroppo non parlo il portoghese!')">B: Ah, sì? Io invece purtroppo non parlo il portoghese!</span></td><td class="zh">B: 啊，是吗？可惜我反而不会说葡萄牙语！</td></tr>
+  </table>
+
+  <!-- Dialogo 4: Sei di qui? -->
+  <h3>4. Sei di qui? · p.20, es.4</h3>
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">非正式版本</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Sei di qui?')">A: Sei di qui?</span></td><td class="zh">A: 你是本地人吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, sono di Perugia.')">B: Sì, sono di Perugia.</span></td><td class="zh">B: 是的，我来自佩鲁贾。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ah, sei perugino?')">A: Ah, sei perugino?</span></td><td class="zh">A: 啊，你是佩鲁贾人？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, perugino. E tu?')">B: Sì, perugino. E tu?</span></td><td class="zh">B: 是的，佩鲁贾人。你呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Io sono di Genova, ma abito a Perugia.')">A: Io sono di Genova, ma abito a Perugia.</span></td><td class="zh">A: 我来自热那亚，但我住在佩鲁贾。</td></tr>
+    <tr><td><span class="it" onclick="speak('Da quanto tempo abiti a Perugia?')">B: Da quanto tempo abiti a Perugia?</span></td><td class="zh">B: 你住在佩鲁贾多久了？</td></tr>
+    <tr><td><span class="it" onclick="speak('Da due anni.')">A: Da due anni.</span></td><td class="zh">A: 两年了。</td></tr>
+    <tr><td><span class="it" onclick="speak('E che lavoro fai?')">B: E che lavoro fai?</span></td><td class="zh">B: 你做什么工作？</td></tr>
+    <tr><td><span class="it" onclick="speak('Faccio il cuoco in un ristorante qui in centro. E tu?')">A: Faccio il cuoco in un ristorante qui in centro. E tu?</span></td><td class="zh">A: 我在市中心的一家餐厅做厨师。你呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Io sono commessa in un negozio di abbigliamento.')">B: Io sono commessa in un negozio di abbigliamento.</span></td><td class="zh">B: 我在一家服装店做店员。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">正式版本 · p.21</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Lei è di qui?')">A: Lei è di qui?</span></td><td class="zh">A: 您是本地人吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, sono di Perugia.')">B: Sì, sono di Perugia.</span></td><td class="zh">B: 是的，我来自佩鲁贾。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ah, è perugina?')">A: Ah, è perugina?</span></td><td class="zh">A: 啊，您是佩鲁贾人？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, perugina. E Lei?')">B: Sì, perugina. E Lei?</span></td><td class="zh">B: 是的，佩鲁贾人。您呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Io sono di Genova, ma abito a Perugia.')">A: Io sono di Genova, ma abito a Perugia.</span></td><td class="zh">A: 我来自热那亚，但我住在佩鲁贾。</td></tr>
+    <tr><td><span class="it" onclick="speak('Da quanto tempo abita a Perugia?')">B: Da quanto tempo abita a Perugia?</span></td><td class="zh">B: 您住在佩鲁贾多久了？</td></tr>
+    <tr><td><span class="it" onclick="speak('Da due anni.')">A: Da due anni.</span></td><td class="zh">A: 两年了。</td></tr>
+    <tr><td><span class="it" onclick="speak('E che lavoro fa?')">B: E che lavoro fa?</span></td><td class="zh">B: 您做什么工作？</td></tr>
+    <tr><td><span class="it" onclick="speak('Faccio il cuoco in un ristorante qui in centro. E Lei?')">A: Faccio il cuoco in un ristorante qui in centro. E Lei?</span></td><td class="zh">A: 我在市中心的一家餐厅做厨师。您呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Faccio la commessa in un negozio di abbigliamento.')">B: Faccio la commessa in un negozio di abbigliamento.</span></td><td class="zh">B: 我在一家服装店做店员。</td></tr>
+  </table>
+
+  <!-- Dialogo 5: Che lingue parli? -->
+  <h3>5. Che lingue parli? · p.22, es.5</h3>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Buongiorno, sono l\'insegnante di italiano. Come ti chiami?')">A: Buongiorno, sono l'insegnante di italiano. Come ti chiami?</span></td><td class="zh">A: 早上好，我是意大利语老师。你叫什么名字？</td></tr>
+    <tr><td><span class="it" onclick="speak('Mi chiamo...')">B: Mi chiamo...</span></td><td class="zh">B: 我叫...</td></tr>
+    <tr><td><span class="it" onclick="speak('Di dove sei?')">A: Di dove sei?</span></td><td class="zh">A: 你从哪里来？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sono di...')">B: Sono di...</span></td><td class="zh">B: 我来自...</td></tr>
+    <tr><td><span class="it" onclick="speak('Che lingue parli?')">A: Che lingue parli?</span></td><td class="zh">A: 你会说什么语言？</td></tr>
+    <tr><td><span class="it" onclick="speak('Parlo...')">B: Parlo...</span></td><td class="zh">B: 我说...</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">示例对话</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ciao, mi chiamo Elena. Tu come ti chiami?')">A: Ciao, mi chiamo Elena. Tu come ti chiami?</span></td><td class="zh">A: 嗨，我叫埃莱娜。你叫什么名字？</td></tr>
+    <tr><td><span class="it" onclick="speak('Mi chiamo Karl.')">B: Mi chiamo Karl.</span></td><td class="zh">B: 我叫卡尔。</td></tr>
+    <tr><td><span class="it" onclick="speak('Di dove sei?')">A: Di dove sei?</span></td><td class="zh">A: 你从哪里来？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sono tedesco, di Berlino.')">B: Sono tedesco, di Berlino.</span></td><td class="zh">B: 我是德国人，来自柏林。</td></tr>
+    <tr><td><span class="it" onclick="speak('Che lingue parli?')">A: Che lingue parli?</span></td><td class="zh">A: 你会说什么语言？</td></tr>
+    <tr><td><span class="it" onclick="speak('Parlo tedesco, inglese e un po\' di italiano.')">B: Parlo tedesco, inglese e un po' di italiano.</span></td><td class="zh">B: 我说德语、英语和一点儿意大利语。</td></tr>
+  </table>
+
+  <!-- Dialogo 6: Quanti anni hai? -->
+  <h3>6. Quanti anni hai? · p.23, es.6</h3>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ciao, mi chiamo Francesco. E tu?')">A: Ciao, mi chiamo Francesco. E tu?</span></td><td class="zh">A: 嗨，我叫弗朗切斯科。你呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Io sono Paola. Piacere.')">B: Io sono Paola. Piacere.</span></td><td class="zh">B: 我是保拉。幸会。</td></tr>
+    <tr><td><span class="it" onclick="speak('Piacere. Di dove sei?')">A: Piacere. Di dove sei?</span></td><td class="zh">A: 幸会。你从哪里来？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sono di Napoli.')">B: Sono di Napoli.</span></td><td class="zh">B: 我来自那不勒斯。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quanti anni hai?')">A: Quanti anni hai?</span></td><td class="zh">A: 你几岁了？</td></tr>
+    <tr><td><span class="it" onclick="speak('Ho 26 anni. E tu?')">B: Ho 26 anni. E tu?</span></td><td class="zh">B: 我26岁。你呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Ho 28 anni.')">A: Ho 28 anni.</span></td><td class="zh">A: 我28岁。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">📖 Vocabolario · 词汇表</h2>
+
+  <h3>问候与开场白 (Formule per iniziare)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('Come va?')">Come va?</td><td>esp.</td><td>怎么样？</td></tr>
+    <tr><td class="it" onclick="speak('Come stai?')">Come stai? / Come sta?</td><td>esp.</td><td>你好吗？（非正式/正式）</td></tr>
+    <tr><td class="it" onclick="speak('Bene.')">Bene.</td><td>avv.</td><td>好。</td></tr>
+    <tr><td class="it" onclick="speak('Benissimo!')">Benissimo!</td><td>avv.</td><td>非常好！</td></tr>
+    <tr><td class="it" onclick="speak('Non c\'è male.')">Non c'è male.</td><td>esp.</td><td>还不错。</td></tr>
+    <tr><td class="it" onclick="speak('Male.')">Male.</td><td>avv./s.m.</td><td>不好。</td></tr>
+    <tr><td class="it" onclick="speak('Così così.')">Così così.</td><td>esp.</td><td>一般般。</td></tr>
+    <tr><td class="it" onclick="speak('Sto proprio male.')">Sto proprio male.</td><td>esp.</td><td>我真的很不好。</td></tr>
+    <tr><td class="it" onclick="speak('Mi dispiace.')">Mi dispiace.</td><td>esp.</td><td>我很遗憾/对不起。</td></tr>
+    <tr><td class="it" onclick="speak('Eh...')">Eh...</td><td>inter.</td><td>呃...</td></tr>
+  </table>
+
+  <h3>介绍他人 (Presentare)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('Ti presento...')">Ti presento...</td><td>esp.</td><td>我给你介绍...（非正式）</td></tr>
+    <tr><td class="it" onclick="speak('Le presento...')">Le presento...</td><td>esp.</td><td>我给您介绍...（正式）</td></tr>
+    <tr><td class="it" onclick="speak('Questo è...')">Questo è...</td><td>esp.</td><td>这是...（阳性）</td></tr>
+    <tr><td class="it" onclick="speak('Questa è...')">Questa è...</td><td>esp.</td><td>这是...（阴性）</td></tr>
+    <tr><td class="it" onclick="speak('un mio amico')">un mio amico / una mia amica</td><td>s.</td><td>我的一个（男性/女性）朋友</td></tr>
+    <tr><td class="it" onclick="speak('Piacere!')">Piacere!</td><td>inter.</td><td>幸会！</td></tr>
+    <tr><td class="it" onclick="speak('Molto lieto')">Molto lieto / lieta</td><td>agg.</td><td>很高兴认识（男/女）</td></tr>
+  </table>
+
+  <h3>个人信息</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('Che lavoro fai?')">Che lavoro fai? / fa?</td><td>esp.</td><td>你做什么工作？</td></tr>
+    <tr><td class="it" onclick="speak('Dove lavori?')">Dove lavori? / lavora?</td><td>esp.</td><td>你在哪里工作？</td></tr>
+    <tr><td class="it" onclick="speak('Dove abiti?')">Dove abiti? / abita?</td><td>esp.</td><td>你住在哪里？</td></tr>
+    <tr><td class="it" onclick="speak('Sei di qui?')">Sei di qui? / È di qui?</td><td>esp.</td><td>你是本地人吗？</td></tr>
+    <tr><td class="it" onclick="speak('Da quanto tempo...?')">Da quanto tempo...?</td><td>esp.</td><td>...多久了？</td></tr>
+    <tr><td class="it" onclick="speak('Quanti anni hai?')">Quanti anni hai? / ha?</td><td>esp.</td><td>你多大年纪？</td></tr>
+    <tr><td class="it" onclick="speak('Che lingue parli?')">Che lingue parli?</td><td>esp.</td><td>你会说什么语言？</td></tr>
+    <tr><td class="it" onclick="speak('Parlo...')">Parlo...</td><td>v.</td><td>我说...</td></tr>
+    <tr><td class="it" onclick="speak('un po\' di...')">un po' di...</td><td>esp.</td><td>一点儿...</td></tr>
+    <tr><td class="it" onclick="speak('molto bene')">molto bene</td><td>esp.</td><td>非常好</td></tr>
+    <tr><td class="it" onclick="speak('abbastanza bene')">abbastanza bene</td><td>esp.</td><td>相当好</td></tr>
+    <tr><td class="it" onclick="speak('purtroppo')">purtroppo</td><td>avv.</td><td>不幸地/可惜</td></tr>
+    <tr><td class="it" onclick="speak('invece')">invece</td><td>avv.</td><td>相反地/而</td></tr>
+  </table>
+
+  <h3>职业词汇 (Professioni)</h3>
+  <table class="vocab-table">
+    <tr><th>阳性</th><th>阴性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il cuoco')">il cuoco</td><td class="it" onclick="speak('la cuoca')">la cuoca</td><td>厨师</td></tr>
+    <tr><td class="it" onclick="speak('l\'avvocato')">l'avvocato</td><td class="it" onclick="speak('l\'avvocato')">l'avvocato</td><td>律师</td></tr>
+    <tr><td class="it" onclick="speak('il commesso')">il commesso</td><td class="it" onclick="speak('la commessa')">la commessa</td><td>店员</td></tr>
+    <tr><td class="it" onclick="speak('l\'infermiere')">l'infermiere</td><td class="it" onclick="speak('l\'infermiera')">l'infermiera</td><td>护士</td></tr>
+    <tr><td class="it" onclick="speak('l\'operaio')">l'operaio</td><td class="it" onclick="speak('l\'operaia')">l'operaia</td><td>工人</td></tr>
+    <tr><td class="it" onclick="speak('l\'insegnante')">l'insegnante</td><td class="it" onclick="speak('l\'insegnante')">l'insegnante</td><td>教师</td></tr>
+    <tr><td class="it" onclick="speak('il medico')">il / la medico</td><td></td><td>医生</td></tr>
+    <tr><td class="it" onclick="speak('il farmacista')">il / la farmacista</td><td></td><td>药剂师</td></tr>
+    <tr><td class="it" onclick="speak('l\'architetto')">l'architetto</td><td class="it" onclick="speak('l\'architetto')">l'architetto</td><td>建筑师</td></tr>
+    <tr><td class="it" onclick="speak('il giornalista')">il / la giornalista</td><td></td><td>记者</td></tr>
+    <tr><td class="it" onclick="speak('il traduttore')">il traduttore / traduttrice</td><td></td><td>翻译</td></tr>
+    <tr><td class="it" onclick="speak('il segretario')">il / la segretario/a</td><td></td><td>秘书</td></tr>
+    <tr><td class="it" onclick="speak('l\'impiegato')">l'impiegato/a</td><td></td><td>职员</td></tr>
+    <tr><td class="it" onclick="speak('il cantante')">il / la cantante</td><td></td><td>歌手</td></tr>
+    <tr><td class="it" onclick="speak('lo studente')">lo studente / la studentessa</td><td></td><td>学生</td></tr>
+    <tr><td class="it" onclick="speak('il dentista')">il / la dentista</td><td></td><td>牙医</td></tr>
+    <tr><td class="it" onclick="speak('lo psicologo')">lo / la psicologo/a</td><td></td><td>心理学家</td></tr>
+    <tr><td class="it" onclick="speak('l\'ingegnere')">l'ingegnere</td><td class="it" onclick="speak('l\'ingegnere')">l'ingegnere</td><td>工程师</td></tr>
+  </table>
+  <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:12px 16px;margin:12px 0;font-size:13px;">
+    <strong>⚠️ 注意</strong>: 许多职业名称阴阳性同形，如 medico, architetto, giornalista, insegnante, ingegnere, dentista, farmacista。
+  </div>
+
+  <h3>工作场所 (Luoghi di lavoro)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('in un ristorante')">in un ristorante</td><td>在餐厅</td></tr>
+    <tr><td class="it" onclick="speak('in un ospedale')">in un ospedale</td><td>在医院</td></tr>
+    <tr><td class="it" onclick="speak('in una scuola')">in una scuola</td><td>在学校</td></tr>
+    <tr><td class="it" onclick="speak('in un ufficio')">in un ufficio</td><td>在办公室</td></tr>
+    <tr><td class="it" onclick="speak('in una banca')">in una banca</td><td>在银行</td></tr>
+    <tr><td class="it" onclick="speak('in un\'agenzia')">in un'agenzia</td><td>在代理处/事务所</td></tr>
+    <tr><td class="it" onclick="speak('in una libreria')">in una libreria</td><td>在书店</td></tr>
+    <tr><td class="it" onclick="speak('in un negozio')">in un negozio</td><td>在商店</td></tr>
+    <tr><td class="it" onclick="speak('in un supermercato')">in un supermercato</td><td>在超市</td></tr>
+    <tr><td class="it" onclick="speak('in una farmacia')">in una farmacia</td><td>在药店</td></tr>
+    <tr><td class="it" onclick="speak('in un albergo')">in un albergo</td><td>在酒店</td></tr>
+    <tr><td class="it" onclick="speak('in un teatro')">in un teatro</td><td>在剧院</td></tr>
+    <tr><td class="it" onclick="speak('in una fabbrica')">in una fabbrica</td><td>在工厂</td></tr>
+    <tr><td class="it" onclick="speak('in proprio')">in proprio</td><td>自己当老板/自由职业</td></tr>
+  </table>
+
+  <h3>语言 (Lingue)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('l\'italiano')">l'italiano</td><td>意大利语</td></tr>
+    <tr><td class="it" onclick="speak('l\'inglese')">l'inglese</td><td>英语</td></tr>
+    <tr><td class="it" onclick="speak('il francese')">il francese</td><td>法语</td></tr>
+    <tr><td class="it" onclick="speak('lo spagnolo')">lo spagnolo</td><td>西班牙语</td></tr>
+    <tr><td class="it" onclick="speak('il tedesco')">il tedesco</td><td>德语</td></tr>
+    <tr><td class="it" onclick="speak('il portoghese')">il portoghese</td><td>葡萄牙语</td></tr>
+    <tr><td class="it" onclick="speak('il russo')">il russo</td><td>俄语</td></tr>
+    <tr><td class="it" onclick="speak('il greco')">il greco</td><td>希腊语</td></tr>
+    <tr><td class="it" onclick="speak('il turco')">il turco</td><td>土耳其语</td></tr>
+    <tr><td class="it" onclick="speak('l\'arabo')">l'arabo</td><td>阿拉伯语</td></tr>
+    <tr><td class="it" onclick="speak('il cinese')">il cinese</td><td>中文</td></tr>
+    <tr><td class="it" onclick="speak('il giapponese')">il giapponese</td><td>日语</td></tr>
+  </table>
+
+  <h3>其他关键词汇</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('questa')">questa / questo</td><td>agg.dim.</td><td>这个（阴/阳）</td></tr>
+    <tr><td class="it" onclick="speak('l\'età')">l'età</td><td>s.f.</td><td>年龄</td></tr>
+    <tr><td class="it" onclick="speak('l\'anno')">l'anno</td><td>s.m.</td><td>年</td></tr>
+    <tr><td class="it" onclick="speak('l\'amico')">l'amico / l'amica</td><td>s.m./s.f.</td><td>朋友（男/女）</td></tr>
+    <tr><td class="it" onclick="speak('il negozio')">il negozio</td><td>s.m.</td><td>商店</td></tr>
+    <tr><td class="it" onclick="speak('l\'abbigliamento')">l'abbigliamento</td><td>s.m.</td><td>服装</td></tr>
+    <tr><td class="it" onclick="speak('il centro')">il centro</td><td>s.m.</td><td>市中心</td></tr>
+    <tr><td class="it" onclick="speak('la città')">la città</td><td>s.f.</td><td>城市</td></tr>
+    <tr><td class="it" onclick="speak('la classe')">la classe</td><td>s.f.</td><td>班级、课堂</td></tr>
+    <tr><td class="it" onclick="speak('la domanda')">la domanda</td><td>s.f.</td><td>问题</td></tr>
+    <tr><td class="it" onclick="speak('la risposta')">la risposta</td><td>s.f.</td><td>回答</td></tr>
+    <tr><td class="it" onclick="speak('vero')">vero / falso</td><td>agg.</td><td>真的/假的</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>📚 Grammatica · 语法点</h2>
+
+  <!-- 1. Verbi in -are -->
+  <h3>1. 规则 -are 动词（现在时）· p.24</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th><span class="verb">parlare</span>（说）</th><th><span class="verb">lavorare</span>（工作）</th><th><span class="verb">abitare</span>（居住）</th><th><span class="verb">studiare</span>（学习）</th></tr>
+      <tr><td>(io)</td><td class="verb" onclick="speak('parlo')">parlo</td><td class="verb" onclick="speak('lavoro')">lavoro</td><td class="verb" onclick="speak('abito')">abito</td><td class="verb" onclick="speak('studio')">studio</td></tr>
+      <tr><td>(tu)</td><td class="verb" onclick="speak('parli')">parli</td><td class="verb" onclick="speak('lavori')">lavori</td><td class="verb" onclick="speak('abiti')">abiti</td><td class="verb" onclick="speak('studi')">studi</td></tr>
+      <tr><td>(lui/lei/Lei)</td><td class="verb" onclick="speak('parla')">parla</td><td class="verb" onclick="speak('lavora')">lavora</td><td class="verb" onclick="speak('abita')">abita</td><td class="verb" onclick="speak('studia')">studia</td></tr>
+      <tr><td>(noi)</td><td class="verb" onclick="speak('parliamo')">parliamo</td><td class="verb" onclick="speak('lavoriamo')">lavoriamo</td><td class="verb" onclick="speak('abitiamo')">abitiamo</td><td class="verb" onclick="speak('studiamo')">studiamo</td></tr>
+      <tr><td>(voi)</td><td class="verb" onclick="speak('parlate')">parlate</td><td class="verb" onclick="speak('lavorate')">lavorate</td><td class="verb" onclick="speak('abitate')">abitate</td><td class="verb" onclick="speak('studiate')">studiate</td></tr>
+      <tr><td>(loro)</td><td class="verb" onclick="speak('parlano')">parlano</td><td class="verb" onclick="speak('lavorano')">lavorano</td><td class="verb" onclick="speak('abitano')">abitano</td><td class="verb" onclick="speak('studiano')">studiano</td></tr>
+    </table>
+    <p style="margin-top:8px;font-size:13px;"><strong>规则</strong>: 词干 + <span class="verb">-o, -i, -a, -iamo, -ate, -ano</span></p>
+    <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 14px;margin-top:12px;font-size:13px;">
+      <strong>⚠️ 注意 -iare 动词</strong>: studiare, cominciare, mangiare, giocare 等以 -iare 结尾的动词，在 tu 人称中只保留一个 i: <strong>tu studi</strong>（而非 studii）, tu cominci, tu mangi。而 noi 人称中：noi studiamo, noi cominciamo。
+    </div>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Io parlo italiano e inglese.')">Io parlo italiano e inglese.</span></td><td>我说意大利语和英语。</td></tr>
+      <tr><td><span class="it" onclick="speak('Tu lavori in un ristorante?')">Tu lavori in un ristorante?</span></td><td>你在餐厅工作吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Lui abita a Roma.')">Lui abita a Roma.</span></td><td>他住在罗马。</td></tr>
+      <tr><td><span class="it" onclick="speak('Noi studiamo italiano.')">Noi studiamo italiano.</span></td><td>我们学习意大利语。</td></tr>
+      <tr><td><span class="it" onclick="speak('Voi parlate molto bene.')">Voi parlate molto bene.</span></td><td>你们说得很好。</td></tr>
+      <tr><td><span class="it" onclick="speak('Loro abitano a Milano.')">Loro abitano a Milano.</span></td><td>他们住在米兰。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Verbo essere - completo -->
+  <h3>2. 动词 essere（是）— 完整现在时 · p.24</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>变位</th><th>中文</th></tr>
+      <tr><td>io</td><td class="verb" onclick="speak('sono')">sono</td><td>我是</td></tr>
+      <tr><td>tu</td><td class="verb" onclick="speak('sei')">sei</td><td>你是</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="verb" onclick="speak('è')">è</td><td>他/她/您是</td></tr>
+      <tr><td>noi</td><td class="verb" onclick="speak('siamo')">siamo</td><td>我们是</td></tr>
+      <tr><td>voi</td><td class="verb" onclick="speak('siete')">siete</td><td>你们是</td></tr>
+      <tr><td>loro</td><td class="verb" onclick="speak('sono')">sono</td><td>他们是</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Noi siamo di Roma.')">Noi siamo di Roma.</span></td><td>我们来自罗马。</td></tr>
+      <tr><td><span class="it" onclick="speak('Voi siete studenti?')">Voi siete studenti?</span></td><td>你们是学生吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Loro sono italiani.')">Loro sono italiani.</span></td><td>他们是意大利人。</td></tr>
+      <tr><td><span class="it" onclick="speak('Siamo in quattro in famiglia.')">Siamo in quattro in famiglia.</span></td><td>我们家有四口人。</td></tr>
+      <tr><td><span class="it" onclick="speak('Siete pronti?')">Siete pronti?</span></td><td>你们准备好了吗？</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Verbo avere - completo -->
+  <h3>3. 动词 avere（有）— 完整现在时 · p.24</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>变位</th><th>发音</th><th>中文</th></tr>
+      <tr><td>io</td><td class="verb" onclick="speak('ho')">ho</td><td>/ɔ/</td><td>我有</td></tr>
+      <tr><td>tu</td><td class="verb" onclick="speak('hai')">hai</td><td>/ai/</td><td>你有</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="verb" onclick="speak('ha')">ha</td><td>/a/</td><td>他/她/您有</td></tr>
+      <tr><td>noi</td><td class="verb" onclick="speak('abbiamo')">abbiamo</td><td></td><td>我们有</td></tr>
+      <tr><td>voi</td><td class="verb" onclick="speak('avete')">avete</td><td></td><td>你们有</td></tr>
+      <tr><td>loro</td><td class="verb" onclick="speak('hanno')">hanno</td><td>/ˈan.no/</td><td>他们有</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Noi abbiamo un gatto.')">Noi abbiamo un gatto.</span></td><td>我们有一只猫。</td></tr>
+      <tr><td><span class="it" onclick="speak('Voi avete fratelli?')">Voi avete fratelli?</span></td><td>你们有兄弟姐妹吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Loro hanno 20 anni.')">Loro hanno 20 anni.</span></td><td>他们20岁。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho fame.')">Ho fame.</span></td><td>我饿了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ha fretta?')">Ha fretta?</span></td><td>您着急吗？</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Verbo fare -->
+  <h3>4. 动词 fare（做）— 现在时 · p.25</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>变位</th><th>中文</th></tr>
+      <tr><td>io</td><td class="verb" onclick="speak('faccio')">faccio</td><td>我做</td></tr>
+      <tr><td>tu</td><td class="verb" onclick="speak('fai')">fai</td><td>你做</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="verb" onclick="speak('fa')">fa</td><td>他/她/您做</td></tr>
+      <tr><td>noi</td><td class="verb" onclick="speak('facciamo')">facciamo</td><td>我们做</td></tr>
+      <tr><td>voi</td><td class="verb" onclick="speak('fate')">fate</td><td>你们做</td></tr>
+      <tr><td>loro</td><td class="verb" onclick="speak('fanno')">fanno</td><td>他们做</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">常用表达:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('fare colazione')">fare colazione</span></td><td>吃早餐</td></tr>
+      <tr><td><span class="it" onclick="speak('fare sport')">fare sport</span></td><td>做运动</td></tr>
+      <tr><td><span class="it" onclick="speak('fare una passeggiata')">fare una passeggiata</span></td><td>散步</td></tr>
+      <tr><td><span class="it" onclick="speak('fare fotografie')">fare fotografie</span></td><td>拍照</td></tr>
+      <tr><td><span class="it" onclick="speak('fare un giro')">fare un giro</span></td><td>兜风/转一圈</td></tr>
+      <tr><td><span class="it" onclick="speak('fare il cuoco')">fare il cuoco</span></td><td>当厨师（表示职业）</td></tr>
+      <tr><td><span class="it" onclick="speak('fare la doccia')">fare la doccia</span></td><td>淋浴</td></tr>
+      <tr><td><span class="it" onclick="speak('fare la spesa')">fare la spesa</span></td><td>采购食品</td></tr>
+      <tr><td><span class="it" onclick="speak('fare due passi')">fare due passi</span></td><td>散步（字面：走两步）</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Che lavoro fai?')">Che lavoro fai?</span></td><td>你做什么工作？</td></tr>
+      <tr><td><span class="it" onclick="speak('Faccio il cuoco.')">Faccio il cuoco.</span></td><td>我做厨师。</td></tr>
+      <tr><td><span class="it" onclick="speak('Facciamo colazione alle 7.')">Facciamo colazione alle 7.</span></td><td>我们7点吃早餐。</td></tr>
+      <tr><td><span class="it" onclick="speak('Cosa fate stasera?')">Cosa fate stasera?</span></td><td>你们今晚做什么？</td></tr>
+      <tr><td><span class="it" onclick="speak('Loro fanno sport ogni giorno.')">Loro fanno sport ogni giorno.</span></td><td>他们每天做运动。</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. Verbo stare -->
+  <h3>5. 动词 stare（在/处于...状态）— 现在时 · p.25</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>变位</th><th>中文</th></tr>
+      <tr><td>io</td><td class="verb" onclick="speak('sto')">sto</td><td>我在/我处于</td></tr>
+      <tr><td>tu</td><td class="verb" onclick="speak('stai')">stai</td><td>你在</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="verb" onclick="speak('sta')">sta</td><td>他/她/您处于</td></tr>
+      <tr><td>noi</td><td class="verb" onclick="speak('stiamo')">stiamo</td><td>我们处于</td></tr>
+      <tr><td>voi</td><td class="verb" onclick="speak('state')">state</td><td>你们处于</td></tr>
+      <tr><td>loro</td><td class="verb" onclick="speak('stanno')">stanno</td><td>他们处于</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Come stai?')">Come stai? / Come sta?</span></td><td>你好吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Sto bene, grazie.')">Sto bene, grazie.</span></td><td>我很好，谢谢。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sto a casa oggi.')">Sto a casa oggi.</span></td><td>我今天在家。</td></tr>
+      <tr><td><span class="it" onclick="speak('Stiamo aspettando.')">Stiamo aspettando.</span></td><td>我们在等。</td></tr>
+      <tr><td><span class="it" onclick="speak('Loro stanno a Milano.')">Loro stanno a Milano.</span></td><td>他们在米兰。</td></tr>
+    </table>
+  </div>
+
+  <!-- 6. Sostantivi al singolare -->
+  <h3>6. 名词单数 (Sostantivi al singolare) · p.26</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>结尾</th><th>阳性示例</th><th>阴性示例</th></tr>
+      <tr><td><span class="verb">-o</span></td><td>l'amico, il lavoro, il numero, il negozio, l'ufficio, il ristorante...</td><td>—</td></tr>
+      <tr><td><span class="verb">-a</span></td><td>il problema, il cinema, il collega, il farmacista（例外）</td><td>l'amica, la casa, la signora, la scuola, la banca, la libreria</td></tr>
+      <tr><td><span class="verb">-e</span></td><td>il signore, l'insegnante, il ristorante, lo studente</td><td>la notte, la conversazione, la stazione</td></tr>
+    </table>
+    <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 14px;margin-top:12px;font-size:13px;">
+      <strong>⚠️ 注意</strong>: 以 -a 结尾的阳性名词：il problema（问题）, il cinema（电影院）, il collega（同事）, il farmacista（药剂师）, il giornalista（记者）, il pilota（飞行员）, il turista（游客）。
+    </div>
+  </div>
+
+  <!-- 7. Negazione -->
+  <h3>7. 否定形式 (Negazione) · p.26</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>结构</th><th>例句</th><th>中文</th></tr>
+      <tr><td><span class="verb">non</span> + 动词</td><td><span class="it" onclick="speak('Non parlo tedesco.')">Non parlo tedesco.</span></td><td>我不说德语。</td></tr>
+      <tr><td></td><td><span class="it" onclick="speak('Non ho fratelli.')">Non ho fratelli.</span></td><td>我没有兄弟姐妹。</td></tr>
+      <tr><td></td><td><span class="it" onclick="speak('Non sono di Roma.')">Non sono di Roma.</span></td><td>我不是罗马人。</td></tr>
+      <tr><td></td><td><span class="it" onclick="speak('Non abito a Milano.')">Non abito a Milano.</span></td><td>我不住在米兰。</td></tr>
+      <tr><td></td><td><span class="it" onclick="speak('Non lavoro in una banca.')">Non lavoro in una banca.</span></td><td>我不在银行工作。</td></tr>
+    </table>
+    <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 14px;margin-top:12px;font-size:13px;">
+      <strong>⚠️ 规则</strong>: 否定词 <strong>non</strong> 必须放在变位动词前面。
+    </div>
+  </div>
+
+  <!-- 8. Articoli determinativi -->
+  <h3>8. 定冠词单数 (Articoli determinativi singolari) · p.26</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>冠词</th><th>用法</th><th>示例</th></tr>
+      <tr><td><span class="verb">il</span></td><td>阳性，辅音开头</td><td>il libro, il lavoro, il signore, il numero</td></tr>
+      <tr><td><span class="verb">lo</span></td><td>阳性，s+辅音/gn/ps/z/y</td><td>lo studente, lo zio, lo psicologo, lo yoghurt</td></tr>
+      <tr><td><span class="verb">l'</span></td><td>阳性，元音开头</td><td>l'amico, l'ufficio, l'indirizzo, l'ingegnere</td></tr>
+      <tr><td><span class="verb">la</span></td><td>阴性，辅音开头</td><td>la casa, la signora, la banca, la sera</td></tr>
+      <tr><td><span class="verb">l'</span></td><td>阴性，元音开头</td><td>l'amica, l'agenzia, l'ora</td></tr>
+    </table>
+  </div>
+
+  <!-- 9. Articoli indeterminativi -->
+  <h3>9. 不定冠词 (Articoli indeterminativi) · p.26</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>冠词</th><th>用法</th><th>示例</th></tr>
+      <tr><td><span class="verb">un</span></td><td>阳性（辅音或元音开头）</td><td>un amico, un libro, un ufficio, un ristorante</td></tr>
+      <tr><td><span class="verb">uno</span></td><td>阳性（s+辅音/gn/ps/z）</td><td>uno studente, uno zio, uno psicologo</td></tr>
+      <tr><td><span class="verb">una</span></td><td>阴性（辅音开头）</td><td>una casa, una signora, una scuola</td></tr>
+      <tr><td><span class="verb">un'</span></td><td>阴性（元音开头）</td><td>un'amica, un'agenzia, un'ora</td></tr>
+    </table>
+  </div>
+
+  <!-- 10. Questo / Questa -->
+  <h3>10. 指示词 questo / questa（这个）· p.26</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>词形</th><th>用法</th><th>示例</th></tr>
+      <tr><td><span class="verb">questo</span> (m.)</td><td>单独使用或修饰阳性名词</td><td><span class="it" onclick="speak('Questo è Carlo.')">Questo è Carlo.</span> / <span class="it" onclick="speak('Questo libro è bello.')">Questo libro è bello.</span></td></tr>
+      <tr><td><span class="verb">questa</span> (f.)</td><td>单独使用或修饰阴性名词</td><td><span class="it" onclick="speak('Questa è Maria.')">Questa è Maria.</span> / <span class="it" onclick="speak('Questa casa è grande.')">Questa casa è grande.</span></td></tr>
+    </table>
+  </div>
+
+  <!-- 11. Preposizioni a e in -->
+  <h3>11. 介词 a 和 in · p.27</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>介词</th><th>用法</th><th>示例</th></tr>
+      <tr><td><span class="verb">a</span></td><td>城市、小地方</td><td><span class="it" onclick="speak('a Roma')">a Roma</span>, <span class="it" onclick="speak('a Milano')">a Milano</span>, <span class="it" onclick="speak('a casa')">a casa</span>, <span class="it" onclick="speak('a scuola')">a scuola</span>, <span class="it" onclick="speak('a lavoro')">a lavoro</span></td></tr>
+      <tr><td><span class="verb">in</span></td><td>国家、大区、泛指针地点类型</td><td><span class="it" onclick="speak('in Italia')">in Italia</span>, <span class="it" onclick="speak('in Francia')">in Francia</span>, <span class="it" onclick="speak('in banca')">in banca</span>, <span class="it" onclick="speak('in ufficio')">in ufficio</span>, <span class="it" onclick="speak('in ospedale')">in ospedale</span>, <span class="it" onclick="speak('in proprio')">in proprio</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Abito a Perugia.')">Abito a Perugia.</span></td><td>我住在佩鲁贾。</td></tr>
+      <tr><td><span class="it" onclick="speak('Lavoro in un ristorante.')">Lavoro in un ristorante.</span></td><td>我在一家餐厅工作。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sono in Italia da due anni.')">Sono in Italia da due anni.</span></td><td>我在意大利两年了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Vado a casa.')">Vado a casa.</span></td><td>我回家。</td></tr>
+      <tr><td><span class="it" onclick="speak('Studio in biblioteca.')">Studio in biblioteca.</span></td><td>我在图书馆学习。</td></tr>
+    </table>
+  </div>
+
+  <!-- 12. Interrogativi -->
+  <h3>12. 疑问词扩展 · p.27</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>疑问词</th><th>用法</th><th>例句</th><th>中文</th></tr>
+      <tr><td><span class="verb">Che</span></td><td>什么</td><td class="it" onclick="speak('Che lavoro fai?')">Che lavoro fai?</td><td>你做什么工作？</td></tr>
+      <tr><td><span class="verb">Chi</span></td><td>谁</td><td class="it" onclick="speak('Chi è?')">Chi è?</td><td>是谁？</td></tr>
+      <tr><td><span class="verb">Dove</span></td><td>哪里</td><td class="it" onclick="speak('Dove abiti?')">Dove abiti?</td><td>你住在哪里？</td></tr>
+      <tr><td><span class="verb">Quanto/a/i/e</span></td><td>多少</td><td class="it" onclick="speak('Quanti anni hai?')">Quanti anni hai?</td><td>你几岁？</td></tr>
+      <tr><td><span class="verb">Perché</span></td><td>为什么</td><td class="it" onclick="speak('Perché studi italiano?')">Perché studi italiano?</td><td>你为什么学意大利语？</td></tr>
+    </table>
+  </div>
+
+  <!-- 13. Numeri 1-100 -->
+  <h3>13. 数字 1-100 (Numeri da 1 a 100) · p.9, es.8 + p.23</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>数字</th><th>意大利语</th><th>数字</th><th>意大利语</th><th>数字</th><th>意大利语</th><th>数字</th><th>意大利语</th></tr>
+      <tr><td>1</td><td class="verb" onclick="speak('uno')">uno</td><td>11</td><td class="verb" onclick="speak('undici')">undici</td><td>30</td><td class="verb" onclick="speak('trenta')">trenta</td><td>70</td><td class="verb" onclick="speak('settanta')">settanta</td></tr>
+      <tr><td>2</td><td class="verb" onclick="speak('due')">due</td><td>12</td><td class="verb" onclick="speak('dodici')">dodici</td><td>31</td><td class="verb" onclick="speak('trentuno')">trentuno</td><td>71</td><td class="verb" onclick="speak('settantuno')">settantuno</td></tr>
+      <tr><td>3</td><td class="verb" onclick="speak('tre')">tre</td><td>13</td><td class="verb" onclick="speak('tredici')">tredici</td><td>32</td><td class="verb" onclick="speak('trentadue')">trentadue</td><td>72</td><td class="verb" onclick="speak('settantadue')">settantadue</td></tr>
+      <tr><td>4</td><td class="verb" onclick="speak('quattro')">quattro</td><td>14</td><td class="verb" onclick="speak('quattordici')">quattordici</td><td>33</td><td class="verb" onclick="speak('trentatré')">trentatré</td><td>73</td><td class="verb" onclick="speak('settantatré')">settantatré</td></tr>
+      <tr><td>5</td><td class="verb" onclick="speak('cinque')">cinque</td><td>15</td><td class="verb" onclick="speak('quindici')">quindici</td><td>34</td><td class="verb" onclick="speak('trentaquattro')">trentaquattro</td><td>74</td><td class="verb" onclick="speak('settantaquattro')">settantaquattro</td></tr>
+      <tr><td>6</td><td class="verb" onclick="speak('sei')">sei</td><td>16</td><td class="verb" onclick="speak('sedici')">sedici</td><td>35</td><td class="verb" onclick="speak('trentacinque')">trentacinque</td><td>75</td><td class="verb" onclick="speak('settantacinque')">settantacinque</td></tr>
+      <tr><td>7</td><td class="verb" onclick="speak('sette')">sette</td><td>17</td><td class="verb" onclick="speak('diciassette')">diciassette</td><td>36</td><td class="verb" onclick="speak('trentasei')">trentasei</td><td>76</td><td class="verb" onclick="speak('settantasei')">settantasei</td></tr>
+      <tr><td>8</td><td class="verb" onclick="speak('otto')">otto</td><td>18</td><td class="verb" onclick="speak('diciotto')">diciotto</td><td>37</td><td class="verb" onclick="speak('trentasette')">trentasette</td><td>77</td><td class="verb" onclick="speak('settantasette')">settantasette</td></tr>
+      <tr><td>9</td><td class="verb" onclick="speak('nove')">nove</td><td>19</td><td class="verb" onclick="speak('diciannove')">diciannove</td><td>38</td><td class="verb" onclick="speak('trentotto')">trentotto</td><td>78</td><td class="verb" onclick="speak('settantotto')">settantotto</td></tr>
+      <tr><td>10</td><td class="verb" onclick="speak('dieci')">dieci</td><td>20</td><td class="verb" onclick="speak('venti')">venti</td><td>39</td><td class="verb" onclick="speak('trentanove')">trentanove</td><td>79</td><td class="verb" onclick="speak('settantanove')">settantanove</td></tr>
+      <tr><td></td><td></td><td>21</td><td class="verb" onclick="speak('ventuno')">ventuno</td><td>40</td><td class="verb" onclick="speak('quaranta')">quaranta</td><td>80</td><td class="verb" onclick="speak('ottanta')">ottanta</td></tr>
+      <tr><td></td><td></td><td>22</td><td class="verb" onclick="speak('ventidue')">ventidue</td><td>41</td><td class="verb" onclick="speak('quarantuno')">quarantuno</td><td>81</td><td class="verb" onclick="speak('ottantuno')">ottantuno</td></tr>
+      <tr><td></td><td></td><td>23</td><td class="verb" onclick="speak('ventitré')">ventitré</td><td>42</td><td class="verb" onclick="speak('quarantadue')">quarantadue</td><td>82</td><td class="verb" onclick="speak('ottantadue')">ottantadue</td></tr>
+      <tr><td></td><td></td><td>24</td><td class="verb" onclick="speak('ventiquattro')">ventiquattro</td><td>43</td><td class="verb" onclick="speak('quarantatré')">quarantatré</td><td>83</td><td class="verb" onclick="speak('ottantatré')">ottantatré</td></tr>
+      <tr><td></td><td></td><td>25</td><td class="verb" onclick="speak('venticinque')">venticinque</td><td>44</td><td class="verb" onclick="speak('quarantaquattro')">quarantaquattro</td><td>84</td><td class="verb" onclick="speak('ottantaquattro')">ottantaquattro</td></tr>
+      <tr><td></td><td></td><td>26</td><td class="verb" onclick="speak('ventisei')">ventisei</td><td>45</td><td class="verb" onclick="speak('quarantacinque')">quarantacinque</td><td>85</td><td class="verb" onclick="speak('ottantacinque')">ottantacinque</td></tr>
+      <tr><td></td><td></td><td>27</td><td class="verb" onclick="speak('ventisette')">ventisette</td><td>46</td><td class="verb" onclick="speak('quarantasei')">quarantasei</td><td>86</td><td class="verb" onclick="speak('ottantasei')">ottantasei</td></tr>
+      <tr><td></td><td></td><td>28</td><td class="verb" onclick="speak('ventotto')">ventotto</td><td>47</td><td class="verb" onclick="speak('quarantasette')">quarantasette</td><td>87</td><td class="verb" onclick="speak('ottantasette')">ottantasette</td></tr>
+      <tr><td></td><td></td><td>29</td><td class="verb" onclick="speak('ventinove')">ventinove</td><td>48</td><td class="verb" onclick="speak('quarantotto')">quarantotto</td><td>88</td><td class="verb" onclick="speak('ottantotto')">ottantotto</td></tr>
+      <tr><td></td><td></td><td></td><td></td><td>49</td><td class="verb" onclick="speak('quarantanove')">quarantanove</td><td>89</td><td class="verb" onclick="speak('ottantanove')">ottantanove</td></tr>
+      <tr><td></td><td></td><td></td><td></td><td>50</td><td class="verb" onclick="speak('cinquanta')">cinquanta</td><td>90</td><td class="verb" onclick="speak('novanta')">novanta</td></tr>
+      <tr><td></td><td></td><td></td><td></td><td>51</td><td class="verb" onclick="speak('cinquantuno')">cinquantuno</td><td>91</td><td class="verb" onclick="speak('novantuno')">novantuno</td></tr>
+      <tr><td></td><td></td><td></td><td></td><td>52</td><td class="verb" onclick="speak('cinquantadue')">cinquantadue</td><td>92</td><td class="verb" onclick="speak('novantadue')">novantadue</td></tr>
+      <tr><td></td><td></td><td></td><td></td><td>53</td><td class="verb" onclick="speak('cinquantatré')">cinquantatré</td><td>93</td><td class="verb" onclick="speak('novantatré')">novantatré</td></tr>
+      <tr><td></td><td></td><td></td><td></td><td>54</td><td class="verb" onclick="speak('cinquantaquattro')">cinquantaquattro</td><td>94</td><td class="verb" onclick="speak('novantaquattro')">novantaquattro</td></tr>
+      <tr><td></td><td></td><td></td><td></td><td>55</td><td class="verb" onclick="speak('cinquantacinque')">cinquantacinque</td><td>95</td><td class="verb" onclick="speak('novantacinque')">novantacinque</td></tr>
+      <tr><td></td><td></td><td></td><td></td><td>56</td><td class="verb" onclick="speak('cinquantasei')">cinquantasei</td><td>96</td><td class="verb" onclick="speak('novantasei')">novantasei</td></tr>
+      <tr><td></td><td></td><td></td><td></td><td>57</td><td class="verb" onclick="speak('cinquantasette')">cinquantasette</td><td>97</td><td class="verb" onclick="speak('novantasette')">novantasette</td></tr>
+      <tr><td></td><td></td><td></td><td></td><td>58</td><td class="verb" onclick="speak('cinquantotto')">cinquantotto</td><td>98</td><td class="verb" onclick="speak('novantotto')">novantotto</td></tr>
+      <tr><td></td><td></td><td></td><td></td><td>59</td><td class="verb" onclick="speak('cinquantanove')">cinquantanove</td><td>99</td><td class="verb" onclick="speak('novantanove')">novantanove</td></tr>
+      <tr><td></td><td></td><td></td><td></td><td>60</td><td class="verb" onclick="speak('sessanta')">sessanta</td><td>100</td><td class="verb" onclick="speak('cento')">cento</td></tr>
+    </table>
+    <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 14px;margin-top:12px;font-size:13px;">
+      <strong>⚠️ 规则</strong>:<br>
+      • 21-99: 十位数 + 个位数（连写）: venti + uno → ventuno（去掉十位数末尾元音）<br>
+      • <strong>ventuno</strong> (venti+uno=ventuno), <strong>ventotto</strong> (venti+otto=ventotto) — 去掉 i<br>
+      • <strong>trentuno</strong>, <strong>trentotto</strong> — 去掉 a<br>
+      • <strong>ventitré</strong>, <strong>trentatré</strong> — 保留重音符号<br>
+      • 电话读法：逐个数字读出
+    </div>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>☕ Caffè Culturale 2 · p.29</h2>
+
+  <h3>🏛️ Qualche dato sull'Italia（关于意大利的一些数据）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('L\'Italia ha circa 59 milioni di abitanti. È divisa in 20 regioni.')">L'Italia ha circa 59 milioni di abitanti. È divisa in 20 regioni.</p>
+    <p class="it" onclick="speak('Le città principali sono: Roma (capitale), Milano, Napoli, Torino, Palermo, Genova, Bologna, Firenze, Venezia.')">Le città principali sono: Roma (capitale), Milano, Napoli, Torino, Palermo, Genova, Bologna, Firenze, Venezia.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p>意大利约有5900万居民。分为20个大区。</p>
+    <p>主要城市有：罗马（首都）、米兰、那不勒斯、都灵、巴勒莫、热那亚、博洛尼亚、佛罗伦萨、威尼斯。</p>
+  </div>
+
+  <h3>意大利主要城市</h3>
+  <table class="vocab-table">
+    <tr><th>城市</th><th>中文</th><th>特点</th></tr>
+    <tr><td class="it" onclick="speak('Roma')">Roma</td><td>罗马</td><td>首都，约280万居民</td></tr>
+    <tr><td class="it" onclick="speak('Milano')">Milano</td><td>米兰</td><td>经济与时尚之都</td></tr>
+    <tr><td class="it" onclick="speak('Napoli')">Napoli</td><td>那不勒斯</td><td>南部最大城市</td></tr>
+    <tr><td class="it" onclick="speak('Torino')">Torino</td><td>都灵</td><td>汽车工业中心</td></tr>
+    <tr><td class="it" onclick="speak('Palermo')">Palermo</td><td>巴勒莫</td><td>西西里岛首府</td></tr>
+    <tr><td class="it" onclick="speak('Genova')">Genova</td><td>热那亚</td><td>重要港口城市</td></tr>
+    <tr><td class="it" onclick="speak('Bologna')">Bologna</td><td>博洛尼亚</td><td>美食之都，大学城</td></tr>
+    <tr><td class="it" onclick="speak('Firenze')">Firenze</td><td>佛罗伦萨</td><td>文艺复兴发源地</td></tr>
+    <tr><td class="it" onclick="speak('Venezia')">Venezia</td><td>威尼斯</td><td>水上城市</td></tr>
+  </table>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>🎛️ Videocorso 2 — L'annuncio（广告/布告）· p.28</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Prima di guardare il video (es.1, p.28):</p>
+  <ul style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 20px;">
+    <li>观察视频截图，猜测故事顺序</li>
+    <li>插入缺失的画面帧</li>
+  </ul>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Mentre guardi — es.2-3 (p.28):</p>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">es.3 — Vero o Falso?</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Federico è un ragazzo italiano.')">Federico è un ragazzo italiano.</span></td><td class="zh">费代里科是意大利男孩。</td><td>✅ Vero</td></tr>
+    <tr><td><span class="it" onclick="speak('Federico telefona a Sebastian.')">Federico telefona a Sebastian.</span></td><td class="zh">费代里科给塞巴斯蒂安打电话。</td><td>❌ Falso</td></tr>
+    <tr><td><span class="it" onclick="speak('Federico parla l\'inglese molto bene.')">Federico parla l'inglese molto bene.</span></td><td class="zh">费代里科英语说得非常好。</td><td>❌ Falso</td></tr>
+    <tr><td><span class="it" onclick="speak('Laura è un\'amica di Federico.')">Laura è un'amica di Federico.</span></td><td class="zh">劳拉是费代里科的朋友。</td><td>✅ Vero</td></tr>
+    <tr><td><span class="it" onclick="speak('Laura cerca una camera.')">Laura cerca una camera.</span></td><td class="zh">劳拉在找房间。</td><td>✅ Vero</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">Dopo aver guardato — es.4 (p.28):</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin-bottom:8px;">观看视频从1'52"开始，想象挪威女孩Karen在电话中对Federico说了什么。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Pronto? Sì, ciao, mi chiamo Federico. Telefono per l\'annuncio...')">F: Pronto? Sì, ciao, mi chiamo Federico. Telefono per l'annuncio...</span></td><td class="zh">F: 喂？是的，嗨，我叫费代里科。我打电话是关于那个广告...</td></tr>
+    <tr><td><span class="zh" style="font-style:italic;color:var(--ne-muted);">K: （想象的内容...）</span></td><td class="zh"></td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, abito in centro, sì.')">F: Sì, abito in centro, sì.</span></td><td class="zh">F: 是的，我住在市中心，是的。</td></tr>
+    <tr><td><span class="zh" style="font-style:italic;color:var(--ne-muted);">K: （想象的内容...）</span></td><td class="zh"></td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, io sono italiano.')">F: Sì, io sono italiano.</span></td><td class="zh">F: 是的，我是意大利人。</td></tr>
+    <tr><td><span class="zh" style="font-style:italic;color:var(--ne-muted);">K: （想象的内容...）</span></td><td class="zh"></td></tr>
+    <tr><td><span class="it" onclick="speak('Ho 28 anni.')">F: Ho 28 anni.</span></td><td class="zh">F: 我28岁。</td></tr>
+    <tr><td><span class="zh" style="font-style:italic;color:var(--ne-muted);">K: （想象的内容...）</span></td><td class="zh"></td></tr>
+    <tr><td><span class="it" onclick="speak('Studio e lavoro, sì. Sono...')">F: Studio e lavoro, sì. Sono...</span></td><td class="zh">F: 我边学习边工作，是的。我是...</td></tr>
+    <tr><td><span class="zh" style="font-style:italic;color:var(--ne-muted);">K: （想象的内容...）</span></td><td class="zh"></td></tr>
+    <tr><td><span class="it" onclick="speak('Come? Bene, sì.')">F: Come? Bene, sì.</span></td><td class="zh">F: 什么？好的，是的。</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>🎭 Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演电话场景<br>
+    &bull; 模拟 Karen 的回答<br>
+    &bull; 练习用意大利语描述自己
+  </div>
+</section>
+
+<!-- Esercizi -->
+<section class="page-section" id="esercizi">
+  <h2>📝 Esercizi — Lezione 2 · p.151-153</h2>
+
+  <h3>es.1 — 关于人的信息</h3>
+  <p style="font-size:14px;color:var(--ne-muted);">阅读描述并回答关于Signor Mari, Jane, Manalo, Colette等人的问题。</p>
+
+  <h3>es.7 — 将名词与正确冠词配对</h3>
+  <p style="font-size:14px;color:var(--ne-muted);">在下列名词前填入 un / uno / una / un':</p>
+  <table class="vocab-table">
+    <tr><th>名词</th><th>冠词</th><th>名词</th><th>冠词</th></tr>
+    <tr><td class="it" onclick="speak('amico')">amico</td><td>___</td><td class="it" onclick="speak('agenzia')">agenzia</td><td>___</td></tr>
+    <tr><td class="it" onclick="speak('architetto')">architetto</td><td>___</td><td class="it" onclick="speak('libreria')">libreria</td><td>___</td></tr>
+    <tr><td class="it" onclick="speak('signore')">signore</td><td>___</td><td class="it" onclick="speak('casa')">casa</td><td>___</td></tr>
+    <tr><td class="it" onclick="speak('ufficio')">ufficio</td><td>___</td><td class="it" onclick="speak('ingegnere')">ingegnere</td><td>___</td></tr>
+    <tr><td class="it" onclick="speak('operaio')">operaio</td><td>___</td><td class="it" onclick="speak('signora')">signora</td><td>___</td></tr>
+    <tr><td class="it" onclick="speak('corso')">corso</td><td>___</td><td class="it" onclick="speak('studente')">studente</td><td>___</td></tr>
+    <tr><td class="it" onclick="speak('amica')">amica</td><td>___</td><td class="it" onclick="speak('numero')">numero</td><td>___</td></tr>
+    <tr><td class="it" onclick="speak('operaia')">operaia</td><td>___</td><td class="it" onclick="speak('studio')">studio</td><td>___</td></tr>
+    <tr><td class="it" onclick="speak('ospedale')">ospedale</td><td>___</td><td class="it" onclick="speak('negozio')">negozio</td><td>___</td></tr>
+    <tr><td class="it" onclick="speak('segretaria')">segretaria</td><td>___</td><td></td><td></td></tr>
+  </table>
+
+  <h3>es.8 — 选择正确的动词形式填空</h3>
+  <p style="font-size:14px;color:var(--ne-muted);">选择括号中正确的动词变位完成句子。</p>
+
+  <h3>es.9 — 职业与工作地点配对</h3>
+  <p style="font-size:14px;color:var(--ne-muted);">将左侧的职业与右侧的工作地点连接起来。</p>
+
+  <h3>es.10 — 用适当的词汇完成句子</h3>
+  <p style="font-size:14px;color:var(--ne-muted);">根据上下文选择适当的词汇填空。</p>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>💡 练习提示:</strong> 完成练习后，尝试用学到的词汇和语法描述自己和身边的人。练习使用 -are 动词变位、定冠词和不定冠词、介词 a 和 in。
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-1.html">← Precedente</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+  <a href="unita-3.html">Successiva →</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 1</div>
+  <p>Corso di lingua italiana per stranieri · Livello A1</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

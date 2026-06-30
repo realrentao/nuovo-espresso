@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NE Audio Test</title>
+</head>
+<body>
+<h2>Audio Test - Unità 1</h2>
+<p>Click each word to test audio:</p>
+<div id="words" style="font-size:20px;line-height:2;"></div>
+<script>
+// Minimal audio player (same logic as ne-audio-player.js)
+var cache = {};
+function speak(text) {
+  var key = text.toLowerCase().replace(/[^a-z0-9\s]/g,'').replace(/\s+/g,'_').substring(0,60)||'x';
+  var w = text.trim().split(/\s+/);
+  var type = w.length === 1 ? 'word' : (w.length <= 5 ? 'phrase' : 'sentence');
+  if (cache[key]) { cache[key].currentTime=0; cache[key].play().catch(function(){}); return; }
+  fetch('audio/ne6/'+type+'/'+key+'.json')
+    .then(function(r){
+      if(!r.ok) { console.error('FETCH FAIL:',r.status,key); throw new Error(r.status); }
+      return r.json();
+    })
+    .then(function(data){
+      if(!data||!data.audio_base64) { console.error('NO DATA:',key); return; }
+      try {
+        var b64=data.audio_base64, bin=atob(b64), buf=new Uint8Array(bin.length);
+        for(var i=0;i<bin.length;i++) buf[i]=bin.charCodeAt(i);
+        var blob=new Blob([buf],{type:'audio/mpeg'});
+        var url=URL.createObjectURL(blob);
+        var a=new Audio(url);
+        a.onended=function(){URL.revokeObjectURL(url);};
+        a.onerror=function(e){console.error('AUDIO ERROR:',key,e);};
+        cache[key]=a; a.play().catch(function(e){console.error('PLAY ERROR:',key,e);});
+      } catch(e) { console.error('DECODE ERROR:',key,e); }
+    })
+    .catch(function(e){console.error('NETWORK ERROR:',key,e);});
+}
+// Load words
+var words = ['Ciao!','Buongiorno!','Buona sera!','Buonanotte!','Arrivederci!','Piacere!','Come ti chiami?','Di dove sei?','Sono di Roma','Grazie','Prego','Scusi','Per favore','A domani!','Benissimo!','Qual è il tuo numero?'];
+var div = document.getElementById('words');
+words.forEach(function(w){
+  var s = document.createElement('span');
+  s.textContent = w;
+  s.style.cssText = 'cursor:pointer;padding:4px 12px;margin:4px;display:inline-block;background:#eee;border-radius:6px;';
+  s.onclick = function(){ speak(w); };
+  div.appendChild(s);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammatica riassuntiva · 语法总结 · NUOVO Espresso 1</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+    <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    .alphabet-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .alphabet-table th { background: linear-gradient(135deg, var(--ne-cream), #FDEBD0); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); }
+    .alphabet-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); cursor: pointer; transition: all 0.2s; }
+    .alphabet-table tr:last-child td { border-bottom: none; }
+    .alphabet-table td:hover { background: rgba(241,196,15,0.15); color: var(--ne-red); }
+    .alphabet-table .foreign { color: var(--ne-muted); font-size: 12px; font-style: italic; }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 1 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Grammatica · A1</div>
+  <h1>&#x1F4D8; Grammatica riassuntiva</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">语法总结总表 · A1 级别全部语法一页通！</p>
+</section>
+
+<!-- 1. 定冠词 -->
+<section class="page-section" id="articoli-determinativi">
+  <h2>1. 定冠词 (Articoli determinativi) &mdash; p.206</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>&nbsp;</th><th>单数</th><th>复数</th></tr>
+      <tr><td><strong>阳性</strong></td><td><span class="verb" onclick="speak('il')">il</span>, <span class="verb" onclick="speak('lo')">lo</span>, <span class="verb" onclick="speak('l\'')">l'</span></td><td><span class="verb" onclick="speak('i')">i</span>, <span class="verb" onclick="speak('gli')">gli</span></td></tr>
+      <tr><td><strong>阴性</strong></td><td><span class="verb" onclick="speak('la')">la</span>, <span class="verb" onclick="speak('l\'')">l'</span></td><td><span class="verb" onclick="speak('le')">le</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">使用规则:</p>
+    <table>
+      <tr><th>冠词</th><th>用法</th><th>示例</th></tr>
+      <tr><td><span class="verb">il / i</span></td><td>辅音前</td><td><span class="it" onclick="speak('il libro')">il libro</span> &rarr; <span class="it" onclick="speak('i libri')">i libri</span></td></tr>
+      <tr><td><span class="verb">lo / gli</span></td><td>s+辅音、gn、ps、z前</td><td><span class="it" onclick="speak('lo studente')">lo studente</span> &rarr; <span class="it" onclick="speak('gli studenti')">gli studenti</span></td></tr>
+      <tr><td><span class="verb">l' / gli</span></td><td>元音前（阳性）</td><td><span class="it" onclick="speak('l\'amico')">l'amico</span> &rarr; <span class="it" onclick="speak('gli amici')">gli amici</span></td></tr>
+      <tr><td><span class="verb">la / le</span></td><td>辅音前</td><td><span class="it" onclick="speak('la casa')">la casa</span> &rarr; <span class="it" onclick="speak('le case')">le case</span></td></tr>
+      <tr><td><span class="verb">l' / le</span></td><td>元音前（阴性）</td><td><span class="it" onclick="speak('l\'amica')">l'amica</span> &rarr; <span class="it" onclick="speak('le amiche')">le amiche</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 2. 不定冠词 -->
+<section class="page-section" id="articoli-indeterminativi">
+  <h2>2. 不定冠词 (Articoli indeterminativi) &mdash; p.207</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>&nbsp;</th><th>阳性</th><th>阴性</th></tr>
+      <tr><td>辅音前</td><td><span class="verb" onclick="speak('un')">un</span></td><td><span class="verb" onclick="speak('una')">una</span></td></tr>
+      <tr><td>元音前</td><td><span class="verb" onclick="speak('un')">un</span></td><td><span class="verb" onclick="speak('un\'')">un'</span></td></tr>
+      <tr><td>s+辅音/gn/ps/z前</td><td><span class="verb" onclick="speak('uno')">uno</span></td><td><span class="verb" onclick="speak('una')">una</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 3. 名词复数 -->
+<section class="page-section" id="plurale">
+  <h2>3. 名词复数 (Plurale dei sostantivi) &mdash; p.207-208</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>结尾</th><th>复数</th><th>示例</th></tr>
+      <tr><td>-o</td><td>-i</td><td><span class="it" onclick="speak('libro')">libro</span> &rarr; <span class="it" onclick="speak('libri')">libri</span></td></tr>
+      <tr><td>-a</td><td>-e</td><td><span class="it" onclick="speak('casa')">casa</span> &rarr; <span class="it" onclick="speak('case')">case</span></td></tr>
+      <tr><td>-e</td><td>-i</td><td><span class="it" onclick="speak('ristorante')">ristorante</span> &rarr; <span class="it" onclick="speak('ristoranti')">ristoranti</span></td></tr>
+      <tr><td>-ca</td><td>-che</td><td><span class="it" onclick="speak('amica')">amica</span> &rarr; <span class="it" onclick="speak('amiche')">amiche</span></td></tr>
+      <tr><td>-ga</td><td>-ghe</td><td><span class="it" onclick="speak('collega')">collega</span> &rarr; <span class="it" onclick="speak('colleghe')">colleghe</span></td></tr>
+      <tr><td>-co</td><td>-chi</td><td><span class="it" onclick="speak('cuoco')">cuoco</span> &rarr; <span class="it" onclick="speak('cuochi')">cuochi</span> <span style="color:var(--ne-muted);font-size:12px;">（例外: <span class="it" onclick="speak('medico')">medico</span> &rarr; <span class="it" onclick="speak('medici')">medici</span>）</span></td></tr>
+      <tr><td>-go</td><td>-ghi</td><td><span class="it" onclick="speak('albergo')">albergo</span> &rarr; <span class="it" onclick="speak('alberghi')">alberghi</span> <span style="color:var(--ne-muted);font-size:12px;">（例外: <span class="it" onclick="speak('psicologo')">psicologo</span> &rarr; <span class="it" onclick="speak('psicologi')">psicologi</span>）</span></td></tr>
+      <tr><td>-cia/-gia（辅音前）</td><td>-ce/-ge</td><td><span class="it" onclick="speak('spiaggia')">spiaggia</span> &rarr; <span class="it" onclick="speak('spiagge')">spiagge</span></td></tr>
+      <tr><td>-cia/-gia（元音前）</td><td>-cie/-gie</td><td><span class="it" onclick="speak('farmacia')">farmacia</span> &rarr; <span class="it" onclick="speak('farmacie')">farmacie</span></td></tr>
+      <tr><td>重读结尾/辅音结尾</td><td>不变</td><td><span class="it" onclick="speak('caffè')">caffè</span> &rarr; <span class="it" onclick="speak('caffè')">caffè</span>, <span class="it" onclick="speak('bar')">bar</span> &rarr; <span class="it" onclick="speak('bar')">bar</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 4. 规则动词变位总表 -->
+<section class="page-section" id="verbi-regolari">
+  <h2>4. 规则动词变位总表 &mdash; p.208-209</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th><span class="verb" onclick="speak('parlare')">parlare</span> (-are)</th><th><span class="verb" onclick="speak('prendere')">prendere</span> (-ere)</th><th><span class="verb" onclick="speak('dormire')">dormire</span> (-ire)</th><th><span class="verb" onclick="speak('finire')">finire</span> (-ire, -isco)</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('parlo')">parlo</span></td><td><span class="verb" onclick="speak('prendo')">prendo</span></td><td><span class="verb" onclick="speak('dormo')">dormo</span></td><td><span class="verb" onclick="speak('finisco')">finisco</span></td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('parli')">parli</span></td><td><span class="verb" onclick="speak('prendi')">prendi</span></td><td><span class="verb" onclick="speak('dormi')">dormi</span></td><td><span class="verb" onclick="speak('finisci')">finisci</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb" onclick="speak('parla')">parla</span></td><td><span class="verb" onclick="speak('prende')">prende</span></td><td><span class="verb" onclick="speak('dorme')">dorme</span></td><td><span class="verb" onclick="speak('finisce')">finisce</span></td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('parliamo')">parliamo</span></td><td><span class="verb" onclick="speak('prendiamo')">prendiamo</span></td><td><span class="verb" onclick="speak('dormiamo')">dormiamo</span></td><td><span class="verb" onclick="speak('finiamo')">finiamo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('parlate')">parlate</span></td><td><span class="verb" onclick="speak('prendete')">prendete</span></td><td><span class="verb" onclick="speak('dormite')">dormite</span></td><td><span class="verb" onclick="speak('finite')">finite</span></td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('parlano')">parlano</span></td><td><span class="verb" onclick="speak('prendono')">prendono</span></td><td><span class="verb" onclick="speak('dormono')">dormono</span></td><td><span class="verb" onclick="speak('finiscono')">finiscono</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 5. 不规则动词变位总表 -->
+<section class="page-section" id="verbi-irregolari">
+  <h2>5. 不规则动词变位总表 &mdash; p.209-210</h2>
+
+  <h3><span class="verb" onclick="speak('essere')">essere</span>（是）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('sono')">sono</span></td><td><span class="verb" onclick="speak('sei')">sei</span></td><td><span class="verb" onclick="speak('è')">è</span></td><td><span class="verb" onclick="speak('siamo')">siamo</span></td><td><span class="verb" onclick="speak('siete')">siete</span></td><td><span class="verb" onclick="speak('sono')">sono</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('avere')">avere</span>（有）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('ho')">ho</span></td><td><span class="verb" onclick="speak('hai')">hai</span></td><td><span class="verb" onclick="speak('ha')">ha</span></td><td><span class="verb" onclick="speak('abbiamo')">abbiamo</span></td><td><span class="verb" onclick="speak('avete')">avete</span></td><td><span class="verb" onclick="speak('hanno')">hanno</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('andare')">andare</span>（去）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('vado')">vado</span></td><td><span class="verb" onclick="speak('vai')">vai</span></td><td><span class="verb" onclick="speak('va')">va</span></td><td><span class="verb" onclick="speak('andiamo')">andiamo</span></td><td><span class="verb" onclick="speak('andate')">andate</span></td><td><span class="verb" onclick="speak('vanno')">vanno</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('fare')">fare</span>（做）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('faccio')">faccio</span></td><td><span class="verb" onclick="speak('fai')">fai</span></td><td><span class="verb" onclick="speak('fa')">fa</span></td><td><span class="verb" onclick="speak('facciamo')">facciamo</span></td><td><span class="verb" onclick="speak('fate')">fate</span></td><td><span class="verb" onclick="speak('fanno')">fanno</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('stare')">stare</span>（在/处于）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('sto')">sto</span></td><td><span class="verb" onclick="speak('stai')">stai</span></td><td><span class="verb" onclick="speak('sta')">sta</span></td><td><span class="verb" onclick="speak('stiamo')">stiamo</span></td><td><span class="verb" onclick="speak('state')">state</span></td><td><span class="verb" onclick="speak('stanno')">stanno</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('dare')">dare</span>（给）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('do')">do</span></td><td><span class="verb" onclick="speak('dai')">dai</span></td><td><span class="verb" onclick="speak('dà')">dà</span></td><td><span class="verb" onclick="speak('diamo')">diamo</span></td><td><span class="verb" onclick="speak('date')">date</span></td><td><span class="verb" onclick="speak('danno')">danno</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('sapere')">sapere</span>（知道）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('so')">so</span></td><td><span class="verb" onclick="speak('sai')">sai</span></td><td><span class="verb" onclick="speak('sa')">sa</span></td><td><span class="verb" onclick="speak('sappiamo')">sappiamo</span></td><td><span class="verb" onclick="speak('sapete')">sapete</span></td><td><span class="verb" onclick="speak('sanno')">sanno</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('potere')">potere</span>（能）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('posso')">posso</span></td><td><span class="verb" onclick="speak('puoi')">puoi</span></td><td><span class="verb" onclick="speak('può')">può</span></td><td><span class="verb" onclick="speak('possiamo')">possiamo</span></td><td><span class="verb" onclick="speak('potete')">potete</span></td><td><span class="verb" onclick="speak('possono')">possono</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('volere')">volere</span>（想要）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('voglio')">voglio</span></td><td><span class="verb" onclick="speak('vuoi')">vuoi</span></td><td><span class="verb" onclick="speak('vuole')">vuole</span></td><td><span class="verb" onclick="speak('vogliamo')">vogliamo</span></td><td><span class="verb" onclick="speak('volete')">volete</span></td><td><span class="verb" onclick="speak('vogliono')">vogliono</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('dovere')">dovere</span>（必须）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('devo')">devo</span></td><td><span class="verb" onclick="speak('devi')">devi</span></td><td><span class="verb" onclick="speak('deve')">deve</span></td><td><span class="verb" onclick="speak('dobbiamo')">dobbiamo</span></td><td><span class="verb" onclick="speak('dovete')">dovete</span></td><td><span class="verb" onclick="speak('devono')">devono</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('venire')">venire</span>（来）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('vengo')">vengo</span></td><td><span class="verb" onclick="speak('vieni')">vieni</span></td><td><span class="verb" onclick="speak('viene')">viene</span></td><td><span class="verb" onclick="speak('veniamo')">veniamo</span></td><td><span class="verb" onclick="speak('venite')">venite</span></td><td><span class="verb" onclick="speak('vengono')">vengono</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('uscire')">uscire</span>（出去）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('esco')">esco</span></td><td><span class="verb" onclick="speak('esci')">esci</span></td><td><span class="verb" onclick="speak('esce')">esce</span></td><td><span class="verb" onclick="speak('usciamo')">usciamo</span></td><td><span class="verb" onclick="speak('uscite')">uscite</span></td><td><span class="verb" onclick="speak('escono')">escono</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('conoscere')">conoscere</span>（认识）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('conosco')">conosco</span></td><td><span class="verb" onclick="speak('conosci')">conosci</span></td><td><span class="verb" onclick="speak('conosce')">conosce</span></td><td><span class="verb" onclick="speak('conosciamo')">conosciamo</span></td><td><span class="verb" onclick="speak('conoscete')">conoscete</span></td><td><span class="verb" onclick="speak('conoscono')">conoscono</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('piacere')">piacere</span>（喜欢）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('piaccio')">piaccio</span></td><td><span class="verb" onclick="speak('piaci')">piaci</span></td><td><span class="verb" onclick="speak('piace')">piace</span></td><td><span class="verb" onclick="speak('piacciamo')">piacciamo</span></td><td><span class="verb" onclick="speak('piacete')">piacete</span></td><td><span class="verb" onclick="speak('piacciono')">piacciono</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('bere')">bere</span>（喝）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('bevo')">bevo</span></td><td><span class="verb" onclick="speak('bevi')">bevi</span></td><td><span class="verb" onclick="speak('beve')">beve</span></td><td><span class="verb" onclick="speak('beviamo')">beviamo</span></td><td><span class="verb" onclick="speak('bevete')">bevete</span></td><td><span class="verb" onclick="speak('bevono')">bevono</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('dire')">dire</span>（说）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('dico')">dico</span></td><td><span class="verb" onclick="speak('dici')">dici</span></td><td><span class="verb" onclick="speak('dice')">dice</span></td><td><span class="verb" onclick="speak('diciamo')">diciamo</span></td><td><span class="verb" onclick="speak('dite')">dite</span></td><td><span class="verb" onclick="speak('dicono')">dicono</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('scegliere')">scegliere</span>（选择）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>io</th><th>tu</th><th>lui/lei/Lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td><span class="verb" onclick="speak('scelgo')">scelgo</span></td><td><span class="verb" onclick="speak('scegli')">scegli</span></td><td><span class="verb" onclick="speak('sceglie')">sceglie</span></td><td><span class="verb" onclick="speak('scegliamo')">scegliamo</span></td><td><span class="verb" onclick="speak('scegliete')">scegliete</span></td><td><span class="verb" onclick="speak('scelgono')">scelgono</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 6. 近过去时 -->
+<section class="page-section" id="passato-prossimo">
+  <h2>6. 近过去时 (Passato prossimo) &mdash; p.210</h2>
+
+  <h3>构成</h3>
+  <div class="grammar-box">
+    <p style="font-size:14px;">助动词（avere/essere）现在时 + 过去分词</p>
+  </div>
+
+  <h3>助动词选择</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>用 <span class="verb" onclick="speak('avere')">avere</span></th><th>用 <span class="verb" onclick="speak('essere')">essere</span></th></tr>
+      <tr><td>大多数及物动词</td><td>运动/方向动词（andare, venire, arrivare, partire, uscire等）</td></tr>
+      <tr><td>部分不及物动词（lavorare, dormire, parlare等）</td><td>状态变化动词（nascere, morire, diventare等）</td></tr>
+      <tr><td></td><td>自反动词（alzarsi, chiamarsi, lavarsi等）</td></tr>
+      <tr><td></td><td>essere, stare, rimanere, piacere等</td></tr>
+    </table>
+  </div>
+
+  <h3>过去分词与主语一致（essere作助动词时）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>性数</th><th>结尾</th><th>示例</th></tr>
+      <tr><td>阳性单数</td><td>-o</td><td><span class="verb" onclick="speak('andato')">andato</span></td></tr>
+      <tr><td>阴性单数</td><td>-a</td><td><span class="verb" onclick="speak('andata')">andata</span></td></tr>
+      <tr><td>阳性复数</td><td>-i</td><td><span class="verb" onclick="speak('andati')">andati</span></td></tr>
+      <tr><td>阴性复数</td><td>-e</td><td><span class="verb" onclick="speak('andate')">andate</span></td></tr>
+    </table>
+  </div>
+
+  <h3>不规则过去分词</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>动词</th><th>过去分词</th><th>动词</th><th>过去分词</th></tr>
+      <tr><td><span class="it" onclick="speak('essere')">essere</span></td><td><span class="verb" onclick="speak('stato')">stato/a/i/e</span></td><td><span class="it" onclick="speak('fare')">fare</span></td><td><span class="verb" onclick="speak('fatto')">fatto</span></td></tr>
+      <tr><td><span class="it" onclick="speak('rimanere')">rimanere</span></td><td><span class="verb" onclick="speak('rimasto')">rimasto/a/i/e</span></td><td><span class="it" onclick="speak('leggere')">leggere</span></td><td><span class="verb" onclick="speak('letto')">letto</span></td></tr>
+      <tr><td><span class="it" onclick="speak('venire')">venire</span></td><td><span class="verb" onclick="speak('venuto')">venuto/a/i/e</span></td><td><span class="it" onclick="speak('mettere')">mettere</span></td><td><span class="verb" onclick="speak('messo')">messo</span></td></tr>
+      <tr><td><span class="it" onclick="speak('prendere')">prendere</span></td><td><span class="verb" onclick="speak('preso')">preso</span></td><td><span class="it" onclick="speak('vedere')">vedere</span></td><td><span class="verb" onclick="speak('visto')">visto/veduto</span></td></tr>
+      <tr><td><span class="it" onclick="speak('aprire')">aprire</span></td><td><span class="verb" onclick="speak('aperto')">aperto</span></td><td><span class="it" onclick="speak('chiudere')">chiudere</span></td><td><span class="verb" onclick="speak('chiuso')">chiuso</span></td></tr>
+      <tr><td><span class="it" onclick="speak('scrivere')">scrivere</span></td><td><span class="verb" onclick="speak('scritto')">scritto</span></td><td><span class="it" onclick="speak('dire')">dire</span></td><td><span class="verb" onclick="speak('detto')">detto</span></td></tr>
+      <tr><td><span class="it" onclick="speak('chiedere')">chiedere</span></td><td><span class="verb" onclick="speak('chiesto')">chiesto</span></td><td><span class="it" onclick="speak('rispondere')">rispondere</span></td><td><span class="verb" onclick="speak('risposto')">risposto</span></td></tr>
+      <tr><td><span class="it" onclick="speak('piacere')">piacere</span></td><td><span class="verb" onclick="speak('piaciuto')">piaciuto</span></td><td><span class="it" onclick="speak('perdere')">perdere</span></td><td><span class="verb" onclick="speak('perso')">perso/perduto</span></td></tr>
+      <tr><td><span class="it" onclick="speak('nascere')">nascere</span></td><td><span class="verb" onclick="speak('nato')">nato/a/i/e</span></td><td><span class="it" onclick="speak('morire')">morire</span></td><td><span class="verb" onclick="speak('morto')">morto/a/i/e</span></td></tr>
+      <tr><td><span class="it" onclick="speak('vivere')">vivere</span></td><td><span class="verb" onclick="speak('vissuto')">vissuto</span></td><td><span class="it" onclick="speak('offrire')">offrire</span></td><td><span class="verb" onclick="speak('offerto')">offerto</span></td></tr>
+      <tr><td><span class="it" onclick="speak('bere')">bere</span></td><td><span class="verb" onclick="speak('bevuto')">bevuto</span></td><td><span class="it" onclick="speak('tradurre')">tradurre</span></td><td><span class="verb" onclick="speak('tradotto')">tradotto</span></td></tr>
+      <tr><td><span class="it" onclick="speak('succedere')">succedere</span></td><td><span class="verb" onclick="speak('successo')">successo</span></td><td><span class="it" onclick="speak('spendere')">spendere</span></td><td><span class="verb" onclick="speak('speso')">speso</span></td></tr>
+      <tr><td><span class="it" onclick="speak('scegliere')">scegliere</span></td><td><span class="verb" onclick="speak('scelto')">scelto</span></td><td><span class="it" onclick="speak('accendere')">accendere</span></td><td><span class="verb" onclick="speak('acceso')">acceso</span></td></tr>
+      <tr><td><span class="it" onclick="speak('spegnere')">spegnere</span></td><td><span class="verb" onclick="speak('spento')">spento</span></td><td></td><td></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 7. 代词 -->
+<section class="page-section" id="pronomi">
+  <h2>7. 代词 (Pronomi) &mdash; p.215-217</h2>
+
+  <h3>直接宾语代词 (Pronomi diretti)</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>代词（弱读式）</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('mi')">mi</span></td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('ti')">ti</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb" onclick="speak('lo')">lo</span> / <span class="verb" onclick="speak('la')">la</span> / <span class="verb" onclick="speak('La')">La</span></td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('ci')">ci</span></td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('vi')">vi</span></td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('li')">li</span> / <span class="verb" onclick="speak('le')">le</span></td></tr>
+    </table>
+    <div class="note-box">
+      <strong>&#x26A0;&#xFE0F;</strong> 位置：放在变位动词前面（<span class="it" onclick="speak('Lo ho comprato')">Lo ho comprato.</span>）<br>
+      在动词不定式后面连写：<span class="it" onclick="speak('comprarlo')">comprarlo</span>
+    </div>
+  </div>
+
+  <h3>间接宾语代词 (Pronomi indiretti)</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>弱读式</th><th>强读式</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('mi')">mi</span></td><td><span class="verb" onclick="speak('a me')">a me</span></td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('ti')">ti</span></td><td><span class="verb" onclick="speak('a te')">a te</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb" onclick="speak('gli')">gli</span> / <span class="verb" onclick="speak('le')">le</span> / <span class="verb" onclick="speak('Le')">Le</span></td><td><span class="verb" onclick="speak('a lui')">a lui</span> / <span class="verb" onclick="speak('a lei')">a lei</span> / <span class="verb" onclick="speak('a Lei')">a Lei</span></td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('ci')">ci</span></td><td><span class="verb" onclick="speak('a noi')">a noi</span></td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('vi')">vi</span></td><td><span class="verb" onclick="speak('a voi')">a voi</span></td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('gli')">gli</span></td><td><span class="verb" onclick="speak('a loro')">a loro</span></td></tr>
+    </table>
+  </div>
+
+  <h3>自反代词 (Pronomi riflessivi)</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>代词</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('mi')">mi</span></td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('ti')">ti</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb" onclick="speak('si')">si</span></td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('ci')">ci</span></td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('vi')">vi</span></td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('si')">si</span></td></tr>
+    </table>
+  </div>
+
+  <h3><span class="verb" onclick="speak('ne')">ne</span> 代词 &mdash; p.217</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>用法</th><th>示例</th></tr>
+      <tr><td>代替 di + 名词/数量</td><td><span class="it" onclick="speak('Ne voglio tre.')">Quante mele vuoi? Ne voglio tre.</span></td></tr>
+      <tr><td>表示"从那里"</td><td><span class="it" onclick="speak('Ne esco adesso.')">Ne esco adesso.</span></td></tr>
+      <tr><td>表示"关于它"</td><td><span class="it" onclick="speak('Ne parliamo dopo.')">Ne parliamo dopo.</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 8. 物主形容词 -->
+<section class="page-section" id="possessivi">
+  <h2>8. 物主形容词 (Aggettivi possessivi) &mdash; p.213</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>阳单</th><th>阳复</th><th>阴单</th><th>阴复</th></tr>
+      <tr><td>我的</td><td><span class="verb" onclick="speak('mio')">(il) mio</span></td><td><span class="verb" onclick="speak('miei')">(i) miei</span></td><td><span class="verb" onclick="speak('mia')">(la) mia</span></td><td><span class="verb" onclick="speak('mie')">(le) mie</span></td></tr>
+      <tr><td>你的</td><td><span class="verb" onclick="speak('tuo')">(il) tuo</span></td><td><span class="verb" onclick="speak('tuoi')">(i) tuoi</span></td><td><span class="verb" onclick="speak('tua')">(la) tua</span></td><td><span class="verb" onclick="speak('tue')">(le) tue</span></td></tr>
+      <tr><td>他/她/它的</td><td><span class="verb" onclick="speak('suo')">(il) suo</span></td><td><span class="verb" onclick="speak('suoi')">(i) suoi</span></td><td><span class="verb" onclick="speak('sua')">(la) sua</span></td><td><span class="verb" onclick="speak('sue')">(le) sue</span></td></tr>
+      <tr><td>您的</td><td><span class="verb" onclick="speak('Suo')">(il) Suo</span></td><td><span class="verb" onclick="speak('Suoi')">(i) Suoi</span></td><td><span class="verb" onclick="speak('Sua')">(la) Sua</span></td><td><span class="verb" onclick="speak('Sue')">(le) Sue</span></td></tr>
+      <tr><td>我们的</td><td><span class="verb" onclick="speak('nostro')">(il) nostro</span></td><td><span class="verb" onclick="speak('nostri')">(i) nostri</span></td><td><span class="verb" onclick="speak('nostra')">(la) nostra</span></td><td><span class="verb" onclick="speak('nostre')">(le) nostre</span></td></tr>
+      <tr><td>你们的</td><td><span class="verb" onclick="speak('vostro')">(il) vostro</span></td><td><span class="verb" onclick="speak('vostri')">(i) vostri</span></td><td><span class="verb" onclick="speak('vostra')">(la) vostra</span></td><td><span class="verb" onclick="speak('vostre')">(le) vostre</span></td></tr>
+      <tr><td>他们的</td><td><span class="verb" onclick="speak('loro')">(il) loro</span></td><td><span class="verb" onclick="speak('loro')">(i) loro</span></td><td><span class="verb" onclick="speak('loro')">(la) loro</span></td><td><span class="verb" onclick="speak('loro')">(le) loro</span></td></tr>
+    </table>
+    <div class="note-box">
+      <strong>&#x26A0;&#xFE0F;</strong> 冠词使用规则：单数亲属名词前不用冠词（<span class="it" onclick="speak('mio padre')">mio padre</span>），其余情况用冠词。<span class="it" onclick="speak('loro')">loro</span> 始终用冠词。
+    </div>
+  </div>
+</section>
+
+<!-- 9. 缩合介词总表 -->
+<section class="page-section" id="preposizioni">
+  <h2>9. 缩合介词总表 &mdash; p.218-226</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>&nbsp;</th><th>il</th><th>lo</th><th>l'</th><th>la</th><th>i</th><th>gli</th><th>le</th></tr>
+      <tr><td><strong>a</strong></td><td><span class="verb" onclick="speak('al')">al</span></td><td><span class="verb" onclick="speak('allo')">allo</span></td><td><span class="verb" onclick="speak('all\'')">all'</span></td><td><span class="verb" onclick="speak('alla')">alla</span></td><td><span class="verb" onclick="speak('ai')">ai</span></td><td><span class="verb" onclick="speak('agli')">agli</span></td><td><span class="verb" onclick="speak('alle')">alle</span></td></tr>
+      <tr><td><strong>da</strong></td><td><span class="verb" onclick="speak('dal')">dal</span></td><td><span class="verb" onclick="speak('dallo')">dallo</span></td><td><span class="verb" onclick="speak('dall\'')">dall'</span></td><td><span class="verb" onclick="speak('dalla')">dalla</span></td><td><span class="verb" onclick="speak('dai')">dai</span></td><td><span class="verb" onclick="speak('dagli')">dagli</span></td><td><span class="verb" onclick="speak('dalle')">dalle</span></td></tr>
+      <tr><td><strong>di</strong></td><td><span class="verb" onclick="speak('del')">del</span></td><td><span class="verb" onclick="speak('dello')">dello</span></td><td><span class="verb" onclick="speak('dell\'')">dell'</span></td><td><span class="verb" onclick="speak('della')">della</span></td><td><span class="verb" onclick="speak('dei')">dei</span></td><td><span class="verb" onclick="speak('degli')">degli</span></td><td><span class="verb" onclick="speak('delle')">delle</span></td></tr>
+      <tr><td><strong>in</strong></td><td><span class="verb" onclick="speak('nel')">nel</span></td><td><span class="verb" onclick="speak('nello')">nello</span></td><td><span class="verb" onclick="speak('nell\'')">nell'</span></td><td><span class="verb" onclick="speak('nella')">nella</span></td><td><span class="verb" onclick="speak('nei')">nei</span></td><td><span class="verb" onclick="speak('negli')">negli</span></td><td><span class="verb" onclick="speak('nelle')">nelle</span></td></tr>
+      <tr><td><strong>su</strong></td><td><span class="verb" onclick="speak('sul')">sul</span></td><td><span class="verb" onclick="speak('sullo')">sullo</span></td><td><span class="verb" onclick="speak('sull\'')">sull'</span></td><td><span class="verb" onclick="speak('sulla')">sulla</span></td><td><span class="verb" onclick="speak('sui')">sui</span></td><td><span class="verb" onclick="speak('sugli')">sugli</span></td><td><span class="verb" onclick="speak('sulle')">sulle</span></td></tr>
+      <tr><td><strong>con</strong></td><td><span class="verb" onclick="speak('col')">col</span></td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td><span class="verb" onclick="speak('coi')">coi</span></td><td>&mdash;</td><td>&mdash;</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 10. 数字总表 100-1000 -->
+<section class="page-section" id="numeri">
+  <h2>10. 数字总表 100-1000 &mdash; p.228-229</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>数字</th><th>意大利语</th><th>数字</th><th>意大利语</th></tr>
+      <tr><td>100</td><td><span class="verb" onclick="speak('cento')">cento</span></td><td>600</td><td><span class="verb" onclick="speak('seicento')">seicento</span></td></tr>
+      <tr><td>101</td><td><span class="verb" onclick="speak('centouno')">centouno</span></td><td>700</td><td><span class="verb" onclick="speak('settecento')">settecento</span></td></tr>
+      <tr><td>200</td><td><span class="verb" onclick="speak('duecento')">duecento</span></td><td>800</td><td><span class="verb" onclick="speak('ottocento')">ottocento</span></td></tr>
+      <tr><td>300</td><td><span class="verb" onclick="speak('trecento')">trecento</span></td><td>900</td><td><span class="verb" onclick="speak('novecento')">novecento</span></td></tr>
+      <tr><td>400</td><td><span class="verb" onclick="speak('quattrocento')">quattrocento</span></td><td>1000</td><td><span class="verb" onclick="speak('mille')">mille</span></td></tr>
+      <tr><td>500</td><td><span class="verb" onclick="speak('cinquecento')">cinquecento</span></td><td></td><td></td></tr>
+    </table>
+    <div class="note-box">
+      <strong>&#x26A0;&#xFE0F;</strong> 数字从100起，百位数 + cento（连写）。例外：101 = centouno（而非 cento uno）。
+    </div>
+  </div>
+</section>
+
+<!-- 11. 疑问词总表 -->
+<section class="page-section" id="interrogativi">
+  <h2>11. 疑问词总表</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>疑问词</th><th>用法</th><th>示例</th></tr>
+      <tr><td><span class="verb" onclick="speak('Chi?')">Chi?</span></td><td>谁</td><td><span class="it" onclick="speak('Chi è?')">Chi è?</span></td></tr>
+      <tr><td><span class="verb" onclick="speak('Che?')">Che? / Che cosa? / Cosa?</span></td><td>什么</td><td><span class="it" onclick="speak('Che fai?')">Che fai?</span> / <span class="it" onclick="speak('Che cosa fai?')">Che cosa fai?</span> / <span class="it" onclick="speak('Cosa fai?')">Cosa fai?</span></td></tr>
+      <tr><td><span class="verb" onclick="speak('Dove?')">Dove?</span></td><td>哪里</td><td><span class="it" onclick="speak('Dove abiti?')">Dove abiti?</span></td></tr>
+      <tr><td><span class="verb" onclick="speak('Di dove?')">Di dove?</span></td><td>从哪里来</td><td><span class="it" onclick="speak('Di dove sei?')">Di dove sei?</span></td></tr>
+      <tr><td><span class="verb" onclick="speak('Quale?')">Quale? / Quali?</span></td><td>哪一个/哪些</td><td><span class="it" onclick="speak('Quale libro?')">Quale libro?</span> / <span class="it" onclick="speak('Quali libri?')">Quali libri?</span></td></tr>
+      <tr><td><span class="verb" onclick="speak('Come?')">Come?</span></td><td>怎样</td><td><span class="it" onclick="speak('Come stai?')">Come stai?</span></td></tr>
+      <tr><td><span class="verb" onclick="speak('Perché?')">Perché?</span></td><td>为什么</td><td><span class="it" onclick="speak('Perché studi italiano?')">Perché studi italiano?</span></td></tr>
+      <tr><td><span class="verb" onclick="speak('Quanto?')">Quanto/a/i/e?</span></td><td>多少</td><td><span class="it" onclick="speak('Quanti anni hai?')">Quanti anni hai?</span></td></tr>
+      <tr><td><span class="verb" onclick="speak('Quando?')">Quando?</span></td><td>什么时候</td><td><span class="it" onclick="speak('Quando arrivi?')">Quando arrivi?</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 12. 否定词 -->
+<section class="page-section" id="negazione">
+  <h2>12. 否定词 &mdash; p.226</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>否定结构</th><th>示例</th></tr>
+      <tr><td><span class="verb" onclick="speak('non')">non</span> + 动词</td><td><span class="it" onclick="speak('Non parlo.')">Non parlo.</span></td></tr>
+      <tr><td><span class="verb" onclick="speak('non... mai')">non... mai</span></td><td><span class="it" onclick="speak('Non vado mai.')">Non vado mai.</span></td></tr>
+      <tr><td><span class="verb" onclick="speak('non... niente')">non... niente/nulla</span></td><td><span class="it" onclick="speak('Non faccio niente.')">Non faccio niente.</span></td></tr>
+      <tr><td><span class="verb" onclick="speak('non... nessuno')">non... nessuno</span></td><td><span class="it" onclick="speak('Non c\'è nessuno.')">Non c'è nessuno.</span></td></tr>
+      <tr><td><span class="verb" onclick="speak('non... più')">non... più</span></td><td><span class="it" onclick="speak('Non piove più.')">Non piove più.</span></td></tr>
+      <tr><td><span class="verb" onclick="speak('non... né... né')">non... né... né</span></td><td><span class="it" onclick="speak('Non ho né tempo né soldi.')">Non ho né tempo né soldi.</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 13. 绝对最高级 -->
+<section class="page-section" id="superlativo">
+  <h2>13. 绝对最高级 &mdash; p.214</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>形式</th><th>示例</th></tr>
+      <tr><td><span class="verb" onclick="speak('molto')">molto</span> + 形容词</td><td><span class="it" onclick="speak('molto bello')">molto bello</span></td></tr>
+      <tr><td>-issimo/a/i/e</td><td><span class="it" onclick="speak('bellissimo')">bellissimo</span>, <span class="it" onclick="speak('bellissima')">bellissima</span></td></tr>
+      <tr><td>重复形容词</td><td><span class="it" onclick="speak('piano piano')">piano piano</span>, <span class="it" onclick="speak('sottile sottile')">sottile sottile</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="facciamo-punto.html">&larr; Facciamo il punto</a>
+  <a href="eserciziario.html">Eserciziario &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 1</div>
+  <p>Corso di lingua italiana per stranieri · Livello A1</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

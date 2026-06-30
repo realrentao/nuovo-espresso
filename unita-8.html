@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 8 · Sapori d'Italia · NUOVO Espresso 1</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+    <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    .alphabet-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .alphabet-table th { background: linear-gradient(135deg, var(--ne-cream), #FDEBD0); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); }
+    .alphabet-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); cursor: pointer; transition: all 0.2s; }
+    .alphabet-table tr:last-child td { border-bottom: none; }
+    .alphabet-table td:hover { background: rgba(241,196,15,0.15); color: var(--ne-red); }
+    .alphabet-table .foreign { color: var(--ne-muted); font-size: 12px; font-style: italic; }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 1 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 8 · A1</div>
+  <h1>&#x1F372; Sapori d'Italia</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">意大利的味道 · p.103-116</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">购物与食品市场 · 点餐与购买 · 直接宾语代词 · 部分冠词 · 代词 ne</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <h3>1. Che cosa desidera? · p.104, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">在市场购物（Ascolta e completa.）</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Buongiorno, che cosa desidera?')">A: Buongiorno, che cosa desidera?</span></td><td class="zh">A: 早上好，您想要什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Buongiorno. Vorrei della frutta fresca.')">B: Buongiorno. Vorrei della frutta fresca.</span></td><td class="zh">B: 早上好。我想要一些新鲜水果。</td></tr>
+    <tr><td><span class="it" onclick="speak('Che tipo di frutta?')">A: Che tipo di frutta?</span></td><td class="zh">A: 哪种水果？</td></tr>
+    <tr><td><span class="it" onclick="speak('Delle pesche. Sono buone?')">B: Delle pesche. Sono buone?</span></td><td class="zh">B: 一些桃子。好吃吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, sono buonissime! Sono di stagione.')">A: Sì, sono buonissime! Sono di stagione.</span></td><td class="zh">A: 是的，非常好吃！是当季的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Allora, me ne dia mezzo chilo.')">B: Allora, me ne dia mezzo chilo.</span></td><td class="zh">B: 那么，请给我半公斤。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ecco. Altro?')">A: Ecco. Altro?</span></td><td class="zh">A: 给您。还要别的吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, vorrei anche dell\'uva.')">B: Sì, vorrei anche dell'uva.</span></td><td class="zh">B: 是的，我还想要一些葡萄。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quanta?')">A: Quanta?</span></td><td class="zh">A: 多少？</td></tr>
+    <tr><td><span class="it" onclick="speak('Un chilo, per favore.')">B: Un chilo, per favore.</span></td><td class="zh">B: 一公斤，谢谢。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ecco fatto.')">A: Ecco fatto.</span></td><td class="zh">A: 好了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quanto viene?')">B: Quanto viene?</span></td><td class="zh">B: 多少钱？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sono 5 euro.')">A: Sono 5 euro.</span></td><td class="zh">A: 5欧元。</td></tr>
+    <tr><td><span class="it" onclick="speak('Grazie.')">B: Grazie.</span></td><td class="zh">B: 谢谢。</td></tr>
+  </table>
+
+  <h3>2. Al supermercato · p.106, es.4</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">在超市（Ascolta il dialogo.）</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Scusi, dov\'è l\'olio d\'oliva?')">A: Scusi, dov'è l'olio d'oliva?</span></td><td class="zh">A: 请问，橄榄油在哪里？</td></tr>
+    <tr><td><span class="it" onclick="speak('È al secondo scaffale, a destra.')">B: È al secondo scaffale, a destra.</span></td><td class="zh">B: 在第二个货架，右边。</td></tr>
+    <tr><td><span class="it" onclick="speak('Grazie. E il sale?')">A: Grazie. E il sale?</span></td><td class="zh">A: 谢谢。盐呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('È accanto all\'olio.')">B: È accanto all'olio.</span></td><td class="zh">B: 在橄榄油旁边。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ah, ho visto. Grazie.')">A: Ah, ho visto. Grazie.</span></td><td class="zh">A: 啊，我看到了。谢谢。</td></tr>
+  </table>
+
+  <h3>3. In gastronomia · p.108, es.6</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">在熟食店（Ascolta e completa.）</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Buongiorno, desidera?')">A: Buongiorno, desidera?</span></td><td class="zh">A: 早上好，您想要什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Vorrei del prosciutto crudo.')">B: Vorrei del prosciutto crudo.</span></td><td class="zh">B: 我想要一些生火腿。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quanto?')">A: Quanto?</span></td><td class="zh">A: 要多少？</td></tr>
+    <tr><td><span class="it" onclick="speak('200 grammi, per favore.')">B: 200 grammi, per favore.</span></td><td class="zh">B: 200克，谢谢。</td></tr>
+    <tr><td><span class="it" onclick="speak('Come lo vuole? Affettato?')">A: Come lo vuole? Affettato?</span></td><td class="zh">A: 您想要怎么切？切片？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, affettato sottile.')">B: Sì, affettato sottile.</span></td><td class="zh">B: 是的，切薄片。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ecco. Altro?')">A: Ecco. Altro?</span></td><td class="zh">A: 给您。还要别的吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, vorrei anche della mozzarella.')">B: Sì, vorrei anche della mozzarella.</span></td><td class="zh">B: 是的，我还想要一些马苏里拉奶酪。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quanta?')">A: Quanta?</span></td><td class="zh">A: 多少？</td></tr>
+    <tr><td><span class="it" onclick="speak('Due, per favore.')">B: Due, per favore.</span></td><td class="zh">B: 两个，谢谢。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ecco a Lei.')">A: Ecco a Lei.</span></td><td class="zh">A: 给您。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quanto pago?')">B: Quanto pago?</span></td><td class="zh">B: 我付多少？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sono 8 euro e 50 centesimi.')">A: Sono 8 euro e 50 centesimi.</span></td><td class="zh">A: 8欧元50分。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>水果 (Frutta)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la frutta')">la frutta</td><td>s.f.</td><td>水果</td></tr>
+    <tr><td class="it" onclick="speak('la mela')">la mela</td><td>s.f.</td><td>苹果</td></tr>
+    <tr><td class="it" onclick="speak('la pera')">la pera</td><td>s.f.</td><td>梨</td></tr>
+    <tr><td class="it" onclick="speak('la pesca')">la pesca</td><td>s.f.</td><td>桃子</td></tr>
+    <tr><td class="it" onclick="speak('l\'albicocca')">l'albicocca</td><td>s.f.</td><td>杏</td></tr>
+    <tr><td class="it" onclick="speak('la susina')">la susina / la prugna</td><td>s.f.</td><td>李子</td></tr>
+    <tr><td class="it" onclick="speak('l\'uva')">l'uva</td><td>s.f.</td><td>葡萄</td></tr>
+    <tr><td class="it" onclick="speak('l\'arancia')">l'arancia</td><td>s.f.</td><td>橙子</td></tr>
+    <tr><td class="it" onclick="speak('il limone')">il limone</td><td>s.m.</td><td>柠檬</td></tr>
+    <tr><td class="it" onclick="speak('la fragola')">la fragola</td><td>s.f.</td><td>草莓</td></tr>
+    <tr><td class="it" onclick="speak('la banana')">la banana</td><td>s.f.</td><td>香蕉</td></tr>
+    <tr><td class="it" onclick="speak('il melone')">il melone</td><td>s.m.</td><td>甜瓜</td></tr>
+    <tr><td class="it" onclick="speak('l\'anguria')">l'anguria / il cocomero</td><td>s.f./s.m.</td><td>西瓜</td></tr>
+  </table>
+
+  <h3>蔬菜 (Verdura)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la verdura')">la verdura</td><td>s.f.</td><td>蔬菜</td></tr>
+    <tr><td class="it" onclick="speak('i pomodori')">i pomodori</td><td>s.m.pl.</td><td>番茄</td></tr>
+    <tr><td class="it" onclick="speak('le patate')">le patate</td><td>s.f.pl.</td><td>土豆</td></tr>
+    <tr><td class="it" onclick="speak('le cipolle')">le cipolle</td><td>s.f.pl.</td><td>洋葱</td></tr>
+    <tr><td class="it" onclick="speak('i funghi')">i funghi</td><td>s.m.pl.</td><td>蘑菇</td></tr>
+    <tr><td class="it" onclick="speak('i peperoni')">i peperoni</td><td>s.m.pl.</td><td>甜椒</td></tr>
+    <tr><td class="it" onclick="speak('le melanzane')">le melanzane</td><td>s.f.pl.</td><td>茄子</td></tr>
+    <tr><td class="it" onclick="speak('le zucchine')">le zucchine</td><td>s.f.pl.</td><td>西葫芦</td></tr>
+    <tr><td class="it" onclick="speak('i carciofi')">i carciofi</td><td>s.m.pl.</td><td>朝鲜蓟</td></tr>
+    <tr><td class="it" onclick="speak('gli spinaci')">gli spinaci</td><td>s.m.pl.</td><td>菠菜</td></tr>
+    <tr><td class="it" onclick="speak('l\'insalata')">l'insalata</td><td>s.f.</td><td>生菜/沙拉</td></tr>
+    <tr><td class="it" onclick="speak('le carote')">le carote</td><td>s.f.pl.</td><td>胡萝卜</td></tr>
+    <tr><td class="it" onclick="speak('i fagioli')">i fagioli</td><td>s.m.pl.</td><td>豆子</td></tr>
+    <tr><td class="it" onclick="speak('i piselli')">i piselli</td><td>s.m.pl.</td><td>豌豆</td></tr>
+  </table>
+
+  <h3>肉类 (Carne)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la carne')">la carne</td><td>s.f.</td><td>肉</td></tr>
+    <tr><td class="it" onclick="speak('il pollo')">il pollo</td><td>s.m.</td><td>鸡肉</td></tr>
+    <tr><td class="it" onclick="speak('il manzo')">il manzo</td><td>s.m.</td><td>牛肉</td></tr>
+    <tr><td class="it" onclick="speak('il maiale')">il maiale</td><td>s.m.</td><td>猪肉</td></tr>
+    <tr><td class="it" onclick="speak('l\'agnello')">l'agnello</td><td>s.m.</td><td>羊肉</td></tr>
+    <tr><td class="it" onclick="speak('la bistecca')">la bistecca</td><td>s.f.</td><td>牛排</td></tr>
+    <tr><td class="it" onclick="speak('il prosciutto crudo')">il prosciutto crudo</td><td>s.m.</td><td>生火腿</td></tr>
+    <tr><td class="it" onclick="speak('il prosciutto cotto')">il prosciutto cotto</td><td>s.m.</td><td>熟火腿</td></tr>
+    <tr><td class="it" onclick="speak('il salame')">il salame</td><td>s.m.</td><td>萨拉米香肠</td></tr>
+  </table>
+
+  <h3>鱼类与海鲜 (Pesce)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il pesce')">il pesce</td><td>s.m.</td><td>鱼</td></tr>
+    <tr><td class="it" onclick="speak('il salmone')">il salmone</td><td>s.m.</td><td>三文鱼</td></tr>
+    <tr><td class="it" onclick="speak('il tonno')">il tonno</td><td>s.m.</td><td>金枪鱼</td></tr>
+    <tr><td class="it" onclick="speak('i frutti di mare')">i frutti di mare</td><td>s.m.pl.</td><td>海鲜</td></tr>
+  </table>
+
+  <h3>奶酪 (Formaggi)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il formaggio')">il formaggio</td><td>s.m.</td><td>奶酪</td></tr>
+    <tr><td class="it" onclick="speak('la mozzarella')">la mozzarella</td><td>s.f.</td><td>马苏里拉奶酪</td></tr>
+    <tr><td class="it" onclick="speak('il parmigiano')">il parmigiano</td><td>s.m.</td><td>帕玛森奶酪</td></tr>
+    <tr><td class="it" onclick="speak('il pecorino')">il pecorino</td><td>s.m.</td><td>佩科里诺奶酪</td></tr>
+    <tr><td class="it" onclick="speak('il gorgonzola')">il gorgonzola</td><td>s.m.</td><td>戈贡佐拉蓝纹奶酪</td></tr>
+  </table>
+
+  <h3>调味品与其他食材</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('l\'olio d\'oliva')">l'olio d'oliva</td><td>s.m.</td><td>橄榄油</td></tr>
+    <tr><td class="it" onclick="speak('l\'aceto')">l'aceto</td><td>s.m.</td><td>醋</td></tr>
+    <tr><td class="it" onclick="speak('il sale')">il sale</td><td>s.m.</td><td>盐</td></tr>
+    <tr><td class="it" onclick="speak('il pepe')">il pepe</td><td>s.m.</td><td>胡椒</td></tr>
+    <tr><td class="it" onclick="speak('lo zucchero')">lo zucchero</td><td>s.m.</td><td>糖</td></tr>
+    <tr><td class="it" onclick="speak('la farina')">la farina</td><td>s.f.</td><td>面粉</td></tr>
+    <tr><td class="it" onclick="speak('le uova')">le uova</td><td>s.f.pl.</td><td>鸡蛋</td></tr>
+    <tr><td class="it" onclick="speak('il latte')">il latte</td><td>s.m.</td><td>牛奶</td></tr>
+    <tr><td class="it" onclick="speak('il burro')">il burro</td><td>s.m.</td><td>黄油</td></tr>
+    <tr><td class="it" onclick="speak('la marmellata')">la marmellata</td><td>s.f.</td><td>果酱</td></tr>
+    <tr><td class="it" onclick="speak('il miele')">il miele</td><td>s.m.</td><td>蜂蜜</td></tr>
+    <tr><td class="it" onclick="speak('la pasta')">la pasta</td><td>s.f.</td><td>意面</td></tr>
+    <tr><td class="it" onclick="speak('il riso')">il riso</td><td>s.m.</td><td>大米</td></tr>
+    <tr><td class="it" onclick="speak('il pane')">il pane</td><td>s.m.</td><td>面包</td></tr>
+    <tr><td class="it" onclick="speak('la pizza')">la pizza</td><td>s.f.</td><td>披萨</td></tr>
+  </table>
+
+  <h3>包装与重量 (Confezioni e pesi)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('un pacco di...')">un pacco di...</td><td>一包...</td></tr>
+    <tr><td class="it" onclick="speak('una confezione di...')">una confezione di...</td><td>一盒/一袋...</td></tr>
+    <tr><td class="it" onclick="speak('un litro di...')">un litro di...</td><td>一升...</td></tr>
+    <tr><td class="it" onclick="speak('un chilo di...')">un chilo / un chilogrammo di...</td><td>一公斤...</td></tr>
+    <tr><td class="it" onclick="speak('mezzo chilo di...')">mezzo chilo di...</td><td>半公斤...</td></tr>
+    <tr><td class="it" onclick="speak('un etto di...')">un etto (100g) di...</td><td>一百克...</td></tr>
+    <tr><td class="it" onclick="speak('un pezzo di...')">un pezzo di...</td><td>一块...</td></tr>
+    <tr><td class="it" onclick="speak('una fetta di...')">una fetta di...</td><td>一片...</td></tr>
+    <tr><td class="it" onclick="speak('un vasetto di...')">un vasetto di...</td><td>一小罐...</td></tr>
+    <tr><td class="it" onclick="speak('un barattolo di...')">un barattolo di...</td><td>一罐...</td></tr>
+  </table>
+
+  <h3>购物表达 (Fare la spesa)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('Quanto viene?')">Quanto viene? / Quanto costa?</td><td>多少钱？</td></tr>
+    <tr><td class="it" onclick="speak('Quanto pago?')">Quanto pago?</td><td>我付多少？</td></tr>
+    <tr><td class="it" onclick="speak('Me ne dia...')">Me ne dia...</td><td>请给我...（用于不可数名词）</td></tr>
+    <tr><td class="it" onclick="speak('Ne vorrei...')">Ne vorrei...</td><td>我想要...（一些）</td></tr>
+    <tr><td class="it" onclick="speak('Altro?')">Altro?</td><td>还要别的吗？</td></tr>
+    <tr><td class="it" onclick="speak('Ecco fatto.')">Ecco fatto. / Ecco a Lei.</td><td>好了。/给您。</td></tr>
+    <tr><td class="it" onclick="speak('È di stagione.')">È di stagione.</td><td>是当季的。</td></tr>
+    <tr><td class="it" onclick="speak('affettato')">affettato</td><td>切好的（片）</td></tr>
+    <tr><td class="it" onclick="speak('sottile')">sottile / spesso</td><td>薄/厚</td></tr>
+    <tr><td class="it" onclick="speak('al mercato')">al mercato / al supermercato</td><td>在市场/超市</td></tr>
+    <tr><td class="it" onclick="speak('in gastronomia')">in gastronomia / dal salumiere</td><td>在熟食店</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <h3>1. 直接宾语代词 (Pronomi diretti) — p.110</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>直接宾语代词</th><th>含义</th><th>示例</th></tr>
+      <tr><td>1ª sing.</td><td><span class="verb">mi</span></td><td>我</td><td><span class="it" onclick="speak('Mi vedi?')"><strong>Mi</strong> vedi?</span>（你看见我吗？）</td></tr>
+      <tr><td>2ª sing.</td><td><span class="verb">ti</span></td><td>你</td><td><span class="it" onclick="speak('Ti chiamo.')"><strong>Ti</strong> chiamo.</span>（我打给你。）</td></tr>
+      <tr><td>3ª sing. (m.)</td><td><span class="verb">lo</span></td><td>他/它（阳）</td><td><span class="it" onclick="speak('Lo prendo.')"><strong>Lo</strong> prendo.</span>（我拿它/我点它。）</td></tr>
+      <tr><td>3ª sing. (f.)</td><td><span class="verb">la</span></td><td>她/它（阴）</td><td><span class="it" onclick="speak('La compro.')"><strong>La</strong> compro.</span>（我买它。）</td></tr>
+      <tr><td>1ª plur.</td><td><span class="verb">ci</span></td><td>我们</td><td><span class="it" onclick="speak('Ci vede?')"><strong>Ci</strong> vede?</span>（他看见我们吗？）</td></tr>
+      <tr><td>2ª plur.</td><td><span class="verb">vi</span></td><td>你们</td><td><span class="it" onclick="speak('Vi aspetto.')"><strong>Vi</strong> aspetto.</span>（我等你们。）</td></tr>
+      <tr><td>3ª plur. (m.)</td><td><span class="verb">li</span></td><td>它们（阳）</td><td><span class="it" onclick="speak('Li prendo.')"><strong>Li</strong> prendo.</span>（我拿它们/我点它们。）</td></tr>
+      <tr><td>3ª plur. (f.)</td><td><span class="verb">le</span></td><td>它们（阴）</td><td><span class="it" onclick="speak('Le compro.')"><strong>Le</strong> compro.</span>（我买它们。）</td></tr>
+    </table>
+    <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 14px;margin-top:12px;font-size:13px;">
+      <strong>&#x26A0;&#xFE0F; 注意</strong>: 直接宾语代词通常放在变位动词前面。
+    </div>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Il caffè? Lo prendo volentieri.')">Il caffè? <strong>Lo</strong> prendo volentieri.</span></td><td class="zh">咖啡？我很乐意喝。</td></tr>
+      <tr><td><span class="it" onclick="speak('La pizza? La mangio stasera.')">La pizza? <strong>La</strong> mangio stasera.</span></td><td class="zh">披萨？我今晚吃。</td></tr>
+      <tr><td><span class="it" onclick="speak('I pomodori? Li compro al mercato.')">I pomodori? <strong>Li</strong> compro al mercato.</span></td><td class="zh">番茄？我在市场买。</td></tr>
+      <tr><td><span class="it" onclick="speak('Le fragole? Le lavo adesso.')">Le fragole? <strong>Le</strong> lavo adesso.</span></td><td class="zh">草莓？我现在洗。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mi chiami?')"><strong>Mi</strong> chiami?</span></td><td class="zh">你打电话给我吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Ti aspetto alle 8.')"><strong>Ti</strong> aspetto alle 8.</span></td><td class="zh">我8点等你。</td></tr>
+    </table>
+
+    <p style="font-weight:600;margin:16px 0 8px;">完整形式（在动词不定式后，需连写）:</p>
+    <table>
+      <tr><td><span class="verb">prenderlo</span></td><td>Prendere + lo = <span class="it" onclick="speak('prenderlo')">prenderlo</span></td><td>拿它</td></tr>
+      <tr><td><span class="verb">comprarla</span></td><td>Comprare + la = <span class="it" onclick="speak('comprarla')">comprarla</span></td><td>买它</td></tr>
+      <tr><td><span class="verb">mangiarli</span></td><td>Mangiare + li = <span class="it" onclick="speak('mangiarli')">mangiarli</span></td><td>吃它们（阳）</td></tr>
+      <tr><td><span class="verb">mangiarle</span></td><td>Mangiare + le = <span class="it" onclick="speak('mangiarle')">mangiarle</span></td><td>吃它们（阴）</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Voglio mangiarlo.')">Voglio <strong>mangiarlo</strong>.</span></td><td class="zh">我想吃它。</td></tr>
+      <tr><td><span class="it" onclick="speak('Puoi comprarla?')">Puoi <strong>comprarla</strong>?</span></td><td class="zh">你能买它吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Devo prenderli.')">Devo <strong>prenderli</strong>.</span></td><td class="zh">我必须拿它们。</td></tr>
+    </table>
+  </div>
+
+  <h3>2. 部分冠词 (Articolo partitivo) — p.111</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>形式</th><th>用法</th><th>示例</th></tr>
+      <tr><td><span class="verb">del</span></td><td>阳性单数（辅音前）</td><td><span class="it" onclick="speak('del pane')">del pane</span>, <span class="it" onclick="speak('del formaggio')">del formaggio</span></td></tr>
+      <tr><td><span class="verb">dello</span></td><td>阳性单数（s+辅音/gn/ps/z前）</td><td><span class="it" onclick="speak('dello zucchero')">dello zucchero</span></td></tr>
+      <tr><td><span class="verb">dell'</span></td><td>阳/阴性单数（元音前）</td><td><span class="it" onclick="speak('dell\'olio')">dell'olio</span>, <span class="it" onclick="speak('dell\'acqua')">dell'acqua</span></td></tr>
+      <tr><td><span class="verb">della</span></td><td>阴性单数（辅音前）</td><td><span class="it" onclick="speak('della marmellata')">della marmellata</span></td></tr>
+      <tr><td><span class="verb">dei</span></td><td>阳性复数</td><td><span class="it" onclick="speak('dei pomodori')">dei pomodori</span></td></tr>
+      <tr><td><span class="verb">degli</span></td><td>阳性复数（元音/s+辅音前）</td><td><span class="it" onclick="speak('degli amici')">degli amici</span>, <span class="it" onclick="speak('degli studenti')">degli studenti</span></td></tr>
+      <tr><td><span class="verb">delle</span></td><td>阴性复数</td><td><span class="it" onclick="speak('delle mele')">delle mele</span></td></tr>
+    </table>
+    <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 14px;margin-top:12px;font-size:13px;">
+      <strong>&#x26A0;&#xFE0F; 含义</strong>: 部分冠词意为"一些/一部分"，相当于英语的"some/any"。<br>
+      <strong>&#x26A0;&#xFE0F; 注意</strong>: 在否定句中部分冠词变为 <strong>di</strong>（不带冠词）：Non ho <strong>di</strong> soldi.（我没有钱。）
+    </div>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Vorrei del pane.')">Vorrei <strong>del</strong> pane.</span></td><td class="zh">我想要一些面包。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho comprato della frutta.')">Ho comprato <strong>della</strong> frutta.</span></td><td class="zh">我买了一些水果。</td></tr>
+      <tr><td><span class="it" onclick="speak('Prendo dell\'acqua.')">Prendo <strong>dell'</strong> acqua.</span></td><td class="zh">我拿一些水。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ci sono dei turisti.')">Ci sono <strong>dei</strong> turisti.</span></td><td class="zh">有一些游客。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mangi della pasta?')">Mangi <strong>della</strong> pasta?</span></td><td class="zh">你吃些意面吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Non ho di soldi.')">Non ho <strong>di</strong> soldi.</span></td><td class="zh">我没有钱。（否定句）</td></tr>
+    </table>
+  </div>
+
+  <h3>3. 代词 ne（部分/数量代词）— p.111</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>用法</th><th>含义</th><th>示例</th></tr>
+      <tr><td><span class="verb">ne</span> + 数量</td><td>代替"di + 名词"</td><td><span class="it" onclick="speak('Quante mele vuoi? Ne voglio tre.')">Quante mele vuoi? <strong>Ne</strong> voglio tre.</span></td></tr>
+      <tr><td>表示其中的一部分</td><td>从...中</td><td><span class="it" onclick="speak('Ne ho abbastanza.')"><strong>Ne</strong> ho abbastanza.</span></td></tr>
+      <tr><td>表示从某处离开</td><td>关于.../从...</td><td><span class="it" onclick="speak('Ne parliamo dopo.')"><strong>Ne</strong> parliamo dopo.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Quanta frutta vuole? Ne prendo un chilo.')">Quanta frutta vuole? <strong>Ne</strong> prendo un chilo.</span></td><td class="zh">您要多少水果？我拿一公斤。</td></tr>
+      <tr><td><span class="it" onclick="speak('Quanti libri hai? Ne ho cinque.')">Quanti libri hai? <strong>Ne</strong> ho cinque.</span></td><td class="zh">你有多少本书？我有五本。</td></tr>
+      <tr><td><span class="it" onclick="speak('Vuoi del prosciutto? Sì, ne voglio 200 grammi.')">Vuoi del prosciutto? Sì, <strong>ne</strong> voglio 200 grammi.</span></td><td class="zh">你要火腿吗？是的，我要200克。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ne abbiamo parlato.')"><strong>Ne</strong> abbiamo parlato.</span></td><td class="zh">我们谈过这件事了。</td></tr>
+    </table>
+  </div>
+
+  <h3>4. 动词 mettere（放/放置）— 现在时</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>变位</th><th>发音</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('metto')">metto</span></td><td>/ˈmet.to/</td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('metti')">metti</span></td><td>/ˈmet.ti/</td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb" onclick="speak('mette')">mette</span></td><td>/ˈmet.te/</td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('mettiamo')">mettiamo</span></td><td>/metˈtja.mo/</td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('mettete')">mettete</span></td><td>/metˈte.te/</td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('mettono')">mettono</span></td><td>/ˈmet.to.no/</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">过去分词: <span class="verb">messo</span></p>
+    <p style="font-size:14px;"><span class="it" onclick="speak('Dove metto il sale?')"><strong>Dove metto il sale?</strong></span> — 我把盐放在哪里？</p>
+    <p style="font-size:14px;"><span class="it" onclick="speak('Ho messo la frutta nel frigo.')"><strong>Ho messo</strong> la frutta nel frigo.</span> — 我把水果放进冰箱了。</p>
+  </div>
+
+  <h3>5. 动词 cuocere（烹饪/煮）— 现在时</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>变位</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('cuocio')">cuocio</span></td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('cuoci')">cuoci</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb" onclick="speak('cuoce')">cuoce</span></td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('cuociamo')">cuociamo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('cuocete')">cuocete</span></td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('cuociono')">cuociono</span></td></tr>
+    </table>
+    <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 14px;margin-top:12px;font-size:13px;">
+      <strong>&#x26A0;&#xFE0F; 注意</strong>: cuocere 是不规则动词，词根变化。
+    </div>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 8 · p.116</h2>
+
+  <h3>&#x1F3DB;&#xFE0F; I prodotti italiani più famosi（意大利最著名的产品）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale — 将产品与描述配对（意大利原文）:</p>
+    <p class="it" onclick="speak('a. È la base della dieta mediterranea. In Italia si usa solo extravergine.')">a. È la base della dieta mediterranea. In Italia si usa solo extravergine.</p>
+    <p class="it" onclick="speak('b. Ha un sapore delicato ma nello stesso tempo intenso. Con il melone, è un antipasto tipico italiano.')">b. Ha un sapore delicato ma nello stesso tempo intenso. Con il melone, è un antipasto tipico italiano.</p>
+    <p class="it" onclick="speak('c. È il vino italiano più esportato e conosciuto all\'estero; prende il nome dalla zona della Toscana dove si produce.')">c. È il vino italiano più esportato e conosciuto all'estero; prende il nome dalla zona della Toscana dove si produce.</p>
+    <p class="it" onclick="speak('d. È il tradizionale cioccolatino torinese prodotto ancora con l\'antica ricetta.')">d. È il tradizionale cioccolatino torinese prodotto ancora con l'antica ricetta.</p>
+    <p class="it" onclick="speak('e. È sicuramente il formaggio più famoso d\'Italia. Ha un sapore intenso ma delicato.')">e. È sicuramente il formaggio più famoso d'Italia. Ha un sapore intenso ma delicato.</p>
+    <p class="it" onclick="speak('f. È uno dei formaggi italiani più famosi al mondo, dal sapore fresco e leggero, ideale in estate, si mangia con i pomodori nel tipico piatto della caprese.')">f. È uno dei formaggi italiani più famosi al mondo, dal sapore fresco e leggero, ideale in estate, si mangia con i pomodori nel tipico piatto della "caprese".</p>
+    <p class="it" onclick="speak('g. Sono un tipo di pasta tipico dell\'Emilia Romagna, dalla forma molto caratteristica e pieni di carne.')">g. Sono un tipo di pasta tipico dell'Emilia Romagna, dalla forma molto caratteristica e pieni di carne.</p>
+  </div>
+
+  <div class="grammar-box">
+    <p style="font-weight:600;margin-bottom:8px;">对应产品 (Abbina le descrizioni):</p>
+    <table>
+      <tr><td>☐ olio d'oliva extravergine</td><td>&rarr; a</td></tr>
+      <tr><td>☐ prosciutto di Parma</td><td>&rarr; b</td></tr>
+      <tr><td>☐ Chianti (vino)</td><td>&rarr; c</td></tr>
+      <tr><td>☐ gianduiotto (cioccolatino)</td><td>&rarr; d</td></tr>
+      <tr><td>☐ Parmigiano Reggiano</td><td>&rarr; e</td></tr>
+      <tr><td>☐ mozzarella di bufala</td><td>&rarr; f</td></tr>
+      <tr><td>☐ tortellini</td><td>&rarr; g</td></tr>
+    </table>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p>意大利最著名的食品包括：特级初榨橄榄油、帕尔马火腿、基安蒂葡萄酒、都灵巧克力Gianduiotto、帕玛森雷吉亚诺奶酪、水牛马苏里拉奶酪和意式小馄饨Tortellini。</p>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化对比:</strong><br>
+    1. Hai mai assaggiato uno di questi prodotti? — 你尝过这些产品中的任何一个吗？<br>
+    2. Quale è facile trovare nel tuo Paese? — 哪个在你的国家容易找到？<br>
+    3. Quale preferisci? — 你更喜欢哪个？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 8 — Il panino perfetto · p.114-115</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Prima di guardare il video (es.1-2):</p>
+  <ul style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 20px;">
+    <li>猜测完美的三明治需要什么材料</li>
+    <li>观察视频截图</li>
+  </ul>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Mentre guardi &mdash; es.6 (p.115): 阅读和完成食谱清单</p>
+  <table class="dialog-table">
+    <tr><th style="background:var(--ne-cream);">Panino</th><th style="background:var(--ne-cream);">Ingredienti</th></tr>
+    <tr><td><span class="it" onclick="speak('Panino 1')">Panino 1</span></td><td><span class="it" onclick="speak('pecorino, prosciutto, olive')">pecorino, prosciutto, olive</span></td></tr>
+    <tr><td><span class="it" onclick="speak('Panino 2')">Panino 2</span></td><td><span class="it" onclick="speak('peperoni, olio extravergine d\'oliva, melanzana, pomodoro')">peperoni, olio extravergine d'oliva, melanzana, pomodoro</span></td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">食谱步骤 (Passi):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Prima deve cuocere...')">Prima deve cuocere...</span></td><td class="zh">首先需要烹饪...</td></tr>
+    <tr><td><span class="it" onclick="speak('Poi taglia...')">Poi taglia...</span></td><td class="zh">然后切...</td></tr>
+    <tr><td><span class="it" onclick="speak('Aggiunge...')">Aggiunge...</span></td><td class="zh">加入...</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato &mdash; 课后活动:</strong><br>
+    &bull; 讨论自己的完美三明治配方<br>
+    &bull; 角色扮演购物对话
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-7.html" class="home-btn">&larr; Unità 7</a>
+  <a href="index.html" style="background:var(--ne-blue);">Torna al corso</a>
+  <a href="unita-9.html">Unità 9 &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 1</div>
+  <p>Corso di lingua italiana per stranieri · Livello A1</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

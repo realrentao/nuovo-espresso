@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facciamo il punto · 复习单元 · NUOVO Espresso 1</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+    <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    .alphabet-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .alphabet-table th { background: linear-gradient(135deg, var(--ne-cream), #FDEBD0); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); }
+    .alphabet-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); cursor: pointer; transition: all 0.2s; }
+    .alphabet-table tr:last-child td { border-bottom: none; }
+    .alphabet-table td:hover { background: rgba(241,196,15,0.15); color: var(--ne-red); }
+    .alphabet-table .foreign { color: var(--ne-muted); font-size: 12px; font-style: italic; }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 1 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Ripasso · A1</div>
+  <h1>&#x1F4DD; Facciamo il punto</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">复习单元 · Lezioni 1-10</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">每 2-3 单元一次系统复习，含语法回顾、词汇巩固和项目实践</p>
+</section>
+
+<!-- Facciamo il punto 1 -->
+<section class="page-section" id="punto1">
+  <h2>&#x1F504; Facciamo il punto 1 &mdash; Lezioni 1-2 (p.30-32)</h2>
+
+  <h3>&#x1F4CA; Bilancio &mdash; 自评清单</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;"><strong>Dopo queste lezioni, che cosa so fare?</strong>（学完这些课，我能做什么？）</p>
+  <table class="self-check-table">
+    <tr><th>能力 (Capacità)</th><th>自评</th></tr>
+    <tr><td><span class="it" onclick="speak('Parlare di me')">Parlare di me (nome, età, provenienza, professione, studi)</span><br><span style="font-size:12px;color:var(--ne-muted);">谈论自己（姓名、年龄、出身、职业、学习）</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Salutare e chiedere a qualcuno come sta')">Salutare e chiedere a qualcuno come sta</span><br><span style="font-size:12px;color:var(--ne-muted);">问候并询问某人状况</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Presentare qualcuno')">Presentare qualcuno</span><br><span style="font-size:12px;color:var(--ne-muted);">介绍某人</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Fare una breve conversazione')">Fare una breve conversazione</span><br><span style="font-size:12px;color:var(--ne-muted);">进行简短对话</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Parlare delle mie conoscenze linguistiche')">Parlare delle mie conoscenze linguistiche</span><br><span style="font-size:12px;color:var(--ne-muted);">谈论我的语言能力</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Ringraziare')">Ringraziare</span><br><span style="font-size:12px;color:var(--ne-muted);">表达感谢</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Usare un registro formale')">Usare un registro formale</span><br><span style="font-size:12px;color:var(--ne-muted);">使用正式语体</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+  </table>
+
+  <div class="grammar-box">
+    <h4 style="margin:0 0 8px;font-size:14px;color:var(--ne-blue);">&#x1F4DD; Cose nuove che ho imparato（我学到的新东西）</h4>
+    <ul style="font-size:14px;margin:0;padding-left:20px;">
+      <li>10 parole o espressioni che mi sembrano importanti — 10个我觉得重要的单词或表达</li>
+      <li>Una cosa particolarmente difficile — 一件特别困难的事</li>
+      <li>Una curiosità sull'Italia e gli italiani — 关于意大利和意大利人的趣事</li>
+    </ul>
+  </div>
+
+  <h3>&#x1F3ED; Progetto &mdash; 项目活动</h3>
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;"><span class="it" onclick="speak('La mia classe su Facebook')">La mia classe su Facebook</span>（我的班级在Facebook上）</p>
+    <ol style="font-size:14px;margin:0;padding-left:20px;">
+      <li>和同学们一起在Facebook上创建一个群组</li>
+      <li>写一段关于自己的简短介绍</li>
+      <li>拍照并加上简短描述上传到群组</li>
+      <li>寻找并邀请其他意大利语学习者加入，交流对话</li>
+    </ol>
+    <p style="margin:8px 0 0;font-size:13px;background:#fff3cd;padding:6px 10px;border-radius:6px;"><strong>&#x1F6A8; 自测</strong>: 做第156页的测试题</p>
+  </div>
+
+  <h3>&#x1F3B2; Gioco &mdash; 游戏 (p.30)</h3>
+  <div class="grammar-box">
+    <p style="font-size:14px;margin:0;">教材中有配对/问答游戏，帮助学生复习第1-2课所学内容。包括问候语配对、自我介绍问答、数字拼写游戏等。</p>
+  </div>
+</section>
+
+<hr class="review-divider">
+
+<!-- Facciamo il punto 2 -->
+<section class="page-section" id="punto2">
+  <h2>&#x1F504; Facciamo il punto 2 &mdash; Lezioni 3-5 (p.71-72)</h2>
+
+  <h3>&#x1F4CA; Bilancio &mdash; 自评清单</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;"><strong>Dopo queste lezioni, che cosa so fare?</strong></p>
+  <table class="self-check-table">
+    <tr><th>能力 (Capacità)</th><th>自评</th></tr>
+    <tr><td><span class="it" onclick="speak('Ordinare al bar e al ristorante')">Ordinare al bar e al ristorante</span><br><span style="font-size:12px;color:var(--ne-muted);">在酒吧和餐厅点餐</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Prenotare un tavolo al ristorante')">Prenotare un tavolo al ristorante</span><br><span style="font-size:12px;color:var(--ne-muted);">预订餐厅桌子</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Chiedere il conto')">Chiedere il conto</span><br><span style="font-size:12px;color:var(--ne-muted);">要求结账</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Parlare del tempo libero')">Parlare del tempo libero</span><br><span style="font-size:12px;color:var(--ne-muted);">谈论空闲时间</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Parlare della frequenza')">Parlare della frequenza</span><br><span style="font-size:12px;color:var(--ne-muted);">谈论频率</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Esprimere gusti e preferenze')">Esprimere gusti e preferenze</span><br><span style="font-size:12px;color:var(--ne-muted);">表达喜好和偏好</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Dire l\'ora')">Dire l'ora</span><br><span style="font-size:12px;color:var(--ne-muted);">说出时间</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Prenotare una camera d\'albergo')">Prenotare una camera d'albergo</span><br><span style="font-size:12px;color:var(--ne-muted);">预订酒店房间</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Chiedere il prezzo')">Chiedere il prezzo</span><br><span style="font-size:12px;color:var(--ne-muted);">询问价格</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Descrivere una stanza')">Descrivere una stanza</span><br><span style="font-size:12px;color:var(--ne-muted);">描述房间</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Lamentarsi')">Lamentarsi</span><br><span style="font-size:12px;color:var(--ne-muted);">抱怨/投诉</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+  </table>
+
+  <h3>&#x1F3ED; Progetto &mdash; 项目活动</h3>
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;"><span class="it" onclick="speak('Una vacanza ideale')">Una vacanza ideale</span>（理想假期）</p>
+    <p style="font-size:14px;">计划一次意大利旅行，包括交通、住宿、餐饮和活动。</p>
+  </div>
+
+  <h3>&#x1F3B2; Gioco &mdash; 游戏 (p.71)</h3>
+  <div class="grammar-box">
+    <p style="font-size:14px;margin:0;">复习第3-5课内容的游戏活动：点餐角色扮演、时间表达竞赛、酒店预订情景模拟等。</p>
+  </div>
+</section>
+
+<hr class="review-divider">
+
+<!-- Facciamo il punto 3 -->
+<section class="page-section" id="punto3">
+  <h2>&#x1F504; Facciamo il punto 3 &mdash; Lezioni 6-7 (p.101-102)</h2>
+
+  <h3>&#x1F4CA; Bilancio &mdash; 自评清单</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;"><strong>Dopo queste lezioni, che cosa so fare?</strong></p>
+  <table class="self-check-table">
+    <tr><th>能力 (Capacità)</th><th>自评</th></tr>
+    <tr><td><span class="it" onclick="speak('Descrivere una città')">Descrivere una città</span><br><span style="font-size:12px;color:var(--ne-muted);">描述一座城市</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Chiedere informazioni stradali')">Chiedere informazioni stradali</span><br><span style="font-size:12px;color:var(--ne-muted);">询问路线信息</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Dare indicazioni')">Dare indicazioni</span><br><span style="font-size:12px;color:var(--ne-muted);">指路</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Chiedere e dire gli orari')">Chiedere e dire gli orari</span><br><span style="font-size:12px;color:var(--ne-muted);">询问和说出时间表</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Parlare del tempo atmosferico')">Parlare del tempo atmosferico</span><br><span style="font-size:12px;color:var(--ne-muted);">谈论天气</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Parlare delle vacanze')">Parlare delle vacanze</span><br><span style="font-size:12px;color:var(--ne-muted);">谈论假期</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Raccontare cosa ho fatto')">Raccontare cosa ho fatto (passato prossimo)</span><br><span style="font-size:12px;color:var(--ne-muted);">讲述我做了什么（近过去时）</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+  </table>
+
+  <h3>&#x1F3ED; Progetto &mdash; 项目活动</h3>
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;"><span class="it" onclick="speak('Una vacanza in Italia')">Una vacanza in Italia</span>（在意大利度假）</p>
+    <p style="font-size:14px;">计划一次意大利假期行程，包括目的地、住宿、活动和预算。</p>
+  </div>
+
+  <h3>&#x1F3B2; Gioco &mdash; 游戏 (p.101)</h3>
+  <div class="grammar-box">
+    <p style="font-size:14px;margin:0;">复习第6-7课内容的游戏活动：城市描述猜谜、问路指路角色扮演、天气词汇宾果游戏等。</p>
+  </div>
+</section>
+
+<hr class="review-divider">
+
+<!-- Facciamo il punto 4 -->
+<section class="page-section" id="punto4">
+  <h2>&#x1F504; Facciamo il punto 4 &mdash; Lezioni 8-10 (p.149-150)</h2>
+
+  <h3>&#x1F4CA; Bilancio &mdash; 自评清单</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;"><strong>Dopo queste lezioni, che cosa so fare?</strong></p>
+  <table class="self-check-table">
+    <tr><th>能力 (Capacità)</th><th>自评</th></tr>
+    <tr><td><span class="it" onclick="speak('Fare la spesa')">Fare la spesa</span><br><span style="font-size:12px;color:var(--ne-muted);">购物/采购食品</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Chiedere il prezzo e pagare')">Chiedere il prezzo e pagare</span><br><span style="font-size:12px;color:var(--ne-muted);">询问价格并付款</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Parlare della mia giornata')">Parlare della mia giornata</span><br><span style="font-size:12px;color:var(--ne-muted);">谈论我的一天</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Parlare della frequenza')">Parlare della frequenza</span><br><span style="font-size:12px;color:var(--ne-muted);">谈论频率</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Raccontare le mie abitudini')">Raccontare le mie abitudini</span><br><span style="font-size:12px;color:var(--ne-muted);">讲述我的习惯</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Parlare della mia famiglia')">Parlare della mia famiglia</span><br><span style="font-size:12px;color:var(--ne-muted);">谈论我的家庭</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Descrivere una foto')">Descrivere una foto</span><br><span style="font-size:12px;color:var(--ne-muted);">描述一张照片</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Usare gli aggettivi possessivi')">Usare gli aggettivi possessivi</span><br><span style="font-size:12px;color:var(--ne-muted);">使用物主形容词</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Raccontare un evento passato')">Raccontare un evento passato</span><br><span style="font-size:12px;color:var(--ne-muted);">讲述过去的事件</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+    <tr><td><span class="it" onclick="speak('Fare gli auguri')">Fare gli auguri</span><br><span style="font-size:12px;color:var(--ne-muted);">表达祝福</span></td><td>&#x25CB; &#x25CB; &#x25CB;</td></tr>
+  </table>
+
+  <h3>&#x1F3ED; Progetto &mdash; 项目活动</h3>
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;"><span class="it" onclick="speak('Il mio album di famiglia')">Il mio album di famiglia</span>（我的家庭相册）</p>
+    <ul style="font-size:14px;margin:0;padding-left:20px;">
+      <li>收集家庭照片，用意大利语描述每个人</li>
+      <li>使用物主形容词和自反动词</li>
+    </ul>
+  </div>
+
+  <h3>&#x1F3B2; Gioco &mdash; 游戏 (p.149)</h3>
+  <div class="grammar-box">
+    <p style="font-size:14px;margin:0;">复习第8-10课内容的游戏活动：购物情景模拟、家庭角色扮演、物主形容词配对游戏等。</p>
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-10.html">&larr; Unità 10</a>
+  <a href="grammatica-riassuntiva.html">Grammatica riassuntiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 1</div>
+  <p>Corso di lingua italiana per stranieri · Livello A1</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

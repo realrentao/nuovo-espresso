@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eserciziario · 练习册 · NUOVO Espresso 1</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+    <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    .alphabet-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .alphabet-table th { background: linear-gradient(135deg, var(--ne-cream), #FDEBD0); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); }
+    .alphabet-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); cursor: pointer; transition: all 0.2s; }
+    .alphabet-table tr:last-child td { border-bottom: none; }
+    .alphabet-table td:hover { background: rgba(241,196,15,0.15); color: var(--ne-red); }
+    .alphabet-table .foreign { color: var(--ne-muted); font-size: 12px; font-style: italic; }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 1 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Esercizi · A1</div>
+  <h1>&#x270F;&#xFE0F; Eserciziario</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">练习册 · 全10单元 50+ 练习题</p>
+</section>
+
+<!-- Lezione 1-2 -->
+<section class="page-section" id="lez1-2">
+  <h2>&#x1F4DA; Lezioni 1-2 &mdash; Primi contatti · Io e gli altri</h2>
+
+  <div class="exercise-card">
+    <span class="exercise-num">1</span><span class="question">Seleziona il saluto corretto (选择正确的问候): Mattina (5-13)</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q1"> Buona sera!</label>
+      <label><input type="radio" name="q1" data-correct="1"> Buongiorno!</label>
+      <label><input type="radio" name="q1"> Buonanotte!</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'Buongiorno!（早晨到下午1点用 Buongiorno）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">2</span><span class="question">Come si dice "你叫什么名字？" in modo formale? (正式说法)</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q2"> Come ti chiami?</label>
+      <label><input type="radio" name="q2"> Come si chiama?</label>
+      <label><input type="radio" name="q2" data-correct="1"> Come si chiama? (Lei)</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'Come si chiama? — 用 Lei（您）的正式形式')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">3</span><span class="question">Completa: Io ___ italiano. (essere)</span><span class="es-type">填空</span>
+    <div class="options">
+      <label><input type="radio" name="q3"> sei</label>
+      <label><input type="radio" name="q3" data-correct="1"> sono</label>
+      <label><input type="radio" name="q3"> è</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'Io sono italiano.')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">4</span><span class="question">Qual è il numero? 17 in italiano:</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q4"> diciasette</label>
+      <label><input type="radio" name="q4" data-correct="1"> diciassette</label>
+      <label><input type="radio" name="q4"> diciannove</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'diciassette — 17')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">5</span><span class="question">"Qual è" 的正確写法是？</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q5"> Qual'è</label>
+      <label><input type="radio" name="q5" data-correct="1"> Qual è</label>
+      <label><input type="radio" name="q5"> Quale è</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'Qual è — 不加撇号！Qual\'è 是错误的。')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">6</span><span class="question">Scegli l'articolo corretto: ___ signore (先生)</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q6" data-correct="1"> il</label>
+      <label><input type="radio" name="q6"> la</label>
+      <label><input type="radio" name="q6"> l'</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'il signore — signore 是阳性名词，以辅音开头')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">7</span><span class="question">Rispondi: "Di dove sei?" — 正确答案是？</span><span class="es-type">对话</span>
+    <div class="options">
+      <label><input type="radio" name="q7"> Mi chiamo Maria.</label>
+      <label><input type="radio" name="q7" data-correct="1"> Sono di Milano.</label>
+      <label><input type="radio" name="q7"> Ho 25 anni.</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'Sono di Milano. — Di dove sei? 问的是"你从哪里来"')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">8</span><span class="question">Abbina: "A: Ho un cellulare nuovo. B: ___ io!" (我也)</span><span class="es-type">填空</span>
+    <div class="options">
+      <label><input type="radio" name="q8" data-correct="1"> Anch'io</label>
+      <label><input type="radio" name="q8"> Anche io</label>
+      <label><input type="radio" name="q8"> Anchio</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'Anch\'io! — anche + io = anch\'io，省音为撇号')">&#x1F4A1; 点击显示答案</div>
+  </div>
+</section>
+
+<!-- Lezione 3 -->
+<section class="page-section" id="lez3">
+  <h2>&#x1F4DA; Lezione 3 &mdash; Buon appetito!</h2>
+
+  <div class="exercise-card">
+    <span class="exercise-num">9</span><span class="question">Cosa ordini al bar? "Io ___ un cornetto e un caffè." (prendere)</span><span class="es-type">动词变位</span>
+    <div class="options">
+      <label><input type="radio" name="q9"> prendi</label>
+      <label><input type="radio" name="q9" data-correct="1"> prendo</label>
+      <label><input type="radio" name="q9"> prende</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'prendo — Io prendo（我点/我拿）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">10</span><span class="question">Come si dice "请结账" in italiano?</span><span class="es-type">对话</span>
+    <div class="options">
+      <label><input type="radio" name="q10"> Quanto costa?</label>
+      <label><input type="radio" name="q10" data-correct="1"> Il conto, per cortesia.</label>
+      <label><input type="radio" name="q10"> Vorrei un tavolo.</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'Il conto, per cortesia. — 结账的礼貌说法')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">11</span><span class="question">Completa: "I cornetti ___ la crema o ___ la marmellata?" (con / senza)</span><span class="es-type">介词</span>
+    <div class="options">
+      <label><input type="radio" name="q11" data-correct="1"> con / con</label>
+      <label><input type="radio" name="q11"> senza / con</label>
+      <label><input type="radio" name="q11"> per / di</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'con la crema o con la marmellata（加奶油还是加果酱）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">12</span><span class="question">"Tengo" al ristorante significa:</span><span class="es-type">文化</span>
+    <div class="options">
+      <label><input type="radio" name="q12"> 我拿着</label>
+      <label><input type="radio" name="q12" data-correct="1"> 我留着（零钱当小费，不找零）</label>
+      <label><input type="radio" name="q12"> 我买单</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '我留着（零钱当小费，不找零）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">13</span><span class="question">Plurale di "il ristorante":</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q13"> il ristoranti</label>
+      <label><input type="radio" name="q13" data-correct="1"> i ristoranti</label>
+      <label><input type="radio" name="q13"> ristorantes</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'i ristoranti — -e → -i, il → i')">&#x1F4A1; 点击显示答案</div>
+  </div>
+</section>
+
+<!-- Lezione 4 -->
+<section class="page-section" id="lez4">
+  <h2>&#x1F4DA; Lezione 4 &mdash; Tempo libero</h2>
+
+  <div class="exercise-card">
+    <span class="exercise-num">14</span><span class="question">"Che cosa fai nel tempo libero?" — 哪种回答最合适？</span><span class="es-type">对话</span>
+    <div class="options">
+      <label><input type="radio" name="q14"> Sono di Roma.</label>
+      <label><input type="radio" name="q14" data-correct="1"> Di solito faccio sport.</label>
+      <label><input type="radio" name="q14"> Ho 30 anni.</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'Di solito faccio sport.（我通常做运动）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">15</span><span class="question">Completa: "Mi ___ la pizza." (piacere)</span><span class="es-type">动词</span>
+    <div class="options">
+      <label><input type="radio" name="q15"> piace</label>
+      <label><input type="radio" name="q15"> piaccio</label>
+      <label><input type="radio" name="q15" data-correct="1"> piace</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'Mi piace la pizza.（pizza是单数，用piace）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">16</span><span class="question">"Mi piacciono gli spaghetti" — 为什么用piacciono？</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q16"> 因为spaghetti是阳性</label>
+      <label><input type="radio" name="q16" data-correct="1"> 因为spaghetti是复数</label>
+      <label><input type="radio" name="q16"> 因为mi后面必须用复数</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '因为spaghetti是复数，mi piace → mi piacciono')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">17</span><span class="question">Che ora è? 8:30 =</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q17"> le otto</label>
+      <label><input type="radio" name="q17" data-correct="1"> le otto e mezza</label>
+      <label><input type="radio" name="q17"> le nove meno trenta</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'le otto e mezza（8点半）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">18</span><span class="question">Verbo dormire (io):</span><span class="es-type">动词变位</span>
+    <div class="options">
+      <label><input type="radio" name="q18" data-correct="1"> dormo</label>
+      <label><input type="radio" name="q18"> dormi</label>
+      <label><input type="radio" name="q18"> dorme</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'dormo — io dormo（我睡觉）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+</section>
+
+<!-- Lezione 5 -->
+<section class="page-section" id="lez5">
+  <h2>&#x1F4DA; Lezione 5 &mdash; In albergo</h2>
+
+  <div class="exercise-card">
+    <span class="exercise-num">19</span><span class="question">Come prenoti una camera doppia?</span><span class="es-type">对话</span>
+    <div class="options">
+      <label><input type="radio" name="q19"> Voglio una pizza.</label>
+      <label><input type="radio" name="q19" data-correct="1"> Avete una camera doppia?</label>
+      <label><input type="radio" name="q19"> Dov'è la stazione?</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'Avete una camera doppia?（你们有双人间吗？）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">20</span><span class="question">"C'è la connessione Wi-Fi?" — 回答应该是？</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q20" data-correct="1"> Sì, c'è. È gratuita.</label>
+      <label><input type="radio" name="q20"> Sì, ci sono.</label>
+      <label><input type="radio" name="q20"> No, c'è.</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'Sì, c\'è. È gratuita.（Wi-Fi是单数，用c\'è）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">21</span><span class="question">"Posso avere un altro cuscino?" — cuscino 意为？</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q21"> 毛巾</label>
+      <label><input type="radio" name="q21"> 毯子</label>
+      <label><input type="radio" name="q21" data-correct="1"> 枕头</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'cuscino = 枕头')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">22</span><span class="question">Verbo potere (lui):</span><span class="es-type">动词变位</span>
+    <div class="options">
+      <label><input type="radio" name="q22"> posso</label>
+      <label><input type="radio" name="q22" data-correct="1"> può</label>
+      <label><input type="radio" name="q22"> puoi</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'può — lui/lei può（他/她能）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">23</span><span class="question">"Nella mia camera non funziona ___." (暖气)</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q23" data-correct="1"> il riscaldamento</label>
+      <label><input type="radio" name="q23"> l'aria condizionata</label>
+      <label><input type="radio" name="q23"> l'ascensore</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'il riscaldamento = 暖气')">&#x1F4A1; 点击显示答案</div>
+  </div>
+</section>
+
+<!-- Lezione 6 -->
+<section class="page-section" id="lez6">
+  <h2>&#x1F4DA; Lezione 6 &mdash; In giro per l'Italia</h2>
+
+  <div class="exercise-card">
+    <span class="exercise-num">24</span><span class="question">"Scusi, per la stazione?" — 意思是什么？</span><span class="es-type">对话</span>
+    <div class="options">
+      <label><input type="radio" name="q24"> 火车站关门了吗？</label>
+      <label><input type="radio" name="q24" data-correct="1"> 请问去火车站怎么走？</label>
+      <label><input type="radio" name="q24"> 火车站在哪里？</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '请问去火车站怎么走？')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">25</span><span class="question">"Vada sempre dritto." 是哪种语体？</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q25"> 非正式（tu）</label>
+      <label><input type="radio" name="q25" data-correct="1"> 正式（Lei）</label>
+      <label><input type="radio" name="q25"> 复数（voi）</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '正式（Lei）— Vada 是 andare 的尊称命令式')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">26</span><span class="question">"È laggiù" significa:</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q26"> 在楼上</label>
+      <label><input type="radio" name="q26" data-correct="1"> 在那边</label>
+      <label><input type="radio" name="q26"> 在左边</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '在那边')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">27</span><span class="question">"Gira a destra" =</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q27"> 向左转</label>
+      <label><input type="radio" name="q27" data-correct="1"> 向右转</label>
+      <label><input type="radio" name="q27"> 向后转</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '向右转 — destra = 右')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">28</span><span class="question">La banca apre ___ 8.30. (介词)</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q28"> in</label>
+      <label><input type="radio" name="q28" data-correct="1"> alle</label>
+      <label><input type="radio" name="q28"> da</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'alle 8.30 — a + le = alle（在几点钟）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+</section>
+
+<!-- Lezione 7 -->
+<section class="page-section" id="lez7">
+  <h2>&#x1F4DA; Lezione 7 &mdash; Andiamo in vacanza!</h2>
+
+  <div class="exercise-card">
+    <span class="exercise-num">29</span><span class="question">"Dove andate in vacanza?" — 回答中 andate 是哪个主语？</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q29"> noi</label>
+      <label><input type="radio" name="q29" data-correct="1"> voi</label>
+      <label><input type="radio" name="q29"> loro</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'voi（你们）— Andate = 你们去')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">30</span><span class="question">Passato prossimo: "Ieri ___ al mare." (andare, io)</span><span class="es-type">近过去时</span>
+    <div class="options">
+      <label><input type="radio" name="q30"> ho andato</label>
+      <label><input type="radio" name="q30" data-correct="1"> sono andato</label>
+      <label><input type="radio" name="q30"> sono andare</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'sono andato — andare 用 essere 作助动词')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">31</span><span class="question">"Che tempo fa?" — "___ il sole."</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q31" data-correct="1"> C'è</label>
+      <label><input type="radio" name="q31"> Fa</label>
+      <label><input type="radio" name="q31"> È</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'C\'è il sole.（出太阳）— il sole 用 c\'è')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">32</span><span class="question">"Piove" significa:</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q32"> 下雪</label>
+      <label><input type="radio" name="q32" data-correct="1"> 下雨</label>
+      <label><input type="radio" name="q32"> 刮风</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '下雨 — piove = 下雨')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">33</span><span class="question">"Ho visitato Siena" — 这是什么时态？</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q33"> 现在时</label>
+      <label><input type="radio" name="q33" data-correct="1"> 近过去时</label>
+      <label><input type="radio" name="q33"> 将来时</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '近过去时（passato prossimo）— ho visitato')">&#x1F4A1; 点击显示答案</div>
+  </div>
+</section>
+
+<!-- Lezione 8 -->
+<section class="page-section" id="lez8">
+  <h2>&#x1F4DA; Lezione 8 &mdash; Sapori d'Italia</h2>
+
+  <div class="exercise-card">
+    <span class="exercise-num">34</span><span class="question">"Quanto viene?" significa:</span><span class="es-type">对话</span>
+    <div class="options">
+      <label><input type="radio" name="q34"> 你要多少？</label>
+      <label><input type="radio" name="q34" data-correct="1"> 多少钱？</label>
+      <label><input type="radio" name="q34"> 你在哪里？</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '多少钱？— Quanto viene? = 多少钱？')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">35</span><span class="question">"Me ne dia mezzo chilo." — ne 在这里什么意思？</span><span class="es-type">代词</span>
+    <div class="options">
+      <label><input type="radio" name="q35" data-correct="1"> 代替之前提到的物品（给我一些）</label>
+      <label><input type="radio" name="q35"> 表示否定</label>
+      <label><input type="radio" name="q35"> 表示"从那里"</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'ne 代替之前提到的水果，意为"给我半公斤"')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">36</span><span class="question">"Sono buonissime!" — buonissime 是哪种最高级？</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q36"> molto buone</label>
+      <label><input type="radio" name="q36" data-correct="1"> -issima 形式（绝对最高级）</label>
+      <label><input type="radio" name="q36"> 相对最高级</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'buonissime = molto buone（-issima 绝对最高级，阴性复数）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">37</span><span class="question">"Dell'uva" 中的 dell' 是什么？</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q37"> 定冠词</label>
+      <label><input type="radio" name="q37" data-correct="1"> 部分冠词（一部分葡萄）</label>
+      <label><input type="radio" name="q37"> 不定冠词</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '部分冠词（一部分/一些）— dell\'uva（一些葡萄）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">38</span><span class="question">"200 grammi di prosciutto crudo" — prosciutto crudo 是？</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q38"> 熟火腿</label>
+      <label><input type="radio" name="q38" data-correct="1"> 生火腿</label>
+      <label><input type="radio" name="q38"> 烤肉</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'prosciutto crudo = 生火腿（cotto = 熟的）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+</section>
+
+<!-- Lezione 9 -->
+<section class="page-section" id="lez9">
+  <h2>&#x1F4DA; Lezione 9 &mdash; Vita quotidiana</h2>
+
+  <div class="exercise-card">
+    <span class="exercise-num">39</span><span class="question">"Come cominci la giornata?" — 最合适的回答是？</span><span class="es-type">对话</span>
+    <div class="options">
+      <label><input type="radio" name="q39" data-correct="1"> Mi sveglio alle 7, poi mi alzo e faccio colazione.</label>
+      <label><input type="radio" name="q39"> Vado a letto alle 23.</label>
+      <label><input type="radio" name="q39"> Lavoro in un ufficio.</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'Mi sveglio alle 7...（我7点醒来，然后起床吃早饭）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">40</span><span class="question">"Mi alzo" 中的 mi 是什么代词？</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q40"> 直接宾语代词</label>
+      <label><input type="radio" name="q40" data-correct="1"> 自反代词</label>
+      <label><input type="radio" name="q40"> 间接宾语代词</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '自反代词 — alzarsi（起床）是自反动词')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">41</span><span class="question">Completa: "Di solito ___ un cornetto e ___ un cappuccino." (mangiare / bere)</span><span class="es-type">动词变位</span>
+    <div class="options">
+      <label><input type="radio" name="q41" data-correct="1"> mangio / bevo</label>
+      <label><input type="radio" name="q41"> mangia / beve</label>
+      <label><input type="radio" name="q41"> mangi / bevi</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'mangio / bevo — 第一人称单数（我吃/我喝）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">42</span><span class="question">"Tutti i lunedì sera gioco a calcetto." — 频率是？</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q42"> 每个周一晚上</label>
+      <label><input type="radio" name="q42" data-correct="1"> 每周一晚上</label>
+      <label><input type="radio" name="q42"> 上星期一晚上</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '每周一晚上 — tutti i = 每个/所有')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">43</span><span class="question">"Andiamo al cinema stasera?" — 回答 "Buona idea!" 表示？</span><span class="es-type">对话</span>
+    <div class="options">
+      <label><input type="radio" name="q43"> 拒绝</label>
+      <label><input type="radio" name="q43" data-correct="1"> 同意</label>
+      <label><input type="radio" name="q43"> 犹豫</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '同意 — Buona idea! = 好主意！')">&#x1F4A1; 点击显示答案</div>
+  </div>
+</section>
+
+<!-- Lezione 10 -->
+<section class="page-section" id="lez10">
+  <h2>&#x1F4DA; Lezione 10 &mdash; La famiglia</h2>
+
+  <div class="exercise-card">
+    <span class="exercise-num">44</span><span class="question">"Quanti siete in famiglia?" — 回答 "Siamo ___ ."</span><span class="es-type">对话</span>
+    <div class="options">
+      <label><input type="radio" name="q44"> in quattro</label>
+      <label><input type="radio" name="q44" data-correct="1"> in quattro</label>
+      <label><input type="radio" name="q44"> quattro persone</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'Siamo in quattro.（我们四口人）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">45</span><span class="question">"Mio padre" — 为什么没有冠词？</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q45"> 语法错误，应该有冠词</label>
+      <label><input type="radio" name="q45" data-correct="1"> 单数亲属名词前不用冠词</label>
+      <label><input type="radio" name="q45"> padre 是专有名词</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '单数亲属名词前不用冠词（mio padre, mia madre）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">46</span><span class="question">"I miei genitori" — genitori 是什么？</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q46"> 孩子们</label>
+      <label><input type="radio" name="q46" data-correct="1"> 父母</label>
+      <label><input type="radio" name="q46"> 亲戚</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'genitori = 父母（单数 genitore = 父/母）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">47</span><span class="question">"Sei figlio unico?" — 回答 "Sì, ___ figlio unico."</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q47" data-correct="1"> sono</label>
+      <label><input type="radio" name="q47"> è</label>
+      <label><input type="radio" name="q47"> ho</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'Sì, sono figlio unico.（是的，我是独生子）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">48</span><span class="question">"Il mio cane" — cane 是什么性别？</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q48" data-correct="1"> 阳性（il cane）</label>
+      <label><input type="radio" name="q48"> 阴性（la cane）</label>
+      <label><input type="radio" name="q48"> 可阳可阴</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '阳性 — il cane（狗），la cagna（母狗）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">49</span><span class="question">"Vivo con la mia famiglia." — vivo 是哪个动词的变位？</span><span class="es-type">动词</span>
+    <div class="options">
+      <label><input type="radio" name="q49"> vedere</label>
+      <label><input type="radio" name="q49" data-correct="1"> vivere</label>
+      <label><input type="radio" name="q49"> venire</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'vivere（生活/居住）— io vivo')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">50</span><span class="question">"Ho un fratello e una sorella." — 说你有？</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q50" data-correct="1"> 一个弟弟和一个妹妹</label>
+      <label><input type="radio" name="q50"> 一个哥哥和两个妹妹</label>
+      <label><input type="radio" name="q50"> 两个兄弟</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '一个弟弟/哥哥和一个妹妹/姐姐（un = 一个）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">51</span><span class="question">"Accanto a me c'è Laura" — accanto a 意为？</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q51" data-correct="1"> 在我旁边</label>
+      <label><input type="radio" name="q51"> 在我前面</label>
+      <label><input type="radio" name="q51"> 在我后面</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'accanto a = 在...旁边')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">52</span><span class="question">"Fare gli auguri" 意思是？</span><span class="es-type">词汇</span>
+    <div class="options">
+      <label><input type="radio" name="q52"> 请客</label>
+      <label><input type="radio" name="q52" data-correct="1"> 表达祝福</label>
+      <label><input type="radio" name="q52"> 做饭</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'fare gli auguri = 表达祝福/祝贺')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">53</span><span class="question">Completa: "Lei ___ cinese." (essere — 尊称)</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q53"> sei</label>
+      <label><input type="radio" name="q53" data-correct="1"> è</label>
+      <label><input type="radio" name="q53"> sono</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'è — 尊称Lei用第三人称单数')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">54</span><span class="question">"Vorrei prenotare un tavolo." — vorrei 是什么语气？</span><span class="es-type">语法</span>
+    <div class="options">
+      <label><input type="radio" name="q54" data-correct="1"> 条件式（礼貌表达"我想要"）</label>
+      <label><input type="radio" name="q54"> 现在时</label>
+      <label><input type="radio" name="q54"> 过去时</label>
+    </div>
+    <div class="answer" onclick="reveal(this, '条件式（condizionale）— volere的条件式，表示礼貌')">&#x1F4A1; 点击显示答案</div>
+  </div>
+
+  <div class="exercise-card">
+    <span class="exercise-num">55</span><span class="question">"Hai fratelli o sorelle?" — 否定回答？</span><span class="es-type">对话</span>
+    <div class="options">
+      <label><input type="radio" name="q55"> Sì, ho un fratello.</label>
+      <label><input type="radio" name="q55" data-correct="1"> No, sono figlio unico.</label>
+      <label><input type="radio" name="q55"> No, non ho niente.</label>
+    </div>
+    <div class="answer" onclick="reveal(this, 'No, sono figlio unico.（不，我是独生子/女）')">&#x1F4A1; 点击显示答案</div>
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="grammatica-riassuntiva.html">&larr; Grammatica riassuntiva</a>
+  <a href="index.html" style="background:var(--ne-blue);">Torna al corso &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 1</div>
+  <p>Corso di lingua italiana per stranieri · Livello A1</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+
+  function reveal(el, answer) {
+    if (el.classList.contains('revealed')) return;
+    el.textContent = '✓ ' + answer;
+    el.classList.add('revealed');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 5 · In albergo · NUOVO Espresso 1</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+    <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    .alphabet-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .alphabet-table th { background: linear-gradient(135deg, var(--ne-cream), #FDEBD0); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); }
+    .alphabet-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); cursor: pointer; transition: all 0.2s; }
+    .alphabet-table tr:last-child td { border-bottom: none; }
+    .alphabet-table td:hover { background: rgba(241,196,15,0.15); color: var(--ne-red); }
+    .alphabet-table .foreign { color: var(--ne-muted); font-size: 12px; font-style: italic; }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 1 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 5 · A1</div>
+  <h1>&#x1F3E8; In albergo</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">在酒店 · p.59-70</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">酒店预订与入住 · c'è/ci sono · 动词 potere/venire · 月份与序数词 · 缩合介词</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <h3>1. Desidera una camera? · p.60, es.2</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">预订酒店房间的完整对话。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Buongiorno, desidera?')">A: Buongiorno, desidera?</span></td><td class="zh">A: 早上好，您需要什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Buongiorno, avete una camera?')">B: Buongiorno, avete una camera?</span></td><td class="zh">B: 早上好，你们有房间吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, per una notte?')">A: Sì, per una notte?</span></td><td class="zh">A: 有的，住一晚？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, per una notte.')">B: Sì, per una notte.</span></td><td class="zh">B: 是的，住一晚。</td></tr>
+    <tr><td><span class="it" onclick="speak('Una singola o una doppia?')">A: Una singola o una doppia?</span></td><td class="zh">A: 单人间还是双人间？</td></tr>
+    <tr><td><span class="it" onclick="speak('Una doppia.')">B: Una doppia.</span></td><td class="zh">B: 双人间。</td></tr>
+    <tr><td><span class="it" onclick="speak('Con bagno o senza bagno?')">A: Con bagno o senza bagno?</span></td><td class="zh">A: 带浴室还是不带？</td></tr>
+    <tr><td><span class="it" onclick="speak('Con bagno. Quanto viene?')">B: Con bagno. Quanto viene?</span></td><td class="zh">B: 带浴室。多少钱？</td></tr>
+    <tr><td><span class="it" onclick="speak('80 euro a notte, colazione inclusa.')">A: 80 euro a notte, colazione inclusa.</span></td><td class="zh">A: 每晚80欧元，含早餐。</td></tr>
+    <tr><td><span class="it" onclick="speak('Va bene.')">B: Va bene.</span></td><td class="zh">B: 好的。</td></tr>
+    <tr><td><span class="it" onclick="speak('A che nome?')">A: A che nome?</span></td><td class="zh">A: 以谁的名字？</td></tr>
+    <tr><td><span class="it" onclick="speak('Marchi.')">B: Marchi.</span></td><td class="zh">B: 马尔基。</td></tr>
+  </table>
+
+  <h3>2. Reception, buona sera · p.64, es.7</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">客人投诉房间问题的对话。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Reception, buona sera. Sono la signora della camera 18.')">Ospite: Reception, buona sera. Sono la signora della camera 18.</span></td><td class="zh">客人: 前台，晚上好。我是18号房间的女士。</td></tr>
+    <tr><td><span class="it" onclick="speak('Buona sera, signora. Mi dica.')">Portiere: Buona sera, signora. Mi dica.</span></td><td class="zh">前台: 晚上好，女士。请讲。</td></tr>
+    <tr><td><span class="it" onclick="speak('Nella mia camera non funziona il riscaldamento.')">Ospite: Nella mia camera non funziona il riscaldamento.</span></td><td class="zh">客人: 我房间的暖气坏了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ah, mi dispiace. Forse è spento. Viene subito qualcuno a controllare.')">Portiere: Ah, mi dispiace. Forse è spento. Viene subito qualcuno a controllare.</span></td><td class="zh">前台: 啊，很抱歉。可能关掉了。马上有人去查看。</td></tr>
+    <tr><td><span class="it" onclick="speak('La ringrazio.')">Ospite: La ringrazio.</span></td><td class="zh">客人: 谢谢您。</td></tr>
+    <tr><td><span class="it" onclick="speak('Prego, si immagini!')">Portiere: Prego, si immagini!</span></td><td class="zh">前台: 别客气！</td></tr>
+    <tr><td><span class="it" onclick="speak('E poi ancora una cosa: posso avere un altro cuscino?')">Ospite: E poi ancora una cosa: posso avere un altro cuscino?</span></td><td class="zh">客人: 还有一件事：我能再要一个枕头吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Certo.')">Portiere: Certo.</span></td><td class="zh">前台: 当然。</td></tr>
+    <tr><td><span class="it" onclick="speak('Grazie mille.')">Ospite: Grazie mille.</span></td><td class="zh">客人: 非常感谢。</td></tr>
+  </table>
+
+  <h3>3. C'è / Ci sono · p.61, es.3</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">询问酒店设施的对话。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Buongiorno, cerco una camera.')">A: Buongiorno, cerco una camera.</span></td><td class="zh">A: 早上好，我想找一间房。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, certo.')">B: Sì, certo.</span></td><td class="zh">B: 好的，当然。</td></tr>
+    <tr><td><span class="it" onclick="speak('C\'è la connessione Wi-Fi?')">A: C'è la connessione Wi-Fi?</span></td><td class="zh">A: 有Wi-Fi连接吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, c\'è. È gratuita.')">B: Sì, c'è. È gratuita.</span></td><td class="zh">B: 有的，是免费的。</td></tr>
+    <tr><td><span class="it" onclick="speak('C\'è anche il riscaldamento?')">A: C'è anche il riscaldamento?</span></td><td class="zh">A: 还有暖气吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Certo, in tutte le camere.')">B: Certo, in tutte le camere.</span></td><td class="zh">B: 当然，所有房间都有。</td></tr>
+    <tr><td><span class="it" onclick="speak('E ci sono asciugamani?')">A: E ci sono asciugamani?</span></td><td class="zh">A: 有毛巾吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, naturalmente.')">B: Sì, naturalmente.</span></td><td class="zh">B: 是的，当然有。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>酒店词汇 (In albergo)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('l\'albergo')">l'albergo</td><td>s.m.</td><td>酒店</td></tr>
+    <tr><td class="it" onclick="speak('l\'hotel')">l'hotel</td><td>s.m.</td><td>酒店</td></tr>
+    <tr><td class="it" onclick="speak('la camera')">la camera</td><td>s.f.</td><td>房间</td></tr>
+    <tr><td class="it" onclick="speak('la camera singola')">la camera singola</td><td>s.f.</td><td>单人间</td></tr>
+    <tr><td class="it" onclick="speak('la camera doppia')">la camera doppia</td><td>s.f.</td><td>双人间（一张大床）</td></tr>
+    <tr><td class="it" onclick="speak('la camera matrimoniale')">la camera matrimoniale</td><td>s.f.</td><td>大床房</td></tr>
+    <tr><td class="it" onclick="speak('la camera con bagno')">la camera con bagno</td><td>s.f.</td><td>带浴室的房间</td></tr>
+    <tr><td class="it" onclick="speak('la camera senza bagno')">la camera senza bagno</td><td>s.f.</td><td>不带浴室的房间</td></tr>
+    <tr><td class="it" onclick="speak('il receptionist')">il/la receptionist</td><td>s.</td><td>前台接待员</td></tr>
+    <tr><td class="it" onclick="speak('la reception')">la reception</td><td>s.f.</td><td>前台</td></tr>
+    <tr><td class="it" onclick="speak('il portiere')">il portiere</td><td>s.m.</td><td>门房/前台人员</td></tr>
+    <tr><td class="it" onclick="speak('il riscaldamento')">il riscaldamento</td><td>s.m.</td><td>暖气</td></tr>
+    <tr><td class="it" onclick="speak('l\'aria condizionata')">l'aria condizionata</td><td>s.f.</td><td>空调</td></tr>
+    <tr><td class="it" onclick="speak('l\'ascensore')">l'ascensore</td><td>s.m.</td><td>电梯</td></tr>
+    <tr><td class="it" onclick="speak('la connessione Wi-Fi')">la connessione Wi-Fi</td><td>s.f.</td><td>Wi-Fi连接</td></tr>
+    <tr><td class="it" onclick="speak('la chiave')">la chiave</td><td>s.f.</td><td>钥匙</td></tr>
+    <tr><td class="it" onclick="speak('il cuscino')">il cuscino</td><td>s.m.</td><td>枕头</td></tr>
+    <tr><td class="it" onclick="speak('la coperta')">la coperta</td><td>s.f.</td><td>毯子</td></tr>
+    <tr><td class="it" onclick="speak('l\'asciugamano')">l'asciugamano</td><td>s.m.</td><td>毛巾</td></tr>
+    <tr><td class="it" onclick="speak('il televisore')">il televisore / la TV</td><td>s.m./s.f.</td><td>电视</td></tr>
+    <tr><td class="it" onclick="speak('il telefono')">il telefono</td><td>s.m.</td><td>电话</td></tr>
+    <tr><td class="it" onclick="speak('il minibar')">il minibar</td><td>s.m.</td><td>迷你吧</td></tr>
+    <tr><td class="it" onclick="speak('il garage')">il garage</td><td>s.m.</td><td>车库</td></tr>
+    <tr><td class="it" onclick="speak('il parcheggio')">il parcheggio</td><td>s.m.</td><td>停车场</td></tr>
+    <tr><td class="it" onclick="speak('la colazione')">la colazione</td><td>s.f.</td><td>早餐</td></tr>
+    <tr><td class="it" onclick="speak('colazione inclusa')">colazione inclusa</td><td>esp.</td><td>含早餐</td></tr>
+    <tr><td class="it" onclick="speak('la mezza pensione')">la mezza pensione</td><td>s.f.</td><td>半食宿（含早晚餐）</td></tr>
+    <tr><td class="it" onclick="speak('la pensione completa')">la pensione completa</td><td>s.f.</td><td>全食宿（含三餐）</td></tr>
+  </table>
+
+  <h3>家具与设施 (Arredamento)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il letto')">il letto</td><td>s.m.</td><td>床</td></tr>
+    <tr><td class="it" onclick="speak('la sedia')">la sedia</td><td>s.f.</td><td>椅子</td></tr>
+    <tr><td class="it" onclick="speak('il tavolo')">il tavolo</td><td>s.m.</td><td>桌子</td></tr>
+    <tr><td class="it" onclick="speak('l\'armadio')">l'armadio</td><td>s.m.</td><td>衣柜</td></tr>
+    <tr><td class="it" onclick="speak('la scrivania')">la scrivania</td><td>s.f.</td><td>书桌</td></tr>
+    <tr><td class="it" onclick="speak('la lampada')">la lampada</td><td>s.f.</td><td>灯</td></tr>
+    <tr><td class="it" onclick="speak('la finestra')">la finestra</td><td>s.f.</td><td>窗户</td></tr>
+    <tr><td class="it" onclick="speak('la porta')">la porta</td><td>s.f.</td><td>门</td></tr>
+    <tr><td class="it" onclick="speak('il bagno')">il bagno</td><td>s.m.</td><td>浴室</td></tr>
+    <tr><td class="it" onclick="speak('la doccia')">la doccia</td><td>s.f.</td><td>淋浴</td></tr>
+    <tr><td class="it" onclick="speak('il termosifone')">il termosifone</td><td>s.m.</td><td>暖气片</td></tr>
+    <tr><td class="it" onclick="speak('la presa')">la presa</td><td>s.f.</td><td>插座</td></tr>
+  </table>
+
+  <h3>月份 (Mesi)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('gennaio')">gennaio</td><td>一月</td></tr>
+    <tr><td class="it" onclick="speak('febbraio')">febbraio</td><td>二月</td></tr>
+    <tr><td class="it" onclick="speak('marzo')">marzo</td><td>三月</td></tr>
+    <tr><td class="it" onclick="speak('aprile')">aprile</td><td>四月</td></tr>
+    <tr><td class="it" onclick="speak('maggio')">maggio</td><td>五月</td></tr>
+    <tr><td class="it" onclick="speak('giugno')">giugno</td><td>六月</td></tr>
+    <tr><td class="it" onclick="speak('luglio')">luglio</td><td>七月</td></tr>
+    <tr><td class="it" onclick="speak('agosto')">agosto</td><td>八月</td></tr>
+    <tr><td class="it" onclick="speak('settembre')">settembre</td><td>九月</td></tr>
+    <tr><td class="it" onclick="speak('ottobre')">ottobre</td><td>十月</td></tr>
+    <tr><td class="it" onclick="speak('novembre')">novembre</td><td>十一月</td></tr>
+    <tr><td class="it" onclick="speak('dicembre')">dicembre</td><td>十二月</td></tr>
+  </table>
+  <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:12px 16px;margin:12px 0;font-size:13px;">
+    <strong>&#x26A0;&#xFE0F; 注意</strong>: 月份名词均为阳性。表达"在一月"：<strong>a</strong> gennaio / <strong>in</strong> gennaio。
+  </div>
+
+  <h3>预订与价格</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('Quanto viene?')">Quanto viene?</td><td>多少钱？</td></tr>
+    <tr><td class="it" onclick="speak('Il prezzo include...?')">Il prezzo include...?</td><td>价格包含...吗？</td></tr>
+    <tr><td class="it" onclick="speak('È possibile...?')">È possibile...?</td><td>可以...吗？</td></tr>
+    <tr><td class="it" onclick="speak('Avete una camera?')">Avete una camera?</td><td>你们有房间吗？</td></tr>
+    <tr><td class="it" onclick="speak('Per una notte')">Per una notte / due notti</td><td>住一晚/两晚</td></tr>
+    <tr><td class="it" onclick="speak('Da... a...')">Da... a...</td><td>从...到...</td></tr>
+    <tr><td class="it" onclick="speak('Vengo subito.')">Vengo/Viene subito.</td><td>我/他马上去。</td></tr>
+    <tr><td class="it" onclick="speak('Mi dispiace.')">Mi dispiace.</td><td>对不起/很遗憾。</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. C'è / Ci sono -->
+  <h3>1. C'è / Ci sono（有...）· p.61</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>形式</th><th>用法</th><th>示例</th></tr>
+      <tr><td><span class="verb">C'è</span></td><td>单数名词前</td><td><span class="verb" onclick="speak('C\'è la connessione Wi-Fi?')">C'è la connessione Wi-Fi?</span></td></tr>
+      <tr><td><span class="verb">Ci sono</span></td><td>复数名词前</td><td><span class="verb" onclick="speak('Ci sono gli asciugamani?')">Ci sono gli asciugamani?</span></td></tr>
+    </table>
+    <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 14px;margin-top:12px;font-size:13px;">
+      <strong>&#x26A0;&#xFE0F; 注意</strong>: c'è = ci + è（ci在此处是"那里"的意思，不是"我们"）
+    </div>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('C\'è un ristorante qui vicino?')">C'è un ristorante qui vicino?</span></td><td>这附近有餐厅吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('C\'è il riscaldamento in camera?')">C'è il riscaldamento in camera?</span></td><td>房间里有暖气吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Ci sono due letti.')">Ci sono due letti.</span></td><td>有两张床。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non c\'è l\'acqua calda.')">Non c'è l'acqua calda.</span></td><td>没有热水。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non ci sono asciugamani.')">Non ci sono asciugamani.</span></td><td>没有毛巾。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Potere -->
+  <h3>2. 动词 potere（能够/可以）— 现在时 · p.62</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>变位</th><th>发音</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('posso')">posso</span></td><td>/ˈpɔs.so/</td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('puoi')">puoi</span></td><td>/ˈpwɔi/</td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb" onclick="speak('può')">può</span></td><td>/ˈpwɔ/</td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('possiamo')">possiamo</span></td><td>/posˈsja.mo/</td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('potete')">potete</span></td><td>/poˈte.te/</td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('possono')">possono</span></td><td>/ˈpɔs.so.no/</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Posso avere un cuscino?')">Posso avere un cuscino?</span></td><td>我能要一个枕头吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Puoi aiutarmi?')">Puoi aiutarmi?</span></td><td>你能帮我吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Può ripetere, per favore?')">Può ripetere, per favore?</span></td><td>您能重复一下吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Possiamo entrare?')">Possiamo entrare?</span></td><td>我们可以进来吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Potete aspettare?')">Potete aspettare?</span></td><td>你们能等吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Possono prenotare online.')">Possono prenotare online.</span></td><td>他们可以在线预订。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Venire -->
+  <h3>3. 动词 venire（来）— 现在时 · p.64</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>变位</th><th>发音</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('vengo')">vengo</span></td><td>/ˈven.ɡo/</td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('vieni')">vieni</span></td><td>/ˈvjɛ.ni/</td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb" onclick="speak('viene')">viene</span></td><td>/ˈvjɛ.ne/</td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('veniamo')">veniamo</span></td><td>/veˈnja.mo/</td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('venite')">venite</span></td><td>/veˈni.te/</td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('vengono')">vengono</span></td><td>/ˈven.ɡo.no/</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Vengo subito.')">Vengo subito.</span></td><td>我马上来。</td></tr>
+      <tr><td><span class="it" onclick="speak('Vieni con me?')">Vieni con me?</span></td><td>你和我一起来吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Il tecnico viene domani.')">Il tecnico viene domani.</span></td><td>技术员明天来。</td></tr>
+      <tr><td><span class="it" onclick="speak('Veniamo da Roma.')">Veniamo da Roma.</span></td><td>我们从罗马来。</td></tr>
+      <tr><td><span class="it" onclick="speak('Venite stasera?')">Venite stasera?</span></td><td>你们今晚来吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('I clienti vengono alle 8.')">I clienti vengono alle 8.</span></td><td>客人们8点来。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Da... a -->
+  <h3>4. 时间介词 da... a（从...到...）· p.62</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>结构</th><th>用法</th><th>示例</th></tr>
+      <tr><td><span class="verb">da</span>... <span class="verb">a</span>...</td><td>从...到...（时间）</td><td><span class="it" onclick="speak('Dal lunedì al venerdì.')">Dal lunedì al venerdì</span></td></tr>
+      <tr><td><span class="verb">da</span>... <span class="verb">a</span>...</td><td>从...到...（地点）</td><td><span class="it" onclick="speak('Da Roma a Milano.')">Da Roma a Milano</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Lavoro dalle 9 alle 18.')">Lavoro dalle 9 alle 18.</span></td><td>我从9点工作到18点。</td></tr>
+      <tr><td><span class="it" onclick="speak('La camera è disponibile da oggi a sabato.')">La camera è disponibile da oggi a sabato.</span></td><td>房间从今天到周六可用。</td></tr>
+      <tr><td><span class="it" onclick="speak('Da quanto tempo abiti qui?')">Da quanto tempo abiti qui?</span></td><td>你在这里住多久了？</td></tr>
+      <tr><td><span class="it" onclick="speak('Abito qui da due anni.')">Abito qui da due anni.</span></td><td>我在这里住了两年了。</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. Preposizioni articolate -->
+  <h3>5. 缩合介词 (Preposizioni articolate) · p.64</h3>
+  <div class="grammar-box">
+    <p style="font-size:14px;color:var(--ne-muted);margin-bottom:8px;">缩合介词 = 简单介词（a, da, in, su, con, di）+ 定冠词</p>
+    <table>
+      <tr><th>介词</th><th>il</th><th>lo</th><th>l'</th><th>la</th><th>i</th><th>gli</th><th>le</th></tr>
+      <tr><td><span class="verb">a</span></td><td>al</td><td>allo</td><td>all'</td><td>alla</td><td>ai</td><td>agli</td><td>alle</td></tr>
+      <tr><td><span class="verb">da</span></td><td>dal</td><td>dallo</td><td>dall'</td><td>dalla</td><td>dai</td><td>dagli</td><td>dalle</td></tr>
+      <tr><td><span class="verb">in</span></td><td>nel</td><td>nello</td><td>nell'</td><td>nella</td><td>nei</td><td>negli</td><td>nelle</td></tr>
+      <tr><td><span class="verb">su</span></td><td>sul</td><td>sullo</td><td>sull'</td><td>sulla</td><td>sui</td><td>sugli</td><td>sulle</td></tr>
+      <tr><td><span class="verb">di</span></td><td>del</td><td>dello</td><td>dell'</td><td>della</td><td>dei</td><td>degli</td><td>delle</td></tr>
+      <tr><td><span class="verb">con</span></td><td>col</td><td>—</td><td>—</td><td>—</td><td>coi</td><td>—</td><td>—</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Vado al bar.')">Vado al bar. (= a + il)</span></td><td>我去酒吧。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dalla camera 18.')">Dalla camera 18. (= da + la)</span></td><td>从18号房间。</td></tr>
+      <tr><td><span class="it" onclick="speak('Nel bagno.')">Nel bagno. (= in + il)</span></td><td>在浴室里。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sul tavolo.')">Sul tavolo. (= su + il)</span></td><td>在桌子上。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dell\'acqua.')">Dell'acqua. (= di + l')</span></td><td>一些水。</td></tr>
+      <tr><td><span class="it" onclick="speak('Alle 8.')">Alle 8. (= a + le)</span></td><td>在8点。</td></tr>
+      <tr><td><span class="it" onclick="speak('Nella camera.')">Nella camera. (= in + la)</span></td><td>在房间里。</td></tr>
+    </table>
+  </div>
+
+  <!-- 6. Mesi -->
+  <h3>6. 月份 (Mesi) · p.62</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>月份</th><th>意大利语</th><th>月份</th><th>意大利语</th></tr>
+      <tr><td>一月</td><td class="verb" onclick="speak('gennaio')">gennaio</td><td>七月</td><td class="verb" onclick="speak('luglio')">luglio</td></tr>
+      <tr><td>二月</td><td class="verb" onclick="speak('febbraio')">febbraio</td><td>八月</td><td class="verb" onclick="speak('agosto')">agosto</td></tr>
+      <tr><td>三月</td><td class="verb" onclick="speak('marzo')">marzo</td><td>九月</td><td class="verb" onclick="speak('settembre')">settembre</td></tr>
+      <tr><td>四月</td><td class="verb" onclick="speak('aprile')">aprile</td><td>十月</td><td class="verb" onclick="speak('ottobre')">ottobre</td></tr>
+      <tr><td>五月</td><td class="verb" onclick="speak('maggio')">maggio</td><td>十一月</td><td class="verb" onclick="speak('novembre')">novembre</td></tr>
+      <tr><td>六月</td><td class="verb" onclick="speak('giugno')">giugno</td><td>十二月</td><td class="verb" onclick="speak('dicembre')">dicembre</td></tr>
+    </table>
+    <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 14px;margin-top:12px;font-size:13px;">
+      <strong>&#x26A0;&#xFE0F; 注意</strong>: 月份名词均为阳性。表达"在一月"：a gennaio / in gennaio。
+    </div>
+  </div>
+
+  <!-- 7. Numeri ordinali -->
+  <h3>7. 序数词 (Numeri ordinali) · p.62</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>基数词</th><th>序数词（阳性单数）</th><th>缩写</th></tr>
+      <tr><td>1</td><td class="verb" onclick="speak('primo')">primo</td><td>1°</td></tr>
+      <tr><td>2</td><td class="verb" onclick="speak('secondo')">secondo</td><td>2°</td></tr>
+      <tr><td>3</td><td class="verb" onclick="speak('terzo')">terzo</td><td>3°</td></tr>
+      <tr><td>4</td><td class="verb" onclick="speak('quarto')">quarto</td><td>4°</td></tr>
+      <tr><td>5</td><td class="verb" onclick="speak('quinto')">quinto</td><td>5°</td></tr>
+      <tr><td>6</td><td class="verb" onclick="speak('sesto')">sesto</td><td>6°</td></tr>
+      <tr><td>7</td><td class="verb" onclick="speak('settimo')">settimo</td><td>7°</td></tr>
+      <tr><td>8</td><td class="verb" onclick="speak('ottavo')">ottavo</td><td>8°</td></tr>
+      <tr><td>9</td><td class="verb" onclick="speak('nono')">nono</td><td>9°</td></tr>
+      <tr><td>10</td><td class="verb" onclick="speak('decimo')">decimo</td><td>10°</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Abito al primo piano.')">Abito al primo piano.</span></td><td>我住在二楼。（意：一楼=piano terra, 二楼=primo piano）</td></tr>
+      <tr><td><span class="it" onclick="speak('La terza strada a destra.')">La terza strada a destra.</span></td><td>右边第三条街。</td></tr>
+      <tr><td><span class="it" onclick="speak('È il quinto giorno.')">È il quinto giorno.</span></td><td>第五天。</td></tr>
+    </table>
+  </div>
+
+  <!-- 8. Quanto -->
+  <h3>8. 疑问词 quanto</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>形式</th><th>用法</th><th>示例</th></tr>
+      <tr><td><span class="verb">Quanto</span> (m.sing.)</td><td>多少、多少钱</td><td><span class="it" onclick="speak('Quanto viene?')">Quanto viene?</span></td></tr>
+      <tr><td><span class="verb">Quanta</span> (f.sing.)</td><td>多少</td><td><span class="it" onclick="speak('Quanta acqua vuole?')">Quanta acqua vuole?</span></td></tr>
+      <tr><td><span class="verb">Quanti</span> (m.pl.)</td><td>多少个</td><td><span class="it" onclick="speak('Quanti posti letto?')">Quanti posti letto?</span></td></tr>
+      <tr><td><span class="verb">Quante</span> (f.pl.)</td><td>多少个</td><td><span class="it" onclick="speak('Quante camere?')">Quante camere?</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 5 · p.70</h2>
+
+  <h3>&#x1F3DB;&#xFE0F; Gli italiani vanno in vacanza</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('Gli italiani amano molto viaggiare. La maggior parte delle vacanze si concentra in agosto, il mese del \"Ferragosto\".')">Gli italiani amano molto viaggiare. La maggior parte delle vacanze si concentra in agosto, il mese del "Ferragosto".</p>
+    <p class="it" onclick="speak('In questo periodo molte città si svuotano e le località di mare e di montagna si riempiono.')">In questo periodo molte città si svuotano e le località di mare e di montagna si riempiono.</p>
+    <p class="it" onclick="speak('Le mete preferite sono: il mare (60%), la montagna (20%), le città d\'arte (15%) e le località termali (5%).')">Le mete preferite sono: il mare (60%), la montagna (20%), le città d'arte (15%) e le località termali (5%).</p>
+    <p class="it" onclick="speak('Molti italiani possiedono una seconda casa al mare o in montagna.')">Molti italiani possiedono una seconda casa al mare o in montagna.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p>意大利人非常喜欢旅行。大部分假期集中在八月，即"Ferragosto（圣母升天节）"月。在这段时间，许多城市变得空荡荡，而海边和山区的度假地则挤满了人。</p>
+    <p>最受欢迎的目的地是：海边（60%）、山区（20%）、艺术城市（15%）和温泉疗养地（5%）。</p>
+    <p>许多意大利人在海边或山区拥有第二套房子。</p>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化对比:</strong><br>
+    1. E nel tuo Paese, quando si va in vacanza? — 在你的国家，人们什么时候去度假？<br>
+    2. Dove si va? — 去哪里？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 5 — In vacanza · p.70</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Prima di guardare il video:</p>
+  <ul style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 20px;">
+    <li>观察视频截图。Chi sono? Dove sono?（他们是谁？在哪里？）</li>
+  </ul>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Mentre guardi — es.2-3 (p.70):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Dove andate in vacanza?')">Dove andate in vacanza?</span></td><td class="zh">你们去哪里度假？</td></tr>
+    <tr><td><span class="it" onclick="speak('Andiamo al mare.')">Andiamo al mare.</span></td><td class="zh">我们去海边。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quanto tempo rimanete?')">Quanto tempo rimanete?</span></td><td class="zh">你们待多久？</td></tr>
+    <tr><td><span class="it" onclick="speak('Rimaniamo una settimana.')">Rimaniamo una settimana.</span></td><td class="zh">我们待一周。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">es.3: Vero o falso?</p>
+  <ul style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 20px;">
+    <li>理解视频中的度假场景</li>
+    <li>判断与视频内容相关的正误陈述</li>
+  </ul>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 讨论视频中的度假场景<br>
+    &bull; 谈论自己的度假偏好
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-4.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">&larr; Torna al corso</a>
+  <a href="unita-6.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 1</div>
+  <p>Corso di lingua italiana per stranieri · Livello A1</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>
