@@ -160,7 +160,7 @@
   <h3>6. Prenotazione telefonica · p.42, es.13</h3>
   <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">电话预订</p>
   <table class="dialog-table">
-    <tr><td><span class="it" onclick="speak('Ristorante \"Da Nino\", buonasera.')">A: Ristorante "Da Nino", buonasera.</span></td><td class="zh">A: "Da 尼诺"餐厅，晚上好。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ristorante \"Da Nino\", buonasera.')">A: Ristorante "Da Nino", buonasera.</span></td><td class="zh">A: "达·尼诺"餐厅，晚上好。</td></tr>
     <tr><td><span class="it" onclick="speak('Buonasera, vorrei prenotare un tavolo.')">B: Buonasera, vorrei prenotare un tavolo.</span></td><td class="zh">B: 晚上好，我想预订一张桌子。</td></tr>
     <tr><td><span class="it" onclick="speak('Per quante persone?')">A: Per quante persone?</span></td><td class="zh">A: 几位？</td></tr>
     <tr><td><span class="it" onclick="speak('Per quattro.')">B: Per quattro.</span></td><td class="zh">B: 四位。</td></tr>
@@ -184,8 +184,10 @@
   <table class="vocab-table">
     <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
     <tr><td class="it" onclick="speak('l\'acqua minerale')">l'acqua (minerale)</td><td>s.f.</td><td>矿泉水</td></tr>
-    <tr><td class="it" onclick="speak('l\'acqua gasata')">l'acqua gasata / frizzante</td><td>s.f.</td><td>气泡水</td></tr>
-    <tr><td class="it" onclick="speak('l\'acqua naturale')">l'acqua naturale / liscia</td><td>s.f.</td><td>天然无气水</td></tr>
+    <tr><td class="it" onclick="speak('l\'acqua gasata')">l'acqua gasata</td><td>s.f.</td><td>气泡水</td></tr>
+    <tr><td class="it" onclick="speak('l\'acqua frizzante')">l'acqua frizzante</td><td>s.f.</td><td>气泡水</td></tr>
+    <tr><td class="it" onclick="speak('l\'acqua naturale')">l'acqua naturale</td><td>s.f.</td><td>天然无气水</td></tr>
+    <tr><td class="it" onclick="speak('l\'acqua liscia')">l'acqua liscia</td><td>s.f.</td><td>天然无气水</td></tr>
     <tr><td class="it" onclick="speak('l\'aranciata')">l'aranciata</td><td>s.f.</td><td>橙子汽水</td></tr>
     <tr><td class="it" onclick="speak('l\'aperitivo')">l'aperitivo</td><td>s.m.</td><td>开胃酒</td></tr>
     <tr><td class="it" onclick="speak('il bicchiere di latte')">il bicchiere di latte</td><td>s.m.</td><td>一杯牛奶</td></tr>
@@ -199,12 +201,16 @@
     <tr><td class="it" onclick="speak('la coca cola')">la coca (cola)</td><td>s.f.</td><td>可乐</td></tr>
     <tr><td class="it" onclick="speak('il ghiaccio')">il ghiaccio</td><td>s.m.</td><td>冰块</td></tr>
     <tr><td class="it" onclick="speak('il latte')">il latte</td><td>s.m.</td><td>牛奶</td></tr>
-    <tr><td class="it" onclick="speak('la spremuta di pompelmo')">la spremuta (di pompelmo/arancia)</td><td>s.f.</td><td>鲜榨果汁（西柚/橙子）</td></tr>
+    <tr><td class="it" onclick="speak('la spremuta di pompelmo')">la spremuta di pompelmo</td><td>s.f.</td><td>西柚鲜榨汁</td></tr>
+    <tr><td class="it" onclick="speak('la spremuta di arancia')">la spremuta di arancia</td><td>s.f.</td><td>橙子鲜榨汁</td></tr>
     <tr><td class="it" onclick="speak('lo spumante')">lo spumante</td><td>s.m.</td><td>起泡酒</td></tr>
     <tr><td class="it" onclick="speak('il succo di frutta')">il succo di frutta</td><td>s.m.</td><td>果汁</td></tr>
     <tr><td class="it" onclick="speak('il tè')">il tè</td><td>s.m.</td><td>茶</td></tr>
     <tr><td class="it" onclick="speak('il tè al limone')">il tè al limone</td><td>s.m.</td><td>柠檬茶</td></tr>
-    <tr><td class="it" onclick="speak('il vino rosso')">il vino rosso / bianco</td><td>s.m.</td><td>红/白葡萄酒</td></tr>
+    <tr><td class="it" onclick="speak('il vino rosso')">il vino rosso</td><td>s.m.</td><td>红葡萄酒</td></tr>
+    <tr><td class="it" onclick="speak('il vino bianco')">il vino bianco</td><td>s.m.</td><td>白葡萄酒</td></tr>
+    <tr><td class="it" onclick="speak('il dessert')">il dessert</td><td>s.m.</td><td>甜点</td></tr>
+    <tr><td class="it" onclick="speak('il dolce')">il dolce</td><td>s.m.</td><td>甜点</td></tr>
   </table>
 
   <h3>食品 (Cibo)</h3>
@@ -214,7 +220,8 @@
     <tr><td class="it" onclick="speak('il primo piatto')">il primo (piatto)</td><td>s.m.</td><td>第一道菜（意面/饭等）</td></tr>
     <tr><td class="it" onclick="speak('il secondo piatto')">il secondo (piatto)</td><td>s.m.</td><td>第二道菜（肉/鱼）</td></tr>
     <tr><td class="it" onclick="speak('il contorno')">il contorno</td><td>s.m.</td><td>配菜</td></tr>
-    <tr><td class="it" onclick="speak('il dessert')">il dessert / il dolce</td><td>s.m.</td><td>甜点</td></tr>
+    <tr><td class="it" onclick="speak('il dessert')">il dessert</td><td>s.m.</td><td>甜点</td></tr>
+    <tr><td class="it" onclick="speak('il dolce')">il dolce</td><td>s.m.</td><td>甜点</td></tr>
     <tr><td class="it" onclick="speak('la frutta fresca')">la frutta fresca</td><td>s.f.</td><td>新鲜水果</td></tr>
     <tr><td class="it" onclick="speak('spaghetti')">spaghetti</td><td>s.m.pl.</td><td>意式细面</td></tr>
     <tr><td class="it" onclick="speak('spaghetti ai frutti di mare')">spaghetti ai frutti di mare</td><td>s.m.pl.</td><td>海鲜意面</td></tr>
