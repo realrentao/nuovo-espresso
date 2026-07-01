@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 5 · Parli bene l'italiano! · NUOVO Espresso 3</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 3 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 5 · B1</div>
+  <h1>&#x1F4D6; Parli bene l'italiano!</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">阅读与意大利语 · p.63-80</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">阅读习惯与文学 · -bile形容词 · 关系代词 · 关系从句</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Che cosa leggi di solito? -->
+  <h3>1. Che cosa leggi di solito? · p.65, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">完成关于阅读习惯的问卷。</p>
+  <table class="vocab-table">
+    <tr><th>问题</th><th>回答选项</th></tr>
+    <tr><td><span class="it" onclick="speak('Che cosa leggi di solito?')">Che cosa leggi di solito?</span></td><td>quotidiani, riviste, fumetti, romanzi d'amore, romanzi d'avventura, romanzi storici, gialli, libri di fantascienza, saggi, guide turistiche</td></tr>
+    <tr><td><span class="it" onclick="speak('Dove leggi di solito?')">Dove leggi di solito?</span></td><td>a letto, in treno, sul divano, dal dentista</td></tr>
+    <tr><td><span class="it" onclick="speak('Come leggi?')">Come leggi?</span></td><td>su e-reader, su carta, in digitale</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Di che parla? -->
+  <h3>2. Di che parla? · p.66, es.2</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读书评并与书籍匹配。</p>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">Recensione 1 — "Per dieci minuti" di Gamberale</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Per dieci minuti è un romanzo breve ma intenso di Gamberale. Parla di un uomo che aspetta qualcuno che non arriva mai. È una storia sulla solitudine e sull\'attesa. Consigliato a chi ama le storie commoventi.')">"Per dieci minuti" è un romanzo breve ma intenso di Gamberale. Parla di un uomo che aspetta qualcuno che non arriva mai. È una storia sulla solitudine e sull'attesa. Consigliato a chi ama le storie commoventi.</span></td><td class="zh">《十分钟》是一部短小但深刻的甘贝拉莱小说。讲述一个男人等待一个永远不会来的人。这是一个关于孤独和等待的故事。推荐给喜欢感人故事的人。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">Recensione 2 — "Staccati"</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Staccati è un romanzo divertente e originale. Protagonista è una ragazza che decide di staccarsi da tutto: dal lavoro, dagli amici, dalla famiglia. Un viaggio alla ricerca di se stessi. Perfetto per chi ha bisogno di una pausa.')">"Staccati" è un romanzo divertente e originale. Protagonista è una ragazza che decide di staccarsi da tutto: dal lavoro, dagli amici, dalla famiglia. Un viaggio alla ricerca di se stessi. Perfetto per chi ha bisogno di una pausa.</span></td><td class="zh">《分离》是一部有趣且原创的小说。主人公是一个决定与一切断开联系的女孩：从工作、朋友到家人。一段寻找自我的旅程。非常适合需要休息的人。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Invito alla lettura -->
+  <h3>3. Invito alla lettura · p.67-68</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">介绍意大利文学和阅读习惯的文章。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('In Italia si legge sempre meno. Secondo le statistiche, solo il 40% della popolazione legge almeno un libro all\'anno.')">In Italia si legge sempre meno. Secondo le statistiche, solo il 40% della popolazione legge almeno un libro all'anno.</span></td><td class="zh">在意大利，阅读的人越来越少。根据统计，只有约40%的人口每年至少读一本书。</td></tr>
+    <tr><td><span class="it" onclick="speak('I generi più popolari sono i romanzi d\'amore, i gialli e i romanzi storici. I giovani preferiscono i fumetti e i libri di fantascienza.')">I generi più popolari sono i romanzi d'amore, i gialli e i romanzi storici. I giovani preferiscono i fumetti e i libri di fantascienza.</span></td><td class="zh">最受欢迎的体裁是爱情小说、悬疑小说和历史小说。年轻人更喜欢漫画和科幻小说。</td></tr>
+    <tr><td><span class="it" onclick="speak('Cresce anche la lettura digitale: molti italiani leggono su e-reader o tablet.')">Cresce anche la lettura digitale: molti italiani leggono su e-reader o tablet.</span></td><td class="zh">数字阅读也在增长：许多意大利人使用电子阅读器或平板电脑阅读。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>阅读词汇 (Lettura)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('leggere')">leggere</td><td>vt</td><td>阅读</td></tr>
+    <tr><td class="it" onclick="speak('il quotidiano')">il quotidiano</td><td>s.m.</td><td>日报</td></tr>
+    <tr><td class="it" onclick="speak('la rivista')">la rivista</td><td>s.f.</td><td>杂志</td></tr>
+    <tr><td class="it" onclick="speak('il fumetto')">il fumetto</td><td>s.m.</td><td>漫画，连环画</td></tr>
+    <tr><td class="it" onclick="speak('il romanzo')">il romanzo</td><td>s.m.</td><td>小说</td></tr>
+    <tr><td class="it" onclick="speak('il saggio')">il saggio</td><td>s.m.</td><td>随笔，论文</td></tr>
+    <tr><td class="it" onclick="speak('la guida turistica')">la guida turistica</td><td>s.f.</td><td>旅游指南</td></tr>
+    <tr><td class="it" onclick="speak('la trama')">la trama</td><td>s.f.</td><td>情节</td></tr>
+    <tr><td class="it" onclick="speak('il protagonista')">il protagonista</td><td>s.m.</td><td>主角</td></tr>
+    <tr><td class="it" onclick="speak('la recensione')">la recensione</td><td>s.f.</td><td>评论</td></tr>
+  </table>
+
+  <h3>出版相关 (Editoria)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('l\'editore')">l'editore</td><td>s.m.</td><td>出版社</td></tr>
+    <tr><td class="it" onclick="speak('pubblicare')">pubblicare</td><td>vt</td><td>出版</td></tr>
+    <tr><td class="it" onclick="speak('la casa editrice')">la casa editrice</td><td>s.f.</td><td>出版社</td></tr>
+    <tr><td class="it" onclick="speak('la tiratura')">la tiratura</td><td>s.f.</td><td>印数</td></tr>
+    <tr><td class="it" onclick="speak('il best-seller')">il best-seller</td><td>s.m.</td><td>畅销书</td></tr>
+    <tr><td class="it" onclick="speak('lo scaffale')">lo scaffale</td><td>s.m.</td><td>书架</td></tr>
+    <tr><td class="it" onclick="speak('la biblioteca')">la biblioteca</td><td>s.f.</td><td>图书馆</td></tr>
+    <tr><td class="it" onclick="speak('il prestito')">il prestito</td><td>s.m.</td><td>借阅</td></tr>
+  </table>
+
+  <h3>书籍类型 (Generi di libri)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il romanzo d\'amore')">il romanzo d'amore</td><td>爱情小说</td></tr>
+    <tr><td class="it" onclick="speak('il romanzo d\'avventura')">il romanzo d'avventura</td><td>冒险小说</td></tr>
+    <tr><td class="it" onclick="speak('il romanzo storico')">il romanzo storico</td><td>历史小说</td></tr>
+    <tr><td class="it" onclick="speak('il giallo')">il giallo</td><td>悬疑侦探小说</td></tr>
+    <tr><td class="it" onclick="speak('la fantascienza')">la fantascienza</td><td>科幻小说</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Aggettivi in -bile -->
+  <h3>1. 以 -bile 结尾的形容词</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">以 -bile 结尾的形容词有被动含义，表示"可以被..."的可能性。</p>
+    <table>
+      <tr><th>动词词根</th><th>+ -bile</th><th>含义</th></tr>
+      <tr><td>legg-ere</td><td><span class="verb">leggibile</span></td><td>可读的</td></tr>
+      <tr><td>cap-ire</td><td><span class="verb">capibile</span></td><td>可理解的</td></tr>
+      <tr><td>cred-ere</td><td><span class="verb">credibile</span></td><td>可信的</td></tr>
+      <tr><td>risolv-ere</td><td><span class="verb">risolvibile</span></td><td>可解决的</td></tr>
+      <tr><td>realizz-zare</td><td><span class="verb">realizzabile</span></td><td>可实现的</td></tr>
+      <tr><td>ricicl-are</td><td><span class="verb">riciclabile</span></td><td>可回收的</td></tr>
+      <tr><td>compr-endere</td><td><span class="verb">comprensibile</span></td><td>可理解的</td></tr>
+      <tr><td>toller-are</td><td><span class="verb">tollerabile</span></td><td>可容忍的</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">否定形式（加 in- 前缀）：</p>
+    <table>
+      <tr><th>原词</th><th>否定词</th></tr>
+      <tr><td>credibile</td><td><span class="verb">incredibile</span></td></tr>
+      <tr><td>tollerabile</td><td><span class="verb">intollerabile</span></td></tr>
+      <tr><td>leggibile</td><td><span class="verb">illeggibile</span></td></tr>
+      <tr><td>comprensibile</td><td><span class="verb">incomprensibile</span></td></tr>
+      <tr><td>risolvibile</td><td><span class="verb">irrisolvibile</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('È un\'azione realizzabile.')">È un'azione realizzabile.</span></td><td>这是一个可以实现的行动。</td></tr>
+      <tr><td><span class="it" onclick="speak('Si tratta di una storia credibile.')">Si tratta di una storia credibile.</span></td><td>这是一个可信的故事。</td></tr>
+      <tr><td><span class="it" onclick="speak('È un materiale riciclabile.')">È un materiale riciclabile.</span></td><td>这是一种可回收材料。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il problema non è risolvibile.')">Il problema non è risolvibile.</span></td><td>这个问题无法解决。</td></tr>
+      <tr><td><span class="it" onclick="speak('È un testo leggibile.')">È un testo leggibile.</span></td><td>这是一篇可读的文章。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è accettabile questo comportamento.')">Non è accettabile questo comportamento.</span></td><td>这种行为是不可接受的。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Pronomi relativi -->
+  <h3>2. 关系代词 (Pronomi relativi)</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>关系代词</th><th>用法</th><th>例句</th></tr>
+      <tr><td><span class="verb">che</span></td><td>主语/宾语</td><td><span class="it" onclick="speak('La persona che parla...')">La persona che parla...</span> 说的人...</td></tr>
+      <tr><td><span class="verb">cui</span></td><td>前接介词</td><td><span class="it" onclick="speak('La persona con cui parlo...')">La persona con cui parlo...</span> 我与之说话的人...</td></tr>
+      <tr><td><span class="verb">il/la quale</span></td><td>正式/避免歧义</td><td><span class="it" onclick="speak('Il libro del quale parliamo...')">Il libro del quale parliamo...</span> 我们谈论的书...</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Il libro che sto leggendo è bellissimo.')">Il libro che sto leggendo è bellissimo.</span></td><td>我正在读的这本书很美。</td></tr>
+      <tr><td><span class="it" onclick="speak('Le persone che parlano italiano sono italiane.')">Le persone che parlano italiano sono italiane.</span></td><td>说意大利语的人是意大利人。</td></tr>
+      <tr><td><span class="it" onclick="speak('La ragazza con cui sono uscito è studentessa.')">La ragazza con cui sono uscito è studentessa.</span></td><td>我与之约会的女孩是学生。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il motivo per cui sono venuto è importante.')">Il motivo per cui sono venuto è importante.</span></td><td>我来的原因很重要。</td></tr>
+      <tr><td><span class="it" onclick="speak('La casa in cui vivo è grande.')">La casa in cui vivo è grande.</span></td><td>我住的房子很大。</td></tr>
+      <tr><td><span class="it" onclick="speak('Gli studenti, i quali sono arrivati tardi, hanno perso l\'autobus.')">Gli studenti, i quali sono arrivati tardi, hanno perso l'autobus.</span></td><td>那些迟到的学生错过了公交车。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il problema di cui parliamo è serio.')">Il problema di cui parliamo è serio.</span></td><td>我们讨论的问题很严重。</td></tr>
+      <tr><td><span class="it" onclick="speak('Le lingue che studio sono l\'italiano e lo spagnolo.')">Le lingue che studio sono l'italiano e lo spagnolo.</span></td><td>我学的语言是意大利语和西班牙语。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 5 · p.80</h2>
+
+  <h3>&#x1F30D; Leggere in Italia（在意大利阅读）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('In Italia, la lettura è una tradizione importante. Il Paese ha una ricca storia letteraria, da Dante a Calvino. Oggi, nonostante il calo della lettura, le librerie indipendenti sono ancora molto diffuse.')">In Italia, la lettura è una tradizione importante. Il Paese ha una ricca storia letteraria, da Dante a Calvino. Oggi, nonostante il calo della lettura, le librerie indipendenti sono ancora molto diffuse.</p>
+    <p class="it" onclick="speak('Gli italiani leggono in media 6 libri all\'anno. I generi più amati sono i romanzi, i gialli e i saggi. Molti leggono la sera prima di dormire o durante i viaggi in treno.')">Gli italiani leggono in media 6 libri all'anno. I generi più amati sono i romanzi, i gialli e i saggi. Molti leggono la sera prima di dormire o durante i viaggi in treno.</p>
+    <p class="it" onclick="speak('La lettura digitale sta crescendo, ma il libro cartaceo rimane il preferito dagli italiani.')">La lettura digitale sta crescendo, ma il libro cartaceo rimane il preferito dagli italiani.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p>在意大利，阅读是一项重要的传统。这个国家有着丰富的文学历史，从但丁到卡尔维诺。如今，尽管阅读人数下降，独立书店仍然非常普及。</p>
+    <p>意大利人平均每年阅读约6本书。最受欢迎的体裁是小说、悬疑和散文。许多人晚上睡前或坐火车时阅读。</p>
+    <p>数字阅读正在增长，但纸质书仍然是意大利人的首选。</p>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化对比:</strong><br>
+    Nel tuo Paese, quante libri si leggono in media? — 在你的国家，人们平均读多少本书？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 5 — Invito alla lettura · p.78-79</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">朋友之间讨论阅读习惯和最喜欢的书籍。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">对话片段：</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Che cosa leggi di solito? Io preferisco i romanzi storici.')"><strong>A</strong>: Che cosa leggi di solito? Io preferisco i romanzi storici.</span></td><td class="zh">A: 你通常读什么？我喜欢历史小说。</td></tr>
+    <tr><td><span class="it" onclick="speak('A me piacciono i gialli. Sono appassionanti e misteriosi.')"><strong>B</strong>: A me piacciono i gialli. Sono appassionanti e misteriosi.</span></td><td class="zh">B: 我喜欢悬疑小说。它们扣人心弦又神秘。</td></tr>
+    <tr><td><span class="it" onclick="speak('Leggi mai i fumetti? Alcuni sono dei veri capolavori.')"><strong>A</strong>: Leggi mai i fumetti? Alcuni sono dei veri capolavori.</span></td><td class="zh">A: 你读漫画吗？有些是真正的杰作。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, ogni tanto. Ma preferisco leggere su carta piuttosto che in digitale.')"><strong>B</strong>: Sì, ogni tanto. Ma preferisco leggere su carta piuttosto che in digitale.</span></td><td class="zh">B: 是的，偶尔。但我更喜欢纸质阅读而非数字阅读。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">关键表达:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Che cosa leggi di solito?')">Che cosa leggi di solito?</span></td><td class="zh">你通常读什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Di che parla?')">Di che parla?</span></td><td class="zh">讲什么的？</td></tr>
+    <tr><td><span class="it" onclick="speak('Preferisco leggere su carta.')">Preferisco leggere su carta.</span></td><td class="zh">我更喜欢纸质阅读。</td></tr>
+    <tr><td><span class="it" onclick="speak('È un libro appassionante.')">È un libro appassionante.</span></td><td class="zh">这是一本引人入胜的书。</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 用关系代词描述你最喜欢的书<br>
+    &bull; 练习使用-bile形容词描述阅读材料<br>
+    &bull; 讨论数字阅读和纸质阅读的优缺点
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-4.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+  <a href="unita-6.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 3</div>
+  <p>Corso di lingua italiana per stranieri · Livello B1</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

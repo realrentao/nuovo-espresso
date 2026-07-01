@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 4 · Parole parole... parole · NUOVO Espresso 3</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 3 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 4 · B1</div>
+  <h1>&#x1F4AC; Parole parole... parole</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">语言交流 · p.49-62</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">虚拟式未完成时 · come se + 虚拟式 · 间接引语 · 被动语态 · 远过去时</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Comunicare a distanza -->
+  <h3>1. Comunicare a distanza · p.50, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">听录音并完成语音留言信息。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ciao Giulia, sono Marco! Ti chiamo per il concerto di stasera. Ti ricordi che abbiamo i biglietti per le otto? Sì, vieni, vieni! Il concerto è alla Casa della Musica, vicino al museo. Non fare tardi! Ci vediamo alle sette e mezza al bar. A dopo!')"><strong>Marco</strong>: Ciao Giulia, sono Marco! Ti chiamo per il concerto di stasera. Ti ricordi che abbiamo i biglietti per le otto? Sì, vieni, vieni! Il concerto è alla Casa della Musica, vicino al museo. Non fare tardi! Ci vediamo alle sette e mezza al bar. A dopo!</span></td><td class="zh"><strong>马尔科</strong>: 你好朱莉娅，我是马尔科！我打电话是关于今晚的音乐会。你记得我们有八点的票吧？是的，来吧！音乐会在音乐之家，博物馆附近。别迟到！我们七点半在酒吧见！回头见！</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Ricevere un messaggio -->
+  <h3>2. Ricevere un messaggio · p.51, es.2</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读邮件并回答问题。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Cara Giulia, Ti scrivo per ricordarti il concerto di stasera alle ore 20:00 alla Casa della Musica. Ci troviamo al bar vicino al teatro alle 19:30. Non dimenticare di portare i biglietti! A dopo! Marco')"><strong>Email</strong>: Cara Giulia, ti scrivo per ricordarti il concerto di stasera alle ore 20:00 alla Casa della Musica. Ci troviamo al bar vicino al teatro alle 19:30. Non dimenticare di portare i biglietti! A dopo! Marco</span></td><td class="zh">亲爱的朱莉娅，我写信是为了提醒你今晚8点在音乐之家举行的音乐会。我们7点30分在剧院附近的酒吧碰面。别忘了带票！回头见！马尔科</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Email formale -->
+  <h3>3. Un messaggio di posta elettronica · p.52, es.4</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">正式电子邮件范例。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Spettabile Sig. Rossi, Le comunichiamo che la riunione di domani è stata spostata alle ore 15:00. La preghiamo di confermare la sua partecipazione. Distinti saluti. La Segreteria')"><strong>Email</strong>: Spettabile Sig. Rossi, Le comunichiamo che la riunione di domani è stata spostata alle ore 15:00. La preghiamo di confermare la sua partecipazione. Distinti saluti. La Segreteria</span></td><td class="zh">尊敬的罗西先生，我们通知您明天的会议已改到下午3点。请您确认参加。此致敬礼。秘书处</td></tr>
+  </table>
+
+  <!-- Dialogo 4: Parlare al telefono -->
+  <h3>4. Parlare al telefono · p.53, es.6</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">打电话请求帮助。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Pronto, buongiorno. Ho la macchina in panne.')"><strong>A</strong>: Pronto, buongiorno. Ho la macchina in panne.</span></td><td class="zh"><strong>A</strong>: 喂，您好。我的车抛锚了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Buongiorno, mi descriva il problema.')"><strong>B</strong>: Buongiorno, mi descriva il problema.</span></td><td class="zh"><strong>B</strong>: 您好，请描述一下问题。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non parte, credo sia la batteria.')"><strong>A</strong>: Non parte, credo sia la batteria.</span></td><td class="zh"><strong>A</strong>: 启动不了，我想是电池的问题。</td></tr>
+    <tr><td><span class="it" onclick="speak('Resti in linea, le passo il tecnico.')"><strong>B</strong>: Resti in linea, le passo il tecnico.</span></td><td class="zh"><strong>B</strong>: 请稍等，我转接技术人员。</td></tr>
+  </table>
+
+  <!-- Dialogo 5: Lasciare un messaggio -->
+  <h3>5. Lasciare un messaggio · p.54, es.8</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">留口信。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Pronto?')"><strong>Rispondente</strong>: Pronto?</span></td><td class="zh"><strong>接听者</strong>: 喂？</td></tr>
+    <tr><td><span class="it" onclick="speak('Buongiorno, vorrei parlare con la signora Bianchi.')"><strong>Chiamante</strong>: Buongiorno, vorrei parlare con la signora Bianchi.</span></td><td class="zh"><strong>打电话者</strong>: 您好，我想和比安基女士说话。</td></tr>
+    <tr><td><span class="it" onclick="speak('Mi dispiace, non c\'è. Vuole lasciare un messaggio?')"><strong>Rispondente</strong>: Mi dispiace, non c'è. Vuole lasciare un messaggio?</span></td><td class="zh"><strong>接听者</strong>: 对不起，她不在。您想留个口信吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, le dica che la riunione è stata spostata alle 15.')"><strong>Chiamante</strong>: Sì, le dica che la riunione è stata spostata alle 15.</span></td><td class="zh"><strong>打电话者</strong>: 是的，请告诉她会议改到3点了。</td></tr>
+  </table>
+
+  <!-- Dialogo 6: Parlare di un libro -->
+  <h3>6. Parlare di un libro · p.56, es.10</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读书评并完成。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Titolo: La solitudine dei numeri primi. Autore: Paolo Giordano. Questo romanzo racconta la storia di due persone che si incontrano da bambini e poi si perdono di vista. È un libro triste ma bellissimo. Lo consiglio a tutti quelli che amano le storie d\'amore intense.')"><strong>Recensione</strong>: "La solitudine dei numeri primi" di Paolo Giordano. Questo romanzo racconta la storia di due persone che si incontrano da bambini e poi si perdono di vista. È un libro triste ma bellissimo.</span></td><td class="zh"><strong>书评</strong>: 《质数的孤独》保罗 焦尔达诺著。讲述两个人在童年相遇然后失去联系的故事。悲伤但很美。</td></tr>
+  </table>
+
+  <!-- Dialogo 7: Che cosa mi dici di questo? -->
+  <h3>7. Che cosa mi dici di questo? · p.58, es.11</h3>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Che cosa mi dici di questo libro?')"><strong>A</strong>: Che cosa mi dici di questo libro?</span></td><td class="zh"><strong>A</strong>: 你觉得这本书怎么样？</td></tr>
+    <tr><td><span class="it" onclick="speak('Che io sappia, è uno scrittore molto bravo.')"><strong>B</strong>: Che io sappia, è uno scrittore molto bravo.</span></td><td class="zh"><strong>B</strong>: 据我所知，他是一位非常优秀的作家。</td></tr>
+    <tr><td><span class="it" onclick="speak('Credevo che scrivesse solo gialli.')"><strong>A</strong>: Credevo che scrivesse solo gialli.</span></td><td class="zh"><strong>A</strong>: 我以为他只写推理小说。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, ma questo è un romanzo diverso.')"><strong>B</strong>: Sì, ma questo è un romanzo diverso.</span></td><td class="zh"><strong>B</strong>: 是的，但这是一本不同的小说。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F4F1; 通信方式 (Mezzi di comunicazione)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il telefono')">il telefono</td><td>s.m.</td><td>电话</td></tr>
+    <tr><td class="it" onclick="speak('il cellulare')">il cellulare</td><td>s.m.</td><td>手机</td></tr>
+    <tr><td class="it" onclick="speak('la mail')">la mail / l'e-mail</td><td>s.f.</td><td>电子邮件</td></tr>
+    <tr><td class="it" onclick="speak('il messaggio')">il messaggio</td><td>s.m.</td><td>信息</td></tr>
+    <tr><td class="it" onclick="speak('il messaggio vocale')">il messaggio vocale</td><td>s.m.</td><td>语音留言</td></tr>
+    <tr><td class="it" onclick="speak('la posta elettronica')">la posta elettronica</td><td>s.f.</td><td>电子邮箱</td></tr>
+    <tr><td class="it" onclick="speak('l\'SMS')">l'SMS</td><td>s.m.</td><td>短信</td></tr>
+    <tr><td class="it" onclick="speak('la chat')">la chat</td><td>s.f.</td><td>聊天</td></tr>
+    <tr><td class="it" onclick="speak('il social network')">il social network</td><td>s.m.</td><td>社交网络</td></tr>
+    <tr><td class="it" onclick="speak('la videochiamata')">la videochiamata</td><td>s.f.</td><td>视频通话</td></tr>
+  </table>
+
+  <h3>&#x2709;&#xFE0F; 信件和消息词汇 (Linguaggio delle lettere)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il mittente')">il mittente</td><td>s.m.</td><td>发件人</td></tr>
+    <tr><td class="it" onclick="speak('il destinatario')">il destinatario</td><td>s.m.</td><td>收件人</td></tr>
+    <tr><td class="it" onclick="speak('l\'oggetto')">l'oggetto</td><td>s.m.</td><td>主题</td></tr>
+    <tr><td class="it" onclick="speak('il corpo del messaggio')">il corpo del messaggio</td><td>s.m.</td><td>正文</td></tr>
+    <tr><td class="it" onclick="speak('inviare')">inviare</td><td>v.</td><td>发送</td></tr>
+    <tr><td class="it" onclick="speak('ricevere')">ricevere</td><td>v.</td><td>接收</td></tr>
+    <tr><td class="it" onclick="speak('inoltrare')">inoltrare</td><td>v.</td><td>转发</td></tr>
+    <tr><td class="it" onclick="speak('rispondere')">rispondere</td><td>v.</td><td>回复</td></tr>
+    <tr><td class="it" onclick="speak('cancellare')">cancellare</td><td>v.</td><td>删除</td></tr>
+  </table>
+
+  <h3>&#x1F4DA; 阅读与书籍 (Lettura e libri)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il libro')">il libro</td><td>s.m.</td><td>书</td></tr>
+    <tr><td class="it" onclick="speak('il romanzo')">il romanzo</td><td>s.m.</td><td>小说</td></tr>
+    <tr><td class="it" onclick="speak('il giallo')">il giallo</td><td>s.m.</td><td>推理小说</td></tr>
+    <tr><td class="it" onclick="speak('la recensione')">la recensione</td><td>s.f.</td><td>书评</td></tr>
+    <tr><td class="it" onclick="speak('l\'autore')">l'autore</td><td>s.m.</td><td>作者</td></tr>
+    <tr><td class="it" onclick="speak('la trama')">la trama</td><td>s.f.</td><td>情节</td></tr>
+    <tr><td class="it" onclick="speak('il personaggio')">il personaggio</td><td>s.m.</td><td>人物</td></tr>
+    <tr><td class="it" onclick="speak('il capitolo')">il capitolo</td><td>s.m.</td><td>章节</td></tr>
+    <tr><td class="it" onclick="speak('la biblioteca')">la biblioteca</td><td>s.f.</td><td>图书馆</td></tr>
+    <tr><td class="it" onclick="speak('lo scaffale')">lo scaffale</td><td>s.m.</td><td>书架</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Congiuntivo imperfetto -->
+  <h3>1. 虚拟式未完成时 (Congiuntivo imperfetto)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">虚拟式未完成时用于表达与现在或过去事实相反的假设、愿望等。</p>
+    <table>
+      <tr><th>主语</th><th>-are</th><th>-ere</th><th>-ire</th></tr>
+      <tr><td>io</td><td><span class="verb">parlassi</span></td><td><span class="verb">vendessi</span></td><td><span class="verb">partissi</span></td></tr>
+      <tr><td>tu</td><td><span class="verb">parlassi</span></td><td><span class="verb">vendessi</span></td><td><span class="verb">partissi</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb">parlasse</span></td><td><span class="verb">vendesse</span></td><td><span class="verb">partisse</span></td></tr>
+      <tr><td>noi</td><td><span class="verb">parlassimo</span></td><td><span class="verb">vendessimo</span></td><td><span class="verb">partissimo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb">parlaste</span></td><td><span class="verb">vendeste</span></td><td><span class="verb">partiste</span></td></tr>
+      <tr><td>loro</td><td><span class="verb">parlassero</span></td><td><span class="verb">vendessero</span></td><td><span class="verb">partissero</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">不规则动词:</p>
+    <table>
+      <tr><th>原形</th><th>io</th><th>lui/lei</th><th>noi</th><th>loro</th></tr>
+      <tr><td>essere</td><td><span class="verb">fossi</span></td><td><span class="verb">fosse</span></td><td><span class="verb">fossimo</span></td><td><span class="verb">fossero</span></td></tr>
+      <tr><td>avere</td><td><span class="verb">avessi</span></td><td><span class="verb">avesse</span></td><td><span class="verb">avessimo</span></td><td><span class="verb">avessero</span></td></tr>
+      <tr><td>fare</td><td><span class="verb">facessi</span></td><td><span class="verb">facesse</span></td><td><span class="verb">facessimo</span></td><td><span class="verb">facessero</span></td></tr>
+      <tr><td>dire</td><td><span class="verb">dicessi</span></td><td><span class="verb">dicesse</span></td><td><span class="verb">dicessimo</span></td><td><span class="verb">dicessero</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Vorrei che tu mi aiutassi.')">Vorrei che tu mi <span class="verb">aiutassi</span>.</span></td><td>我希望你帮帮我。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se avessi tempo, verrei volentieri.')">Se <span class="verb">avessi</span> tempo, verrei volentieri.</span></td><td>如果我有时间，我很愿意来。</td></tr>
+      <tr><td><span class="it" onclick="speak('Era importante che lui fosse presente.')">Era importante che lui <span class="verb">fosse</span> presente.</span></td><td>他在场很重要。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dubitavo che loro lo sapessero.')">Dubitavo che loro lo <span class="verb">sapessero</span>.</span></td><td>我怀疑他们知道这件事。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se non piovesse, usciremmo.')">Se non <span class="verb">piovesse</span>, usciremmo.</span></td><td>如果不下雨我们就出去。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non credevo che fosse così difficile.')">Non credevo che <span class="verb">fosse</span> così difficile.</span></td><td>我不相信这么难。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Come se + congiuntivo -->
+  <h3>2. Come se + 虚拟式（好像...）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">come se引导的从句用虚拟式未完成时，表示与现实相反的比较。</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Ti guarda come se non l\'avessi mai visto.')">Ti guarda <span class="verb">come se</span> non l'avessi mai visto.</span></td><td>他看你的眼神好像从没见过你一样。</td></tr>
+      <tr><td><span class="it" onclick="speak('Parlo come se sapessi tutto.')">Parlo <span class="verb">come se</span> sapessi tutto.</span></td><td>我说话的样子好像什么都知道。</td></tr>
+      <tr><td><span class="it" onclick="speak('Si comporta come se fosse il padrone.')">Si comporta <span class="verb">come se</span> fosse il padrone.</span></td><td>他的行为好像他是老板。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mi sento come se fossi a casa.')">Mi sento <span class="verb">come se</span> fossi a casa.</span></td><td>我感觉像在家里一样。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mi tratta come se fossi un bambino.')">Mi tratta <span class="verb">come se</span> fossi un bambino.</span></td><td>他把我当小孩一样对待。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Discorso indiretto -->
+  <h3>3. 间接引语 (Discorso indiretto)</h3>
+  <div class="grammar-box">
+    <p style="font-weight:600;margin:0 0 8px;">时态变化规则:</p>
+    <table>
+      <tr><th>直接引语</th><th>间接引语</th></tr>
+      <tr><td>presente →</td><td><span class="verb">imperfetto</span></td></tr>
+      <tr><td>passato prossimo →</td><td><span class="verb">trapassato prossimo</span></td></tr>
+      <tr><td>imperfetto →</td><td><span class="verb">imperfetto</span></td></tr>
+      <tr><td>futuro →</td><td><span class="verb">condizionale</span></td></tr>
+      <tr><td>imperativo →</td><td><span class="verb">di + infinito</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('"Vengo domani." → Ha detto che sarebbe venuto il giorno dopo.')">"Vengo domani." → Ha detto che <span class="verb">sarebbe venuto</span> il giorno dopo.</span></td><td>他说明天来。</td></tr>
+      <tr><td><span class="it" onclick="speak('"Sono stanco." → Ha detto che era stanco.')">"Sono stanco." → Ha detto che <span class="verb">era</span> stanco.</span></td><td>他说他累了。</td></tr>
+      <tr><td><span class="it" onclick="speak('"Andrò a Roma." → Ha detto che sarebbe andato a Roma.')">"Andrò a Roma." → Ha detto che <span class="verb">sarebbe andato</span> a Roma.</span></td><td>他说他将去罗马。</td></tr>
+      <tr><td><span class="it" onclick="speak('"Chiudi la porta!" → Mi ha detto di chiudere la porta.')">"Chiudi la porta!" → Mi ha detto <span class="verb">di chiudere</span> la porta.</span></td><td>他让我关门。</td></tr>
+      <tr><td><span class="it" onclick="speak('"L\'ho visto ieri." → Ha detto che l\'aveva visto il giorno prima.')">"L'ho visto ieri." → Ha detto che <span class="verb">l'aveva visto</span> il giorno prima.</span></td><td>他说他前一天看到的。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Che io sappia -->
+  <h3>4. Che io sappia（据我所知）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">固定表达，用于表示不确定的信息。</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Che io sappia, è uno scrittore molto bravo.')"><span class="verb">Che io sappia</span>, è uno scrittore molto bravo.</span></td><td>据我所知，他是一位很优秀的作家。</td></tr>
+      <tr><td><span class="it" onclick="speak('Che io sappia, non ci sono problemi.')"><span class="verb">Che io sappia</span>, non ci sono problemi.</span></td><td>据我所知，没有问题。</td></tr>
+      <tr><td><span class="it" onclick="speak('Che io sappia, non è ancora partito.')"><span class="verb">Che io sappia</span>, non è ancora partito.</span></td><td>据我所知，他还没出发。</td></tr>
+      <tr><td><span class="it" onclick="speak('A me risulta che sia vero.')">A me risulta che <span class="verb">sia</span> vero.</span></td><td>据我了解，这是真的。</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. Forma passiva -->
+  <h3>5. 被动语态 (Forma passiva con essere e venire)</h3>
+  <div class="grammar-box">
+    <p style="font-weight:600;margin:0 0 8px;">essere被动语态:</p>
+    <table>
+      <tr><th>时态</th><th>构成</th><th>例句</th></tr>
+      <tr><td>现在时</td><td>è + 过去分词</td><td><span class="it" onclick="speak('Il problema è risolto.')">Il problema <span class="verb">è risolto</span>.</span></td></tr>
+      <tr><td>过去时</td><td>era + 过去分词</td><td><span class="it" onclick="speak('Il documento era firmato.')">Il documento <span class="verb">era firmato</span>.</span></td></tr>
+      <tr><td>将来时</td><td>sarà + 过去分词</td><td><span class="it" onclick="speak('Il pacco sarà consegnato.')">Il pacco <span class="verb">sarà consegnato</span>.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 8px;">venire被动语态:</p>
+    <table>
+      <tr><th>时态</th><th>构成</th><th>例句</th></tr>
+      <tr><td>现在时</td><td>viene + 过去分词</td><td><span class="it" onclick="speak('Il libro viene pubblicato.')">Il libro <span class="verb">viene pubblicato</span>.</span></td></tr>
+      <tr><td>过去时</td><td>veniva + 过去分词</td><td><span class="it" onclick="speak('La riunione veniva organizzata.')">La riunione <span class="verb">veniva organizzata</span>.</span></td></tr>
+      <tr><td>将来时</td><td>verrà + 过去分词</td><td><span class="it" onclick="speak('Il pacco verrà consegnato domani.')">Il pacco <span class="verb">verrà consegnato</span> domani.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Il documento è stato firmato dal direttore.')">Il documento <span class="verb">è stato firmato</span> dal direttore.</span></td><td>文件已被主任签署。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il film viene proiettato in tutti i cinema.')">Il film <span class="verb">viene proiettato</span> in tutti i cinema.</span></td><td>电影在所有电影院上映。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il messaggio è stato inviato ieri.')">Il messaggio <span class="verb">è stato inviato</span> ieri.</span></td><td>信息昨天发送了。</td></tr>
+    </table>
+  </div>
+
+  <!-- 6. Passato remoto -->
+  <h3>6. 远过去时 (Passato remoto)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">远过去时用于描述遥远的过去事件，常用于书面语和意大利南方口语。</p>
+    <table>
+      <tr><th>主语</th><th>-are</th><th>-ere</th><th>-ire</th></tr>
+      <tr><td>io</td><td><span class="verb">parlai</span></td><td><span class="verb">vendetti</span></td><td><span class="verb">partii</span></td></tr>
+      <tr><td>tu</td><td><span class="verb">parlasti</span></td><td><span class="verb">vendesti</span></td><td><span class="verb">partisti</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb">parlò</span></td><td><span class="verb">vendé</span></td><td><span class="verb">partì</span></td></tr>
+      <tr><td>noi</td><td><span class="verb">parlammo</span></td><td><span class="verb">vendemmo</span></td><td><span class="verb">partimmo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb">parlaste</span></td><td><span class="verb">vendeste</span></td><td><span class="verb">partiste</span></td></tr>
+      <tr><td>loro</td><td><span class="verb">parlarono</span></td><td><span class="verb">venderono</span></td><td><span class="verb">partirono</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">不规则动词:</p>
+    <table>
+      <tr><th>原形</th><th>io</th><th>lui/lei</th><th>loro</th></tr>
+      <tr><td>essere</td><td><span class="verb">fui</span></td><td><span class="verb">fu</span></td><td><span class="verb">furono</span></td></tr>
+      <tr><td>avere</td><td><span class="verb">ebbi</span></td><td><span class="verb">ebbe</span></td><td><span class="verb">ebbero</span></td></tr>
+      <tr><td>fare</td><td><span class="verb">feci</span></td><td><span class="verb">fece</span></td><td><span class="verb">fecero</span></td></tr>
+      <tr><td>dire</td><td><span class="verb">dissi</span></td><td><span class="verb">disse</span></td><td><span class="verb">dissero</span></td></tr>
+      <tr><td>prendere</td><td><span class="verb">presi</span></td><td><span class="verb">prese</span></td><td><span class="verb">presero</span></td></tr>
+      <tr><td>scrivere</td><td><span class="verb">scrissi</span></td><td><span class="verb">scrisse</span></td><td><span class="verb">scrissero</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Nel 64 a.C. un grande incendio colpì la città di Roma.')">Nel 64 a.C. un grande incendio <span class="verb">colpì</span> la città di Roma.</span></td><td>公元前64年，一场大火袭击了罗马城。</td></tr>
+      <tr><td><span class="it" onclick="speak('Leonardo dipinse la Gioconda nel 1503.')">Leonardo <span class="verb">dipinse</span> la Gioconda nel 1503.</span></td><td>Leonardo在1503年画了蒙娜丽莎。</td></tr>
+      <tr><td><span class="it" onclick="speak('Cristoforo Colombo scoprì l\'America nel 1492.')">Cristoforo Colombo <span class="verb">scoprì</span> l'America nel 1492.</span></td><td>哥伦布在1492年发现了美洲。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il romanzo fu pubblicato nel 2008.')">Il romanzo <span class="verb">fu pubblicato</span> nel 2008.</span></td><td>这本小说在2008年出版了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Nacque a Vinci nel 1452 e morì in Francia nel 1519.')"><span class="verb">Nacque</span> a Vinci nel 1452 e <span class="verb">morì</span> in Francia nel 1519.</span></td><td>他1452年出生于Vinci，1519年在法国去世。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 4 · p.62</h2>
+
+  <h3>&#x1F30D; Gli stranieri in Italia（意大利的外国人）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">统计数据:</p>
+    <table class="vocab-table">
+      <tr><th>数据</th><th>说明</th></tr>
+      <tr><td>外国居民总数</td><td>约500万</td></tr>
+      <tr><td>占总人口比例</td><td>约8%</td></tr>
+      <tr><td>主要国籍</td><td>罗马尼亚、阿尔巴尼亚、摩洛哥、中国、乌克兰</td></tr>
+      <tr><td>主要分布地区</td><td>北部工业区和拉齐奥大区</td></tr>
+    </table>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">语言分布:</p>
+    <table class="vocab-table">
+      <tr><th>语言</th><th>使用人口</th></tr>
+      <tr><td>罗马尼亚语</td><td>主要外语</td></tr>
+      <tr><td>阿拉伯语</td><td>主要外语</td></tr>
+      <tr><td>阿尔巴尼亚语</td><td>主要外语</td></tr>
+      <tr><td>西班牙语</td><td>较多使用</td></tr>
+    </table>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化注释:</strong><br>
+    &bull; 意大利传统上是移民国家，现在成为移民目的国<br>
+    &bull; 外国人为意大利社会和经济发展做出贡献<br>
+    &bull; 存在文化融合的挑战
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 4 — Comunicare a distanza · p.60-61</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频展示了如何通过不同方式交流：电话、电子邮件、短信和社交媒体。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">交流方式:</p>
+  <table class="dialog-table">
+    <tr><th style="background:var(--ne-cream);">方式</th><th style="background:var(--ne-cream);">内容</th></tr>
+    <tr><td>电话交流</td><td>接听电话、留言、转接</td></tr>
+    <tr><td>电子邮件</td><td>正式和非正式邮件</td></tr>
+    <tr><td>短信</td><td>简短信息</td></tr>
+    <tr><td>社交媒体</td><td>聊天、视频通话</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">关键表达:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Pronto, buongiorno.')">Pronto, buongiorno.</span></td><td class="zh">喂，您好。</td></tr>
+    <tr><td><span class="it" onclick="speak('Resti in linea.')">Resti in linea.</span></td><td class="zh">请稍等。</td></tr>
+    <tr><td><span class="it" onclick="speak('Vuole lasciare un messaggio?')">Vuole lasciare un messaggio?</span></td><td class="zh">您想留个口信吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Le passo il tecnico.')">Le passo il tecnico.</span></td><td class="zh">我转接技术人员。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non dimenticare di portare i biglietti!')">Non dimenticare di portare i biglietti!</span></td><td class="zh">别忘了带票！</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演打电话和留口信的场景<br>
+    &bull; 练习写一封正式和非正式的邮件<br>
+    &bull; 用间接引语转述一段对话
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-3.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+  <a href="unita-5.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 3</div>
+  <p>Corso di lingua italiana per stranieri · Livello B1</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

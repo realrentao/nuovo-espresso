@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 6 · La famiglia cambia faccia · NUOVO Espresso 3</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 3 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 6 · B1</div>
+  <h1>&#x1F468;&#x200D;&#x1F469;&#x200D;&#x1F467;&#x200D;&#x1F466; La famiglia cambia faccia</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">家庭变迁 · p.81-96</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">意大利家庭变化 · fare+不定式 · 比较级和最高级强化</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: La famiglia oggi -->
+  <h3>1. La famiglia oggi · p.83, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读文章并回答问题。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('La signora Ceccani si preoccupa per suo nipote Fabrizio di tre anni, mentre litiga con un compagno per un giocattolo.')">La signora Ceccani si preoccupa per suo nipote Fabrizio di tre anni, mentre litiga con un compagno per un giocattolo.</span></td><td class="zh">切卡尼女士担心她三岁的孙子法布里齐奥，此时他正和同伴争抢玩具。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non ha né fratelli, né sorelle. E nemmeno cugini.')">"Non ha né fratelli, né sorelle. E nemmeno cugini."</span></td><td class="zh">"他没有兄弟姐妹。也没有堂表亲。"</td></tr>
+    <tr><td><span class="it" onclick="speak('Hanno sbagliato ad avere solo un figlio. Lo ripeto continuamente a mio figlio: fanne un altro, fanne un altro.')">"Hanno sbagliato ad avere solo un figlio. Lo ripeto continuamente a mio figlio: fanne un altro, fanne un altro."</span></td><td class="zh">"他们只生一个孩子是错误的。我一直对儿子说：再生一个，再生一个。"</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Io faccio... -->
+  <h3>2. Io faccio... — fare + infinito · p.85, es.7</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">用适当的fare+不定式形式完成句子。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Le nonne accompagnano i nipoti ai giardinetti per farli giocare.')">Le nonne accompagnano i nipoti ai giardinetti per farli giocare.</span></td><td class="zh">奶奶们带孙子去游乐场让他们玩。</td></tr>
+    <tr><td><span class="it" onclick="speak('I genitori fanno vedere troppa TV ai bambini.')">I genitori fanno vedere troppa TV ai bambini.</span></td><td class="zh">父母让孩子看太多电视。</td></tr>
+    <tr><td><span class="it" onclick="speak('Vieni, ti faccio vedere i miei giocattoli.')">Vieni, ti faccio vedere i miei giocattoli.</span></td><td class="zh">来，我给你看我的玩具。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esco. Faccio fare una passeggiata al cane.')">Esco. Faccio fare una passeggiata al cane.</span></td><td class="zh">我出去。我带狗散步。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Una statistica -->
+  <h3>3. Una statistica · p.86, es.8</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读统计数据并讨论。</p>
+  <table class="vocab-table">
+    <tr><th>年份</th><th>结婚数</th><th>分居数</th><th>离婚数</th></tr>
+    <tr><td>1988</td><td>338.296</td><td>37.224</td><td>30.778</td></tr>
+    <tr><td>2005</td><td>250.000</td><td>82.291</td><td>45.000</td></tr>
+    <tr><td>2014</td><td>207.138</td><td>88.288</td><td>52.000</td></tr>
+  </table>
+  <p style="font-size:13px;color:var(--ne-muted);margin:8px 0 0;"><strong>趋势:</strong> 结婚数持续下降，分居和离婚数持续上升。</p>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>家庭词汇 (La famiglia)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la famiglia')">la famiglia</td><td>s.f.</td><td>家庭</td></tr>
+    <tr><td class="it" onclick="speak('il genitore')">il genitore</td><td>s.m.</td><td>父母</td></tr>
+    <tr><td class="it" onclick="speak('il figlio unico')">il figlio unico</td><td>s.m.</td><td>独生子女</td></tr>
+    <tr><td class="it" onclick="speak('i nonni')">i nonni</td><td>s.m.pl.</td><td>祖父母</td></tr>
+    <tr><td class="it" onclick="speak('i nipoti')">i nipoti</td><td>s.m.pl.</td><td>孙子女</td></tr>
+    <tr><td class="it" onclick="speak('il fratello')">il fratello</td><td>s.m.</td><td>兄弟</td></tr>
+    <tr><td class="it" onclick="speak('la sorella')">la sorella</td><td>s.f.</td><td>姐妹</td></tr>
+    <tr><td class="it" onclick="speak('i cugini')">i cugini</td><td>s.m.pl.</td><td>表/堂兄弟姐妹</td></tr>
+    <tr><td class="it" onclick="speak('lo zio')">lo zio</td><td>s.m.</td><td>叔叔/舅舅/伯父</td></tr>
+    <tr><td class="it" onclick="speak('la zia')">la zia</td><td>s.f.</td><td>阿姨/姑姑/婶婶</td></tr>
+  </table>
+
+  <h3>社会与统计 (Società e statistiche)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la statistica')">la statistica</td><td>s.f.</td><td>统计</td></tr>
+    <tr><td class="it" onclick="speak('il matrimonio')">il matrimonio</td><td>s.m.</td><td>婚姻</td></tr>
+    <tr><td class="it" onclick="speak('la separazione')">la separazione</td><td>s.f.</td><td>分居</td></tr>
+    <tr><td class="it" onclick="speak('il divorzio')">il divorzio</td><td>s.m.</td><td>离婚</td></tr>
+    <tr><td class="it" onclick="speak('la natalità')">la natalità</td><td>s.f.</td><td>出生率</td></tr>
+    <tr><td class="it" onclick="speak('il tasso')">il tasso</td><td>s.m.</td><td>比率</td></tr>
+    <tr><td class="it" onclick="speak('la media')">la media</td><td>s.f.</td><td>平均</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Fare + infinito -->
+  <h3>1. Fare + infinito（使役结构）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">Fare + 不定式结构表示"让...做..."或"使..."。</p>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Ti faccio vedere i miei giocattoli.')"><span class="verb">Ti faccio vedere</span> i miei giocattoli.</span></td><td>我给你看我的玩具。</td></tr>
+      <tr><td><span class="it" onclick="speak('Faccio fare una passeggiata al cane.')"><span class="verb">Faccio fare</span> una passeggiata al cane.</span></td><td>我带狗散步。</td></tr>
+      <tr><td><span class="it" onclick="speak('Hai fatto mangiare il bambino?')"><span class="verb">Hai fatto mangiare</span> il bambino?</span></td><td>你喂孩子吃饭了吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Il rumore mi fa dormire male.')">Il rumore <span class="verb">mi fa dormire</span> male.</span></td><td>噪音让我睡不好。</td></tr>
+      <tr><td><span class="it" onclick="speak('La pioggia ci fa restare a casa.')">La pioggia <span class="verb">ci fa restare</span> a casa.</span></td><td>雨让我们待在家里。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ti faccio aspettare un momento.')"><span class="verb">Ti faccio aspettare</span> un momento.</span></td><td>我让你等一会儿。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il maestro fa studiare gli alunni.')">Il maestro <span class="verb">fa studiare</span> gli alunni.</span></td><td>老师让学生们学习。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il sole fa crescere le piante.')">Il sole <span class="verb">fa crescere</span> le piante.</span></td><td>太阳让植物生长。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">代词位置:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Me lo fa fare.')"><span class="verb">Me lo fa fare.</span></span></td><td>他让我做这个。(代词在fare前面)</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Comparativi e superlativi -->
+  <h3>2. 比较级和最高级强化</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">拉丁语源的不规则比较级和最高级。</p>
+    <table>
+      <tr><th>原级</th><th>比较级</th><th>最高级</th></tr>
+      <tr><td>buono</td><td><span class="verb">migliore</span></td><td><span class="verb">ottimo</span></td></tr>
+      <tr><td>cattivo</td><td><span class="verb">peggiore</span></td><td><span class="verb">pessimo</span></td></tr>
+      <tr><td>grande</td><td><span class="verb">maggiore</span></td><td><span class="verb">massimo</span></td></tr>
+      <tr><td>piccolo</td><td><span class="verb">minore</span></td><td><span class="verb">minimo</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('È migliore di quello che pensavo.')">È <span class="verb">migliore</span> di quello che pensavo.</span></td><td>它比我想象的要好。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sono il migliore della classe.')">Sono <span class="verb">il migliore</span> della classe.</span></td><td>我是班里最好的。</td></tr>
+      <tr><td><span class="it" onclick="speak('È peggiore del previsto.')">È <span class="verb">peggiore</span> del previsto.</span></td><td>它比预期的要差。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ha avuto il peggiore dei voti.')">Ha avuto <span class="verb">il peggiore</span> dei voti.</span></td><td>他得了最差的分数。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ha una memoria superiore alla media.')">Ha una memoria <span class="verb">superiore</span> alla media.</span></td><td>他的记忆力高于平均水平。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il numero maggiore di donne lavora.')">Il numero <span class="verb">maggiore</span> di donne lavora.</span></td><td>更多女性在工作。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il più grande è quello blu.')"><span class="verb">Il più grande</span> è quello blu.</span></td><td>最大的是蓝色的那个。</td></tr>
+      <tr><td><span class="it" onclick="speak('È minorenne.')">È <span class="verb">minorenne</span>.</span></td><td>他是未成年人。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 6 · p.96</h2>
+
+  <h3>&#x1F1EE;&#x1F1F9; La famiglia italiana（意大利家庭）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('La famiglia italiana è cambiata molto negli ultimi decenni. In passato, le famiglie erano numerose: si avevano molti figli e i ruoli erano tradizionali. L\'uomo lavorava e la donna stava a casa.')">La famiglia italiana è cambiata molto negli ultimi decenni. In passato, le famiglie erano numerose: si avevano molti figli e i ruoli erano tradizionali. L'uomo lavorava e la donna stava a casa.</p>
+    <p class="it" onclick="speak('Oggi le famiglie sono più piccole: molte coppie hanno un solo figlio o nessuno. L\'età del primo matrimonio è aumentata e il tasso di divorzio è in crescita. I nonni spesso aiutano a crescere i nipoti.')">Oggi le famiglie sono più piccole: molte coppie hanno un solo figlio o nessuno. L'età del primo matrimonio è aumentata e il tasso di divorzio è in crescita. I nonni spesso aiutano a crescere i nipoti.</p>
+    <p class="it" onclick="speak('La famiglia resta comunque il centro della vita sociale italiana.')">La famiglia resta comunque il centro della vita sociale italiana.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p>意大利家庭在过去几十年发生了很大变化。过去，家庭规模很大：有很多孩子，角色分工传统。男人工作，女人在家。</p>
+    <p>今天家庭规模更小：许多夫妻只有一个或没有孩子。初婚年龄增加，离婚率上升。祖父母经常帮助照顾孙辈。</p>
+    <p>家庭仍然是意大利社会生活的中心。</p>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化对比:</strong><br>
+    Nel tuo Paese, la famiglia è cambiata allo stesso modo? — 在你的国家，家庭也发生了同样的变化吗？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 6 — La famiglia · p.94-95</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">讨论意大利家庭的变化：家庭规模缩小、代际关系、现代家庭挑战。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">对话片段：</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Oggi le famiglie sono molto diverse rispetto al passato. I giovani si sposano più tardi.')"><strong>A</strong>: Oggi le famiglie sono molto diverse rispetto al passato. I giovani si sposano più tardi.</span></td><td class="zh">A: 今天的家庭与过去非常不同。年轻人结婚更晚。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, e molte coppie scelgono di non avere figli o di averne solo uno.')"><strong>B</strong>: Sì, e molte coppie scelgono di non avere figli o di averne solo uno.</span></td><td class="zh">B: 是的，许多夫妻选择不要孩子或只生一个。</td></tr>
+    <tr><td><span class="it" onclick="speak('I nonni sono molto importanti: spesso aiutano a crescere i nipoti mentre i genitori lavorano.')"><strong>A</strong>: I nonni sono molto importanti: spesso aiutano a crescere i nipoti mentre i genitori lavorano.</span></td><td class="zh">A: 祖父母非常重要：父母工作时，他们经常帮助照顾孙辈。</td></tr>
+    <tr><td><span class="it" onclick="speak('È vero. La famiglia resta il centro della vita italiana, ma cambia forma.')"><strong>B</strong>: È vero. La famiglia resta il centro della vita italiana, ma cambia forma.</span></td><td class="zh">B: 是的。家庭仍然是意大利生活的中心，但形式在变化。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">关键表达:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('La famiglia è cambiata.')">La famiglia è cambiata.</span></td><td class="zh">家庭变了。</td></tr>
+    <tr><td><span class="it" onclick="speak('I nonni aiutano a crescere i nipoti.')">I nonni aiutano a crescere i nipoti.</span></td><td class="zh">祖父母帮助照顾孙辈。</td></tr>
+    <tr><td><span class="it" onclick="speak('Il tasso di divorzio è in crescita.')">Il tasso di divorzio è in crescita.</span></td><td class="zh">离婚率在上升。</td></tr>
+    <tr><td><span class="it" onclick="speak('Fare una passeggiata.')">Fare una passeggiata.</span></td><td class="zh">散步。</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 用fare+不定式描述家庭成员之间的互助<br>
+    &bull; 比较过去和现在的家庭结构<br>
+    &bull; 用比较级和最高级描述家庭变化
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-5.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+  <a href="unita-7.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 3</div>
+  <p>Corso di lingua italiana per stranieri · Livello B1</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

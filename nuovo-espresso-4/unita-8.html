@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 8 · L'Italia sostenibile · NUOVO Espresso 4</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 4 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 8 · B2</div>
+  <h1>&#x1F331; L'Italia sostenibile</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">环境与可持续发展 · p.89-97</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">谈论环境问题 · 表达评价/疑虑 · 提出建议 · 代词与副动词/分词/不定式/命令式的位置 · futuro的多种用法 · 副词位置 · 形容词位置（含义变化）</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Che cosa fai per l'ambiente? -->
+  <h3>1. Che cosa fai per l'ambiente? · p.89, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读关于环保习惯的日常对话。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Fai la raccolta differenziata a casa?')"><strong>A</strong>: Fai la raccolta differenziata a casa?</span></td><td class="zh"><strong>A</strong>: 你在家做垃圾分类吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, certo. Separo la plastica, la carta, il vetro e l\'umido.')"><strong>B</strong>: Sì, certo. Separo la plastica, la carta, il vetro e l'umido.</span></td><td class="zh"><strong>B</strong>: 是的，当然。我把塑料、纸张、玻璃和厨余分开。</td></tr>
+    <tr><td><span class="it" onclick="speak('Bravo! Anche io. E usi la borraccia invece delle bottiglie di plastica?')"><strong>A</strong>: Bravo! Anche io. E usi la borraccia invece delle bottiglie di plastica?</span></td><td class="zh"><strong>A</strong>: 很好！我也是。你用可重复使用的水壶代替塑料瓶吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Certo! È una piccola abitudine che fa la differenza.')"><strong>B</strong>: Certo! È una piccola abitudine che fa la differenza.</span></td><td class="zh"><strong>B</strong>: 当然！这是一个能带来改变的小习惯。</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Sarà vero? -->
+  <h3>2. Sarà vero? · p.91, es.3</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">对话中表达对环保话题的怀疑和推测。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Hai sentito? Dicono che tra 50 anni i ghiacciai delle Alpi potrebbero scomparire.')"><strong>A</strong>: Hai sentito? Dicono che tra 50 anni i ghiacciai delle Alpi potrebbero scomparire.</span></td><td class="zh"><strong>A</strong>: 你听说了吗？他们说50年后阿尔卑斯山的冰川可能会消失。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sarà vero? Io non ci credo molto.')"><strong>B</strong>: Sarà vero? Io non ci credo molto.</span></td><td class="zh"><strong>B</strong>: 是真的吗？我不太相信。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sarà anche esagerato, ma i dati scientifici sono preoccupanti.')"><strong>A</strong>: Sarà anche esagerato, ma i dati scientifici sono preoccupanti.</span></td><td class="zh"><strong>A</strong>: 可能是夸张了，但科学数据令人担忧。</td></tr>
+    <tr><td><span class="it" onclick="speak('Bisogna fare qualcosa, secondo me. Dovremmo ridurre le emissioni.')"><strong>B</strong>: Bisogna fare qualcosa, secondo me. Dovremmo ridurre le emissioni.</span></td><td class="zh"><strong>B</strong>: 我们必须做点什么了。我们应该减少排放。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Proposte per un futuro sostenibile -->
+  <h3>3. Proposte per un futuro sostenibile · p.93, es.5</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">讨论如何为可持续发展做出贡献。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Secondo te, quali sono le abitudini più importanti per vivere in modo sostenibile?')"><strong>A</strong>: Secondo te, quali sono le abitudini più importanti per vivere in modo sostenibile?</span></td><td class="zh"><strong>A</strong>: 你认为哪些习惯对可持续生活最重要？</td></tr>
+    <tr><td><span class="it" onclick="speak('Prima di tutto, ridurre gli sprechi alimentari. Poi, comprare a km zero.')"><strong>B</strong>: Prima di tutto, ridurre gli sprechi alimentari. Poi, comprare a km zero.</span></td><td class="zh"><strong>B</strong>: 首先，减少食物浪费。其次，购买零公里产品。</td></tr>
+    <tr><td><span class="it" onclick="speak('Giusto. E poi evitare la plastica monouso e risparmiare energia.')"><strong>A</strong>: Giusto. E poi evitare la plastica monouso e risparmiare energia.</span></td><td class="zh"><strong>A</strong>: 对。还有避免一次性塑料和节约能源。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto. Facendolo tutti insieme, possiamo fare la differenza.')"><strong>B</strong>: Esatto. Facendolo tutti insieme, possiamo fare la differenza.</span></td><td class="zh"><strong>B</strong>: 没错。大家一起做，就能带来改变。</td></tr>
+  </table>
+
+  <!-- Dialogo 4: Un nuovo stile di vita -->
+  <h3>4. Un nuovo stile di vita · p.95, es.7</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">讨论转向更可持续生活方式的挑战。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Da quando ho cominciato a fare la raccolta differenziata, mi sento meglio.')"><strong>A</strong>: Da quando ho cominciato a fare la raccolta differenziata, mi sento meglio.</span></td><td class="zh"><strong>A</strong>: 自从我开始做垃圾分类后，我感觉更好了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Anch\'io! E ho ridotto l\'uso dell\'auto. Andando in bici, risparmio e faccio esercizio.')"><strong>B</strong>: Anch'io! E ho ridotto l'uso dell'auto. Andando in bici, risparmio e faccio esercizio.</span></td><td class="zh"><strong>B</strong>: 我也是！我减少了开车。骑自行车既省钱又锻炼身体。</td></tr>
+    <tr><td><span class="it" onclick="speak('Bella idea! Comprerò una bici anch\'io la prossima settimana.')"><strong>A</strong>: Bella idea! Comprerò una bici anch'io la prossima settimana.</span></td><td class="zh"><strong>A</strong>: 好主意！我下周也买一辆自行车。</td></tr>
+    <tr><td><span class="it" onclick="speak('Fallo! E ricordati di spegnere le luci quando esci.')"><strong>B</strong>: Fallo! E ricordati di spegnere le luci quando esci.</span></td><td class="zh"><strong>B</strong>: 去买吧！记得出去的时候关灯。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F33F; Ambiente e sostenibilità (环境与可持续发展)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('fare la raccolta differenziata')">fare la raccolta differenziata</td><td>vi</td><td>做垃圾分类</td></tr>
+    <tr><td class="it" onclick="speak('ridurre i rifiuti')">ridurre i rifiuti</td><td>vt</td><td>减少垃圾</td></tr>
+    <tr><td class="it" onclick="speak('risparmiare energia')">risparmiare energia</td><td>vt</td><td>节约能源</td></tr>
+    <tr><td class="it" onclick="speak('usare la borraccia')">usare la borraccia</td><td>vt</td><td>使用水壶</td></tr>
+    <tr><td class="it" onclick="speak('comprare a km zero')">comprare a km zero</td><td>vt</td><td>零公里购买</td></tr>
+    <tr><td class="it" onclick="speak('evitare la plastica monouso')">evitare la plastica monouso</td><td>vt</td><td>避免一次性塑料</td></tr>
+    <tr><td class="it" onclick="speak('piantare un albero')">piantare un albero</td><td>vt</td><td>种树</td></tr>
+    <tr><td class="it" onclick="speak('spegnere le luci')">spegnere le luci</td><td>vt</td><td>关灯</td></tr>
+    <tr><td class="it" onclick="speak('ridurre l\'impatto ambientale')">ridurre l'impatto ambientale</td><td>vt</td><td>减少环境影响</td></tr>
+    <tr><td class="it" onclick="speak('lo sviluppo sostenibile')">lo sviluppo sostenibile</td><td>nm</td><td>可持续发展</td></tr>
+    <tr><td class="it" onclick="speak('le emissioni')">le emissioni</td><td>nf</td><td>排放</td></tr>
+    <tr><td class="it" onclick="speak('il riciclo')">il riciclo</td><td>nm</td><td>回收</td></tr>
+    <tr><td class="it" onclick="speak('l\'energia rinnovabile')">l'energia rinnovabile</td><td>nf</td><td>可再生能源</td></tr>
+    <tr><td class="it" onclick="speak('i rifiuti')">i rifiuti</td><td>nm</td><td>垃圾</td></tr>
+    <tr><td class="it" onclick="speak('l\'inquinamento')">l'inquinamento</td><td>nm</td><td>污染</td></tr>
+    <tr><td class="it" onclick="speak('il riscaldamento globale')">il riscaldamento globale</td><td>nm</td><td>全球变暖</td></tr>
+  </table>
+
+  <h3>&#x1F30D; 表达评价与疑虑 (Esprimere valutazione e dubbio)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('Sarà vero?')">Sarà vero?</td><td>是真的吗？（怀疑）</td></tr>
+    <tr><td class="it" onclick="speak('Sarà anche bello, ma...')">Sarà anche bello, ma...</td><td>可能很美，但是...（让步）</td></tr>
+    <tr><td class="it" onclick="speak('Secondo me...')">Secondo me...</td><td>依我看...</td></tr>
+    <tr><td class="it" onclick="speak('Non sono convinto che...')">Non sono convinto che...</td><td>我不确信...</td></tr>
+    <tr><td class="it" onclick="speak('Bisognerebbe...')">Bisognerebbe...</td><td>应该...（建议）</td></tr>
+    <tr><td class="it" onclick="speak('È importante che...')">È importante che...</td><td>重要的是...</td></tr>
+    <tr><td class="it" onclick="speak('Dovremmo...')">Dovremmo...</td><td>我们应该...</td></tr>
+    <tr><td class="it" onclick="speak('È necessario ridurre...')">È necessario ridurre...</td><td>有必要减少...</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Futuro — 五种用法 -->
+  <h3>1. Il futuro — 五种用法（p.90-91）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">将来时在B2级别有五种重要的用法，不限于表示将来时间。</p>
+    <table>
+      <tr><th>用法</th><th>说明</th><th>例句</th></tr>
+      <tr><td><span class="verb">Futuro cronologico</span></td><td>表示将来发生的事件</td><td>Domani <span class="verb">andrò</span> al mercato bio.</td></tr>
+      <tr><td><span class="verb">Futuro ipotetico</span></td><td>对现在的推测</td><td>Marco non risponde, <span class="verb">sarà</span> occupato.</td></tr>
+      <tr><td><span class="verb">Futuro dubitativo</span></td><td>在疑问句中表示不确定性</td><td><span class="verb">Sarà</span> vero quello che dice?</td></tr>
+      <tr><td><span class="verb">Futuro concessivo</span></td><td>承认某事但保留异议（将来时+ma）</td><td><span class="verb">Sarà</span> anche bello, ma è troppo caro.</td></tr>
+      <tr><td><span class="verb">Futuro deontico</span></td><td>替代命令式表要求</td><td><span class="verb">Farai</span> come ti dico!</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Sarà anche sostenibile, ma è troppo costoso.')"><span class="verb">Sarà</span> anche sostenibile, ma è troppo costoso.</span></td><td>可能很可持续，但太贵了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Quanto costa? — Saranno circa 20 euro.')">Quanto costa? — <span class="verb">Saranno</span> circa 20 euro.</span></td><td>多少钱？大概20欧元。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dove sarà finita la mia borraccia?')">Dove <span class="verb">sarà finita</span> la mia borraccia?</span></td><td>我的水壶会去哪儿了呢？</td></tr>
+      <tr><td><span class="it" onclick="speak('L\'anno prossimo ridurremo i rifiuti del 30%.')">L'anno prossimo <span class="verb">ridurremo</span> i rifiuti del 30%.</span></td><td>明年我们将减少30%的垃圾。</td></tr>
+      <tr><td><span class="it" onclick="speak('Avrà circa 40 anni, ma ha molta energia.')"><span class="verb">Avrà</span> circa 40 anni, ma ha molta energia.</span></td><td>他大概40岁，但精力充沛。</td></tr>
+      <tr><td><span class="it" onclick="speak('Cosa vorrà dire questo articolo?')">Cosa <span class="verb">vorrà dire</span> questo articolo?</span></td><td>这篇文章是什么意思呢？</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Pronomi con gerundio/participio/infinito/imperativo -->
+  <h3>2. Pronomi con gerundio, participio, infinito e imperativo（代词的位置）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">代词（mi, ti, lo, la, ci, vi, si, ne）与非限定动词连用时，可以附着在动词后面。</p>
+    <table>
+      <tr><th>动词形式</th><th>代词位置</th><th>例句</th><th>翻译</th></tr>
+      <tr><td><span class="verb">Gerundio</span></td><td>附着在末尾</td><td><span class="verb">Faccendolo</span>, impari.</td><td>通过做它，你学会了。</td></tr>
+      <tr><td><span class="verb">Participio</span></td><td>附着在末尾</td><td><span class="verb">Vistola</span>, ha sorriso.</td><td>看到她后，他笑了。</td></tr>
+      <tr><td><span class="verb">Infinito</span></td><td>附着在末尾或放在前面</td><td>Puoi <span class="verb">farlo</span> / <span class="verb">Lo</span> puoi fare.</td><td>你可以做它。</td></tr>
+      <tr><td><span class="verb">Imperativo (tu)</span></td><td>附着在末尾</td><td><span class="verb">Fallo!</span> / <span class="verb">Spegnila!</span></td><td>做吧！/ 关掉它！</td></tr>
+      <tr><td><span class="verb">Imperativo negativo (tu)</span></td><td>代词放在前面</td><td><span class="verb">Non lo fare!</span></td><td>别做它！</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Fallo subito, per favore.')"><span class="verb">Fallo</span> subito, per favore.</span></td><td>请立刻做。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non lo buttare via! Si può riciclare.')"><span class="verb">Non lo buttare</span> via! Si può riciclare.</span></td><td>别扔掉它！可以回收。</td></tr>
+      <tr><td><span class="it" onclick="speak('Parlandone, capirai meglio il problema.')"><span class="verb">Parlandone</span>, capirai meglio il problema.</span></td><td>谈论它，你会更好地理解问题。</td></tr>
+      <tr><td><span class="it" onclick="speak('Puoi spegnerla quando esci.')">Puoi <span class="verb">spegnerla</span> quando esci.</span></td><td>你出去的时候可以把它关掉。</td></tr>
+      <tr><td><span class="it" onclick="speak('Vedendoti, ho pensato alla raccolta differenziata.')"><span class="verb">Vedendoti</span>, ho pensato alla raccolta differenziata.</span></td><td>看到你时，我想到了垃圾分类。</td></tr>
+      <tr><td><span class="it" onclick="speak('Prendilo e mettilo nel contenitore giusto.')"><span class="verb">Prendilo</span> e <span class="verb">mettilo</span> nel contenitore giusto.</span></td><td>拿起它，放进正确的容器里。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Aggettivi con significato diverso -->
+  <h3>3. Aggettivi — posizione e cambiamento di significato（形容词位置与含义变化）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">部分常用形容词放在名词前或名词后含义不同：名前=比喻义/主观评价，名后=字面义/客观描述。</p>
+    <table>
+      <tr><th>形容词</th><th>名词前</th><th>含义</th><th>名词后</th><th>含义</th></tr>
+      <tr><td><span class="verb">grande</span></td><td>un <span class="verb">grande</span> uomo</td><td>伟大的人</td><td>un uomo <span class="verb">grande</span></td><td>高大的人</td></tr>
+      <tr><td><span class="verb">buono</span></td><td>un <span class="verb">buon</span> amico</td><td>好朋友</td><td>un uomo <span class="verb">buono</span></td><td>善良的人</td></tr>
+      <tr><td><span class="verb">nuovo</span></td><td>un <span class="verb">nuovo</span> libro</td><td>另一本新书</td><td>un libro <span class="verb">nuovo</span></td><td>崭新的书</td></tr>
+      <tr><td><span class="verb">diverso</span></td><td><span class="verb">diverse</span> persone</td><td>好几个人</td><td>persone <span class="verb">diverse</span></td><td>不同的人</td></tr>
+      <tr><td><span class="verb">povero</span></td><td>un <span class="verb">povero</span> uomo</td><td>可怜的人</td><td>un uomo <span class="verb">povero</span></td><td>贫穷的人</td></tr>
+      <tr><td><span class="verb">caro</span></td><td>un <span class="verb">caro</span> amico</td><td>亲爱的朋友</td><td>un vestito <span class="verb">caro</span></td><td>昂贵的衣服</td></tr>
+      <tr><td><span class="verb">vecchio</span></td><td>il mio <span class="verb">vecchio</span> professore</td><td>我的老教授</td><td>un uomo <span class="verb">vecchio</span></td><td>一个老人</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Posizione degli avverbi -->
+  <h3>4. La posizione degli avverbi（副词位置）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">副词在意大利语中的位置较为灵活，但通常遵循以下规则：</p>
+    <table>
+      <tr><th>类型</th><th>位置</th><th>例句</th><th>翻译</th></tr>
+      <tr><td><span class="verb">Avverbi di modo</span> (bene, male, velocemente)</td><td>动词之后</td><td>Parla <span class="verb">bene</span> l'italiano.</td><td>他意大利语说得很好。</td></tr>
+      <tr><td><span class="verb">Avverbi di frequenza</span> (sempre, mai, spesso)</td><td>动词之前</td><td><span class="verb">Sempre</span> faccio la raccolta differenziata.</td><td>我总是做垃圾分类。</td></tr>
+      <tr><td><span class="verb">Avverbi di quantità</span> (molto, poco, troppo)</td><td>形容词/副词之前</td><td>È <span class="verb">molto</span> importante.</td><td>这非常重要。</td></tr>
+      <tr><td><span class="verb">Avverbi di tempo</span> (oggi, domani, ieri)</td><td>句首或句尾</td><td><span class="verb">Oggi</span> vado al mercato bio.</td><td>今天我去有机市场。</td></tr>
+      <tr><td><span class="verb">Avverbi di dubbio</span> (forse, probabilmente)</td><td>动词之前</td><td><span class="verb">Probabilmente</span> pioverà domani.</td><td>明天可能会下雨。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">注意:</p>
+    <p style="font-size:13px;color:var(--ne-muted);">
+      • 在复合时态中（如passato prossimo），频率副词通常放在助动词和分词之间：Ho <span class="verb">sempre</span> fatto la raccolta differenziata.<br>
+      • 修饰全句的副词（probabilmente, sicuramente）可放在句首。
+    </p>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 8 · p.97</h2>
+
+  <h3>&#x1F33F; L'Italia e la sostenibilità（意大利与可持续发展）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('L\'Italia è uno dei paesi più attenti alla sostenibilità in Europa.')">L'Italia è uno dei paesi più attenti alla sostenibilità in Europa.</p>
+    <p class="it" onclick="speak('Molte città italiane hanno attivato la raccolta differenziata porta a porta.')">Molte città italiane hanno attivato la raccolta differenziata porta a porta.</p>
+    <p class="it" onclick="speak('L\'Italia è anche leader mondiale nel riciclo dei rifiuti, con un tasso di riciclo superiore al 70%.')">L'Italia è anche leader mondiale nel riciclo dei rifiuti, con un tasso di riciclo superiore al 70%.</p>
+    <p class="it" onclick="speak('Il movimento "km zero" sta crescendo: sempre più italiani scelgono prodotti locali.')">Il movimento "km zero" sta crescendo: sempre più italiani scelgono prodotti locali.</p>
+    <p class="it" onclick="speak('Anche nel settore della moda, l\'Italia promuove il "slow fashion" e materiali ecologici.')">Anche nel settore della moda, l'Italia promuove il "slow fashion" e materiali ecologici.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p class="zh">意大利是欧洲最关注可持续发展的国家之一。</p>
+    <p class="zh">许多意大利城市已经实施了上门垃圾分类收集。</p>
+    <p class="zh">意大利也是全球垃圾回收的领导者，回收率超过70%。</p>
+    <p class="zh">"零公里"运动正在兴起：越来越多的意大利人选择本地产品。</p>
+    <p class="zh">在时尚领域，意大利也在推广"慢时尚"和环保材料。</p>
+  </div>
+
+  <h3>相关词汇</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la sostenibilità')">la sostenibilità</td><td>可持续性</td></tr>
+    <tr><td class="it" onclick="speak('il riciclo dei rifiuti')">il riciclo dei rifiuti</td><td>垃圾回收</td></tr>
+    <tr><td class="it" onclick="speak('il movimento km zero')">il movimento km zero</td><td>零公里运动</td></tr>
+    <tr><td class="it" onclick="speak('lo slow fashion')">lo slow fashion</td><td>慢时尚</td></tr>
+    <tr><td class="it" onclick="speak('i materiali ecologici')">i materiali ecologici</td><td>环保材料</td></tr>
+    <tr><td class="it" onclick="speak('la raccolta porta a porta')">la raccolta porta a porta</td><td>上门收集</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化注释:</strong><br>
+    • 意大利的回收系统因城市而异，但整体效率很高<br>
+    • "Ghetti ecologici"（生态街区）在一些城市兴起<br>
+    • 许多超市设有"sfuso"（散装）区域，鼓励减少包装<br>
+    • Nel tuo Paese, come si fa la raccolta differenziata? — 在你的国家是如何做垃圾分类的？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 8 — Vivere sostenibile · p.94-95</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频展示了几位意大利人讨论环保习惯和可持续生活方式，分享日常环保小技巧。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">关键表达 (Espressioni chiave):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Fai la raccolta differenziata?')">Fai la raccolta differenziata?</span></td><td class="zh">你做垃圾分类吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('È importante ridurre gli sprechi.')">È importante ridurre gli sprechi.</span></td><td class="zh">减少浪费很重要。</td></tr>
+    <tr><td><span class="it" onclick="speak('Bisogna rispettare l\'ambiente.')">Bisogna rispettare l'ambiente.</span></td><td class="zh">必须保护环境。</td></tr>
+    <tr><td><span class="it" onclick="speak('Cos\'è lo sviluppo sostenibile?')">Cos'è lo sviluppo sostenibile?</span></td><td class="zh">什么是可持续发展？</td></tr>
+    <tr><td><span class="it" onclick="speak('Dobbiamo ridurre l\'impatto ambientale.')">Dobbiamo ridurre l'impatto ambientale.</span></td><td class="zh">我们必须减少环境影响。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">视频讨论主题:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Gli italiani parlano delle loro abitudini ecologiche quotidiane.')">环保习惯: 意大利人谈论日常环保习惯</span></td><td class="zh">Gli italiani parlano delle loro abitudini ecologiche quotidiane.</td></tr>
+    <tr><td><span class="it" onclick="speak('Discutono dell\'importanza della raccolta differenziata.')">垃圾分类: 讨论垃圾分类的重要性</span></td><td class="zh">Discutono dell'importanza della raccolta differenziata.</td></tr>
+    <tr><td><span class="it" onclick="speak('Confrontano le diverse pratiche sostenibili nelle varie regioni italiane.')">地区差异: 比较意大利不同地区的可持续实践</span></td><td class="zh">Confrontano le diverse pratiche sostenibili nelle varie regioni italiane.</td></tr>
+    <tr><td><span class="it" onclick="speak('Danno consigli per uno stile di vita più ecologico.')">环保建议: 提供更环保的生活方式建议</span></td><td class="zh">Danno consigli per uno stile di vita più ecologico.</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 用futuro ipotetico推测：Quanto inquinamento produce la tua città?<br>
+    &bull; 用代词+命令式练习：Fallo! / Non lo fare! / Spegnila!<br>
+    &bull; 讨论形容词位置变化：un grande problema vs un problema grande<br>
+    &bull; 角色扮演：向朋友推荐环保生活方式
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-7.html">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+  <a href="unita-9.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 4</div>
+  <p>Corso di lingua italiana per stranieri · Livello B2</p>
+  <p style="margin-top:8px;opacity:0.6;">Maria Bali • Irene Dei · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

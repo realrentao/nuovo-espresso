@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 6 · Buona la prima · NUOVO Espresso 6</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 6 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 6 · C2</div>
+  <h1>&#x1F3AC; Buona la prima</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">第一次就成功 · p.73-86</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">介词性短语 · 连接词nonostante和malgrado · 插入句 · 名词/形容词/副词的重复 · chi的特殊用法 · 语调</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Italiani da Oscar -->
+  <h3>1. "Italiani da Oscar" · p.74</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">朋友们讨论获得奥斯卡奖的意大利电影。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Quanti film italiani hanno vinto l\'Oscar?')"><strong>Paolo:</strong> Quanti film italiani hanno vinto l'Oscar?</span></td><td class="zh"><strong>保罗：</strong> 有多少部意大利电影赢得过奥斯卡？</td></tr>
+    <tr><td><span class="it" onclick="speak('Beh, Ladri di biciclette di De Sica ha ricevuto un Oscar onorario nel 1950.')"><strong>Anna:</strong> Beh, <strong>Ladri di biciclette</strong> di De Sica ha ricevuto un Oscar onorario nel 1950.</span></td><td class="zh"><strong>安娜：</strong> 嗯，德·西卡的《偷自行车的人》在1950年获得了奥斯卡荣誉奖。</td></tr>
+    <tr><td><span class="it" onclick="speak('E 8 1/2 di Fellini nel 1964?')"><strong>Paolo:</strong> E <strong>8 1/2</strong> di Fellini nel 1964?</span></td><td class="zh"><strong>保罗：</strong> 还有费里尼1964年的《八部半》？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, miglior film straniero. Mediterraneo di Salvatores nel 1992...')"><strong>Anna:</strong> Sì, miglior film straniero. <strong>Mediterraneo</strong> di Salvatores nel 1992...</span></td><td class="zh"><strong>安娜：</strong> 是的，最佳外语片。萨尔瓦托雷斯的《地中海》在1992年……</td></tr>
+    <tr><td><span class="it" onclick="speak('E non dimentichiamo La grande bellezza di Sorrentino nel 2014.')"><strong>Paolo:</strong> E non dimentichiamo <strong>La grande bellezza</strong> di Sorrentino nel 2014.</span></td><td class="zh"><strong>保罗：</strong> 别忘了索伦蒂诺2014年的《绝美之城》。</td></tr>
+    <tr><td><span class="it" onclick="speak('Nonostante molti critici dicano che il cinema italiano non è più come quello dei grandi del passato, secondo me ci sono ancora registi bravissimi.')"><strong>Anna:</strong> <strong>Nonostante</strong> molti critici dicano che il cinema italiano non è più come quello dei grandi del passato, secondo me ci sono ancora registi bravissimi.</span></td><td class="zh"><strong>安娜：</strong> 尽管很多评论家说意大利电影已不如昔日大师时代，但我觉得现在仍有非常优秀的导演。</td></tr>
+    <tr><td><span class="it" onclick="speak('Vero. Malgrado i tagli ai finanziamenti, il cinema italiano continua a produrre opere di qualità.')"><strong>Paolo:</strong> Vero. <strong>Malgrado</strong> i tagli ai finanziamenti, il cinema italiano continua a produrre opere di qualità.</span></td><td class="zh"><strong>保罗：</strong> 没错。尽管资金削减，意大利电影仍在产出高质量作品。</td></tr>
+    <tr><td><span class="it" onclick="speak('Buona la prima si dice quando una cosa riesce al primo tentativo. Il cinema italiano ci riesce spesso!')"><strong>Anna:</strong> <strong>Buona la prima</strong> si dice quando una cosa riesce al primo tentativo. Il cinema italiano ci riesce spesso!</span></td><td class="zh"><strong>安娜：</strong> Buona la prima是说第一次就成功。意大利电影经常做到！</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Significato letterale e figurato -->
+  <h3>2. "Significato letterale e figurato" · p.76</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">课堂上讨论词汇的字面意义和比喻意义。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Oggi parliamo della differenza tra significato letterale e figurato.')"><strong>Insegnante:</strong> Oggi parliamo della differenza tra significato <strong>letterale</strong> e <strong>figurato</strong>.</span></td><td class="zh"><strong>老师：</strong> 今天我们讨论字面意义和比喻意义的区别。</td></tr>
+    <tr><td><span class="it" onclick="speak('Per esempio, \'buona la prima\' — nel teatro significa che la prima prova è andata bene. In senso figurato, significa che qualcosa riesce al primo tentativo.')"><strong>Studente:</strong> Per esempio, "buona la prima" — nel teatro significa che la prima prova è andata bene. In senso figurato, significa che qualcosa riesce al primo tentativo.</span></td><td class="zh"><strong>学生：</strong> 比如"buona la prima"——在剧院里指第一次彩排很顺利，比喻义指第一次就成功。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esattamente! E \'prendere nota\'? Significato letterale: scrivere appunti. Significato figurato: prestare attenzione a qualcosa di importante.')"><strong>Insegnante:</strong> Esattamente! E "prendere nota"? Significato letterale: scrivere appunti. Significato figurato: prestare attenzione a qualcosa di importante.</span></td><td class="zh"><strong>老师：</strong> 正确！那"prendere nota"呢？字面义：记笔记。比喻义：注意重要的事情。</td></tr>
+    <tr><td><span class="it" onclick="speak('Capisco. Quindi le parole hanno spesso più livelli di significato.')"><strong>Studente:</strong> Capisco. Quindi le parole hanno spesso più livelli di significato.</span></td><td class="zh"><strong>学生：</strong> 我明白了。所以词语通常有多个意义层面。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, e capire questi livelli è importante per prendere appunti efficaci e per sintetizzare un testo.')"><strong>Insegnante:</strong> Sì, e capire questi livelli è importante per <strong>prendere appunti</strong> efficaci e per <strong>sintetizzare un testo</strong>.</span></td><td class="zh"><strong>老师：</strong> 是的，理解这些层面对于有效做笔记和总结文本很重要。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quindi dobbiamo distinguere le informazioni principali da quelle secondarie.')"><strong>Studente:</strong> Quindi dobbiamo distinguere le informazioni principali da quelle secondarie.</span></td><td class="zh"><strong>学生：</strong> 所以我们需要区分主要信息和次要信息。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto! E comunicare questa gerarchia di informazioni è fondamentale nello scritto.')"><strong>Insegnante:</strong> Esatto! E comunicare questa <strong>gerarchia</strong> di informazioni è fondamentale nello scritto.</span></td><td class="zh"><strong>老师：</strong> 正确！在书面语中传达这种信息层级至关重要。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Duplicazione espressiva -->
+  <h3>3. "Duplicazione espressiva" · p.80</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">两个朋友讨论意大利语中通过重复词语来表示强调的表达方式。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Hai notato che a volte ripetiamo le parole per dare enfasi?')"><strong>Luca:</strong> Hai notato che a volte ripetiamo le parole per dare enfasi?</span></td><td class="zh"><strong>卢卡：</strong> 你有没有注意到我们有时重复词语来强调？</td></tr>
+    <tr><td><span class="it" onclick="speak('Tipo \'via via\', \'bel bello\', \'quatto quatto\'?')"><strong>Maria:</strong> Tipo <strong>"via via"</strong>, <strong>"bel bello"</strong>, <strong>"quatto quatto"</strong>?</span></td><td class="zh"><strong>玛丽亚：</strong> 比如"via via"、"bel bello"、"quatto quatto"？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì! O \'ben bene\' e \'così così\'.')"><strong>Luca:</strong> Sì! O <strong>"ben bene"</strong> e <strong>"così così"</strong>.</span></td><td class="zh"><strong>卢卡：</strong> 对！还有"ben bene"和"così così"。</td></tr>
+    <tr><td><span class="it" onclick="speak('È una tecnica per aumentare l\'intensità. Si chiama duplicazione espressiva.')"><strong>Maria:</strong> È una tecnica per aumentare l'intensità. Si chiama <strong>duplicazione espressiva</strong>.</span></td><td class="zh"><strong>玛丽亚：</strong> 这是一种增强强度的技巧。叫做表达性重复。</td></tr>
+    <tr><td><span class="it" onclick="speak('Funziona con nomi, aggettivi e avverbi.')"><strong>Luca:</strong> Funziona con nomi, aggettivi e avverbi.</span></td><td class="zh"><strong>卢卡：</strong> 适用于名词、形容词和副词。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto. E piano piano è un classico!')"><strong>Maria:</strong> Esatto. E <strong>piano piano</strong> è un classico!</span></td><td class="zh"><strong>玛丽亚：</strong> 没错。Piano piano是经典例子！</td></tr>
+    <tr><td><span class="it" onclick="speak('O presto presto quando abbiamo fretta.')"><strong>Luca:</strong> O <strong>presto presto</strong> quando abbiamo fretta.</span></td><td class="zh"><strong>卢卡：</strong> 或者我们赶时间时的presto presto。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F30D; 核心词汇 (Lessico chiave)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('neorealismo')">il neorealismo</td><td>新现实主义</td></tr>
+    <tr><td class="it" onclick="speak('commedia')">la commedia</td><td>喜剧</td></tr>
+    <tr><td class="it" onclick="speak('film drammatico')">il film drammatico</td><td>剧情片</td></tr>
+    <tr><td class="it" onclick="speak('regista')">il regista</td><td>导演</td></tr>
+    <tr><td class="it" onclick="speak('premio Oscar')">il/la premio Oscar</td><td>奥斯卡奖得主</td></tr>
+    <tr><td class="it" onclick="speak('pellicola')">la pellicola</td><td>胶片，电影</td></tr>
+    <tr><td class="it" onclick="speak('locuzione preposizionale')">la locuzione preposizionale</td><td>介词性短语</td></tr>
+    <tr><td class="it" onclick="speak('gerarchia')">la gerarchia</td><td>层级</td></tr>
+    <tr><td class="it" onclick="speak('appunto')">l'appunto (m.)</td><td>笔记</td></tr>
+    <tr><td class="it" onclick="speak('sintesi')">la sintesi</td><td>总结，综合</td></tr>
+    <tr><td class="it" onclick="speak('duplicazione')">la duplicazione</td><td>重复</td></tr>
+    <tr><td class="it" onclick="speak('espressivo')">espressivo/a</td><td>表达的，有表现力的</td></tr>
+    <tr><td class="it" onclick="speak('significato letterale')">il significato letterale</td><td>字面意义</td></tr>
+    <tr><td class="it" onclick="speak('significato figurato')">il significato figurato</td><td>比喻意义</td></tr>
+    <tr><td class="it" onclick="speak('frase incidentale')">la frase incidentale</td><td>插入句</td></tr>
+    <tr><td class="it" onclick="speak('intonazione')">l'intonazione (f.)</td><td>语调</td></tr>
+    <tr><td class="it" onclick="speak('congiunzione')">la congiunzione</td><td>连词</td></tr>
+    <tr><td class="it" onclick="speak('nonostante')">nonostante</td><td>尽管，虽然</td></tr>
+    <tr><td class="it" onclick="speak('malgrado')">malgrado</td><td>尽管，虽然</td></tr>
+    <tr><td class="it" onclick="speak('sebbene')">sebbene</td><td>虽然</td></tr>
+    <tr><td class="it" onclick="speak('benché')">benché</td><td>尽管</td></tr>
+    <tr><td class="it" onclick="speak('seppure')">seppure</td><td>即使</td></tr>
+    <tr><td class="it" onclick="speak('finanziamento')">il finanziamento</td><td>资助，资金</td></tr>
+    <tr><td class="it" onclick="speak('taglio')">il taglio</td><td>削减</td></tr>
+    <tr><td class="it" onclick="speak('qualità')">la qualità</td><td>质量</td></tr>
+    <tr><td class="it" onclick="speak('genere cinematografico')">il genere cinematografico</td><td>电影类型</td></tr>
+    <tr><td class="it" onclick="speak('protagonista')">il/la protagonista</td><td>主角</td></tr>
+    <tr><td class="it" onclick="speak('trama')">la trama</td><td>剧情</td></tr>
+    <tr><td class="it" onclick="speak('spettatore')">il/lo spettatore</td><td>观众</td></tr>
+    <tr><td class="it" onclick="speak('critica')">la critica</td><td>评论</td></tr>
+    <tr><td class="it" onclick="speak('successo')">il successo</td><td>成功</td></tr>
+    <tr><td class="it" onclick="speak('tentativo')">il tentativo</td><td>尝试</td></tr>
+    <tr><td class="it" onclick="speak('prova')">la prova</td><td>尝试，彩排</td></tr>
+    <tr><td class="it" onclick="speak('ripresa')">la ripresa</td><td>拍摄，复苏</td></tr>
+    <tr><td class="it" onclick="speak('inquadratura')">l'inquadratura (f.)</td><td>镜头，取景</td></tr>
+    <tr><td class="it" onclick="speak('colonna sonora')">la colonna sonora</td><td> soundtrack</td></tr>
+    <tr><td class="it" onclick="speak('sceneggiatura')">la sceneggiatura</td><td>剧本</td></tr>
+    <tr><td class="it" onclick="speak('attore')">l'attore/trice (m./f.)</td><td>演员</td></tr>
+    <tr><td class="it" onclick="speak('produzione')">la produzione</td><td>制作</td></tr>
+    <tr><td class="it" onclick="speak('distribuzione')">la distribuzione</td><td>发行</td></tr>
+  </table>
+
+  <h3>&#x1F4AC; 习语和表达 (Espressioni idiomatiche)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>含义</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('buona la prima')">buona la prima</td><td>riuscire al primo tentativo</td><td>第一次就成功</td></tr>
+    <tr><td class="it" onclick="speak('via via')">via via</td><td>gradualmente, man mano</td><td>逐渐地</td></tr>
+    <tr><td class="it" onclick="speak('bel bello')">bel bello</td><td>lentamente, con calma</td><td>慢慢地，从容地</td></tr>
+    <tr><td class="it" onclick="speak('quatto quatto')">quatto quatto</td><td>furtivamente, zitto zitto</td><td>偷偷摸摸地，悄悄地</td></tr>
+    <tr><td class="it" onclick="speak('ben bene')">ben bene</td><td>molto bene, a fondo</td><td>好好地，彻底地</td></tr>
+    <tr><td class="it" onclick="speak('così così')">così così</td><td>né bene né male</td><td>一般般，马马虎虎</td></tr>
+    <tr><td class="it" onclick="speak('piano piano')">piano piano</td><td>molto lentamente</td><td>慢慢地</td></tr>
+    <tr><td class="it" onclick="speak('presto presto')">presto presto</td><td>molto velocemente</td><td>快快地</td></tr>
+    <tr><td class="it" onclick="speak('chi si rivede')">chi si rivede!</td><td>esclamazione per qualcuno che non si vede da tempo</td><td>好久不见！</td></tr>
+    <tr><td class="it" onclick="speak('prendere appunti')">prendere appunti</td><td>scrivere note</td><td>做笔记</td></tr>
+    <tr><td class="it" onclick="speak('sintetizzare un testo')">sintetizzare un testo</td><td>riassumere</td><td>总结文本</td></tr>
+    <tr><td class="it" onclick="speak('entrare nel vivo')">entrare nel vivo</td><td>arrivare al punto principale</td><td>进入主题</td></tr>
+    <tr><td class="it" onclick="speak('andare dritto al punto')">andare dritto al punto</td><td>essere diretto</td><td>直入主题</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Locuzioni preposizionali -->
+  <h3>1. 介词性短语 — Le locuzioni preposizionali</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">介词性短语是由多个词组成的介词结构。</p>
+    <table>
+      <tr><th>Tipo</th><th>Struttura</th><th>Esempi</th></tr>
+      <tr><td><span class="verb">Avverbio + preposizione</span></td><td>副词+介词</td><td><span class="it" onclick="speak('Relativamente a')">Relativamente a, prima di, dopo di, insieme a, vicino a</span></td></tr>
+      <tr><td><span class="verb">Sostantivo + preposizione</span></td><td>名词+介词</td><td><span class="it" onclick="speak('A causa di')">A causa di, per merito di, grazie a, per colpa di, in base a, in seguito a</span></td></tr>
+      <tr><td><span class="verb">Gruppi di preposizioni</span></td><td>介词组</td><td><span class="it" onclick="speak('Accanto a')">Accanto a, davanti a, dietro di, fuori di, in mezzo a</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Relativamente a quello che hai detto, ho dei dubbi.')"><span class="verb">Relativamente a</span> quello che hai detto, ho dei dubbi.</span></td><td>关于你所说的，我有些疑问。</td></tr>
+      <tr><td><span class="it" onclick="speak('A causa della neve, la scuola è rimasta chiusa.')"><span class="verb">A causa della</span> neve, la scuola è rimasta chiusa.</span></td><td>由于下雪，学校关闭了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Per merito dell\'insegnante, ho imparato molto.')"><span class="verb">Per merito dell'</span>insegnante, ho imparato molto.</span></td><td>多亏了老师，我学到了很多。</td></tr>
+      <tr><td><span class="it" onclick="speak('Grazie al tuo aiuto, ho finito il lavoro.')"><span class="verb">Grazie al</span> tuo aiuto, ho finito il lavoro.</span></td><td>感谢你的帮助，我完成了工作。</td></tr>
+      <tr><td><span class="it" onclick="speak('In base ai dati, il progetto è fattibile.')"><span class="verb">In base ai</span> dati, il progetto è fattibile.</span></td><td>根据数据，这个项目是可行的。</td></tr>
+      <tr><td><span class="it" onclick="speak('L\'ho incontrato prima di partire.')">L'ho incontrato <span class="verb">prima di</span> partire.</span></td><td>我在出发前遇到了他。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il supermercato è accanto alla farmacia.')">Il supermercato è <span class="verb">accanto alla</span> farmacia.</span></td><td>超市在药店旁边。</td></tr>
+      <tr><td><span class="it" onclick="speak('In seguito alla riunione, abbiamo preso una decisione.')"><span class="verb">In seguito alla</span> riunione, abbiamo preso una decisione.</span></td><td>在会议之后，我们做出了决定。</td></tr>
+      <tr><td><span class="it" onclick="speak('Per colpa del traffico, sono arrivato in ritardo.')"><span class="verb">Per colpa del</span> traffico, sono arrivato in ritardo.</span></td><td>因为交通堵塞，我迟到了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Fuori di testa!')"><span class="verb">Fuori di</span> testa! (espressione colloquiale)</span></td><td>疯了！</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Congiunzioni nonostante e malgrado -->
+  <h3>2. 连词 nonostante 和 malgrado — Congiunzioni concessive</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">让步连词引导从句，表示"尽管……但是……"。</p>
+    <table>
+      <tr><th>Congiunzione</th><th>Modo verbale</th><th>Esempio</th></tr>
+      <tr><td><span class="verb">nonostante (che)</span></td><td>虚拟式</td><td><span class="it" onclick="speak('Nonostante avessi sonno, non andai a dormire.')">"Nonostante <span class="verb">avessi</span> sonno, non andai a dormire."</span></td></tr>
+      <tr><td><span class="verb">malgrado</span></td><td>虚拟式</td><td><span class="it" onclick="speak('Malgrado piovesse, siamo usciti.')">"Malgrado <span class="verb">piovesse</span>, siamo usciti."</span></td></tr>
+      <tr><td><span class="verb">sebbene</span></td><td>虚拟式</td><td><span class="it" onclick="speak('Sebbene sia stanco, continuo a lavorare.')">"Sebbene <span class="verb">sia</span> stanco, continuo a lavorare."</span></td></tr>
+      <tr><td><span class="verb">benché</span></td><td>虚拟式</td><td><span class="it" onclick="speak('Benché abbia studiato, non ho superato l\'esame.')">"Benché <span class="verb">abbia</span> studiato, non ho superato l'esame."</span></td></tr>
+      <tr><td><span class="verb">seppure</span></td><td>虚拟式</td><td><span class="it" onclick="speak('Seppure fosse tardi, rimasi.')">"Seppure <span class="verb">fosse</span> tardi, rimasi."</span></td></tr>
+      <tr><td><span class="verb">anche se</span></td><td>直陈式</td><td><span class="it" onclick="speak('Anche se piove, esco.')">"Anche se <span class="verb">piove</span>, esco."</span></td></tr>
+      <tr><td><span class="verb">pur + gerundio</span></td><td>副动词（隐含式）</td><td><span class="it" onclick="speak('Pur avendo molti soldi, non sono felici.')">"Pur <span class="verb">avendo</span> molti soldi, non sono felici."</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Nonostante avessi sonno, sono rimasto sveglio.')"><span class="verb">Nonostante</span> <span class="verb">avessi</span> sonno, sono rimasto sveglio.</span></td><td>尽管困了，我还是保持清醒。</td></tr>
+      <tr><td><span class="it" onclick="speak('Malgrado piovesse, sono andato a correre.')"><span class="verb">Malgrado</span> <span class="verb">piovesse</span>, sono andato a correre.</span></td><td>尽管下雨，我还是去跑步了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sebbene sia ricco, vive modestamente.')"><span class="verb">Sebbene</span> <span class="verb">sia</span> ricco, vive modestamente.</span></td><td>尽管富有，他生活简朴。</td></tr>
+      <tr><td><span class="it" onclick="speak('Benché abbia studiato molto, non ha passato l\'esame.')"><span class="verb">Benché</span> <span class="verb">abbia</span> studiato molto, non ha passato l'esame.</span></td><td>尽管学了很多，他考试没通过。</td></tr>
+      <tr><td><span class="it" onclick="speak('Seppure fosse difficile, abbiamo insistito.')"><span class="verb">Seppure</span> <span class="verb">fosse</span> difficile, abbiamo insistito.</span></td><td>尽管困难，我们还是坚持了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Anche se piove, vado al mare.')"><span class="verb">Anche se</span> <span class="verb">piove</span>, vado al mare.</span></td><td>即使下雨，我也要去海边。</td></tr>
+      <tr><td><span class="it" onclick="speak('Pur essendo stanco, ha finito il lavoro.')"><span class="verb">Pur</span> <span class="verb">essendo</span> stanco, ha finito il lavoro.</span></td><td>尽管累，他还是完成了工作。</td></tr>
+      <tr><td><span class="it" onclick="speak('Nonostante la pioggia battente, sono andati a fare una gita.')"><span class="verb">Nonostante</span> la pioggia battente, sono andati a fare una gita.</span></td><td>尽管下着倾盆大雨，他们还是去郊游了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Malgrado tutto, ti voglio bene.')"><span class="verb">Malgrado</span> tutto, ti voglio bene.</span></td><td>尽管发生了一切，我还是爱你。</td></tr>
+      <tr><td><span class="it" onclick="speak('Pur avendo molti impegni, trova il tempo per gli amici.')"><span class="verb">Pur avendo</span> molti impegni, trova il tempo per gli amici.</span></td><td>尽管有很多事务，他还是找时间陪朋友。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Duplicazione espressiva -->
+  <h3>3. 表达性重复 — La duplicazione espressiva</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">通过重复名词、形容词或副词来增强语义。</p>
+    <table>
+      <tr><th>Categoria</th><th>Esempi</th><th>Significato</th></tr>
+      <tr><td><span class="verb">Nome (名词)</span></td><td><span class="it" onclick="speak('via via')">via via</span>, <span class="it" onclick="speak('cosa cosa')">cosa cosa</span></td><td>gradualmente; non so cosa</td></tr>
+      <tr><td><span class="verb">Aggettivo (形容词)</span></td><td><span class="it" onclick="speak('bel bello')">bel bello</span>, <span class="it" onclick="speak('quatto quatto')">quatto quatto</span></td><td>lentamente; furtivamente</td></tr>
+      <tr><td><span class="verb">Avverbio (副词)</span></td><td><span class="it" onclick="speak('ben bene')">ben bene</span>, <span class="it" onclick="speak('così così')">così così</span>, <span class="it" onclick="speak('presto presto')">presto presto</span></td><td>molto bene; mediocremente; molto velocemente</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Via via che passano gli anni, si diventa più saggi.')"><span class="verb">Via via</span> che passano gli anni, si diventa più saggi.</span></td><td>随着岁月流逝，人变得更智慧。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il gatto si avvicinò quatto quatto alla finestra.')">Il gatto si avvicinò <span class="verb">quatto quatto</span> alla finestra.</span></td><td>猫悄悄地靠近窗户。</td></tr>
+      <tr><td><span class="it" onclick="speak('Piano piano siamo arrivati alla cima.')"><span class="verb">Piano piano</span> siamo arrivati alla cima.</span></td><td>慢慢地，我们到达了山顶。</td></tr>
+      <tr><td><span class="it" onclick="speak('Bel bello si è fatto tutto da solo.')"><span class="verb">Bel bello</span> si è fatto tutto da solo.</span></td><td>他从容地自己做了所有事。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho controllato ben bene il contratto.')">Ho controllato <span class="verb">ben bene</span> il contratto.</span></td><td>我仔细检查了合同。</td></tr>
+      <tr><td><span class="it" onclick="speak('Come stai? Così così.')">Come stai? <span class="verb">Così così</span>.</span></td><td>你怎么样？一般般。</td></tr>
+      <tr><td><span class="it" onclick="speak('Presto presto, dobbiamo andare!')"><span class="verb">Presto presto</span>, dobbiamo andare!</span></td><td>快快地，我们得走了！</td></tr>
+      <tr><td><span class="it" onclick="speak('Piano piano imparerai l\'italiano.')"><span class="verb">Piano piano</span> imparerai l'italiano.</span></td><td>慢慢地你会学会意大利语的。</td></tr>
+      <tr><td><span class="it" onclick="speak('L\'ho visto proprio proprio ieri.')">L'ho visto <span class="verb">proprio proprio</span> ieri.</span></td><td>我恰恰就在昨天看到了他。</td></tr>
+      <tr><td><span class="it" onclick="speak('Vicino vicino alla chiesa c\'è un bar.')"><span class="verb">Vicino vicino</span> alla chiesa c'è un bar.</span></td><td>紧挨着教堂有一家酒吧。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Chi speciale -->
+  <h3>4. chi 的特殊用法 — Un uso particolare del pronome chi</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">chi 在谚语和固定表达中表示"谁……的人"。</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Chi dorme non piglia pesci.')"><span class="verb">Chi</span> dorme non piglia pesci. (proverbio)</span></td><td>谁睡觉谁就抓不到鱼。（早起的鸟儿有虫吃）</td></tr>
+      <tr><td><span class="it" onclick="speak('Chi tace acconsente.')"><span class="verb">Chi</span> tace acconsente.</span></td><td>沉默等于同意。</td></tr>
+      <tr><td><span class="it" onclick="speak('Chi cerca trova.')"><span class="verb">Chi</span> cerca trova.</span></td><td>寻找的人终会找到。</td></tr>
+      <tr><td><span class="it" onclick="speak('Chi ben comincia è a metà dell\'opera.')"><span class="verb">Chi</span> ben comincia è a metà dell'opera.</span></td><td>好的开始是成功的一半。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non so chi sia.')">Non so <span class="verb">chi</span> sia.</span></td><td>我不知道他是谁。</td></tr>
+      <tr><td><span class="it" onclick="speak('Chi di spada ferisce, di spada perisce.')"><span class="verb">Chi</span> di spada ferisce, di spada perisce.</span></td><td>动刀者必死于刀下。</td></tr>
+      <tr><td><span class="it" onclick="speak('C\'è chi dice di sì e chi dice di no.')">C'è <span class="verb">chi</span> dice di sì e <span class="verb">chi</span> dice di no.</span></td><td>有人说是，有人说不是。</td></tr>
+      <tr><td><span class="it" onclick="speak('Chiunque venga, digli che non ci sono.')"><span class="verb">Chiunque</span> venga, digli che non ci sono.</span></td><td>无论谁来，告诉他我不在。</td></tr>
+      <tr><td><span class="it" onclick="speak('Chi ha orecchie per intendere, intenda.')"><span class="verb">Chi</span> ha orecchie per intendere, intenda.</span></td><td>有耳可听的，就应当听。</td></tr>
+      <tr><td><span class="it" onclick="speak('Chi si somiglia si piglia.')"><span class="verb">Chi</span> si somiglia si piglia.</span></td><td>物以类聚。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 6 — Buona la prima · p.86</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频 "Madamigella Robinet" — L'italiano con il cinema su ALMA.tv，巩固介词性短语、让步连词和表达性重复。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Pre-viewing — 观看前活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Quali film italiani conosci che hanno vinto premi internazionali?')">1. Quali film italiani conosci che hanno vinto premi internazionali?</span></td><td class="zh">你知道哪些获得国际奖项的意大利电影？</td></tr>
+    <tr><td><span class="it" onclick="speak('Cosa significa per te \'buona la prima\'? Dai un esempio.')">2. Cosa significa per te "buona la prima"? Dai un esempio.</span></td><td class="zh">对你来说"buona la prima"是什么意思？举一个例子。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">While-viewing — 观看中活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Segna le locuzioni preposizionali che senti: a causa di, grazie a, in base a, relativamente a.')">1. Segna le locuzioni preposizionali che senti: a causa di, grazie a, in base a, relativamente a.</span></td><td class="zh">标记你听到的介词性短语。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quali congiunzioni concessive vengono usate?')">2. Quali congiunzioni concessive vengono usate?</span></td><td class="zh">使用了哪些让步连词？</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">Post-viewing — 观看后活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Riassumi il video in 5-6 righe usando almeno 3 locuzioni preposizionali.')">1. Riassumi il video in 5-6 righe usando almeno 3 locuzioni preposizionali.</span></td><td class="zh">用5-6行总结视频，至少使用3个介词性短语。</td></tr>
+    <tr><td><span class="it" onclick="speak('Crea un dialogo di 8 battute usando nonostante/malgrado e duplicazione espressiva.')">2. Crea un dialogo di 8 battute usando nonostante/malgrado e duplicazione espressiva.</span></td><td class="zh">创作一个8句对话，使用nonostante/malgrado和表达性重复。</td></tr>
+    <tr><td><span class="it" onclick="speak('Scrivi un breve testo sul cinema italiano usando chi, via via, e buona la prima.')">3. Scrivi un breve testo sul cinema italiano usando chi, via via, e buona la prima.</span></td><td class="zh">写一篇关于意大利电影的短文，使用chi、via via和buona la prima。</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演：模拟讨论最喜欢的意大利电影<br>
+    &bull; 用介词性短语描述因果关系<br>
+    &bull; 用nonostante/malgrado表达让步关系<br>
+    &bull; 用表达性重复写一段日常对话<br>
+    &bull; 用chi造句（谚语或固定表达）
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-5.html">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">&larr; Torna al corso</a>
+  <a href="unita-7.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 6</div>
+  <p>Corso di lingua italiana per stranieri · Livello C2</p>
+  <p style="margin-top:8px;opacity:0.6;">Ornella Discacciati · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

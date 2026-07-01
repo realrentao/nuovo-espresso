@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 8 · Egregio Dottor... · NUOVO Espresso 2</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 2 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 8 · A2</div>
+  <h1>&#x1F4E7; Egregio Dottor...</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">求职与正式书信 · p.113-128</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">求职信 · 工作面试 · 简单将来时 · 条件从句 · bisogna · metterci</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Annunci di lavoro -->
+  <h3>1. Annunci di lavoro · 招聘广告 · p.114, es.2</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读招聘广告，匹配职位要求。</p>
+  <table class="vocab-table">
+    <tr><th>广告</th><th>内容描述</th></tr>
+    <tr><td><strong>广告1</strong></td><td>秘书招聘</td></tr>
+    <tr><td><strong>广告2</strong></td><td>助理招聘</td></tr>
+    <tr><td><strong>广告3</strong></td><td>客户服务招聘</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Lettera di presentazione -->
+  <h3>2. Lettera di presentazione · 求职信 · p.118, es.6</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读求职信，理解正式书信格式。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Milano, 01/05/2014')">Milano, 01/05/2014</span></td><td class="zh">米兰，2014年5月1日</td></tr>
+    <tr><td><span class="it" onclick="speak('Egregio Dottor Rossi,')">Egregio Dottor Rossi,</span></td><td class="zh">尊敬的罗西博士，</td></tr>
+    <tr><td><span class="it" onclick="speak('in riferimento all\'annuncio pubblicato su "Umana.it" mi permetto di presentare la mia candidatura per l\'impiego in questione.')">in riferimento all'annuncio pubblicato su "Umana.it" mi permetto di presentare la mia candidatura per l'impiego in questione.</span></td><td class="zh">关于在"Umana.it"上发布的招聘广告，我谨此申请该职位。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ho 25 anni, sono nubile e risiedo a Milano. Ho frequentato il liceo linguistico "Giuseppe Mazzini" e mi sono diplomata con la votazione di 96/100.')">Ho 25 anni, sono nubile e risiedo a Milano. Ho frequentato il liceo linguistico "Giuseppe Mazzini" e mi sono diplomata con la votazione di 96/100.</span></td><td class="zh">我25岁，未婚，居住在米兰。我曾就读于"朱塞佩·马志尼"语言高中，以96/100的分数毕业。</td></tr>
+    <tr><td><span class="it" onclick="speak('Dal gennaio al settembre 2010 ho lavorato presso l\'agenzia "L\'albero dei viaggi", poi mi sono trasferita per otto mesi in Inghilterra dove ho lavorato come segretaria presso la scuola di lingue EF di Southampton utilizzando quotidianamente i principali supporti informatici.')">Dal gennaio al settembre 2010 ho lavorato presso l'agenzia "L'albero dei viaggi", poi mi sono trasferita per otto mesi in Inghilterra dove ho lavorato come segretaria presso la scuola di lingue EF di Southampton utilizzando quotidianamente i principali supporti informatici.</span></td><td class="zh">2010年1月至9月，我在"旅行之树"旅行社工作，之后我在英国待了八个月，在南安普敦的EF语言学校担任秘书，日常使用主要的计算机软件。</td></tr>
+    <tr><td><span class="it" onclick="speak('Al mio ritorno in Italia ho lavorato per due anni all\'aeroporto di Linate come assistente di terra. Oltre all\'inglese parlo anche lo spagnolo.')">Al mio ritorno in Italia ho lavorato per due anni all'aeroporto di Linate come assistente di terra. Oltre all'inglese parlo anche lo spagnolo.</span></td><td class="zh">回到意大利后，我在利纳特机场担任了两年的地勤助理。除了英语，我还说西班牙语。</td></tr>
+    <tr><td><span class="it" onclick="speak('Le invio il mio curriculum e rimango a disposizione per ulteriori informazioni che sarò lieta di fornirLe in occasione di un eventuale incontro.')">Le invio il mio curriculum e rimango a disposizione per ulteriori informazioni che sarò lieta di fornirLe in occasione di un eventuale incontro.</span></td><td class="zh">随函附上我的简历，如有进一步信息需求，我乐意在可能的面试中提供。</td></tr>
+    <tr><td><span class="it" onclick="speak('La ringrazio per la Sua gentile attenzione e Le porgo i miei più cordiali saluti.')">La ringrazio per la Sua gentile attenzione e Le porgo i miei più cordiali saluti.</span></td><td class="zh">感谢您的关注，此致敬礼。</td></tr>
+    <tr><td><span class="it" onclick="speak('Francesca Bignami')">Francesca Bignami</span></td><td class="zh">弗朗西斯卡·比尼亚米</td></tr>
+    <tr><td><span class="it" onclick="speak('Allegato: curriculum vitae')">Allegato: curriculum vitae</span></td><td class="zh">附件：个人简历</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Un colloquio di lavoro -->
+  <h3>3. Un colloquio di lavoro · 工作面试 · p.119, es.9</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">听对话，了解面试过程。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Buongiorno, allora, se non sbaglio, Lei è la dottoressa Lorenzotti...')"><strong>Dottore</strong>: Buongiorno, allora, se non sbaglio, Lei è la dottoressa Lorenzotti...</span></td><td class="zh"><strong>博士</strong>: 您好，如果我没弄错的话，您是洛伦佐蒂博士...</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì.')"><strong>Lorenzotti</strong>: Sì.</span></td><td class="zh"><strong>洛伦佐蒂</strong>: 是的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Bene. Leggo sul suo curriculum che Lei non ha alcuna esperienza di lavoro di segreteria.')"><strong>Dottore</strong>: Bene. Leggo sul suo curriculum che Lei non ha alcuna esperienza di lavoro di segreteria.</span></td><td class="zh"><strong>博士</strong>: 好的。我在您的简历上看到您没有任何秘书工作经验。</td></tr>
+    <tr><td><span class="it" onclick="speak('No, ma imparo presto. E poi mi piace l\'idea di stare a contatto con il pubblico.')"><strong>Lorenzotti</strong>: No, ma imparo presto. E poi mi piace l'idea di stare a contatto con il pubblico.</span></td><td class="zh"><strong>洛伦佐蒂</strong>: 没有，但我学得很快。而且我喜欢与人接触的工作。</td></tr>
+    <tr><td><span class="it" onclick="speak('Lei abita lontano da qui?')"><strong>Dottore</strong>: Lei abita lontano da qui?</span></td><td class="zh"><strong>博士</strong>: 您住得离这里远吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('No, in bicicletta sarà un quarto d\'ora. Mentre in autobus... mah, più o meno ci metto mezz\'ora perché la zona non è collegata benissimo. In ogni caso io sono molto puntuale. Se deciderà di prendere me, sicuramente non si pentirà della scelta.')"><strong>Lorenzotti</strong>: No, in bicicletta sarà un quarto d'ora. Mentre in autobus... mah, più o meno ci metto mezz'ora perché la zona non è collegata benissimo. In ogni caso io sono molto puntuale. Se deciderà di prendere me, sicuramente non si pentirà della scelta.</span></td><td class="zh"><strong>洛伦佐蒂</strong>: 不，骑自行车大概15分钟。坐公交的话...大概需要半小时，因为区域连接不太好。不过我很守时。如果您决定录用我，肯定不会后悔的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ok, ok. Però ci sono anche altre candidate...')"><strong>Dottore</strong>: Ok, ok. Però ci sono anche altre candidate...</span></td><td class="zh"><strong>博士</strong>: 好的，好的。不过还有其他候选人...</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, sì, certo.')"><strong>Lorenzotti</strong>: Sì, sì, certo.</span></td><td class="zh"><strong>洛伦佐蒂</strong>: 当然。</td></tr>
+    <tr><td><span class="it" onclick="speak('Un\'ultima cosa, Lei sa che l\'impiego è a partire da marzo, ma Lei sarebbe disposta a fare una settimana di prova prima di iniziare?')"><strong>Dottore</strong>: Un'ultima cosa, Lei sa che l'impiego è a partire da marzo, ma Lei sarebbe disposta a fare una settimana di prova prima di iniziare?</span></td><td class="zh"><strong>博士</strong>: 最后一件事，您知道这份工作从三月开始，但您愿意在正式开始前试用一周吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Uhm... quando?')"><strong>Lorenzotti</strong>: Uhm... quando?</span></td><td class="zh"><strong>洛伦佐蒂</strong>: 嗯...什么时候？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sarebbe circa un mese prima, a inizio febbraio.')"><strong>Dottore</strong>: Sarebbe circa un mese prima, a inizio febbraio.</span></td><td class="zh"><strong>博士</strong>: 大概提前一个月，二月初。</td></tr>
+    <tr><td><span class="it" onclick="speak('Veramente ho un altro lavoro fino a metà febbraio... ma posso organizzarmi.')"><strong>Lorenzotti</strong>: Veramente ho un altro lavoro fino a metà febbraio... ma posso organizzarmi.</span></td><td class="zh"><strong>洛伦佐蒂</strong>: 实际上我另一份工作要做到二月中旬...但我可以安排。</td></tr>
+    <tr><td><span class="it" onclick="speak('Se non può, non importa.')"><strong>Dottore</strong>: Se non può, non importa.</span></td><td class="zh"><strong>博士</strong>: 如果您不行，没关系。</td></tr>
+    <tr><td><span class="it" onclick="speak('No, no, mi organizzo io in qualche modo.')"><strong>Lorenzotti</strong>: No, no, mi organizzo io in qualche modo.</span></td><td class="zh"><strong>洛伦佐蒂</strong>: 不，我会想办法安排的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Va bene, allora Le faremo sapere. Grazie Dottoressa.')"><strong>Dottore</strong>: Va bene, allora Le faremo sapere. Grazie Dottoressa.</span></td><td class="zh"><strong>博士</strong>: 好的，我们会通知您。谢谢博士。</td></tr>
+    <tr><td><span class="it" onclick="speak('Grazie a Lei, arrivederci.')"><strong>Lorenzotti</strong>: Grazie a Lei, arrivederci.</span></td><td class="zh"><strong>洛伦佐蒂</strong>: 也谢谢您，再见。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>工作和求职 (Lavoro e impiego)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il lavoro')">il lavoro</td><td>s.m.</td><td>工作</td></tr>
+    <tr><td class="it" onclick="speak('l\'impiego')">l'impiego</td><td>s.m.</td><td>职位/雇佣</td></tr>
+    <tr><td class="it" onclick="speak('l\'annuncio')">l'annuncio</td><td>s.m.</td><td>广告</td></tr>
+    <tr><td class="it" onclick="speak('il curriculum')">il curriculum</td><td>s.m.</td><td>简历</td></tr>
+    <tr><td class="it" onclick="speak('la candidatura')">la candidatura</td><td>s.f.</td><td>申请/候选人资格</td></tr>
+    <tr><td class="it" onclick="speak('il colloquio')">il colloquio</td><td>s.m.</td><td>面试</td></tr>
+    <tr><td class="it" onclick="speak('la domanda')">la domanda</td><td>s.f.</td><td>申请</td></tr>
+    <tr><td class="it" onclick="speak('l\'esperienza')">l'esperienza</td><td>s.f.</td><td>经验</td></tr>
+    <tr><td class="it" onclick="speak('il datore di lavoro')">il datore di lavoro</td><td>s.m.</td><td>雇主</td></tr>
+    <tr><td class="it" onclick="speak('il dipendente')">il dipendente</td><td>s.m.</td><td>雇员</td></tr>
+    <tr><td class="it" onclick="speak('il capo')">il capo</td><td>s.m.</td><td>老板/领导</td></tr>
+    <tr><td class="it" onclick="speak('la segreteria')">la segreteria</td><td>s.f.</td><td>秘书处/秘书工作</td></tr>
+    <tr><td class="it" onclick="speak('la segretaria')">la segretaria</td><td>s.f.</td><td>女秘书</td></tr>
+    <tr><td class="it" onclick="speak('l\'assistente')">l'assistente</td><td>s.m./f.</td><td>助理</td></tr>
+    <tr><td class="it" onclick="speak('l\'impiegato')">l'impiegato</td><td>s.m.</td><td>职员</td></tr>
+    <tr><td class="it" onclick="speak('l\'agenzia')">l'agenzia</td><td>s.f.</td><td>中介/公司</td></tr>
+    <tr><td class="it" onclick="speak('l\'ufficio')">l'ufficio</td><td>s.m.</td><td>办公室</td></tr>
+  </table>
+
+  <h3>商务书信 (Lettere commerciali)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('Egregio')">Egregio / Egregia</td><td>尊敬的（正式书信开头）</td></tr>
+    <tr><td class="it" onclick="speak('Gentile')">Gentile</td><td>亲爱的/尊敬的</td></tr>
+    <tr><td class="it" onclick="speak('Spettabile')">Spettabile</td><td>敬启（用于公司）</td></tr>
+    <tr><td class="it" onclick="speak('mi permetto di')">mi permetto di</td><td>我冒昧地</td></tr>
+    <tr><td class="it" onclick="speak('in riferimento a')">in riferimento a</td><td>关于</td></tr>
+    <tr><td class="it" onclick="speak('in merito a')">in merito a</td><td>关于</td></tr>
+    <tr><td class="it" onclick="speak('Le invio')">Le invio</td><td>随函附上（给您）</td></tr>
+    <tr><td class="it" onclick="speak('rimango a disposizione')">rimango a disposizione</td><td>我随时恭候</td></tr>
+    <tr><td class="it" onclick="speak('porgo i miei più cordiali saluti')">porgo i miei più cordiali saluti</td><td>此致敬礼</td></tr>
+    <tr><td class="it" onclick="speak('l\'allegato')">l'allegato</td><td>附件</td></tr>
+  </table>
+
+  <h3>商务动词 (Verbi per il lavoro)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('lavorare')">lavorare</td><td>v.</td><td>工作</td></tr>
+    <tr><td class="it" onclick="speak('assumere')">assumere</td><td>v.</td><td>雇佣</td></tr>
+    <tr><td class="it" onclick="speak('licenziare')">licenziare</td><td>v.</td><td>解雇</td></tr>
+    <tr><td class="it" onclick="speak('candidarsi')">candidarsi</td><td>v.</td><td>申请（职位）</td></tr>
+    <tr><td class="it" onclick="speak('presentare')">presentare</td><td>v.</td><td>提交/介绍</td></tr>
+    <tr><td class="it" onclick="speak('selezionare')">selezionare</td><td>v.</td><td>选拔</td></tr>
+    <tr><td class="it" onclick="speak('contattare')">contattare</td><td>v.</td><td>联系</td></tr>
+    <tr><td class="it" onclick="speak('preparare')">preparare</td><td>v.</td><td>准备</td></tr>
+    <tr><td class="it" onclick="speak('gestire')">gestire</td><td>v.</td><td>管理</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Futuro semplice -->
+  <h3>1. 简单将来时 (Futuro semplice)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">规则动词变位：</p>
+    <table>
+      <tr><th>人称</th><th>parlare</th><th>vendere</th><th>dormire</th></tr>
+      <tr><td>io</td><td><span class="verb">parlerò</span></td><td><span class="verb">venderò</span></td><td><span class="verb">dormirò</span></td></tr>
+      <tr><td>tu</td><td><span class="verb">parlerai</span></td><td><span class="verb">venderai</span></td><td><span class="verb">dormirai</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb">parlerà</span></td><td><span class="verb">venderà</span></td><td><span class="verb">dormirà</span></td></tr>
+      <tr><td>noi</td><td><span class="verb">parleremo</span></td><td><span class="verb">venderemo</span></td><td><span class="verb">dormiremo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb">parlerete</span></td><td><span class="verb">venderete</span></td><td><span class="verb">dormirete</span></td></tr>
+      <tr><td>loro</td><td><span class="verb">parleranno</span></td><td><span class="verb">venderanno</span></td><td><span class="verb">dormiranno</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">不规则动词变位：</p>
+    <table>
+      <tr><th>动词</th><th>将来时词干</th></tr>
+      <tr><td>essere</td><td><span class="verb">sarò</span>, sarai, sarà, saremo, sarete, saranno</td></tr>
+      <tr><td>avere</td><td><span class="verb">avrò</span>, avrai, avrà, avremo, avrete, avranno</td></tr>
+      <tr><td>fare</td><td><span class="verb">farò</span>, farai, farà, faremo, farete, faranno</td></tr>
+      <tr><td>andare</td><td><span class="verb">andrò</span>, andrai, andrà, andremo, andrete, andranno</td></tr>
+      <tr><td>stare</td><td><span class="verb">starò</span>, starai, starà, staremo, starete, staranno</td></tr>
+      <tr><td>dare</td><td><span class="verb">darò</span>, darai, darà, daremo, darete, daranno</td></tr>
+      <tr><td>sapere</td><td><span class="verb">saprò</span>, saprai, saprà, sapremo, saprete, sapranno</td></tr>
+      <tr><td>potere</td><td><span class="verb">potrò</span>, potrai, potrà, potremo, potrete, potranno</td></tr>
+      <tr><td>dovere</td><td><span class="verb">dovrò</span>, dovrai, dovrà, dovremo, dovrete, dovranno</td></tr>
+      <tr><td>volere</td><td><span class="verb">vorrò</span>, vorrai, vorrà, vorremo, vorrete, vorranno</td></tr>
+      <tr><td>venire</td><td><span class="verb">verrò</span>, verrai, verrà, verremo, verrete, verranno</td></tr>
+      <tr><td>vedere</td><td><span class="verb">vedrò</span>, vedrai, vedrà, vedremo, vedrete, vedranno</td></tr>
+      <tr><td>bere</td><td><span class="verb">berrò</span>, berrai, berrà, berremo, berrete, berranno</td></tr>
+      <tr><td>rimanere</td><td><span class="verb">rimarrò</span>, rimarrai, rimarrà, rimarremo, rimarrete, rimarranno</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">将来时的用法：</p>
+    <table>
+      <tr><th>用法</th><th>说明</th><th>例句</th></tr>
+      <tr><td>将来动作</td><td>将要发生的事</td><td><span class="it" onclick="speak('Domani andremo al mare.')">Domani <strong>andremo</strong> al mare.</span> 明天我们去海边。</td></tr>
+      <tr><td>推测</td><td>对现在的推测</td><td><span class="it" onclick="speak('Che ora sarà?')">Che ora <strong>sarà</strong>?</span> 现在几点了？</td></tr>
+      <tr><td>不确定</td><td>表达不确定</td><td><span class="it" onclick="speak('Avrà 40 anni.')"><strong>Avrà</strong> 40 anni.</span> 他大概40岁。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Domani pioverà.')">Domani <strong>pioverà</strong>.</span></td><td>明天会下雨。</td></tr>
+      <tr><td><span class="it" onclick="speak('Prenderò l\'aereo per Roma.')"><strong>Prenderò</strong> l'aereo per Roma.</span></td><td>我将乘飞机去罗马。</td></tr>
+      <tr><td><span class="it" onclick="speak('Lavorerò fino alle 18.')"><strong>Lavorerò</strong> fino alle 18.</span></td><td>我会工作到18点。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ci vedremo presto!')"><strong>Ci vedremo</strong> presto!</span></td><td>我们很快会见面的！</td></tr>
+      <tr><td><span class="it" onclick="speak('Dove andrai in vacanza quest\'anno?')">Dove <strong>andrai</strong> in vacanza quest'anno?</span></td><td>今年你去哪里度假？</td></tr>
+      <tr><td><span class="it" onclick="speak('Non saprò mai la verità.')">Non <strong>saprò</strong> mai la verità.</span></td><td>我永远不会知道真相。</td></tr>
+      <tr><td><span class="it" onclick="speak('Saranno le cinque.')"><strong>Saranno</strong> le cinque.</span></td><td>大概五点了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Chi sarà?')">Chi <strong>sarà</strong>?</span></td><td>会是谁呢？</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. bisogna -->
+  <h3>2. bisogna（必须/需要）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">bisogna + 不定式，表示必要性，始终不变形。</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Bisogna comprare il biglietto prima di salire sull\'autobus.')"><span class="verb">Bisogna</span> comprare il biglietto prima di salire sull'autobus.</span></td><td>上公交车前必须先买票。</td></tr>
+      <tr><td><span class="it" onclick="speak('Bisogna studiare per l\'esame.')"><span class="verb">Bisogna</span> studiare per l'esame.</span></td><td>必须为考试学习。</td></tr>
+      <tr><td><span class="it" onclick="speak('Bisogna avere pazienza.')"><span class="verb">Bisogna</span> avere pazienza.</span></td><td>需要有耐心。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non bisogna fumare qui.')">Non <span class="verb">bisogna</span> fumare qui.</span></td><td>这里不能抽烟。</td></tr>
+      <tr><td><span class="it" onclick="speak('Bisogna partire subito!')"><span class="verb">Bisogna</span> partire subito!</span></td><td>必须马上出发！</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. metterci -->
+  <h3>3. metterci（需要时间）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">metterci = 做某事需要花费时间。</p>
+    <table>
+      <tr><th>人称</th><th>现在时</th><th>例句</th></tr>
+      <tr><td>io</td><td><span class="verb">ci metto</span></td><td><span class="it" onclick="speak('Ci metto mezz\'ora per andare al lavoro.')"><strong>Ci metto</strong> mezz'ora per andare al lavoro.</span></td></tr>
+      <tr><td>tu</td><td><span class="verb">ci metti</span></td><td><span class="it" onclick="speak('Quanto tempo ci metti?')">Quanto tempo <strong>ci metti</strong>?</span></td></tr>
+      <tr><td>lui/lei</td><td><span class="verb">ci mette</span></td><td><span class="it" onclick="speak('Lui ci mette un\'ora.')">Lui <strong>ci mette</strong> un'ora.</span></td></tr>
+      <tr><td>noi</td><td><span class="verb">ci mettiamo</span></td><td><span class="it" onclick="speak('Ci mettiamo troppo tempo!')"><strong>Ci mettiamo</strong> troppo tempo!</span></td></tr>
+      <tr><td>voi</td><td><span class="verb">ci mettete</span></td><td><span class="it" onclick="speak('Ci mettete cinque minuti?')"><strong>Ci mettete</strong> cinque minuti?</span></td></tr>
+      <tr><td>loro</td><td><span class="verb">ci mettono</span></td><td><span class="it" onclick="speak('Loro ci mettono un quarto d\'ora.')">Loro <strong>ci mettono</strong> un quarto d'ora.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Quanto tempo ci metti per arrivare?')">Quanto tempo <strong>ci metti</strong> per arrivare?</span></td><td>你到那里需要多长时间？</td></tr>
+      <tr><td><span class="it" onclick="speak('Ci metto mezz\'ora in autobus.')"><strong>Ci metto</strong> mezz'ora in autobus.</span></td><td>坐公交需要半小时。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ci abbiamo messo tre ore per finire.')"><strong>Ci abbiamo messo</strong> tre ore per finire.</span></td><td>我们花了三个小时完成。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">注意：metterci 与 volerci 的区别：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Ci metto un\'ora.')"><strong>Ci metto</strong> un'ora (io)</span></td><td>我花了一小时（主观）</td></tr>
+      <tr><td><span class="it" onclick="speak('Ci vuole un\'ora.')"><strong>Ci vuole</strong> un'ora</span></td><td>需要一小时（客观）</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Periodo ipotetico -->
+  <h3>4. 条件从句 (Periodo ipotetico della realtà)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">结构：Se + 现在时/将来时 + 现在时/将来时/命令式。表示"现实条件句"——条件是能够实现的。</p>
+    <table>
+      <tr><th>条件从句(se)</th><th>主句</th><th>例句</th></tr>
+      <tr><td>现在时</td><td>现在时</td><td><span class="it" onclick="speak('Se arrivo tardi, chiamami.')"><strong>Se</strong> arrivo tardi, <strong>chiamami</strong>.</span> 如果我迟到，给我打电话。</td></tr>
+      <tr><td>现在时</td><td>将来时</td><td><span class="it" onclick="speak('Se non ti sbrighi, arriverai tardi.')"><strong>Se</strong> non ti sbrighi, <strong>arriverai</strong> tardi.</span> 如果你不快点，你会迟到。</td></tr>
+      <tr><td>将来时</td><td>将来时</td><td><span class="it" onclick="speak('Se verrai alla festa, conoscerai Franco.')"><strong>Se</strong> <strong>verrai</strong> alla festa, <strong>conoscerai</strong> Franco.</span> 如果你来派对，你会认识弗兰科。</td></tr>
+      <tr><td>将来时</td><td>命令式</td><td><span class="it" onclick="speak('Se vedrai Mario, digli di chiamarmi.')"><strong>Se</strong> <strong>vedrai</strong> Mario, <strong>digli</strong> di chiamarmi.</span> 如果你看到马里奥，让他给我打电话。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Se non sbaglio, Lei è la dottoressa Lorenzotti.')"><strong>Se</strong> non sbaglio, Lei è la dottoressa Lorenzotti.</span></td><td>如果我没弄错，您是洛伦佐蒂博士。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se deciderà di prendere me, sicuramente non si pentirà della scelta.')"><strong>Se</strong> <strong>deciderà</strong> di prendere me, sicuramente non <strong>si pentirà</strong> della scelta.</span></td><td>如果您决定录用我，肯定不会后悔。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se non può, non importa.')"><strong>Se</strong> non può, non importa.</span></td><td>如果您不行，没关系。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se ho tempo, vengo.')"><strong>Se</strong> ho tempo, <strong>vengo</strong>.</span></td><td>如果我有时间，我就来。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se farà bel tempo, andremo al mare.')"><strong>Se</strong> <strong>farà</strong> bel tempo, <strong>andremo</strong> al mare.</span></td><td>如果天气好，我们去海边。</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. Pronomi La e Le -->
+  <h3>5. 代词 La（您）和 Le（给您）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">在正式书信和对话中：</p>
+    <table>
+      <tr><th>代词</th><th>功能</th><th>例句</th></tr>
+      <tr><td><span class="verb">La</span></td><td>直接宾语（您）</td><td><span class="it" onclick="speak('La ringrazio.')"><strong>La</strong> ringrazio.</span> 感谢您。</td></tr>
+      <tr><td><span class="verb">Le</span></td><td>间接宾语（给您）</td><td><span class="it" onclick="speak('Le invio il curriculum.')"><strong>Le</strong> invio il curriculum.</span> 我给您发简历。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('La ringrazio per la Sua gentile attenzione.')"><strong>La</strong> ringrazio per la Sua gentile attenzione.</span></td><td>感谢您的关注。</td></tr>
+      <tr><td><span class="it" onclick="speak('Le invio il mio curriculum.')"><strong>Le</strong> invio il mio curriculum.</span></td><td>附上我的简历。</td></tr>
+      <tr><td><span class="it" onclick="speak('Posso La disturbare un momento?')">Posso <strong>La</strong> disturbare un momento?</span></td><td>我能打扰您一下吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Le ho scritto una mail.')"><strong>Le</strong> ho scritto una mail.</span></td><td>我给您写了一封邮件。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 8 · p.128</h2>
+
+  <h3>&#x1F393; Italia, un paese di "Dottori"（意大利，一个博士之国）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p style="font-size:14px;line-height:1.8;">在意大利，"dottore"这个词不仅用于医生。所有拥有大学学位的人都可被称为"Dottore"，无论专业（文学、心理学、工程、法律等）。此外，即使没有上过大学的人也可以通过获得荣誉博士头衔成为"Dottore"，例如摩托车冠军Valentino Rossi。</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">律师数量统计：</p>
+    <table class="vocab-table">
+      <tr><th>国家</th><th>人口</th><th>律师数</th></tr>
+      <tr><td>德国</td><td>8100万</td><td>155,000</td></tr>
+      <tr><td>法国</td><td>6500万</td><td>60,000</td></tr>
+      <tr><td>英国</td><td>6300万</td><td>125,000</td></tr>
+      <tr><td><strong>意大利</strong></td><td><strong>6000万</strong></td><td><strong>260,000</strong></td></tr>
+      <tr><td>西班牙</td><td>4700万</td><td>175,000</td></tr>
+    </table>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化对比:</strong><br>
+    Nel tuo Paese come ci si rivolge alle persone con una laurea? — 在你的国家，如何称呼有学位的人？<br>
+    Ci sono molti avvocati nel tuo Paese? — 你的国家律师多吗？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 8 — Colloqui di lavoro · p.126-127</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">Federico作为面试官面试求职者，遇到了一些有趣的候选人。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">关键表达:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Sembra seria: giacca, camicia chiara. Si vede che lei tiene a dare una buona impressione.')">Sembra seria: giacca, camicia chiara. Si vede che lei tiene a dare una buona impressione.</span></td><td class="zh">看起来很认真：夹克、浅色衬衫。看得出她注重给人好印象。</td></tr>
+    <tr><td><span class="it" onclick="speak('Le lingue sono importanti per noi.')">Le lingue sono importanti per noi.</span></td><td class="zh">语言对我们很重要。</td></tr>
+    <tr><td><span class="it" onclick="speak('Se Lei lavorerà con noi, dovrà viaggiare molto.')">Se Lei lavorerà con noi, dovrà viaggiare molto.</span></td><td class="zh">如果您和我们一起工作，需要经常出差。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">将来时 vs 推测的练习：</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Viaggiare? Con l\'aereo?')">Viaggiare? Con <strong>l'aereo</strong>?</span></td><td class="zh">出差？坐飞机？</td></tr>
+    <tr><td><span class="it" onclick="speak('A quanto vedo Lei è un\'esperta di computer. Quindi userà bene i vari programmi gestionali!')">A quanto vedo Lei è un'<strong>esperta</strong> di computer. Quindi <strong>userà</strong> bene i vari <strong>programmi</strong> gestionali!</span></td><td class="zh">看来您是电脑专家。那您应该能熟练使用各种管理软件！</td></tr>
+    <tr><td><span class="it" onclick="speak('Qui avrò un computer mio?')">Qui <strong>avrò</strong> un <strong>computer</strong> mio?</span></td><td class="zh">这里有我自己的电脑吗？</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演面试场景<br>
+    &bull; 练习使用将来时和条件从句<br>
+    &bull; 用"Se + 将来时"造句表达条件
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-7.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html">Torna al corso</a>
+  <a href="unita-9.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 2</div>
+  <p>Corso di lingua italiana per stranieri · Livello A2</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

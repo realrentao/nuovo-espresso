@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facciamo il punto · Revisione · NUOVO Espresso 4</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .page-section h4 { font-size: 15px; font-weight: 700; color: var(--ne-blue); margin: 14px 0 6px; }
+    .review-card { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .review-card::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .review-card table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .review-card th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .review-card td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .review-card tr:last-child td { border-bottom: none; }
+    .review-card tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .review-card .verb { color: var(--ne-red); font-weight: 700; }
+    .review-card .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .review-card .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .checklist { list-style: none; padding: 0; margin: 8px 0; }
+    .checklist li { padding: 6px 0 6px 28px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23d4ac0d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M9 12l2 2 4-4'/%3E%3C/svg%3E") left center no-repeat; background-size: 16px; font-size: 14px; }
+    .self-eval { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0; }
+    .eval-item { background: #fff; border: 1px solid var(--border-light); border-radius: 10px; padding: 12px 16px; flex: 1; min-width: 200px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+    .eval-item strong { display: block; margin-bottom: 4px; font-size: 13px; color: var(--ne-blue); }
+    .eval-item p { font-size: 12px; color: var(--ne-muted); margin: 0; }
+    .badge { display: inline-block; background: linear-gradient(135deg, var(--ne-gold), var(--ne-orange)); color: #fff; font-weight: 700; padding: 2px 10px; border-radius: 100px; font-size: 11px; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } .self-eval { flex-direction: column; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 4 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Facciamo il punto · B2</div>
+  <h1>&#x1F504; Facciamo il punto</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">复习单元 · 自评清单 · 项目活动</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">通过4个复习单元检查你的学习进度，巩固B2级别核心语法和词汇。</p>
+</section>
+
+<!-- Facciamo il punto 1: Lezioni 1-2 -->
+<section class="page-section" id="punto1">
+  <h2>&#x1F4DA; Facciamo il punto 1 <span class="badge">Lezioni 1-2 · p.28</span></h2>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:12px;">复习内容：Scuola e dintorni（学校与周边）+ Cibo, che passione!（美食，好有热情！）</p>
+
+  <h3>&#x2705; 自评清单 (Autovalutazione)</h3>
+  <div class="review-card">
+    <p style="font-weight:600;margin-bottom:8px;">检查你是否掌握了以下能力：</p>
+    <ul class="checklist">
+      <li><span class="it" onclick="speak('So parlare delle mie esperienze scolastiche.')">So parlare delle <strong>mie esperienze scolastiche</strong>.</span> 能谈论我的学校经历。</li>
+      <li><span class="it" onclick="speak('So usare il doppio ausiliare con verbi come cambiare, finire, passare.')">So usare il <strong>doppio ausiliare</strong> con verbi come cambiare, finire, passare.</span> 能正确使用双助动词。</li>
+      <li><span class="it" onclick="speak('So esprimere accordo e disaccordo.')">So <strong>esprimere accordo e disaccordo</strong>.</span> 能表达同意和不同意。</li>
+      <li><span class="it" onclick="speak('So confrontare passato prossimo, imperfetto e passato remoto.')">So confrontare <strong>passato prossimo, imperfetto e passato remoto</strong>.</span> 能区分三种过去时。</li>
+      <li><span class="it" onclick="speak('So usare i pronomi relativi chi e ciò che.')">So usare i pronomi relativi <strong>chi</strong> e <strong>ciò che</strong>.</span> 能使用关系代词chi/ciò che。</li>
+      <li><span class="it" onclick="speak('So descrivere abitudini alimentari e ricette.')">So descrivere <strong>abitudini alimentari</strong> e <strong>ricette</strong>.</span> 能描述饮食习惯和食谱。</li>
+      <li><span class="it" onclick="speak('So usare gli indefiniti: nessuno, tutto, ognuno.')">So usare gli <strong>indefiniti</strong>: nessuno, tutto, ognuno.</span> 能使用不定代词。</li>
+      <li><span class="it" onclick="speak('So usare il futuro anteriore.')">So usare il <strong>futuro anteriore</strong>.</span> 能使用先将来时。</li>
+      <li><span class="it" onclick="speak('So usare la dislocazione a sinistra.')">So usare la <strong>dislocazione a sinistra</strong>.</span> 能使用左位移结构。</li>
+      <li><span class="it" onclick="speak('So usare il si passivante.')">So usare il <strong>si passivante</strong>.</span> 能使用被动si。</li>
+    </ul>
+  </div>
+
+  <h3>&#x1F4CA; 语法重点回顾</h3>
+  <div class="review-card">
+    <table>
+      <tr><th>语法点</th><th>例句</th><th>中文</th></tr>
+      <tr><td><strong>双助动词</strong> (cambiare)</td><td><span class="it" onclick="speak('Ho cambiato lavoro. / Il tempo è cambiato.')"><span class="verb">Ho cambiato</span> lavoro. / Il tempo <span class="verb">è cambiato</span>.</span></td><td>我换了工作。/ 天气变了。</td></tr>
+      <tr><td><strong>Passato Remoto</strong></td><td><span class="it" onclick="speak('Nel 2010 mi sono laureato. / Dante scrisse la Commedia.')">Nel 2010 <span class="verb">mi sono laureato</span>. / Dante <span class="verb">scrisse</span> la Commedia.</span></td><td>2010年我毕业了。/ 但丁写了《神曲》。</td></tr>
+      <tr><td><strong>Chi / Ciò che</strong></td><td><span class="it" onclick="speak('Chi studia, impara. / Ciò che dici è vero.')"><span class="verb">Chi</span> studia, impara. / <span class="verb">Ciò che</span> dici è vero.</span></td><td>学习的人会学到。/ 你说的对。</td></tr>
+      <tr><td><strong>Futuro Anteriore</strong></td><td><span class="it" onclick="speak('Quando arriverai, avrò già finito.')">Quando arriverai, <span class="verb">avrò già finito</span>.</span></td><td>当你到达时，我已经完成了。</td></tr>
+      <tr><td><strong>Si Passivante</strong></td><td><span class="it" onclick="speak('In Italia si mangia molta pasta.')">In Italia <span class="verb">si mangia</span> molta pasta.</span></td><td>在意大利人们吃很多意面。</td></tr>
+      <tr><td><strong>左位移</strong></td><td><span class="it" onclick="speak('Il gelato, l\'ho mangiato io.')">Il gelato, <span class="verb">l'ho mangiato</span> io.</span></td><td>冰激凌，是我吃的。</td></tr>
+    </table>
+  </div>
+
+  <h3>&#x1F3AD; 项目活动 (Attività di Progetto)</h3>
+  <div class="review-card">
+    <p><strong>1. Intervista:</strong> Intervista un compagno sulle sue esperienze scolastiche. Usa il passato prossimo, l'imperfetto e il passato remoto.</p>
+    <p><strong>2. Ricetta:</strong> Scrivi una ricetta italiana usando il futuro anteriore: "Dopo che avrai tagliato la cipolla..."</p>
+    <p><strong>3. Dibattito:</strong> Esprimi la tua opinione sul cibo italiano. Usa la dislocazione a sinistra: "La pasta, la mangio sempre al dente."</p>
+  </div>
+</section>
+
+<hr style="max-width:960px;margin:24px auto;border:none;border-top:2px dashed var(--border-light);">
+
+<!-- Facciamo il punto 2: Lezioni 3-5 -->
+<section class="page-section" id="punto2">
+  <h2>&#x1F4DA; Facciamo il punto 2 <span class="badge">Lezioni 3-5 · p.64</span></h2>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:12px;">复习内容：E tu, come fai a saperlo?（媒体）+ Il mondo del lavoro（工作）+ Che emozione!（情绪）</p>
+
+  <h3>&#x2705; 自评清单 (Autovalutazione)</h3>
+  <div class="review-card">
+    <p style="font-weight:600;margin-bottom:8px;">检查你是否掌握了以下能力：</p>
+    <ul class="checklist">
+      <li><span class="it" onclick="speak('So usare il discorso indiretto per riportare ciò che altri hanno detto.')">So usare il <strong>discorso indiretto</strong> per riportare ciò che altri hanno detto.</span> 能使用间接引语转述他人话语。</li>
+      <li><span class="it" onclick="speak('So usare non perché + congiuntivo.')">So usare <strong>non perché + congiuntivo</strong>.</span> 能使用non perché+虚拟式。</li>
+      <li><span class="it" onclick="speak('So fare domande indirette.')">So fare <strong>domande indirette</strong>.</span> 能提出间接疑问句。</li>
+      <li><span class="it" onclick="speak('So usare il condizionale per notizie non confermate.')">So usare il <strong>condizionale</strong> per notizie non confermate.</span> 能使用条件式表达未经证实的消息。</li>
+      <li><span class="it" onclick="speak('So parlare del mondo del lavoro.')">So parlare del <strong>mondo del lavoro</strong>.</span> 能谈论职业世界。</li>
+      <li><span class="it" onclick="speak('So usare il congiuntivo nelle relative e nei superlativi.')">So usare il <strong>congiuntivo nelle relative</strong> e nei <strong>superlativi</strong>.</span> 能在关系从句和最高级中使用虚拟式。</li>
+      <li><span class="it" onclick="speak('So usare finalmente e alla fine correttamente.')">So usare <strong>finalmente</strong> e <strong>alla fine</strong> correttamente.</span> 能正确区分finalmente和alla fine。</li>
+      <li><span class="it" onclick="speak('So usare il gerundio per esprimere causa e ipotesi.')">So usare il <strong>gerundio</strong> per esprimere causa e ipotesi.</span> 能使用副动词表达原因和假设。</li>
+      <li><span class="it" onclick="speak('So esprimere emozioni e sentimenti.')">So <strong>esprimere emozioni</strong> e sentimenti.</span> 能表达情绪和感受。</li>
+      <li><span class="it" onclick="speak('So usare i prefissi negativi in-, dis-, a-, s-.')">So usare i prefissi negativi <strong>in-, dis-, a-, s-</strong>.</span> 能使用否定前缀。</li>
+    </ul>
+  </div>
+
+  <h3>&#x1F4CA; 语法重点回顾</h3>
+  <div class="review-card">
+    <table>
+      <tr><th>语法点</th><th>例句</th><th>中文</th></tr>
+      <tr><td><strong>间接引语</strong></td><td><span class="it" onclick="speak('Ha detto che quel giorno andava al cinema.')">Ha detto che quel giorno <span class="verb">andava</span> al cinema.</span></td><td>他说那天他去看电影。</td></tr>
+      <tr><td><strong>间接疑问句</strong></td><td><span class="it" onclick="speak('Mi ha chiesto dove abitavo.')">Mi ha chiesto dove <span class="verb">abitavo</span>.</span></td><td>他问我住在哪里。</td></tr>
+      <tr><td><strong>Non perché+虚拟式</strong></td><td><span class="it" onclick="speak('Non perché sia difficile, ma perché non ho tempo.')">Non perché <span class="verb">sia</span> difficile, ma perché non ho tempo.</span></td><td>不是因为难，而是因为没时间。</td></tr>
+      <tr><td><strong>条件式表不确定</strong></td><td><span class="it" onclick="speak('Il presidente sarebbe dimissionario.')">Il presidente <span class="verb">sarebbe</span> dimissionario.</span></td><td>总统据称将要辞职。</td></tr>
+      <tr><td><strong>关系从句虚拟式</strong></td><td><span class="it" onclick="speak('Cerco un amico che mi capisca.')">Cerco un amico che <span class="verb">mi capisca</span>.</span></td><td>我在找一个能理解我的朋友。</td></tr>
+      <tr><td><strong>Gerundio causale</strong></td><td><span class="it" onclick="speak('Essendo stanco, sono rimasto a casa.')"><span class="verb">Essendo</span> stanco, sono rimasto a casa.</span></td><td>因为累了，我呆在家。</td></tr>
+    </table>
+  </div>
+
+  <h3>&#x1F3AD; 项目活动</h3>
+  <div class="review-card">
+    <p><strong>1. Notizia:</strong> Trasforma una notizia vera in discorso indiretto. Usa il condizionale per esprimere incertezza.</p>
+    <p><strong>2. Colloquio:</strong> Simula un colloquio di lavoro. Usa il congiuntivo nelle relative: "Cerco un'azienda che mi offra..."</p>
+    <p><strong>3. Diario:</strong> Scrivi un diario delle emozioni. Usa i prefissi negativi: "Mi sento insicuro, disorientato..."</p>
+  </div>
+</section>
+
+<hr style="max-width:960px;margin:24px auto;border:none;border-top:2px dashed var(--border-light);">
+
+<!-- Facciamo il punto 3: Lezioni 6-7 -->
+<section class="page-section" id="punto3">
+  <h2>&#x1F4DA; Facciamo il punto 3 <span class="badge">Lezioni 6-7 · p.88</span></h2>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:12px;">复习内容：I gusti son gusti!（品味）+ In giro per musei（博物馆）</p>
+
+  <h3>&#x2705; 自评清单 (Autovalutazione)</h3>
+  <div class="review-card">
+    <p style="font-weight:600;margin-bottom:8px;">检查你是否掌握了以下能力：</p>
+    <ul class="checklist">
+      <li><span class="it" onclick="speak('So parlare di film e gusti personali.')">So parlare di <strong>film</strong> e <strong>gusti personali</strong>.</span> 能谈论电影和个人品味。</li>
+      <li><span class="it" onclick="speak('So usare purché + congiuntivo.')">So usare <strong>purché + congiuntivo</strong>.</span> 能使用purché+虚拟式。</li>
+      <li><span class="it" onclick="speak('So usare non è che... sia + congiuntivo.')">So usare <strong>non è che... sia</strong> + congiuntivo.</span> 能使用否定主句中的虚拟式。</li>
+      <li><span class="it" onclick="speak('So posizionare correttamente gli aggettivi prima o dopo il nome.')">So posizionare correttamente gli <strong>aggettivi</strong> prima o dopo il nome.</span> 能正确放置形容词位置。</li>
+      <li><span class="it" onclick="speak('So usare fare + infinito.')">So usare <strong>fare + infinito</strong>.</span> 能使用fare+不定式致使结构。</li>
+      <li><span class="it" onclick="speak('So descrivere opere d\'arte.')">So descrivere <strong>opere d'arte</strong>.</span> 能描述艺术作品。</li>
+      <li><span class="it" onclick="speak('So usare le preposizioni in e a per i luoghi.')">So usare le preposizioni <strong>in</strong> e <strong>a</strong> per i luoghi.</span> 能使用地点介词in/a。</li>
+      <li><span class="it" onclick="speak('So usare il congiuntivo nella concordanza dei tempi.')">So usare il <strong>congiuntivo nella concordanza dei tempi</strong>.</span> 能使用虚拟式时态一致。</li>
+      <li><span class="it" onclick="speak('So usare l\'infinito come nome.')">So usare l'<strong>infinito come nome</strong>.</span> 能使用不定式作名词。</li>
+      <li><span class="it" onclick="speak('So usare i pronomi relativi il quale, il che, il cui.')">So usare i pronomi relativi <strong>il quale, il che, il cui</strong>.</span> 能使用关系代词il quale/il che/il cui。</li>
+    </ul>
+  </div>
+
+  <h3>&#x1F4CA; 语法重点回顾</h3>
+  <div class="review-card">
+    <table>
+      <tr><th>语法点</th><th>例句</th><th>中文</th></tr>
+      <tr><td><strong>Purché+虚拟式</strong></td><td><span class="it" onclick="speak('Vengo, purché ci sia anche tu.')">Vengo, <span class="verb">purché</span> ci <span class="verb">sia</span> anche tu.</span></td><td>只要你也去，我就来。</td></tr>
+      <tr><td><strong>Non è che... sia</strong></td><td><span class="it" onclick="speak('Non è che non mi piaccia, ma...')">Non è che non <span class="verb">mi piaccia</span>, ma...</span></td><td>不是我不喜欢，但是...</td></tr>
+      <tr><td><strong>Fare+infinito</strong></td><td><span class="it" onclick="speak('Faccio riparare la macchina.')"><span class="verb">Faccio riparare</span> la macchina.</span></td><td>我让人修车。</td></tr>
+      <tr><td><strong>形容词位置</strong></td><td><span class="it" onclick="speak('Un grande uomo / Un uomo grande.')">Un <span class="verb">grande uomo</span> / Un uomo <span class="verb">grande</span>.</span></td><td>一个伟大的人 / 一个高大的人。</td></tr>
+      <tr><td><strong>虚拟式时态一致</strong></td><td><span class="it" onclick="speak('Pensavo che Maria fosse brava.')">Pensavo che Maria <span class="verb">fosse</span> brava.</span></td><td>我当时以为玛丽亚很厉害。</td></tr>
+      <tr><td><strong>Il quale/il che/il cui</strong></td><td><span class="it" onclick="speak('Il museo, il quale si trova a Roma, è famoso.')">Il museo, <span class="verb">il quale</span> si trova a Roma, è famoso.</span></td><td>这座博物馆位于罗马，很有名。</td></tr>
+    </table>
+  </div>
+
+  <h3>&#x1F3AD; 项目活动</h3>
+  <div class="review-card">
+    <p><strong>1. Recensione:</strong> Scrivi una recensione di un film. Usa "non è che... sia" e "purché".</p>
+    <p><strong>2. Visita:</strong> Descrivi un museo che hai visitato. Usa "il quale", "la quale", "il cui".</p>
+    <p><strong>3. Consiglio:</strong> Dai consigli su cosa vedere. Usa "fare + infinito": "Ti faccio vedere il quadro più bello."</p>
+  </div>
+</section>
+
+<hr style="max-width:960px;margin:24px auto;border:none;border-top:2px dashed var(--border-light);">
+
+<!-- Facciamo il punto 4: Lezioni 8-10 -->
+<section class="page-section" id="punto4">
+  <h2>&#x1F4DA; Facciamo il punto 4 <span class="badge">Lezioni 8-10 · p.120</span></h2>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:12px;">复习内容：L'Italia sostenibile（可持续）+ Curiosità d'Italia（趣闻）+ Una... centomila（数字）</p>
+
+  <h3>&#x2705; 自评清单 (Autovalutazione)</h3>
+  <div class="review-card">
+    <p style="font-weight:600;margin-bottom:8px;">检查你是否掌握了以下能力：</p>
+    <ul class="checklist">
+      <li><span class="it" onclick="speak('So parlare di ambiente e sostenibilità.')">So parlare di <strong>ambiente</strong> e <strong>sostenibilità</strong>.</span> 能谈论环境和可持续发展。</li>
+      <li><span class="it" onclick="speak('So posizionare i pronomi con gerundio, participio, infinito e imperativo.')">So posizionare i <strong>pronomi</strong> con gerundio, participio, infinito e imperativo.</span> 能正确安置代词位置（副动词/分词/不定式/命令式）。</li>
+      <li><span class="it" onclick="speak('So usare il futuro per esprimere dubbio, supposizione e concessione.')">So usare il <strong>futuro</strong> per esprimere dubbio, supposizione e concessione.</span> 能使用将来时表达怀疑/推测/让步。</li>
+      <li><span class="it" onclick="speak('So distinguere gli aggettivi con significati diversi prima e dopo il nome.')">So distinguere gli <strong>aggettivi</strong> con significati diversi prima e dopo il nome.</span> 能区分形容词在名词前后的不同含义。</li>
+      <li><span class="it" onclick="speak('So usare il gerundio presente e passato.')">So usare il <strong>gerundio presente e passato</strong>.</span> 能使用现在和过去副动词。</li>
+      <li><span class="it" onclick="speak('So usare pur + gerundio (concessivo).')">So usare <strong>pur + gerundio</strong> (concessivo).</span> 能使用让步副动词。</li>
+      <li><span class="it" onclick="speak('So usare l\'articolo determinativo con i nomi geografici.')">So usare l'<strong>articolo determinativo</strong> con i nomi geografici.</span> 能使用定冠词与地理名词。</li>
+      <li><span class="it" onclick="speak('So usare il congiuntivo nelle comparazioni.')">So usare il <strong>congiuntivo nelle comparazioni</strong>.</span> 能在比较句中使用虚拟式。</li>
+      <li><span class="it" onclick="speak('So usare mica per negare.')">So usare <strong>mica</strong> per negare.</span> 能使用mica表达否定。</li>
+      <li><span class="it" onclick="speak('So formare il plurale dei nomi composti.')">So formare il plurale dei <strong>nomi composti</strong>.</span> 能构成复合名词的复数形式。</li>
+    </ul>
+  </div>
+
+  <h3>&#x1F4CA; 语法重点回顾</h3>
+  <div class="review-card">
+    <table>
+      <tr><th>语法点</th><th>例句</th><th>中文</th></tr>
+      <tr><td><strong>代词位置-副动词</strong></td><td><span class="it" onclick="speak('Faccendolo, impara.')"><span class="verb">Faccendolo</span>, impara.</span></td><td>通过做它，他学会了。</td></tr>
+      <tr><td><strong>Futuro di supposizione</strong></td><td><span class="it" onclick="speak('Saranno le 5. / Sarà vero?')"><span class="verb">Saranno</span> le 5. / <span class="verb">Sarà</span> vero?</span></td><td>大概5点了。/ 会是真的吗？</td></tr>
+      <tr><td><strong>Futuro concessivo</strong></td><td><span class="it" onclick="speak('Sarà bello, ma è troppo caro.')"><span class="verb">Sarà</span> bello, ma è troppo caro.</span></td><td>可能很美，但太贵了。</td></tr>
+      <tr><td><strong>Pur+gerundio</strong></td><td><span class="it" onclick="speak('Pur sapendo la verità, non ha parlato.')"><span class="verb">Pur sapendo</span> la verità, non ha parlato.</span></td><td>尽管知道真相，他没说话。</td></tr>
+      <tr><td><strong>Mica</strong></td><td><span class="it" onclick="speak('Mica facile! / Mica vero!')"><span class="verb">Mica</span> facile! / <span class="verb">Mica</span> vero!</span></td><td>没那么容易！/ 才不是呢！</td></tr>
+      <tr><td><strong>虚拟式比较句</strong></td><td><span class="it" onclick="speak('È più bravo di quanto pensassi.')">È più bravo di quanto <span class="verb">pensassi</span>.</span></td><td>他比我想象的更厉害。</td></tr>
+    </table>
+  </div>
+
+  <h3>&#x1F3AD; 项目活动</h3>
+  <div class="review-card">
+    <p><strong>1. Slogan:</strong> Crea uno slogan sulla sostenibilità. Usa "si passivante" e "futuro": "Si ricicla! Il futuro sarà verde!"</p>
+    <p><strong>2. Curiosità:</strong> Racconta una curiosità sull'Italia. Usa "lo sapevi che..." e "pur + gerundio".</p>
+    <p><strong>3. Dibattito:</strong> Organizza un dibattito su un tema attuale. Usa "mica", "sarà anche... ma" e il congiuntivo.</p>
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-10.html">&larr; Unità 10</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+  <a href="grammatica-riassuntiva.html">Grammatica Riassuntiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 4</div>
+  <p>Corso di lingua italiana per stranieri · Livello B2</p>
+  <p style="margin-top:8px;opacity:0.6;">Maria Bali · Irene Dei · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

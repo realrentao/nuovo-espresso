@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facciamo il punto · NUOVO Espresso 3</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+    .checklist { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; }
+    .checklist-item { background: #f8f9fa; border: 1px solid var(--border-light); border-radius: 8px; padding: 8px 14px; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 3 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Facciamo il punto · B1</div>
+  <h1>&#x1F504; Facciamo il punto</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">复习单元 · 综合回顾 Lezioni 1-10</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">trapassato prossimo · congiuntivo · condizionale · passato remoto · periodo ipotetico · discorso indiretto</p>
+</section>
+
+<!-- Facciamo il punto 1 (Lezioni 1-2) -->
+<section class="page-section" id="punto1">
+  <h2>&#x1F504; Facciamo il punto 1 &mdash; Lezioni 1-2 · p.32-34</h2>
+
+  <h3>1. Trapassato prossimo（近过去完成时）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Esercizio</th><th>Risposta</th></tr>
+      <tr><td><span class="it" onclick="speak('L\'insegnante ha ripetuto la frase perché molti non ___ (capire).')">L'insegnante ha ripetuto la frase perché molti non ___ (capire).</span><br><span class="zh">老师重复了句子因为很多人没听懂。</span></td><td><span class="verb">avevano capito</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Siamo usciti solo dopo che ___ (smettere) di piovere.')">Siamo usciti solo dopo che ___ (smettere) di piovere.</span><br><span class="zh">我们只在雨停后才出门。</span></td><td><span class="verb">aveva smesso</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Lorenzo si è iscritto a un corso intensivo di spagnolo: lo ___ (studiare) all\'università.')">Lorenzo si è iscritto a un corso intensivo di spagnolo: lo ___ (studiare) all'università.</span><br><span class="zh">Lorenzo注册了西班牙语强化课程：他在大学学过。</span></td><td><span class="verb">aveva studiato</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Povero Claudio: ___ (prenotare) una settimana in Toscana con Manuela...')">Povero Claudio: ___ (prenotare) una settimana in Toscana con Manuela...</span><br><span class="zh">可怜的Claudio：他和Manuela预定了托斯卡纳一周...</span></td><td><span class="verb">aveva prenotato</span></td></tr>
+    </table>
+  </div>
+
+  <h3>2. Prima di + infinito（不定式前置）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Esercizio</th><th>Risposta</th></tr>
+      <tr><td><span class="it" onclick="speak('Faccio benzina e poi parte.')">Faccio benzina e poi parte. → ___</span></td><td><span class="verb">Prima di partire faccio benzina.</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Mi lavo i denti e poi vado a letto.')">Mi lavo i denti e poi vado a letto. → ___</span></td><td><span class="verb">Prima di andare a letto mi lavo i denti.</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Spegne la TV e poi va a dormire.')">Spegne la TV e poi va a dormire. → ___</span></td><td><span class="verb">Prima di andare a dormire spegne la TV.</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Abbiamo controllato bene i bagagli e poi siamo partiti.')">Abbiamo controllato bene i bagagli e poi siamo partiti. → ___</span></td><td><span class="verb">Prima di partire abbiamo controllato bene i bagagli.</span></td></tr>
+    </table>
+  </div>
+
+  <h3>3. Dovere表达假设 + Pronomi combinati + Prefisso in-</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Tema</th><th>Esercizio</th><th>Risposta</th></tr>
+      <tr><td>Dovere</td><td><span class="it" onclick="speak('Guarda le nuvole, ___ piovere.')">Guarda le nuvole, ___ piovere.</span></td><td><span class="verb">deve</span></td></tr>
+      <tr><td>Dovere</td><td><span class="it" onclick="speak('Marco non è in ufficio, ___ essere uscito.')">Marco non è in ufficio, ___ essere uscito.</span></td><td><span class="verb">deve</span></td></tr>
+      <tr><td>Pron. comb.</td><td><span class="it" onclick="speak('Mi presti il vocabolario? — Certo, ___ do volentieri.')">Mi presti il vocabolario? → Certo, ___ do volentieri.</span></td><td><span class="verb">te lo</span></td></tr>
+      <tr><td>Pron. comb.</td><td><span class="it" onclick="speak('Le puoi prestare i tuoi CD? — Sì, ___ presto volentieri.')">Le puoi prestare i tuoi CD? → Sì, ___ presto volentieri.</span></td><td><span class="verb">glieli</span></td></tr>
+      <tr><td>Pref. in-</td><td>capace → ___</td><td><span class="verb">incapace</span></td></tr>
+      <tr><td>Pref. in-</td><td>credibile → ___</td><td><span class="verb">incredibile</span></td></tr>
+      <tr><td>Pref. in-</td><td>logico → ___</td><td><span class="verb">illogico</span></td></tr>
+      <tr><td>Pref. in-</td><td>responsabile → ___</td><td><span class="verb">irresponsabile</span></td></tr>
+    </table>
+  </div>
+
+  <h3>自评检查表</h3>
+  <div class="checklist">
+    <span class="checklist-item">&#x2610; Trapassato prossimo</span>
+    <span class="checklist-item">&#x2610; Prima di + infinito</span>
+    <span class="checklist-item">&#x2610; Dovere per ipotesi</span>
+    <span class="checklist-item">&#x2610; Pronomi combinati</span>
+    <span class="checklist-item">&#x2610; Prefisso in-</span>
+    <span class="checklist-item">&#x2610; Condizionale passato</span>
+    <span class="checklist-item">&#x2610; Ci e ne</span>
+    <span class="checklist-item">&#x2610; Verbi pronominali</span>
+    <span class="checklist-item">&#x2610; Pronomi possessivi</span>
+  </div>
+</section>
+
+<!-- Facciamo il punto 2 (Lezioni 3-4) -->
+<section class="page-section" id="punto2">
+  <h2>&#x1F504; Facciamo il punto 2 &mdash; Lezioni 3-4 · p.62-64</h2>
+
+  <h3>1. Congiuntivo passato（虚拟式过去时）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Esercizio</th><th>Risposta</th></tr>
+      <tr><td><span class="it" onclick="speak('Credo che ___ (andare) via.')">Credo che ___ (andare) via.</span><br><span class="zh">我相信他已经走了。</span></td><td><span class="verb">sia andato</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Ho paura che ___ (sbagliare) tutto.')">Ho paura che ___ (sbagliare) tutto.</span><br><span class="zh">我担心一切都错了。</span></td><td><span class="verb">abbia sbagliato</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Penso che ___ (essere) già partiti.')">Penso che ___ (essere) già partiti.</span><br><span class="zh">我认为他们已经出发了。</span></td><td><span class="verb">siano già partiti</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Non credo che ___ (dire) la verità.')">Non credo che ___ (dire) la verità.</span><br><span class="zh">我不相信他说了实话。</span></td><td><span class="verb">abbia detto</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Speriamo che ___ (arrivare) in tempo.')">Speriamo che ___ (arrivare) in tempo.</span><br><span class="zh">希望他们及时到达。</span></td><td><span class="verb">siano arrivati</span></td></tr>
+      <tr><td><span class="it" onclick="speak('È possibile che ___ (fare) tardi.')">È possibile che ___ (fare) tardi.</span><br><span class="zh">可能已经晚了。</span></td><td><span class="verb">abbia fatto</span></td></tr>
+    </table>
+  </div>
+
+  <h3>2. Congiuntivo imperfetto（虚拟式未完成时）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Esercizio</th><th>Risposta</th></tr>
+      <tr><td><span class="it" onclick="speak('Vorrei che tu ___ (fare) i compiti.')">Vorrei che tu ___ (fare) i compiti.</span></td><td><span class="verb">facessi</span></td></tr>
+      <tr><td><span class="it" onclick="speak('È importante che voi ___ (venire).')">È importante che voi ___ (venire).</span></td><td><span class="verb">veniate</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Dubitavo che loro ___ (sapere).')">Dubitavo che loro ___ (sapere).</span></td><td><span class="verb">sapessero</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Se ___ (avere) tempo, ti aiuterei.')">Se ___ (avere) tempo, ti aiuterei.</span></td><td><span class="verb">avessi</span></td></tr>
+    </table>
+  </div>
+
+  <h3>3. Congiuntivo presente o passato? 选择练习</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Esercizio</th><th>Risposta</th></tr>
+      <tr><td><span class="it" onclick="speak('Credo che lui ___ (essere) italiano.')">Credo che lui ___ (essere) italiano.</span></td><td><span class="verb">sia</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Credevo che lui ___ (essere) italiano.')">Credevo che lui ___ (essere) italiano.</span></td><td><span class="verb">fosse</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Penso che ___ (andare) via.')">Penso che ___ (andare) via.</span></td><td><span class="verb">sia andato</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Pensavo che ___ (andare) via.')">Pensavo che ___ (andare) via.</span></td><td><span class="verb">fosse andato</span></td></tr>
+    </table>
+  </div>
+
+  <h3>4. A patto che, purché, a condizione che</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Esercizio</th><th>Risposta</th></tr>
+      <tr><td><span class="it" onclick="speak('Ti aiuto ___ tu mi aiuti anche tu.')">Ti aiuto ___ tu mi aiuti anche tu.</span></td><td><span class="verb">a patto che / purché</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Posso venire ___ non piova.')">Posso venire ___ non piova.</span></td><td><span class="verb">a condizione che / purché</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Ti presto la macchina ___ tu me la riporti domani.')">Ti presto la macchina ___ tu me la riporti domani.</span></td><td><span class="verb">purché / a patto che</span></td></tr>
+    </table>
+  </div>
+
+  <h3>5. Come se + congiuntivo + Discorso indiretto + Passato remoto</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Tema</th><th>Esempio</th></tr>
+      <tr><td>Come se</td><td><span class="it" onclick="speak('Si comporta come se fosse il padrone.')">Si comporta <span class="verb">come se fosse</span> il padrone.</span></td></tr>
+      <tr><td>Come se</td><td><span class="it" onclick="speak('Parlo come se sapessi tutto.')">Parlo <span class="verb">come se sapessi</span> tutto.</span></td></tr>
+      <tr><td>Discorso indiretto</td><td><span class="it" onclick="speak('\'Sono felice.\' → Ha detto che era felice.')">"Sono felice." → Ha detto che <span class="verb">era felice</span>.</span></td></tr>
+      <tr><td>Discorso indiretto</td><td><span class="it" onclick="speak('\'Verrò domani.\' → Ha detto che sarebbe venuto il giorno dopo.')">"Verrò domani." → Ha detto che <span class="verb">sarebbe venuto</span> il giorno dopo.</span></td></tr>
+      <tr><td>Passato remoto</td><td><span class="it" onclick="speak('Nel 1492 Colombo scoprì l\'America.')">Nel 1492 Colombo <span class="verb">scoprì</span> l'America.</span></td></tr>
+      <tr><td>Passato remoto</td><td><span class="it" onclick="speak('Leonardo dipinse la Gioconda nel 1503.')">Leonardo <span class="verb">dipinse</span> la Gioconda nel 1503.</span></td></tr>
+    </table>
+  </div>
+
+  <h3>6. Suffisso -accio + Avverbi in -mente</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Esercizio</th><th>Risposta</th></tr>
+      <tr><td>film → ___</td><td><span class="verb">filmaccio</span></td></tr>
+      <tr><td>giornata → ___</td><td><span class="verb">giornataccia</span></td></tr>
+      <tr><td>probabile → ___</td><td><span class="verb">probabilmente</span></td></tr>
+      <tr><td>naturale → ___</td><td><span class="verb">naturalmente</span></td></tr>
+      <tr><td>chiaro → ___</td><td><span class="verb">chiaramente</span></td></tr>
+    </table>
+  </div>
+
+  <h3>自评检查表</h3>
+  <div class="checklist">
+    <span class="checklist-item">&#x2610; Congiuntivo passato</span>
+    <span class="checklist-item">&#x2610; Congiuntivo imperfetto</span>
+    <span class="checklist-item">&#x2610; Come se + congiuntivo</span>
+    <span class="checklist-item">&#x2610; Discorso indiretto</span>
+    <span class="checklist-item">&#x2610; Passivo (essere/venire)</span>
+    <span class="checklist-item">&#x2610; Passato remoto</span>
+    <span class="checklist-item">&#x2610; Condizioni (a patto che/purché)</span>
+    <span class="checklist-item">&#x2610; Avverbi in -mente</span>
+    <span class="checklist-item">&#x2610; Suffisso -accio</span>
+  </div>
+</section>
+
+<!-- Facciamo il punto 3 (Lezioni 5-6) -->
+<section class="page-section" id="punto3">
+  <h2>&#x1F504; Facciamo il punto 3 &mdash; Lezioni 5-6 · p.96-98</h2>
+
+  <h3>1. Periodo ipotetico（条件句）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Tipo</th><th>Esercizio</th><th>Risposta</th></tr>
+      <tr><td>Possibilità</td><td><span class="it" onclick="speak('Se ___ (studiare) di più, ___ (passare) l\'esame.')">Se ___ (studiare) di più, ___ (passare) l'esame.</span></td><td><span class="verb">Se studiassi, passerei</span></td></tr>
+      <tr><td>Irrealtà</td><td><span class="it" onclick="speak('Se ___ (sapere) prima, ___ (venire).')">Se ___ (sapere) prima, ___ (venire).</span></td><td><span class="verb">Se avessi saputo, sarei venuto</span></td></tr>
+      <tr><td>Realtà</td><td><span class="it" onclick="speak('Se vieni, ti aspetto.')">Se vieni, ti aspetto.</span></td><td><span class="verb">Se vieni, ti aspetto.</span></td></tr>
+      <tr><td>Possibilità</td><td><span class="it" onclick="speak('Se venissi, ti aspetterei.')">Se venissi, ti aspetterei.</span></td><td><span class="verb">Se venissi, ti aspetterei.</span></td></tr>
+      <tr><td>Irrealtà</td><td><span class="it" onclick="speak('Se fossi venuto, ti avrei aspettato.')">Se fossi venuto, ti avrei aspettato.</span></td><td><span class="verb">Se fossi venuto, ti avrei aspettato.</span></td></tr>
+    </table>
+  </div>
+
+  <h3>2. Fare + infinito（使役结构）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Esercizio</th><th>Significato</th></tr>
+      <tr><td><span class="it" onclick="speak('Le nonne accompagnano i nipoti per farli giocare.')">Le nonne accompagnano i nipoti per <span class="verb">farli giocare</span>.</span></td><td class="zh">奶奶们带孙子去玩。</td></tr>
+      <tr><td><span class="it" onclick="speak('I genitori fanno vedere troppa TV ai bambini.')">I genitori <span class="verb">fanno vedere</span> troppa TV ai bambini.</span></td><td class="zh">父母让孩子看太多电视。</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Vieni, ti faccio vedere i miei giocattoli.')">Vieni, ti <span class="verb">faccio vedere</span> i miei giocattoli.</span></td><td class="zh">来，我给你看我的玩具。</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Esco. Faccio fare una passeggiata al cane.')">Esco. <span class="verb">Faccio fare</span> una passeggiata al cane.</span></td><td class="zh">我出去遛狗。</span></td></tr>
+    </table>
+  </div>
+
+  <h3>3. Aggettivi in -bile + Comparativi e superlativi</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Tema</th><th>Esempio</th></tr>
+      <tr><td>-bile</td><td><span class="it" onclick="speak('È un\'azione realizzabile.')">È un'azione <span class="verb">realizzabile</span>.</span></td></tr>
+      <tr><td>-bile</td><td><span class="it" onclick="speak('È un materiale riciclabile.')">È un materiale <span class="verb">riciclabile</span>.</span></td></tr>
+      <tr><td>Superlativo</td><td><span class="it" onclick="speak('Questo è il libro più interessante che abbia mai letto.')">Questo è il libro <span class="verb">più interessante che abbia mai letto</span>.</span></td></tr>
+      <tr><td>Superlativo</td><td><span class="it" onclick="speak('È la città più bella del mondo.')">È la città <span class="verb">più bella del mondo</span>.</span></td></tr>
+    </table>
+  </div>
+
+  <h3>自评检查表</h3>
+  <div class="checklist">
+    <span class="checklist-item">&#x2610; Periodo ipotetico (3 tipi)</span>
+    <span class="checklist-item">&#x2610; Fare + infinito</span>
+    <span class="checklist-item">&#x2610; Aggettivi in -bile</span>
+    <span class="checklist-item">&#x2610; Comparativi e superlativi</span>
+    <span class="checklist-item">&#x2610; Pronomi relativi (che/cui/il quale)</span>
+  </div>
+</section>
+
+<!-- Facciamo il punto 4 (Lezioni 7-10) -->
+<section class="page-section" id="punto4">
+  <h2>&#x1F504; Facciamo il punto 4 &mdash; Lezioni 7-10 · p.140-142</h2>
+
+  <h3>1. Frasi concessive（让步从句）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Congiunzione</th><th>Esempio</th></tr>
+      <tr><td><span class="verb">Anche se</span></td><td><span class="it" onclick="speak('Anche se piove, esco.')">Anche se piove, esco.</span><br><span class="zh">即使下雨我也出去。</span></td></tr>
+      <tr><td><span class="verb">Sebbene</span></td><td><span class="it" onclick="speak('Sebbene sia stanco, continua a lavorare.')">Sebbene sia stanco, continua a lavorare.</span><br><span class="zh">虽然累了，他还在工作。</span></td></tr>
+      <tr><td><span class="verb">Nonostante</span></td><td><span class="it" onclick="speak('Nonostante non abbia tempo, vengo.')">Nonostante non abbia tempo, vengo.</span><br><span class="zh">尽管没时间，我还是来。</span></td></tr>
+      <tr><td><span class="verb">Benché</span></td><td><span class="it" onclick="speak('Benché fosse tardi, uscì.')">Benché fosse tardi, uscì.</span><br><span class="zh">虽然晚了，他还是出去了。</span></td></tr>
+    </table>
+  </div>
+
+  <h3>2. Gerundio（动名词）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Uso</th><th>Esempio</th></tr>
+      <tr><td>Modo（方式）</td><td><span class="it" onclick="speak('Studiando, si impara.')"><span class="verb">Studiando</span>, si impara.</span><br><span class="zh">学习着就学会了。</span></td></tr>
+      <tr><td>Causa（原因）</td><td><span class="it" onclick="speak('Avendo fame, sono uscito.')"><span class="verb">Avendo fame</span>, sono uscito.</span><br><span class="zh">因为饿了，我出去了。</span></td></tr>
+      <tr><td>Tempo（时间）</td><td><span class="it" onclick="speak('Avendo mangiato, sono uscito.')"><span class="verb">Avendo mangiato</span>, sono uscito.</span><br><span class="zh">吃完后，我出去了。</span></td></tr>
+      <tr><td>Modo</td><td><span class="it" onclick="speak('Parlando, si capisce meglio.')"><span class="verb">Parlando</span>, si capisce meglio.</span><br><span class="zh">说着更好地理解。</span></td></tr>
+      <tr><td>Causa</td><td><span class="it" onclick="speak('Essendo stanco, sono andato a letto presto.')"><span class="verb">Essendo stanco</span>, sono andato a letto presto.</span><br><span class="zh">因为累了，我很早就睡了。</span></td></tr>
+    </table>
+  </div>
+
+  <h3>3. Periodo ipotetico dell'irrealtà（虚拟条件句）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Esercizio</th><th>Risposta</th></tr>
+      <tr><td><span class="it" onclick="speak('Se ___ (avere) soldi, ___ (viaggiare).')">Se ___ (avere) soldi, ___ (viaggiare).</span><br><span class="zh">如果有钱，就旅行。</span></td><td><span class="verb">avessi / viaggerei</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Se ___ (studiare) di più, ___ (passare) l\'esame.')">Se ___ (studiare) di più, ___ (passare) l'esame.</span><br><span class="zh">如果多学习，就通过考试。</span></td><td><span class="verb">studiassi / passeresti</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Se avessi saputo prima, sarei venuto in metropolitana.')">Se avessi saputo prima, sarei venuto in metropolitana.</span><br><span class="zh">如果早知道，我就坐地铁来了。</span></td><td><span class="verb">congiuntivo trapassato + condizionale passato</span></td></tr>
+      <tr><td><span class="it" onclick="speak('Se fossi nato in Italia, parlerei italiano meglio.')">Se fossi nato in Italia, parlerei italiano meglio.</span><br><span class="zh">如果出生在意大利，意大利语会更好。</span></td><td><span class="verb">congiuntivo trapassato + condizionale presente</span></td></tr>
+    </table>
+  </div>
+
+  <h3>4. Discorso indiretto（间接引语）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Diretto</th><th>Indiretto</th></tr>
+      <tr><td><span class="it" onclick="speak('\'Vengo domani.\'')">"Vengo domani."</span></td><td><span class="verb">Ha detto che sarebbe venuto il giorno dopo.</span></td></tr>
+      <tr><td><span class="it" onclick="speak('\'Sono felice qui.\'')">"Sono felice qui."</span></td><td><span class="verb">Ha detto che era felice lì.</span></td></tr>
+      <tr><td><span class="it" onclick="speak('\'Ieri ho visto Maria.\'')">"Ieri ho visto Maria."</span></td><td><span class="verb">Ha detto che il giorno prima aveva visto Maria.</span></td></tr>
+      <tr><td><span class="it" onclick="speak('\'Chiudi la porta!\'')">"Chiudi la porta!"</span></td><td><span class="verb">Mi ha detto di chiudere la porta.</span></td></tr>
+    </table>
+  </div>
+
+  <h3>5. Terza persona plurale impersonale + Congiuntivo trapassato</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Tema</th><th>Esempio</th></tr>
+      <tr><td>Impersonale</td><td><span class="it" onclick="speak('In quel cinema fanno un film storico.')">In quel cinema <span class="verb">fanno</span> un film storico.</span></td></tr>
+      <tr><td>Impersonale</td><td><span class="it" onclick="speak('Dicono che Colombo non fosse genovese.')"><span class="verb">Dicono</span> che Colombo non fosse genovese.</span></td></tr>
+      <tr><td>Cong. trapassato</td><td><span class="it" onclick="speak('Se avessi avuto tempo, ti avrei chiamato.')">Se <span class="verb">avessi avuto</span> tempo, ti avrei chiamato.</span></td></tr>
+      <tr><td>Cong. trapassato</td><td><span class="it" onclick="speak('Se fossi stato presente, avrei aiutato.')">Se <span class="verb">fossi stato</span> presente, avrei aiutato.</span></td></tr>
+    </table>
+  </div>
+
+  <h3>最终自评检查表</h3>
+  <div class="checklist">
+    <span class="checklist-item">&#x2610; Trapassato prossimo</span>
+    <span class="checklist-item">&#x2610; Congiuntivo passato e imperfetto</span>
+    <span class="checklist-item">&#x2610; Discorso indiretto</span>
+    <span class="checklist-item">&#x2610; Forma passiva</span>
+    <span class="checklist-item">&#x2610; Periodo ipotetico (3 tipi)</span>
+    <span class="checklist-item">&#x2610; Frasi concessive</span>
+    <span class="checklist-item">&#x2610; Pronomi combinati</span>
+    <span class="checklist-item">&#x2610; Ci e ne</span>
+    <span class="checklist-item">&#x2610; Gerundio</span>
+    <span class="checklist-item">&#x2610; Passato remoto</span>
+    <span class="checklist-item">&#x2610; Aggettivi in -bile</span>
+    <span class="checklist-item">&#x2610; Verbi pronominali</span>
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-10.html">&larr; Lezione 10</a>
+  <a href="grammatica-riassuntiva.html">Grammatica &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 3</div>
+  <p>Corso di lingua italiana per stranieri · Livello B1</p>
+  <p style="margin-top:8px;opacity:0.6;">Maria Balì • Luciana Ziglio · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

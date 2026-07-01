@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 8 · Italiani nella storia · NUOVO Espresso 3</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 3 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 8 · B1</div>
+  <h1>&#x1F3DB;&#xFE0F; Italiani nella storia</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">意大利历史人物 · p.113-128</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">描述历史人物 · 动名词 · 无人称第三人称复数 · -bile形容词</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Personaggi storici italiani -->
+  <h3>1. Personaggi storici italiani · p.115, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">Indica quali personaggi sono italiani.（指出哪些人物是意大利人。）</p>
+  <table class="vocab-table">
+    <tr><th>Personaggio</th><th>Nazionalità</th><th>Descrizione</th></tr>
+    <tr><td class="it" onclick="speak('Leonardo da Vinci')">Leonardo da Vinci</td><td>&#x1F1EE;&#x1F1F9; Italia</td><td>pittore, inventore</td></tr>
+    <tr><td class="it" onclick="speak('Cristoforo Colombo')">Cristoforo Colombo</td><td>&#x1F1EE;&#x1F1F9; Italia</td><td>navigatore, scoprì l'America</td></tr>
+    <tr><td class="it" onclick="speak('Galileo Galilei')">Galileo Galilei</td><td>&#x1F1EE;&#x1F1F9; Italia</td><td>astronomo</td></tr>
+    <tr><td class="it" onclick="speak('Giuseppe Garibaldi')">Giuseppe Garibaldi</td><td>&#x1F1EE;&#x1F1F9; Italia</td><td>eroe dell'unità d'Italia</td></tr>
+    <tr><td class="it" onclick="speak('Napoleone Bonaparte')">Napoleone Bonaparte</td><td>&#x1F1EB;&#x1F1F7; Francia</td><td>imperatore francese</td></tr>
+    <tr><td class="it" onclick="speak('Mahatma Gandhi')">Mahatma Gandhi</td><td>&#x1F1EE;&#x1F1F3; India</td><td>leader indiano</td></tr>
+    <tr><td class="it" onclick="speak('Pablo Picasso')">Pablo Picasso</td><td>&#x1F1EA;&#x1F1F8; Spagna</td><td>pittore</td></tr>
+  </table>
+
+  <h3>2. Chi parla? — 谁在说？ · p.116, es.2</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">Ascolta le testimonianze e abbina.（听证词并匹配。）</p>
+  <table class="vocab-table">
+    <tr><th>Italiano</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('astronomo')">l'astronomo</td><td>s.m.</td><td>天文学家</td></tr>
+    <tr><td class="it" onclick="speak('telescopio')">il telescopio</td><td>s.m.</td><td>望远镜</td></tr>
+    <tr><td class="it" onclick="speak('eresia')">l'eresia</td><td>s.f.</td><td>异端</td></tr>
+    <tr><td class="it" onclick="speak('abiurare')">abiurare</td><td>v.</td><td>放弃信仰</td></tr>
+    <tr><td class="it" onclick="speak('illegittima')">illegittima</td><td>agg.</td><td>私生的</td></tr>
+    <tr><td class="it" onclick="speak('veleno')">il veleno</td><td>s.m.</td><td>毒药</td></tr>
+    <tr><td class="it" onclick="speak('corteggiare')">corteggiare</td><td>v.</td><td>求爱</td></tr>
+    <tr><td class="it" onclick="speak('i bisognosi')">i bisognosi</td><td>s.m.pl.</td><td>穷人</td></tr>
+    <tr><td class="it" onclick="speak('sceneggiatore')">lo sceneggiatore</td><td>s.m.</td><td>编剧</td></tr>
+    <tr><td class="it" onclick="speak('insuccesso')">l'insuccesso</td><td>s.m.</td><td>失败</td></tr>
+  </table>
+
+  <h3>3. Leonardo Da Vinci — 达芬奇 · p.118, es.4</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">Leggi il testo e verifica le affermazioni.（阅读文本并核实陈述。）</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Nato a Vinci nel 1452, morto in Francia nel 1519.')"><strong>Nascita e morte:</strong> Nato a Vinci nel 1452, morto in Francia nel 1519.</span></td><td class="zh">1452年出生于芬奇，1519年在法国去世。</td></tr>
+    <tr><td><span class="it" onclick="speak('La Gioconda, conservata al Louvre di Parigi.')"><strong>Opera famosa:</strong> La Gioconda, conservata al Louvre di Parigi.</span></td><td class="zh">《蒙娜丽莎》，保存在巴黎卢浮宫。</td></tr>
+    <tr><td><span class="it" onclick="speak('Divertiva gli amici con scherzi, era vegetariano e ambientalista.')"><strong>Personalità:</strong> Divertiva gli amici con scherzi, era vegetariano e ambientalista.</span></td><td class="zh">用恶作剧逗朋友开心，是素食主义者和环保主义者。</td></tr>
+    <tr><td><span class="it" onclick="speak('Scriveva da destra verso sinistra.')"><strong>Scrittura:</strong> Scriveva da destra verso sinistra.</span></td><td class="zh">从右向左书写。</td></tr>
+    <tr><td><span class="it" onclick="speak('Passava giornate intere a studiare i personaggi più strani.')"><strong>Disegno:</strong> Passava giornate intere a studiare i personaggi più strani.</span></td><td class="zh">花整天时间研究最奇怪的人物。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F4DA; 历史词汇 (Lessico storico)</h3>
+  <table class="vocab-table">
+    <tr><th>Italiano</th><th>词性</th><th>中文</th><th>例句</th></tr>
+    <tr><td class="it" onclick="speak('la storia')">la storia</td><td>s.f.</td><td>历史</td><td class="it" onclick="speak('La storia d\'Italia è affascinante.')">La storia d'Italia è affascinante.</td></tr>
+    <tr><td class="it" onclick="speak('il personaggio')">il personaggio</td><td>s.m.</td><td>人物</td><td class="it" onclick="speak('Leonardo è un personaggio storico.')">Leonardo è un personaggio storico.</td></tr>
+    <tr><td class="it" onclick="speak('l\'epoca')">l'epoca</td><td>s.f.</td><td>时代</td><td class="it" onclick="speak('Nell\'epoca medievale...')">Nell'epoca medievale...</td></tr>
+    <tr><td class="it" onclick="speak('l\'imperatore')">l'imperatore</td><td>s.m.</td><td>皇帝</td><td class="it" onclick="speak('Adriano era un grande imperatore.')">Adriano era un grande imperatore.</td></tr>
+    <tr><td class="it" onclick="speak('l\'inventore')">l'inventore</td><td>s.m.</td><td>发明家</td><td class="it" onclick="speak('Leonardo era un inventore geniale.')">Leonardo era un inventore geniale.</td></tr>
+    <tr><td class="it" onclick="speak('la scoperta')">la scoperta</td><td>s.f.</td><td>发现</td><td class="it" onclick="speak('La scoperta dell\'America.')">La scoperta dell'America.</td></tr>
+    <tr><td class="it" onclick="speak('l\'invenzione')">l'invenzione</td><td>s.f.</td><td>发明</td><td class="it" onclick="speak('L\'invenzione della stampa.')">L'invenzione della stampa.</td></tr>
+    <tr><td class="it" onclick="speak('la battaglia')">la battaglia</td><td>s.f.</td><td>战役</td><td class="it" onclick="speak('La battaglia di Waterloo.')">La battaglia di Waterloo.</td></tr>
+    <tr><td class="it" onclick="speak('il regno')">il regno</td><td>s.m.</td><td>王国</td><td class="it" onclick="speak('Il Regno d\'Italia.')">Il Regno d'Italia.</td></tr>
+  </table>
+
+  <h3>&#x1F3DB;&#xFE0F; 历史人物类型 (Tipi di personaggi storici)</h3>
+  <table class="vocab-table">
+    <tr><th>Italiano</th><th>词性</th><th>中文</th><th>例句</th></tr>
+    <tr><td class="it" onclick="speak('l\'artista')">l'artista</td><td>s.m/f.</td><td>艺术家</td><td class="it" onclick="speak('Michelangelo era un artista straordinario.')">Michelangelo era un artista straordinario.</td></tr>
+    <tr><td class="it" onclick="speak('lo scienziato')">lo scienziato</td><td>s.m.</td><td>科学家</td><td class="it" onclick="speak('Galileo era uno scienziato.')">Galileo era uno scienziato.</td></tr>
+    <tr><td class="it" onclick="speak('il politico')">il politico</td><td>s.m.</td><td>政治家</td><td class="it" onclick="speak('Mussolini era un politico controverso.')">Mussolini era un politico controverso.</td></tr>
+    <tr><td class="it" onclick="speak('l\'esploratore')">l'esploratore</td><td>s.m.</td><td>探险家</td><td class="it" onclick="speak('Colombo era un esploratore.')">Colombo era un esploratore.</td></tr>
+    <tr><td class="it" onclick="speak('lo scrittore')">lo scrittore</td><td>s.m.</td><td>作家</td><td class="it" onclick="speak('Dante era uno scrittore.')">Dante era uno scrittore.</td></tr>
+    <tr><td class="it" onclick="speak('il poeta')">il poeta</td><td>s.m.</td><td>诗人</td><td class="it" onclick="speak('Leopardi era un poeta.')">Leopardi era un poeta.</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Gerundio -->
+  <h3>1. Il gerundio（动名词）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">动名词表示正在进行的动作，可作副词使用。</p>
+    <p style="font-weight:600;margin:12px 0 6px;">规则动词构成：</p>
+    <table>
+      <tr><th>动词</th><th>动名词</th><th>例句</th></tr>
+      <tr><td>parlare</td><td><span class="verb">parlando</span></td><td><span class="it" onclick="speak('Parlando, imparo.')">Parlando, imparo.</span> 说着学。</td></tr>
+      <tr><td>leggere</td><td><span class="verb">leggendo</span></td><td><span class="it" onclick="speak('Leggendo, capisco.')">Leggendo, capisco.</span> 读着，我理解了。</td></tr>
+      <tr><td>studiare</td><td><span class="verb">studiando</span></td><td><span class="it" onclick="speak('Studiando, si migliora.')">Studiando, si migliora.</span> 学习着，会进步。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">不规则形式：</p>
+    <table>
+      <tr><th>原形</th><th>动名词</th></tr>
+      <tr><td>condurre</td><td><span class="verb">conducendo</span></td></tr>
+      <tr><td>tradurre</td><td><span class="verb">traducendo</span></td></tr>
+      <tr><td>porre</td><td><span class="verb">ponendo</span></td></tr>
+      <tr><td>trarre</td><td><span class="verb">traendo</span></td></tr>
+      <tr><td>fare</td><td><span class="verb">facendo</span></td></tr>
+      <tr><td>dire</td><td><span class="verb">dicendo</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">用法：</p>
+    <table>
+      <tr><th>用法</th><th>例句</th></tr>
+      <tr><td>方式</td><td><span class="it" onclick="speak('Guardandoti, capisco tutto.')"><span class="verb">Guardandoti</span>, capisco tutto.</span> 看着你，我全明白了。</td></tr>
+      <tr><td>原因</td><td><span class="it" onclick="speak('Avendo fame, sono uscito.')"><span class="verb">Avendo</span> fame, sono uscito.</span> 因为饿了，我出去了。</td></tr>
+      <tr><td>时间</td><td><span class="it" onclick="speak('Avendo mangiato, sono uscito.')"><span class="verb">Avendo</span> mangiato, sono uscito.</span> 吃完后，我出去了。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Sbagliando, si impara.')">Sbagliando, si impara.</span></td><td>犯错误中学习。</td></tr>
+      <tr><td><span class="it" onclick="speak('Essendo stanco, sono andato a letto presto.')">Essendo stanco, sono andato a letto presto.</span></td><td>因为累了，我很早就睡了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ridendo, ha detto la verità.')">Ridendo, ha detto la verità.</span></td><td>笑着，他说了实话。</td></tr>
+      <tr><td><span class="it" onclick="speak('Leggendo il giornale, ho saputo la notizia.')">Leggendo il giornale, ho saputo la notizia.</span></td><td>看报纸时，我得知了这个消息。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Terza persona plurale impersonale -->
+  <h3>2. La terza persona plurale impersonale（无人称的第三人称复数）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">在某些情况下，第三人称复数可表示无人称意义。</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('In quel cinema fanno un film storico.')">In quel cinema <strong>fanno</strong> un film storico.</span></td><td>那个电影院在放一部历史电影。</td></tr>
+      <tr><td><span class="it" onclick="speak('Con l\'aperitivo danno qualcosa da mangiare.')">Con l'aperitivo <strong>danno</strong> qualcosa da mangiare.</span></td><td>喝开胃酒时他们会提供一些吃的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dicono che Colombo in realtà non fosse genovese.')"><strong>Dicono</strong> che Colombo in realtà non fosse genovese.</span></td><td>据说Colombo实际上不是热那亚人。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dicono che l\'acquario di Genova sia il più grande d\'Italia.')"><strong>Dicono</strong> che l'acquario di Genova sia il più grande d'Italia.</span></td><td>据说热那亚水族馆是意大利最大的。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Aggettivi in -bile -->
+  <h3>3. Gli aggettivi in -bile（-bile形容词复习）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><td><span class="it" onclick="speak('I biglietti sono acquistabili on line.')">I biglietti sono <strong>acquistabili</strong> on line.</span></td><td>门票可以在线购买。</td></tr>
+      <tr><td><span class="it" onclick="speak('È stato un fine settimana indimenticabile.')">È stato un fine settimana <strong>indimenticabile</strong>.</span></td><td>这是一个令人难忘的周末。</td></tr>
+      <tr><td><span class="it" onclick="speak('È un\'azione realizzabile.')">È un'azione <strong>realizzabile</strong>.</span></td><td>这是一个可实现的行动。</td></tr>
+      <tr><td><span class="it" onclick="speak('Si tratta di una storia credibile.')">Si tratta di una storia <strong>credibile</strong>.</span></td><td>这是一个可信的故事。</td></tr>
+      <tr><td><span class="it" onclick="speak('È un materiale riciclabile.')">È un materiale <strong>riciclabile</strong>.</span></td><td>这是一种可回收材料。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 8 — Italiani illustri · p.128</h2>
+
+  <h3>&#x1F3DB;&#xFE0F; 著名意大利人</h3>
+
+  <div class="cultura-box">
+    <table>
+      <tr><th>领域</th><th>代表人物</th></tr>
+      <tr><td>Arte（艺术）</td><td class="it" onclick="speak('Leonardo, Michelangelo, Raffaello')">Leonardo, Michelangelo, Raffaello</td></tr>
+      <tr><td>Scienza（科学）</td><td class="it" onclick="speak('Galileo, Fermi, Marconi')">Galileo, Fermi, Marconi</td></tr>
+      <tr><td>Letteratura（文学）</td><td class="it" onclick="speak('Dante, Petrarca, Leopardi')">Dante, Petrarca, Leopardi</td></tr>
+      <tr><td>Musica（音乐）</td><td class="it" onclick="speak('Verdi, Puccini, Pavarotti')">Verdi, Puccini, Pavarotti</td></tr>
+      <tr><td>Politica（政治）</td><td class="it" onclick="speak('Garibaldi, Cavour, De Gasperi')">Garibaldi, Cavour, De Gasperi</td></tr>
+      <tr><td>Esplorazione（探索）</td><td class="it" onclick="speak('Colombo, Amerigo Vespucci')">Colombo, Amerigo Vespucci</td></tr>
+      <tr><td>Moda（时尚）</td><td class="it" onclick="speak('Armani, Versace, Prada')">Armani, Versace, Prada</td></tr>
+      <tr><td>Sport（体育）</td><td class="it" onclick="speak('Rossi, Baggio')">Rossi, Baggio</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 8 — Personaggi storici · p.128-129</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">视频内容概要：</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频讨论意大利历史人物。</p>
+
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Leonardo da Vinci era un uomo poliedrico.')">Leonardo da Vinci era un uomo poliedrico.</span></td><td class="zh">达芬奇是一个多才多艺的人。</td></tr>
+    <tr><td><span class="it" onclick="speak('Lucrezia Borgia è una figura storica controversa.')">Lucrezia Borgia è una figura storica controversa.</span></td><td class="zh">卢克雷齐娅·波吉亚是一个有争议的历史人物。</td></tr>
+    <tr><td><span class="it" onclick="speak('Machiavelli ha scritto \"Il Principe\".')">Machiavelli ha scritto "Il Principe".</span></td><td class="zh">马基雅维利写了《君主论》。</td></tr>
+  </table>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-7.html" class="home-btn">&larr; Unità 7</a>
+  <a href="index.html">&#x1F3E0; Torna al corso</a>
+  <a href="unita-9.html">Unità 9 &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 3</div>
+  <p>Corso di lingua italiana per stranieri · Livello B1</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 8 · Tutti all'Opera! · NUOVO Espresso 5</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 5 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 8 · C1</div>
+  <h1>&#x1F3AD; Tutti all'Opera!</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">大家都去歌剧院！ · p.89-98</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">描述音乐流派 · 表达观点/偏好 · 强调话语成分 · da/per+不定式 · 右位移结构 · addirittura副词 · da介词特别用法</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Alla Scala! -->
+  <h3>1. Alla Scala! · p.89-90</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">朋友们讨论去斯卡拉歌剧院看歌剧。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Quest\'anno ho deciso: vado alla Scala!')"><strong>Anna</strong>: Quest'anno ho deciso: vado alla Scala!</span></td><td class="zh"><strong>安娜</strong>: 今年我决定了：我要去斯卡拉歌剧院！</td></tr>
+    <tr><td><span class="it" onclick="speak('Da morire! È un\'esperienza unica.')"><strong>Marco</strong>: Da morire! È un'esperienza unica.</span></td><td class="zh"><strong>马可</strong>: 太棒了！是独一无二的体验。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, però i biglietti sono da paura: costano un occhio.')"><strong>Anna</strong>: Sì, però i biglietti sono da paura: costano un occhio.</span></td><td class="zh"><strong>安娜</strong>: 是啊，但是票价高得吓人：太贵了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Vero, ma ne vale la pena. Da vedere assolutamente!')"><strong>Marco</strong>: Vero, ma ne vale la pena. Da vedere assolutamente!</span></td><td class="zh"><strong>马可</strong>: 没错，但物有所值。绝对值得一看！</td></tr>
+    <tr><td><span class="it" onclick="speak('Addirittura? Non so se spendere così tanto...')"><strong>Anna</strong>: Addirittura? Non so se spendere così tanto...</span></td><td class="zh"><strong>安娜</strong>: 真的吗？我不知道是否值得花这么多钱……</td></tr>
+    <tr><td><span class="it" onclick="speak('Te lo dico io, l\'opera l\'ho vista tre volte e ogni volta è stata emozionante.')"><strong>Marco</strong>: Te lo dico io, l'opera l'ho vista tre volte e ogni volta è stata emozionante.</span></td><td class="zh"><strong>马可</strong>: 我跟你说，歌剧我看了三次，每次都令人激动。</td></tr>
+    <tr><td><span class="it" onclick="speak('Lo so, lo so che è bello, ma il portafoglio...')"><strong>Anna</strong>: Lo so, lo so che è bello, ma il portafoglio...</span></td><td class="zh"><strong>安娜</strong>: 我知道，我知道很好，但是钱包……</td></tr>
+    <tr><td><span class="it" onclick="speak('Dai, è una serata che non dimenticherai. Da non perdere!')"><strong>Marco</strong>: Dai, è una serata che non dimenticherai. Da non perdere!</span></td><td class="zh"><strong>马可</strong>: 来吧，这是一个你不会忘记的夜晚。不容错过！</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Preferenze musicali -->
+  <h3>2. Preferenze musicali · p.91-92</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">讨论不同的音乐偏好。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Che musica ascolti di solito?')"><strong>Paolo</strong>: Che musica ascolti di solito?</span></td><td class="zh"><strong>保罗</strong>: 你通常听什么音乐？</td></tr>
+    <tr><td><span class="it" onclick="speak('Mah, l\'opera l\'ascolto spesso, ma il jazz lo preferisco per rilassarmi.')"><strong>Luisa</strong>: Mah, l'opera l'ascolto spesso, ma il jazz lo preferisco per rilassarmi.</span></td><td class="zh"><strong>路易莎</strong>: 嗯，歌剧我常听，但爵士乐我更喜欢用来放松。</td></tr>
+    <tr><td><span class="it" onclick="speak('Addirittura? Non ti sei mai stancata dell\'opera?')"><strong>Paolo</strong>: Addirittura? Non ti sei mai stancata dell'opera?</span></td><td class="zh"><strong>保罗</strong>: 真的吗？你从来没对歌剧感到厌倦？</td></tr>
+    <tr><td><span class="it" onclick="speak('No, anzi. Più la ascolto, più la amo. È da pazzi!')"><strong>Luisa</strong>: No, anzi. Più la ascolto, più la amo. È da pazzi!</span></td><td class="zh"><strong>路易莎</strong>: 没有，恰恰相反。我越听越爱听。简直不可思议！</td></tr>
+    <tr><td><span class="it" onclick="speak('Beh, l\'Italia la cantano tutti: è il paese della lirica.')"><strong>Paolo</strong>: Beh, l'Italia la cantano tutti: è il paese della lirica.</span></td><td class="zh"><strong>保罗</strong>: 嗯，意大利人人都唱：这是歌剧之乡。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Espressioni con DA -->
+  <h3>3. Espressioni con "da" · p.93</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">使用"da"的各种表达方式。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Questo film è da vedere assolutamente.')">Questo film è <strong>da vedere</strong> assolutamente.</span></td><td class="zh">这部电影绝对值得一看。</td></tr>
+    <tr><td><span class="it" onclick="speak('Fa un freddo da morire.')">Fa un freddo <strong>da morire</strong>.</span></td><td class="zh">冷得要命。</td></tr>
+    <tr><td><span class="it" onclick="speak('È un\'esperienza da non perdere.')">È un'esperienza <strong>da non perdere</strong>.</span></td><td class="zh">这是一次不容错过的体验。</td></tr>
+    <tr><td><span class="it" onclick="speak('I biglietti sono da paura, costano un occhio!')">I biglietti sono <strong>da paura</strong>, costano un occhio!</span></td><td class="zh">票价高得吓人。</td></tr>
+    <tr><td><span class="it" onclick="speak('Abbiamo tempo da vendere.')">Abbiamo tempo <strong>da vendere</strong>.</span></td><td class="zh">我们有的是时间。</td></tr>
+    <tr><td><span class="it" onclick="speak('Questa musica è da ballare.')">Questa musica è <strong>da ballare</strong>.</span></td><td class="zh">这是适合跳舞的音乐。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ha una voce da incanto.')">Ha una voce <strong>da incanto</strong>.</span></td><td class="zh">他的声音美妙得令人着迷。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F3AD; 歌剧与音乐 (Opera e musica)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('l\'opera')">l'opera (f.)</td><td>nf</td><td>歌剧</td></tr>
+    <tr><td class="it" onclick="speak('la lirica')">la lirica</td><td>nf</td><td>歌剧，抒情歌曲</td></tr>
+    <tr><td class="it" onclick="speak('il teatro')">il teatro</td><td>nm</td><td>剧院</td></tr>
+    <tr><td class="it" onclick="speak('il palco')">il palco</td><td>nm</td><td>舞台，包厢</td></tr>
+    <tr><td class="it" onclick="speak('il soprano')">il soprano</td><td>nm</td><td>女高音</td></tr>
+    <tr><td class="it" onclick="speak('il tenore')">il tenore</td><td>nm</td><td>男高音</td></tr>
+    <tr><td class="it" onclick="speak('il baritono')">il baritono</td><td>nm</td><td>男中音</td></tr>
+    <tr><td class="it" onclick="speak('il coro')">il coro</td><td>nm</td><td>合唱团</td></tr>
+    <tr><td class="it" onclick="speak('l\'orchestra')">l'orchestra (f.)</td><td>nf</td><td>管弦乐队</td></tr>
+    <tr><td class="it" onclick="speak('il direttore d\'orchestra')">il direttore d'orchestra</td><td>nm</td><td>指挥</td></tr>
+    <tr><td class="it" onclick="speak('il biglietto')">il biglietto</td><td>nm</td><td>票</td></tr>
+    <tr><td class="it" onclick="speak('la rappresentazione')">la rappresentazione</td><td>nf</td><td>演出</td></tr>
+    <tr><td class="it" onclick="speak('il melodramma')">il melodramma</td><td>nm</td><td>音乐剧，歌剧</td></tr>
+    <tr><td class="it" onclick="speak('l\'aria')">l'aria (f.)</td><td>nf</td><td>咏叹调</td></tr>
+    <tr><td class="it" onclick="speak('il libretto')">il libretto</td><td>nm</td><td>剧本，歌词本</td></tr>
+    <tr><td class="it" onclick="speak('la platea')">la platea</td><td>nf</td><td>正厅前排座位</td></tr>
+    <tr><td class="it" onclick="speak('il foyer')">il foyer</td><td>nm</td><td>休息厅</td></tr>
+    <tr><td class="it" onclick="speak('il bis')">il bis</td><td>nm</td><td>安可，加演</td></tr>
+  </table>
+
+  <h3>&#x1F3B5; 音乐相关动词与形容词 (Verbi e aggettivi musicali)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('ascoltare')">ascoltare</td><td>vt</td><td>听</td></tr>
+    <tr><td class="it" onclick="speak('assistere')">assistere (a)</td><td>vi</td><td>观看，出席</td></tr>
+    <tr><td class="it" onclick="speak('applaudire')">applaudire</td><td>vt</td><td>鼓掌</td></tr>
+    <tr><td class="it" onclick="speak('fischiare')">fischiare</td><td>vi/vt</td><td>吹口哨，喝倒彩</td></tr>
+    <tr><td class="it" onclick="speak('commuoversi')">commuoversi</td><td>vr</td><td>感动</td></tr>
+    <tr><td class="it" onclick="speak('emozionarsi')">emozionarsi</td><td>vr</td><td>激动，动情</td></tr>
+    <tr><td class="it" onclick="speak('appassionato')">appassionato/a</td><td>agg</td><td>热情的，热衷的</td></tr>
+    <tr><td class="it" onclick="speak('emozionante')">emozionante</td><td>agg</td><td>令人激动的</td></tr>
+    <tr><td class="it" onclick="speak('indimenticabile')">indimenticabile</td><td>agg</td><td>难忘的</td></tr>
+    <tr><td class="it" onclick="speak('spettacolare')">spettacolare</td><td>agg</td><td>壮观的，精彩的</td></tr>
+    <tr><td class="it" onclick="speak('suggestivo')">suggestivo/a</td><td>agg</td><td>富有意境的</td></tr>
+  </table>
+
+  <h3>&#x1F30D 习语与表达 (Espressioni idiomatiche)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>字面意思</th><th>实际含义</th></tr>
+    <tr><td class="it" onclick="speak('Da morire')">Da morire</td><td>到死</td><td>太棒了，无与伦比</td></tr>
+    <tr><td class="it" onclick="speak('Da paura')">Da paura</td><td>到恐惧</td><td>高得吓人，太棒了</td></tr>
+    <tr><td class="it" onclick="speak('Costare un occhio')">Costare un occhio</td><td>花一只眼睛</td><td>极其昂贵</td></tr>
+    <tr><td class="it" onclick="speak('Valere la pena')">Valere la pena</td><td>值得痛苦</td><td>值得</td></tr>
+    <tr><td class="it" onclick="speak('Da non perdere')">Da non perdere</td><td>不容丢失</td><td>不容错过</td></tr>
+    <tr><td class="it" onclick="speak('Avere tempo da vendere')">Avere tempo da vendere</td><td>有时间卖</td><td>有的是时间</td></tr>
+    <tr><td class="it" onclick="speak('Da pazzi')">Da pazzi</td><td>像疯子一样</td><td>简直不可思议</td></tr>
+    <tr><td class="it" onclick="speak('Da vedere')">Da vedere</td><td>值得看</td><td>值得一看</td></tr>
+    <tr><td class="it" onclick="speak('Da incanto')">Da incanto</td><td>如同魔法</td><td>美妙绝伦</td></tr>
+    <tr><td class="it" onclick="speak('Da leccarsi i baffi')">Da leccarsi i baffi</td><td>值得舔胡子</td><td>好吃极了</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Da / Per + infinito -->
+  <h3>1. Da / Per + 不定式</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">Da + 不定式和 Per + 不定式在C1级别有多种含义和用法。</p>
+    <table>
+      <tr><th>结构</th><th>含义</th><th>例句</th></tr>
+      <tr><td><span class="verb">Da + inf.</span></td><td>被动/值得</td><td>È <span class="verb">da vedere</span>. (va visto)</td></tr>
+      <tr><td><span class="verb">Da + inf.</span></td><td>结果</td><td>Un freddo <span class="verb">da morire</span>.</td></tr>
+      <tr><td><span class="verb">Da + inf.</span></td><td>品质</td><td>Una serata <span class="verb">da non dimenticare</span>.</td></tr>
+      <tr><td><span class="verb">Per + inf.</span></td><td>目的/用途</td><td>L'ho comprato <span class="verb">per leggere</span>.</td></tr>
+      <tr><td><span class="verb">Per + inf.</span></td><td>原因</td><td>È famoso <span class="verb">per essere</span> bravo.</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Questo film è da vedere assolutamente.')">Questo film è <span class="verb">da vedere</span> assolutamente.</span></td><td>这部电影绝对值得一看。</td></tr>
+      <tr><td><span class="it" onclick="speak('Fa un freddo da morire.')">Fa un freddo <span class="verb">da morire</span>.</span></td><td>冷得要命。</td></tr>
+      <tr><td><span class="it" onclick="speak('È un\'esperienza da non perdere.')">È un'esperienza <span class="verb">da non perdere</span>.</span></td><td>这是一次不容错过的体验。</td></tr>
+      <tr><td><span class="it" onclick="speak('I biglietti sono da paura (=costosissimi).')">I biglietti sono <span class="verb">da paura</span> (=costosissimi).</span></td><td>票价高得吓人。</td></tr>
+      <tr><td><span class="it" onclick="speak('Questo libro è da leggere almeno una volta.')">Questo libro è <span class="verb">da leggere</span> almeno una volta.</span></td><td>这本书至少值得读一次。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho preso un caffè per svegliarmi.')">Ho preso un caffè <span class="verb">per svegliarmi</span>.</span></td><td>我喝了杯咖啡提神。</td></tr>
+      <tr><td><span class="it" onclick="speak('È troppo caro per comprarlo.')">È troppo caro <span class="verb">per comprarlo</span>.</span></td><td>太贵了，买不起。</td></tr>
+      <tr><td><span class="it" onclick="speak('Abbiamo tempo da vendere.')">Abbiamo tempo <span class="verb">da vendere</span>.</span></td><td>我们有的是时间。</td></tr>
+      <tr><td><span class="it" onclick="speak('È una musica da ballare.')">È una musica <span class="verb">da ballare</span>.</span></td><td>这是适合跳舞的音乐。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ha una voce da incanto.')">Ha una voce <span class="verb">da incanto</span>.</span></td><td>他的声音美妙得令人着迷。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Dislocazione a destra -->
+  <h3>2. 右位移 (Dislocazione a destra)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">右位移是一种将句子成分移到句尾并用代词提前指代的强调结构，是C1级别的标志性口语现象。</p>
+    <table>
+      <tr><th>结构</th><th>例句</th></tr>
+      <tr><td><span class="verb">Pronome + Verbo + ... + Oggetto</span></td><td><span class="it" onclick="speak('L\'ho vista ieri, l\'opera.')"><span class="verb">L'ho vista</span> ieri, <span class="verb">l'opera</span>.</span></td></tr>
+      <tr><td><span class="verb">Pronome + Verbo + ... + Oggetto</span></td><td><span class="it" onclick="speak('Lo so bene, che è costoso.')"><span class="verb">Lo so</span> bene, <span class="verb">che è costoso</span>.</span></td></tr>
+      <tr><td><span class="verb">Pronome + Verbo + ... + Oggetto</span></td><td><span class="it" onclick="speak('La ascolto spesso, la musica classica.')"><span class="verb">La ascolto</span> spesso, <span class="verb">la musica classica</span>.</span></td></tr>
+      <tr><td><span class="verb">Pronome + Verbo + ... + Compl.</span></td><td><span class="it" onclick="speak('Ci penso sempre, a quella serata.')"><span class="verb">Ci penso</span> sempre, <span class="verb">a quella serata</span>.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('L\'ho vista tre volte, la Traviata.')"><span class="verb">L'ho vista</span> tre volte, <span class="verb">la Traviata</span>.</span></td><td>我看了三次，《茶花女》。</td></tr>
+      <tr><td><span class="it" onclick="speak('Lo preferisco per rilassarmi, il jazz.')"><span class="verb">Lo preferisco</span> per rilassarmi, <span class="verb">il jazz</span>.</span></td><td>我更喜欢用它来放松，爵士乐。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ne parliamo dopo, di questo.')"><span class="verb">Ne parliamo</span> dopo, <span class="verb">di questo</span>.</span></td><td>我们过后再说，这件事。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ci vado domani, alla Scala.')"><span class="verb">Ci vado</span> domani, <span class="verb">alla Scala</span>.</span></td><td>我明天去，去斯卡拉。</td></tr>
+      <tr><td><span class="it" onclick="speak('La conosco bene, quella canzone.')"><span class="verb">La conosco</span> bene, <span class="verb">quella canzone</span>.</span></td><td>我很熟悉它，那首歌。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Addirittura -->
+  <h3>3. 副词 <span class="verb">addirittura</span></h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">Addirittura 是一个多功能副词，表达惊讶、强调或确认。</p>
+    <table>
+      <tr><th>用法</th><th>含义</th><th>例句</th></tr>
+      <tr><td><span class="verb">惊讶</span></td><td>甚至，居然 (persino, perfino)</td><td><span class="it" onclick="speak('È venuto addirittura il direttore.')">È venuto <span class="verb">addirittura</span> il direttore.</span></td></tr>
+      <tr><td><span class="verb">反问确认</span></td><td>真的吗？ (davvero?)</td><td><span class="it" onclick="speak('Addirittura? Non ci credo!')"><span class="verb">Addirittura</span>? Non ci credo!</span></td></tr>
+      <tr><td><span class="verb">强调</span></td><td>竟然，不可思议地</td><td><span class="it" onclick="speak('Ha pagato addirittura 200 euro.')">Ha pagato <span class="verb">addirittura</span> 200 euro.</span></td></tr>
+      <tr><td><span class="verb">确认加强</span></td><td>没错，正是</td><td><span class="it" onclick="speak('Sì, addirittura!')">Sì, <span class="verb">addirittura</span>!</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale · p.94-97</h2>
+
+  <h3>&#x1F3AD; La Scala e l'opera italiana（斯卡拉歌剧院与意大利歌剧）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('Il Teatro alla Scala di Milano è uno dei teatri d\'opera più famosi del mondo. Inaugurato nel 1778, è stato il palcoscenico delle più grandi opere italiane e internazionali.')">Il Teatro alla Scala di Milano è uno dei teatri d'opera più famosi del mondo. Inaugurato nel 1778, è stato il palcoscenico delle più grandi opere italiane e internazionali.</p>
+    <p class="it" onclick="speak('La stagione della Scala inizia il 7 dicembre, giorno di Sant\'Ambrogio, patrono di Milano. È un evento mondano molto atteso, con ospiti famosi, politici e personalità della cultura.')">La stagione della Scala inizia il 7 dicembre, giorno di Sant'Ambrogio, patrono di Milano. È un evento mondano molto atteso, con ospiti famosi, politici e personalità della cultura.</p>
+    <p class="it" onclick="speak('L\'opera italiana ha una tradizione secolare. Compositori come Giuseppe Verdi, Giacomo Puccini e Gioachino Rossini hanno reso celebre il melodramma italiano in tutto il mondo.')">L'opera italiana ha una tradizione secolare. Compositori come Giuseppe Verdi, Giacomo Puccini e Gioachino Rossini hanno reso celebre il melodramma italiano in tutto il mondo.</p>
+    <p class="it" onclick="speak('Ancora oggi, l\'opera è una forma d\'arte amatissima. Ogni anno milioni di spettatori assistono a rappresentazioni liriche nei teatri di tutta Italia, dalla Fenice di Venezia al San Carlo di Napoli.')">Ancora oggi, l'opera è una forma d'arte amatissima. Ogni anno milioni di spettatori assistono a rappresentazioni liriche nei teatri di tutta Italia, dalla Fenice di Venezia al San Carlo di Napoli.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p class="zh">米兰的斯卡拉歌剧院是世界上最著名的歌剧院之一。它于1778年开幕，是意大利及国际最伟大歌剧的舞台。</p>
+    <p class="zh">斯卡拉的演出季于12月7日（米兰守护神圣安布罗斯日）开始。这是一场备受期待的社交盛事，常有名人、政要和文化界人士出席。</p>
+    <p class="zh">意大利歌剧有着悠久的传统。朱塞佩·威尔第、贾科莫·普契尼和焦阿基诺·罗西尼等作曲家使意大利音乐剧享誉世界。</p>
+    <p class="zh">直到今天，歌剧仍然是一种深受喜爱的艺术形式。每年有数百万观众在意大利各地的剧院观看歌剧演出，从威尼斯的凤凰剧院到那不勒斯的圣卡洛剧院。</p>
+  </div>
+
+  <h3>相关文化词汇</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il Teatro alla Scala')">il Teatro alla Scala</td><td>斯卡拉歌剧院</td></tr>
+    <tr><td class="it" onclick="speak('la prima')">la prima</td><td>首演</td></tr>
+    <tr><td class="it" onclick="speak('la stagione lirica')">la stagione lirica</td><td>歌剧演出季</td></tr>
+    <tr><td class="it" onclick="speak('il melodramma')">il melodramma</td><td>音乐剧，歌剧</td></tr>
+    <tr><td class="it" onclick="speak('il compositore')">il compositore</td><td>作曲家</td></tr>
+    <tr><td class="it" onclick="speak('il librettista')">il librettista</td><td>歌剧剧本作家</td></tr>
+    <tr><td class="it" onclick="speak('la Traviata')">la Traviata</td><td>《茶花女》（威尔第）</td></tr>
+    <tr><td class="it" onclick="speak('la Bohème')">la Bohème</td><td>《波希米亚人》（普契尼）</td></tr>
+    <tr><td class="it" onclick="speak('il Nabucco')">il Nabucco</td><td>《纳布科》（威尔第）</td></tr>
+    <tr><td class="it" onclick="speak('il Barbiere di Siviglia')">il Barbiere di Siviglia</td><td>《塞维利亚理发师》（罗西尼）</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化注释:</strong><br>
+    &bull; 斯卡拉歌剧院于1778年开幕，可容纳约2000名观众<br>
+    &bull; 每年12月7日的斯卡拉开幕夜是米兰最重要的社交活动之一<br>
+    &bull; 意大利歌剧传统可追溯到16世纪末的佛罗伦萨<br>
+    &bull; 威尔第的《纳布科》中"Va, pensiero"合唱被视为意大利统一的象征<br>
+    &bull; Nel tuo Paese, l'opera è popolare? Conosci qualche opera italiana? — 在你的国家，歌剧受欢迎吗？你知道哪些意大利歌剧？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 8 — Tutti all'Opera! · p.98</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频展示了学生们讨论音乐偏好、歌剧文化以及使用da/per+不定式和右位移结构来表达强调。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">关键表达 (Espressioni chiave):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Da morire!')">Da morire!</span></td><td class="zh">太棒了！</td></tr>
+    <tr><td><span class="it" onclick="speak('Da vedere assolutamente!')">Da vedere assolutamente!</span></td><td class="zh">绝对值得一看！</td></tr>
+    <tr><td><span class="it" onclick="speak('Costare un occhio')">Costare un occhio</span></td><td class="zh">极其昂贵</td></tr>
+    <tr><td><span class="it" onclick="speak('L\'ho vista, l\'opera.')">L'ho vista, l'opera.</span></td><td class="zh">我看了，那部歌剧。</td></tr>
+    <tr><td><span class="it" onclick="speak('Lo so, che è caro.')">Lo so, che è caro.</span></td><td class="zh">我知道，它很贵。</td></tr>
+    <tr><td><span class="it" onclick="speak('Addirittura?')">Addirittura?</span></td><td class="zh">真的吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Da non perdere!')">Da non perdere!</span></td><td class="zh">不容错过！</td></tr>
+    <tr><td><span class="it" onclick="speak('È da pazzi!')">È da pazzi!</span></td><td class="zh">简直不可思议！</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">视频讨论主题:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Gli studenti parlano delle loro preferenze musicali e dell\'opera.')">音乐偏好: 学生谈论音乐偏好和歌剧</span></td><td class="zh">Gli studenti parlano delle loro preferenze musicali e dell'opera.</td></tr>
+    <tr><td><span class="it" onclick="speak('Usano "da" e "per" con l\'infinito in diverse espressioni.')">Da/Per用法: 学生使用"da"和"per"加不定式的各种表达</span></td><td class="zh">Usano "da" e "per" con l'infinito in diverse espressioni.</td></tr>
+    <tr><td><span class="it" onclick="speak('Praticano la dislocazione a destra per enfatizzare.')">右位移: 练习右位移结构以强调成分</span></td><td class="zh">Praticano la dislocazione a destra per enfatizzare.</td></tr>
+    <tr><td><span class="it" onclick="speak('Usano "addirittura" per esprimere sorpresa e conferma.')">Addirittura: 用addirittura表达惊讶和确认</span></td><td class="zh">Usano "addirittura" per esprimere sorpresa e conferma.</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演：邀请朋友去看歌剧或音乐会<br>
+    &bull; 用da + 不定式描述3个值得体验的事物<br>
+    &bull; 用右位移结构重写5个句子<br>
+    &bull; 用addirittura表达惊讶和反问<br>
+    &bull; 搜索一首意大利咏叹调并分享感受
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-7.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">&larr; Torna al corso</a>
+  <a href="unita-9.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 5</div>
+  <p>Corso di lingua italiana per stranieri · Livello C1</p>
+  <p style="margin-top:8px;opacity:0.6;">Maria Bali • Irene Dei · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

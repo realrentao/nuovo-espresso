@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 6 · I gusti son gusti! · NUOVO Espresso 4</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 4 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 6 · B2</div>
+  <h1>&#x1F3AC; I gusti son gusti!</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">各有所好！· p.65-75</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">讨论电影和品味、表达好恶、推荐 · 形容词位置 · 否定主句中的虚拟式 · purché+虚拟式 · fare+不定式结构</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <h3>1. "Che film vediamo?" · p.65, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">Michele和Anna在决定看什么电影，两人的品味很不同。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Allora, al cinema Mignon c\'è Il nome di mia figlia con Daniel Auteuil...')"><strong>Michele</strong>: Allora, al cinema Mignon c'è Il nome di mia figlia con Daniel Auteuil...</span></td><td class="zh"><strong>米凯莱</strong>: 那么，Mignon电影院在放《我女儿的名字》，Daniel Auteuil主演……</td></tr>
+    <tr><td><span class="it" onclick="speak('No, i film francesi no, per favore, lo sai che poi mi addormento.')"><strong>Anna</strong>: No, i film francesi no, per favore, lo sai che poi mi addormento.</span></td><td class="zh"><strong>安娜</strong>: 不，法国电影不要，拜托，你知道我会睡着的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Beh, non è che i film francesi siano tutti uguali!')"><strong>Michele</strong>: Beh, non è che i film francesi siano tutti uguali!</span></td><td class="zh"><strong>米凯莱</strong>: 呃，也不是所有法国电影都一样啊！</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, lo so, però in genere non amo il cinema francese. Troppo pesante per i miei gusti.')"><strong>Anna</strong>: Sì, lo so, però in genere non amo il cinema francese. Troppo pesante per i miei gusti.</span></td><td class="zh"><strong>安娜</strong>: 是的，我知道，但总的来说我不喜欢法国电影。对我来说太重了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Mica facile trovare un film che ti vada bene...')"><strong>Michele</strong>: Mica facile trovare un film che ti vada bene...</span></td><td class="zh"><strong>米凯莱</strong>: 找一部你喜欢的电影还真不容易……</td></tr>
+    <tr><td><span class="it" onclick="speak('Senti, ognuno ha i propri gusti. A me piacciono i film d\'azione, quelli che ti fanno stare sul bordo della sedia.')"><strong>Anna</strong>: Senti, ognuno ha i propri gusti. A me piacciono i film d'azione, quelli che ti fanno stare sul bordo della sedia.</span></td><td class="zh"><strong>安娜</strong>: 听着，各人有各人的品味。我喜欢动作片，那种让你坐立不安的电影。</td></tr>
+    <tr><td><span class="it" onclick="speak('A me invece piacciono i film drammatici, quelli impegnati che ti fanno riflettere.')"><strong>Michele</strong>: A me invece piacciono i film drammatici, quelli impegnati che ti fanno riflettere.</span></td><td class="zh"><strong>米凯莱</strong>: 而我呢，我喜欢剧情片，那种有深度的、引人思考的电影。</td></tr>
+    <tr><td><span class="it" onclick="speak('Allora facciamo così: stasera vediamo il tuo, la prossima volta scegliamo il mio. Purché poi non ti lamenti!')"><strong>Michele</strong>: Allora facciamo così: stasera vediamo il tuo, la prossima volta scegliamo il mio. Purché poi non ti lamenti!</span></td><td class="zh"><strong>米凯莱</strong>: 那我们这样：今晚看你的，下次选我的。只要你到时候不抱怨就行！</td></tr>
+    <tr><td><span class="it" onclick="speak('Perfetto! Affare fatto.')"><strong>Anna</strong>: Perfetto! Affare fatto.</span></td><td class="zh"><strong>安娜</strong>: 完美！成交。</td></tr>
+  </table>
+
+  <h3>2. "Secondo me, il regista..." · p.67, es.3</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">看完电影后，Francesco和Lucia讨论他们的观后感。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Allora, com\'è il nuovo film di Sorrentino?')"><strong>Francesco</strong>: Allora, com'è il nuovo film di Sorrentino?</span></td><td class="zh"><strong>弗朗切斯科</strong>: 那么，索伦蒂诺的新片怎么样？</td></tr>
+    <tr><td><span class="it" onclick="speak('Bellissimo! Ma è un film impegnativo, non adatto a tutti.')"><strong>Lucia</strong>: Bellissimo! Ma è un film impegnativo, non adatto a tutti.</span></td><td class="zh"><strong>露琪亚</strong>: 非常好看！但这是一部有深度的电影，不适合所有人。</td></tr>
+    <tr><td><span class="it" onclick="speak('Beh, non è che sia un film per tutti. Ha scene molto lente e un linguaggio poetico.')"><strong>Lucia</strong>: Beh, non è che sia un film per tutti. Ha scene molto lente e un linguaggio poetico.</span></td><td class="zh"><strong>露琪亚</strong>: 嗯，这不是一部适合所有人的电影。有些场景节奏很慢，语言很诗意。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, un po\' strano, ma per me è un buon film. Mi ha fatto riflettere molto.')"><strong>Francesco</strong>: Sì, un po' strano, ma per me è un buon film. Mi ha fatto riflettere molto.</span></td><td class="zh"><strong>弗朗切斯科</strong>: 是的，有点奇怪，但对我来说是一部好电影。它让我思考了很多。</td></tr>
+    <tr><td><span class="it" onclick="speak('Io invece preferisco i film che mi fanno ridere. La vita è già abbastanza seria di per sé.')"><strong>Lucia</strong>: Io invece preferisco i film che mi fanno ridere. La vita è già abbastanza seria di per sé.</span></td><td class="zh"><strong>露琪亚</strong>: 而我更喜欢让我笑的电影。生活本身已经够严肃的了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Certo, purché non sia tutto pesante e cupo.')"><strong>Lucia</strong>: Certo, purché non sia tutto pesante e cupo.</span></td><td class="zh"><strong>露琪亚</strong>: 当然，只要不是全都沉重和阴暗就好。</td></tr>
+    <tr><td><span class="it" onclick="speak('Allora il film di Sorrentino fa per te. Ti farà pensare per giorni.')"><strong>Francesco</strong>: Allora il film di Sorrentino fa per te. Ti farà pensare per giorni.</span></td><td class="zh"><strong>弗朗切斯科</strong>: 那么索伦蒂诺的电影适合你。它会让你思考好几天。</td></tr>
+    <tr><td><span class="it" onclick="speak('Bene, allora lo vedrò. Purché non sia troppo lungo!')"><strong>Lucia</strong>: Bene, allora lo vedrò. Purché non sia troppo lungo!</span></td><td class="zh"><strong>露琪亚</strong>: 好的，那我看看。只要不是太长就好！</td></tr>
+  </table>
+
+  <h3>3. "Serie TV o film?" · p.69, es.5</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">一群朋友讨论电视剧和电影哪个更好。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Io preferisco le serie TV. Ti fanno affezionare ai personaggi.')"><strong>Paolo</strong>: Io preferisco le serie TV. Ti fanno affezionare ai personaggi.</span></td><td class="zh"><strong>保罗</strong>: 我更喜欢电视剧。它们让你对角色产生感情。</td></tr>
+    <tr><td><span class="it" onclick="speak('Vero, ma spesso le serie fanno perdere troppo tempo. Un film è più concentrato.')"><strong>Sofia</strong>: Vero, ma spesso le serie fanno perdere troppo tempo. Un film è più concentrato.</span></td><td class="zh"><strong>索菲亚</strong>: 没错，但电视剧经常太耗时间了。电影更集中。</td></tr>
+    <tr><td><span class="it" onclick="speak('Io non è che guardi molte serie, preferisco i grandi classici del cinema.')"><strong>Marco</strong>: Io non è che guardi molte serie, preferisco i grandi classici del cinema.</span></td><td class="zh"><strong>马可</strong>: 我倒不是看很多电视剧，我更喜欢电影经典。</td></tr>
+    <tr><td><span class="it" onclick="speak('Prendi Breaking Bad o The Crown. Sono serie che hanno la qualità di un film.')"><strong>Paolo</strong>: Prendi Breaking Bad o The Crown. Sono serie che hanno la qualità di un film.</span></td><td class="zh"><strong>保罗</strong>: 比如说《绝命毒师》或《王冠》。它们是具有电影品质的电视剧。</td></tr>
+    <tr><td><span class="it" onclick="speak('Forse, ma io resto fedele al grande schermo. È un\'esperienza diversa.')"><strong>Marco</strong>: Forse, ma io resto fedele al grande schermo. È un'esperienza diversa.</span></td><td class="zh"><strong>马可</strong>: 也许是吧，但我仍然忠实于大银幕。这是一种不同的体验。</td></tr>
+    <tr><td><span class="it" onclick="speak('Su questo sono d\'accordo. Al cinema ti concentri di più. A casa ci sono troppe distrazioni.')"><strong>Sofia</strong>: Su questo sono d'accordo. Al cinema ti concentri di più. A casa ci sono troppe distrazioni.</span></td><td class="zh"><strong>索菲亚</strong>: 这一点我同意。在电影院你更专注。在家有太多干扰。</td></tr>
+    <tr><td><span class="it" onclick="speak('Purché il film sia bello, il luogo non è importante.')"><strong>Paolo</strong>: Purché il film sia bello, il luogo non è importante.</span></td><td class="zh"><strong>保罗</strong>: 只要电影好看，在哪里不重要。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non è che il luogo non sia importante... L\'atmosfera del cinema è unica.')"><strong>Marco</strong>: Non è che il luogo non sia importante... L'atmosfera del cinema è unica.</span></td><td class="zh"><strong>马可</strong>: 也不是说地点不重要……电影院的氛围是独一无二的。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F3AC; 电影相关名词 (Sostantivi — Cinema e film)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il film')">il film</td><td>nm</td><td>电影</td></tr>
+    <tr><td class="it" onclick="speak('il genere')">il genere</td><td>nm</td><td>类型</td></tr>
+    <tr><td class="it" onclick="speak('il regista')">il regista</td><td>nm</td><td>导演</td></tr>
+    <tr><td class="it" onclick="speak('l\'attore')">l'attore / l'attrice</td><td>nm/f</td><td>演员</td></tr>
+    <tr><td class="it" onclick="speak('la trama')">la trama</td><td>nf</td><td>剧情</td></tr>
+    <tr><td class="it" onclick="speak('la recensione')">la recensione</td><td>nf</td><td>影评</td></tr>
+    <tr><td class="it" onclick="speak('la scena')">la scena</td><td>nf</td><td>场景</td></tr>
+    <tr><td class="it" onclick="speak('il trailer')">il trailer</td><td>nm</td><td>预告片</td></tr>
+    <tr><td class="it" onclick="speak('la colonna sonora')">la colonna sonora</td><td>nf</td><td>原声配乐</td></tr>
+    <tr><td class="it" onclick="speak('il botteghino')">il botteghino</td><td>nm</td><td>票房</td></tr>
+    <tr><td class="it" onclick="speak('il critico')">il critico</td><td>nm</td><td>评论家</td></tr>
+    <tr><td class="it" onclick="speak('lo schermo')">lo schermo</td><td>nm</td><td>银幕</td></tr>
+  </table>
+
+  <h3>&#x1F3AD; 电影类型 (Generi cinematografici)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la commedia')">la commedia</td><td>喜剧</td></tr>
+    <tr><td class="it" onclick="speak('il dramma')">il dramma / il drammatico</td><td>剧情片</td></tr>
+    <tr><td class="it" onclick="speak('l\'azione')">l'azione</td><td>动作片</td></tr>
+    <tr><td class="it" onclick="speak('l\'horror')">l'horror</td><td>恐怖片</td></tr>
+    <tr><td class="it" onclick="speak('il thriller')">il thriller</td><td>惊悚片</td></tr>
+    <tr><td class="it" onclick="speak('il giallo')">il giallo</td><td>侦探/悬疑片</td></tr>
+    <tr><td class="it" onclick="speak('la fantascienza')">la fantascienza</td><td>科幻片</td></tr>
+    <tr><td class="it" onclick="speak('il fantasy')">il fantasy</td><td>奇幻片</td></tr>
+    <tr><td class="it" onclick="speak('il documentario')">il documentario</td><td>纪录片</td></tr>
+    <tr><td class="it" onclick="speak('il film d\'animazione')">il film d'animazione</td><td>动画片</td></tr>
+    <tr><td class="it" onclick="speak('il romantico')">il romantico / sentimentale</td><td>爱情/浪漫片</td></tr>
+    <tr><td class="it" onclick="speak('il film storico')">il film storico</td><td>历史片</td></tr>
+  </table>
+
+  <h3>&#x1F31F; 描述电影的形容词 (Aggettivi per descrivere film)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('bello')">bello</td><td>好看的</td></tr>
+    <tr><td class="it" onclick="speak('brutto')">brutto</td><td>难看的</td></tr>
+    <tr><td class="it" onclick="speak('divertente')">divertente</td><td>有趣的/好笑的</td></tr>
+    <tr><td class="it" onclick="speak('noioso')">noioso</td><td>无聊的</td></tr>
+    <tr><td class="it" onclick="speak('emozionante')">emozionante</td><td>令人激动的</td></tr>
+    <tr><td class="it" onclick="speak('commovente')">commovente</td><td>动人的</td></tr>
+    <tr><td class="it" onclick="speak('avvincente')">avvincente</td><td>引人入胜的</td></tr>
+    <tr><td class="it" onclick="speak('coinvolgente')">coinvolgente</td><td>扣人心弦的</td></tr>
+    <tr><td class="it" onclick="speak('pesante')">pesante</td><td>沉重的</td></tr>
+    <tr><td class="it" onclick="speak('leggero')">leggero</td><td>轻松的</td></tr>
+    <tr><td class="it" onclick="speak('impegnato')">impegnato</td><td>有深度的</td></tr>
+    <tr><td class="it" onclick="speak('originale')">originale</td><td>原创的</td></tr>
+    <tr><td class="it" onclick="speak('prevedibile')">prevedibile</td><td>可预测的</td></tr>
+    <tr><td class="it" onclick="speak('sorprendente')">sorprendente</td><td>令人惊讶的</td></tr>
+    <tr><td class="it" onclick="speak('violento')">violento</td><td>暴力的</td></tr>
+    <tr><td class="it" onclick="speak('lento')">lento</td><td>节奏慢的</td></tr>
+  </table>
+
+  <h3>&#x1F3A5; 动词与有用短语 (Verbi ed espressioni utili)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('guardare un film')">guardare un film</td><td>看电影</td></tr>
+    <tr><td class="it" onclick="speak('andare al cinema')">andare al cinema</td><td>去电影院</td></tr>
+    <tr><td class="it" onclick="speak('consigliare')">consigliare</td><td>推荐</td></tr>
+    <tr><td class="it" onclick="speak('sconsigliare')">sconsigliare</td><td>不推荐</td></tr>
+    <tr><td class="it" onclick="speak('apprezzare')">apprezzare</td><td>欣赏</td></tr>
+    <tr><td class="it" onclick="speak('far ridere')">far ridere</td><td>让人笑</td></tr>
+    <tr><td class="it" onclick="speak('far piangere')">far piangere</td><td>让人哭</td></tr>
+    <tr><td class="it" onclick="speak('far riflettere')">far riflettere</td><td>让人思考</td></tr>
+    <tr><td class="it" onclick="speak('stare sul bordo della sedia')">stare sul bordo della sedia</td><td>坐立不安/紧张</td></tr>
+  </table>
+
+  <h3>&#x1F4AC; 表达品味的实用表达 (Espressioni per esprimere gusti)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('I gusti son gusti!')">I gusti son gusti!</td><td>各有所好！</td></tr>
+    <tr><td class="it" onclick="speak('Non è il mio genere.')">Non è il mio genere.</td><td>不是我的类型。</td></tr>
+    <tr><td class="it" onclick="speak('È di mio gusto.')">È di mio gusto.</td><td>合我的口味。</td></tr>
+    <tr><td class="it" onclick="speak('Secondo me...')">Secondo me...</td><td>依我看……</td></tr>
+    <tr><td class="it" onclick="speak('Non è che mi piaccia...')">Non è che mi piaccia...</td><td>也不是说我喜欢……</td></tr>
+    <tr><td class="it" onclick="speak('L\'ho adorato!')">L'ho adorato!</td><td>我太喜欢它了！</td></tr>
+    <tr><td class="it" onclick="speak('Mi ha deluso.')">Mi ha deluso.</td><td>它让我失望了。</td></tr>
+    <tr><td class="it" onclick="speak('Me lo consigli?')">Me lo consigli?</td><td>你推荐它吗？</td></tr>
+    <tr><td class="it" onclick="speak('Ne è valsa la pena.')">Ne è valsa la pena.</td><td>值得一看。</td></tr>
+    <tr><td class="it" onclick="speak('Non mi convince.')">Non mi convince.</td><td>我不太喜欢。</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <h3>1. Posizione dell'aggettivo (形容词位置)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">意大利语中形容词的位置不是固定的，放在名词前后会产生不同的语义色彩。</p>
+    <table>
+      <tr><th>位置</th><th>含义</th><th>例句</th></tr>
+      <tr><td><span class="verb">名词后</span>（通常位置）</td><td>客观、描述性、本义</td><td>un film <span class="verb">bello</span>（好看的电影）</td></tr>
+      <tr><td><span class="verb">名词前</span>（强调位置）</td><td>主观、评价性、转义</td><td>un <span class="verb">bel</span> film（一部好电影）</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">位置不同含义变化的形容词:</p>
+    <table>
+      <tr><th>形容词</th><th>名词前</th><th>名词后</th></tr>
+      <tr><td><span class="verb">grande</span></td><td>un <span class="verb">grande</span> uomo（伟大的人）</td><td>un uomo <span class="verb">grande</span>（高大的人）</td></tr>
+      <tr><td><span class="verb">povero</span></td><td>un <span class="verb">pover</span> uomo（可怜的人）</td><td>un uomo <span class="verb">povero</span>（贫穷的人）</td></tr>
+      <tr><td><span class="verb">nuovo</span></td><td>il <span class="verb">nuovo</span> film（最新的电影）</td><td>un film <span class="verb">nuovo</span>（新的电影）</td></tr>
+      <tr><td><span class="verb">caro</span></td><td>un <span class="verb">caro</span> amico（亲爱的朋友）</td><td>un vestito <span class="verb">caro</span>（昂贵的衣服）</td></tr>
+      <tr><td><span class="verb">diverso</span></td><td><span class="verb">diverse</span> persone（好几个人）</td><td>persone <span class="verb">diverse</span>（不同的人）</td></tr>
+    </table>
+  </div>
+
+  <h3>2. Congiuntivo con frase principale negativa (否定主句中的虚拟式)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">当主句是否定形式时，由che引出的从句需使用虚拟式。</p>
+    <table>
+      <tr><th>肯定句（直陈式）</th><th>否定句（虚拟式）</th></tr>
+      <tr><td>Penso che <span class="verb">è</span> vero.</td><td><span class="verb">Non</span> penso che <span class="verb">sia</span> vero.</td></tr>
+      <tr><td>Credo che <span class="verb">ha</span> ragione.</td><td><span class="verb">Non</span> credo che <span class="verb">abbia</span> ragione.</td></tr>
+      <tr><td>È vero che <span class="verb">sono</span> tutti uguali.</td><td><span class="verb">Non è</span> che <span class="verb">siano</span> tutti uguali.</td></tr>
+      <tr><td>Dico che <span class="verb">è</span> bello.</td><td><span class="verb">Non</span> dico che <span class="verb">sia</span> bello.</td></tr>
+      <tr><td>Mi sembra che <span class="verb">merita</span> un premio.</td><td><span class="verb">Non</span> mi sembra che <span class="verb">meriti</span> un premio.</td></tr>
+    </table>
+  </div>
+
+  <h3>3. Purché + Congiuntivo (只要...)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">Purché意为"a condizione che"（只要），引导的条件从句必须使用虚拟式。</p>
+    <table>
+      <tr><th>例句</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Vengo al cinema purché non sia un film horror.')">Vengo al cinema <span class="verb">purché non sia</span> un film horror.</span></td><td>只要不是恐怖片，我就去看电影。</td></tr>
+      <tr><td><span class="it" onclick="speak('Puoi uscire purché tu rientri prima di mezzanotte.')">Puoi uscire <span class="verb">purché</span> tu <span class="verb">rientri</span> prima di mezzanotte.</span></td><td>你可以出去，只要你午夜前回来。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ti aiuto a fare matematica purché tu stia attento.')">Ti aiuto <span class="verb">purché</span> tu <span class="verb">stia</span> attento.</span></td><td>只要你专心，我就帮你做数学。</td></tr>
+      <tr><td><span class="it" onclick="speak('Purché tu sia felice, per me va bene tutto.')"><span class="verb">Purché</span> tu <span class="verb">sia</span> felice, per me va bene tutto.</span></td><td>只要你开心，我怎样都可以。</td></tr>
+    </table>
+    <p style="font-size:13px;color:var(--ne-muted);margin-top:10px;">类似表达：<span class="verb">a condizione che</span>（正式）、<span class="verb">a patto che</span>、<span class="verb">basta che</span>（非正式）也需虚拟式。</p>
+  </div>
+
+  <h3>4. Fare + infinito (使动结构)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">Fare + 不定式表示"让某人做某事"或"使某事发生"（使动/役使结构）。</p>
+    <table>
+      <tr><th>例句</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Questo film mi fa pensare.')">Questo film mi <span class="verb">fa</span> pensare.</span></td><td>这部电影让我思考。</td></tr>
+      <tr><td><span class="it" onclick="speak('Quel film mi ha fatto piangere.')">Quel film mi <span class="verb">ha fatto</span> piangere.</span></td><td>那部电影让我哭了。</td></tr>
+      <tr><td><span class="it" onclick="speak('I film d\'azione ti fanno stare sul bordo della sedia.')">I film d'azione ti <span class="verb">fanno stare</span> sul bordo della sedia.</span></td><td>动作片让你坐立不安。</td></tr>
+      <tr><td><span class="it" onclick="speak('Questo regista farà sicuramente parlare di sé.')">Questo regista <span class="verb">farà</span> sicuramente parlare di sé.</span></td><td>这位导演一定会引起议论。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mi fai ridere con le tue battute!')"><span class="verb">Mi fai</span> ridere con le tue battute!</span></td><td>你的笑话让我笑！</td></tr>
+      <tr><td><span class="it" onclick="speak('Ti farò vedere il film domani.')"><span class="verb">Ti farò</span> vedere il film domani.</span></td><td>我明天让你看电影。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non farla preoccupare per niente.')"><span class="verb">Non farla</span> preoccupare per niente.</span></td><td>别让她为任何事情担心。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 6 · Il cinema italiano</h2>
+
+  <h3>&#x1F3AC; 意大利电影文化</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Fatti fondamentali:</p>
+    <p class="it" onclick="speak('Il cinema italiano è uno dei più celebri al mondo. Ha vinto 14 Oscar per il miglior film in lingua straniera, più di qualsiasi altro paese.')">Il cinema italiano è uno dei più celebri al mondo. Ha vinto 14 Oscar per il miglior film in lingua straniera, più di qualsiasi altro paese.</p>
+    <p class="it" onclick="speak('Il Neorealismo (1945-1955) è il movimento cinematografico più importante del dopoguerra italiano. Registi come Rossellini, De Sica e Visconti hanno raccontato la realtà italiana.')">Il Neorealismo (1945-1955) è il movimento cinematografico più importante del dopoguerra italiano. Registi come Rossellini, De Sica e Visconti hanno raccontato la realtà italiana.</p>
+    <p class="it" onclick="speak('Federico Fellini è considerato uno dei più grandi registi della storia del cinema. Film celebri: La dolce vita, 8½, Amarcord.')">Federico Fellini è considerato uno dei più grandi registi della storia del cinema. Film celebri: La dolce vita, 8½, Amarcord.</p>
+    <p class="it" onclick="speak('Cinecittà a Roma è il più grande studio cinematografico d\'Europa, fondato nel 1937.')">Cinecittà a Roma è il più grande studio cinematografico d'Europa, fondato nel 1937.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p class="zh">意大利电影是世界上最著名的电影之一。意大利获得了14项奥斯卡最佳外语片奖，比任何其他国家都多。</p>
+    <p class="zh">新现实主义（1945-1955）是二战后意大利最重要的电影运动。罗西里尼、德西卡和维斯康蒂等导演讲述了意大利的现实。</p>
+    <p class="zh">费德里科·费里尼被认为是电影史上最伟大的导演之一。著名电影：《甜蜜的生活》、《八部半》、《阿玛柯德》。</p>
+    <p class="zh">罗马的Cinecittà是欧洲最大的电影制片厂，成立于1937年。</p>
+  </div>
+
+  <h3>必看意大利电影 TOP 5</h3>
+  <table class="vocab-table">
+    <tr><th>电影</th><th>导演</th><th>年份</th><th>看点</th></tr>
+    <tr><td class="it" onclick="speak('La dolce vita')">La dolce vita</td><td>Fellini</td><td>1960</td><td>意大利电影的象征</td></tr>
+    <tr><td class="it" onclick="speak('Ladri di biciclette')">Ladri di biciclette</td><td>De Sica</td><td>1948</td><td>新现实主义核心之作</td></tr>
+    <tr><td class="it" onclick="speak('La vita è bella')">La vita è bella</td><td>Benigni</td><td>1997</td><td>奥斯卡获奖，大屠杀中的喜剧</td></tr>
+    <tr><td class="it" onclick="speak('La grande bellezza')">La grande bellezza</td><td>Sorrentino</td><td>2013</td><td>奥斯卡获奖，当代罗马写照</td></tr>
+    <tr><td class="it" onclick="speak('Il Gattopardo')">Il Gattopardo</td><td>Visconti</td><td>1963</td><td>史诗历史片</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化注释:</strong><br>
+    &bull; 威尼斯国际电影节（Mostra di Venezia）是世界上最古老的电影节（1932年）<br>
+    &bull; 埃尼奥·莫里康内（Ennio Morricone）是意大利最著名的电影配乐大师<br>
+    &bull; 意大利人最喜欢的电影类型是喜剧（35%），其次是剧情片（20%）<br>
+    &bull; 《蒙塔巴诺警长》是意大利在世界上出口最多的电视剧
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 6 — Roma | Prima parte (In viaggio con Sara)</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频以罗马为背景，围绕个人品味和偏好展开讨论。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">关键表达 (Espressioni chiave):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Secondo me...')">Secondo me...</span></td><td class="zh">依我看……</td></tr>
+    <tr><td><span class="it" onclick="speak('A mio parere...')">A mio parere...</span></td><td class="zh">在我看来……</td></tr>
+    <tr><td><span class="it" onclick="speak('Non è il mio genere.')">Non è il mio genere.</span></td><td class="zh">不是我的类型。</td></tr>
+    <tr><td><span class="it" onclick="speak('Preferisco...')">Preferisco...</span></td><td class="zh">我更喜欢……</td></tr>
+    <tr><td><span class="it" onclick="speak('Non è che mi piaccia...')">Non è che mi piaccia...</span></td><td class="zh">也不是说我喜欢……</td></tr>
+    <tr><td><span class="it" onclick="speak('Purché non sia...')">Purché non sia...</span></td><td class="zh">只要不是……</td></tr>
+    <tr><td><span class="it" onclick="speak('Mi fa riflettere.')">Mi fa riflettere.</span></td><td class="zh">它让我思考。</td></tr>
+    <tr><td><span class="it" onclick="speak('I gusti son gusti!')">I gusti son gusti!</span></td><td class="zh">各有所好！</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演：和朋友讨论去看什么电影<br>
+    &bull; 用形容词的不同位置描述电影（un bel film vs un film bello）<br>
+    &bull; 用non è che...sia...表达否定意见<br>
+    &bull; 用fare + infinito造句：这部电影让我（思考、笑、哭...）
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-5.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+  <a href="unita-7.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 4</div>
+  <p>Corso di lingua italiana per stranieri · Livello B2</p>
+  <p style="margin-top:8px;opacity:0.6;">Alma Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

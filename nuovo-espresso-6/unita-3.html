@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 3 · Edizione straordinaria · NUOVO Espresso 6</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 6 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 3 · C2</div>
+  <h1>&#x1F4F0; Edizione straordinaria</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">号外！ · p.33-44</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">动物名词的多义性 · 条件式的特殊用法 · 未完成时的特殊用法 · 不定式在从句中</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Parola di giornalista -->
+  <h3>1. "Parola di giornalista" · p.34</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">两个朋友在讨论新闻行业和"真理"的概念。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Hai letto le citazioni sul giornalismo che ha postato Marco?')"><strong>Paolo:</strong> Hai letto le citazioni sul giornalismo che ha postato Marco?</span></td><td class="zh"><strong>保罗：</strong> 你看了马尔科发的关于新闻业的引文了吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, quella di Tiziano Terzani è forte: \'La parola serve a nascondere il pensiero\'.')"><strong>Anna:</strong> Sì, quella di Tiziano Terzani è forte: "La parola serve a nascondere il pensiero".</span></td><td class="zh"><strong>安娜：</strong> 看了，蒂齐亚诺 泰尔扎尼那句很有力："言语是用来隐藏思想的"。</td></tr>
+    <tr><td><span class="it" onclick="speak('E quella di Flaiano? \'La verità? È una terra senza sentieri.\'')"><strong>Paolo:</strong> E quella di Flaiano? "La verità? È una terra senza sentieri."</span></td><td class="zh"><strong>保罗：</strong> 弗拉亚诺那句呢？"真理？是一片没有路径的土地。"</td></tr>
+    <tr><td><span class="it" onclick="speak('Bellissima. Ma secondo te, cosa distingue un buon giornalista?')"><strong>Anna:</strong> Bellissima. Ma secondo te, cosa distingue un buon giornalista?</span></td><td class="zh"><strong>安娜：</strong> 很美。但你觉得，好记者的标准是什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Giorgio Bocca diceva: \'Non si può essere considerati giornalisti se non si ha il coraggio di dire la verità.\'')"><strong>Paolo:</strong> Giorgio Bocca diceva: "Non si può essere considerati giornalisti se non si ha il coraggio di dire la verità."</span></td><td class="zh"><strong>保罗：</strong> 乔治 博卡说过："没有勇气说出真相的人不能被当作记者。"</td></tr>
+    <tr><td><span class="it" onclick="speak('Peccato che oggi sui social circolino tante bufale...')"><strong>Anna:</strong> Peccato che oggi sui social circolino tante <strong>bufale</strong>...</span></td><td class="zh"><strong>安娜：</strong> 可惜如今社交媒体上流传着那么多假新闻……</td></tr>
+    <tr><td><span class="it" onclick="speak('Eh, purtroppo le bufale viaggiano più veloci della verità.')"><strong>Paolo:</strong> Eh, purtroppo le <strong>bufale</strong> viaggiano più veloci della verità.</span></td><td class="zh"><strong>保罗：</strong> 唉，不幸的是假新闻比真理传播得更快。</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Sostiene Pereira -->
+  <h3>2. "Sostiene Pereira" · p.35-36</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读Antonio Tabucchi的小说《Sostiene Pereira》节选，讨论其中关于新闻自由的片段。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Abbiamo letto il brano di Tabucchi. Chi mi sa dire cosa succede?')"><strong>Insegnante:</strong> Abbiamo letto il brano di Tabucchi. Chi mi sa dire cosa succede?</span></td><td class="zh"><strong>老师：</strong> 我们读了塔布基的选段。谁能告诉我发生了什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Pereira è un giornalista che lavora per un giornale di Lisbona. Un giorno fa irruzione nella sua redazione un gruppo di facinorosi.')"><strong>Studente:</strong> Pereira è un giornalista che lavora per un giornale di Lisbona. Un giorno <strong>fa irruzione</strong> nella sua redazione un gruppo di <strong>facinorosi</strong>.</span></td><td class="zh"><strong>学生：</strong> 佩雷拉是在里斯本一家报社工作的记者。一天，一群暴徒闯入他的编辑部。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto. Che reazione ha Pereira?')"><strong>Insegnante:</strong> Esatto. Che reazione ha Pereira?</span></td><td class="zh"><strong>老师：</strong> 没错。佩雷拉有什么反应？</td></tr>
+    <tr><td><span class="it" onclick="speak('All\'inizio ha paura, ma poi decide di divulgare la verità, anche a costo di perpetrare un affronto al regime.')"><strong>Studente:</strong> All'inizio ha paura, ma poi decide di <strong>divulgare</strong> la verità, anche a costo di <strong>perpetrare</strong> un affronto al regime.</span></td><td class="zh"><strong>学生：</strong> 起初他害怕，但后来决定传播真相，即使要冒犯政权。</td></tr>
+    <tr><td><span class="it" onclick="speak('Notate l\'uso del verbo \'sostenere\'. Tabucchi lo ripete continuamente: \'Sostiene Pereira...\' Perché?')"><strong>Insegnante:</strong> Notate l'uso del verbo <strong>sostenere</strong>. Tabucchi lo ripete continuamente: "Sostiene Pereira..." Perché?</span></td><td class="zh"><strong>老师：</strong> 注意sostenere这个动词的用法。塔布基不断重复："据佩雷拉说……"为什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Perché non siamo sicuri che sia vero? Il condizionale crea distanza.')"><strong>Studente:</strong> Perché non siamo sicuri che sia vero? Il condizionale crea distanza.</span></td><td class="zh"><strong>学生：</strong> 因为不确定这是真的？条件式创造了距离感。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto! Questo è il condizionale giornalistico — usato per dare notizie non confermate.')"><strong>Insegnante:</strong> Esatto! Questo è il <strong>condizionale giornalistico</strong> — usato per dare notizie non confermate.</span></td><td class="zh"><strong>老师：</strong> 正确！这就是新闻条件式——用于发布未经证实的消息。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Vera Gheno e l'e-taliano -->
+  <h3>3. "Vera Gheno e l'e-taliano" · p.40-41</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">讨论Vera Gheno关于网络意大利语（e-taliano）的演讲。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Hai sentito parlare di Vera Gheno? È una sociolinguista che studia la comunicazione online.')"><strong>Luca:</strong> Hai sentito parlare di Vera Gheno? È una <strong>sociolinguista</strong> che studia la comunicazione online.</span></td><td class="zh"><strong>卢卡：</strong> 你听说过韦拉 盖诺吗？她是一位研究在线交流的社会语言学家。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, ho letto il suo libro sull\'e-taliano. Parla dei neologismi di internet come taggare, loggarsi, postare.')"><strong>Sara:</strong> Sì, ho letto il suo libro sull'<strong>e-taliano</strong>. Parla dei <strong>neologismi</strong> di internet come <strong>taggare</strong>, <strong>loggarsi</strong>, <strong>postare</strong>.</span></td><td class="zh"><strong>萨拉：</strong> 是的，我读过她关于网络意大利语的书。书中讨论了互联网新词，如taggare、loggarsi、postare。</td></tr>
+    <tr><td><span class="it" onclick="speak('E che ne pensa di trollare e spammare?')"><strong>Luca:</strong> E che ne pensa di <strong>trollare</strong> e <strong>spammare</strong>?</span></td><td class="zh"><strong>卢卡：</strong> 她对trollare和spammare有什么看法？</td></tr>
+    <tr><td><span class="it" onclick="speak('Dice che sono fenomeni normali dell\'evoluzione linguistica. Ma attenzione: le parole hanno conseguenze.')"><strong>Sara:</strong> Dice che sono fenomeni normali dell'evoluzione linguistica. Ma attenzione: le parole hanno conseguenze.</span></td><td class="zh"><strong>萨拉：</strong> 她说这是语言演变的正常现象。但注意：言语是有后果的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Come nel Manifesto della comunicazione non ostile?')"><strong>Luca:</strong> Come nel <strong>Manifesto della comunicazione non ostile</strong>?</span></td><td class="zh"><strong>卢卡：</strong> 就像《非敌意沟通宣言》里说的？</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto! \'Virtuale è reale\', \'Le parole sono un ponte\', \'Gli insulti non sono argomenti\'.')"><strong>Sara:</strong> Esatto! "Virtuale è reale", "Le parole sono un ponte", "Gli insulti non sono argomenti".</span></td><td class="zh"><strong>萨拉：</strong> 没错！"虚拟即真实"、"言语是桥梁"、"侮辱不是论据"。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F30D; 核心词汇 (Lessico chiave)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('bufala')">la bufala</td><td>假新闻，谣言</td></tr>
+    <tr><td class="it" onclick="speak('gorilla')">il gorilla</td><td>保镖（多义词）</td></tr>
+    <tr><td class="it" onclick="speak('papera')">la papera</td><td>口误，公开讲话时的失误</td></tr>
+    <tr><td class="it" onclick="speak('giraffa')">la giraffa</td><td>麦克风吊杆（影视用）</td></tr>
+    <tr><td class="it" onclick="speak('fare irruzione')">fare irruzione</td><td>闯入</td></tr>
+    <tr><td class="it" onclick="speak('facinoroso')">facinoroso/a</td><td>暴徒的，凶恶的</td></tr>
+    <tr><td class="it" onclick="speak('turpe')">turpe</td><td>可耻的，不道德的</td></tr>
+    <tr><td class="it" onclick="speak('divulgare')">divulgare</td><td>传播，公开</td></tr>
+    <tr><td class="it" onclick="speak('perpetrare')">perpetrare</td><td>犯（罪），做（坏事）</td></tr>
+    <tr><td class="it" onclick="speak('taggare')">taggare</td><td>标记，@某人</td></tr>
+    <tr><td class="it" onclick="speak('loggarsi')">loggarsi</td><td>登录</td></tr>
+    <tr><td class="it" onclick="speak('spammare')">spammare</td><td>发送垃圾信息</td></tr>
+    <tr><td class="it" onclick="speak('trollare')">trollare</td><td>在网上挑衅/捣乱</td></tr>
+    <tr><td class="it" onclick="speak('postare')">postare</td><td>发布（帖子）</td></tr>
+    <tr><td class="it" onclick="speak('bannare')">bannare</td><td>封禁</td></tr>
+    <tr><td class="it" onclick="speak('blastare')">blastare</td><td>无情嘲讽</td></tr>
+    <tr><td class="it" onclick="speak('sociolinguista')">il/la sociolinguista</td><td>社会语言学家</td></tr>
+    <tr><td class="it" onclick="speak('neologismo')">il neologismo</td><td>新词</td></tr>
+    <tr><td class="it" onclick="speak('complottista')">il/la complottista</td><td>阴谋论者</td></tr>
+    <tr><td class="it" onclick="speak('tuttologo')">il/la tuttologo/a</td><td>万事通（贬义）</td></tr>
+    <tr><td class="it" onclick="speak('troll')">il/la troll</td><td>网络挑衅者</td></tr>
+    <tr><td class="it" onclick="speak('notizia')">la notizia</td><td>新闻</td></tr>
+    <tr><td class="it" onclick="speak('fonte')">la fonte</td><td>来源</td></tr>
+    <tr><td class="it" onclick="speak('attendibile')">attendibile</td><td>可靠的</td></tr>
+    <tr><td class="it" onclick="speak('verità')">la verità</td><td>真理</td></tr>
+    <tr><td class="it" onclick="speak('redazione')">la redazione</td><td>编辑部</td></tr>
+    <tr><td class="it" onclick="speak('regime')">il regime</td><td>政权</td></tr>
+    <tr><td class="it" onclick="speak('censura')">la censura</td><td>审查</td></tr>
+    <tr><td class="it" onclick="speak('ostile')">ostile</td><td>敌意的</td></tr>
+    <tr><td class="it" onclick="speak('responsabilità')">la responsabilità</td><td>责任</td></tr>
+    <tr><td class="it" onclick="speak('argomento')">l'argomento (m.)</td><td>论据，话题</td></tr>
+    <tr><td class="it" onclick="speak('silenzio')">il silenzio</td><td>沉默</td></tr>
+  </table>
+
+  <h3>&#x1F4AC; 习语和表达 (Espressioni idiomatiche)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>含义</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('notizia bomba')">notizia bomba</td><td>notizia sensazionale</td><td>爆炸性新闻</td></tr>
+    <tr><td class="it" onclick="speak('edizione straordinaria')">edizione straordinaria</td><td>uscita extra del giornale</td><td>号外</td></tr>
+    <tr><td class="it" onclick="speak('parola di...')">parola di...</td><td>come dice...</td><td>……的话/据……所说</td></tr>
+    <tr><td class="it" onclick="speak('bucare la notizia')">bucare la notizia</td><td>dare la notizia per primo</td><td>抢先报道</td></tr>
+    <tr><td class="it" onclick="speak('fare scalpore')">fare scalpore</td><td>suscitare grande interesse</td><td>引起轰动</td></tr>
+    <tr><td class="it" onclick="speak('avere il coltello dalla parte del manico')">avere il coltello dalla parte del manico</td><td>avere il controllo</td><td>掌握主动权</td></tr>
+    <tr><td class="it" onclick="speak('restare di stucco')">restare di stucco</td><td>rimanere molto sorpreso</td><td>目瞪口呆</td></tr>
+    <tr><td class="it" onclick="speak('gettare fumo negli occhi')">gettare fumo negli occhi</td><td>ingannare</td><td>混淆视听</td></tr>
+    <tr><td class="it" onclick="speak('tirare in ballo')">tirare in ballo</td><td>coinvolgere</td><td>牵扯进来</td></tr>
+    <tr><td class="it" onclick="speak('prendere atto')">prendere atto</td><td>riconoscere ufficialmente</td><td>正式确认</td></tr>
+    <tr><td class="it" onclick="speak('essere al corrente')">essere al corrente</td><td>essere informato</td><td>知情</td></tr>
+    <tr><td class="it" onclick="speak('dare credito')">dare credito</td><td>credere</td><td>相信，采信</td></tr>
+    <tr><td class="it" onclick="speak('smentire')">smentire</td><td>negare ufficialmente</td><td>辟谣，否认</td></tr>
+    <tr><td class="it" onclick="speak('confermare')">confermare</td><td>dire che è vero</td><td>确认</td></tr>
+    <tr><td class="it" onclick="speak('alla luce di')">alla luce di</td><td>considerando</td><td>鉴于，根据</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Condizionale -->
+  <h3>1. 条件式的特殊用法 — Usi particolari del condizionale</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">C2级别要求掌握条件式的多种特殊用法，包括新闻条件式、未实现的愿望、表示惊讶和悔恨。</p>
+    <table>
+      <tr><th>功能</th><th>说明</th><th>例句</th></tr>
+      <tr><td><span class="verb">Condizionale giornalistico</span></td><td>表达距离感，报道未经证实的信息</td><td><span class="it" onclick="speak('Le scie chimiche sarebbero tracce lasciate dall\'aeronautica.')">Le scie chimiche <span class="verb">sarebbero</span> tracce lasciate dall'aeronautica.</span></td></tr>
+      <tr><td><span class="verb">Desiderio irrealizzato</span></td><td>表达未能实现的愿望</td><td><span class="it" onclick="speak('Dopo la laurea, avrei voluto fare un viaggio.')">Dopo la laurea, <span class="verb">avrei voluto</span> fare un viaggio.</span></td></tr>
+      <tr><td><span class="verb">Stupore</span></td><td>表示惊讶</td><td><span class="it" onclick="speak('Anna non avrebbe mai detto una cosa simile!')">Anna <span class="verb">non avrebbe mai detto</span> una cosa simile!</span></td></tr>
+      <tr><td><span class="verb">Pentimento / Rimpianto</span></td><td>表示悔恨、遗憾</td><td><span class="it" onclick="speak('Sarei dovuta andare al concerto invece di rimanere a casa.')"><span class="verb">Sarei dovuta</span> andare al concerto invece di rimanere a casa.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>意大利语</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Secondo il giornale, il ladro sarebbe entrato dalla finestra.')">Secondo il giornale, il ladro <span class="verb">sarebbe entrato</span> dalla finestra.</span></td><td>据报纸称，小偷是从窗户进入的。</td></tr>
+      <tr><td><span class="it" onclick="speak('La scoperta arriverebbe da una ricerca dell\'Università di Oxford.')">La scoperta <span class="verb">arriverebbe</span> da una ricerca dell'Università di Oxford.</span></td><td>这一发现据称来自牛津大学的一项研究。</td></tr>
+      <tr><td><span class="it" onclick="speak('In Giappone, ci sarebbe stato l\'ennesimo terremoto.')">In Giappone, <span class="verb">ci sarebbe stato</span> l'ennesimo terremoto.</span></td><td>据说日本又发生了一次地震。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il testimone avrebbe visto l\'uomo fuggire.')">Il testimone <span class="verb">avrebbe visto</span> l'uomo fuggire.</span></td><td>目击者据称看到该男子逃跑。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dopo la laurea, avrei voluto fare un viaggio in Sudamerica.')">Dopo la laurea, <span class="verb">avrei voluto</span> fare un viaggio in Sudamerica.</span></td><td>毕业后，我本想做一次南美旅行。</td></tr>
+      <tr><td><span class="it" onclick="speak('Avrei dovuto studiare di più per l\'esame.')"><span class="verb">Avrei dovuto</span> studiare di più per l'esame.</span></td><td>我本应该为考试更努力学习的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sarei dovuta andare al concerto invece di rimanere a casa.')"><span class="verb">Sarei dovuta</span> andare al concerto invece di rimanere a casa.</span></td><td>我本该去音乐会而不是待在家里。</td></tr>
+      <tr><td><span class="it" onclick="speak('Anna non avrebbe mai detto una cosa simile!')">Anna <span class="verb">non avrebbe mai detto</span> una cosa simile!</span></td><td>Anna绝不会说出这样的话！</td></tr>
+      <tr><td><span class="it" onclick="speak('Nessuno avrebbe potuto immaginare un finale simile.')">Nessuno <span class="verb">avrebbe potuto</span> immaginare un finale simile.</span></td><td>没人能想象到这样的结局。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sarebbe stato meglio partire prima.')"><span class="verb">Sarebbe stato</span> meglio partire prima.</span></td><td>本来早点出发会更好。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Imperfetto -->
+  <h3>2. 未完成时的特殊用法 — Usi particolari dell'imperfetto</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">未完成时在C2级别有五种特殊用法，远不止于描述过去持续的动作。</p>
+    <table>
+      <tr><th>类型</th><th>说明</th><th>例句</th></tr>
+      <tr><td><span class="verb">Imperfetto descrittivo</span></td><td>描述性：强调动作的持续/过程</td><td><span class="it" onclick="speak('Il sole sorgeva all\'orizzonte.')">Il sole <span class="verb">sorgeva</span> all'orizzonte.</span></td></tr>
+      <tr><td><span class="verb">Imperfetto narrativo</span></td><td>叙述性：替代近过去时（新闻/法律文本）</td><td><span class="it" onclick="speak('Durante la notte il ladro si introduceva nel caveau e rubava un milione.')">Durante la notte il ladro si <span class="verb">introduceva</span> nel caveau e <span class="verb">rubava</span> un milione.</span></td></tr>
+      <tr><td><span class="verb">Imperfetto ipotetico</span></td><td>假设性（口语）：替代愈过去虚拟式和过去条件式</td><td><span class="it" onclick="speak('Se me lo dicevi, non venivo.')">Se me lo <span class="verb">dicevi</span>, non <span class="verb">venivo</span>.</span></td></tr>
+      <tr><td><span class="verb">Imperfetto ludico</span></td><td>游戏性（儿童游戏）</td><td><span class="it" onclick="speak('Facciamo che io ero Cappuccetto Rosso e tu eri il lupo cattivo!')">Facciamo che io <span class="verb">ero</span> Cappuccetto Rosso e tu <span class="verb">eri</span> il lupo cattivo!</span></td></tr>
+      <tr><td><span class="verb">Imperfetto di cortesia</span></td><td>礼貌性：比现在时更礼貌</td><td><span class="it" onclick="speak('Buongiorno, volevo un caffè macchiato.')">Buongiorno, <span class="verb">volevo</span> un caffè macchiato.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>意大利语</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Durante la notte, i ladri si introducevano nel museo e rubavano tre quadri.')">Durante la notte, i ladri si <span class="verb">introducevano</span> nel museo e <span class="verb">rubavano</span> tre quadri. (narrativo)</span></td><td>夜间，窃贼潜入博物馆偷走了三幅画。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se sapevo che venivi, preparavo la cena.')">Se <span class="verb">sapevo</span> che venivi, <span class="verb">preparavo</span> la cena. (ipotetico)</span></td><td>早知道你要来，我就准备晚饭了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Da bambini, giocavamo a fare che io ero il dottore e tu il paziente.')">Da bambini, <span class="verb">giocavamo</span> a fare che io <span class="verb">ero</span> il dottore e tu il paziente. (ludico)</span></td><td>小时候我们玩角色扮演，我当医生你当病人。</td></tr>
+      <tr><td><span class="it" onclick="speak('Buongiorno, volevo sapere a che ora parte il treno per Roma.')">Buongiorno, <span class="verb">volevo</span> sapere a che ora parte il treno per Roma. (cortesia)</span></td><td>您好，我想问一下去罗马的火车几点发车。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il sole tramontava lentamente sul mare.')">Il sole <span class="verb">tramontava</span> lentamente sul mare. (descrittivo)</span></td><td>太阳慢慢在海上下山。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ieri sognavo di essere su un\'isola deserta.')">Ieri <span class="verb">sognavo</span> di essere su un'isola deserta. (ludico/narrativo)</span></td><td>昨天我梦见自己在一个荒岛上。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se venivi alla festa, ti divertivi.')">Se <span class="verb">venivi</span> alla festa, ti <span class="verb">divertivi</span>. (ipotetico)</span></td><td>你要是来派对，会玩得很开心的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Desideravo un cappuccino, per favore.')"><span class="verb">Desideravo</span> un cappuccino, per favore. (cortesia)</span></td><td>我想要一杯卡布奇诺。</td></tr>
+      <tr><td><span class="it" onclick="speak('Camminavo per strada quando ho visto un incidente.')"><span class="verb">Camminavo</span> per strada quando ho visto un incidente. (narrativo)</span></td><td>我在街上走着，突然看到了一起事故。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il testimone dichiarava di aver visto tutto.')">Il testimone <span class="verb">dichiarava</span> di aver visto tutto. (narrativo — testuale)</span></td><td>证人声称看到了全部过程。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Infinito -->
+  <h3>3. 不定式在从句中 — L'infinito nelle frasi secondarie</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">在意大利语中，不定式可以在从句中跟在某些连词后面使用，这是C2级别的重要语法特征。</p>
+    <table>
+      <tr><th>连词</th><th>含义</th><th>例句</th></tr>
+      <tr><td><span class="verb">anziché</span></td><td>而不是</td><td><span class="it" onclick="speak('Anziché uscire, dovresti studiare.')"><span class="verb">Anziché</span> uscire, dovresti studiare.</span></td></tr>
+      <tr><td><span class="verb">invece di</span></td><td>而不是</td><td><span class="it" onclick="speak('Invece di stare lì impalato, aiutami!')"><span class="verb">Invece di</span> stare lì impalato, aiutami!</span></td></tr>
+      <tr><td><span class="verb">in modo da</span></td><td>以便</td><td><span class="it" onclick="speak('Dobbiamo fare video belli in modo da avere più visualizzazioni.')">Dobbiamo fare video belli <span class="verb">in modo da</span> avere più visualizzazioni.</span></td></tr>
+      <tr><td><span class="verb">fino a / fino al punto di</span></td><td>直到……的程度</td><td><span class="it" onclick="speak('Ha studiato fino a diventare un esperto.')">Ha studiato <span class="verb">fino a</span> diventare un esperto.</span></td></tr>
+      <tr><td><span class="verb">tanto da</span></td><td>以至于</td><td><span class="it" onclick="speak('È intelligente tanto da capire tutto.')">È intelligente <span class="verb">tanto da</span> capire tutto.</span></td></tr>
+      <tr><td><span class="verb">così da</span></td><td>以便</td><td><span class="it" onclick="speak('Ho parlato lentamente così da farti capire.')">Ho parlato lentamente <span class="verb">così da</span> farti capire.</span></td></tr>
+      <tr><td><span class="verb">abbastanza da</span></td><td>足够……以致</td><td><span class="it" onclick="speak('Sei grande abbastanza da decidere da solo.')">Sei grande <span class="verb">abbastanza da</span> decidere da solo.</span></td></tr>
+      <tr><td><span class="verb">neanche a / nemmeno a</span></td><td>即使……也不</td><td><span class="it" onclick="speak('Neanche a pagarmi mi rimetto a lavorare!')"><span class="verb">Neanche a</span> pagarmi mi rimetto a lavorare!</span></td></tr>
+      <tr><td><span class="verb">a costo di</span></td><td>即使代价是</td><td><span class="it" onclick="speak('Dirò la verità a costo di perdere il lavoro.')">Dirò la verità <span class="verb">a costo di</span> perdere il lavoro.</span></td></tr>
+      <tr><td><span class="verb">a rischio di</span></td><td>冒着……的风险</td><td><span class="it" onclick="speak('Uscirò a rischio di bagnarmi.')">Uscirò <span class="verb">a rischio di</span> bagnarmi.</span></td></tr>
+      <tr><td><span class="verb">in quanto a</span></td><td>至于</td><td><span class="it" onclick="speak('In quanto a essere pigro, ne sai qualcosa, eh!')"><span class="verb">In quanto a</span> essere pigro, ne sai qualcosa, eh!</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>意大利语</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Anziché lamentarti, prova a fare qualcosa.')"><span class="verb">Anziché</span> lamentarti, prova a fare qualcosa.</span></td><td>与其抱怨，不如尝试做点什么。</td></tr>
+      <tr><td><span class="it" onclick="speak('Invece di guardare la TV, leggiamo un libro.')"><span class="verb">Invece di</span> guardare la TV, leggiamo un libro.</span></td><td>与其看电视，不如读本书。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho ripetuto la spiegazione in modo da chiarire ogni dubbio.')">Ho ripetuto la spiegazione <span class="verb">in modo da</span> chiarire ogni dubbio.</span></td><td>我重复了讲解以便澄清所有疑问。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ha lavorato sodo fino a ottenere la promozione.')">Ha lavorato sodo <span class="verb">fino a</span> ottenere la promozione.</span></td><td>他努力工作直到获得晋升。</td></tr>
+      <tr><td><span class="it" onclick="speak('È una situazione complicata tanto da non sapere cosa fare.')">È una situazione complicata <span class="verb">tanto da</span> non sapere cosa fare.</span></td><td>情况复杂到不知道该怎么办。</td></tr>
+      <tr><td><span class="it" onclick="speak('Parla più forte così da farti sentire da tutti.')">Parla più forte <span class="verb">così da</span> farti sentire da tutti.</span></td><td>说大声点以便让所有人都听到你。</td></tr>
+      <tr><td><span class="it" onclick="speak('È maturo abbastanza da prendere decisioni importanti.')">È maturo <span class="verb">abbastanza da</span> prendere decisioni importanti.</span></td><td>他足够成熟，可以做重要决定了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Neanche a pagarmi lo farei.')"><span class="verb">Neanche a</span> pagarmi lo farei.</span></td><td>就算给我钱我也不会做。</td></tr>
+      <tr><td><span class="it" onclick="speak('A costo di sembrare maleducato, dirò quello che penso.')"><span class="verb">A costo di</span> sembrare maleducato, dirò quello che penso.</span></td><td>即使显得不礼貌，我也要说出我的想法。</td></tr>
+      <tr><td><span class="it" onclick="speak('In quanto a essere intelligente, nessuno lo batte.')"><span class="verb">In quanto a</span> essere intelligente, nessuno lo batte.</span></td><td>至于聪明，没人比得上他。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 3 — Edizione straordinaria · p.44</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频围绕新闻行业、真理与假新闻、网络语言展开讨论。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Pre-viewing — 观看前活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Secondo te, cosa distingue una notizia vera da una bufala?')">1. Secondo te, cosa distingue una notizia vera da una bufala?</span></td><td class="zh">你认为真新闻和假新闻的区别是什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Conosci il \'condizionale giornalistico\'? A cosa serve?')">2. Conosci il "condizionale giornalistico"? A cosa serve?</span></td><td class="zh">你知道"新闻条件式"吗？它有什么用？</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">While-viewing — 观看中活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Segna quali espressioni giornalistiche vengono usate nel video.')">1. Segna quali espressioni giornalistiche vengono usate nel video.</span></td><td class="zh">标记视频中使用了哪些新闻表达。</td></tr>
+    <tr><td><span class="it" onclick="speak('Trova esempi di condizionale giornalistico e imperfetto narrativo.')">2. Trova esempi di condizionale giornalistico e imperfetto narrativo.</span></td><td class="zh">找出新闻条件式和叙述性未完成时的例子。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">Post-viewing — 观看后活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Scrivi una breve notizia usando il condizionale giornalistico.')">1. Scrivi una breve notizia usando il condizionale giornalistico.</span></td><td class="zh">用新闻条件式写一则简短的新闻。</td></tr>
+    <tr><td><span class="it" onclick="speak('Discuti: i social media aiutano o ostacolano la ricerca della verità?')">2. Discuti: i social media aiutano o ostacolano la ricerca della verità?</span></td><td class="zh">讨论：社交媒体是帮助还是阻碍了真相的寻找？</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演：模拟记者发布会，使用新闻条件式<br>
+    &bull; 用叙述性未完成时写一段新闻报道<br>
+    &bull; 用不定式从句造句（anziché, invece di, a costo di）<br>
+    &bull; 识别并讨论一条假新闻的结构特征
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-2.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html">Torna al corso</a>
+  <a href="unita-4.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 6</div>
+  <p>Corso di lingua italiana per stranieri · Livello C2</p>
+  <p style="margin-top:8px;opacity:0.6;">Ornella Discacciati · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

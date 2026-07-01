@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 2 · La nuova letteratura · NUOVO Espresso 5</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 5 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 2 · C1</div>
+  <h1>&#x1F4D6; La nuova letteratura</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">新文学 · p.17-27</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">反驳 · 叙事文本理解 · 讲述过去事件 · 显/隐性分裂句 · 伪分裂句 · 疑问/时间分裂句 · 直陈式过去时态 · 远愈过去时</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: La narrativa contemporanea italiana -->
+  <h3>1. La narrativa contemporanea italiana · p.17-18</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">在文学课上，教授与学生讨论当代意大利文学的特点。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Oggi parliamo della nuova letteratura italiana. Secondo voi, cosa caratterizza la narrativa contemporanea?')"><strong>Professore:</strong> Oggi parliamo della nuova letteratura italiana. Secondo voi, cosa caratterizza la narrativa contemporanea?</span></td><td class="zh"><strong>教授：</strong> 今天我们来谈谈意大利新文学。你们认为当代叙事文学的特点是什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Mah, secondo me i giovani scrittori italiani sono molto influenzati dalla tradizione, ma allo stesso tempo cercano un linguaggio nuovo.')"><strong>Studente 1:</strong> Mah, secondo me i giovani scrittori italiani sono molto influenzati dalla tradizione, ma allo stesso tempo cercano un linguaggio nuovo.</span></td><td class="zh"><strong>学生1：</strong> 嗯，我认为年轻的意大利作家深受传统影响，但同时也在寻找新的语言。</td></tr>
+    <tr><td><span class="it" onclick="speak('È proprio qui che volevo arrivare. La letteratura contemporanea cerca un equilibrio tra passato e presente.')"><strong>Professore:</strong> È proprio qui che volevo arrivare. La letteratura contemporanea cerca un equilibrio tra passato e presente.</span></td><td class="zh"><strong>教授：</strong> 这正是我想说的。当代文学在寻找过去与现在的平衡。</td></tr>
+    <tr><td><span class="it" onclick="speak('Però ho letto che molti critici dicono che la nuova narrativa italiana è troppo provinciale.')"><strong>Studente 2:</strong> Però ho letto che molti critici dicono che la nuova narrativa italiana è troppo provinciale.</span></td><td class="zh"><strong>学生2：</strong> 但我读到很多评论家说，新的意大利叙事文学过于地方化。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non è che sia provinciale, piuttosto ciò che caratterizza la nostra letteratura è la capacità di parlare dell\'universale partendo dal particolare.')"><strong>Professore:</strong> Non è che sia provinciale, piuttosto ciò che caratterizza la nostra letteratura è la capacità di parlare dell'universale partendo dal particolare.</span></td><td class="zh"><strong>教授：</strong> 并非地方化，而是我们的文学的特点在于从特殊出发讲述普遍的能力。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quello che mi colpisce dei nuovi autori è l\'uso della lingua, molto vicina al parlato.')"><strong>Studente 3:</strong> Quello che mi colpisce dei nuovi autori è l'uso della lingua, molto vicina al parlato.</span></td><td class="zh"><strong>学生3：</strong> 新作者让我印象深刻的是他们对语言的使用，非常接近口语。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto! E non è un caso che molti di loro usino il dialetto mescolato all\'italiano standard.')"><strong>Professore:</strong> Esatto! E non è un caso che molti di loro usino il dialetto mescolato all'italiano standard.</span></td><td class="zh"><strong>教授：</strong> 没错！而且许多人混合使用方言和标准意大利语并非偶然。</td></tr>
+    <tr><td><span class="it" onclick="speak('È stato forse Elena Ferrante che ha rivoluzionato il mercato letterario italiano?')"><strong>Studente 1:</strong> È stato forse Elena Ferrante che ha rivoluzionato il mercato letterario italiano?</span></td><td class="zh"><strong>学生1：</strong> 也许是埃莱娜 费兰特革新了意大利文学市场？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sicuramente. È grazie a lei se oggi si parla di letteratura italiana nel mondo. Ma ricordiamoci anche di autori come Saviano, Baricco, Cognetti.')"><strong>Professore:</strong> Sicuramente. È grazie a lei se oggi si parla di letteratura italiana nel mondo. Ma ricordiamoci anche di autori come Saviano, Baricco, Cognetti.</span></td><td class="zh"><strong>教授：</strong> 当然。正是因为有了她，今天世界上才有人谈论意大利文学。但我们也别忘了萨维亚诺、巴里科、科涅蒂等作家。</td></tr>
+    <tr><td><span class="it" onclick="speak('A proposito, è vero che Paolo Cognetti scrive solo di montagna?')"><strong>Studente 2:</strong> A proposito, è vero che Paolo Cognetti scrive solo di montagna?</span></td><td class="zh"><strong>学生2：</strong> 顺便问一下，保罗 科涅蒂真的只写山吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Non è tanto che scriva di montagna, quanto che usa la montagna come metafora dell\'esistenza.')"><strong>Professore:</strong> Non è tanto che scriva di montagna, quanto che usa la montagna come metafora dell'esistenza.</span></td><td class="zh"><strong>教授：</strong> 与其说他写山，不如说他用山作为存在的隐喻。</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Raccontare una storia -->
+  <h3>2. Raccontare una storia · p.19-21</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">朋友之间讲述一个最近发生的有趣事件。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ieri mi è successa una cosa pazzesca.')"><strong>Luca:</strong> Ieri mi è successa una cosa pazzesca.</span></td><td class="zh"><strong>卢卡：</strong> 昨天我发生了一件疯狂的事。</td></tr>
+    <tr><td><span class="it" onclick="speak('Racconta, racconta!')"><strong>Chiara:</strong> Racconta, racconta!</span></td><td class="zh"><strong>基娅拉：</strong> 快说说！</td></tr>
+    <tr><td><span class="it" onclick="speak('Ero in libreria a cercare un libro, quando ho visto un tipo che sembrava proprio un famoso scrittore.')"><strong>Luca:</strong> Ero in libreria a cercare un libro, quando ho visto un tipo che sembrava proprio un famoso scrittore.</span></td><td class="zh"><strong>卢卡：</strong> 我在书店找书，这时看到一个家伙，长得很像一位著名作家。</td></tr>
+    <tr><td><span class="it" onclick="speak('E chi era?')"><strong>Chiara:</strong> E chi era?</span></td><td class="zh"><strong>基娅拉：</strong> 是谁？</td></tr>
+    <tr><td><span class="it" onclick="speak('Aspetta che ti dico. Io mi avvicinai — non ero mai stato così emozionato in vita mia — e gli chiesi: "Scusi, è lei l\'autore di Le otto montagne?" Lui rise e disse di no.')"><strong>Luca:</strong> Aspetta che ti dico. Io mi avvicinai — non ero mai stato così emozionato in vita mia — e gli chiesi: "Scusi, è lei l'autore di Le otto montagne?" Lui rise e disse di no.</span></td><td class="zh"><strong>卢卡：</strong> 等等，我来告诉你。我走近了——我这辈子从没那么激动过——问他："对不起，请问您是《八座山》的作者吗？"他笑了，说不是。</td></tr>
+    <tr><td><span class="it" onclick="speak('E allora? Che è successo dopo?')"><strong>Chiara:</strong> E allora? Che è successo dopo?</span></td><td class="zh"><strong>基娅拉：</strong> 然后呢？后来发生了什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Beh, abbiamo cominciato a parlare e si è scoperto che era un editor di una grande casa editrice. Abbiamo scambiato i biglietti da visita!')"><strong>Luca:</strong> Beh, abbiamo cominciato a parlare e si è scoperto che era un editor di una grande casa editrice. Abbiamo scambiato i biglietti da visita!</span></td><td class="zh"><strong>卢卡：</strong> 嗯，我们开始交谈，结果发现他是一家大出版社的编辑。我们交换了名片！</td></tr>
+    <tr><td><span class="it" onclick="speak('Che fortuna! Chissà, magari pubblicherà il tuo romanzo!')"><strong>Chiara:</strong> Che fortuna! Chissà, magari pubblicherà il tuo romanzo!</span></td><td class="zh"><strong>基娅拉：</strong> 真幸运！说不定他会出版你的小说！</td></tr>
+    <tr><td><span class="it" onclick="speak('Chissà! Comunque, dopo che fummo usciti dalla libreria, ci recammo in un bar e parlammo per due ore di letteratura.')"><strong>Luca:</strong> Chissà! Comunque, dopo che fummo usciti dalla libreria, ci recammo in un bar e parlammo per due ore di letteratura.</span></td><td class="zh"><strong>卢卡：</strong> 谁知道呢！总之，离开书店后，我们去了咖啡馆，聊了两个小时的文学。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non appena ebbi sentito la tua storia, capii che dovevi assolutamente raccontarmela.')"><strong>Chiara:</strong> Non appena ebbi sentito la tua storia, capii che dovevi assolutamente raccontarmela.</span></td><td class="zh"><strong>基娅拉：</strong> 我一听到你的故事，就明白你一定得讲给我听。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Obiettare e ribattere -->
+  <h3>3. Obiettare e ribattere · p.22-23</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">一场关于强制阅读当代文学的辩论。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Secondo me a scuola si dovrebbero leggere solo i classici.')"><strong>Persona A:</strong> Secondo me a scuola si dovrebbero leggere solo i classici.</span></td><td class="zh"><strong>A：</strong> 在我看来，学校里应该只读经典作品。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non sono d\'accordo. Non è leggendo solo Manzoni che si forma un lettore critico.')"><strong>Persona B:</strong> Non sono d'accordo. Non è leggendo solo Manzoni che si forma un lettore critico.</span></td><td class="zh"><strong>B：</strong> 我不同意。并非只读曼佐尼就能培养出有批判力的读者。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ma come? I giovani hanno bisogno di basi solide!')"><strong>Persona A:</strong> Ma come? I giovani hanno bisogno di basi solide!</span></td><td class="zh"><strong>A：</strong> 怎么会呢？年轻人需要扎实的基础！</td></tr>
+    <tr><td><span class="it" onclick="speak('È proprio questo il punto: le basi si costruiscono anche attraverso la contemporaneità. Quello che conta è la qualità, non il periodo storico.')"><strong>Persona B:</strong> È proprio questo il punto: le basi si costruiscono anche attraverso la contemporaneità. Quello che conta è la qualità, non il periodo storico.</span></td><td class="zh"><strong>B：</strong> 正是这一点：基础也可以通过当代作品来构建。重要的是质量，而不是历史时期。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non è che i classici siano superati, intendiamoci, ma la letteratura contemporanea è spesso troppo semplice.')"><strong>Persona A:</strong> Non è che i classici siano superati, intendiamoci, ma la letteratura contemporanea è spesso troppo semplice.</span></td><td class="zh"><strong>A：</strong> 并不是说经典过时了，别误会，但当代文学往往过于简单。</td></tr>
+    <tr><td><span class="it" onclick="speak('È qui che ti sbagli. Autori come Antonio Franchini o Veronica Raimo hanno una complessità narrativa straordinaria. È la mancanza di formazione che impedisce di capirli.')"><strong>Persona B:</strong> È qui che ti sbagli. Autori come Antonio Franchini o Veronica Raimo hanno una complessità narrativa straordinaria. È la mancanza di formazione che impedisce di capirli.</span></td><td class="zh"><strong>B：</strong> 这就是你错的地方。像安东尼奥 弗兰基尼或韦罗妮卡 拉伊莫这样的作家具有非凡的叙事复杂性。正因缺乏训练，才让人无法理解他们。</td></tr>
+    <tr><td><span class="it" onclick="speak('Mah, forse hai ragione tu... non è che ne sai più di me?')"><strong>Persona A:</strong> Mah, forse hai ragione tu... non è che ne sai più di me?</span></td><td class="zh"><strong>A：</strong> 嗯，也许你是对的……难道你比我懂得多？</td></tr>
+    <tr><td><span class="it" onclick="speak('Non è una questione di sapere di più, ma di prospettiva.')"><strong>Persona B:</strong> Non è una questione di sapere di più, ma di prospettiva.</span></td><td class="zh"><strong>B：</strong> 这不是懂得多少的问题，而是视角的问题。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F4DA; 核心词汇 (Lessico fondamentale)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la narrativa')">la narrativa</td><td>叙事文学，小说</td></tr>
+    <tr><td class="it" onclick="speak('il/la narratore/trice')">il/la narratore/trice</td><td>叙述者</td></tr>
+    <tr><td class="it" onclick="speak('l\'opera')">l'opera (f.)</td><td>作品，歌剧</td></tr>
+    <tr><td class="it" onclick="speak('il romanzo')">il romanzo</td><td>长篇小说</td></tr>
+    <tr><td class="it" onclick="speak('il racconto')">il racconto</td><td>短篇小说，故事</td></tr>
+    <tr><td class="it" onclick="speak('il/la critico/a')">il/la critico/a</td><td>评论家</td></tr>
+    <tr><td class="it" onclick="speak('la critica')">la critica</td><td>评论，批评</td></tr>
+    <tr><td class="it" onclick="speak('l\'editor')">l'editor (m./f.)</td><td>编辑</td></tr>
+    <tr><td class="it" onclick="speak('la casa editrice')">la casa editrice</td><td>出版社</td></tr>
+    <tr><td class="it" onclick="speak('il dialetto')">il dialetto</td><td>方言</td></tr>
+    <tr><td class="it" onclick="speak('provinciale')">provinciale</td><td>地方性的，狭隘的</td></tr>
+    <tr><td class="it" onclick="speak('universale')">universale</td><td>普遍的，通用的</td></tr>
+    <tr><td class="it" onclick="speak('contemporaneo/a')">contemporaneo/a</td><td>当代的</td></tr>
+    <tr><td class="it" onclick="speak('la metafora')">la metafora</td><td>隐喻</td></tr>
+    <tr><td class="it" onclick="speak('il/la lettore/trice')">il/la lettore/trice</td><td>读者</td></tr>
+    <tr><td class="it" onclick="speak('la trama')">la trama</td><td>情节</td></tr>
+    <tr><td class="it" onclick="speak('il personaggio')">il personaggio</td><td>人物角色</td></tr>
+    <tr><td class="it" onclick="speak('l\'ambientazione')">l'ambientazione (f.)</td><td>背景设定</td></tr>
+    <tr><td class="it" onclick="speak('lo stile')">lo stile</td><td>风格</td></tr>
+    <tr><td class="it" onclick="speak('la corrente letteraria')">la corrente letteraria</td><td>文学流派</td></tr>
+    <tr><td class="it" onclick="speak('la traduzione')">la traduzione</td><td>翻译</td></tr>
+    <tr><td class="it" onclick="speak('il best seller')">il best seller</td><td>畅销书</td></tr>
+    <tr><td class="it" onclick="speak('la poetica')">la poetica</td><td>诗学，诗论</td></tr>
+    <tr><td class="it" onclick="speak('la complessità')">la complessità</td><td>复杂性</td></tr>
+    <tr><td class="it" onclick="speak('apprezzare')">apprezzare</td><td>欣赏，重视</td></tr>
+    <tr><td class="it" onclick="speak('pubblicare')">pubblicare</td><td>出版</td></tr>
+    <tr><td class="it" onclick="speak('recensire')">recensire</td><td>评论（书/电影）</td></tr>
+    <tr><td class="it" onclick="speak('la recensione')">la recensione</td><td>评论文章</td></tr>
+    <tr><td class="it" onclick="speak('la prefazione')">la prefazione</td><td>序言</td></tr>
+    <tr><td class="it" onclick="speak('la postfazione')">la postfazione</td><td>后记</td></tr>
+    <tr><td class="it" onclick="speak('l\'intreccio')">l'intreccio (m.)</td><td>情节交织</td></tr>
+    <tr><td class="it" onclick="speak('la suspense')">la suspense</td><td>悬念</td></tr>
+    <tr><td class="it" onclick="speak('la rivelazione')">la rivelazione</td><td>揭示，揭露</td></tr>
+    <tr><td class="it" onclick="speak('la corrente')">la corrente</td><td>潮流，流派</td></tr>
+    <tr><td class="it" onclick="speak('il dibattito')">il dibattito</td><td>辩论，讨论</td></tr>
+    <tr><td class="it" onclick="speak('obiettare')">obiettare</td><td>反驳，提出异议</td></tr>
+    <tr><td class="it" onclick="speak('ribattere')">ribattere</td><td>回击，反驳</td></tr>
+    <tr><td class="it" onclick="speak('contraddire')">contraddire</td><td>反驳，反对</td></tr>
+    <tr><td class="it" onclick="speak('l\'argomentazione')">l'argomentazione (f.)</td><td>论证，论据</td></tr>
+    <tr><td class="it" onclick="speak('la confutazione')">la confutazione</td><td>驳斥</td></tr>
+    <tr><td class="it" onclick="speak('censurare')">censurare</td><td>审查，查禁</td></tr>
+    <tr><td class="it" onclick="speak('la volgarità')">la volgarità</td><td>粗俗，粗鲁</td></tr>
+    <tr><td class="it" onclick="speak('l\'eufemismo')">l'eufemismo (m.)</td><td>委婉语</td></tr>
+    <tr><td class="it" onclick="speak('la licenza poetica')">la licenza poetica</td><td>诗学自由</td></tr>
+  </table>
+
+  <h3>&#x1F4AC; 习语和表达 (Espressioni idiomatiche)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>含义</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('È qui che volevo arrivare')">È qui che volevo arrivare</td><td>Questo è il punto</td><td>这正是我想说的</td></tr>
+    <tr><td class="it" onclick="speak('Non è che...')">Non è che...</td><td>Introduzione di obiezione</td><td>并非……（引出反驳）</td></tr>
+    <tr><td class="it" onclick="speak('È proprio questo il punto')">È proprio questo il punto</td><td>Questa è la questione centrale</td><td>正是这一点</td></tr>
+    <tr><td class="it" onclick="speak('È grazie a... se...')">È grazie a... se...</td><td>Enfasi sulla causa</td><td>正是因为……才……</td></tr>
+    <tr><td class="it" onclick="speak('Non appena...')">Non appena...</td><td>Subito dopo che...</td><td>一……就……</td></tr>
+    <tr><td class="it" onclick="speak('Non è tanto che... quanto...')">Non è tanto che... quanto...</td><td>Non è tanto X quanto Y</td><td>与其说X，不如说Y</td></tr>
+    <tr><td class="it" onclick="speak('È qui che ti sbagli')">È qui che ti sbagli</td><td>Questo è il tuo errore</td><td>这就是你错的地方</td></tr>
+    <tr><td class="it" onclick="speak('Intendiamoci')">Intendiamoci</td><td>Chiariamoci</td><td>我们搞清楚/别误会</td></tr>
+    <tr><td class="it" onclick="speak('Per dire la mia')">Per dire la mia</td><td>Per esprimere la mia opinione</td><td>说说我的看法</td></tr>
+    <tr><td class="it" onclick="speak('A proposito')">A proposito</td><td>Ricollegandoci a...</td><td>顺便一提/关于</td></tr>
+    <tr><td class="it" onclick="speak('Facciamo finta che...')">Facciamo finta che...</td><td>Immaginiamo che...</td><td>假设……</td></tr>
+    <tr><td class="it" onclick="speak('Tanto per cambiare')">Tanto per cambiare</td><td>Come al solito (ironico)</td><td>一如既往（讽刺）</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Frase scissa esplicita -->
+  <h3>1. Frase scissa esplicita（显性分裂句）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">分裂句是用来强调句子中某个成分的语法结构，相当于英语中的"It is... that..."。</p>
+    <table>
+      <tr><th>Elemento enfatizzato</th><th>Struttura scissa</th><th>Versione normale</th></tr>
+      <tr><td>Soggetto</td><td><span class="verb">È Marco che</span> ha vinto.</td><td>Marco ha vinto.</td></tr>
+      <tr><td>Oggetto diretto</td><td><span class="verb">È questo libro che</span> voglio.</td><td>Voglio questo libro.</td></tr>
+      <tr><td>Oggetto indiretto</td><td><span class="verb">È a te che</span> parlo.</td><td>Parlo a te.</td></tr>
+      <tr><td>Luogo</td><td><span class="verb">È qui che</span> abito.</td><td>Abito qui.</td></tr>
+      <tr><td>Tempo</td><td><span class="verb">È ieri che</span> l'ho visto.</td><td>L'ho visto ieri.</td></tr>
+      <tr><td>Causa</td><td><span class="verb">È per questo che</span> sono partito.</td><td>Sono partito per questo.</td></tr>
+      <tr><td>Modo</td><td><span class="verb">È così che</span> si fa.</td><td>Si fa così.</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('È stato Paolo a dirmi la verità.')"><span class="verb">È stato Paolo a</span> dirmi la verità.</span></td><td>是保罗告诉了我真相。</td></tr>
+      <tr><td><span class="it" onclick="speak('È in questa libreria che ho comprato il romanzo.')"><span class="verb">È in questa libreria che</span> ho comprato il romanzo.</span></td><td>就是在这家书店我买了这本小说。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sono questi i libri che consiglio di leggere.')"><span class="verb">Sono questi i libri che</span> consiglio di leggere.</span></td><td>这就是我推荐阅读的书。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è che non mi piaccia, è che non ho tempo.')"><span class="verb">Non è che</span> non mi piaccia, <span class="verb">è che</span> non ho tempo.</span></td><td>不是我不喜欢，而是我没时间。</td></tr>
+      <tr><td><span class="it" onclick="speak('È quando sei distratto che commetti errori.')"><span class="verb">È quando sei distratto che</span> commetti errori.</span></td><td>恰恰是在你分心的时候犯错。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Frase scissa implicita -->
+  <h3>2. Frase scissa implicita（隐性分裂句）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">隐性分裂句使用a+不定式代替che+从句，结构更简洁。</p>
+    <table>
+      <tr><th>Struttura</th><th>Esempio</th><th>中文</th></tr>
+      <tr><td>È/Sono + [elemento] + <span class="verb">A</span> + [infinito]</td><td><span class="verb">Sono stato io a</span> chiamarti.</td><td>是我给你打的电话。</td></tr>
+      <tr><td></td><td><span class="verb">Sei tu a</span> dover decidere.</td><td>是你来做决定。</td></tr>
+      <tr><td></td><td><span class="verb">È stato lui a</span> scrivere il romanzo.</td><td>是他写了这部小说。</td></tr>
+      <tr><td></td><td><span class="verb">Non sono io a</span> dovermi scusare!</td><td>不该道歉的人是我！</td></tr>
+      <tr><td></td><td><span class="verb">Siamo noi a</span> pagare le conseguenze.</td><td>是我们承担后果。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">对比：</p>
+    <table>
+      <tr><th>Tipo</th><th>Struttura</th><th>Esempio</th></tr>
+      <tr><td><span class="verb">Esplicita</span></td><td>È + elemento + CHE + verbo coniugato</td><td>È a te <span class="verb">che</span> parlo.</td></tr>
+      <tr><td><span class="verb">Implicita</span></td><td>È + elemento + A + infinito</td><td>Sono io <span class="verb">a</span> parlare.</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Frase pseudoscissa -->
+  <h3>3. Frase pseudoscissa（伪分裂句）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">伪分裂句将焦点成分放在句末，以ciò che / quello che / chi等开头。</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="verb">Quello che</span> voglio dire è <span class="it" onclick="speak('che hai ragione.')">che hai ragione.</span></td><td>我想说的是你对了。</td></tr>
+      <tr><td><span class="verb">Ciò che</span> conta veramente è <span class="it" onclick="speak('la qualità.')">la qualità.</span></td><td>真正重要的是质量。</td></tr>
+      <tr><td><span class="verb">Chi</span> ha scritto questo libro è <span class="it" onclick="speak('un autore sconosciuto.')">un autore sconosciuto.</span></td><td>写这本书的人是一位不知名的作者。</td></tr>
+      <tr><td><span class="verb">Quello a cui</span> penso è <span class="it" onclick="speak('al futuro.')">al futuro.</span></td><td>我所想的是未来。</td></tr>
+      <tr><td><span class="verb">Dove</span> andremo è <span class="it" onclick="speak('a Firenze.')">a Firenze.</span></td><td>我们要去的地方是佛罗伦萨。</td></tr>
+      <tr><td><span class="verb">Quando</span> è successo è <span class="it" onclick="speak('ieri sera.')">ieri sera.</span></td><td>事情发生的时间是昨天晚上。</td></tr>
+      <tr><td><span class="verb">Ciò di cui</span> ho bisogno è <span class="it" onclick="speak('un po\' di tranquillità.')">un po' di tranquillità.</span></td><td>我需要的是些许宁静。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Frase scissa interrogativa e temporale -->
+  <h3>4. Frase scissa interrogativa e temporale（疑问和时间分裂句）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">疑问分裂句和时间分裂句用于强调疑问或时间概念。</p>
+    <table>
+      <tr><th>Tipo</th><th>Esempio</th><th>中文</th></tr>
+      <tr><td><span class="verb">Interrogativa</span></td><td><span class="it" onclick="speak('È vero che partirai?')"><span class="verb">È vero che</span> partirai?</span></td><td>你要离开是真的吗？</td></tr>
+      <tr><td></td><td><span class="it" onclick="speak('Com\'è che non mi hai detto niente?')"><span class="verb">Com'è che</span> non mi hai detto niente?</span></td><td>你怎么什么都没告诉我？</td></tr>
+      <tr><td></td><td><span class="it" onclick="speak('Dov\'è che hai comprato questo libro?')"><span class="verb">Dov'è che</span> hai comprato questo libro?</span></td><td>你在哪里买的这本书？</td></tr>
+      <tr><td><span class="verb">Temporale</span></td><td><span class="it" onclick="speak('Non appena ebbe finito di leggere, chiuse il libro.')"><span class="verb">Non appena</span> ebbe finito di leggere, chiuse il libro.</span></td><td>一读完，他就合上了书。</td></tr>
+      <tr><td></td><td><span class="it" onclick="speak('Fu solo quando arrivai a casa che capii di averlo perso.')"><span class="verb">Fu solo quando</span> arrivai a casa che capii di averlo perso.</span></td><td>直到我回到家才发现把它弄丢了。</td></tr>
+      <tr><td></td><td><span class="it" onclick="speak('È da ieri che non riesco a trovare il mio libro.')"><span class="verb">È da ieri che</span> non riesco a trovare il mio libro.</span></td><td>从昨天起我就找不到我的书了。</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. Tempi passati dell'indicativo -->
+  <h3>5. Uso dei tempi passati dell'indicativo（直陈式过去时态综合用法）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">C1级别需要熟练掌握所有直陈式过去时态及其细微差异。</p>
+    <table>
+      <tr><th>Tempo</th><th>Uso principale</th><th>Esempio</th></tr>
+      <tr><td><span class="verb">Passato prossimo</span></td><td>近期的、与现在有关的过去事件</td><td><span class="it" onclick="speak('Oggi ho letto un capitolo.')">Oggi <span class="verb">ho letto</span> un capitolo.</span></td></tr>
+      <tr><td><span class="verb">Imperfetto</span></td><td>过去持续/习惯/背景描述</td><td><span class="it" onclick="speak('Da bambino leggevo sempre.')">Da bambino <span class="verb">leggevo</span> sempre.</span></td></tr>
+      <tr><td><span class="verb">Passato remoto</span></td><td>遥远的、彻底终结的过去事件</td><td><span class="it" onclick="speak('Dante scrisse la Divina Commedia.')">Dante <span class="verb">scrisse</span> la Divina Commedia.</span></td></tr>
+      <tr><td><span class="verb">Trapassato prossimo</span></td><td>过去完成（先于另一个过去动作）</td><td><span class="it" onclick="speak('Avevo già letto quel libro quando lo vidi al cinema.')"><span class="verb">Avevo già letto</span> quel libro quando lo vidi al cinema.</span></td></tr>
+      <tr><td><span class="verb">Trapassato remoto</span></td><td>在passato remoto之前完成的动作（书面语）</td><td><span class="it" onclick="speak('Dopo che ebbe finito il romanzo, lo pubblicò.')">Dopo che <span class="verb">ebbe finito</span> il romanzo, lo pubblicò.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">叙事段落示例:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Era una sera d\'inverno. Pioveva da ore e io leggevo un giallo. A un tratto sentii un rumore strano. Mi alzai e andai alla finestra. Non vidi nessuno, ma avevo capito che qualcosa non andava. Dopo che ebbi chiuso tutte le finestre, tornai a sedermi.')"><span class="verb">Era</span> una sera d'inverno. <span class="verb">Pioveva</span> da ore e io <span class="verb">leggevo</span> un giallo. A un tratto <span class="verb">sentii</span> un rumore strano. <span class="verb">Mi alzai</span> e <span class="verb">andai</span> alla finestra. Non <span class="verb">vidi</span> nessuno, ma <span class="verb">avevo capito</span> che qualcosa non <span class="verb">andava</span>. Dopo che <span class="verb">ebbi chiuso</span> tutte le finestre, <span class="verb">tornai</span> a sedermi.</span></td><td>那是一个冬天的晚上。已经下了好几个小时的雨，我在读一本侦探小说。突然我听到一个奇怪的声音。我站起来走到窗边。没看到任何人，但我已经明白有些不对劲了。关好所有窗户后，我回到座位上。</td></tr>
+    </table>
+  </div>
+
+  <!-- 6. Trapassato remoto -->
+  <h3>6. Trapassato remoto（远愈过去时）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">远愈过去时在C1级别是一个重要的书面语时态，主要用于文学叙事。</p>
+    <table>
+      <tr><th>Persona</th><th>-ARE: parlare</th><th>-ERE: leggere</th><th>-IRE: finire</th></tr>
+      <tr><td>io</td><td><span class="verb">ebbi parlato</span></td><td><span class="verb">ebbi letto</span></td><td><span class="verb">ebbi finito</span></td></tr>
+      <tr><td>tu</td><td><span class="verb">avesti parlato</span></td><td><span class="verb">avesti letto</span></td><td><span class="verb">avesti finito</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb">ebbe parlato</span></td><td><span class="verb">ebbe letto</span></td><td><span class="verb">ebbe finito</span></td></tr>
+      <tr><td>noi</td><td><span class="verb">avemmo parlato</span></td><td><span class="verb">avemmo letto</span></td><td><span class="verb">avemmo finito</span></td></tr>
+      <tr><td>voi</td><td><span class="verb">aveste parlato</span></td><td><span class="verb">aveste letto</span></td><td><span class="verb">aveste finito</span></td></tr>
+      <tr><td>loro</td><td><span class="verb">ebbero parlato</span></td><td><span class="verb">ebbero letto</span></td><td><span class="verb">ebbero finito</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">用法规则与例句:</p>
+    <table>
+      <tr><th>Regola</th><th>Esempio</th></tr>
+      <tr><td>Dopo che / Appena / Quando + Trap. remoto</td><td><span class="it" onclick="speak('Dopo che ebbe finito di leggere, spense la luce.')">Dopo che <span class="verb">ebbe finito</span> di leggere, <span class="verb">spense</span> la luce.</span></td></tr>
+      <tr><td>Solo in frasi subordinate temporali</td><td><span class="it" onclick="speak('Appena ebbero ricevuto la notizia, partirono.')">Appena <span class="verb">ebbero ricevuto</span> la notizia, <span class="verb">partirono</span>.</span></td></tr>
+      <tr><td>Solo con passato remoto nella principale</td><td><span class="it" onclick="speak('Non appena ebbi capito, intervenni.')">Non appena <span class="verb">ebbi capito</span>, <span class="verb">intervenni</span>.</span></td></tr>
+      <tr><td>Esclusivamente nella scrittura formale/letteraria</td><td><span class="it" onclick="speak('Finito che ebbe il discorso, tacque.')">Finito che <span class="verb">ebbe</span> il discorso, <span class="verb">tacque</span>.</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 2 · p.26-27</h2>
+
+  <h3>&#x1F4D6; La nuova letteratura italiana（意大利新文学）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('Elena Ferrante è diventata un fenomeno globale dal 2012 con la pubblicazione della traduzione inglese de "L\'amica geniale". La sua "Tetralogia napoletana" è stata tradotta in oltre 40 lingue. L\'autrice rimane tuttora anonima.')">Elena Ferrante è diventata un fenomeno globale dal 2012 con la pubblicazione della traduzione inglese de "L'amica geniale". La sua "Tetralogia napoletana" è stata tradotta in oltre 40 lingue. L'autrice rimane tuttora anonima.</p>
+    <p class="it" onclick="speak('L\'Italia vanta prestigiosi premi letterari: il Premio Strega (fondato nel 1947), il Premio Campiello, il Premio Viareggio e il Premio Bancarella. Vincere lo Strega spesso significa un incremento enorme delle vendite.')">L'Italia vanta prestigiosi premi letterari: il Premio Strega (fondato nel 1947), il Premio Campiello, il Premio Viareggio e il Premio Bancarella. Vincere lo Strega spesso significa un incremento enorme delle vendite.</p>
+    <p class="it" onclick="speak('Tra gli autori contemporanei più attivi ricordiamo: Paolo Cognetti (autore de "Le otto montagne"), Roberto Saviano ("Gomorra"), Alessandro Baricco ("Novecento"), Nicola Lagioia ("La ferocia"), Antonio Franchini e Veronica Raimo.')">Tra gli autori contemporanei più attivi ricordiamo: Paolo Cognetti (autore de "Le otto montagne"), Roberto Saviano ("Gomorra"), Alessandro Baricco ("Novecento"), Nicola Lagioia ("La ferocia"), Antonio Franchini e Veronica Raimo.</p>
+    <p class="it" onclick="speak('Un fenomeno interessante nella letteratura italiana contemporanea è la rinascita del dialetto. Andrea Camilleri, ad esempio, ha mescolato il siciliano con l\'italiano standard creando la popolare serie del commissario Montalbano.')">Un fenomeno interessante nella letteratura italiana contemporanea è la rinascita del dialetto. Andrea Camilleri, ad esempio, ha mescolato il siciliano con l'italiano standard creando la popolare serie del commissario Montalbano.</p>
+    <p class="it" onclick="speak('Ogni anno in Italia vengono pubblicati circa 60.000 nuovi titoli. Tuttavia, il tasso medio di lettura è basso in Europa: solo circa il 40% della popolazione legge almeno un libro all\'anno.')">Ogni anno in Italia vengono pubblicati circa 60.000 nuovi titoli. Tuttavia, il tasso medio di lettura è basso in Europa: solo circa il 40% della popolazione legge almeno un libro all'anno.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p class="zh">Elena Ferrante自2012年《我的天才女友》英译版出版以来，成为享誉全球的意大利作家。她的"那不勒斯四部曲"被翻译成40多种语言。作者至今保持匿名。</p>
+    <p class="zh">意大利拥有久负盛名的文学奖项：Strega奖（1947年设立）、Campiello奖、Viareggio奖和Bancarella奖。赢得Strega奖的作品销量往往暴增。</p>
+    <p class="zh">近年活跃的重要作家包括：Paolo Cognetti（《八座山》）、Roberto Saviano（《蛾摩拉》）、Alessandro Baricco（《海上钢琴师》）、Nicola Lagioia（《凶猛》）、Antonio Franchini和Veronica Raimo。</p>
+    <p class="zh">当代意大利文学中一个有趣的现象是方言的复兴。Andrea Camilleri将西西里方言混入标准意大利语，创作了广受欢迎的Montalbano侦探系列。</p>
+    <p class="zh">意大利每年出版约6万种新书。然而，平均阅读率在欧洲偏低——只有约40%的人口每年至少读一本书。</p>
+  </div>
+
+  <h3>相关文化词汇</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il premio letterario')">il premio letterario</td><td>文学奖</td></tr>
+    <tr><td class="it" onclick="speak('il Premio Strega')">il Premio Strega</td><td>Strega文学奖</td></tr>
+    <tr><td class="it" onclick="speak('la tetralogia')">la tetralogia</td><td>四部曲</td></tr>
+    <tr><td class="it" onclick="speak('il commissario')">il commissario</td><td>探长，警长</td></tr>
+    <tr><td class="it" onclick="speak('il giallo')">il giallo</td><td>侦探小说，悬疑小说</td></tr>
+    <tr><td class="it" onclick="speak('il graphic novel')">il graphic novel</td><td>图像小说</td></tr>
+    <tr><td class="it" onclick="speak('la casa editrice')">la casa editrice</td><td>出版社</td></tr>
+    <tr><td class="it" onclick="speak('il mercato editoriale')">il mercato editoriale</td><td>出版市场</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化注释:</strong><br>
+    • La "Tetralogia napoletana" di Elena Ferrante è un fenomeno mondiale di vendite<br>
+    • Il Premio Strega è il più importante premio letterario italiano<br>
+    • La letteratura italiana contemporanea è caratterizzata da un forte regionalismo e dall'uso del dialetto<br>
+    • Conosci scrittori italiani contemporanei? Quali sono i tuoi autori preferiti? — 你认识哪些当代意大利作家？你最喜欢的作家是谁？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 2 — La nuova letteratura · p.27</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频探讨了当代意大利文学的特点、主要作家以及意大利文学在世界上的影响力。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Attività di previsione (预测活动):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Cosa significa per te "nuova letteratura"? Quali autori contemporanei italiani conosci?')">Cosa significa per te "nuova letteratura"? Quali autori contemporanei italiani conosci?</span></td><td class="zh">"新文学"对你来说意味着什么？你认识哪些当代意大利作家？</td></tr>
+    <tr><td><span class="it" onclick="speak('Pensi che oggi si legga più o meno rispetto al passato?')">Pensi che oggi si legga più o meno rispetto al passato?</span></td><td class="zh">你认为现在的人们比过去读得更多还是更少？</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">关键表达 (Espressioni chiave):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('È proprio qui che volevo arrivare.')">È proprio qui che volevo arrivare.</span></td><td class="zh">这正是我想说的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non è che sia provinciale, piuttosto...')">Non è che sia provinciale, piuttosto...</span></td><td class="zh">并非地方化，而是……</td></tr>
+    <tr><td><span class="it" onclick="speak('Ciò che caratterizza la nostra letteratura è...')">Ciò che caratterizza la nostra letteratura è...</span></td><td class="zh">我们的文学的特点在于……</td></tr>
+    <tr><td><span class="it" onclick="speak('Non è un caso che...')">Non è un caso che...</span></td><td class="zh">并非偶然……</td></tr>
+    <tr><td><span class="it" onclick="speak('È grazie a lei se...')">È grazie a lei se...</span></td><td class="zh">正是因为有了她……</td></tr>
+    <tr><td><span class="it" onclick="speak('Non è tanto che... quanto...')">Non è tanto che... quanto...</span></td><td class="zh">与其说……不如说……</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; Qual è il tuo scrittore italiano preferito? Perché?<br>
+    &bull; Discussione: Secondo te, la letteratura contemporanea italiana è conosciuta all'estero? Perché sì/no?<br>
+    &bull; Produzione scritta: Scrivi una breve recensione di un libro italiano che hai letto (150 parole).<br>
+    &bull; Crea 3 frasi scisse basate sul video<br>
+    &bull; Trova esempi di trapassato remoto nei testi letterari
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-1.html">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+  <a href="unita-3.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 5</div>
+  <p>Corso di lingua italiana per stranieri · Livello C1</p>
+  <p style="margin-top:8px;opacity:0.6;">Maria Bali • Irene Dei · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

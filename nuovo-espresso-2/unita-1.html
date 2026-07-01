@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 1 · In giro per negozi · NUOVO Espresso 2</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 2 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 1 · A2</div>
+  <h1>&#x1F6CD;&#xFE0F; In giro per negozi</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">逛街购物 · p.5-20</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">描述和购买衣物 · 颜色尺寸 · piacere动词 · 间接代词 · 命令式(tu) · 比较级</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Una descrizione di abbigliamento -->
+  <h3>1. Una descrizione di abbigliamento · p.6, es.2</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读文章，了解人物衣着。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Oggi Laura ha una gonna a fiori, una camicetta di seta e scarpe con il tacco.')">Oggi Laura ha una gonna a fiori, una camicetta di seta e scarpe con il tacco.</span></td><td class="zh">今天劳拉穿了一条碎花裙、一件丝绸衬衫和高跟鞋。</td></tr>
+    <tr><td><span class="it" onclick="speak('È molto elegante, ma ama anche l\'abbigliamento sportivo.')">È molto elegante, ma ama anche l'abbigliamento sportivo.</span></td><td class="zh">她非常优雅，但也喜欢运动装。</td></tr>
+    <tr><td><span class="it" onclick="speak('Nel tempo libero indossa sempre un paio di jeans e una maglietta.')">Nel tempo libero indossa sempre un paio di jeans e una maglietta.</span></td><td class="zh">空闲时她总是穿牛仔裤和T恤。</td></tr>
+    <tr><td><span class="it" onclick="speak('Carlo invece preferisce uno stile classico.')">Carlo invece preferisce uno stile classico.</span></td><td class="zh">而卡洛更喜欢经典风格。</td></tr>
+    <tr><td><span class="it" onclick="speak('Porta spesso un abito scuro con cravatta.')">Porta spesso un abito scuro con cravatta.</span></td><td class="zh">他经常穿深色西装打领带。</td></tr>
+    <tr><td><span class="it" onclick="speak('Oggi ha una giacca e pantaloni color caffè, una camicia azzurra, con una borsetta nera e scarpe con il tacco.')">Oggi ha una giacca e pantaloni color caffè, una camicia azzurra, con una borsetta nera e scarpe con il tacco.</span></td><td class="zh">今天他穿着咖啡色外套和裤子，蓝色衬衫，配黑色小包和高跟鞋。</td></tr>
+    <tr><td><span class="it" onclick="speak('Eugenio mette sempre i jeans.')">Eugenio mette sempre i jeans.</span></td><td class="zh">欧金尼奥总是穿牛仔裤。</td></tr>
+    <tr><td><span class="it" onclick="speak('Oggi ha un maglione verde a collo alto.')">Oggi ha un maglione verde a collo alto.</span></td><td class="zh">今天他穿了一件绿色高领毛衣。</td></tr>
+    <tr><td><span class="it" onclick="speak('Adriana ama l\'abbigliamento classico.')">Adriana ama l'abbigliamento classico.</span></td><td class="zh">阿德里亚娜喜欢经典着装。</td></tr>
+    <tr><td><span class="it" onclick="speak('Oggi è andata in ufficio con una gonna nera e una camicetta gialla con un paio di scarpe basse.')">Oggi è andata in ufficio con una gonna nera e una camicetta gialla con un paio di scarpe basse.</span></td><td class="zh">今天她穿着黑色裙子和黄色衬衫，配一双平底鞋去办公室。</td></tr>
+  </table>
+
+  <h3>2. Cerco un pullover · p.9, es.4</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">听对话，判断女士买了什么类型的毛衣。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Buonasera. Desidera?')"><strong>Commesso</strong>: Buonasera. Desidera?</span></td><td class="zh"><strong>店员</strong>: 晚上好。您想要什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Buonasera. Cerco un pullover da uomo.')"><strong>Signora</strong>: Buonasera. Cerco un pullover da uomo.</span></td><td class="zh"><strong>女士</strong>: 晚上好。我想买一件男式毛衣。</td></tr>
+    <tr><td><span class="it" onclick="speak('Che taglia?')"><strong>Commesso</strong>: Che taglia?</span></td><td class="zh"><strong>店员</strong>: 什么尺寸？</td></tr>
+    <tr><td><span class="it" onclick="speak('La 50 o la 52.')"><strong>Signora</strong>: La 50 o la 52.</span></td><td class="zh"><strong>女士</strong>: 50或52号。</td></tr>
+    <tr><td><span class="it" onclick="speak('Un momento... Le piace questo modello?')"><strong>Commesso</strong>: Un momento... Le piace questo modello?</span></td><td class="zh"><strong>店员</strong>: 等一下...您喜欢这个款式吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Mah... è un regalo per mio marito... Sa, mi sembra un po\' troppo giovanile.')"><strong>Signora</strong>: Mah... è un regalo per mio marito... Sa, mi sembra un po' troppo giovanile.</span></td><td class="zh"><strong>女士</strong>: 嗯...是给我丈夫的礼物...您知道，我觉得有点太年轻了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ma no, signora. Questi sono i colori di moda per la prossima stagione.')"><strong>Commesso</strong>: Ma no, signora. Questi sono i colori di moda per la prossima stagione.</span></td><td class="zh"><strong>店员</strong>: 不会的，女士。这些是下一季的流行色。</td></tr>
+    <tr><td><span class="it" onclick="speak('Eh... sì, ma non so se a lui piacciono.')"><strong>Signora</strong>: Eh... sì, ma non so se a lui piacciono.</span></td><td class="zh"><strong>女士</strong>: 呃...是的，但我不知道他是否喜欢。</td></tr>
+    <tr><td><span class="it" onclick="speak('E quest\'altro modello come Le sembra? È un capo classico che va bene con tutto.')"><strong>Commesso</strong>: E quest'altro modello come Le sembra? È un capo classico che va bene con tutto.</span></td><td class="zh"><strong>店员</strong>: 那这个款式您觉得怎么样？这是一件经典款，百搭。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, questo è proprio bello. E quanto costa?')"><strong>Signora</strong>: Sì, questo è proprio bello. E quanto costa?</span></td><td class="zh"><strong>女士</strong>: 是的，这个很好看。多少钱？</td></tr>
+    <tr><td><span class="it" onclick="speak('Dunque... 104 euro.')"><strong>Commesso</strong>: Dunque... 104 euro.</span></td><td class="zh"><strong>店员</strong>: 嗯...104欧元。</td></tr>
+    <tr><td><span class="it" onclick="speak('Mm, veramente è un po\' caro.')"><strong>Signora</strong>: Mm, veramente è un po' caro.</span></td><td class="zh"><strong>女士</strong>: 嗯，确实有点贵。</td></tr>
+    <tr><td><span class="it" onclick="speak('Beh, ma è di ottima qualità.')"><strong>Commesso</strong>: Beh, ma è di ottima qualità.</span></td><td class="zh"><strong>店员</strong>: 但是质量非常好。</td></tr>
+    <tr><td><span class="it" onclick="speak('Eh, si vede... Senta, eventualmente lo posso cambiare se a mio marito non piace o se non gli sta bene?')"><strong>Signora</strong>: Eh, si vede... Senta, eventualmente lo posso cambiare se a mio marito non piace o se non gli sta bene?</span></td><td class="zh"><strong>女士</strong>: 嗯，看得出来...请问，如果我丈夫不喜欢或者不合身，可以换吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Certo, ma deve conservare lo scontrino.')"><strong>Commesso</strong>: Certo, ma deve conservare lo scontrino.</span></td><td class="zh"><strong>店员</strong>: 当然可以，但您必须保留收据。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: In un negozio di calzature -->
+  <h3>3. In un negozio di calzature · p.10, es.8</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">听对话，指出男士买了什么鞋。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Perché non provi queste scarpe nere?')"><strong>Lei</strong>: Perché non provi queste scarpe nere?</span></td><td class="zh"><strong>她</strong>: 为什么不试试这双黑鞋？</td></tr>
+    <tr><td><span class="it" onclick="speak('No, sono troppo eleganti. Lo sai, a me piacciono sportive.')"><strong>Lui</strong>: No, sono troppo eleganti. Lo sai, a me piacciono sportive.</span></td><td class="zh"><strong>他</strong>: 不，太优雅了。你知道我喜欢运动型的。</td></tr>
+    <tr><td><span class="it" onclick="speak('E quei mocassini?')"><strong>Lei</strong>: E quei mocassini?</span></td><td class="zh"><strong>她</strong>: 那些乐福鞋呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, ma leggi il prezzo! Costano troppo. Non vorrei spendere tanto.')"><strong>Lui</strong>: Sì, ma leggi il prezzo! Costano troppo. Non vorrei spendere tanto.</span></td><td class="zh"><strong>他</strong>: 是的，但你看价格！太贵了。我不想花那么多钱。</td></tr>
+    <tr><td><span class="it" onclick="speak('E che ne dici di quelli? C\'è lo sconto del 30%.')"><strong>Lei</strong>: E che ne dici di quelli? C'è lo sconto del 30%.</span></td><td class="zh"><strong>她</strong>: 那那些怎么样？打七折。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, il prezzo è ragionevole. E mi piacciono molto.')"><strong>Lui</strong>: Sì, il prezzo è ragionevole. E mi piacciono molto.</span></td><td class="zh"><strong>他</strong>: 是的，价格合理。我非常喜欢。</td></tr>
+    <tr><td><span class="it" onclick="speak('Allora, dai, prova questi.')"><strong>Lei</strong>: Allora, dai, prova questi.</span></td><td class="zh"><strong>她</strong>: 那就试试这些吧。</td></tr>
+    <tr><td><span class="it" onclick="speak('...Uhm, sono un po\' stretti...')"><strong>Lui</strong>: ...Uhm, sono un po' stretti...</span></td><td class="zh"><strong>他</strong>: ...嗯，有点紧...</td></tr>
+    <tr><td><span class="it" onclick="speak('Ok, allora prova il 42. Guarda, è lì sotto.')"><strong>Lei</strong>: Ok, allora prova il 42. Guarda, è lì sotto.</span></td><td class="zh"><strong>她</strong>: 好的，那试试42码。看，就在下面。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, il 42 è perfetto. Belli, no?')"><strong>Lui</strong>: Sì, il 42 è perfetto. Belli, no?</span></td><td class="zh"><strong>他</strong>: 是的，42码完美。好看吧？</td></tr>
+  </table>
+
+  <!-- Dialogo 4: Cosa desidera? -->
+  <h3>4. Cosa desidera? — 在服装店 · p.6, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">Ascolta e completa i dialoghi.（听录音并补充对话。）</p>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">在服装店，试穿毛衣：</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Buongiorno! Cosa desidera?')"><strong>A</strong>: Buongiorno! Cosa desidera?</span></td><td class="zh">A: 早上好！您想要什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Vorrei un maglione, per favore.')"><strong>B</strong>: Vorrei un maglione, per favore.</span></td><td class="zh">B: 我想要一件毛衣。</td></tr>
+    <tr><td><span class="it" onclick="speak('Che taglia porta?')"><strong>A</strong>: Che taglia porta?</span></td><td class="zh">A: 您穿什么尺寸？</td></tr>
+    <tr><td><span class="it" onclick="speak('Porto la quarantadue.')"><strong>B</strong>: Porto la quarantadue.</span></td><td class="zh">B: 我穿42码。</td></tr>
+    <tr><td><span class="it" onclick="speak('E che colore preferisce?')"><strong>A</strong>: E che colore preferisce?</span></td><td class="zh">A: 您喜欢什么颜色？</td></tr>
+    <tr><td><span class="it" onclick="speak('Mi piace il blu, ma anche il grigio è carino.')"><strong>B</strong>: Mi piace il blu, ma anche il grigio è carino.</span></td><td class="zh">B: 我喜欢蓝色，但灰色也不错。</td></tr>
+    <tr><td><span class="it" onclick="speak('Provi questo, è blu scuro.')"><strong>A</strong>: Provi questo, è blu scuro.</span></td><td class="zh">A: 试试这件，是深蓝色的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Va bene. È in cotone?')"><strong>B</strong>: Va bene. È in cotone?</span></td><td class="zh">B: 好的。是棉的吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, è al cento per cento cotone. Provi anche questo grigio.')"><strong>A</strong>: Sì, è al cento per cento cotone. Provi anche questo grigio.</span></td><td class="zh">A: 是的，是纯棉的。再试试这件灰色的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Questo è più bello! Lo prendo. Quanto costa?')"><strong>B</strong>: Questo è più bello! Lo prendo. Quanto costa?</span></td><td class="zh">B: 这件更好看！我买了。多少钱？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sessantacinque euro.')"><strong>A</strong>: Sessantacinque euro.</span></td><td class="zh">A: 65欧元。</td></tr>
+    <tr><td><span class="it" onclick="speak('Pago con carta. E dove sono i camerini?')"><strong>B</strong>: Pago con carta. E dove sono i camerini?</span></td><td class="zh">B: 我用卡支付。试衣间在哪里？</td></tr>
+    <tr><td><span class="it" onclick="speak('In fondo, a sinistra.')"><strong>A</strong>: In fondo, a sinistra.</span></td><td class="zh">A: 在尽头，左边。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">在鞋店，买鞋：</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Buongiorno, posso aiutarla?')"><strong>A</strong>: Buongiorno, posso aiutarla?</span></td><td class="zh">A: 早上好，我能帮您吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, cerco delle scarpe nere, numero quarantadue.')"><strong>B</strong>: Sì, cerco delle scarpe nere, numero quarantadue.</span></td><td class="zh">B: 是的，我在找黑色鞋子，42码。</td></tr>
+    <tr><td><span class="it" onclick="speak('Guardi qui, questi modelli sono molto belli.')"><strong>A</strong>: Guardi qui, questi modelli sono molto belli.</span></td><td class="zh">A: 您看这里，这些款式很漂亮。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quanto costano?')"><strong>B</strong>: Quanto costano?</span></td><td class="zh">B: 多少钱？</td></tr>
+    <tr><td><span class="it" onclick="speak('Novantadue euro.')"><strong>A</strong>: Novantadue euro.</span></td><td class="zh">A: 92欧元。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sono un po\' care. Ha qualcosa di meno costoso?')"><strong>B</strong>: Sono un po' care. Ha qualcosa di meno costoso?</span></td><td class="zh">B: 有点贵。有便宜点的吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Certo, guardi questi: costano sessantadue euro.')"><strong>A</strong>: Certo, guardi questi: costano sessantadue euro.</span></td><td class="zh">A: 当然，您看这些：62欧元。</td></tr>
+    <tr><td><span class="it" onclick="speak('Vanno bene. Le prendo.')"><strong>B</strong>: Vanno bene. Le prendo.</span></td><td class="zh">B: 不错。我买了。</td></tr>
+  </table>
+
+  <!-- Dialogo 5: Pagare in contanti o con la carta -->
+  <h3>5. Pagare in contanti o con la carta? · p.9, es.7</h3>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ha trovato qualcosa?')"><strong>A</strong>: Ha trovato qualcosa?</span></td><td class="zh">A: 您找到什么了吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, vorrei questo maglione e quella camicia.')"><strong>B</strong>: Sì, vorrei questo maglione e quella camicia.</span></td><td class="zh">B: 是的，我想要这件毛衣和那件衬衫。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ottimo. Pagamento?')"><strong>A</strong>: Ottimo. Pagamento?</span></td><td class="zh">A: 好的。怎么支付？</td></tr>
+    <tr><td><span class="it" onclick="speak('Pago con carta di credito. Accetta carte?')"><strong>B</strong>: Pago con carta di credito. Accetta carte?</span></td><td class="zh">B: 我用信用卡支付。你们收卡吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Certo. Paga qui. Desidera la ricevuta?')"><strong>A</strong>: Certo. Paga qui. Desidera la ricevuta?</span></td><td class="zh">A: 当然。在这里付。需要收据吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, per favore. Ha un sacchetto?')"><strong>B</strong>: Sì, per favore. Ha un sacchetto?</span></td><td class="zh">B: 是的，请。有袋子吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Ecco a lei. Grazie e buona giornata!')"><strong>A</strong>: Ecco a lei. Grazie e buona giornata!</span></td><td class="zh">A: 给您。谢谢，祝您有美好的一天！</td></tr>
+    <tr><td><span class="it" onclick="speak('Grazie, arrivederci!')"><strong>B</strong>: Grazie, arrivederci!</span></td><td class="zh">B: 谢谢，再见！</td></tr>
+  </table>
+
+  <!-- Dialogo 6: 购物用语配对 -->
+  <h3>6. 购物用语配对 · p.8, es.3</h3>
+  <table class="vocab-table">
+    <tr><th>提问</th><th>回答</th></tr>
+    <tr><td class="it" onclick="speak('Desidera?')">Desidera? (您需要什么？)</td><td class="it" onclick="speak('Cerco una gonna.')">Cerco una gonna. (我在找一条裙子。)</td></tr>
+    <tr><td class="it" onclick="speak('Che taglia porta?')">Che taglia porta? (您穿什么尺寸？)</td><td class="it" onclick="speak('La 42.')">La 42. (42码。)</td></tr>
+    <tr><td class="it" onclick="speak('Come mi sta?')">Come mi sta? (我穿怎么样？)</td><td class="it" onclick="speak('Benissimo!')">Benissimo! (非常好！)</td></tr>
+    <tr><td class="it" onclick="speak('Quanto costa?')">Quanto costa? (多少钱？)</td><td class="it" onclick="speak('80 euro.')">80 euro. (80欧元。)</td></tr>
+    <tr><td class="it" onclick="speak('Lo posso cambiare?')">Lo posso cambiare? (可以换吗？)</td><td class="it" onclick="speak('Certo, se conserva lo scontrino.')">Certo, se conserva lo scontrino. (当然，只要保留收据。)</td></tr>
+  </table>
+
+  <!-- Dialogo 7: 购物对话练习 -->
+  <h3>7. 购物对话练习 · p.10, es.6</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">两人一组，依据以下提示编对话。A = 顾客, B = 店员。</p>
+  <table class="dialog-table">
+    <tr><th style="background:var(--ne-cream);">步骤</th><th style="background:var(--ne-cream);">A（顾客）</th><th style="background:var(--ne-cream);">B（店员）</th></tr>
+    <tr><td>①</td><td>打招呼并找一条裤子</td><td>打招呼并问尺寸</td></tr>
+    <tr><td>②</td><td>回答</td><td>问是否喜欢这条裤子</td></tr>
+    <tr><td>③</td><td>说喜欢，但觉得太年轻了</td><td>问是否想要另一个款式</td></tr>
+    <tr><td>④</td><td>说是的，但要另一个颜色</td><td>展示另一条裤子</td></tr>
+    <tr><td>⑤</td><td>问价格</td><td>回答</td></tr>
+    <tr><td>⑥</td><td>觉得有点贵</td><td>说裤子质量很好</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>服饰类 (Abbigliamento)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il maglione')">il maglione / il pullover</td><td>s.m.</td><td>毛衣</td></tr>
+    <tr><td class="it" onclick="speak('la camicetta')">la camicetta</td><td>s.f.</td><td>女式衬衫</td></tr>
+    <tr><td class="it" onclick="speak('la camicia')">la camicia</td><td>s.f.</td><td>衬衫</td></tr>
+    <tr><td class="it" onclick="speak('la gonna')">la gonna</td><td>s.f.</td><td>裙子</td></tr>
+    <tr><td class="it" onclick="speak('i pantaloni')">i pantaloni</td><td>s.m.pl.</td><td>裤子</td></tr>
+    <tr><td class="it" onclick="speak('il vestito')">il vestito / l'abito</td><td>s.m.</td><td>西装/连衣裙</td></tr>
+    <tr><td class="it" onclick="speak('la giacca')">la giacca</td><td>s.f.</td><td>夹克/外套</td></tr>
+    <tr><td class="it" onclick="speak('il cappotto')">il cappotto</td><td>s.m.</td><td>大衣</td></tr>
+    <tr><td class="it" onclick="speak('l\'impermeabile')">l'impermeabile</td><td>s.m.</td><td>雨衣</td></tr>
+    <tr><td class="it" onclick="speak('la cravatta')">la cravatta</td><td>s.f.</td><td>领带</td></tr>
+    <tr><td class="it" onclick="speak('le scarpe')">le scarpe</td><td>s.f.pl.</td><td>鞋</td></tr>
+    <tr><td class="it" onclick="speak('gli stivali')">gli stivali</td><td>s.m.pl.</td><td>靴子</td></tr>
+    <tr><td class="it" onclick="speak('i guanti')">i guanti</td><td>s.m.pl.</td><td>手套</td></tr>
+    <tr><td class="it" onclick="speak('la sciarpa')">la sciarpa</td><td>s.f.</td><td>围巾</td></tr>
+    <tr><td class="it" onclick="speak('i guanti di pelle')">i guanti di pelle</td><td>s.m.pl.</td><td>皮手套</td></tr>
+    <tr><td class="it" onclick="speak('le scarpe da ginnastica')">le scarpe da ginnastica</td><td>s.f.pl.</td><td>运动鞋</td></tr>
+    <tr><td class="it" onclick="speak('i mocassini')">i mocassini</td><td>s.m.pl.</td><td>乐福鞋</td></tr>
+    <tr><td class="it" onclick="speak('la borsetta')">la borsetta</td><td>s.f.</td><td>小包</td></tr>
+    <tr><td class="it" onclick="speak('la maglietta')">la maglietta</td><td>s.f.</td><td>T恤</td></tr>
+    <tr><td class="it" onclick="speak('i jeans')">i jeans</td><td>s.m.pl.</td><td>牛仔裤</td></tr>
+    <tr><td class="it" onclick="speak('il cappello')">il cappello</td><td>s.m.</td><td>帽子</td></tr>
+    <tr><td class="it" onclick="speak('gli occhiali da sole')">gli occhiali da sole</td><td>s.m.pl.</td><td>太阳镜</td></tr>
+    <tr><td class="it" onclick="speak('la pelliccia')">la pelliccia</td><td>s.f.</td><td>皮草</td></tr>
+    <tr><td class="it" onclick="speak('i calzini')">i calzini</td><td>s.m.pl.</td><td>袜子</td></tr>
+    <tr><td class="it" onclick="speak('la biancheria intima')">la biancheria intima</td><td>s.f.</td><td>内衣</td></tr>
+    <tr><td class="it" onclick="speak('il costume da bagno')">il costume da bagno</td><td>s.m.</td><td>泳衣</td></tr>
+    <tr><td class="it" onclick="speak('i pantaloni corti')">i pantaloni corti</td><td>s.m.pl.</td><td>短裤</td></tr>
+    <tr><td class="it" onclick="speak('la giacca a vento')">la giacca a vento</td><td>s.f.</td><td>风衣</td></tr>
+    <tr><td class="it" onclick="speak('gli scarponi')">gli scarponi</td><td>s.m.pl.</td><td>登山靴</td></tr>
+    <tr><td class="it" onclick="speak('il portafoglio')">il portafoglio</td><td>s.m.</td><td>钱包</td></tr>
+    <tr><td class="it" onclick="speak('il camerino')">il camerino</td><td>s.m.</td><td>试衣间</td></tr>
+  </table>
+
+  <h3>材质和图案 (Materiali e motivi)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('di seta')">di seta</td><td>loc.agg.</td><td>丝绸的</td></tr>
+    <tr><td class="it" onclick="speak('di cotone')">di cotone</td><td>loc.agg.</td><td>棉的</td></tr>
+    <tr><td class="it" onclick="speak('di lana')">di lana</td><td>loc.agg.</td><td>羊毛的</td></tr>
+    <tr><td class="it" onclick="speak('di pelle')">di pelle</td><td>loc.agg.</td><td>皮革的</td></tr>
+    <tr><td class="it" onclick="speak('di lino')">di lino</td><td>loc.agg.</td><td>亚麻的</td></tr>
+    <tr><td class="it" onclick="speak('a fiori')">a fiori</td><td>loc.agg.</td><td>碎花的</td></tr>
+    <tr><td class="it" onclick="speak('a righe')">a righe</td><td>loc.agg.</td><td>条纹的</td></tr>
+    <tr><td class="it" onclick="speak('a quadri')">a quadri</td><td>loc.agg.</td><td>格子的</td></tr>
+    <tr><td class="it" onclick="speak('a collo alto')">a collo alto</td><td>loc.agg.</td><td>高领的</td></tr>
+    <tr><td class="it" onclick="speak('a maniche lunghe')">a maniche lunghe</td><td>loc.agg.</td><td>长袖的</td></tr>
+    <tr><td class="it" onclick="speak('a maniche corte')">a maniche corte</td><td>loc.agg.</td><td>短袖的</td></tr>
+    <tr><td class="it" onclick="speak('a tinta unita')">a tinta unita</td><td>loc.agg.</td><td>纯色的</td></tr>
+    <tr><td class="it" onclick="speak('a V')">a V</td><td>loc.agg.</td><td>V领的</td></tr>
+    <tr><td class="it" onclick="speak('girocollo')">girocollo</td><td>agg.</td><td>圆领的</td></tr>
+    <tr><td class="it" onclick="speak('senza maniche')">senza maniche</td><td>loc.agg.</td><td>无袖的</td></tr>
+  </table>
+
+  <h3>颜色 (Colori)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('rosso')">rosso / rossa</td><td>agg.</td><td>红色</td></tr>
+    <tr><td class="it" onclick="speak('blu')">blu</td><td>agg.inv.</td><td>蓝色</td></tr>
+    <tr><td class="it" onclick="speak('verde')">verde</td><td>agg.</td><td>绿色</td></tr>
+    <tr><td class="it" onclick="speak('giallo')">giallo / gialla</td><td>agg.</td><td>黄色</td></tr>
+    <tr><td class="it" onclick="speak('nero')">nero / nera</td><td>agg.</td><td>黑色</td></tr>
+    <tr><td class="it" onclick="speak('bianco')">bianco / bianca</td><td>agg.</td><td>白色</td></tr>
+    <tr><td class="it" onclick="speak('azzurro')">azzurro / azzurra</td><td>agg.</td><td>天蓝色</td></tr>
+    <tr><td class="it" onclick="speak('celeste')">celeste</td><td>agg.</td><td>浅蓝色</td></tr>
+    <tr><td class="it" onclick="speak('marrone')">marrone</td><td>agg.</td><td>棕色</td></tr>
+    <tr><td class="it" onclick="speak('grigio')">grigio / grigia</td><td>agg.</td><td>灰色</td></tr>
+    <tr><td class="it" onclick="speak('rosa')">rosa</td><td>agg.inv.</td><td>粉色</td></tr>
+    <tr><td class="it" onclick="speak('viola')">viola</td><td>agg.inv.</td><td>紫色</td></tr>
+    <tr><td class="it" onclick="speak('arancione')">arancione</td><td>agg.</td><td>橙色</td></tr>
+    <tr><td class="it" onclick="speak('beige')">beige</td><td>agg.inv.</td><td>米色</td></tr>
+    <tr><td class="it" onclick="speak('lilla')">lilla</td><td>agg.inv.</td><td>淡紫色</td></tr>
+    <tr><td class="it" onclick="speak('fucsia')">fucsia</td><td>agg.inv.</td><td>紫红色</td></tr>
+    <tr><td class="it" onclick="speak('color caffè')">color caffè</td><td>loc.agg.</td><td>咖啡色</td></tr>
+    <tr><td class="it" onclick="speak('color cioccolato')">color cioccolato</td><td>loc.agg.</td><td>巧克力色</td></tr>
+    <tr><td class="it" onclick="speak('multicolore')">multicolore</td><td>agg.</td><td>多色的</td></tr>
+  </table>
+
+  <h3>尺寸对照表</h3>
+  <table class="vocab-table">
+    <tr><th>意大利尺码</th><th>国际尺码</th></tr>
+    <tr><td>38</td><td>XS</td></tr>
+    <tr><td>40</td><td>S</td></tr>
+    <tr><td>42</td><td>M</td></tr>
+    <tr><td>44</td><td>L</td></tr>
+    <tr><td>46</td><td>XL</td></tr>
+  </table>
+
+  <h3>购物表达 (Espressioni per fare acquisti)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la taglia')">la taglia</td><td>s.f.</td><td>尺寸/尺码</td></tr>
+    <tr><td class="it" onclick="speak('lo scontrino')">lo scontrino</td><td>s.m.</td><td>收据/小票</td></tr>
+    <tr><td class="it" onclick="speak('lo sconto')">lo sconto</td><td>s.m.</td><td>折扣</td></tr>
+    <tr><td class="it" onclick="speak('il prezzo')">il prezzo</td><td>s.m.</td><td>价格</td></tr>
+    <tr><td class="it" onclick="speak('costare')">costare</td><td>v.</td><td>价值/花费</td></tr>
+    <tr><td class="it" onclick="speak('provare')">provare</td><td>v.</td><td>试穿</td></tr>
+    <tr><td class="it" onclick="speak('cambiare')">cambiare</td><td>v.</td><td>更换</td></tr>
+    <tr><td class="it" onclick="speak('conservare')">conservare</td><td>v.</td><td>保留</td></tr>
+    <tr><td class="it" onclick="speak('portare')">portare</td><td>v.</td><td>穿/戴</td></tr>
+    <tr><td class="it" onclick="speak('Desidera?')">Desidera?</td><td>esp.</td><td>您需要什么？</td></tr>
+    <tr><td class="it" onclick="speak('Che taglia porta?')">Che taglia porta/porti?</td><td>esp.</td><td>您穿什么尺寸？</td></tr>
+    <tr><td class="it" onclick="speak('Come mi sta?')">Come mi sta?</td><td>esp.</td><td>我穿着怎么样？</td></tr>
+    <tr><td class="it" onclick="speak('È troppo caro.')">È troppo caro / cara.</td><td>esp.</td><td>太贵了。</td></tr>
+    <tr><td class="it" onclick="speak('È di ottima qualità.')">È di ottima qualità.</td><td>esp.</td><td>质量很好。</td></tr>
+    <tr><td class="it" onclick="speak('C\'è lo sconto del...')">C'è lo sconto del...%</td><td>esp.</td><td>打...折</td></tr>
+    <tr><td class="it" onclick="speak('Il prezzo è ragionevole.')">Il prezzo è ragionevole.</td><td>esp.</td><td>价格合理</td></tr>
+    <tr><td class="it" onclick="speak('Lo posso cambiare?')">Lo posso cambiare?</td><td>esp.</td><td>可以换吗？</td></tr>
+    <tr><td class="it" onclick="speak('la vetrina')">la vetrina</td><td>s.f.</td><td>橱窗</td></tr>
+    <tr><td class="it" onclick="speak('il centro commerciale')">il centro commerciale</td><td>s.m.</td><td>购物中心</td></tr>
+    <tr><td class="it" onclick="speak('i saldi')">i saldi</td><td>s.m.pl.</td><td>打折季</td></tr>
+    <tr><td class="it" onclick="speak('l\'acquisto')">l'acquisto</td><td>s.m.</td><td>购买</td></tr>
+    <tr><td class="it" onclick="speak('il regalo')">il regalo</td><td>s.m.</td><td>礼物</td></tr>
+    <tr><td class="it" onclick="speak('la ricevuta')">la ricevuta</td><td>s.f.</td><td>收据</td></tr>
+    <tr><td class="it" onclick="speak('il sacchetto')">il sacchetto</td><td>s.m.</td><td>袋子</td></tr>
+    <tr><td class="it" onclick="speak('in fondo')">in fondo</td><td>loc.</td><td>在尽头</td></tr>
+    <tr><td class="it" onclick="speak('a sinistra')">a sinistra</td><td>loc.</td><td>在左边</td></tr>
+  </table>
+
+  <h3>形容词 (Aggettivi utili)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('elegante')">elegante</td><td>agg.</td><td>优雅的</td></tr>
+    <tr><td class="it" onclick="speak('sportivo')">sportivo</td><td>agg.</td><td>运动的/休闲的</td></tr>
+    <tr><td class="it" onclick="speak('classico')">classico</td><td>agg.</td><td>经典的</td></tr>
+    <tr><td class="it" onclick="speak('giovanile')">giovanile</td><td>agg.</td><td>年轻的</td></tr>
+    <tr><td class="it" onclick="speak('caro')">caro</td><td>agg.</td><td>贵的</td></tr>
+    <tr><td class="it" onclick="speak('economico')">economico</td><td>agg.</td><td>便宜的</td></tr>
+    <tr><td class="it" onclick="speak('costoso')">costoso</td><td>agg.</td><td>昂贵的</td></tr>
+    <tr><td class="it" onclick="speak('stretto')">stretto</td><td>agg.</td><td>紧的</td></tr>
+    <tr><td class="it" onclick="speak('largo')">largo</td><td>agg.</td><td>宽的</td></tr>
+    <tr><td class="it" onclick="speak('lungo')">lungo</td><td>agg.</td><td>长的</td></tr>
+    <tr><td class="it" onclick="speak('corto')">corto</td><td>agg.</td><td>短的</td></tr>
+    <tr><td class="it" onclick="speak('pesante')">pesante</td><td>agg.</td><td>重的</td></tr>
+    <tr><td class="it" onclick="speak('leggero')">leggero</td><td>agg.</td><td>轻的</td></tr>
+    <tr><td class="it" onclick="speak('comodo')">comodo</td><td>agg.</td><td>舒适的</td></tr>
+    <tr><td class="it" onclick="speak('perfetto')">perfetto</td><td>agg.</td><td>完美的</td></tr>
+    <tr><td class="it" onclick="speak('pratico')">pratico</td><td>agg.</td><td>实用的</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Verbo piacere -->
+  <h3>1. 动词 piacere（喜欢）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">动词piacere的结构与普通动词不同：主语是"被喜欢的事物"，间接宾语是"喜欢的人"。</p>
+    <table>
+      <tr><th>人称</th><th>单数名词 (piace)</th><th>复数名词 (piacciono)</th></tr>
+      <tr><td>a me (mi)</td><td><span class="verb">mi piace</span> il maglione</td><td><span class="verb">mi piacciono</span> i maglioni</td></tr>
+      <tr><td>a te (ti)</td><td><span class="verb">ti piace</span> la gonna</td><td><span class="verb">ti piacciono</span> le gonne</td></tr>
+      <tr><td>a lui (gli)</td><td><span class="verb">gli piace</span> il cappello</td><td><span class="verb">gli piacciono</span> i cappelli</td></tr>
+      <tr><td>a lei (le)</td><td><span class="verb">le piace</span> la camicia</td><td><span class="verb">le piacciono</span> le camicie</td></tr>
+      <tr><td>a Lei (Le)</td><td><span class="verb">Le piace</span> questo modello</td><td><span class="verb">Le piacciono</span> questi modelli</td></tr>
+      <tr><td>a noi (ci)</td><td><span class="verb">ci piace</span> il vestito</td><td><span class="verb">ci piacciono</span> i vestiti</td></tr>
+      <tr><td>a voi (vi)</td><td><span class="verb">vi piace</span> la cravatta</td><td><span class="verb">vi piacciono</span> le cravatte</td></tr>
+      <tr><td>a loro (gli)</td><td><span class="verb">gli piace</span> l'abito</td><td><span class="verb">gli piacciono</span> gli abiti</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('A me i jeans piacciono. E a te?')">A me i jeans piacciono. E a te?</span></td><td>我喜欢牛仔裤。你呢？</td></tr>
+      <tr><td><span class="it" onclick="speak('A te non piace il rosso? Veramente?')">A te non piace il rosso? Veramente?</span></td><td>你不喜欢红色？真的吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('A lui consiglio una camicia classica, a te invece...')">A lui consiglio una camicia classica, a te invece...</span></td><td>我建议他穿经典衬衫，而你...</td></tr>
+      <tr><td><span class="it" onclick="speak('A lei non piacciono i tacchi alti, a me invece sì.')">A lei non piacciono i tacchi alti, a me invece sì.</span></td><td>她不喜欢高跟鞋，我喜欢。</td></tr>
+      <tr><td><span class="it" onclick="speak('A noi non piace l\'abbigliamento elegante. E a voi?')">A noi non piace l'abbigliamento elegante. E a voi?</span></td><td>我们不喜欢优雅的服装。你们呢？</td></tr>
+      <tr><td><span class="it" onclick="speak('A loro non piace indossare capi sportivi.')">A loro non piace indossare capi sportivi.</span></td><td>他们不喜欢穿运动装。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ti piace questo modello?')">Ti piace questo modello?</span></td><td>你喜欢这个款式吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Non gli piacciono i pantaloni stretti.')">Non gli piacciono i pantaloni stretti.</span></td><td>他不喜欢紧身裤。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Pronomi indiretti -->
+  <h3>2. 间接代词 (Pronomi indiretti)</h3>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 6px;">Atoni（非重读 — 放在动词之前）</p>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>间接代词</th><th>例句</th></tr>
+      <tr><td>io</td><td><span class="verb">mi</span></td><td><span class="it" onclick="speak('Questo maglione mi piace?')">Questo maglione mi piace?</span></td></tr>
+      <tr><td>tu</td><td><span class="verb">ti</span></td><td><span class="it" onclick="speak('Il rosso non ti piace?')">Il rosso non ti piace?</span></td></tr>
+      <tr><td>lui</td><td><span class="verb">gli</span></td><td><span class="it" onclick="speak('Non gli piacciono le gonne.')">Non gli piacciono le gonne.</span></td></tr>
+      <tr><td>lei</td><td><span class="verb">le</span></td><td><span class="it" onclick="speak('Non le piace.')">Non le piace.</span></td></tr>
+      <tr><td>Lei</td><td><span class="verb">Le</span></td><td><span class="it" onclick="speak('Signora, come Le sembra?')">Signora, come Le sembra?</span></td></tr>
+      <tr><td>noi</td><td><span class="verb">ci</span></td><td><span class="it" onclick="speak('Che capo ci consiglia?')">Che capo ci consiglia?</span></td></tr>
+      <tr><td>voi</td><td><span class="verb">vi</span></td><td><span class="it" onclick="speak('Vi consiglio un capo elegante.')">Vi consiglio un capo elegante.</span></td></tr>
+      <tr><td>loro</td><td><span class="verb">gli</span></td><td><span class="it" onclick="speak('Non gli piacciono.')">Non gli piacciono.</span></td></tr>
+    </table>
+  </div>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 6px;">Tonici（重读 — 放在动词之后，用于强调或对比）</p>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>重读代词</th><th>例句</th></tr>
+      <tr><td>io</td><td><span class="verb">a me</span></td><td><span class="it" onclick="speak('A me i jeans piacciono.')">A me i jeans piacciono.</span></td></tr>
+      <tr><td>tu</td><td><span class="verb">a te</span></td><td><span class="it" onclick="speak('A te non piace il rosso?')">A te non piace il rosso?</span></td></tr>
+      <tr><td>lui</td><td><span class="verb">a lui</span></td><td><span class="it" onclick="speak('A lui consiglio una camicia classica.')">A lui consiglio una camicia classica.</span></td></tr>
+      <tr><td>lei</td><td><span class="verb">a lei</span></td><td><span class="it" onclick="speak('A lei non piacciono i tacchi alti.')">A lei non piacciono i tacchi alti.</span></td></tr>
+      <tr><td>Lei</td><td><span class="verb">a Lei</span></td><td><span class="it" onclick="speak('A Lei sta bene di sicuro il bianco.')">A Lei sta bene di sicuro il bianco.</span></td></tr>
+      <tr><td>noi</td><td><span class="verb">a noi</span></td><td><span class="it" onclick="speak('A noi non piace l\'abbigliamento elegante.')">A noi non piace l'abbigliamento elegante.</span></td></tr>
+      <tr><td>voi</td><td><span class="verb">a voi</span></td><td><span class="it" onclick="speak('A voi piacciono le pellicce?')">A voi piacciono le pellicce?</span></td></tr>
+      <tr><td>loro</td><td><span class="verb">a loro</span></td><td><span class="it" onclick="speak('A loro non piace indossare capi sportivi.')">A loro non piace indossare capi sportivi.</span></td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Questo / Quello -->
+  <h3>3. 指示词 questo / quello（这个/那个）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>形式</th><th>用法</th><th>例句</th></tr>
+      <tr><td><span class="verb">questo</span></td><td>靠近说话者（近处）</td><td><span class="it" onclick="speak('Questo modello mi piace.')">Questo modello mi piace.</span> 我喜欢这个款式。</td></tr>
+      <tr><td><span class="verb">quello</span></td><td>远离说话者（远处）</td><td><span class="it" onclick="speak('Quella cravatta in vetrina.')">Quella cravatta in vetrina.</span> 橱窗里的那条领带。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">quello 作为形容词（跟随定冠词形式）：</p>
+    <table>
+      <tr><th>单数</th><th>复数</th></tr>
+      <tr><td><span class="verb">quel</span> vestito</td><td><span class="verb">quei</span> vestiti</td></tr>
+      <tr><td><span class="verb">quell'</span> amico</td><td><span class="verb">quegli</span> amici</td></tr>
+      <tr><td><span class="verb">quello</span> straniero</td><td><span class="verb">quegli</span> stranieri</td></tr>
+      <tr><td><span class="verb">quella</span> camera</td><td><span class="verb">quelle</span> camere</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">quello 作为代词：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Preferisco quelli blu.')">Preferisco <strong>quelli</strong> (blu).</span></td><td>我更喜欢那些（蓝色的）。</td></tr>
+      <tr><td><span class="it" onclick="speak('Prendo quello.')">Prendo <strong>quello</strong>.</span></td><td>我拿那个。</td></tr>
+      <tr><td><span class="it" onclick="speak('Quale prendi? Questo o quello?')">Quale prendi? <strong>Questo</strong> o <strong>quello</strong>?</span></td><td>你拿哪个？这个还是那个？</td></tr>
+      <tr><td><span class="it" onclick="speak('Quelle sono più eleganti.')"><strong>Quelle</strong> sono più eleganti.</span></td><td>那些更优雅。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Molto / Troppo -->
+  <h3>4. 副词 molto / troppo</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>副词</th><th>含义</th><th>例句</th></tr>
+      <tr><td><span class="verb">molto</span></td><td>非常（中性）</td><td><span class="it" onclick="speak('Queste scarpe sono molto belle.')">Queste scarpe sono molto belle.</span> 这双鞋非常漂亮。</td></tr>
+      <tr><td><span class="verb">troppo</span></td><td>太/过于（消极）</td><td><span class="it" onclick="speak('Questa cravatta è troppo elegante per me.')">Questa cravatta è troppo elegante per me.</span> 这条领带对我来说太正式了。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Questo maglione è troppo caro.')">Questo maglione è troppo caro.</span></td><td>这件毛衣太贵了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Questi pantaloni sono troppo larghi.')">Questi pantaloni sono troppo larghi.</span></td><td>这条裤子太宽了。</td></tr>
+      <tr><td><span class="it" onclick="speak('È molto di moda quest\'anno.')">È molto di moda quest'anno.</span></td><td>今年非常流行。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sono troppo stretti.')">Sono troppo stretti.</span></td><td>太紧了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non vorrei spendere troppo.')">Non vorrei spendere troppo.</span></td><td>我不想花太多钱。</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. Comparativi -->
+  <h3>5. 比较级 (Comparativi)</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>结构</th><th>说明</th><th>例句</th></tr>
+      <tr><td><span class="verb">più... di</span></td><td>比较级（更）</td><td><span class="it" onclick="speak('Questo maglione è più caro di quello.')">Questo maglione è più caro di quello.</span> 这件毛衣比那件贵。</td></tr>
+      <tr><td><span class="verb">meno... di</span></td><td>比较级（更不）</td><td><span class="it" onclick="speak('Questa gonna è meno elegante di quella.')">Questa gonna è meno elegante di quella.</span> 这条裙子没有那条优雅。</td></tr>
+      <tr><td><span class="verb">più... che</span></td><td>比较两个特质</td><td><span class="it" onclick="speak('È più bello che comodo.')">È più bello che comodo.</span> 好看但不太舒服。</td></tr>
+      <tr><td><span class="verb">meno... che</span></td><td>比较两个特质</td><td><span class="it" onclick="speak('È meno pratico che bello.')">È meno pratico che bello.</span> 不实用但好看。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">不规则比较级：</p>
+    <table>
+      <tr><th>原级</th><th>比较级</th><th>最高级</th></tr>
+      <tr><td>buono</td><td>più buono / <span class="verb">migliore</span></td><td><span class="verb">il migliore</span></td></tr>
+      <tr><td>cattivo</td><td>più cattivo / <span class="verb">peggiore</span></td><td><span class="verb">il peggiore</span></td></tr>
+      <tr><td>grande</td><td>più grande / <span class="verb">maggiore</span></td><td><span class="verb">il maggiore</span></td></tr>
+      <tr><td>piccolo</td><td>più piccolo / <span class="verb">minore</span></td><td><span class="verb">il minore</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Questo modello è più bello di quello.')">Questo modello è più bello di quello.</span></td><td>这个款式比那个好看。</td></tr>
+      <tr><td><span class="it" onclick="speak('Le scarpe con il tacco sono meno comode dei mocassini.')">Le scarpe con il tacco sono meno comode dei mocassini.</span></td><td>高跟鞋没有乐福鞋舒服。</td></tr>
+      <tr><td><span class="it" onclick="speak('Oggi fa più caldo di ieri.')">Oggi fa più caldo di ieri.</span></td><td>今天比昨天热。</td></tr>
+    </table>
+  </div>
+
+  <!-- 6. Imperativo tu -->
+  <h3>6. 命令式 — 第二人称单数 (Imperativo tu)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">规则动词：</p>
+    <table>
+      <tr><th>动词类别</th><th>-are</th><th>-ere</th><th>-ire</th></tr>
+      <tr><td>肯定</td><td><span class="verb">parl<u>a</u>!</span></td><td><span class="verb">vend<u>i</u>!</span></td><td><span class="verb">dorm<u>i</u>!</span> / <span class="verb">fin<u>isci</u>!</span></td></tr>
+      <tr><td>否定</td><td><span class="verb">non par<u>are</u>!</span></td><td><span class="verb">non vend<u>ere</u>!</span></td><td><span class="verb">non dorm<u>ire</u>!</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">常用动词命令式：</p>
+    <table>
+      <tr><th>动词</th><th>肯定形式</th><th>否定形式</th></tr>
+      <tr><td>prendere</td><td><span class="verb">prendi!</span></td><td>non prendere!</td></tr>
+      <tr><td>comprare</td><td><span class="verb">compra!</span></td><td>non comprare!</td></tr>
+      <tr><td>provare</td><td><span class="verb">prova!</span></td><td>non provare!</td></tr>
+      <tr><td>guardare</td><td><span class="verb">guarda!</span></td><td>non guardare!</td></tr>
+      <tr><td>pagare</td><td><span class="verb">paga!</span></td><td>non pagare!</td></tr>
+      <tr><td>leggere</td><td><span class="verb">leggi!</span></td><td>non leggere!</td></tr>
+      <tr><td>seguire</td><td><span class="verb">segui!</span></td><td>non seguire!</td></tr>
+      <tr><td>chiedere</td><td><span class="verb">chiedi!</span></td><td>non chiedere!</td></tr>
+      <tr><td>camminare</td><td><span class="verb">cammina!</span></td><td>non camminare!</td></tr>
+      <tr><td>decidere</td><td><span class="verb">decidi!</span></td><td>non decidere!</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">不规则动词：</p>
+    <table>
+      <tr><th>动词</th><th>肯定</th><th>否定</th></tr>
+      <tr><td>fare</td><td><span class="verb">fa' / fai!</span></td><td>non fare!</td></tr>
+      <tr><td>dire</td><td><span class="verb">di'!</span></td><td>non dire!</td></tr>
+      <tr><td>andare</td><td><span class="verb">va' / vai!</span></td><td>non andare!</td></tr>
+      <tr><td>stare</td><td><span class="verb">sta' / stai!</span></td><td>non stare!</td></tr>
+      <tr><td>dare</td><td><span class="verb">da' / dai!</span></td><td>non dare!</td></tr>
+      <tr><td>avere</td><td><span class="verb">abbi!</span></td><td>non avere!</td></tr>
+      <tr><td>essere</td><td><span class="verb">sii!</span></td><td>non essere!</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Prova queste scarpe!')">Prova queste scarpe!</span></td><td>试试这双鞋！</td></tr>
+      <tr><td><span class="it" onclick="speak('Leggi il prezzo prima di comprare!')">Leggi il prezzo prima di comprare!</span></td><td>买之前看看价格！</td></tr>
+      <tr><td><span class="it" onclick="speak('Non comprare quelle scarpe, sono care!')">Non comprare quelle scarpe, sono care!</span></td><td>别买那双鞋，太贵了！</td></tr>
+      <tr><td><span class="it" onclick="speak('Chiudi bene le scarpe quando le provi!')">Chiudi bene le scarpe quando le provi!</span></td><td>试穿时系好鞋带！</td></tr>
+      <tr><td><span class="it" onclick="speak('Chiedi se ci sono altri colori!')">Chiedi se ci sono altri colori!</span></td><td>问问有没有其他颜色！</td></tr>
+      <tr><td><span class="it" onclick="speak('Fammi vedere la camicia blu!')">Fammi vedere la camicia blu!</span></td><td>给我看看那件蓝色衬衫！</td></tr>
+      <tr><td><span class="it" onclick="speak('Cammina per un po\' nel negozio con le scarpe ai piedi!')">Cammina per un po' nel negozio con le scarpe ai piedi!</span></td><td>穿着鞋在店里走一走！</td></tr>
+    </table>
+  </div>
+
+  <!-- 7. Che ne dice di...? -->
+  <h3>7. Che ne dice di...?（...怎么样？）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">用于礼貌地提出建议。</p>
+    <table>
+      <tr><td><span class="verb">Che ne dice di...?</span></td><td>您觉得...怎么样？（Lei 正式）</td></tr>
+      <tr><td><span class="verb">Che ne dici di...?</span></td><td>你觉得...怎么样？（tu 非正式）</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Che ne dice di questa cravatta?')">Che ne dice di questa cravatta?</span></td><td>您觉得这条领带怎么样？</td></tr>
+      <tr><td><span class="it" onclick="speak('Che ne dici di quei mocassini?')">Che ne dici di quei mocassini?</span></td><td>你觉得那双乐福鞋怎么样？</td></tr>
+      <tr><td><span class="it" onclick="speak('No, è troppo elegante. Preferisco una cravatta più sportiva.')">No, è troppo elegante. Preferisco una cravatta più sportiva.</span></td><td>不，太正式了。我更喜欢运动风格的领带。</td></tr>
+      <tr><td><span class="it" onclick="speak('No, sono troppo classici. Preferisco degli stivali meno eleganti.')">No, sono troppo classici. Preferisco degli stivali meno eleganti.</span></td><td>不，太经典了。我更喜欢不那么优雅的靴子。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 1 · p.20</h2>
+
+  <h3>&#x1F3A8; Il significato dei colori（颜色的意义）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('Rosso: simbolo di passione e amore. Gli italiani dicono che indossare qualcosa di rosso a Capodanno porta fortuna.')"><strong>Rosso</strong>: simbolo di passione e amore. Gli italiani dicono che indossare qualcosa di rosso a Capodanno porta fortuna.</p>
+    <p class="it" onclick="speak('Giallo: simbolo del sole e della vita. Le persone che amano il giallo sono vivaci e creative. In Italia, i libri con copertina gialla sono romanzi gialli, cioè polizieschi.')"><strong>Giallo</strong>: simbolo del sole e della vita. In Italia, i libri con copertina gialla sono romanzi gialli (polizieschi).</p>
+    <p class="it" onclick="speak('Nero: colore del lutto ma anche dell\'eleganza. Espressioni: lavorare in nero, una giornata nera, vedere tutto nero.')"><strong>Nero</strong>: colore del lutto ma anche dell'eleganza. "lavorare in nero", "una giornata nera", "vedere tutto nero".</p>
+    <p class="it" onclick="speak('Viola: colore sfortunato per gli artisti. Simbolo di dolore e tristezza nel cristianesimo.')"><strong>Viola</strong>: colore sfortunato per gli artisti (cantanti, attori, musicisti).</p>
+    <p class="it" onclick="speak('Blu/Azzurro: colore del mare e del cielo, simbolo di calma, equilibrio e armonia.')"><strong>Blu/Azzurro</strong>: colore del mare e del cielo, simbolo di calma, equilibrio e armonia.</p>
+    <p class="it" onclick="speak('Verde: colore della speranza e della natura. Espressioni: essere al verde, essere verde d\'invidia.')"><strong>Verde</strong>: colore della speranza e della natura. "essere al verde", "essere verde d'invidia".</p>
+    <p class="it" onclick="speak('Bianco: simbolo di purezza. Espressioni: passare la notte in bianco, settimana bianca.')"><strong>Bianco</strong>: simbolo di purezza. "passare la notte in bianco", "settimana bianca".</p>
+    <p class="it" onclick="speak('Rosa: associato alla femminilità, simbolo di amore, dolcezza e bontà.')"><strong>Rosa</strong>: associato alla femminilità, simbolo di amore, dolcezza e bontà.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p><strong>红色</strong>：激情和爱情的象征。意大利人说在元旦穿红色衣物会带来好运。</p>
+    <p><strong>黄色</strong>：阳光和生命的象征。在意大利，黄色封面的书是犯罪、凶杀和警察调查类书籍（giallo = 侦探小说）。</p>
+    <p><strong>黑色</strong>：哀悼的颜色，也是优雅的象征。"lavorare in nero"（非法打工）、"una giornata nera"（倒霉的一天）、"vedere tutto nero"（悲观）。</p>
+    <p><strong>紫色</strong>：对于艺术家（歌手、演员、音乐家）来说是不吉利的颜色。</p>
+    <p><strong>蓝色</strong>：大海和天空的颜色，平静、平衡与和谐的象征。</p>
+    <p><strong>绿色</strong>：希望和自然的颜色。"essere al verde"（没钱了）、"essere verde d'invidia"（非常嫉妒）。</p>
+    <p><strong>白色</strong>：纯洁的象征。"passare la notte in bianco"（一夜未眠）、"settimana bianca"（滑雪周）。</p>
+    <p><strong>粉色</strong>：女性气质的象征，代表爱、温柔和善良。</p>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化对比:</strong><br>
+    Nel tuo Paese, i colori hanno lo stesso significato? — 在你的国家，颜色有相同的含义吗？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 1 — Come mi sta? · p.18-19</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">Valentina和Matteo在服装店购物。Valentina试穿衣服，征求Matteo的意见。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Prima di guardare (p.18): 观察剧照，与台词配对</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Certo, signore. Le camicie da uomo sono da questa parte.')">Certo, signore. Le camicie da uomo sono da questa parte.</span></td><td class="zh">当然，先生。男式衬衫在这边。</td></tr>
+    <tr><td><span class="it" onclick="speak('Senti, io entro per provarlo.')">Senti, io entro per provarlo.</span></td><td class="zh">听着，我进去试穿一下。</td></tr>
+    <tr><td><span class="it" onclick="speak('Matteo! Guarda! Come mi sta? Guarda, anche il cappello.')">Matteo! Guarda! Come mi sta? Guarda, anche il cappello.</span></td><td class="zh">马泰奥！看！我穿得怎么样？看，还有帽子。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, in effetti forse è un po\' stretta!')">Sì, in effetti forse è un po' stretta!</span></td><td class="zh">是的，确实可能有点紧！</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">Mentre guardi (p.19): 填代词对话</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Matteo! Guarda! Come mi sta? Guarda, anche il cappello.')"><strong>Valentina</strong>: Matteo! Guarda! Come <strong>mi</strong> sta? Guarda, anche il cappello.</span></td><td class="zh">瓦伦蒂娜: 马泰奥！看！我穿得怎么样？看，还有帽子。</td></tr>
+    <tr><td><span class="it" onclick="speak('Beh, a me piace... uno dei colori del vestito.')"><strong>Matteo</strong>: Beh, <strong>a me</strong> piace... uno dei colori del vestito.</span></td><td class="zh">马泰奥: 嗯，我喜欢...裙子颜色中的一种。</td></tr>
+    <tr><td><span class="it" onclick="speak('Che vuol dire, \"uno dei colori\"? Di\' pure che non ti piace! Uff!')"><strong>Valentina</strong>: Che vuol dire, "uno dei colori"? Di' pure che non <strong>ti</strong> piace! Uff!</span></td><td class="zh">瓦伦蒂娜: "颜色中的一种"是什么意思？你可以直说不喜欢！哼！</td></tr>
+    <tr><td><span class="it" onclick="speak('No no, ma se piace a te... Ma che è, di pelle?')"><strong>Matteo</strong>: No no, ma se piace <strong>a te</strong>... Ma che è, di pelle?</span></td><td class="zh">马泰奥: 不，只要你喜欢就行...这是什么，皮的吗？</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">找出命令式动词:</p>
+  <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:14px;">
+    <span class="it" onclick="speak('Senti')">Senti</span>,
+    <span class="it" onclick="speak('Dai')">Dai</span>,
+    <span class="it" onclick="speak('vieni')">vieni</span>,
+    <span class="it" onclick="speak('Guarda')">Guarda</span>,
+    <span class="it" onclick="speak('Di\'')">Di'</span>,
+    <span class="it" onclick="speak('Prova')">Prova</span>,
+    <span class="it" onclick="speak('Guarda')">Guarda</span>
+  </div>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">关键表达:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Come mi sta?')">Come mi sta?</span></td><td class="zh">我穿得怎么样？</td></tr>
+    <tr><td><span class="it" onclick="speak('Di\' pure')">Di' pure</span></td><td class="zh">你尽管说（pure用来加强语气）</td></tr>
+    <tr><td><span class="it" onclick="speak('Non è male')">Non è male</span></td><td class="zh">还不错</td></tr>
+    <tr><td><span class="it" onclick="speak('Vediamo subito se va bene')">Vediamo subito se va bene</span></td><td class="zh">我们立刻看看是否合适</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演在服装店购物的场景<br>
+    &bull; 练习使用"vorrei"、"quanto costa"、"provare"等表达<br>
+    &bull; 用"Come mi sta?"、"Che ne dici di...?"练习给出意见
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="index.html" class="home-btn">&larr; Torna al corso</a>
+  <a href="unita-2.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 2</div>
+  <p>Corso di lingua italiana per stranieri · Livello A2</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

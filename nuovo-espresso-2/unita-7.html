@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 7 · Come va? · NUOVO Espresso 2</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 2 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 7 · A2</div>
+  <h1>&#x1F48A; Come va?</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">你好吗/健康状况 · p.97-112</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">健康状况 · 看医生 · 身体部位 · 运动 · Lei命令式 · voi命令式 · buono/bene比较级</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Dal medico -->
+  <h3>1. Dal medico · p.99, es.2</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">看医生 — 听对话并回答问题。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Buongiorno, si accomodi. Allora, che cosa ha?')"><strong>Medico</strong>: Buongiorno, si accomodi. Allora, che cosa ha?</span></td><td class="zh"><strong>医生</strong>: 您好，请坐。您哪里不舒服？</td></tr>
+    <tr><td><span class="it" onclick="speak('Dottore, non mi sento molto bene. Ho mal di testa e un po\' di febbre.')"><strong>Paziente</strong>: Dottore, non mi sento molto bene. Ho mal di testa e un po' di febbre.</span></td><td class="zh"><strong>患者</strong>: 医生，我感觉不太舒服。我头疼，还有点发烧。</td></tr>
+    <tr><td><span class="it" onclick="speak('Da quanti giorni?')"><strong>Medico</strong>: Da quanti giorni?</span></td><td class="zh"><strong>医生</strong>: 几天了？</td></tr>
+    <tr><td><span class="it" onclick="speak('Da ieri sera.')"><strong>Paziente</strong>: Da ieri sera.</span></td><td class="zh"><strong>患者</strong>: 从昨晚开始。</td></tr>
+    <tr><td><span class="it" onclick="speak('Vediamo... ha qualche altro sintomo? Tosse? Mal di gola?')"><strong>Medico</strong>: Vediamo... ha qualche altro sintomo? Tosse? Mal di gola?</span></td><td class="zh"><strong>医生</strong>: 我们看看...还有其他症状吗？咳嗽？喉咙痛？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, anche un po\' di tosse.')"><strong>Paziente</strong>: Sì, anche un po' di tosse.</span></td><td class="zh"><strong>患者</strong>: 是的，还咳嗽。</td></tr>
+    <tr><td><span class="it" onclick="speak('Allora, le misuro la febbre... 37.5. Niente di grave. Le do una ricetta per delle medicine.')"><strong>Medico</strong>: Allora, le misuro la febbre... 37.5. Niente di grave. Le do una ricetta per delle medicine.</span></td><td class="zh"><strong>医生</strong>: 那我量一下体温...37.5度。不严重。我给您开个处方。</td></tr>
+    <tr><td><span class="it" onclick="speak('Riposi per un paio di giorni, beva molta acqua e non mangi cibi grassi.')"><strong>Medico</strong>: Riposi per un paio di giorni, beva molta acqua e non mangi cibi grassi.</span></td><td class="zh"><strong>医生</strong>: 休息两天，多喝水，不要吃油腻食物。</td></tr>
+    <tr><td><span class="it" onclick="speak('Grazie, dottore.')"><strong>Paziente</strong>: Grazie, dottore.</span></td><td class="zh"><strong>患者</strong>: 谢谢医生。</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Ottima idea! -->
+  <h3>2. Ottima idea! · p.103, es.6</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">听对话，了解Paolo的健康问题和建议。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Allora, Paolo, come va con la schiena? Un po\' meglio?')"><strong>A</strong>: Allora, Paolo, come va con la schiena? Un po' meglio?</span></td><td class="zh"><strong>A</strong>: 保罗，你的背怎么样了？好点没？</td></tr>
+    <tr><td><span class="it" onclick="speak('Macché! Mi fa sempre male.')"><strong>Paolo</strong>: Macché! Mi fa sempre male.</span></td><td class="zh"><strong>保罗</strong>: 才没有！还是很疼。</td></tr>
+    <tr><td><span class="it" onclick="speak('E tutti i massaggi che hai fatto? Non sono serviti a niente?')"><strong>A</strong>: E tutti i massaggi che hai fatto? Non sono serviti a niente?</span></td><td class="zh"><strong>A</strong>: 你做的所有按摩呢？一点用都没有吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Evidentemente no. Ieri sono stato di nuovo dal medico, mi ha detto che probabilmente è un problema di stress.')"><strong>Paolo</strong>: Evidentemente no. Ieri sono stato di nuovo dal medico, mi ha detto che probabilmente è un problema di stress.</span></td><td class="zh"><strong>保罗</strong>: 显然没有。我昨天又去看了医生，他说可能是个压力问题。</td></tr>
+    <tr><td><span class="it" onclick="speak('Di stress?')"><strong>A</strong>: Di stress?</span></td><td class="zh"><strong>A</strong>: 压力？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, ha detto che devo imparare a rilassarmi e mi ha consigliato di fare un po\' di sport.')"><strong>Paolo</strong>: Sì, ha detto che devo imparare a rilassarmi e mi ha consigliato di fare un po' di sport.</span></td><td class="zh"><strong>保罗</strong>: 是的，他说我必须学会放松，建议我做点运动。</td></tr>
+    <tr><td><span class="it" onclick="speak('Mi sembra un\'ottima idea! E che sport vuoi fare?')"><strong>A</strong>: Mi sembra un'ottima idea! E che sport vuoi fare?</span></td><td class="zh"><strong>A</strong>: 我觉得是个好主意！你想做什么运动？</td></tr>
+    <tr><td><span class="it" onclick="speak('Mah, forse vado a correre un po\', non lo so...')"><strong>Paolo</strong>: Mah, forse vado a correre un po', non lo so...</span></td><td class="zh"><strong>保罗</strong>: 嗯，也许去跑步，我不知道...</td></tr>
+    <tr><td><span class="it" onclick="speak('Mhh... correre però non fa benissimo alla schiena.')"><strong>A</strong>: Mhh... correre però non fa benissimo alla schiena.</span></td><td class="zh"><strong>A</strong>: 嗯...但跑步对背不太有好处。</td></tr>
+    <tr><td><span class="it" onclick="speak('E allora vado a giocare a calcio, oppure a tennis.')"><strong>Paolo</strong>: E allora vado a giocare a calcio, oppure a tennis.</span></td><td class="zh"><strong>保罗</strong>: 那我去踢足球或者打网球。</td></tr>
+    <tr><td><span class="it" onclick="speak('Io avrei un\'idea migliore. Perché non vieni a fare tai chi con me?')"><strong>A</strong>: Io avrei un'idea migliore. Perché non vieni a fare tai chi con me?</span></td><td class="zh"><strong>A</strong>: 我有个更好的主意。为什么不跟我来做太极呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Mah, non lo so... a me questo tipo di sport non piace tanto...')"><strong>Paolo</strong>: Mah, non lo so... a me questo tipo di sport non piace tanto...</span></td><td class="zh"><strong>保罗</strong>: 嗯，我不知道...我不太喜欢这种运动...</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, però per rilassarsi è l\'ideale! Anch\'io prima ero sempre stressata, ma da quando faccio tai chi mi sento benissimo.')"><strong>A</strong>: Sì, però per rilassarsi è l'ideale! Anch'io prima ero sempre stressata, ma da quando faccio tai chi mi sento benissimo.</span></td><td class="zh"><strong>A</strong>: 但是放松来说，它是最理想的！我以前也总是压力很大，但自从做太极以来，我感觉非常好。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>健康问题 (Problemi di salute)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il mal di testa')">il mal di testa</td><td>s.m.</td><td>头疼</td></tr>
+    <tr><td class="it" onclick="speak('il mal di pancia')">il mal di pancia</td><td>s.m.</td><td>肚子疼</td></tr>
+    <tr><td class="it" onclick="speak('il mal di schiena')">il mal di schiena</td><td>s.m.</td><td>背疼</td></tr>
+    <tr><td class="it" onclick="speak('il mal di denti')">il mal di denti</td><td>s.m.</td><td>牙疼</td></tr>
+    <tr><td class="it" onclick="speak('il mal di gola')">il mal di gola</td><td>s.m.</td><td>喉咙痛</td></tr>
+    <tr><td class="it" onclick="speak('la febbre')">la febbre</td><td>s.f.</td><td>发烧</td></tr>
+    <tr><td class="it" onclick="speak('la tosse')">la tosse</td><td>s.f.</td><td>咳嗽</td></tr>
+    <tr><td class="it" onclick="speak('il raffreddore')">il raffreddore</td><td>s.m.</td><td>感冒</td></tr>
+    <tr><td class="it" onclick="speak('l\'influenza')">l'influenza</td><td>s.f.</td><td>流感</td></tr>
+    <tr><td class="it" onclick="speak('l\'allergia')">l'allergia</td><td>s.f.</td><td>过敏</td></tr>
+    <tr><td class="it" onclick="speak('lo stress')">lo stress</td><td>s.m.</td><td>压力</td></tr>
+    <tr><td class="it" onclick="speak('la stanchezza')">la stanchezza</td><td>s.f.</td><td>疲劳</td></tr>
+    <tr><td class="it" onclick="speak('il dolore')">il dolore</td><td>s.m.</td><td>疼痛</td></tr>
+  </table>
+
+  <h3>身体部位 (Parti del corpo)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th><th>复数</th></tr>
+    <tr><td class="it" onclick="speak('la testa')">la testa</td><td>s.f.</td><td>头</td><td>le teste</td></tr>
+    <tr><td class="it" onclick="speak('il braccio')">il braccio</td><td>s.m.</td><td>手臂</td><td><strong>le braccia</strong></td></tr>
+    <tr><td class="it" onclick="speak('la mano')">la mano</td><td>s.f.</td><td>手</td><td><strong>le mani</strong></td></tr>
+    <tr><td class="it" onclick="speak('il dito')">il dito</td><td>s.m.</td><td>手指</td><td><strong>le dita</strong></td></tr>
+    <tr><td class="it" onclick="speak('la gamba')">la gamba</td><td>s.f.</td><td>腿</td><td>le gambe</td></tr>
+    <tr><td class="it" onclick="speak('il ginocchio')">il ginocchio</td><td>s.m.</td><td>膝盖</td><td><strong>le ginocchia</strong></td></tr>
+    <tr><td class="it" onclick="speak('il piede')">il piede</td><td>s.m.</td><td>脚</td><td>i piedi</td></tr>
+    <tr><td class="it" onclick="speak('l\'orecchio')">l'orecchio</td><td>s.m.</td><td>耳朵</td><td><strong>le orecchie</strong></td></tr>
+    <tr><td class="it" onclick="speak('l\'occhio')">l'occhio</td><td>s.m.</td><td>眼睛</td><td>gli occhi</td></tr>
+    <tr><td class="it" onclick="speak('il labbro')">il labbro</td><td>s.m.</td><td>嘴唇</td><td><strong>le labbra</strong></td></tr>
+    <tr><td class="it" onclick="speak('la schiena')">la schiena</td><td>s.f.</td><td>背部</td><td>le schiene</td></tr>
+  </table>
+
+  <h3>运动和休闲 (Sport e tempo libero)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il calcio')">il calcio</td><td>s.m.</td><td>足球</td></tr>
+    <tr><td class="it" onclick="speak('il tennis')">il tennis</td><td>s.m.</td><td>网球</td></tr>
+    <tr><td class="it" onclick="speak('il nuoto')">il nuoto</td><td>s.m.</td><td>游泳</td></tr>
+    <tr><td class="it" onclick="speak('la pallavolo')">la pallavolo</td><td>s.f.</td><td>排球</td></tr>
+    <tr><td class="it" onclick="speak('il basket')">il basket</td><td>s.m.</td><td>篮球</td></tr>
+    <tr><td class="it" onclick="speak('lo sci')">lo sci</td><td>s.m.</td><td>滑雪</td></tr>
+    <tr><td class="it" onclick="speak('il ciclismo')">il ciclismo</td><td>s.m.</td><td>自行车运动</td></tr>
+    <tr><td class="it" onclick="speak('la ginnastica')">la ginnastica</td><td>s.f.</td><td>体操/健身</td></tr>
+    <tr><td class="it" onclick="speak('lo yoga')">lo yoga</td><td>s.m.</td><td>瑜伽</td></tr>
+    <tr><td class="it" onclick="speak('il tai chi')">il tai chi</td><td>s.m.</td><td>太极</td></tr>
+    <tr><td class="it" onclick="speak('correre')">correre</td><td>v.</td><td>跑步</td></tr>
+    <tr><td class="it" onclick="speak('fare sport')">fare sport</td><td>esp.</td><td>做运动</td></tr>
+    <tr><td class="it" onclick="speak('andare in bicicletta')">andare in bicicletta</td><td>esp.</td><td>骑自行车</td></tr>
+  </table>
+
+  <h3>以 -tore / -trice / -ista 结尾的名词</h3>
+  <table class="vocab-table">
+    <tr><th>阳性(-tore)</th><th>阴性(-trice)</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il calciatore')">il calciatore</td><td class="it" onclick="speak('la calciatrice')">la calciatrice</td><td>足球运动员</td></tr>
+    <tr><td class="it" onclick="speak('lo scrittore')">lo scrittore</td><td class="it" onclick="speak('la scrittrice')">la scrittrice</td><td>作家</td></tr>
+    <tr><td class="it" onclick="speak('il nuotatore')">il nuotatore</td><td class="it" onclick="speak('la nuotatrice')">la nuotatrice</td><td>游泳运动员</td></tr>
+    <tr><td class="it" onclick="speak('il giocatore')">il giocatore</td><td class="it" onclick="speak('la giocatrice')">la giocatrice</td><td>运动员/玩家</td></tr>
+    <tr><td class="it" onclick="speak('il lavoratore')">il lavoratore</td><td class="it" onclick="speak('la lavoratrice')">la lavoratrice</td><td>工人</td></tr>
+    <tr><td class="it" onclick="speak('il dottore')">il dottore</td><td class="it" onclick="speak('la dottoressa')">la dottoressa</td><td>医生/博士</td></tr>
+  </table>
+  <table class="vocab-table">
+    <tr><th>名词(-ista)</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il/la tennista')">il/la tennista</td><td>网球运动员</td></tr>
+    <tr><td class="it" onclick="speak('il/la turista')">il/la turista</td><td>游客</td></tr>
+    <tr><td class="it" onclick="speak('il/la giornalista')">il/la giornalista</td><td>记者</td></tr>
+    <tr><td class="it" onclick="speak('il/la dentista')">il/la dentista</td><td>牙医</td></tr>
+    <tr><td class="it" onclick="speak('il/la artista')">il/la artista</td><td>艺术家</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. 命令式 Lei -->
+  <h3>1. 命令式 — 礼貌形式 (Lei)</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>动词类别</th><th>命令式(Lei)</th><th>例句</th></tr>
+      <tr><td>-are → -i</td><td><span class="verb">parli</span>!</td><td><span class="it" onclick="speak('Parli più piano, per favore!')"><strong>Parli</strong> più piano, per favore!</span></td></tr>
+      <tr><td>-ere → -a</td><td><span class="verb">legga</span>!</td><td><span class="it" onclick="speak('Legga questo libro!')"><strong>Legga</strong> questo libro!</span></td></tr>
+      <tr><td>-ire → -a</td><td><span class="verb">dorma</span>!</td><td><span class="it" onclick="speak('Dorma di più!')"><strong>Dorma</strong> di più!</span></td></tr>
+      <tr><td>-ire(isc) → -a</td><td><span class="verb">finisca</span>!</td><td><span class="it" onclick="speak('Finisca il lavoro!')"><strong>Finisca</strong> il lavoro!</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">不规则动词的Lei命令式：</p>
+    <table>
+      <tr><th>动词</th><th>命令式(Lei)</th></tr>
+      <tr><td>essere</td><td><span class="verb">sia</span></td></tr>
+      <tr><td>avere</td><td><span class="verb">abbia</span></td></tr>
+      <tr><td>stare</td><td><span class="verb">stia</span></td></tr>
+      <tr><td>andare</td><td><span class="verb">vada</span></td></tr>
+      <tr><td>fare</td><td><span class="verb">faccia</span></td></tr>
+      <tr><td>dare</td><td><span class="verb">dia</span></td></tr>
+      <tr><td>dire</td><td><span class="verb">dica</span></td></tr>
+      <tr><td>venire</td><td><span class="verb">venga</span></td></tr>
+      <tr><td>bere</td><td><span class="verb">beva</span></td></tr>
+      <tr><td>sapere</td><td><span class="verb">sappia</span></td></tr>
+      <tr><td>volere</td><td><span class="verb">voglia</span></td></tr>
+      <tr><td>mettere</td><td><span class="verb">metta</span></td></tr>
+      <tr><td>prendere</td><td><span class="verb">prenda</span></td></tr>
+      <tr><td>uscire</td><td><span class="verb">esca</span></td></tr>
+      <tr><td>rimanere</td><td><span class="verb">rimanga</span></td></tr>
+      <tr><td>scegliere</td><td><span class="verb">scelga</span></td></tr>
+      <tr><td>spegnere</td><td><span class="verb">spenga</span></td></tr>
+      <tr><td>tradurre</td><td><span class="verb">traduca</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">医生给患者的建议（Lei命令式）：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Si accomodi!')"><strong>Si accomodi</strong>!</span></td><td>请坐！</td></tr>
+      <tr><td><span class="it" onclick="speak('Non mangi troppa carne!')"><strong>Non mangi</strong> troppa carne!</span></td><td>不要吃太多肉！</td></tr>
+      <tr><td><span class="it" onclick="speak('Non beva alcolici!')"><strong>Non beva</strong> alcolici!</span></td><td>不要喝酒！</td></tr>
+      <tr><td><span class="it" onclick="speak('Faccia movimento!')"><strong>Faccia</strong> movimento!</span></td><td>做运动！</td></tr>
+      <tr><td><span class="it" onclick="speak('Si calmi, per favore!')"><strong>Si calmi</strong>, per favore!</span></td><td>请冷静！</td></tr>
+      <tr><td><span class="it" onclick="speak('Prenda queste medicine due volte al giorno.')"><strong>Prenda</strong> queste medicine due volte al giorno.</span></td><td>这些药一天吃两次。</td></tr>
+      <tr><td><span class="it" onclick="speak('Riposi per un paio di giorni!')"><strong>Riposi</strong> per un paio di giorni!</span></td><td>休息两天！</td></tr>
+      <tr><td><span class="it" onclick="speak('Non vada al sole!')"><strong>Non vada</strong> al sole!</span></td><td>不要去晒太阳！</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. 命令式 voi -->
+  <h3>2. 命令式 — 第二人称复数 (voi)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">voi的命令式几乎总是与现在时的第二人称复数形式相同。</p>
+    <table>
+      <tr><th>动词</th><th>现在时(voi)</th><th>命令式(voi)</th></tr>
+      <tr><td>parlare</td><td>parlate</td><td><span class="verb">Parlate</span>!</td></tr>
+      <tr><td>leggere</td><td>leggete</td><td><span class="verb">Leggete</span>!</td></tr>
+      <tr><td>dormire</td><td>dormite</td><td><span class="verb">Dormite</span>!</td></tr>
+      <tr><td>finire</td><td>finite</td><td><span class="verb">Finite</span>!</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例外：</p>
+    <table>
+      <tr><td>essere → <span class="verb">siate</span>!</td></tr>
+      <tr><td>avere → <span class="verb">abbiate</span>!</td></tr>
+      <tr><td>sapere → <span class="verb">sappiate</span>!</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. 否定命令式 Lei / voi -->
+  <h3>3. 否定命令式（Lei 和 voi）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>否定命令式形式</th><th>例句</th></tr>
+      <tr><td><strong>Lei</strong></td><td>non + 命令式</td><td><span class="it" onclick="speak('Non mangi troppo!')"><strong>Non mangi</strong> troppo!</span> / <span class="it" onclick="speak('Non vada lì!')"><strong>Non vada</strong> lì!</span></td></tr>
+      <tr><td><strong>voi</strong></td><td>non + 命令式</td><td><span class="it" onclick="speak('Non mangiate troppo!')"><strong>Non mangiate</strong> troppo!</span> / <span class="it" onclick="speak('Non andate lì!')"><strong>Non andate</strong> lì!</span></td></tr>
+    </table>
+    <p style="font-size:13px;color:var(--ne-muted);margin-top:10px;">注意：与tu的否定命令式不同（non + 不定式），Lei和voi的否定命令式直接使用否定词+命令式形式。</p>
+  </div>
+
+  <!-- 4. 代词在Lei命令式中的位置 -->
+  <h3>4. 代词在Lei命令式中的位置</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">与tu命令式不同，在Lei命令式中，代词放在动词前面。</p>
+    <table>
+      <tr><th>形式</th><th>例句</th></tr>
+      <tr><td>肯定</td><td><span class="it" onclick="speak('Si accomodi!')"><strong>Si accomodi</strong>!</span> (请坐！)</td></tr>
+      <tr><td>否定</td><td><span class="it" onclick="speak('Non si preoccupi!')"><strong>Non si preoccupi</strong>!</span> (别担心！)</td></tr>
+      <tr><td>代词在前</td><td><span class="it" onclick="speak('Mi dica!')"><strong>Mi dica</strong>!</span> 请告诉我！</td></tr>
+      <tr><td>代词在前</td><td><span class="it" onclick="speak('Lo prenda!')"><strong>Lo prenda</strong>!</span> 请拿着它！</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Si metta comodo!')"><strong>Si metta</strong> comodo!</span></td><td>请随意/请坐得舒服点！</td></tr>
+      <tr><td><span class="it" onclick="speak('Non si alzi!')"><strong>Non si alzi</strong>!</span></td><td>请不要站起来！</td></tr>
+      <tr><td><span class="it" onclick="speak('Mi dia il Suo passaporto.')"><strong>Mi dia</strong> il Suo passaporto.</span></td><td>请给我您的护照。</td></tr>
+      <tr><td><span class="it" onclick="speak('La metta qui!')"><strong>La metta</strong> qui!</span></td><td>请把它放在这里！</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. buono / bene 比较级最高级 -->
+  <h3>5. buono 和 bene 的比较级与最高级</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>级别</th><th>buono (好的，形)</th><th>bene (好，副)</th></tr>
+      <tr><td>原级</td><td>buono</td><td>bene</td></tr>
+      <tr><td>比较级</td><td><span class="verb">migliore</span> (更好的)</td><td><span class="verb">meglio</span> (更好地)</td></tr>
+      <tr><td>最高级相对</td><td><span class="verb">il/la migliore</span> (最好的)</td><td><span class="verb">il meglio</span> (最好地)</td></tr>
+      <tr><td>最高级绝对</td><td><span class="verb">buonissimo</span> / <span class="verb">ottimo</span> (非常好的)</td><td><span class="verb">benissimo</span> (非常好地)</td></tr>
+      <tr><td>高级(非常)</td><td>molto buono (很好)</td><td>molto bene (很好)</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Questo ristorante è migliore di quello.')">Questo ristorante è <strong>migliore</strong> di quello.</span></td><td>这家餐厅比那家好。</td></tr>
+      <tr><td><span class="it" onclick="speak('Oggi sto meglio di ieri.')">Oggi sto <strong>meglio</strong> di ieri.</span></td><td>我今天感觉比昨天好。</td></tr>
+      <tr><td><span class="it" onclick="speak('È la migliore pizza della città.')">È <strong>la migliore</strong> pizza della città.</span></td><td>这是城里最好的披萨。</td></tr>
+      <tr><td><span class="it" onclick="speak('Per rilassarsi, la cosa migliore è andare in vacanza.')">Per rilassarsi, <strong>la cosa migliore</strong> è andare in vacanza.</span></td><td>为了放松，最好的办法是去度假。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mi sento benissimo!')">Mi sento <strong>benissimo</strong>!</span></td><td>我感觉非常好！</td></tr>
+      <tr><td><span class="it" onclick="speak('Questo dolce è ottimo!')">Questo dolce è <strong>ottimo</strong>!</span></td><td>这个蛋糕棒极了！</td></tr>
+      <tr><td><span class="it" onclick="speak('Correre non fa benissimo alla schiena.')">Correre non fa <strong>benissimo</strong> alla schiena.</span></td><td>跑步对背部不是很好。</td></tr>
+      <tr><td><span class="it" onclick="speak('Nuotare fa molto bene alla schiena.')">Nuotare fa molto <strong>bene</strong> alla schiena.</span></td><td>游泳对背部非常好。</td></tr>
+      <tr><td><span class="it" onclick="speak('Meglio tardi che mai.')"><strong>Meglio</strong> tardi che mai.</span></td><td>迟到总比不到好。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 7 · p.109</h2>
+
+  <h3>&#x26BD; Il calcio italiano（意大利足球）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('Il calcio è lo sport più popolare in Italia. Ogni domenica milioni di tifosi seguono le partite del campionato di Serie A.')">Il calcio è lo sport più popolare in Italia. Ogni domenica milioni di tifosi seguono le partite del campionato di Serie A.</p>
+    <p class="it" onclick="speak('Le squadre più importanti sono: Juventus (Torino), Milan e Inter (Milano), Roma e Lazio (Roma), Napoli, Fiorentina, Sampdoria e Genoa.')">Le squadre più importanti sono: Juventus (Torino), Milan e Inter (Milano), Roma e Lazio (Roma), Napoli, Fiorentina, Sampdoria e Genoa.</p>
+    <p class="it" onclick="speak('I tifosi chiamano le squadre con soprannomi basati sui colori della maglia:')">I tifosi chiamano le squadre con soprannomi basati sui colori della maglia.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">球队昵称（根据球衣颜色）：</p>
+    <table class="vocab-table">
+      <tr><th>球队</th><th>昵称</th><th>含义</th></tr>
+      <tr><td>Fiorentina</td><td class="it" onclick="speak('i viola')">"i viola"</td><td>紫色军团</td></tr>
+      <tr><td>Milan</td><td class="it" onclick="speak('i rossoneri')">"i rossoneri"</td><td>红黑色军团</td></tr>
+      <tr><td>Inter</td><td class="it" onclick="speak('i nerazzurri')">"i nerazzurri"</td><td>蓝黑色军团</td></tr>
+      <tr><td>Roma</td><td class="it" onclick="speak('i giallorossi')">"i giallorossi"</td><td>黄红色军团</td></tr>
+      <tr><td>Nazionale Italiana</td><td class="it" onclick="speak('gli azzurri')">"gli azzurri"</td><td>蓝色军团</td></tr>
+    </table>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化对比:</strong><br>
+    Conosci qualche squadra di calcio italiana? — 你认识意大利的足球队吗？<br>
+    Quali sport sono popolari nel tuo Paese? — 你的国家什么运动最流行？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 7 — Ho un dolore qui... · p.108-109</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">Federico去Matteo的诊所看病。Federico是Matteo的朋友，但也想被当作普通患者对待。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">关键表达:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ma no, macché grave, faccia quello che ho detto e vedrà che tra un paio di settimane starà più bene.')">Ma no, macché grave, faccia quello che ho detto e vedrà che tra un paio di settimane starà più bene.</span></td><td class="zh">不，一点也不严重，按我说的做，一两周后就会好多了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Se mi parli da amico non vale, mi devi parlare da medico.')">Se mi parli da amico non vale, mi devi parlare da medico.</span></td><td class="zh">如果你以朋友身份跟我说话那不行，你得用医生的方式跟我说话。</td></tr>
+    <tr><td><span class="it" onclick="speak('Dica 33')"><strong>Dica 33</strong></span></td><td class="zh">意大利传统医嘱用语（让患者说"33"来检查发音）</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">对话填空 — 医生用语（Lei命令式练习）：</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Per favore, Dottore, mi dica...')">Per favore, Dottore, mi <strong>dica</strong>...</span></td><td class="zh">请告诉我...</td></tr>
+    <tr><td><span class="it" onclick="speak('Allora le analisi e i raggi sono buoni, però...')">Allora le <strong>analisi</strong> e i <strong>raggi</strong> sono buoni, però...</span></td><td class="zh">检查结果和X光片都还好，但是...</td></tr>
+    <tr><td><span class="it" onclick="speak('Si calmi, per favore.')"><strong>Si calmi</strong>, per favore.</span></td><td class="zh">请冷静。</td></tr>
+    <tr><td><span class="it" onclick="speak('Questi disturbi che Lei ha spesso: mal di testa, mal di stomaco, stanchezza...')">Questi <strong>disturbi</strong> che Lei ha spesso: mal di testa, mal di <strong>stomaco</strong>, stanchezza...</span></td><td class="zh">您经常有的这些不适：头痛、胃痛、疲劳...</td></tr>
+    <tr><td><span class="it" onclick="speak('E quindi non mangi troppa carne, faccia movimento, non beva alcolici...')">E quindi non <strong>mangi</strong> troppa carne, <strong>faccia</strong> movimento, non <strong>beva</strong> alcolici...</span></td><td class="zh">所以不要吃太多肉，做运动，不要喝酒...</td></tr>
+    <tr><td><span class="it" onclick="speak('Faccia di nuovo le analisi e vediamo se va meglio.')"><strong>Faccia</strong> di nuovo le analisi e vediamo se va <strong>meglio</strong>.</span></td><td class="zh">再做一次检查，看看是否好转。</td></tr>
+    <tr><td><span class="it" onclick="speak('Le faccio anche una ricetta per delle pillole di vitamine. Le prenda due al giorno, dopo i pasti.')">Le faccio anche una <strong>ricetta</strong> per delle <strong>pillole</strong> di vitamine. Le <strong>prenda</strong> due al giorno, dopo i pasti.</span></td><td class="zh">我给您开个维生素药片的处方。一天吃两次，饭后服用。</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演医生和患者的场景<br>
+    &bull; 练习使用Lei命令式给出建议<br>
+    &bull; 用"Come va?"、"mi sento..."等表达讨论健康状况
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-6.html" style="background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25);">&larr; Unità 6</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+  <a href="unita-8.html">Unità 8 &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 2</div>
+  <p>Corso di lingua italiana per stranieri · Livello A2</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

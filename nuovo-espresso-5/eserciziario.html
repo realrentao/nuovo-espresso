@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&#x1F4DD; Eserciziario · NUOVO Espresso 5</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+    .ex-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--ne-red); color: #fff; border-radius: 50%; font-size: 12px; font-weight: 700; margin-right: 8px; flex-shrink: 0; }
+    .ex-line { margin: 8px 0; display: flex; align-items: baseline; gap: 6px; }
+    .blank { display: inline-block; min-width: 80px; border-bottom: 2px solid var(--ne-gold-dark); padding: 0 4px; color: var(--ne-blue); font-weight: 600; }
+    .options { font-size: 13px; color: var(--ne-muted); margin-left: 6px; }
+    .answer { color: var(--ne-orange); font-weight: 600; cursor: pointer; }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 5 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> &#x1F4DD; Eserciziario · C1</div>
+  <h1>&#x1F4DD; Eserciziario</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">综合练习 · 覆盖10个单元 · 50+道练习题</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">最高级前缀 · 分裂句 · 虚拟式配合 · 假设句 · 代词动词 · 命令式 · 被动语态</p>
+</section>
+
+<!-- Lezione 1 -->
+<section class="page-section" id="lezione1">
+  <h2>&#x1F539; Lezione 1 — Quanta Italia c'è in te?</h2>
+
+  <h3>&#x1F4DD; Esercizio 1: Prefissi superlativi</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">1</span>Completa con il prefisso superlativo corretto: <strong>stra-, arci-, super-, iper-</strong></p>
+    <div class="ex-line"><span class="it" onclick="speak('Marco è ________contento del risultato.')">1. Marco &egrave; <span class="blank">________</span>contento del risultato.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Questa notizia è ________nota a tutti.')">2. Questa notizia &egrave; <span class="blank">________</span>nota a tutti.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Mio fratello è ________attivo, non sta mai fermo.')">3. Mio fratello &egrave; <span class="blank">________</span>attivo, non sta mai fermo.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Ho comprato una macchina ________veloce.')">4. Ho comprato una macchina <span class="blank">________</span>veloce.</span></div>
+    <p style="font-size:12px;color:var(--ne-muted);margin-top:8px;">(soluzioni: 1.stra 2.arci 3.iper 4.super)</p>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 2: Latinismi</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">2</span>Abbina il latinismo alla frase corretta:</p>
+    <table>
+      <tr><th>Latinismo</th><th>Frase</th></tr>
+      <tr><td class="it" onclick="speak('a priori')">a priori</td><td>_____ &egrave; meglio non fare supposizioni.</td></tr>
+      <tr><td class="it" onclick="speak('viceversa')">viceversa</td><td>Tu lavori, io studio e _____ .</td></tr>
+      <tr><td class="it" onclick="speak('ad hoc')">ad hoc</td><td>Abbiamo creato una soluzione _____ per il problema.</td></tr>
+      <tr><td class="it" onclick="speak('ergo')">ergo</td><td>Ho pensato, _____ sono.</td></tr>
+    </table>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 3: Futuro negativo per dubbio</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">3</span>Trasforma usando il futuro negativo per esprimere dubbio:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Non so se lui arriverà in tempo.')">1. Forse non arriva. &rarr; <span class="blank">Non ________</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Non so se avranno finito il lavoro.')">2. Forse non finiscono. &rarr; <span class="blank">Non ________</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Non so se sarà vero.')">3. Forse non &egrave; vero. &rarr; <span class="blank">Non ________</span></span></div>
+  </div>
+</section>
+
+<!-- Lezione 2 -->
+<section class="page-section" id="lezione2">
+  <h2>&#x1F539; Lezione 2 — La nuova letteratura</h2>
+
+  <h3>&#x1F4DD; Esercizio 4: Frase scissa esplicita</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">4</span>Trasforma in frase scissa esplicita:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Marco ha vinto il premio.')">1. Marco ha vinto il premio. &rarr; <span class="blank">&Egrave; Marco che</span> ha vinto il premio.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Ti ho cercato qui.')">2. Ti ho cercato qui. &rarr; <span class="blank">&Egrave; qui che</span> ti ho cercato.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Ho comprato questo libro ieri.')">3. Ho comprato questo libro ieri. &rarr; <span class="blank">&Egrave; ieri che</span> ho comprato questo libro.</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 5: Frase pseudoscissa</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">5</span>Completa con la struttura pseudoscissa (Quello che... &egrave;):</p>
+    <div class="ex-line"><span class="it" onclick="speak('Voglio la qualità.')">1. <span class="blank">Quello che voglio</span> &egrave; la qualit&agrave;.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('È importante studiare.')">2. <span class="blank">Quello che conta</span> &egrave; studiare.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Non capisco il tuo comportamento.')">3. <span class="blank">Ciò che non capisco</span> &egrave; il tuo comportamento.</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 6: Passato remoto</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">6</span>Coniuga al passato remoto:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Dante nacque a Firenze nel 1265.')">1. Dante (nascere) <span class="blank">nacque</span> a Firenze nel 1265.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Manzoni scrisse I Promessi Sposi.')">2. Manzoni (scrivere) <span class="blank">scrisse</span> I Promessi Sposi.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('I Romani costruirono il Colosseo.')">3. I Romani (costruire) <span class="blank">costruirono</span> il Colosseo.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Lei (leggere) lesse quel romanzo in un giorno.')">4. Lei (leggere) <span class="blank">lesse</span> quel romanzo in un giorno.</span></div>
+  </div>
+</section>
+
+<!-- Lezione 3 -->
+<section class="page-section" id="lezione3">
+  <h2>&#x1F539; Lezione 3 — Con la testa nel pallone</h2>
+
+  <h3>&#x1F4DD; Esercizio 7: Concordanza del congiuntivo (anteriorit&agrave;)</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">7</span>Completa con il tempo corretto del congiuntivo:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Credo che loro abbiano già finito.')">1. Credo che loro (finire) <span class="blank">abbiano finito</span> gi&agrave;.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Pensavo che tu fossi arrivato ieri.')">2. Pensavo che tu (arrivare) <span class="blank">fossi arrivato</span> ieri.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Dubito che loro abbiano vinto la partita.')">3. Dubito che loro (vincere) <span class="blank">abbiano vinto</span> la partita.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Non sapevo che Maria fosse già partita.')">4. Non sapevo che Maria (partire) <span class="blank">fosse partita</span> gi&agrave;.</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 8: Verbi difettivi</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">8</span>Scegli il verbo corretto:</p>
+    <div class="ex-line"><span class="it" onclick="speak('La questione verte/ferve sul nuovo regolamento.')">1. La questione <span class="blank">verte</span> sul nuovo regolamento.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Noi sogliamo/ferviamo alzarci presto.')">2. Noi <span class="blank">sogliamo</span> alzarci presto.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Il lavoro ferve/verte in ufficio.')">3. Il lavoro <span class="blank">ferve</span> in ufficio.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Mi prude/ferve la mano.')">4. Mi <span class="blank">prude</span> la mano.</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 9: Essere/stare regionale</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">9</span>Completa con essere o stare:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Noi ________ a casa oggi. (standard)')">1. Noi <span class="blank">stiamo</span> a casa oggi. (standard)</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Al Sud dicono: ________ la macchina in garage.')">2. Al Sud dicono: <span class="blank">teniamo</span> la macchina in garage.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Io ________ di Napoli. (provenienza)')">3. Io <span class="blank">sono</span> di Napoli. (provenienza)</span></div>
+  </div>
+</section>
+
+<!-- Lezione 4 -->
+<section class="page-section" id="lezione4">
+  <h2>&#x1F539; Lezione 4 — La grande bellezza</h2>
+
+  <h3>&#x1F4DD; Esercizio 10: Congiuntivo esortativo/dubitativo/ottativo</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">10</span>Identifica il tipo di congiuntivo indipendente:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Che Dio ti benedica!')">1. "Che Dio ti benedica!" = <span class="blank">esortativo</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Che sia vero?')">2. "Che sia vero?" = <span class="blank">dubitativo</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Magari fosse qui!')">3. "Magari fosse qui!" = <span class="blank">ottativo</span></span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 11: Participio presente</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">11</span>Forma il participio presente:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Una persona che parla molto = una persona ________')">1. Una persona che parla molto = una persona <span class="blank">parlante</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Un insegnante che ama il proprio lavoro = un insegnante ________')">2. Un insegnante che ama il proprio lavoro = un insegnante <span class="blank">amante</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Una situazione che cambia = una situazione ________')">3. Una situazione che cambia = una situazione <span class="blank">cambiante</span></span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 12: Aggettivo bello</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">12</span>Completa con la forma corretta di bello:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Ho visto un ________ film.')">1. Ho visto un <span class="blank">bel</span> film.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Che ________ giornata!')">2. Che <span class="blank">bella</span> giornata!</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Abbiamo visitato dei ________ posti.')">3. Abbiamo visitato dei <span class="blank">bei</span> posti.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Un ________ amico mi ha aiutato.')">4. Un <span class="blank">bell'</span>amico mi ha aiutato.</span></div>
+  </div>
+</section>
+
+<!-- Lezione 5 -->
+<section class="page-section" id="lezione5">
+  <h2>&#x1F539; Lezione 5 — Il buon mangiare</h2>
+
+  <h3>&#x1F4DD; Esercizio 13: Futuro vs Condizionale passato</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">13</span>Scegli la forma corretta:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Penso che (verrò/sarei venuto) domani.')">1. Penso che <span class="blank">verr&ograve;</span> domani.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Pensavo che (verrò/sarei venuto) il giorno dopo.')">2. Pensavo che <span class="blank">sarei venuto</span> il giorno dopo.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Marco disse che (farà/avrebbe fatto) la spesa.')">3. Marco disse che <span class="blank">avrebbe fatto</span> la spesa.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Mi prometto che (farò/avrei fatto) dieta.')">4. Mi prometto che <span class="blank">far&ograve;</span> dieta.</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 14: Condizionale passato + Congiuntivo</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">14</span>Completa la frase:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Avrei voluto che tu (essere) ________ qui.')">1. Avrei voluto che tu <span class="blank">fossi</span> qui.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Avrei preferito che loro (arrivare) ________ prima.')">2. Avrei preferito che loro <span class="blank">fossero arrivati</span> prima.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Sarebbe stato meglio (andare) ________ in un altro ristorante.')">3. Sarebbe stato meglio <span class="blank">andare</span> in un altro ristorante.</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 15: Intensificatori</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">15</span>Completa con bello, buono o raddoppio:</p>
+    <div class="ex-line"><span class="it" onclick="speak('La pasta è pronta ________.')">1. La pasta &egrave; pronta <span class="blank">bello</span>.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Il formaggio è ________ grasso.')">2. Il formaggio &egrave; <span class="blank">buono</span> grasso.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Cammina ________ ________, non correre!')">3. Cammina <span class="blank">piano piano</span>, non correre!</span></div>
+  </div>
+</section>
+
+<!-- Lezione 6 -->
+<section class="page-section" id="lezione6">
+  <h2>&#x1F539; Lezione 6 — Parole in musica</h2>
+
+  <h3>&#x1F4DD; Esercizio 16: Che polivalente</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">16</span>Identifica la funzione del "che" polivalente:</p>
+    <div class="ex-line"><span class="it" onclick="speak('L\'anno che ci siamo sposati... (temporale/causale)')">1. L'anno che ci siamo sposati... = <span class="blank">temporale</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Che fame ho! (causale/consecutivo)')">2. Che fame ho! = <span class="blank">causale</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Sono così stanco che mi addormento. (finale/consecutivo)')">3. Sono cos&igrave; stanco che mi addormento. = <span class="blank">consecutivo</span></span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 17: Pronomi relativi doppi</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">17</span>Completa con chi, quanto, chiunque, dovunque:</p>
+    <div class="ex-line"><span class="it" onclick="speak('________ tace acconsente.')">1. <span class="blank">Chi</span> tace acconsente.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Ho fatto ________ mi hai chiesto.')">2. Ho fatto <span class="blank">quanto</span> mi hai chiesto.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('________ venga, digli che non ci sono.')">3. <span class="blank">Chiunque</span> venga, digli che non ci sono.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('________ vada, lo troverò.')">4. <span class="blank">Dovunque</span> vada, lo trover&ograve;.</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 18: Periodo ipotetico varianti</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">18</span>Completa il periodo ipotetico:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Se (studiare) ________, imparerai.')">1. Se <span class="blank">studi</span>, imparerai.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Se (avere) ________ tempo, andrei al cinema.')">2. Se <span class="blank">avessi</span> tempo, andrei al cinema.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Se (sapere) ________ prima, non sarebbe successo.')">3. Se <span class="blank">avessi saputo</span> prima, non sarebbe successo.</span></div>
+  </div>
+</section>
+
+<!-- Lezione 7 -->
+<section class="page-section" id="lezione7">
+  <h2>&#x1F539; Lezione 7 — Quanto sei figo?</h2>
+
+  <h3>&#x1F4DD; Esercizio 19: Infinito presente e passato</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">19</span>Completa con l'infinito presente o passato:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Spero di (arrivare) ________ in tempo.')">1. Spero di <span class="blank">arrivare</span> in tempo.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Dopo (finire) ________ gli studi, trovò lavoro.')">2. Dopo <span class="blank">aver finito</span> gli studi, trov&ograve; lavoro.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Prima di (uscire) ________, chiudi la porta.')">3. Prima di <span class="blank">uscire</span>, chiudi la porta.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Dopo (mangiare) ________, siamo usciti.')">4. Dopo <span class="blank">aver mangiato</span>, siamo usciti.</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 20: Gerundio assoluto</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">20</span>Trasforma usando il gerundio assoluto:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Siccome tu sei stanco, ho deciso di rimandare. = ________ tu stanco...')">1. Siccome tu sei stanco &rarr; <span class="blank">Essendo</span> tu stanco...</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Poiché lui ha finito il lavoro, siamo usciti. = ________ lui finito il lavoro...')">2. Poich&eacute; lui ha finito il lavoro &rarr; <span class="blank">Avendo</span> lui finito il lavoro...</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 21: Ancora</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">21</span>Interpreta il significato di "ancora":</p>
+    <div class="ex-line"><span class="it" onclick="speak('Ancora tu! (positivo/negativo)')">1. "Ancora tu!" = <span class="blank">negativo</span> (fastidio)</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Non è ancora arrivato.')">2. "Non &egrave; ancora arrivato." = <span class="blank">non &egrave; arrivato fino ad ora</span></span></div>
+  </div>
+</section>
+
+<!-- Lezione 8 -->
+<section class="page-section" id="lezione8">
+  <h2>&#x1F539; Lezione 8 — Tutti all'Opera!</h2>
+
+  <h3>&#x1F4DD; Esercizio 22: Da/per + infinito</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">22</span>Completa con da o per:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Ho comprato un libro ________ leggere.')">1. Ho comprato un libro <span class="blank">da</span> leggere.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Lavoro ________ vivere, non vivo ________ lavorare.')">2. Lavoro <span class="blank">per</span> vivere, non vivo <span class="blank">per</span> lavorare.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Non c\'è niente ________ fare.')">3. Non c'&egrave; niente <span class="blank">da</span> fare.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Grazie ________ essere venuto.')">4. Grazie <span class="blank">per</span> essere venuto.</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 23: Dislocazione a destra</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">23</span>Trasforma con dislocazione a destra:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Ho comprato il pane.')">&rarr; <span class="blank">L'ho comprato</span>, il pane.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Vediamo domani.')">&rarr; <span class="blank">Ci vediamo</span>, domani.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Non sopporto Marco.')">&rarr; <span class="blank">Non lo sopporto</span>, Marco.</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 24: Addirittura</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">24</span>Completa con <span class="it" onclick="speak('addirittura')">"addirittura"</span>:</p>
+    <div class="ex-line"><span class="it" onclick="speak('È così ricco che ________ ha comprato un\'isola.')">1. &Egrave; cos&igrave; ricco che <span class="blank">addirittura</span> ha comprato un'isola.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Non solo è bravo, ________ parla cinque lingue.')">2. Non solo &egrave; bravo, <span class="blank">addirittura</span> parla cinque lingue.</span></div>
+  </div>
+</section>
+
+<!-- Lezione 9 -->
+<section class="page-section" id="lezione9">
+  <h2>&#x1F539; Lezione 9 — Donne d'Italia</h2>
+
+  <h3>&#x1F4DD; Esercizio 25: Periodo ipotetico implicito</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">25</span>Trasforma in forma implicita:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Se studi, impari. &rarr; A ________, impari.')">1. Se studi, impari. &rarr; A <span class="blank">studiare</span>, impari.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Se ti impegni, ottieni risultati. &rarr; ________, ottieni risultati.')">2. Se ti impegni, ottieni risultati. &rarr; <span class="blank">Impegnandoti</span>, ottieni risultati.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Se avessi studiato, ora sapresti. &rarr; A ________, ora sapresti.')">3. Se avessi studiato, ora sapresti. &rarr; A <span class="blank">aver studiato</span>, ora sapresti.</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 26: Connettivi ipotetici</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">26</span>Scegli il connettivo corretto:</p>
+    <div class="ex-line"><span class="it" onclick="speak('________ tu venissi, sarei felice. (Qualora/Purché)')">1. <span class="blank">Qualora</span> tu venissi, sarei felice.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Partirò ________ tu sia d\'accordo. (qualora/purché)')">2. Partir&ograve; <span class="blank">purch&eacute;</span> tu sia d'accordo.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Vengo ________ che lui non si opponga. (sempre/qualora)')">3. Vengo, <span class="blank">sempre che</span> lui non si opponga.</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 27: Non pleonastico</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">27</span>Il "non" &egrave; pleonastico (ridondante) o necessario?</p>
+    <div class="ex-line"><span class="it" onclick="speak('Temo che non venga. (pleonastico/necessario)')">1. Temo che non venga. = <span class="blank">pleonastico</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Spero che non piova. (pleonastico/necessario)')">2. Spero che non piova. = <span class="blank">necessario</span></span></div>
+  </div>
+</section>
+
+<!-- Lezione 10 -->
+<section class="page-section" id="lezione10">
+  <h2>&#x1F539; Lezione 10 — L'italiano (mi) cambia</h2>
+
+  <h3>&#x1F4DD; Esercizio 28: Superlativi idiomatici</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">28</span>Completa con espressioni superlative:</p>
+    <div class="ex-line"><span class="it" onclick="speak('È buono ________ ________ (da morire/davvero)')">1. &Egrave; buono <span class="blank">da morire</span>.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Fa un freddo ________ ________ (da cani/tanto)')">2. Fa un freddo <span class="blank">da cani</span>.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Mi sono divertita ________ ________ (da matti/tanto)')">3. Mi sono divertita <span class="blank">da matti</span>.</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 29: Verbi pronominali</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">29</span>Completa con il verbo pronominale corretto:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Ce l\'ho fatta! (farcela/andarsene)')">1. Ce l'<span class="blank">ho fatta</span>! = farcela</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Me ne vado. (andarsene/starsene)')">2. Me ne <span class="blank">vado</span>. = andarsene</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Ci vuole un\'ora. (volerci/metterci)')">3. Ci <span class="blank">vuole</span> un'ora. = volerci</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Me la sono presa. (prendersela/cavarsela)')">4. Me la sono <span class="blank">presa</span>. = prendersela</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Me la cavo. (sentirsela/cavarsela)')">5. Me la <span class="blank">cavo</span>. = cavarsela</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 30: Imperativo indiretto</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">30</span>Trasforma in imperativo indiretto (Lei):</p>
+    <div class="ex-line"><span class="it" onclick="speak('Parla! &rarr; (Lei) ________!')">1. Parla! &rarr; (Lei) <span class="blank">Parli!</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Leggi! &rarr; (Lei) ________!')">2. Leggi! &rarr; (Lei) <span class="blank">Legga!</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Vieni qui! &rarr; (Lei) ________ qui!')">3. Vieni qui! &rarr; (Lei) <span class="blank">Venga</span> qui!</span></div>
+  </div>
+</section>
+
+<!-- Extra exercises -->
+<section class="page-section" id="extra">
+  <h2>&#x1F3C6; Esercizi supplementari</h2>
+
+  <h3>&#x1F4DD; Esercizio 31: Forma passiva</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">31</span>Trasforma dal passivo all'attivo:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Il libro è stato letto da Marco. &rarr; Marco ________ il libro.')">1. Il libro &egrave; stato letto da Marco. &rarr; Marco <span class="blank">ha letto</span> il libro.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('La casa sarà costruita. &rarr; ________ la casa.')">2. La casa sar&agrave; costruita. &rarr; <span class="blank">Costruiranno</span> la casa.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Si mangia bene qui. &rarr; ________ bene qui.')">3. Si mangia bene qui. &rarr; <span class="blank">La gente mangia</span> bene qui.</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 32: Pronomi combinati</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">32</span>Sostituisci con pronomi combinati:</p>
+    <div class="ex-line"><span class="it" onclick="speak('Dai il libro a me. &rarr; ________ dai?')">1. Dai il libro a me. &rarr; <span class="blank">Me lo</span> dai?</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Racconto la storia a te. &rarr; ________ racconto.')">2. Racconto la storia a te. &rarr; <span class="blank">Te la</span> racconto.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Dico la verità a lui. &rarr; ________ dico.')">3. Dico la verit&agrave; a lui. &rarr; <span class="blank">Gliela</span> dico.</span></div>
+    <div class="ex-line"><span class="it" onclick="speak('Parlo di questo a voi. &rarr; ________ parlo dopo.')">4. Parlo di questo a voi. &rarr; <span class="blank">Ve ne</span> parlo dopo.</span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 33: Segnali discorsivi</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">33</span>Abbina il segnale discorsivo alla funzione:</p>
+    <table>
+      <tr><th>Segnale</th><th>Funzione</th></tr>
+      <tr><td class="it" onclick="speak('Allora')">Allora</td><td><span class="blank">inizio discorso / conclusione</span></td></tr>
+      <tr><td class="it" onclick="speak('Cioè')">Cio&egrave;</td><td><span class="blank">spiegazione / correzione</span></td></tr>
+      <tr><td class="it" onclick="speak('Insomma')">Insomma</td><td><span class="blank">riassunto / esitazione</span></td></tr>
+      <tr><td class="it" onclick="speak('Comunque')">Comunque</td><td><span class="blank">cambio di argomento</span></td></tr>
+      <tr><td class="it" onclick="speak('Mah')">Mah</td><td><span class="blank">dubbio / incertezza</span></td></tr>
+    </table>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 34: Alterati</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">34</span>Forma l'alterato corretto:</p>
+    <div class="ex-line"><span class="it" onclick="speak('casa + one = ________')">1. casa + one = <span class="blank">casona</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('gatto + ino = ________')">2. gatto + ino = <span class="blank">gattino</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('tempo + accio = ________')">3. tempo + accio = <span class="blank">tempaccio</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('libro + one = ________')">4. libro + one = <span class="blank">librone</span></span></div>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 35: Comparativi e superlativi irregolari</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">35</span>Completa la tabella:</p>
+    <table>
+      <tr><th>Aggettivo</th><th>Comparativo</th><th>Superlativo assoluto</th></tr>
+      <tr><td class="it" onclick="speak('buono')">buono</td><td><span class="blank">migliore</span></td><td><span class="blank">ottimo</span></td></tr>
+      <tr><td class="it" onclick="speak('cattivo')">cattivo</td><td><span class="blank">peggiore</span></td><td><span class="blank">pessimo</span></td></tr>
+      <tr><td class="it" onclick="speak('grande')">grande</td><td><span class="blank">maggiore</span></td><td><span class="blank">massimo</span></td></tr>
+      <tr><td class="it" onclick="speak('piccolo')">piccolo</td><td><span class="blank">minore</span></td><td><span class="blank">minimo</span></td></tr>
+    </table>
+  </div>
+
+  <h3>&#x1F4DD; Esercizio 36: Prefixes review</h3>
+  <div class="grammar-box">
+    <p><span class="ex-num">36</span>Abbina il prefisso negativo al contrario:</p>
+    <div class="ex-line"><span class="it" onclick="speak('possibile → in/ir ________')">1. possibile &rarr; <span class="blank">impossibile</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('onesto → in/dis ________')">2. onesto &rarr; <span class="blank">disonesto</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('legale → in/il ________')">3. legale &rarr; <span class="blank">illegale</span></span></div>
+    <div class="ex-line"><span class="it" onclick="speak('felice → in/s ________')">4. felice &rarr; <span class="blank">infelice</span></span></div>
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="grammatica-riassuntiva.html">&larr; Grammatica Riassuntiva</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 5</div>
+  <p>Corso di lingua italiana per stranieri · Livello C1</p>
+  <p style="margin-top:8px;opacity:0.6;">Giorgio Massei • Rosella Bellagamba · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

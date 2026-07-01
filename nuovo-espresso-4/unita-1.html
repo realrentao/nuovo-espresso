@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 1 · Scuola e dintorni · NUOVO Espresso 4</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 4 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 1 · B2</div>
+  <h1>&#x1F393; Scuola e dintorni</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">学校与周边 · p.11-17</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">讨论学校经历 · 双助动词搭配 · passato prossimo / imperfetto / passato remoto对比 · chi / ciò che关系代词 · 自反代词动词 · 表达同意/不同意 · 惊讶/怀疑</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Che cosa studi? -->
+  <h3>1. Che cosa studi? · p.11, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">两名学生互相询问学习经历和学校生活。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ciao! Tu che cosa studi all\'università?')"><strong>A</strong>: Ciao! Tu che cosa studi all'università?</span></td><td class="zh"><strong>A</strong>: 你好！你在大学学什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Faccio lettere moderne. E tu?')"><strong>B</strong>: Faccio lettere moderne. E tu?</span></td><td class="zh"><strong>B</strong>: 我学现代文学。你呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Io studio lingue e letterature straniere. Da quanto tempo studi l\'italiano?')"><strong>A</strong>: Io studio lingue e letterature straniere. Da quanto tempo studi l'italiano?</span></td><td class="zh"><strong>A</strong>: 我学外国语言文学。你学意大利语多久了？</td></tr>
+    <tr><td><span class="it" onclick="speak('Studio italiano da tre anni. Prima di iscrivermi all\'università, avevo già studiato lo spagnolo. E tu?')"><strong>B</strong>: Studio italiano da tre anni. Prima di iscrivermi all'università, avevo già studiato lo spagnolo. E tu?</span></td><td class="zh"><strong>B</strong>: 我学了三年意大利语。在上大学之前，我已经学过西班牙语了。你呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Io invece ho cominciato l\'anno scorso. Devo ancora fare molti progressi!')"><strong>A</strong>: Io invece ho cominciato l'anno scorso. Devo ancora fare molti progressi!</span></td><td class="zh"><strong>A</strong>: 我去年才开始。我还要取得很多进步！</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Un ricordo scolastico -->
+  <h3>2. Un ricordo scolastico · p.12, es.3</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">听一名学生讲述她最难忘的学校回忆。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Quando frequentavo il liceo, avevo un professore di italiano molto speciale. Si chiamava professor Bianchi.')"><strong>Racconto</strong>: Quando frequentavo il liceo, avevo un professore di italiano molto speciale. Si chiamava professor Bianchi.</span></td><td class="zh"><strong>讲述</strong>: 我上高中的时候，有一位非常特别的意大利语老师。他叫比安基老师。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ogni giorno ci leggeva poesie con una voce appassionata. Un giorno si commosse mentre recitava "L\'infinito" di Leopardi.')">Ogni giorno ci leggeva poesie con una voce appassionata. Un giorno si commosse mentre recitava "L'infinito" di Leopardi.</span></td><td class="zh">每天他都用充满激情的声音给我们读诗。有一天，他在朗诵莱奥帕尔迪的《无限》时感动了。</td></tr>
+    <tr><td><span class="it" onclick="speak('In quel momento ho capito che la letteratura non era solo una materia. Era un modo di sentire.')">In quel momento <strong>ho capito</strong> che la letteratura non era solo una materia. Era un modo di sentire.</span></td><td class="zh">那一刻我明白了，文学不仅仅是一门学科。它是一种感受方式。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ancora oggi, quando ripenso a quella lezione, mi emoziono. È proprio vero che un buon insegnante lascia un segno per sempre.')">Ancora oggi, quando ripenso a quella lezione, mi emoziono. È proprio vero che un buon insegnante lascia un segno per sempre.</span></td><td class="zh">直到今天，每当我想起那节课，我仍然会感动。一个好老师确实会留下永久的印记。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Sei d'accordo? -->
+  <h3>3. Sei d'accordo? · p.13, es.5</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">表达同意和不同意——阅读以下观点并回答。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Secondo me, la scuola italiana è troppo teorica. Manca la pratica.')"><strong>Opinione 1</strong>: Secondo me, la scuola italiana è troppo teorica. Manca la pratica.</span></td><td class="zh"><strong>观点1</strong>: 在我看来，意大利学校太理论化了。缺乏实践。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non sono d\'accordo. Penso che la teoria sia la base per qualsiasi apprendimento.')"><strong>Opinione 2</strong>: Non sono d'accordo. Penso che la teoria sia la base per qualsiasi apprendimento.</span></td><td class="zh"><strong>观点2</strong>: 我不同意。我认为理论是一切学习的基础。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sono convinto che gli insegnanti dovrebbero essere più preparati psicologicamente.')"><strong>Opinione 3</strong>: Sono convinto che gli insegnanti dovrebbero essere più preparati psicologicamente.</span></td><td class="zh"><strong>观点3</strong>: 我坚信教师应该在心理方面接受更多培训。</td></tr>
+    <tr><td><span class="it" onclick="speak('Mah, non so. Ciò che conta davvero è la motivazione dello studente.')"><strong>Opinione 4</strong>: Mah, non so. Ciò che conta davvero è la motivazione dello studente.</span></td><td class="zh"><strong>观点4</strong>: 嗯，我不知道。真正重要的是学生的动力。</td></tr>
+    <tr><td><span class="it" onclick="speak('È vero! Chi non vuole studiare, non studia nemmeno con il miglior insegnante del mondo.')"><strong>Opinione 5</strong>: È vero! Chi non vuole studiare, non studia nemmeno con il miglior insegnante del mondo.</span></td><td class="zh"><strong>观点5</strong>: 确实！不想学习的人，即使是世界上最好的老师也教不了。</td></tr>
+  </table>
+
+  <!-- Dialogo 4: Che sorpresa! -->
+  <h3>4. Che sorpresa! · p.14, es.7</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">表达惊讶和怀疑——短对话练习。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Indovina! Ho superato l\'esame di matematica!')"><strong>A</strong>: Indovina! Ho superato l'esame di matematica!</span></td><td class="zh"><strong>A</strong>: 你猜怎么着！我数学考试通过了！</td></tr>
+    <tr><td><span class="it" onclick="speak('Davvero? Non ci credo! Ma se dicevi che era difficilissimo!')"><strong>B</strong>: Davvero? Non ci credo! Ma se dicevi che era difficilissimo!</span></td><td class="zh"><strong>B</strong>: 真的吗？我不信！你不是说它超级难吗！</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, ma ho studiato tantissimo. Mi sono dovuta alzare alle 5 ogni mattina per un mese!')"><strong>A</strong>: Sì, ma ho studiato tantissimo. Mi sono dovuta alzare alle 5 ogni mattina per un mese!</span></td><td class="zh"><strong>A</strong>: 是的，但我学了很多。我每天5点起床，坚持了一个月！</td></tr>
+    <tr><td><span class="it" onclick="speak('Ah, ecco! Adesso capisco. Complimenti! Te lo sei meritato!')"><strong>B</strong>: Ah, ecco! Adesso capisco. Complimenti! Te lo sei meritato!</span></td><td class="zh"><strong>B</strong>: 啊，原来如此！现在明白了。恭喜！这是你应得的！</td></tr>
+  </table>
+
+  <!-- Dialogo 5: Espressioni idiomatiche -->
+  <h3>5. Espressioni idiomatiche sulla scuola · p.15, es.9</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">意大利语中与学校相关的习语表达。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Marco è proprio una cima in matematica! Prende sempre 10.')"><strong>Essere una cima</strong>: Marco è proprio una cima in matematica! Prende sempre 10.</span></td><td class="zh"><strong>很厉害</strong>: 马尔科在数学方面真是个高手！总是拿满分。</td></tr>
+    <tr><td><span class="it" onclick="speak('Purtroppo per me, in fisica sono una frana.')"><strong>Essere una frana</strong>: Purtroppo per me, in fisica sono una frana.</span></td><td class="zh"><strong>很差劲</strong>: 可惜的是，我在物理方面糟透了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Oggi non ho voglia di andare a scuola. Perché non mariniamo la scuola?')"><strong>Marinare la scuola</strong>: Oggi non ho voglia di andare a scuola. Perché non mariniamo la scuola?</span></td><td class="zh"><strong>逃学</strong>: 今天我不想去上学。我们逃学吧？</td></tr>
+    <tr><td><span class="it" onclick="speak('Scusa, non ti ho sentito. Avevo la testa tra le nuvole.')"><strong>Avere la testa tra le nuvole</strong>: Scusa, non ti ho sentito. Avevo la testa tra le nuvole.</span></td><td class="zh"><strong>心不在焉</strong>: 抱歉，我没听到你说的。我刚才走神了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non fare il professore! Non sei mica il nostro insegnante!')"><strong>Essere il professore</strong>: Non fare il professore! Non sei mica il nostro insegnante!</span></td><td class="zh"><strong>装老师</strong>: 别装老师了！你又不是我们的老师！</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F393; 学校相关动词 (Verbi scolastici)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('frequentare')">frequentare</td><td>vt</td><td>上学，出席</td></tr>
+    <tr><td class="it" onclick="speak('iscriversi')">iscriversi</td><td>vr</td><td>注册，报名</td></tr>
+    <tr><td class="it" onclick="speak('laurearsi')">laurearsi</td><td>vr</td><td>毕业（大学）</td></tr>
+    <tr><td class="it" onclick="speak('superare')">superare</td><td>vt</td><td>通过（考试）</td></tr>
+    <tr><td class="it" onclick="speak('bocciare')">bocciare</td><td>vt</td><td>不及格，淘汰</td></tr>
+    <tr><td class="it" onclick="speak('interrogare')">interrogare</td><td>vt</td><td>口头提问</td></tr>
+    <tr><td class="it" onclick="speak('ripetere')">ripetere</td><td>vt</td><td>重复，复读</td></tr>
+    <tr><td class="it" onclick="speak('migliorare')">migliorare</td><td>vt/vi</td><td>改善，提高</td></tr>
+    <tr><td class="it" onclick="speak('approfondire')">approfondire</td><td>vt</td><td>深入，深化</td></tr>
+    <tr><td class="it" onclick="speak('appassionarsi')">appassionarsi</td><td>vr</td><td>爱上，热衷</td></tr>
+  </table>
+
+  <h3>&#x1F3EB; 名词——学校与教育 (Sostantivi — Scuola e istruzione)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la scuola')">la scuola</td><td>nf</td><td>学校</td></tr>
+    <tr><td class="it" onclick="speak('il liceo')">il liceo</td><td>nm</td><td>高中（文科/理科）</td></tr>
+    <tr><td class="it" onclick="speak('l\'università')">l'università</td><td>nf</td><td>大学</td></tr>
+    <tr><td class="it" onclick="speak('la facoltà')">la facoltà</td><td>nf</td><td>学院，系</td></tr>
+    <tr><td class="it" onclick="speak('la materia')">la materia</td><td>nf</td><td>学科，科目</td></tr>
+    <tr><td class="it" onclick="speak('l\'insegnante')">l'insegnante</td><td>nm/f</td><td>教师</td></tr>
+    <tr><td class="it" onclick="speak('il professore')">il professore</td><td>nm</td><td>教授，老师</td></tr>
+    <tr><td class="it" onclick="speak('il compagno di classe')">il compagno di classe</td><td>nm</td><td>同学</td></tr>
+    <tr><td class="it" onclick="speak('il voto')">il voto</td><td>nm</td><td>分数，成绩</td></tr>
+    <tr><td class="it" onclick="speak('l\'esame')">l'esame</td><td>nm</td><td>考试</td></tr>
+    <tr><td class="it" onclick="speak('la lezione')">la lezione</td><td>nf</td><td>课，课程</td></tr>
+    <tr><td class="it" onclick="speak('il compito')">il compito</td><td>nm</td><td>作业，任务</td></tr>
+    <tr><td class="it" onclick="speak('il diploma')">il diploma</td><td>nm</td><td>毕业文凭</td></tr>
+    <tr><td class="it" onclick="speak('la ricerca')">la ricerca</td><td>nf</td><td>研究，论文</td></tr>
+  </table>
+
+  <h3>&#x1F3C6; 习语表达 (Espressioni idiomatiche)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>字面意思</th><th>实际含义</th></tr>
+    <tr><td class="it" onclick="speak('Essere una cima')">Essere una cima</td><td>是一座山顶</td><td>非常厉害</td></tr>
+    <tr><td class="it" onclick="speak('Essere una frana')">Essere una frana</td><td>是山体滑坡</td><td>非常糟糕</td></tr>
+    <tr><td class="it" onclick="speak('Prendere un due')">Prendere un due</td><td>得了个2分</td><td>考得很差</td></tr>
+    <tr><td class="it" onclick="speak('Fare secco')">Fare secco</td><td>弄干</td><td>不让通过，挂科</td></tr>
+    <tr><td class="it" onclick="speak('Marinare la scuola')">Marinare la scuola</td><td>腌制学校</td><td>逃学</td></tr>
+    <tr><td class="it" onclick="speak('Avere la testa tra le nuvole')">Avere la testa tra le nuvole</td><td>头在云里</td><td>心不在焉，走神</td></tr>
+    <tr><td class="it" onclick="speak('Essere il professore')">Essere il professore</td><td>是教授</td><td>装老师，好为人师</td></tr>
+    <tr><td class="it" onclick="speak('Farsi interrogare')">Farsi interrogare</td><td>让自己被提问</td><td>被口头测试</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Doppio ausiliare -->
+  <h3>1. Il doppio ausiliare con i verbi modali（情态动词双助动词）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">情态动词（dovere, potere, volere）在复合时态中可与avere或essere连用，取决于其后跟随的动词。</p>
+    <table>
+      <tr><th>规则</th><th>用法</th><th>例句</th></tr>
+      <tr><td><span class="verb">Modale + 自反</span></td><td>使用自反动词的助动词(=essere)</td><td>Si <span class="verb">è dovuta alzare</span> presto. (她不得不早起)</td></tr>
+      <tr><td><span class="verb">Modale + 代动词</span></td><td>现代意语中常用avere</td><td><span class="verb">L'ho potuto aiutare</span>. (我帮了他)</td></tr>
+      <tr><td><span class="verb">Modale + 运动动词</span></td><td>倾向于使用essere</td><td><span class="verb">Sono dovuto andare</span> dal dentista. (我不得不去看牙医)</td></tr>
+      <tr><td><span class="verb">Modale 单独使用</span></td><td>使用avere</td><td><span class="verb">Ho dovuto</span> (studiare). (我不得不——学)</td></tr>
+      <tr><td><span class="verb">Potere 否定形式</span></td><td>essere/avere均可</td><td><span class="verb">Non ho potuto / Non sono potuto</span> venire.</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句对比:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Ho dovuto studiare molto per l\'esame.')"><span class="verb">Ho dovuto studiare</span> molto per l'esame.</span></td><td>为了考试我不得不学了很多。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sono dovuta andare a casa perché stavo male.')"><span class="verb">Sono dovuta andare</span> a casa perché stavo male.</span></td><td>我不得不回家因为我身体不舒服。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non ha potuto venire alla festa.')">Non <span class="verb">ha potuto venire</span> alla festa.</span></td><td>他没能来参加聚会。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mi sono dovuta alzare presto per prendere il treno.')">Mi <span class="verb">sono dovuta alzare</span> presto per prendere il treno.</span></td><td>为了赶火车我不得不早起。</td></tr>
+      <tr><td><span class="it" onclick="speak('Lo ha voluto fare da solo.')">Lo <span class="verb">ha voluto fare</span> da solo.</span></td><td>他想要自己做。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Confronto passato prossimo / imperfetto / passato remoto -->
+  <h3>2. Passato prossimo / Imperfetto / Passato remoto 对比</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">B2级别需要熟练掌握三个过去时态的区别与搭配使用。</p>
+    <table>
+      <tr><th>时态</th><th>用法</th><th>例句</th></tr>
+      <tr><td><span class="verb">Passato prossimo</span></td><td>已完成的具体动作，与现在相关</td><td><span class="it" onclick="speak('Oggi ho studiato tre ore.')">Oggi <span class="verb">ho studiato</span> tre ore.</span></td></tr>
+      <tr><td><span class="verb">Imperfetto</span></td><td>过去持续状态、习惯、背景描述</td><td><span class="it" onclick="speak('Quando ero piccolo, giocavo sempre in cortile.')">Quando <span class="verb">ero</span> piccolo, <span class="verb">giocavo</span> sempre in cortile.</span></td></tr>
+      <tr><td><span class="verb">Passato remoto</span></td><td>遥远的、完全结束的过去动作（叙事）</td><td><span class="it" onclick="speak('Dante nacque a Firenze nel 1265.')">Dante <span class="verb">nacque</span> a Firenze nel 1265.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">综合例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Mentre studiavo (imperfetto) all\'università, ho conosciuto (passato prossimo) Maria.')">Mentre <span class="verb">studiavo</span> (imperfetto) all'università, <span class="verb">ho conosciuto</span> (passato prossimo) Maria.</span></td><td>在大学学习期间，我认识了Maria。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mio nonno nacque (passato remoto) nel 1930 e visse (passato remoto) in campagna per tutta la vita.')">Mio nonno <span class="verb">nacque</span> (passato remoto) nel 1930 e <span class="verb">visse</span> (passato remoto) in campagna per tutta la vita.</span></td><td>我祖父1930年出生，一生住在乡下。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ieri pioveva (imperfetto) quando sono uscito (passato prossimo).')">Ieri <span class="verb">pioveva</span> (imperfetto) quando <span class="verb">sono uscito</span> (passato prossimo).</span></td><td>昨天我出去的时候正在下雨。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Chi / Ciò che -->
+  <h3>3. I pronomi relativi: <span class="verb">chi</span> e <span class="verb">ciò che</span>（关系代词）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;"><span class="verb">Chi</span> 和 <span class="verb">ciò che</span> 是 B2 级别的重要关系代词，它们不指代先行词，而是自身包含先行词。</p>
+    <table>
+      <tr><th>代词</th><th>含义</th><th>例句</th></tr>
+      <tr><td><span class="verb">Chi</span></td><td>la persona che / le persone che =  ...的人</td><td><span class="it" onclick="speak('Chi studia, impara.')"><span class="verb">Chi</span> studia, impara.</span> (学习的人会学到东西)</td></tr>
+      <tr><td><span class="verb">Ciò che</span></td><td>la cosa che / le cose che = ...的事情/东西</td><td><span class="it" onclick="speak('Ciò che dici è interessante.')"><span class="verb">Ciò che</span> dici è interessante.</span> (你说的很有趣)</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Chi non risica, non rosica.')"><span class="verb">Chi</span> non risica, non rosica.</span></td><td>不入虎穴，焉得虎子。(谚语)</td></tr>
+      <tr><td><span class="it" onclick="speak('Ciò che è successo ieri è stato incredibile.')"><span class="verb">Ciò che</span> è successo ieri è stato incredibile.</span></td><td>昨天发生的事情令人难以置信。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non capisco ciò che vuoi dire.')">Non capisco <span class="verb">ciò che</span> vuoi dire.</span></td><td>我不明白你想说什么。</td></tr>
+      <tr><td><span class="it" onclick="speak('Chi è causa del suo male, pianga se stesso.')"><span class="verb">Chi</span> è causa del suo male, pianga se stesso.</span></td><td>自作自受。(谚语)</td></tr>
+      <tr><td><span class="it" onclick="speak('Dimmi ciò che pensi veramente.')">Dimmi <span class="verb">ciò che</span> pensi veramente.</span></td><td>告诉我你真正想的。</td></tr>
+      <tr><td><span class="it" onclick="speak('A chi vuole imparare, nessuna porta è chiusa.')">A <span class="verb">chi</span> vuole imparare, nessuna porta è chiusa.</span></td><td>对想学习的人来说，没有关闭的门。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Riflessivi -->
+  <h3>4. Verbi riflessivi e reciproci（自反动词与相互动词）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">自反动词和相互动词在B2级别需要掌握其复合时态助动词选择及与情态动词的搭配。</p>
+    <table>
+      <tr><th>类型</th><th>构成</th><th>例句</th></tr>
+      <tr><td><span class="verb">自反 (proprio)</span></td><td>si + 动词，助动词essere</td><td><span class="it" onclick="speak('Ieri mi sono svegliato tardi.')">Ieri mi <span class="verb">sono svegliato</span> tardi.</span></td></tr>
+      <tr><td><span class="verb">相互 (reciproco)</span></td><td>ci si / vi si 等复数形式</td><td><span class="it" onclick="speak('Maria e Luca si sono salutati.')">Maria e Luca <span class="verb">si sono salutati</span>.</span></td></tr>
+      <tr><td><span class="verb">自反+情态</span></td><td>用essere (双助动词)</td><td><span class="it" onclick="speak('Mi sono dovuta iscrivere al corso.')">Mi <span class="verb">sono dovuta iscrivere</span> al corso.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">常见自反动词:</p>
+    <table>
+      <tr><th>动词</th><th>含义</th><th>例句</th></tr>
+      <tr><td><span class="verb">iscriversi</span></td><td>注册，报名</td><td><span class="it" onclick="speak('Mi sono iscritto all\'università di lingue.')">Mi <span class="verb">sono iscritto</span> all'università di lingue.</span></td></tr>
+      <tr><td><span class="verb">laurearsi</span></td><td>毕业</td><td><span class="it" onclick="speak('Si è laureata in lettere moderne.')">Si <span class="verb">è laureata</span> in lettere moderne.</span></td></tr>
+      <tr><td><span class="verb">sentirsi</span></td><td>感觉</td><td><span class="it" onclick="speak('Come ti senti oggi?')">Come ti <span class="verb">senti</span> oggi?</span></td></tr>
+      <tr><td><span class="verb">mettersi</span></td><td>开始，穿</td><td><span class="it" onclick="speak('Mi sono messa a studiare italiano.')">Mi <span class="verb">sono messa</span> a studiare italiano.</span></td></tr>
+      <tr><td><span class="verb">appassionarsi</span></td><td>热衷</td><td><span class="it" onclick="speak('Mi sono appassionato alla storia dell\'arte.')">Mi <span class="verb">sono appassionato</span> alla storia dell'arte.</span></td></tr>
+      <tr><td><span class="verb">diplomarsi</span></td><td>高中毕业</td><td><span class="it" onclick="speak('Si è diplomato al liceo scientifico.')">Si <span class="verb">è diplomato</span> al liceo scientifico.</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 1 · p.17</h2>
+
+  <h3>&#x1F393; Il sistema scolastico italiano（意大利学校体系）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('Il sistema scolastico italiano si articola in diversi cicli: la scuola primaria (5 anni), la scuola secondaria di primo grado (3 anni, detta "scuola media") e la scuola secondaria di secondo grado (5 anni, detta "scuola superiore").')">Il sistema scolastico italiano si articola in diversi cicli: la scuola primaria (5 anni), la scuola secondaria di primo grado (3 anni, detta "scuola media") e la scuola secondaria di secondo grado (5 anni, detta "scuola superiore").</p>
+    <p class="it" onclick="speak('Dopo la scuola superiore, gli studenti possono scegliere tra l\'università o l\'istruzione tecnica superiore (ITS). Circa il 60% dei diplomati si iscrive all\'università.')">Dopo la scuola superiore, gli studenti possono scegliere tra l'università o l'istruzione tecnica superiore (ITS). Circa il 60% dei diplomati si iscrive all'università.</p>
+    <p class="it" onclick="speak('L\'esame finale della scuola superiore si chiama "esame di maturità". Ogni anno, circa 500.000 studenti italiani affrontano questo esame tra giugno e luglio.')">L'esame finale della scuola superiore si chiama "esame di maturità". Ogni anno, circa 500.000 studenti italiani affrontano questo esame tra giugno e luglio.</p>
+    <p class="it" onclick="speak('La maturità si compone di tre prove scritte e un colloquio orale. La prima prova è il tema di italiano, uguale per tutti gli indirizzi.')">La maturità si compone di tre prove scritte e un colloquio orale. La prima prova è il tema di italiano, uguale per tutti gli indirizzi.</p>
+    <p class="it" onclick="speak('Negli ultimi anni, l\'esame è stato modificato più volte. Molti studenti lo descrivono come un\'esperienza indimenticabile: un misto di ansia, emozione e soddisfazione finale.')">Negli ultimi anni, l'esame è stato modificato più volte. Molti studenti lo descrivono come un'esperienza indimenticabile: un misto di ansia, emozione e soddisfazione finale.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p class="zh">意大利的教育体系分为几个阶段：小学（5年）、初中（3年，称为scuola media）和高中（5年，称为scuola superiore）。</p>
+    <p class="zh">高中毕业后，学生可以在大学或高等技术学院（ITS）之间选择。约60%的高中毕业生选择上大学。</p>
+    <p class="zh">高中毕业考试叫做"maturità"（毕业会考）。每年约有50万意大利学生在6月到7月间参加这一考试。</p>
+    <p class="zh">Maturità由三场笔试和一场口试组成。第一场是意大利语作文，所有专业方向都一样。</p>
+    <p class="zh">近年来，这项考试已经修改了多次。许多学生将其描述为一次难忘的经历：焦虑、感动和最终满足感的混合。</p>
+  </div>
+
+  <h3>相关文化词汇</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la scuola primaria')">la scuola primaria</td><td>小学</td></tr>
+    <tr><td class="it" onclick="speak('la scuola media')">la scuola media</td><td>初中</td></tr>
+    <tr><td class="it" onclick="speak('la scuola superiore')">la scuola superiore</td><td>高中</td></tr>
+    <tr><td class="it" onclick="speak('l\'esame di maturità')">l'esame di maturità</td><td>高中毕业考试</td></tr>
+    <tr><td class="it" onclick="speak('il diploma di maturità')">il diploma di maturità</td><td>高中毕业文凭</td></tr>
+    <tr><td class="it" onclick="speak('il voto di maturità')">il voto di maturità</td><td>毕业考试成绩（满分100）</td></tr>
+    <tr><td class="it" onclick="speak('il liceo classico')">il liceo classico</td><td>古典高中</td></tr>
+    <tr><td class="it" onclick="speak('il liceo scientifico')">il liceo scientifico</td><td>理科高中</td></tr>
+    <tr><td class="it" onclick="speak('l\'istituto tecnico')">l'istituto tecnico</td><td>技术学院</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化注释:</strong><br>
+    • 意大利的"scuola superiore"持续5年（14-19岁）<br>
+    • 学生可选择不同方向：liceo（偏学术）或istituto tecnico/professionale（偏职业）<br>
+    • 毕业考试满分100分，70分以上为优秀（lode）<br>
+    • Nel tuo Paese, com'è il sistema scolastico? Quali sono le differenze con l'Italia? — 在你的国家，教育体系是怎样的？与意大利有什么不同？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 1 — Scuola e dintorni · p.15-16</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频展示了几个学生讨论他们的学校经历、最喜欢的老师以及不同国家的教育体系差异。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">关键表达 (Espressioni chiave):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Che cosa studi?')">Che cosa studi?</span></td><td class="zh">你学什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Da quanto tempo studi italiano?')">Da quanto tempo studi italiano?</span></td><td class="zh">你学意大利语多久了？</td></tr>
+    <tr><td><span class="it" onclick="speak('Come mai hai scelto questa facoltà?')">Come mai hai scelto questa facoltà?</span></td><td class="zh">你为什么选这个专业？</td></tr>
+    <tr><td><span class="it" onclick="speak('Secondo me... / A mio parere...')">Secondo me... / A mio parere...</span></td><td class="zh">在我看来...</td></tr>
+    <tr><td><span class="it" onclick="speak('Non sono d\'accordo perché...')">Non sono d'accordo perché...</span></td><td class="zh">我不同意，因为...</td></tr>
+    <tr><td><span class="it" onclick="speak('Ciò che penso è che...')">Ciò che penso è che...</span></td><td class="zh">我认为的是...</td></tr>
+    <tr><td><span class="it" onclick="speak('Non ci credo! / Davvero?')">Non ci credo! / Davvero?</span></td><td class="zh">我不信！/ 真的吗？</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">视频讨论主题:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Gli studenti si presentano e parlano del loro percorso scolastico.')">自我介绍: 学生介绍自己的教育背景</span></td><td class="zh">Gli studenti si presentano e parlano del loro percorso scolastico.</td></tr>
+    <tr><td><span class="it" onclick="speak('Discutono i pro e i contro dei diversi sistemi educativi.')">教育比较: 讨论不同教育体系的优缺点</span></td><td class="zh">Discutono i pro e i contro dei diversi sistemi educativi.</td></tr>
+    <tr><td><span class="it" onclick="speak('Raccontano un ricordo legato alla scuola.')">个人经历: 讲述与学校相关的难忘回忆</span></td><td class="zh">Raccontano un ricordo legato alla scuola.</td></tr>
+    <tr><td><span class="it" onclick="speak('Esprimono accordo e disaccordo sulle riforme scolastiche.')">辩论表达: 对教育改革表达同意与不同意</span></td><td class="zh">Esprimono accordo e disaccordo sulle riforme scolastiche.</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演：模拟与同学讨论学校经历<br>
+    &bull; 用双助动词描述自己不得不做的某事（Mi sono dovuto/a...）<br>
+    &bull; 用chi/ciò che造句谈论学校<br>
+    &bull; 比较passato prossimo/imperfetto/passato remoto，并各造一个句子<br>
+    &bull; 用自反动词描述日常生活
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="index.html" class="home-btn">&larr; Torna al corso</a>
+  <a href="unita-2.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 4</div>
+  <p>Corso di lingua italiana per stranieri · Livello B2</p>
+  <p style="margin-top:8px;opacity:0.6;">Maria Bali • Irene Dei · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 6 · A tavola! · NUOVO Espresso 2</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 2 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 6 · A2</div>
+  <h1>&#x1F37D;&#xFE0F; A tavola!</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">开饭了! · p.83-96</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">健康饮食 · 食物评论 · 命令式(不规则) · 代词位置 · servire · quello che</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Abitudini sane -->
+  <h3>1. Abitudini sane · p.86, es.2</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">听采访，判断应该为每个人推荐哪种博客。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('La mattina di solito mangio yogurt e cereali, e qualche volta della frutta, soprattutto d\'estate. A pranzo poi delle belle insalate di riso oppure pasta con i legumi: ceci, fagioli, eccetera.')"><strong>Daniela</strong>: La mattina di solito mangio yogurt e cereali, e qualche volta della frutta, soprattutto d'estate. A pranzo poi delle belle insalate di riso oppure pasta con i legumi: ceci, fagioli, eccetera.</span></td><td class="zh"><strong>达妮埃拉</strong>: 早上我通常吃酸奶和麦片，有时吃点水果，尤其是夏天。午餐吃大米沙拉或者豆类意面：鹰嘴豆、豆子等。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sei anni fa ho smesso di fumare e sono diventata vegetariana. E devo dire che da allora mi sento molto meglio!')"><strong>Daniela</strong>: Sei anni fa ho smesso di fumare e sono diventata vegetariana. E devo dire che da allora mi sento molto meglio!</span></td><td class="zh"><strong>达妮埃拉</strong>: 六年前我戒了烟，变成了素食者。不得不说从那以后我感觉好多了！</td></tr>
+    <tr><td><span class="it" onclick="speak('Mah, le mie abitudini non sono molto sane... la mattina di solito faccio colazione al bar: cornetto e cappuccino. A pranzo un panino veloce e la sera, torno a casa e mia moglie ha preparato qualcosa.')"><strong>Luciano</strong>: Mah, le mie abitudini non sono molto sane... la mattina di solito faccio colazione al bar: cornetto e cappuccino. A pranzo un panino veloce e la sera, torno a casa e mia moglie ha preparato qualcosa.</span></td><td class="zh"><strong>卢恰诺</strong>: 嗯，我的习惯不太健康...早上通常在酒吧吃早餐：羊角面包和卡布奇诺。午餐随便吃个三明治，晚上回家，我妻子准备好了饭菜。</td></tr>
+    <tr><td><span class="it" onclick="speak('Mangio di tutto, ma cerco di mantenermi in forma facendo molto sport.')"><strong>Margherita</strong>: Mangio di tutto, ma cerco di mantenermi in forma facendo molto sport.</span></td><td class="zh"><strong>玛格丽塔</strong>: 我什么都吃，但通过大量运动来保持身材。</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Commentare il cibo -->
+  <h3>2. Commentare il cibo · p.92, es.14</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">将情景与合适的评论配对。</p>
+  <table class="dialog-table">
+    <tr><th style="background:var(--ne-cream);">情景</th><th style="background:var(--ne-cream);">评论</th></tr>
+    <tr><td>汤里盐放多了</td><td><span class="it" onclick="speak('Accidenti, com\'è salata!')">Accidenti, com'è <strong>salata</strong>!</span> (天哪，太咸了！)</td></tr>
+    <tr><td>酱汁里辣椒放多了</td><td><span class="it" onclick="speak('Oddio, com\'è piccante!')">Oddio, com'è <strong>piccante</strong>!</span> (天哪，太辣了！)</td></tr>
+    <tr><td>鸡在烤箱里烤太久了</td><td><span class="it" onclick="speak('È un po\' bruciato!')">È un po' <strong>bruciato</strong>!</span> (有点烤焦了！)</td></tr>
+    <tr><td>沙拉里盐放少了</td><td><span class="it" onclick="speak('Però... è un po\' insipida!')">Però... è un po' <strong>insipida</strong>!</span> (但是...有点淡！)</td></tr>
+    <tr><td>牛排没烤熟</td><td><span class="it" onclick="speak('È un po\' cruda!')">È un po' <strong>cruda</strong>!</span> (有点生！)</td></tr>
+    <tr><td>水果沙拉非常好吃</td><td><span class="it" onclick="speak('È squisita!')">È <strong>squisita</strong>!</span> (太好吃了！)</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Consigli alimentari -->
+  <h3>3. Consigli alimentari · p.88-89, es.8</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">健康饮食规则。</p>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 4px;">Regole per una buona tavola（良好餐桌规则）：</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Fai una colazione completa.')"><strong>Fai</strong> una colazione completa.</span></td><td class="zh">吃一顿丰盛的早餐。</td></tr>
+    <tr><td><span class="it" onclick="speak('Bevi molta acqua durante la giornata.')"><strong>Bevi</strong> molta acqua durante la giornata.</span></td><td class="zh">白天多喝水。</td></tr>
+    <tr><td><span class="it" onclick="speak('Mangia più frutta e verdura.')"><strong>Mangia</strong> più frutta e verdura.</span></td><td class="zh">多吃水果和蔬菜。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non mangiare troppi dolci.')"><strong>Non mangiare</strong> troppi dolci.</span></td><td class="zh">不要吃太多甜食。</td></tr>
+    <tr><td><span class="it" onclick="speak('Preferisci cibi freschi.')"><strong>Preferisci</strong> cibi freschi.</span></td><td class="zh">选择新鲜食物。</td></tr>
+    <tr><td><span class="it" onclick="speak('Siediti quando mangi.')"><strong>Siediti</strong> quando mangi.</span></td><td class="zh">坐着吃饭。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>食物类别 (Alimenti)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la verdura')">la verdura</td><td>s.f.</td><td>蔬菜</td></tr>
+    <tr><td class="it" onclick="speak('la frutta')">la frutta</td><td>s.f.</td><td>水果</td></tr>
+    <tr><td class="it" onclick="speak('la carne')">la carne</td><td>s.f.</td><td>肉</td></tr>
+    <tr><td class="it" onclick="speak('il pesce')">il pesce</td><td>s.m.</td><td>鱼</td></tr>
+    <tr><td class="it" onclick="speak('i legumi')">i legumi</td><td>s.m.pl.</td><td>豆类</td></tr>
+    <tr><td class="it" onclick="speak('i cereali')">i cereali</td><td>s.m.pl.</td><td>谷物</td></tr>
+    <tr><td class="it" onclick="speak('i latticini')">i latticini</td><td>s.m.pl.</td><td>乳制品</td></tr>
+    <tr><td class="it" onclick="speak('le uova')">le uova</td><td>s.f.pl.</td><td>鸡蛋</td></tr>
+    <tr><td class="it" onclick="speak('il formaggio')">il formaggio</td><td>s.m.</td><td>奶酪</td></tr>
+    <tr><td class="it" onclick="speak('il pane')">il pane</td><td>s.m.</td><td>面包</td></tr>
+    <tr><td class="it" onclick="speak('la pasta')">la pasta</td><td>s.f.</td><td>意面</td></tr>
+    <tr><td class="it" onclick="speak('il riso')">il riso</td><td>s.m.</td><td>米饭</td></tr>
+    <tr><td class="it" onclick="speak('lo yogurt')">lo yogurt</td><td>s.m.</td><td>酸奶</td></tr>
+    <tr><td class="it" onclick="speak('il burro')">il burro</td><td>s.m.</td><td>黄油</td></tr>
+  </table>
+
+  <h3>味道和口感 (Sapori e consistenze)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('dolce')">dolce</td><td>agg.</td><td>甜的</td></tr>
+    <tr><td class="it" onclick="speak('salato')">salato</td><td>agg.</td><td>咸的</td></tr>
+    <tr><td class="it" onclick="speak('amaro')">amaro</td><td>agg.</td><td>苦的</td></tr>
+    <tr><td class="it" onclick="speak('agro')">agro</td><td>agg.</td><td>酸的</td></tr>
+    <tr><td class="it" onclick="speak('piccante')">piccante</td><td>agg.</td><td>辣的</td></tr>
+    <tr><td class="it" onclick="speak('insipido')">insipido</td><td>agg.</td><td>淡而无味的</td></tr>
+    <tr><td class="it" onclick="speak('squisito')">squisito</td><td>agg.</td><td>美味的</td></tr>
+    <tr><td class="it" onclick="speak('buono')">buono</td><td>agg.</td><td>好吃的</td></tr>
+    <tr><td class="it" onclick="speak('cattivo')">cattivo</td><td>agg.</td><td>难吃的</td></tr>
+    <tr><td class="it" onclick="speak('crudo')">crudo</td><td>agg.</td><td>生的</td></tr>
+    <tr><td class="it" onclick="speak('cotto')">cotto</td><td>agg.</td><td>熟的</td></tr>
+    <tr><td class="it" onclick="speak('bruciato')">bruciato</td><td>agg.</td><td>烧焦的</td></tr>
+    <tr><td class="it" onclick="speak('grasso')">grasso</td><td>agg.</td><td>油腻的/肥的</td></tr>
+    <tr><td class="it" onclick="speak('magro')">magro</td><td>agg.</td><td>瘦的/清淡的</td></tr>
+    <tr><td class="it" onclick="speak('duro')">duro</td><td>agg.</td><td>硬的</td></tr>
+    <tr><td class="it" onclick="speak('morbido')">morbido</td><td>agg.</td><td>软的</td></tr>
+  </table>
+
+  <h3>烹饪动词 (Verbi di cucina)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('cucinare')">cucinare</td><td>v.</td><td>烹饪</td></tr>
+    <tr><td class="it" onclick="speak('cuocere')">cuocere</td><td>v.</td><td>煮/烤</td></tr>
+    <tr><td class="it" onclick="speak('friggere')">friggere</td><td>v.</td><td>炸</td></tr>
+    <tr><td class="it" onclick="speak('bollire')">bollire</td><td>v.</td><td>煮(水煮)</td></tr>
+    <tr><td class="it" onclick="speak('arrostire')">arrostire</td><td>v.</td><td>烤</td></tr>
+    <tr><td class="it" onclick="speak('aggiungere')">aggiungere</td><td>v.</td><td>添加</td></tr>
+    <tr><td class="it" onclick="speak('mescolare')">mescolare</td><td>v.</td><td>搅拌</td></tr>
+    <tr><td class="it" onclick="speak('tagliare')">tagliare</td><td>v.</td><td>切</td></tr>
+    <tr><td class="it" onclick="speak('pelare')">pelare</td><td>v.</td><td>削皮</td></tr>
+    <tr><td class="it" onclick="speak('preparare')">preparare</td><td>v.</td><td>准备</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. 不规则命令式 (tu) -->
+  <h3>1. 不规则命令式（第二人称单数 tu）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>动词</th><th>命令式</th><th>例句</th></tr>
+      <tr><td>essere</td><td><span class="verb">sii</span></td><td><span class="it" onclick="speak('Sii gentile con gli ospiti!')"><strong>Sii</strong> gentile con gli ospiti!</span> 对客人友好点！</td></tr>
+      <tr><td>avere</td><td><span class="verb">abbi</span></td><td><span class="it" onclick="speak('Abbia pazienza!')"><strong>Abbia</strong> pazienza!</span> 耐心点！</td></tr>
+      <tr><td>stare</td><td><span class="verb">sta' / stai</span></td><td><span class="it" onclick="speak('Sta\' attento!')"><strong>Sta'</strong> attento! / <strong>Stai</strong> attento!</span> 注意！</td></tr>
+      <tr><td>dire</td><td><span class="verb">di'</span></td><td><span class="it" onclick="speak('Di\' la verità!')"><strong>Di'</strong> la verità!</span> 说实话！</td></tr>
+      <tr><td>fare</td><td><span class="verb">fa' / fai</span></td><td><span class="it" onclick="speak('Fa\' piano!')"><strong>Fa'</strong> / <strong>Fai</strong> piano!</span> 慢点！</td></tr>
+      <tr><td>dare</td><td><span class="verb">da' / dai</span></td><td><span class="it" onclick="speak('Da\' un\'occhiata!')"><strong>Da'</strong> / <strong>Dai</strong> un'occhiata!</span> 看一眼！</td></tr>
+      <tr><td>andare</td><td><span class="verb">va' / vai</span></td><td><span class="it" onclick="speak('Va\' subito!')"><strong>Va'</strong> / <strong>Vai</strong> subito!</span> 马上去！</td></tr>
+      <tr><td>venire</td><td><span class="verb">vieni</span></td><td><span class="it" onclick="speak('Vieni qui!')"><strong>Vieni</strong> qui!</span> 过来！</td></tr>
+      <tr><td>bere</td><td><span class="verb">bevi</span></td><td><span class="it" onclick="speak('Bevi più acqua!')"><strong>Bevi</strong> più acqua!</span> 多喝水！</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">规则动词命令式回顾：</p>
+    <table>
+      <tr><th>动词类</th><th>示例</th></tr>
+      <tr><td>-are 动词</td><td><span class="verb">Parla</span>! / <span class="verb">Non parlare</span>!</td></tr>
+      <tr><td>-ere 动词</td><td><span class="verb">Leggi</span>! / <span class="verb">Non leggere</span>!</td></tr>
+      <tr><td>-ire 动词</td><td><span class="verb">Dormi</span>! / <span class="verb">Non dormire</span>!</td></tr>
+      <tr><td>-ire(isc) 动词</td><td><span class="verb">Finisci</span>! / <span class="verb">Non finire</span>!</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. 否定命令式 (tu) -->
+  <h3>2. 否定命令式（第二人称单数 tu）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">结构：Non + 不定式</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Non mangiare troppi dolci!')"><strong>Non mangiare</strong> troppi dolci!</span></td><td>不要吃太多甜食！</td></tr>
+      <tr><td><span class="it" onclick="speak('Non bere alcolici!')"><strong>Non bere</strong> alcolici!</span></td><td>不要喝酒！</td></tr>
+      <tr><td><span class="it" onclick="speak('Non fumare!')"><strong>Non fumare</strong>!</span></td><td>不要抽烟！</td></tr>
+      <tr><td><span class="it" onclick="speak('Non stare seduto per più di due ore!')"><strong>Non stare</strong> seduto per più di due ore!</span></td><td>不要连续坐超过两小时！</td></tr>
+      <tr><td><span class="it" onclick="speak('Non andare a piedi, è troppo lontano!')"><strong>Non andare</strong> a piedi, è troppo lontano!</span></td><td>不要走路去，太远了！</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">代词在否定命令式中的位置：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Non ci andare! / Non andarci!')"><strong>Non ci andare</strong>! / <strong>Non andarci</strong>!</span></td><td>不要去那里！</td></tr>
+      <tr><td><span class="it" onclick="speak('Non lo mangiare! / Non mangiarlo!')"><strong>Non lo mangiare</strong>! / <strong>Non mangiarlo</strong>!</span></td><td>别吃它！</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. 动词 servire -->
+  <h3>3. 动词 servire（需要/有用）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">servire与piacere结构类似，主语是"需要的东西"，间接宾语是"需要的人"。</p>
+    <table>
+      <tr><th>主语数</th><th>形式</th><th>例句</th></tr>
+      <tr><td>单数</td><td><span class="verb">serve</span></td><td><span class="it" onclick="speak('Mi serve un cappotto nuovo.')">Mi <strong>serve</strong> un cappotto nuovo.</span> 我需要一件新大衣。</td></tr>
+      <tr><td>复数</td><td><span class="verb">servono</span></td><td><span class="it" onclick="speak('Mi servono tre uova.')">Mi <strong>servono</strong> tre uova.</span> 我需要三个鸡蛋。</td></tr>
+      <tr><td>+ 不定式</td><td><span class="verb">serve</span></td><td><span class="it" onclick="speak('Non ti serve aspettare.')">Non ti <strong>serve</strong> aspettare.</span> 你不需要等。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Mi serve un po\' di tempo.')">Mi serve un po' di tempo.</span></td><td>我需要一点时间。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ci serve una macchina nuova.')">Ci serve una macchina nuova.</span></td><td>我们需要一辆新车。</td></tr>
+      <tr><td><span class="it" onclick="speak('Le diete non servono a niente!')">Le diete non servono a niente!</span></td><td>节食毫无用处！</td></tr>
+      <tr><td><span class="it" onclick="speak('Non ti serve a niente saltare i pasti.')">Non ti serve a niente saltare i pasti.</span></td><td>不吃饭对你没好处。</td></tr>
+      <tr><td><span class="it" onclick="speak('Quanto pane ci serve?')">Quanto pane ci serve?</span></td><td>我们需要多少面包？</td></tr>
+      <tr><td><span class="it" onclick="speak('Per fare il dolce, mi servono ancora due uova.')">Per fare il dolce, mi servono ancora due uova.</span></td><td>做蛋糕我还需要两个鸡蛋。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. quello che -->
+  <h3>4. quello che（...的东西/事情）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">quello che = "the thing that" / "what"，用于引出一个从句。</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Quello che ha detto è molto interessante.')"><strong>Quello che</strong> ha detto è molto interessante.</span></td><td>他说的很有意思。</td></tr>
+      <tr><td><span class="it" onclick="speak('È importante quello che mangi.')">È importante <strong>quello che</strong> mangi.</span></td><td>你吃什么很重要。</td></tr>
+      <tr><td><span class="it" onclick="speak('Quello che voglio dirti è che...')"><strong>Quello che</strong> voglio dirti è che...</span></td><td>我想告诉你的是...</td></tr>
+      <tr><td><span class="it" onclick="speak('Non ho capito quello che hai detto.')">Non ho capito <strong>quello che</strong> hai detto.</span></td><td>我没理解你说的话。</td></tr>
+      <tr><td><span class="it" onclick="speak('Fai quello che vuoi.')">Fai <strong>quello che</strong> vuoi.</span></td><td>做你想做的事。</td></tr>
+      <tr><td><span class="it" onclick="speak('Prendi quello che ti serve.')">Prendi <strong>quello che</strong> ti serve.</span></td><td>拿你需要的。</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. 代词在命令式中的位置 -->
+  <h3>5. 代词在命令式中的位置</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">在命令式（肯定）中，代词附着在动词后面。</p>
+    <table>
+      <tr><th>动词</th><th>+ 代词</th><th>示例</th></tr>
+      <tr><td>普通动词</td><td>动词 + 代词</td><td><span class="it" onclick="speak('Compralo!')"><strong>Compralo</strong>!</span> (买它！)</td></tr>
+      <tr><td>不规则动词</td><td>双重辅音</td><td><span class="it" onclick="speak('Dimmi!')"><strong>Dimmi</strong>!</span> (告诉我！) / <span class="it" onclick="speak('Fallo!')"><strong>Fallo</strong>!</span> (做吧！)</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">特殊规则：andare, dare, dire, fare, stare 与代词连用时，辅音要双写。</p>
+    <table>
+      <tr><td>andare → <span class="verb">vacci</span></td><td>去那里</td></tr>
+      <tr><td>dare → <span class="verb">dammi</span></td><td>给我</td></tr>
+      <tr><td>dire → <span class="verb">dimmi</span> / <span class="verb">digli</span></td><td>告诉我/告诉他</td></tr>
+      <tr><td>fare → <span class="verb">fammi</span> / <span class="verb">fallo</span></td><td>让我/做它</td></tr>
+      <tr><td>stare → <span class="verb">statti</span></td><td>保持</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Il libro portalo a Caterina!')"><strong>Portalo</strong> a Caterina!</span></td><td>把书带给卡特琳娜！</td></tr>
+      <tr><td><span class="it" onclick="speak('Alzati presto domani!')"><strong>Alzati</strong> presto domani!</span></td><td>明天早起！</td></tr>
+      <tr><td><span class="it" onclick="speak('La spesa falla al mercato!')"><strong>Falla</strong> al mercato!</span></td><td>去市场买菜！</td></tr>
+      <tr><td><span class="it" onclick="speak('Se vai in ufficio vacci con l\'autobus!')"><strong>Vacci</strong> con l'autobus!</span></td><td>如果去办公室，坐公交去！</td></tr>
+      <tr><td><span class="it" onclick="speak('Se vedi Carlo digli di venire un po\' prima.')"><strong>Digli</strong> di venire un po' prima.</span></td><td>如果你看到卡洛，让他早点来。</td></tr>
+    </table>
+  </div>
+
+  <!-- 6. 评论食物 -->
+  <h3>6. 评论食物</h3>
+  <div class="grammar-box">
+    <p style="font-weight:600;margin:0 0 6px;">表达喜欢/不喜欢：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('È buono/buona.')">È <strong>buono</strong>/<strong>buona</strong>.</span></td><td>很好吃。</td></tr>
+      <tr><td><span class="it" onclick="speak('È ottimo/ottima.')">È <strong>ottimo</strong>/<strong>ottima</strong>.</span></td><td>非常好。</td></tr>
+      <tr><td><span class="it" onclick="speak('È squisito/squisita.')">È <strong>squisito</strong>/<strong>squisita</strong>.</span></td><td>太美味了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è male.')">Non è male.</span></td><td>还不错。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non mi piace.')">Non mi piace.</span></td><td>我不喜欢。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">评论味道：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Com\'è salato!')">Com'è <strong>salato</strong>!</span></td><td>真咸！</td></tr>
+      <tr><td><span class="it" onclick="speak('Com\'è piccante!')">Com'è <strong>piccante</strong>!</span></td><td>真辣！</td></tr>
+      <tr><td><span class="it" onclick="speak('Com\'è dolce!')">Com'è <strong>dolce</strong>!</span></td><td>真甜！</td></tr>
+      <tr><td><span class="it" onclick="speak('È un po\' insipido.')">È un po' <strong>insipido</strong>.</span></td><td>有点淡。</td></tr>
+      <tr><td><span class="it" onclick="speak('È bruciato.')">È <strong>bruciato</strong>.</span></td><td>烧焦了。</td></tr>
+      <tr><td><span class="it" onclick="speak('È crudo.')">È <strong>crudo</strong>.</span></td><td>是生的。</td></tr>
+      <tr><td><span class="it" onclick="speak('È troppo grasso.')">È troppo <strong>grasso</strong>.</span></td><td>太油腻了。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 6 · p.96</h2>
+
+  <h3>&#x1F33F; La dieta mediterranea（地中海饮食）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('La dieta mediterranea è la base dell\'alimentazione tradizionale italiana. Comprende olio d\'oliva, pasta, verdura, pesce e legumi.')">La dieta mediterranea è la base dell'alimentazione tradizionale italiana. Comprende olio d'oliva, pasta, verdura, pesce e legumi.</p>
+    <p class="it" onclick="speak('È riconosciuta dall\'UNESCO come Patrimonio Immateriale dell\'Umanità.')">È riconosciuta dall'UNESCO come Patrimonio Immateriale dell'Umanità.</p>
+    <p class="it" onclick="speak('L\'olio d\'oliva è il grasso principale, ricco di antiossidanti e grassi sani.')">L'olio d'oliva è il grasso principale, ricco di antiossidanti e grassi sani.</p>
+    <p class="it" onclick="speak('Il consumo moderato di vino rosso durante i pasti è un\'altra caratteristica della dieta mediterranea.')">Il consumo moderato di vino rosso durante i pasti è un'altra caratteristica della dieta mediterranea.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p>地中海饮食是意大利传统饮食的基础，包括橄榄油、意面、蔬菜、鱼类和豆类。</p>
+    <p>它被联合国教科文组织列为非物质文化遗产。</p>
+    <p>橄榄油是主要的脂肪来源，富含抗氧化剂和健康脂肪。</p>
+    <p>用餐时适量饮用红酒是地中海饮食的另一个特点。</p>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化对比:</strong><br>
+    Nel tuo Paese esiste una dieta tradizionale? — 你的国家有传统饮食吗？<br>
+    Quali sono i cibi tipici della tua regione? — 你所在地区的特色食物是什么？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 6 — Una vita (poco) sana · p.94-95</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">Laura批评Federico的生活方式不健康。Federico抱怨但最终接受建议。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">关键表达:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Dai, pazienza! Tanto tu mangi solo yogurt!')">Dai, pazienza! Tanto tu mangi solo yogurt!</span></td><td class="zh">算了，耐心点！反正你只吃酸奶！</td></tr>
+    <tr><td><span class="it" onclick="speak('Esagerato! Volevo farti un massaggio...')">Esagerato! Volevo farti un massaggio...</span></td><td class="zh">夸张！我只是想给你按摩...</td></tr>
+    <tr><td><span class="it" onclick="speak('Comunque dovresti fare una vita più sana.')">Comunque dovresti fare una vita più sana.</span></td><td class="zh">不管怎样，你应该过更健康的生活。</td></tr>
+    <tr><td><span class="it" onclick="speak('Voglio solo dimostrarti che lo yoga non è uno sport "per ragazze", come pensi tu.')">Voglio solo dimostrarti che lo yoga non è uno sport "per ragazze", come pensi tu.</span></td><td class="zh">我只是想向你证明瑜伽不是像你想的那样"女生才做的运动"。</td></tr>
+    <tr><td><span class="it" onclick="speak('Pronta? Guarda che se ti faccio male non è colpa mia!')">Pronta? Guarda che se ti faccio male non è colpa mia!</span></td><td class="zh">准备好了吗？如果我弄疼了你，不是我的错！</td></tr>
+    <tr><td><span class="it" onclick="speak('Per consolazione sai cosa faccio? Un bel ciambellone come piace a te!')">Per consolazione sai cosa faccio? Un bel ciambellone come piace a te!</span></td><td class="zh">你知道我为了安慰自己做什么吗？做一个你喜欢的蛋糕！</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">人物习惯对比:</p>
+  <table class="dialog-table">
+    <tr><th style="background:var(--ne-cream);">Laura</th><th style="background:var(--ne-cream);">Federico</th></tr>
+    <tr><td>mangia molta verdura (吃很多蔬菜)</td><td>mangia male (吃得不好)</td></tr>
+    <tr><td>va in bicicletta (骑自行车)</td><td>non fa molto sport (不常运动)</td></tr>
+    <tr><td>ama lo yogurt (喜欢酸奶)</td><td>adora il ciambellone (喜欢蛋糕)</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演健康饮食建议的场景<br>
+    &bull; 练习使用命令式给出建议<br>
+    &bull; 讨论自己的饮食习惯
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-5.html" style="background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25);">&larr; Unità 5</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+  <a href="unita-7.html">Unità 7 &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 2</div>
+  <p>Corso di lingua italiana per stranieri · Livello A2</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

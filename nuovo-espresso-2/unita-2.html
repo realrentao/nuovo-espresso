@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 2 · Quando ero piccola... · NUOVO Espresso 2</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 2 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 2 · A2</div>
+  <h1>&#x1F476; Quando ero piccola...</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">当我小时候 · p.21-36</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">童年回忆 · 未完成过去时(imperfetto) · passato prossimo vs imperfetto · ci小品词 · fare动词 · 指小词和增大词</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Da bambina abitavo qui -->
+  <h3>1. Da bambina abitavo qui · p.22, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读并匹配人物与他们的童年回忆。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Da bambina abitavo in centro e andavo a scuola a piedi.')">Da bambina abitavo in centro e andavo a scuola a piedi.</span></td><td class="zh">小时候我住在市中心，走路上学。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quando ero piccolo, passavo l\'estate al mare dai nonni.')">Quando ero piccolo, passavo l'estate al mare dai nonni.</span></td><td class="zh">我小时候，夏天在爷爷奶奶的海边度过。</td></tr>
+    <tr><td><span class="it" onclick="speak('Da piccola avevo un cane che si chiamava Birillo.')">Da piccola avevo un cane che si chiamava Birillo.</span></td><td class="zh">我小时候有一条叫比里洛的狗。</td></tr>
+    <tr><td><span class="it" onclick="speak('A 7 anni sono andata in montagna per la prima volta.')">A 7 anni sono andata in montagna per la prima volta.</span></td><td class="zh">7岁时我第一次去山里。</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Intervista a Natalia Ginzburg -->
+  <h3>2. Intervista a Natalia Ginzburg · p.28, es.10-11</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读对著名意大利作家的采访并回答问题。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Pensi con piacere alla tua infanzia?')"><strong>Intervistatore</strong>: Pensi con piacere alla tua infanzia?</span></td><td class="zh"><strong>记者</strong>: 你愉快地回忆童年吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Ci penso poco.')"><strong>Natalia</strong>: Ci penso poco.</span></td><td class="zh"><strong>纳塔利娅</strong>: 很少去想。</td></tr>
+    <tr><td><span class="it" onclick="speak('Com\'eri da bambina? Che carattere avevi?')"><strong>Intervistatore</strong>: Com'eri da bambina? Che carattere avevi?</span></td><td class="zh"><strong>记者</strong>: 你小时候怎么样？什么性格？</td></tr>
+    <tr><td><span class="it" onclick="speak('Ero abbastanza allegra, ma non molto vivace, non molto loquace.')"><strong>Natalia</strong>: Ero abbastanza allegra, ma non molto vivace, non molto loquace.</span></td><td class="zh"><strong>纳塔利娅</strong>: 我相当开朗，但不太活泼，不太健谈。</td></tr>
+    <tr><td><span class="it" onclick="speak('Hai sempre vissuto a Torino durante l\'infanzia?')"><strong>Intervistatore</strong>: Hai sempre vissuto a Torino durante l'infanzia?</span></td><td class="zh"><strong>记者</strong>: 童年时期你一直住在都灵吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('No. Sono nata a Palermo. Ma di Palermo non ricordo niente. Sono andata via che avevo tre anni. I miei ricordi risalgono ai sette anni.')"><strong>Natalia</strong>: No. Sono nata a Palermo. Ma di Palermo non ricordo niente. Sono andata via che avevo tre anni. I miei ricordi risalgono ai sette anni.</span></td><td class="zh"><strong>纳塔利娅</strong>: 不，我出生在那不勒斯。但我不记得了。我三岁就离开了。我的记忆从七岁开始。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ti piaceva andare a scuola?')"><strong>Intervistatore</strong>: Ti piaceva andare a scuola?</span></td><td class="zh"><strong>记者</strong>: 你喜欢上学吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('No. Proprio l\'anno che sono andata a scuola sono cominciate le mie malinconie. Sentivo che le altre ragazze erano amiche fra loro. Mi sentivo esclusa.')"><strong>Natalia</strong>: No. Proprio l'anno che sono andata a scuola sono cominciate le mie malinconie. Sentivo che le altre ragazze erano amiche fra loro. Mi sentivo esclusa.</span></td><td class="zh"><strong>纳塔利娅</strong>: 不。正是在我上学的那一年，我的忧郁开始了。我感觉其他女生彼此是朋友。我感觉被排挤了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Cos\'è che ti faceva soffrire di più nella scuola?')"><strong>Intervistatore</strong>: Cos'è che ti faceva soffrire di più nella scuola?</span></td><td class="zh"><strong>记者</strong>: 学校里什么最让你痛苦？</td></tr>
+    <tr><td><span class="it" onclick="speak('La noia. Mi ricordo una noia mortale.')"><strong>Natalia</strong>: La noia. Mi ricordo una noia mortale.</span></td><td class="zh"><strong>纳塔利娅</strong>: 无聊。我记得那种极度的无聊。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ti piaceva fare sport?')"><strong>Intervistatore</strong>: Ti piaceva fare sport?</span></td><td class="zh"><strong>记者</strong>: 你喜欢运动吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('No, odiavo lo sport. Mio padre mi costringeva a fare le scalate in montagna. Io ci andavo, ma a denti stretti. Ho finito con l\'odiare ogni tipo di sport.')"><strong>Natalia</strong>: No, odiavo lo sport. Mio padre mi costringeva a fare le scalate in montagna. Io ci andavo, ma a denti stretti. Ho finito con l'odiare ogni tipo di sport.</span></td><td class="zh"><strong>纳塔利娅</strong>: 不，我讨厌运动。我父亲强迫我去爬山。我去了，但很不情愿。结果我讨厌所有运动。</td></tr>
+    <tr><td><span class="it" onclick="speak('E allora cosa facevi?')"><strong>Intervistatore</strong>: E allora cosa facevi?</span></td><td class="zh"><strong>记者</strong>: 那你做什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Scrivevo. Fino a diciassette anni ho scritto poesie, poi racconti.')"><strong>Natalia</strong>: Scrivevo. Fino a diciassette anni ho scritto poesie, poi racconti.</span></td><td class="zh"><strong>纳塔利娅</strong>: 我写作。一直到17岁我写诗，然后写短篇小说。</td></tr>
+    <tr><td><span class="it" onclick="speak('Cosa leggevi?')"><strong>Intervistatore</strong>: Cosa leggevi?</span></td><td class="zh"><strong>记者</strong>: 你读什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Romanzi. I romanzi russi: Dostoevskij, Tolstoj, Gogol.')"><strong>Natalia</strong>: Romanzi. I romanzi russi: Dostoevskij, Tolstoj, Gogol.</span></td><td class="zh"><strong>纳塔利娅</strong>: 小说。俄国小说：陀思妥耶夫斯基、托尔斯泰、果戈理。</td></tr>
+    <tr><td><span class="it" onclick="speak('Cosa pensavi di fare da grande?')"><strong>Intervistatore</strong>: Cosa pensavi di fare da grande?</span></td><td class="zh"><strong>记者</strong>: 你长大想做什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('La scrittrice. Oppure il medico. Volevo fare tutte e due le cose.')"><strong>Natalia</strong>: La scrittrice. Oppure il medico. Volevo fare tutte e due le cose.</span></td><td class="zh"><strong>纳塔利娅</strong>: 作家。或者医生。我想两样都做。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Una gita al mare -->
+  <h3>3. Una gita al mare · p.24, es.4</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">听对话，了解人物过去的习惯。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Da piccola, ogni estate andavo al mare con la mia famiglia.')">Da piccola, ogni estate andavo al mare con la mia famiglia.</span></td><td class="zh">小时候，每年夏天我都和家人去海边。</td></tr>
+    <tr><td><span class="it" onclick="speak('Mio padre guidava e noi bambini giocavamo in macchina.')">Mio padre guidava e noi bambini giocavamo in macchina.</span></td><td class="zh">我爸爸开车，我们孩子们在车里玩。</td></tr>
+    <tr><td><span class="it" onclick="speak('La mamma preparava sempre tanti panini.')">La mamma preparava sempre tanti panini.</span></td><td class="zh">妈妈总是准备很多三明治。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quando arrivavamo, facevamo subito il bagno.')">Quando arrivavamo, facevamo subito il bagno.</span></td><td class="zh">到达后，我们立刻游泳。</td></tr>
+    <tr><td><span class="it" onclick="speak('Una volta siamo andati in montagna invece che al mare.')">Una volta siamo andati in montagna invece che al mare.</span></td><td class="zh">有一次我们去了山里而不是海边。</td></tr>
+    <tr><td><span class="it" onclick="speak('È stata una vacanza diversa, ma bellissima.')">È stata una vacanza diversa, ma bellissima.</span></td><td class="zh">那是一次不同的假期，但非常美好。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>童年相关 (Infanzia)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('l\'infanzia')">l'infanzia</td><td>s.f.</td><td>童年</td></tr>
+    <tr><td class="it" onclick="speak('da bambino')">da bambino/a</td><td>loc.</td><td>当我是孩子时</td></tr>
+    <tr><td class="it" onclick="speak('da piccolo')">da piccolo/a</td><td>loc.</td><td>当我是小孩时</td></tr>
+    <tr><td class="it" onclick="speak('il ricordo')">il ricordo</td><td>s.m.</td><td>记忆/回忆</td></tr>
+    <tr><td class="it" onclick="speak('il giocattolo')">il giocattolo</td><td>s.m.</td><td>玩具</td></tr>
+    <tr><td class="it" onclick="speak('la favola')">la favola</td><td>s.f.</td><td>童话</td></tr>
+    <tr><td class="it" onclick="speak('la scuola')">la scuola</td><td>s.f.</td><td>学校</td></tr>
+    <tr><td class="it" onclick="speak('il compagno di giochi')">il compagno di giochi</td><td>s.m.</td><td>玩伴</td></tr>
+    <tr><td class="it" onclick="speak('i nonni')">i nonni</td><td>s.m.pl.</td><td>祖父母</td></tr>
+  </table>
+
+  <h3>性格描述 (Carattere)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('allegro')">allegro</td><td>agg.</td><td>开朗的</td></tr>
+    <tr><td class="it" onclick="speak('vivace')">vivace</td><td>agg.</td><td>活泼的</td></tr>
+    <tr><td class="it" onclick="speak('loquace')">loquace</td><td>agg.</td><td>健谈的</td></tr>
+    <tr><td class="it" onclick="speak('timido')">timido</td><td>agg.</td><td>害羞的</td></tr>
+    <tr><td class="it" onclick="speak('escluso')">escluso</td><td>agg.</td><td>被排斥的</td></tr>
+    <tr><td class="it" onclick="speak('studioso')">studioso</td><td>agg.</td><td>好学的</td></tr>
+    <tr><td class="it" onclick="speak('bravo')">bravo</td><td>agg.</td><td>好的/擅长的</td></tr>
+    <tr><td class="it" onclick="speak('severo')">severo</td><td>agg.</td><td>严厉的</td></tr>
+  </table>
+
+  <h3>家庭生活 (Vita familiare)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la lite')">la lite</td><td>s.f.</td><td>争吵</td></tr>
+    <tr><td class="it" onclick="speak('la sfuriata')">la sfuriata</td><td>s.f.</td><td>大发雷霆</td></tr>
+    <tr><td class="it" onclick="speak('la noia')">la noia</td><td>s.f.</td><td>无聊</td></tr>
+    <tr><td class="it" onclick="speak('la malinconia')">la malinconia</td><td>s.f.</td><td>忧郁</td></tr>
+    <tr><td class="it" onclick="speak('costringere')">costringere</td><td>v.</td><td>强迫</td></tr>
+    <tr><td class="it" onclick="speak('odiare')">odiare</td><td>v.</td><td>憎恨</td></tr>
+    <tr><td class="it" onclick="speak('divertirsi')">divertirsi</td><td>v.</td><td>玩得开心</td></tr>
+    <tr><td class="it" onclick="speak('annoiarsi')">annoiarsi</td><td>v.</td><td>感到无聊</td></tr>
+  </table>
+
+  <h3>表达习惯 (Espressioni temporali)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('di solito')">di solito</td><td>avv.</td><td>通常</td></tr>
+    <tr><td class="it" onclick="speak('normalmente')">normalmente</td><td>avv.</td><td>通常</td></tr>
+    <tr><td class="it" onclick="speak('ogni giorno')">ogni giorno</td><td>avv.</td><td>每天</td></tr>
+    <tr><td class="it" onclick="speak('sempre')">sempre</td><td>avv.</td><td>总是</td></tr>
+    <tr><td class="it" onclick="speak('spesso')">spesso</td><td>avv.</td><td>经常</td></tr>
+    <tr><td class="it" onclick="speak('qualche volta')">qualche volta</td><td>avv.</td><td>有时</td></tr>
+    <tr><td class="it" onclick="speak('una volta')">una volta</td><td>avv.</td><td>有一次</td></tr>
+    <tr><td class="it" onclick="speak('da bambino')">da bambino/a</td><td>avv.</td><td>小时候</td></tr>
+  </table>
+
+  <h3>指小词和增大词 (Alterati)</h3>
+  <table class="vocab-table">
+    <tr><th>基础词</th><th>指小词(-ino)</th><th>增大词(-one)</th></tr>
+    <tr><td class="it" onclick="speak('il tavolo')">il tavolo (桌子)</td><td class="it" onclick="speak('il tavolino')">il tavolino (小桌子)</td><td class="it" onclick="speak('il tavolone')">il tavolone (大桌子)</td></tr>
+    <tr><td class="it" onclick="speak('il paese')">il paese (村镇)</td><td class="it" onclick="speak('il paesino')">il paesino (小村镇)</td><td class="it" onclick="speak('il paesone')">il paesone (大村镇)</td></tr>
+    <tr><td class="it" onclick="speak('il quaderno')">il quaderno (笔记本)</td><td class="it" onclick="speak('il quadernino')">il quadernino (小本子)</td><td class="it" onclick="speak('il quadernone')">il quadernone (大本子)</td></tr>
+    <tr><td class="it" onclick="speak('il ragazzo')">il ragazzo (男孩)</td><td class="it" onclick="speak('il ragazzino')">il ragazzino (小男孩)</td><td class="it" onclick="speak('il ragazzone')">il ragazzone (大小伙子)</td></tr>
+    <tr><td class="it" onclick="speak('il gatto')">il gatto (猫)</td><td class="it" onclick="speak('il gattino')">il gattino (小猫)</td><td class="it" onclick="speak('il gattone')">il gattone (大猫)</td></tr>
+  </table>
+
+  <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:12px 16px;margin:12px 0;font-size:13px;">
+    <strong>&#x26A0;&#xFE0F; 注意</strong> — 伪指小词（Falsi alterati）：有些词看起来像后缀词但实际不是，如 <strong>montone</strong>（公羊）- 不是"大山"、<strong>torrone</strong>（牛轧糖）- 不是"大塔"、<strong>tacchino</strong>（火鸡）- 不是"小高跟鞋"。
+  </div>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Imperfetto -->
+  <h3>1. 未完成过去时 (Imperfetto)</h3>
+  <div class="grammar-box">
+    <p style="font-weight:600;font-size:14px;margin-bottom:8px;">规则动词变位：</p>
+    <table>
+      <tr><th>人称</th><th>parlare</th><th>vedere</th><th>dormire</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('parlavo')">parlavo</span></td><td><span class="verb" onclick="speak('vedevo')">vedevo</span></td><td><span class="verb" onclick="speak('dormivo')">dormivo</span></td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('parlavi')">parlavi</span></td><td><span class="verb" onclick="speak('vedevi')">vedevi</span></td><td><span class="verb" onclick="speak('dormivi')">dormivi</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb" onclick="speak('parlava')">parlava</span></td><td><span class="verb" onclick="speak('vedeva')">vedeva</span></td><td><span class="verb" onclick="speak('dormiva')">dormiva</span></td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('parlavamo')">parlavamo</span></td><td><span class="verb" onclick="speak('vedevamo')">vedevamo</span></td><td><span class="verb" onclick="speak('dormivamo')">dormivamo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('parlavate')">parlavate</span></td><td><span class="verb" onclick="speak('vedevate')">vedevate</span></td><td><span class="verb" onclick="speak('dormivate')">dormivate</span></td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('parlavano')">parlavano</span></td><td><span class="verb" onclick="speak('vedevano')">vedevano</span></td><td><span class="verb" onclick="speak('dormivano')">dormivano</span></td></tr>
+    </table>
+    <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">不规则动词变位：</p>
+    <table>
+      <tr><th>人称</th><th>essere</th><th>avere</th><th>fare</th><th>bere</th><th>dire</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('ero')">ero</span></td><td><span class="verb" onclick="speak('avevo')">avevo</span></td><td><span class="verb" onclick="speak('facevo')">facevo</span></td><td><span class="verb" onclick="speak('bevevo')">bevevo</span></td><td><span class="verb" onclick="speak('dicevo')">dicevo</span></td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('eri')">eri</span></td><td><span class="verb" onclick="speak('avevi')">avevi</span></td><td><span class="verb" onclick="speak('facevi')">facevi</span></td><td><span class="verb" onclick="speak('bevevi')">bevevi</span></td><td><span class="verb" onclick="speak('dicevi')">dicevi</span></td></tr>
+      <tr><td>lui/lei</td><td><span class="verb" onclick="speak('era')">era</span></td><td><span class="verb" onclick="speak('aveva')">aveva</span></td><td><span class="verb" onclick="speak('faceva')">faceva</span></td><td><span class="verb" onclick="speak('beveva')">beveva</span></td><td><span class="verb" onclick="speak('diceva')">diceva</span></td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('eravamo')">eravamo</span></td><td><span class="verb" onclick="speak('avevamo')">avevamo</span></td><td><span class="verb" onclick="speak('facevamo')">facevamo</span></td><td><span class="verb" onclick="speak('bevevamo')">bevevamo</span></td><td><span class="verb" onclick="speak('dicevamo')">dicevamo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('eravate')">eravate</span></td><td><span class="verb" onclick="speak('avevate')">avevate</span></td><td><span class="verb" onclick="speak('facevate')">facevate</span></td><td><span class="verb" onclick="speak('bevevate')">bevevate</span></td><td><span class="verb" onclick="speak('dicevate')">dicevate</span></td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('erano')">erano</span></td><td><span class="verb" onclick="speak('avevano')">avevano</span></td><td><span class="verb" onclick="speak('facevano')">facevano</span></td><td><span class="verb" onclick="speak('bevevano')">bevevano</span></td><td><span class="verb" onclick="speak('dicevano')">dicevano</span></td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Usi dell'imperfetto -->
+  <h3>2. Imperfetto 的用法</h3>
+  <div class="grammar-box">
+    <p style="font-weight:600;margin:8px 0 6px;">用法1：描述过去的习惯性动作</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Da bambina andavo spesso in montagna.')">Da bambina andavo spesso in montagna.</span></td><td>小时候我经常去山里。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ogni estate passavamo le vacanze al mare.')">Ogni estate passavamo le vacanze al mare.</span></td><td>每年夏天我们在海边度假。</td></tr>
+      <tr><td><span class="it" onclick="speak('Di solito la sera leggevo un libro.')">Di solito la sera leggevo un libro.</span></td><td>通常晚上我读书。</td></tr>
+      <tr><td><span class="it" onclick="speak('Quando ero piccolo, avevo un cane.')">Quando ero piccolo, avevo un cane.</span></td><td>我小时候有一条狗。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">用法2：描述过去的人物、物体或情景</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Mia nonna era molto bella.')">Mia nonna era molto bella.</span></td><td>我奶奶很漂亮。</td></tr>
+      <tr><td><span class="it" onclick="speak('In treno faceva caldo.')">In treno faceva caldo.</span></td><td>火车上很热。</td></tr>
+      <tr><td><span class="it" onclick="speak('Alla festa c\'era molta gente.')">Alla festa c'era molta gente.</span></td><td>聚会上有很多人。</td></tr>
+      <tr><td><span class="it" onclick="speak('La casa era grande e luminosa.')">La casa era grande e luminosa.</span></td><td>房子又大又明亮。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">用法3：表达过去的意愿或意图</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Volevo chiederLe una cortesia.')">Volevo chiederLe una cortesia.</span></td><td>我想请您帮个忙。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non volevo disturbare.')">Non volevo disturbare.</span></td><td>我不想打扰。</td></tr>
+      <tr><td><span class="it" onclick="speak('Cosa volevi fare da grande?')">Cosa volevi fare da grande?</span></td><td>你长大想做什么？</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Passato prossimo vs Imperfetto -->
+  <h3>3. Passato prossimo 与 Imperfetto 的对比</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>对比维度</th><th>Passato prossimo</th><th>Imperfetto</th></tr>
+      <tr><td>动作是否完成</td><td>完成的、一次性的动作</td><td>未完成、持续的动作</td></tr>
+      <tr><td>频率</td><td>一次性事件</td><td>习惯性、重复性动作</td></tr>
+      <tr><td>时间性</td><td>特定时间点</td><td>不指定时间</td></tr>
+      <tr><td>叙述作用</td><td>推动故事发展</td><td>提供背景描述</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句对比：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Ieri sera siamo andati al cinema.')">Ieri sera <strong>siamo andati</strong> al cinema.</span></td><td>昨晚我们去了电影院。(一次性事件)</td></tr>
+      <tr><td><span class="it" onclick="speak('Da piccola andavo spesso al cinema.')">Da piccola <strong>andavo</strong> spesso al cinema.</span></td><td>小时候我常去电影院。(习惯)</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho comprato una macchina nuova.')"><strong>Ho comprato</strong> una macchina nuova.</span></td><td>我买了一辆新车。(完成)</td></tr>
+      <tr><td><span class="it" onclick="speak('Avevo una macchina vecchia.')"><strong>Avevo</strong> una macchina vecchia.</span></td><td>我有一辆旧车。(持续状态)</td></tr>
+      <tr><td><span class="it" onclick="speak('Mentre leggevo, è entrata una ragazza.')">Mentre <strong>leggevo</strong>, <strong>è entrata</strong> una ragazza.</span></td><td>我正在读书时，一个女孩进来了。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Particella ci -->
+  <h3>4. 小品词 ci</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">ci可以替代由介词a引导的补语，指代事物或人。</p>
+    <table>
+      <tr><th>用法</th><th>例句</th></tr>
+      <tr><td>替代a + 事物</td><td><span class="it" onclick="speak('Pensi alla tua infanzia? Sì, ci penso spesso.')">Pensi alla tua infanzia? Sì, <strong>ci</strong> penso spesso.</span> (是的，我常想。)</td></tr>
+      <tr><td>替代a + 人</td><td><span class="it" onclick="speak('Hai scritto a Maria? Sì, ci ho scritto ieri.')">Hai scritto a Maria? Sì, <strong>ci</strong> ho scritto ieri.</span> (是的，我昨天写了。)</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. Nomi alterati -->
+  <h3>5. 指小词和增大词 (Nomi alterati)</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>后缀</th><th>意义</th><th>示例</th></tr>
+      <tr><td><span class="verb">-ino/a</span></td><td>小的、可爱的</td><td>gatto → gatt<span class="verb">ino</span>, casa → cas<span class="verb">ina</span></td></tr>
+      <tr><td><span class="verb">-one/a</span></td><td>大的</td><td>libro → libr<span class="verb">one</span>, donna → donn<span class="verb">ona</span></td></tr>
+    </table>
+    <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 14px;margin-top:12px;font-size:13px;">
+      <strong>&#x26A0;&#xFE0F; 注意</strong>: 有些词看起来像alterati但实际上不是（falsi alterati）：<br>
+      <strong>mattone</strong> (砖) ≠ "很疯的人" · <strong>tacchino</strong> (火鸡) ≠ "小高跟鞋" · <strong>montone</strong> (公羊) ≠ "大山"
+    </div>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 2 · p.33</h2>
+
+  <h3>&#x1F3DB;&#xFE0F; I ricordi d'infanzia degli italiani（意大利人的童年回忆）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('Gli italiani ricordano con affetto la loro infanzia, fatta di giochi all\'aperto, merende e vacanze al mare.')">Gli italiani ricordano con affetto la loro infanzia, fatta di giochi all'aperto, merende e vacanze al mare.</p>
+    <p class="it" onclick="speak('La famiglia è al centro dei ricordi: i nonni, i cugini, le feste in famiglia.')">La famiglia è al centro dei ricordi: i nonni, i cugini, le feste in famiglia.</p>
+    <p class="it" onclick="speak('La scuola è un ricordo importante: i compagni di classe, i primi amici, i maestri severi.')">La scuola è un ricordo importante: i compagni di classe, i primi amici, i maestri severi.</p>
+    <p class="it" onclick="speak('Le vacanze estive al mare o in montagna sono tra i ricordi più belli degli italiani.')">Le vacanze estive al mare o in montagna sono tra i ricordi più belli degli italiani.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p>意大利人满怀感情地回忆他们的童年：户外游戏、零食和海边度假。</p>
+    <p>家庭是回忆的核心：祖父母、堂表兄弟姐妹、家庭聚会。</p>
+    <p>学校是重要的回忆：同班同学、第一个朋友、严厉的老师。</p>
+    <p>夏天在海边或山里的假期是意大利人最美好的回忆之一。</p>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化对比:</strong><br>
+    Nel tuo Paese come sono i ricordi d'infanzia? — 在你的国家，童年回忆是怎样的？<br>
+    Quali sono le tradizioni legate all'infanzia in Italia? — 意大利有哪些与童年相关的传统？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 2 — Da bambina abitavo qui · p.32</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">四个朋友回忆起他们的童年。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">关键表达:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Da piccolo ero molto vivace.')">Da piccolo ero molto vivace.</span></td><td class="zh">我小时候很活泼。</td></tr>
+    <tr><td><span class="it" onclick="speak('Io invece ero molto timido.')">Io invece ero molto timido.</span></td><td class="zh">我反而很害羞。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ogni estate andavamo al mare.')">Ogni estate andavamo al mare.</span></td><td class="zh">每年夏天我们去海边。</td></tr>
+    <tr><td><span class="it" onclick="speak('Una volta siamo andati in montagna.')">Una volta siamo andati in montagna.</span></td><td class="zh">有一次我们去了山里。</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 用imperfetto描述自己的童年回忆<br>
+    &bull; 对比passato prossimo和imperfetto的用法<br>
+    &bull; 练习使用da bambino/a、ogni estate、una volta等表达
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-1.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">&larr; Torna al corso</a>
+  <a href="unita-3.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 2</div>
+  <p>Corso di lingua italiana per stranieri · Livello A2</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

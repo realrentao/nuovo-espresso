@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 3 · E tu, come fai a saperlo? · NUOVO Espresso 4</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 4 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 3 · B2</div>
+  <h1>&#x1F914; E tu, come fai a saperlo?</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">那你，怎么知道的？ · p.29-39</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">转述信息 · 间接引语 · non perché+虚拟式 · 间接疑问句 · 条件式表不确定新闻 · su表示比例 · 讨论观点</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Hai sentito la notizia? -->
+  <h3>1. Hai sentito la notizia? · p.29, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">朋友之间讨论一则新闻，转述他人说的话，表达对信息可靠性的看法。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Hai sentito la notizia? Il governo avrebbe approvato una nuova legge sull\'istruzione.')"><strong>A</strong>: Hai sentito la notizia? Il governo <span class="verb">avrebbe approvato</span> una nuova legge sull'istruzione.</span></td><td class="zh"><strong>A</strong>: 你听说了吗？政府据称通过了一项新的教育法。</td></tr>
+    <tr><td><span class="it" onclick="speak('Davvero? E tu come fai a saperlo? Non l\'ho sentito al telegiornale.')"><strong>B</strong>: Davvero? E tu come fai a saperlo? Non l'ho sentito al telegiornale.</span></td><td class="zh"><strong>B</strong>: 真的吗？你怎么知道的？我没在新闻里看到。</td></tr>
+    <tr><td><span class="it" onclick="speak('L\'ho letto su un sito. Il ministro avrebbe dichiarato che la riforma partirà dal prossimo anno.')"><strong>A</strong>: L'ho letto su un sito. Il ministro <span class="verb">avrebbe dichiarato</span> che la riforma partirà dal prossimo anno.</span></td><td class="zh"><strong>A</strong>: 我在一个网站上看到的。部长据称宣布改革将从明年开始。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non mi fiderei troppo. Su internet girano tante fake news. Mi chiedo se sia vero.')"><strong>B</strong>: Non mi fiderei troppo. Su internet girano tante fake news. Mi chiedo <span class="verb">se sia</span> vero.</span></td><td class="zh"><strong>B</strong>: 我不太相信。网上有很多假新闻。我怀疑是不是真的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Hai ragione. Non perché i siti non siano affidabili, ma perché bisogna sempre verificare le fonti.')"><strong>A</strong>: Hai ragione. Non perché i siti non <span class="verb">siano</span> affidabili, ma perché bisogna sempre verificare le fonti.</span></td><td class="zh"><strong>A</strong>: 你说得对。不是因为网站不可靠，而是因为总要核实来源。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto. Il mio professore ha detto che bisogna sempre leggere con spirito critico.')"><strong>B</strong>: Esatto. Il mio professore ha detto che bisogna sempre leggere con spirito critico.</span></td><td class="zh"><strong>B</strong>: 没错。我的教授说总要带着批判精神阅读。</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Intervista sulla stampa -->
+  <h3>2. Intervista: Come ti informi? · p.31, es.4</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">记者在街头采访路人，询问他们的信息获取方式和对媒体的看法。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Scusi, posso farle qualche domanda? Come si informa ogni giorno?')"><strong>Giornalista</strong>: Scusi, posso farle qualche domanda? Come si informa ogni giorno?</span></td><td class="zh"><strong>记者</strong>: 打扰一下，能问您几个问题吗？您每天如何获取信息？</td></tr>
+    <tr><td><span class="it" onclick="speak('Io leggo il giornale ogni mattina. Preferisco la carta stampata.')"><strong>Intervistato</strong>: Io leggo il giornale ogni mattina. Preferisco la carta stampata.</span></td><td class="zh"><strong>受访者</strong>: 我每天早上读报纸。我更喜欢纸质媒体。</td></tr>
+    <tr><td><span class="it" onclick="speak('E secondo lei, i giornali sono ancora affidabili?')"><strong>Giornalista</strong>: E secondo lei, i giornali sono ancora affidabili?</span></td><td class="zh"><strong>记者</strong>: 您觉得报纸还可靠吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Non perché siano sempre perfetti, ma perché esistono da più tempo e hanno una reputazione da difendere.')"><strong>Intervistato</strong>: Non perché <span class="verb">siano</span> sempre perfetti, ma perché esistono da più tempo e hanno una reputazione da difendere.</span></td><td class="zh"><strong>受访者</strong>: 不是因为他们总是完美的，而是因为他们存在时间更长，有需要维护的声誉。</td></tr>
+    <tr><td><span class="it" onclick="speak('E sui social, si informa?')"><strong>Giornalista</strong>: E sui social, si informa?</span></td><td class="zh"><strong>记者</strong>: 那您在社交媒体上获取信息吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Qualche volta. Ma mi chiedo se le notizie che circolano sui social siano sempre vere.')"><strong>Intervistato</strong>: Qualche volta. Ma mi chiedo <span class="verb">se le notizie che circolano sui social siano</span> sempre vere.</span></td><td class="zh"><strong>受访者</strong>: 偶尔。但我怀疑社交网络上流传的新闻是否总是真的。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Dibattito sulle fake news -->
+  <h3>3. Dibattito: Fake news e disinformazione · p.34, es.7</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">课堂上关于假新闻和错误信息的讨论，学生表达不同的观点。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Secondo me, il problema delle fake news è più grave di quanto si creda.')"><strong>Studente A</strong>: Secondo me, il problema delle fake news è più grave di quanto si creda.</span></td><td class="zh"><strong>学生A</strong>: 我认为假新闻的问题比人们想象的更严重。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non sono d\'accordo. Non perché il problema non esista, ma perché la gente è più intelligente di quanto pensiamo.')"><strong>Studente B</strong>: Non sono d'accordo. Non perché il problema non <span class="verb">esista</span>, ma perché la gente è più intelligente di quanto pensiamo.</span></td><td class="zh"><strong>学生B</strong>: 我不同意。不是因为问题不存在，而是因为人们比我们想象的更聪明。</td></tr>
+    <tr><td><span class="it" onclick="speak('Io ho letto che il 40% degli italiani si informa solo sui social. Cosa ne pensate?')"><strong>Studente C</strong>: Io ho letto che il 40% degli italiani si informa solo sui social. Cosa ne pensate?</span></td><td class="zh"><strong>学生C</strong>: 我读到过40%的意大利人只在社交媒体上获取信息。你们怎么看？</td></tr>
+    <tr><td><span class="it" onclick="speak('Secondo me, è preoccupante. Il professore ha detto che dovremmo sempre verificare le fonti.')"><strong>Studente A</strong>: Secondo me, è preoccupante. Il professore ha detto che <span class="verb">dovremmo</span> sempre verificare le fonti.</span></td><td class="zh"><strong>学生A</strong>: 我觉得令人担忧。教授说我们应该总是核实来源。</td></tr>
+    <tr><td><span class="it" onclick="speak('Infatti. La scuola avrebbe dovuto introdurre l\'educazione mediatica già da anni.')"><strong>Studente B</strong>: Infatti. La scuola <span class="verb">avrebbe dovuto</span> introdurre l'educazione mediatica già da anni.</span></td><td class="zh"><strong>学生B</strong>: 确实。学校本应该早就引入媒体素养教育了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sono d\'accordo. Vorrei sapere cosa possiamo fare noi, nel nostro piccolo, per difenderci.')"><strong>Studente C</strong>: Sono d'accordo. Vorrei sapere cosa possiamo fare noi, nel nostro piccolo, per difenderci.</span></td><td class="zh"><strong>学生C</strong>: 我同意。我想知道我们个人能做些什么来保护自己。</td></tr>
+  </table>
+
+  <!-- Dialogo 4: Espressioni idiomatiche sui media -->
+  <h3>4. Espressioni idiomatiche — Media e comunicazione · p.35, es.9</h3>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Dobbiamo aprire un dibattito serio sull\'uso dei social media.')"><strong>Aprire un dibattito</strong>: Dobbiamo aprire un dibattito serio sull'uso dei social media.</span></td><td class="zh"><strong>开启辩论</strong>: 我们需要就社交媒体的使用开展严肃讨论。</td></tr>
+    <tr><td><span class="it" onclick="speak('Lo scandalo ha fatto notizia in tutto il mondo.')"><strong>Fare notizia</strong>: Lo scandalo ha fatto notizia in tutto il mondo.</span></td><td class="zh"><strong>成为新闻</strong>: 这起丑闻成了全世界的新闻。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quel cantante è sulla bocca di tutti in questo periodo.')"><strong>Essere sulla bocca di tutti</strong>: Quel cantante è sulla bocca di tutti in questo periodo.</span></td><td class="zh"><strong>挂在所有人嘴边</strong>: 那位歌手最近大家都在谈论。</td></tr>
+    <tr><td><span class="it" onclick="speak('Il governo ha cercato di mettere a tacere le voci critiche.')"><strong>Mettere a tacere</strong>: Il governo ha cercato di mettere a tacere le voci critiche.</span></td><td class="zh"><strong>让...沉默</strong>: 政府试图让批评的声音闭嘴。</td></tr>
+    <tr><td><span class="it" onclick="speak('Su questa questione, tutti hanno voce in capitolo.')"><strong>Avere voce in capitolo</strong>: Su questa questione, tutti hanno voce in capitolo.</span></td><td class="zh"><strong>有发言权</strong>: 在这个问题上，每个人都有发言权。</td></tr>
+    <tr><td><span class="it" onclick="speak('Il giornalista ha tagliato la testa al toro e ha pubblicato la verità.')"><strong>Tagliare la testa al toro</strong>: Il giornalista ha tagliato la testa al toro e ha pubblicato la verità.</span></td><td class="zh"><strong>快刀斩乱麻</strong>: 记者果断地公布了真相。</td></tr>
+    <tr><td><span class="it" onclick="speak('Corre voce che il ministro si sarebbe dimesso.')"><strong>Corre voce che...</strong>: Corre voce che il ministro si sarebbe dimesso.</span></td><td class="zh"><strong>有传言说...</strong>: 有传言说部长已经辞职了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Il pubblico è all\'oscuro di molti dettagli della vicenda.')"><strong>Essere all'oscuro di</strong>: Il pubblico è all'oscuro di molti dettagli della vicenda.</span></td><td class="zh"><strong>对...一无所知</strong>: 公众对事件的许多细节一无所知。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F4F0; 媒体相关 (Media e comunicazione)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la notizia')">la notizia</td><td>nf</td><td>新闻</td></tr>
+    <tr><td class="it" onclick="speak('il giornale')">il giornale</td><td>nm</td><td>报纸</td></tr>
+    <tr><td class="it" onclick="speak('il quotidiano')">il quotidiano</td><td>nm</td><td>日报</td></tr>
+    <tr><td class="it" onclick="speak('il telegiornale')">il telegiornale</td><td>nm</td><td>电视新闻</td></tr>
+    <tr><td class="it" onclick="speak('la rivista')">la rivista</td><td>nf</td><td>杂志</td></tr>
+    <tr><td class="it" onclick="speak('l\'articolo')">l'articolo</td><td>nm</td><td>文章</td></tr>
+    <tr><td class="it" onclick="speak('la fonte')">la fonte</td><td>nf</td><td>来源</td></tr>
+    <tr><td class="it" onclick="speak('la notizia falsa / fake news')">la notizia falsa / fake news</td><td>nf</td><td>假新闻</td></tr>
+    <tr><td class="it" onclick="speak('la disinformazione')">la disinformazione</td><td>nf</td><td>虚假信息</td></tr>
+    <tr><td class="it" onclick="speak('il social media')">il social media</td><td>nm</td><td>社交媒体</td></tr>
+    <tr><td class="it" onclick="speak('la testata')">la testata</td><td>nf</td><td>报头，媒体机构</td></tr>
+    <tr><td class="it" onclick="speak('il giornalista')">il/la giornalista</td><td>nm/f</td><td>记者</td></tr>
+  </table>
+
+  <h3>&#x1F4DD; 媒体动词 (Verbi dei media)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('informarsi')">informarsi</td><td>vi</td><td>获取信息</td></tr>
+    <tr><td class="it" onclick="speak('pubblicare')">pubblicare</td><td>vt</td><td>出版，发表</td></tr>
+    <tr><td class="it" onclick="speak('diffondere')">diffondere</td><td>vt</td><td>传播</td></tr>
+    <tr><td class="it" onclick="speak('condividere')">condividere</td><td>vt</td><td>分享</td></tr>
+    <tr><td class="it" onclick="speak('verificare')">verificare</td><td>vt</td><td>核实，验证</td></tr>
+    <tr><td class="it" onclick="speak('riportare')">riportare</td><td>vt</td><td>报道，转述</td></tr>
+    <tr><td class="it" onclick="speak('annunciare')">annunciare</td><td>vt</td><td>宣布</td></tr>
+    <tr><td class="it" onclick="speak('dichiarare')">dichiarare</td><td>vt</td><td>声明</td></tr>
+    <tr><td class="it" onclick="speak('affermare')">affermare</td><td>vt</td><td>断言，肯定</td></tr>
+    <tr><td class="it" onclick="speak('smentire')">smentire</td><td>vt</td><td>否认</td></tr>
+    <tr><td class="it" onclick="speak('censurare')">censurare</td><td>vt</td><td>审查</td></tr>
+  </table>
+
+  <h3>&#x1F310; 谈论观点 (Esprimere opinioni)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('secondo me')">secondo me</td><td>avv</td><td>在我看来</td></tr>
+    <tr><td class="it" onclick="speak('a mio parere')">a mio parere</td><td>avv</td><td>依我之见</td></tr>
+    <tr><td class="it" onclick="speak('mi sembra che')">mi sembra che</td><td>esp</td><td>我觉得……</td></tr>
+    <tr><td class="it" onclick="speak('sono convinto/a che')">sono convinto/a che</td><td>esp</td><td>我相信……</td></tr>
+    <tr><td class="it" onclick="speak('non sono d\'accordo')">non sono d'accordo</td><td>esp</td><td>我不同意</td></tr>
+    <tr><td class="it" onclick="speak('condivido l\'idea')">condivido l'idea</td><td>esp</td><td>我同意这个想法</td></tr>
+    <tr><td class="it" onclick="speak('mi chiedo se')">mi chiedo se</td><td>esp</td><td>我想知道是否……</td></tr>
+    <tr><td class="it" onclick="speak('non so se')">non so se</td><td>esp</td><td>我不知道是否……</td></tr>
+    <tr><td class="it" onclick="speak('ho l\'impressione che')">ho l'impressione che</td><td>esp</td><td>我感觉……</td></tr>
+    <tr><td class="it" onclick="speak('dal mio punto di vista')">dal mio punto di vista</td><td>avv</td><td>从我的角度看</td></tr>
+    <tr><td class="it" onclick="speak('per quanto ne so')">per quanto ne so</td><td>avv</td><td>据我所知</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Discorso indiretto -->
+  <h3>1. Il discorso indiretto（间接引语）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">间接引语用于转述别人说过的话。从直接引语转换为间接引语时，动词时态、人称和指示词需要相应变化。</p>
+    <table>
+      <tr><th>直接引语</th><th>间接引语</th><th>变化规则</th></tr>
+      <tr><td>"Leggo il giornale ogni mattina."</td><td>Ha detto che <span class="verb">leggeva</span> il giornale ogni mattina.</td><td>Presente → Imperfetto</td></tr>
+      <tr><td>"Ho visto il TG ieri."</td><td>Ha detto che <span class="verb">aveva visto</span> il TG il giorno prima.</td><td>Passato prossimo → Trapassato</td></tr>
+      <tr><td>"Comprerò un abbonamento."</td><td>Ha detto che <span class="verb">avrebbe comprato</span> un abbonamento.</td><td>Futuro → Condizionale passato</td></tr>
+      <tr><td>"I media influenzano l'opinione pubblica."</td><td>Ha detto che i media <span class="verb">influenzavano</span> l'opinione pubblica.</td><td>Affermazione generale → Imperfetto</td></tr>
+      <tr><td>"Non mi fido dei social media."</td><td>Ha detto che non <span class="verb">si fidava</span> dei social media.</td><td>Verbo riflessivo → Imperfetto</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">指示词变化:</p>
+    <table>
+      <tr><th>直接引语</th><th>间接引语</th></tr>
+      <tr><td>oggi → </td><td>quel giorno</td></tr>
+      <tr><td>ieri → </td><td>il giorno prima</td></tr>
+      <tr><td>domani → </td><td>il giorno dopo</td></tr>
+      <tr><td>qui/qua → </td><td>lì/là</td></tr>
+      <tr><td>questo/a → </td><td>quello/a</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Non perché + congiuntivo -->
+  <h3>2. Non perché + congiuntivo（不是因为……而因为……）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">结构"non perché + 虚拟式... ma perché + 直陈式"用于否定一个原因，同时肯定另一个原因。虚拟式用于被否定的部分。</p>
+    <table>
+      <tr><th>结构</th><th>例句</th><th>中文</th></tr>
+      <tr><td>Non perché + <span class="verb">congiuntivo</span>, ma perché + indicativo</td><td><span class="it" onclick="speak('Non perché sia costoso, ma perché non mi piace.')">Non perché <span class="verb">sia</span> costoso, ma perché non mi piace.</span></td><td>不是因为它贵，而是因为我不喜欢。</td></tr>
+      <tr><td></td><td><span class="it" onclick="speak('Non perché non mi fidi, ma perché voglio verificare.')">Non perché non mi <span class="verb">fidi</span>, ma perché voglio verificare.</span></td><td>不是不信任，而是我想核实一下。</td></tr>
+      <tr><td></td><td><span class="it" onclick="speak('Non perché sia difficile, ma perché richiede tempo.')">Non perché <span class="verb">sia</span> difficile, ma perché richiede tempo.</span></td><td>不是因为它难，而是因为它需要时间。</td></tr>
+      <tr><td></td><td><span class="it" onclick="speak('Non perché il problema non esista, ma perché la situazione è complessa.')">Non perché il problema non <span class="verb">esista</span>, ma perché la situazione è complessa.</span></td><td>不是因为问题不存在，而是因为情况很复杂。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Interrogative indirette -->
+  <h3>3. Le interrogative indirette（间接疑问句）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">间接疑问句用于转述一个问题，从句中通常使用虚拟式。由se（是否）、dove、come、perché等疑问词引导。</p>
+    <table>
+      <tr><th>直接问句</th><th>间接问句</th><th>中文</th></tr>
+      <tr><td>"È vero?"</td><td>Mi chiedo <span class="verb">se sia</span> vero.</td><td>我想知道是不是真的。</td></tr>
+      <tr><td>"Dov'è andato?"</td><td>Non so <span class="verb">dove sia</span> andato.</td><td>我不知道他去哪里了。</td></tr>
+      <tr><td>"Quando arriva?"</td><td>Vorrei sapere <span class="verb">quando arrivi</span>.</td><td>我想知道什么时候到。</td></tr>
+      <tr><td>"Chi l'ha detto?"</td><td>Non so <span class="verb">chi l'abbia detto</span>.</td><td>我不知道是谁说的。</td></tr>
+      <tr><td>"Perché hai fatto così?"</td><td>Mi domando <span class="verb">perché tu abbia fatto</span> così.</td><td>我在想你为什么这么做。</td></tr>
+      <tr><td>"Cosa significa?"</td><td>Non capisco <span class="verb">cosa significhi</span>.</td><td>我不明白是什么意思。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Mi chiedo se la notizia sia vera.')">Mi chiedo se la notizia <span class="verb">sia</span> vera.</span></td><td>我想知道这条新闻是不是真的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non so come abbia fatto a scoprirlo.')">Non so come <span class="verb">abbia fatto</span> a scoprirlo.</span></td><td>我不知道他是怎么发现的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Vorrei sapere dove hai trovato questa informazione.')">Vorrei sapere dove <span class="verb">hai trovato</span> questa informazione.</span></td><td>我想知道你在哪里找到这个信息的。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Condizionale per notizie non confermate -->
+  <h3>4. Il condizionale per notizie non confermate（条件式表不确定新闻）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">在新闻报道中，条件式（特别是条件式过去时）用来表示未经官方确认的信息、传闻或推测。</p>
+    <table>
+      <tr><th>形式</th><th>用法</th><th>例句</th></tr>
+      <tr><td>Condizionale presente</td><td>推测当前情况</td><td>Il presidente <span class="verb">sarebbe</span> a Roma.</td></tr>
+      <tr><td>Condizionale passato</td><td>推测过去情况/传闻</td><td>Il ministro <span class="verb">si sarebbe dimesso</span>.</td></tr>
+      <tr><td>Secondo alcune fonti...</td><td>信息来源不明</td><td>Secondo alcune fonti, l'accordo <span class="verb">sarebbe stato firmato</span>.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Il presidente si sarebbe dimesso, secondo fonti non ufficiali.')">Il presidente <span class="verb">si sarebbe dimesso</span>, secondo fonti non ufficiali.</span></td><td>据非官方消息，总统已经辞职。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il governo avrebbe approvato una nuova legge.')">Il governo <span class="verb">avrebbe approvato</span> una nuova legge.</span></td><td>政府据称通过了一项新法律。</td></tr>
+      <tr><td><span class="it" onclick="speak('I due paesi avrebbero raggiunto un accordo segreto.')">I due paesi <span class="verb">avrebbero raggiunto</span> un accordo segreto.</span></td><td>两国据称达成了秘密协议。</td></tr>
+      <tr><td><span class="it" onclick="speak('L\'azienda licenzierebbe 500 dipendenti.')">L'azienda <span class="verb">licenzierebbe</span> 500 dipendenti.</span></td><td>这家公司据称将解雇500名员工。</td></tr>
+      <tr><td><span class="it" onclick="speak('Secondo il TG, il presidente sarebbe arrivato ieri.')">Secondo il TG, il presidente <span class="verb">sarebbe arrivato</span> ieri.</span></td><td>据电视新闻说，总统昨天就到了。</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. Su per percentuali -->
+  <h3>5. La preposizione "su" per esprimere proporzioni（su表示比例）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">介词su用于表示比例关系，相当于中文的"每……中有……"。</p>
+    <table>
+      <tr><th>结构</th><th>例句</th><th>中文</th></tr>
+      <tr><td>numero + su + numero</td><td><span class="it" onclick="speak('Il 40% degli italiani su 100 si informa solo sui social.')">Il 40% degli italiani <span class="verb">su</span> 100 si informa solo sui social.</span></td><td>每100个意大利人中有40人只在社交网络上获取信息。</td></tr>
+      <tr><td></td><td><span class="it" onclick="speak('Una persona su tre legge il giornale cartaceo.')">Una persona <span class="verb">su</span> tre legge il giornale cartaceo.</span></td><td>每三个人中有一人读纸质报纸。</td></tr>
+      <tr><td></td><td><span class="it" onclick="speak('Solo due italiani su dieci si fidano dei social media.')">Solo due italiani <span class="verb">su</span> dieci si fidano dei social media.</span></td><td>只有十分之二的意大利人信任社交媒体。</td></tr>
+      <tr><td></td><td><span class="it" onclick="speak('Nove studenti su dieci usano internet per studiare.')">Nove studenti <span class="verb">su</span> dieci usano internet per studiare.</span></td><td>十分之九的学生用互联网学习。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale · p.38-39</h2>
+
+  <h3>&#x1F4F0; Il giornale che resiste（坚守的报纸）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('In un\'epoca in cui i giornali cartacei chiudono uno dopo l\'altro, c\'è ancora chi crede nella carta stampata.')">In un'epoca in cui i giornali cartacei chiudono uno dopo l'altro, c'è ancora chi crede nella carta stampata.</p>
+    <p class="it" onclick="speak('"Il Post" è nato come giornale online, ma molte testate storiche italiane continuano a stampare edizioni cartacee.')">"Il Post" è nato come giornale online, ma molte testate storiche italiane continuano a stampare edizioni cartacee.</p>
+    <p class="it" onclick="speak('Il Corriere della Sera, fondato nel 1876, vende ancora circa 300.000 copie al giorno.')">Il Corriere della Sera, fondato nel 1876, vende ancora circa 300.000 copie al giorno.</p>
+    <p class="it" onclick="speak('Perché la gente continua a comprare il giornale? Forse per il piacere di sfogliare le pagine, per l\'odore della carta, per la possibilità di leggere senza schermi.')">Perché la gente continua a comprare il giornale? Forse per il piacere di sfogliare le pagine, per l'odore della carta, per la possibilità di leggere senza schermi.</p>
+    <p class="it" onclick="speak('I giornalisti dicono che il futuro è nell\'ibrido: carta per l\'analisi, digitale per le notizie in tempo reale.')">I giornalisti dicono che il futuro è nell'ibrido: carta per l'analisi, digitale per le notizie in tempo reale.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p class="zh">在这个纸质报纸一家接一家关闭的时代，仍然有人相信印刷媒体。"Il Post"最初是网络报纸，但许多意大利历史悠久的媒体机构继续出版纸质版。创立于1876年的《晚邮报》至今每天仍销售约30万份。为什么人们继续买报纸？也许是为了翻阅纸张的愉悦、油墨的香味、或者不看屏幕阅读的可能。记者们说未来在于混合模式：纸质用于分析，数字用于实时新闻。</p>
+  </div>
+
+  <h3>相关词汇</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la carta stampata')">la carta stampata</td><td>印刷媒体</td></tr>
+    <tr><td class="it" onclick="speak('la testata giornalistica')">la testata giornalistica</td><td>新闻媒体</td></tr>
+    <tr><td class="it" onclick="speak('il fattore d\'impatto')">il fact-checking</td><td>事实核查</td></tr>
+    <tr><td class="it" onclick="speak('l\'ibrido')">l'ibrido</td><td>混合模式</td></tr>
+    <tr><td class="it" onclick="speak('la libertà di stampa')">la libertà di stampa</td><td>新闻自由</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化注释:</strong><br>
+    &bull; 意大利的主要报纸有：Corriere della Sera（米兰）、La Repubblica（罗马）、La Stampa（都灵）<br>
+    &bull; RAI是意大利的公共广播电视公司，类似于英国的BBC<br>
+    &bull; 意大利的新闻自由在全球排名中处于中等水平<br>
+    &bull; Nel tuo Paese, quali sono i principali giornali? — 在你的国家，主要报纸有哪些？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 3 — Media e informazione</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频讨论媒体和信息获取的不同方式，比较传统媒体与新媒体的优缺点，以及如何辨别真假新闻。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">关键表达 (Espressioni chiave):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Secondo te, è affidabile?')">Secondo te, è affidabile?</span></td><td class="zh">你认为可靠吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Mi chiedo se sia vero.')">Mi chiedo se sia vero.</span></td><td class="zh">我想知道是不是真的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non perché sia falso, ma perché non è confermato.')">Non perché sia falso, ma perché non è confermato.</span></td><td class="zh">不是因为它是假的，而是因为未经确认。</td></tr>
+    <tr><td><span class="it" onclick="speak('Il presidente si sarebbe dimesso.')">Il presidente si sarebbe dimesso.</span></td><td class="zh">据称总统已经辞职。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ha detto che lo avrebbe fatto.')">Ha detto che lo avrebbe fatto.</span></td><td class="zh">他说他会做这件事。</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演：记者采访路人，使用间接疑问句（Mi chiedo se... / Non so perché...）<br>
+    &bull; 用条件式转述一条你听到的未经证实的新闻<br>
+    &bull; 用non perché + 虚拟式造句，否定一个原因并肯定另一个<br>
+    &bull; 练习将直接引语转换为间接引语
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-2.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html">Torna al corso</a>
+  <a href="unita-4.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 4</div>
+  <p>Corso di lingua italiana per stranieri · Livello B2</p>
+  <p style="margin-top:8px;opacity:0.6;">Maria Bali • Irene Dei · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

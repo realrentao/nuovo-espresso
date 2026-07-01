@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammatica Riassuntiva · NUOVO Espresso 3</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+    .grammar-summary { background: #e8f8f5; border: 1px solid #1abc9c; border-radius: 8px; padding: 12px 16px; margin: 16px 0; font-size: 13px; }
+    .grammar-index { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0; }
+    .grammar-index a { display: inline-block; padding: 6px 14px; background: #f0f4f8; border: 1px solid var(--border-light); border-radius: 20px; text-decoration: none; font-size: 12px; color: var(--ne-blue); font-weight: 600; transition: all 0.2s; }
+    .grammar-index a:hover { background: var(--ne-light-blue); transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 3 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Grammatica Riassuntiva · B1</div>
+  <h1>&#x1F4DA; Grammatica Sistematica</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">系统语法参考 · p.233-251</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">B1级别全部语法点 · 变位表格 · 例句 · 中文解释</p>
+</section>
+
+<div class="page-section">
+  <div class="grammar-index">
+    <a href="#t1">Trapassato prossimo</a>
+    <a href="#t2">Condizionale passato</a>
+    <a href="#t3">Congiuntivo presente</a>
+    <a href="#t4">Congiuntivo passato</a>
+    <a href="#t5">Congiuntivo imperfetto</a>
+    <a href="#t6">Congiuntivo trapassato</a>
+    <a href="#t7">Periodo ipotetico</a>
+    <a href="#t8">Discorso indiretto</a>
+    <a href="#t9">Passato remoto</a>
+    <a href="#t10">Gerundio</a>
+    <a href="#t11">Forma passiva</a>
+    <a href="#t12">Pronomi combinati</a>
+    <a href="#t13">Ci e Ne</a>
+    <a href="#t14">Pronomi possessivi</a>
+    <a href="#t15">Frasi concessive</a>
+    <a href="#t16">Prefisso in-</a>
+    <a href="#t17">Avverbi in -mente</a>
+    <a href="#t18">Suffisso -accio</a>
+    <a href="#t19">Aggettivi -bile</a>
+    <a href="#t20">Verbi pronominali</a>
+    <a href="#t21">Verbi irregolari</a>
+    <a href="#t22">Dovere per ipotesi</a>
+    <a href="#t23">Prima di + infinito</a>
+    <a href="#t24">Fare + infinito</a>
+    <a href="#t25">Come se</a>
+  </div>
+</div>
+
+<!-- 1. Trapassato prossimo -->
+<section class="page-section" id="t1">
+  <h2>1. Trapassato prossimo（近过去完成时）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">表示在另一个过去动作之前已经发生的动作，即"过去的过去"。</p>
+    <p style="font-weight:600;font-size:13px;">构成：avere/essere的未完成过去时 + 过去分词</p>
+    <table>
+      <tr><th>主语</th><th>avere</th><th>essere</th></tr>
+      <tr><td>io</td><td><span class="verb">avevo</span> parlato</td><td><span class="verb">ero</span> partito/a</td></tr>
+      <tr><td>tu</td><td><span class="verb">avevi</span> parlato</td><td><span class="verb">eri</span> partito/a</td></tr>
+      <tr><td>lui/lei</td><td><span class="verb">aveva</span> parlato</td><td><span class="verb">era</span> partito/a</td></tr>
+      <tr><td>noi</td><td><span class="verb">avevamo</span> parlato</td><td><span class="verb">eravamo</span> partiti/e</td></tr>
+      <tr><td>voi</td><td><span class="verb">avevate</span> parlato</td><td><span class="verb">eravate</span> partiti/e</td></tr>
+      <tr><td>loro</td><td><span class="verb">avevano</span> parlato</td><td><span class="verb">erano</span> partiti/e</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">Esempi:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Avevo studiato l\'italiano prima di venire in Italia.')"><span class="verb">Avevo studiato</span> l'italiano prima di venire in Italia.</span></td><td class="zh">来意大利之前我学过意大利语。</td></tr>
+      <tr><td><span class="it" onclick="speak('Quando sono arrivato, lui era già partito.')">Quando sono arrivato, lui <span class="verb">era già partito</span>.</span></td><td class="zh">当我到达时，他已经出发了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ero stanca perché avevo dormito poco.')">Ero stanca perché <span class="verb">avevo dormito</span> poco.</span></td><td class="zh">我很累因为我睡得少。</td></tr>
+      <tr><td><span class="it" onclick="speak('Avevamo mangiato prima di andare al cinema.')"><span class="verb">Avevamo mangiato</span> prima di andare al cinema.</span></td><td class="zh">去看电影之前我们已经吃过了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ti avevo detto di venire presto!')">Ti <span class="verb">avevo detto</span> di venire presto!</span></td><td class="zh">我之前告诉过你要早点来！</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 2. Condizionale passato -->
+<section class="page-section" id="t2">
+  <h2>2. Condizionale passato（过去条件式）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">用于表达过去未能实现的愿望、本应该发生但没有发生的事情，或新闻中的不确定信息。</p>
+    <p style="font-weight:600;font-size:13px;">构成：avere/essere的条件式现在时 + 过去分词</p>
+    <table>
+      <tr><th>主语</th><th>avere</th><th>essere</th></tr>
+      <tr><td>io</td><td><span class="verb">avrei</span> parlato</td><td><span class="verb">sarei</span> partito/a</td></tr>
+      <tr><td>tu</td><td><span class="verb">avresti</span> parlato</td><td><span class="verb">saresti</span> partito/a</td></tr>
+      <tr><td>lui/lei</td><td><span class="verb">avrebbe</span> parlato</td><td><span class="verb">sarebbe</span> partito/a</td></tr>
+      <tr><td>noi</td><td><span class="verb">avremmo</span> parlato</td><td><span class="verb">saremmo</span> partiti/e</td></tr>
+      <tr><td>voi</td><td><span class="verb">avreste</span> parlato</td><td><span class="verb">sareste</span> partiti/e</td></tr>
+      <tr><td>loro</td><td><span class="verb">avrebbero</span> parlato</td><td><span class="verb">sarebbero</span> partiti/e</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">Esempi:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Avrei voluto venire, ma ero malato.')"><span class="verb">Avrei voluto</span> venire, ma ero malato.</span></td><td class="zh">我本想来的，但我病了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sarebbe stato meglio costruire un parco.')"><span class="verb">Sarebbe stato</span> meglio costruire un parco.</span></td><td class="zh">建一个公园会更好。</td></tr>
+      <tr><td><span class="it" onclick="speak('Avrebbe potuto apriré una clinica privata.')"><span class="verb">Avrebbe potuto</span> aprire una clinica privata.</span></td><td class="zh">他本可以开一家私人诊所。</td></tr>
+      <tr><td><span class="it" onclick="speak('Saresti potuto essere più gentile.')"><span class="verb">Saresti potuto</span> essere più gentile.</span></td><td class="zh">你本可以更客气一点。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il politico avrebbe accettato una tangente.')">Il politico <span class="verb">avrebbe accettato</span> una tangente.</span></td><td class="zh">据称这位政治家收了贿赂。（新闻用语）</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 3. Congiuntivo presente -->
+<section class="page-section" id="t3">
+  <h2>3. Congiuntivo presente（虚拟式现在时）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">用于表达观点、情感、怀疑、愿望等，常用在che引导的从句中。</p>
+    <table>
+      <tr><th>主语</th><th>parlare</th><th>prendere</th><th>partire</th><th>finire</th></tr>
+      <tr><td>io</td><td><span class="verb">parli</span></td><td><span class="verb">prenda</span></td><td><span class="verb">parta</span></td><td><span class="verb">finisca</span></td></tr>
+      <tr><td>tu</td><td><span class="verb">parli</span></td><td><span class="verb">prenda</span></td><td><span class="verb">parta</span></td><td><span class="verb">finisca</span></td></tr>
+      <tr><td>lui/lei</td><td><span class="verb">parli</span></td><td><span class="verb">prenda</span></td><td><span class="verb">parta</span></td><td><span class="verb">finisca</span></td></tr>
+      <tr><td>noi</td><td><span class="verb">parliamo</span></td><td><span class="verb">prendiamo</span></td><td><span class="verb">partiamo</span></td><td><span class="verb">finiamo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb">parliate</span></td><td><span class="verb">prendiate</span></td><td><span class="verb">partiate</span></td><td><span class="verb">finiate</span></td></tr>
+      <tr><td>loro</td><td><span class="verb">parlino</span></td><td><span class="verb">prendano</span></td><td><span class="verb">partano</span></td><td><span class="verb">finiscano</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">不规则动词：</p>
+    <table>
+      <tr><th>原形</th><th>io</th><th>noi</th><th>loro</th></tr>
+      <tr><td>essere</td><td><span class="verb">sia</span></td><td><span class="verb">siamo</span></td><td><span class="verb">siano</span></td></tr>
+      <tr><td>avere</td><td><span class="verb">abbia</span></td><td><span class="verb">abbiamo</span></td><td><span class="verb">abbiano</span></td></tr>
+      <tr><td>fare</td><td><span class="verb">faccia</span></td><td><span class="verb">facciamo</span></td><td><span class="verb">facciano</span></td></tr>
+      <tr><td>dire</td><td><span class="verb">dica</span></td><td><span class="verb">diciamo</span></td><td><span class="verb">dicano</span></td></tr>
+      <tr><td>dovere</td><td><span class="verb">debba</span></td><td><span class="verb">dobbiamo</span></td><td><span class="verb">debbano</span></td></tr>
+      <tr><td>potere</td><td><span class="verb">possa</span></td><td><span class="verb">possiamo</span></td><td><span class="verb">possano</span></td></tr>
+      <tr><td>volere</td><td><span class="verb">voglia</span></td><td><span class="verb">vogliamo</span></td><td><span class="verb">vogliano</span></td></tr>
+      <tr><td>venire</td><td><span class="verb">venga</span></td><td><span class="verb">veniamo</span></td><td><span class="verb">vengano</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">使用时态：</p>
+    <table>
+      <tr><th>触发词</th><th>例句</th></tr>
+      <tr><td>Penso che...</td><td><span class="it" onclick="speak('Penso che lui sia italiano.')">Penso che lui <span class="verb">sia</span> italiano.</span><br><span class="zh">我认为他是意大利人。</span></td></tr>
+      <tr><td>Credo che...</td><td><span class="it" onclick="speak('Credo che tu abbia ragione.')">Credo che tu <span class="verb">abbia</span> ragione.</span><br><span class="zh">我相信你是对的。</span></td></tr>
+      <tr><td>È importante che...</td><td><span class="it" onclick="speak('È importante che tutti partecipino.')">È importante che tutti <span class="verb">partecipino</span>.</span><br><span class="zh">所有人参加是重要的。</span></td></tr>
+      <tr><td>Spero che...</td><td><span class="it" onclick="speak('Spero che tutto vada bene.')">Spero che tutto <span class="verb">vada</span> bene.</span><br><span class="zh">希望一切顺利。</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 4. Congiuntivo passato -->
+<section class="page-section" id="t4">
+  <h2>4. Congiuntivo passato（虚拟式过去时）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">用于表达过去的观点、情感、怀疑等，从句动作发生在主句之前。</p>
+    <p style="font-weight:600;font-size:13px;">构成：avere/essere的虚拟式现在时 + 过去分词</p>
+    <table>
+      <tr><th>主语</th><th>avere</th><th>essere</th></tr>
+      <tr><td>io</td><td><span class="verb">abbia</span> parlato</td><td><span class="verb">sia</span> partito/a</td></tr>
+      <tr><td>tu</td><td><span class="verb">abbia</span> parlato</td><td><span class="verb">sia</span> partito/a</td></tr>
+      <tr><td>lui/lei</td><td><span class="verb">abbia</span> parlato</td><td><span class="verb">sia</span> partito/a</td></tr>
+      <tr><td>noi</td><td><span class="verb">abbiamo</span> parlato</td><td><span class="verb">siamo</span> partiti/e</td></tr>
+      <tr><td>voi</td><td><span class="verb">abbiate</span> parlato</td><td><span class="verb">siate</span> partiti/e</td></tr>
+      <tr><td>loro</td><td><span class="verb">abbiano</span> parlato</td><td><span class="verb">siano</span> partiti/e</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">Esempi:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Credo che sia partito.')">Credo che <span class="verb">sia partito</span>.</span></td><td class="zh">我相信他已经出发了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Penso che l\'abbiano assunto come responsabile.')">Penso che l'<span class="verb">abbiano assunto</span> come responsabile.</span></td><td class="zh">我认为他们已经聘用了负责人。</td></tr>
+      <tr><td><span class="it" onclick="speak('Spero che abbiate capito la lezione.')">Spero che <span class="verb">abbiate capito</span> la lezione.</span></td><td class="zh">我希望你们已经理解了这节课。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non credo che sia venuto ieri.')">Non credo che <span class="verb">sia venuto</span> ieri.</span></td><td class="zh">我不相信他昨天来了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Temo che non abbiamo avuto il tempo.')">Temo che non <span class="verb">abbiamo avuto</span> il tempo.</span></td><td class="zh">我担心我们没有时间。</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 5. Congiuntivo imperfetto -->
+<section class="page-section" id="t5">
+  <h2>5. Congiuntivo imperfetto（虚拟式未完成时）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">用于表达与现在或过去事实相反的假设、愿望，或在过去主句下的从句中。</p>
+    <table>
+      <tr><th>主语</th><th>parlare</th><th>prendere</th><th>partire</th></tr>
+      <tr><td>io</td><td><span class="verb">parlassi</span></td><td><span class="verb">vendessi</span></td><td><span class="verb">partissi</span></td></tr>
+      <tr><td>tu</td><td><span class="verb">parlassi</span></td><td><span class="verb">vendessi</span></td><td><span class="verb">partissi</span></td></tr>
+      <tr><td>lui/lei</td><td><span class="verb">parlasse</span></td><td><span class="verb">vendesse</span></td><td><span class="verb">partisse</span></td></tr>
+      <tr><td>noi</td><td><span class="verb">parlassimo</span></td><td><span class="verb">vendessimo</span></td><td><span class="verb">partissimo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb">parlaste</span></td><td><span class="verb">vendeste</span></td><td><span class="verb">partiste</span></td></tr>
+      <tr><td>loro</td><td><span class="verb">parlassero</span></td><td><span class="verb">vendessero</span></td><td><span class="verb">partissero</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">不规则动词：</p>
+    <table>
+      <tr><th>原形</th><th>io</th><th>lui/lei</th><th>noi</th><th>loro</th></tr>
+      <tr><td>essere</td><td><span class="verb">fossi</span></td><td><span class="verb">fosse</span></td><td><span class="verb">fossimo</span></td><td><span class="verb">fossero</span></td></tr>
+      <tr><td>avere</td><td><span class="verb">avessi</span></td><td><span class="verb">avesse</span></td><td><span class="verb">avessimo</span></td><td><span class="verb">avessero</span></td></tr>
+      <tr><td>fare</td><td><span class="verb">facessi</span></td><td><span class="verb">facesse</span></td><td><span class="verb">facessimo</span></td><td><span class="verb">facessero</span></td></tr>
+      <tr><td>dire</td><td><span class="verb">dicessi</span></td><td><span class="verb">dicesse</span></td><td><span class="verb">dicessimo</span></td><td><span class="verb">dicessero</span></td></tr>
+      <tr><td>stare</td><td><span class="verb">stessi</span></td><td><span class="verb">stesse</span></td><td><span class="verb">stessimo</span></td><td><span class="verb">stessero</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">Esempi:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Vorrei che tu mi aiutassi.')">Vorrei che tu mi <span class="verb">aiutassi</span>.</span></td><td class="zh">我希望你帮帮我。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se avessi tempo, verrei volentieri.')">Se <span class="verb">avessi</span> tempo, verrei volentieri.</span></td><td class="zh">如果我有时间，我很愿意来。</td></tr>
+      <tr><td><span class="it" onclick="speak('Era importante che lui fosse presente.')">Era importante che lui <span class="verb">fosse</span> presente.</span></td><td class="zh">他在场很重要。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mi sembrava che tu fossi stanco.')">Mi sembrava che tu <span class="verb">fossi</span> stanco.</span></td><td class="zh">我觉得你累了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non credevo che fosse così difficile.')">Non credevo che <span class="verb">fosse</span> così difficile.</span></td><td class="zh">我不相信这么难。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 6. Congiuntivo trapassato -->
+<section class="page-section" id="t6">
+  <h2>6. Congiuntivo trapassato（虚拟式愈过去时）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">由avere/essere的虚拟式未完成时 + 过去分词构成，用于表达不可能实现的假设（过去）。</p>
+    <table>
+      <tr><th>主语</th><th>avere</th><th>essere</th></tr>
+      <tr><td>io</td><td><span class="verb">avessi</span> parlato</td><td><span class="verb">fossi</span> partito/a</td></tr>
+      <tr><td>tu</td><td><span class="verb">avessi</span> parlato</td><td><span class="verb">fossi</span> partito/a</td></tr>
+      <tr><td>lui/lei</td><td><span class="verb">avesse</span> parlato</td><td><span class="verb">fosse</span> partito/a</td></tr>
+      <tr><td>noi</td><td><span class="verb">avessimo</span> parlato</td><td><span class="verb">fossimo</span> partiti/e</td></tr>
+      <tr><td>voi</td><td><span class="verb">aveste</span> parlato</td><td><span class="verb">foste</span> partiti/e</td></tr>
+      <tr><td>loro</td><td><span class="verb">avessero</span> parlato</td><td><span class="verb">fossero</span> partiti/e</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">Esempi:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Se avessi avuto tempo, ti avrei chiamato.')">Se <span class="verb">avessi avuto</span> tempo, ti avrei chiamato.</span></td><td class="zh">如果我有时间，我就给你打电话了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se fossi stato presente, avrei aiutato.')">Se <span class="verb">fossi stato</span> presente, avrei aiutato.</span></td><td class="zh">如果我在场，我就帮忙了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se avesse studiato, avrebbe superato.')">Se <span class="verb">avesse studiato</span>, avrebbe superato.</span></td><td class="zh">如果他学习了，他就通过了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se avessimo saputo, saremmo venuti.')">Se <span class="verb">avessimo saputo</span>, saremmo venuti.</span></td><td class="zh">如果我们知道，我们就来了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se non avesse piovuto, saremmo andati al mare.')">Se non <span class="verb">avesse piovuto</span>, saremmo andati al mare.</span></td><td class="zh">如果没有下雨，我们就去海边了。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 7. Periodo ipotetico -->
+<section class="page-section" id="t7">
+  <h2>7. Periodo ipotetico（条件句）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">三种条件句类型的结构对比。</p>
+    <table>
+      <tr><th>类型</th><th>结构</th><th>含义</th><th>例句</th></tr>
+      <tr><td><span class="verb">1. Realtà</span></td><td>se + 直陈式现在时 / 将来时</td><td>可能实现</td><td><span class="it" onclick="speak('Se studi, impari.')">Se studi, impari.</span><br><span class="zh">如果学习，就学会。</span></td></tr>
+      <tr><td><span class="verb">2. Possibilità</span></td><td>se + 虚拟式未完成时</td><td>不太可能</td><td><span class="it" onclick="speak('Se studiassi, impareresti.')">Se studiassi, impareresti.</span><br><span class="zh">如果学习（但不太可能），就会学会。</span></td></tr>
+      <tr><td><span class="verb">3. Irrealtà</span></td><td>se + 虚拟式愈过去时</td><td>不可能（过去）</td><td><span class="it" onclick="speak('Se avessi studiato, avresti imparato.')">Se avessi studiato, avresti imparato.</span><br><span class="zh">如果学习了（但没学），就学会了。</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">更多例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Se vieni, ti aspetto.')">Se vieni, ti aspetto.</span></td><td class="zh">如果你来，我等你。（现实）</td></tr>
+      <tr><td><span class="it" onclick="speak('Se venissi, ti aspetterei.')">Se venissi, ti aspetterei.</span></td><td class="zh">如果你来，我会等你。（可能）</td></tr>
+      <tr><td><span class="it" onclick="speak('Se fossi venuto, ti avrei aspettato.')">Se fossi venuto, ti avrei aspettato.</span></td><td class="zh">如果你来了，我就等你了。（虚拟）</td></tr>
+      <tr><td><span class="it" onclick="speak('Se avessi vinto alla lotteria, avrei comprato una casa.')">Se avessi vinto alla lotteria, avrei comprato una casa.</span></td><td class="zh">如果我中了彩票，我就买房子了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se fossi nato in Italia, parlerei italiano meglio.')">Se fossi nato in Italia, parlerei italiano meglio.</span></td><td class="zh">如果我出生在意大利，我的意大利语会说得更好。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 8. Discorso indiretto -->
+<section class="page-section" id="t8">
+  <h2>8. Discorso indiretto（间接引语）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">用于转述别人的话，需要改变人称、时态和地点/时间副词。</p>
+    <table>
+      <tr><th>直接引语</th><th>间接引语</th></tr>
+      <tr><td>presente</td><td><span class="verb">imperfetto</span></td></tr>
+      <tr><td>passato prossimo</td><td><span class="verb">trapassato prossimo</span></td></tr>
+      <tr><td>imperfetto</td><td><span class="verb">imperfetto</span></td></tr>
+      <tr><td>futuro</td><td><span class="verb">condizionale passato</span></td></tr>
+      <tr><td>imperativo</td><td><span class="verb">di + infinito</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">人称与时间变化：</p>
+    <table>
+      <tr><th>直接引语</th><th>间接引语</th></tr>
+      <tr><td>io</td><td><span class="verb">lui/lei</span></td></tr>
+      <tr><td>oggi</td><td><span class="verb">quel giorno</span></td></tr>
+      <tr><td>ieri</td><td><span class="verb">il giorno prima</span></td></tr>
+      <tr><td>domani</td><td><span class="verb">il giorno dopo</span></td></tr>
+      <tr><td>qui/qua</td><td><span class="verb">lì/là</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">Esempi: </p>
+    <table>
+      <tr><td><span class="it" onclick="speak('\'Sono felice.\' → Ha detto che era felice.')">"Sono felice." → Ha detto che <span class="verb">era felice</span>.</span></td><td class="zh">他说他很快乐。</td></tr>
+      <tr><td><span class="it" onclick="speak('\'Verrò domani.\' → Ha detto che sarebbe venuto il giorno dopo.')">"Verrò domani." → Ha detto che <span class="verb">sarebbe venuto</span> il giorno dopo.</span></td><td class="zh">他说他第二天会来。</td></tr>
+      <tr><td><span class="it" onclick="speak('\'Ho visto Marco.\' → Ha detto che aveva visto Marco.')">"Ho visto Marco." → Ha detto che <span class="verb">aveva visto</span> Marco.</span></td><td class="zh">他说他看到马尔科了。</td></tr>
+      <tr><td><span class="it" onclick="speak('\'Chiudi la porta!\' → Mi ha detto di chiudere la porta.')">"Chiudi la porta!" → Mi ha detto <span class="verb">di chiudere</span> la porta.</span></td><td class="zh">他让我关门。</td></tr>
+      <tr><td><span class="it" onclick="speak('\'Vivo qui da dieci anni.\' → Ha detto che viveva lì da dieci anni.')">"Vivo qui da dieci anni." → Ha detto che <span class="verb">viveva lì</span> da dieci anni.</span></td><td class="zh">他说他在那住了十年。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 9. Passato remoto -->
+<section class="page-section" id="t9">
+  <h2>9. Passato remoto（远过去时）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">用于描述遥远的过去事件，在意大利书面语和南部口语中广泛使用。</p>
+    <table>
+      <tr><th>主语</th><th>-are</th><th>-ere</th><th>-ire</th></tr>
+      <tr><td>io</td><td><span class="verb">parlai</span></td><td><span class="verb">vendetti</span></td><td><span class="verb">partii</span></td></tr>
+      <tr><td>tu</td><td><span class="verb">parlasti</span></td><td><span class="verb">vendesti</span></td><td><span class="verb">partisti</span></td></tr>
+      <tr><td>lui/lei</td><td><span class="verb">parlò</span></td><td><span class="verb">vendette/vendé</span></td><td><span class="verb">partì</span></td></tr>
+      <tr><td>noi</td><td><span class="verb">parlammo</span></td><td><span class="verb">vendemmo</span></td><td><span class="verb">partimmo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb">parlaste</span></td><td><span class="verb">vendeste</span></td><td><span class="verb">partiste</span></td></tr>
+      <tr><td>loro</td><td><span class="verb">parlarono</span></td><td><span class="verb">venderono</span></td><td><span class="verb">partirono</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">不规则动词：</p>
+    <table>
+      <tr><th>原形</th><th>io</th><th>lui/lei</th><th>loro</th></tr>
+      <tr><td>essere</td><td><span class="verb">fui</span></td><td><span class="verb">fu</span></td><td><span class="verb">furono</span></td></tr>
+      <tr><td>avere</td><td><span class="verb">ebbi</span></td><td><span class="verb">ebbe</span></td><td><span class="verb">ebbero</span></td></tr>
+      <tr><td>fare</td><td><span class="verb">feci</span></td><td><span class="verb">fece</span></td><td><span class="verb">fecero</span></td></tr>
+      <tr><td>dire</td><td><span class="verb">dissi</span></td><td><span class="verb">disse</span></td><td><span class="verb">dissero</span></td></tr>
+      <tr><td>prendere</td><td><span class="verb">presi</span></td><td><span class="verb">prese</span></td><td><span class="verb">presero</span></td></tr>
+      <tr><td>scrivere</td><td><span class="verb">scrissi</span></td><td><span class="verb">scrisse</span></td><td><span class="verb">scrissero</span></td></tr>
+      <tr><td>leggere</td><td><span class="verb">lessi</span></td><td><span class="verb">lesse</span></td><td><span class="verb">lessero</span></td></tr>
+      <tr><td>nascere</td><td><span class="verb">nacqui</span></td><td><span class="verb">nacque</span></td><td><span class="verb">nacquero</span></td></tr>
+      <tr><td>morire</td><td><span class="verb">morii</span></td><td><span class="verb">morì</span></td><td><span class="verb">morirono</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">Esempi:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Nel 64 a.C. un grande incendio colpì la città di Roma.')">Nel 64 a.C. un grande incendio <span class="verb">colpì</span> la città di Roma.</span></td><td class="zh">公元前64年，大火袭击了罗马城。</td></tr>
+      <tr><td><span class="it" onclick="speak('Leonardo dipinse la Gioconda nel 1503.')">Leonardo <span class="verb">dipinse</span> la Gioconda nel 1503.</span></td><td class="zh">达芬奇在1503年画了蒙娜丽莎。</td></tr>
+      <tr><td><span class="it" onclick="speak('Cristoforo Colombo scoprì l\'America nel 1492.')">Cristoforo Colombo <span class="verb">scoprì</span> l'America nel 1492.</span></td><td class="zh">哥伦布在1492年发现了美洲。</td></tr>
+      <tr><td><span class="it" onclick="speak('Nacque a Vinci nel 1452 e morì in Francia nel 1519.')"><span class="verb">Nacque</span> a Vinci nel 1452 e <span class="verb">morì</span> in Francia nel 1519.</span></td><td class="zh">他1452年生于芬奇，1519年在法国去世。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 10. Gerundio -->
+<section class="page-section" id="t10">
+  <h2>10. Gerundio（动名词）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">动名词表示正在进行的动作，可作副词使用，表示方式、原因或时间。</p>
+    <table>
+      <tr><th>原形</th><th>现在时</th><th>过去时</th></tr>
+      <tr><td>parlare</td><td><span class="verb">parlando</span></td><td><span class="verb">avendo parlato</span></td></tr>
+      <tr><td>leggere</td><td><span class="verb">leggendo</span></td><td><span class="verb">avendo letto</span></td></tr>
+      <tr><td>partire</td><td><span class="verb">partendo</span></td><td><span class="verb">essendo partito</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">不规则形式：</p>
+    <table>
+      <tr><td>fare → <span class="verb">facendo</span></td><td>dire → <span class="verb">dicendo</span></td></tr>
+      <tr><td>condurre → <span class="verb">conducendo</span></td><td>tradurre → <span class="verb">traducendo</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">用法：</p>
+    <table>
+      <tr><th>用法</th><th>例句</th></tr>
+      <tr><td>方式</td><td><span class="it" onclick="speak('Studiando, si impara.')"><span class="verb">Studiando</span>, si impara.</span><br><span class="zh">学习着就学会了。</span></td></tr>
+      <tr><td>原因</td><td><span class="it" onclick="speak('Avendo fame, sono uscito.')"><span class="verb">Avendo fame</span>, sono uscito.</span><br><span class="zh">因为饿了，我出去了。</span></td></tr>
+      <tr><td>时间</td><td><span class="it" onclick="speak('Avendo finito i compiti, sono uscito.')"><span class="verb">Avendo finito</span> i compiti, sono uscito.</span><br><span class="zh">完成作业后，我出去了。</span></td></tr>
+      <tr><td>方式</td><td><span class="it" onclick="speak('Sbagliando, si impara.')"><span class="verb">Sbagliando</span>, si impara.</span><br><span class="zh">在错误中学习。</span></td></tr>
+      <tr><td>原因</td><td><span class="it" onclick="speak('Essendo stanco, sono andato a letto presto.')"><span class="verb">Essendo stanco</span>, sono andato a letto presto.</span><br><span class="zh">因为累了，我很早就睡了。</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 11. Forma passiva -->
+<section class="page-section" id="t11">
+  <h2>11. Forma passiva（被动语态）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">被动语态由essere或venire的适当形式 + 过去分词构成。</p>
+    <table>
+      <tr><th>时态</th><th>essere 被动</th><th>venire 被动</th></tr>
+      <tr><td>现在时</td><td><span class="verb">è</span> pubblicato</td><td><span class="verb">viene</span> pubblicato</td></tr>
+      <tr><td>未完成时</td><td><span class="verb">era</span> pubblicato</td><td><span class="verb">veniva</span> pubblicato</td></tr>
+      <tr><td>将来时</td><td><span class="verb">sarà</span> pubblicato</td><td><span class="verb">verrà</span> pubblicato</td></tr>
+      <tr><td>passato prossimo</td><td><span class="verb">è stato</span> pubblicato</td><td>—</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">Esempi:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Il libro è pubblicato.')">Il libro <span class="verb">è pubblicato</span>.</span></td><td class="zh">书被出版了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il libro viene pubblicato la prossima estate.')">Il libro <span class="verb">viene pubblicato</span> la prossima estate.</span></td><td class="zh">书将在下个夏天出版。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il documento è stato firmato dal direttore.')">Il documento <span class="verb">è stato firmato</span> dal direttore.</span></td><td class="zh">文件已被主任签署。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il problema è stato risolto.')">Il problema <span class="verb">è stato risolto</span>.</span></td><td class="zh">问题已经解决了。</td></tr>
+      <tr><td><span class="it" onclick="speak('La lingua viene studiata da milioni di persone.')">La lingua <span class="verb">viene studiata</span> da milioni di persone.</span></td><td class="zh">这种语言被数百万人学习。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 12. Pronomi combinati -->
+<section class="page-section" id="t12">
+  <h2>12. Pronomi combinati（代词组合）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">当一个句子中同时出现间接宾语代词和直接宾语代词时，需要将两者组合在一起。</p>
+    <table>
+      <tr><th></th><th>+ lo</th><th>+ la</th><th>+ li</th><th>+ le</th><th>+ ne</th></tr>
+      <tr><td><span class="verb">mi</span></td><td>me lo</td><td>me la</td><td>me li</td><td>me le</td><td>me ne</td></tr>
+      <tr><td><span class="verb">ti</span></td><td>te lo</td><td>te la</td><td>te li</td><td>te le</td><td>te ne</td></tr>
+      <tr><td><span class="verb">gli/le</span></td><td>glielo</td><td>gliela</td><td>glieli</td><td>gliele</td><td>gliene</td></tr>
+      <tr><td><span class="verb">ci</span></td><td>ce lo</td><td>ce la</td><td>ce li</td><td>ce le</td><td>ce ne</td></tr>
+      <tr><td><span class="verb">vi</span></td><td>ve lo</td><td>ve la</td><td>ve li</td><td>ve le</td><td>ve ne</td></tr>
+      <tr><td><span class="verb">si</span></td><td>se lo</td><td>se la</td><td>se li</td><td>se le</td><td>se ne</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">Esempi:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Mi presti il vocabolario? — Certo, te lo do volentieri.')">Mi presti il vocabolario? — Certo, <span class="verb">te lo</span> do volentieri.</span></td><td class="zh">你能把词典借我吗？当然，非常乐意给你。</td></tr>
+      <tr><td><span class="it" onclick="speak('Le puoi prestare i tuoi CD? — Sì, glieli presto.')">Le puoi prestare i tuoi CD? — Sì, <span class="verb">glieli</span> presto.</span></td><td class="zh">你能把你的CD借她吗？是的，我很乐意借给她。</td></tr>
+      <tr><td><span class="it" onclick="speak('Chi vi ha dato la macchina? — Ce l\'ha prestata Giovanni.')">Chi vi ha dato la macchina? — <span class="verb">Ce l'ha</span> prestata Giovanni.</span></td><td class="zh">谁给你们的车？乔瓦尼借给我们的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Le hai detto del problema? — Sì, gliene ho parlato.')">Le hai detto del problema? — Sì, <span class="verb">gliene</span> ho parlato.</span></td><td class="zh">你告诉她问题了吗？是的，我昨天和她说了。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 13. Ci e Ne -->
+<section class="page-section" id="t13">
+  <h2>13. Ci e Ne（小品词）</h2>
+  <div class="grammar-box">
+    <p style="font-weight:600;font-size:14px;">Ci 的用法</p>
+    <table>
+      <tr><th>功能</th><th>含义</th><th>例句</th></tr>
+      <tr><td>代替con + 名词</td><td>和...一起</td><td><span class="it" onclick="speak('Vado al cinema con loro. → Ci vado.')">Vado al cinema con loro. → <span class="verb">Ci</span> vado.</span></td></tr>
+      <tr><td>表示"这里/那里"</td><td>地点</td><td><span class="it" onclick="speak('Siamo in ufficio. → Ci siamo.')">Siamo in ufficio. → <span class="verb">Ci</span> siamo.</span></td></tr>
+      <tr><td>代替a + 问题</td><td>关于</td><td><span class="it" onclick="speak('Penso al problema. → Ci penso.')">Penso al problema. → <span class="verb">Ci</span> penso.</span></td></tr>
+    </table>
+    <p style="font-weight:600;font-size:14px;margin:12px 0 6px;">Ne 的用法</p>
+    <table>
+      <tr><th>功能</th><th>含义</th><th>例句</th></tr>
+      <tr><td>代替di + 名词</td><td>关于...</td><td><span class="it" onclick="speak('Parlo del viaggio. → Ne parlo.')">Parlo del viaggio. → <span class="verb">Ne</span> parlo.</span></td></tr>
+      <tr><td>表示数量</td><td>...中的一些</td><td><span class="it" onclick="speak('Ho tre fratelli. → Ne ho tre.')">Ho tre fratelli. → <span class="verb">Ne</span> ho tre.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">Esempi:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Sei mai stato a Roma? — Sì, ci sono stato due volte.')">Sei mai stato a Roma? — Sì, <span class="verb">ci</span> sono stato due volte.</span></td><td class="zh">你去过罗马吗？是的，去过两次。</td></tr>
+      <tr><td><span class="it" onclick="speak('Quanti libri hai letto? — Ne ho letti dieci.')">Quanti libri hai letto? — <span class="verb">Ne</span> ho letti dieci.</span></td><td class="zh">你读了多少本书？我读了十本。</td></tr>
+      <tr><td><span class="it" onclick="speak('Che ne pensate?')">Che <span class="verb">ne</span> pensate?</span></td><td class="zh">你们怎么想的？</td></tr>
+      <tr><td><span class="it" onclick="speak('Non ci capisco nulla!')">Non <span class="verb">ci</span> capisco nulla!</span></td><td class="zh">我一点都不懂！</td></tr>
+      <tr><td><span class="it" onclick="speak('Ce la faccio!')"><span class="verb">Ce la</span> faccio!</span></td><td class="zh">我能行！</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 14. Pronomi possessivi -->
+<section class="page-section" id="t14">
+  <h2>14. Pronomi possessivi（所有格代词）</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>主语</th><th>单数阳性</th><th>单数阴性</th><th>复数阳性</th><th>复数阴性</th></tr>
+      <tr><td>io</td><td>il <span class="verb">mio</span></td><td>la <span class="verb">mia</span></td><td>i <span class="verb">miei</span></td><td>le <span class="verb">mie</span></td></tr>
+      <tr><td>tu</td><td>il <span class="verb">tuo</span></td><td>la <span class="verb">tua</span></td><td>i <span class="verb">tuoi</span></td><td>le <span class="verb">tue</span></td></tr>
+      <tr><td>lui/lei</td><td>il <span class="verb">suo</span></td><td>la <span class="verb">sua</span></td><td>i <span class="verb">suoi</span></td><td>le <span class="verb">sue</span></td></tr>
+      <tr><td>noi</td><td>il <span class="verb">nostro</span></td><td>la <span class="verb">nostra</span></td><td>i <span class="verb">nostri</span></td><td>le <span class="verb">nostre</span></td></tr>
+      <tr><td>voi</td><td>il <span class="verb">vostro</span></td><td>la <span class="verb">vostra</span></td><td>i <span class="verb">vostri</span></td><td>le <span class="verb">vostre</span></td></tr>
+      <tr><td>loro</td><td>il <span class="verb">loro</span></td><td>la <span class="verb">loro</span></td><td>i <span class="verb">loro</span></td><td>le <span class="verb">loro</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">Esempi:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('È Sua questa macchina? — Sì, è mia.')">È Sua questa macchina? — Sì, è <span class="verb">mia</span>.</span></td><td class="zh">这辆车是您的吗？是的，是我的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Prestami la tua bicicletta. La mia si è rotta.')">Prestami la tua bicicletta. <span class="verb">La mia</span> si è rotta.</span></td><td class="zh">把你的自行车借我。我的坏了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il mio corso è interessante. Anche il tuo?')">Il <span class="verb">mio</span> corso è interessante. Anche il <span class="verb">tuo</span>?</span></td><td class="zh">我的课程很有趣。你的呢？</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho perso i miei occhiali.')">Ho perso <span class="verb">i miei</span> occhiali.</span></td><td class="zh">我丢了我的眼镜。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 15. Frasi concessive -->
+<section class="page-section" id="t15">
+  <h2>15. Frasi concessive（让步从句）</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>连词</th><th>用法</th><th>例句</th></tr>
+      <tr><td><span class="verb">anche se</span></td><td>即使（直陈式）</td><td><span class="it" onclick="speak('Anche se piove, vado.')">Anche se piove, vado.</span><br><span class="zh">即使下雨我也去。</span></td></tr>
+      <tr><td><span class="verb">sebbene</span></td><td>虽然（虚拟式）</td><td><span class="it" onclick="speak('Sebbene sia stanco, lavora.')">Sebbene <span class="verb">sia</span> stanco, lavora.</span><br><span class="zh">虽然累，他还在工作。</span></td></tr>
+      <tr><td><span class="verb">benché</span></td><td>虽然（虚拟式）</td><td><span class="it" onclick="speak('Benché fosse tardi, uscì.')">Benché <span class="verb">fosse</span> tardi, uscì.</span><br><span class="zh">虽然晚了，他还是出去了。</span></td></tr>
+      <tr><td><span class="verb">nonostante</span></td><td>尽管（虚拟式）</td><td><span class="it" onclick="speak('Nonostante non abbia tempo, vengo.')">Nonostante non <span class="verb">abbia</span> tempo, vengo.</span><br><span class="zh">尽管没时间，我还是来。</span></td></tr>
+      <tr><td><span class="verb">purché</span></td><td>只要（虚拟式）</td><td><span class="it" onclick="speak('Purché tu venga, tutto andrà bene.')">Purché tu <span class="verb">venga</span>, tutto andrà bene.</span><br><span class="zh">只要你能来，一切都会好的。</span></td></tr>
+      <tr><td><span class="verb">a patto che</span></td><td>条件是（虚拟式）</td><td><span class="it" onclick="speak('A patto che tu sia d\'accordo.')">A patto che tu <span class="verb">sia</span> d'accordo.</span><br><span class="zh">只要你同意。</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 16. Prefisso in- -->
+<section class="page-section" id="t16">
+  <h2>16. Prefisso negativo in-（否定前缀）</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>原词</th><th>否定词</th><th>含义</th></tr>
+      <tr><td>capace</td><td><span class="verb">incapace</span></td><td>有能力的 → 无能力的</td></tr>
+      <tr><td>credibile</td><td><span class="verb">incredibile</span></td><td>可信的 → 不可信的</td></tr>
+      <tr><td>logico</td><td><span class="verb">illogico</span></td><td>合逻辑的 → 不合逻辑的</td></tr>
+      <tr><td>morale</td><td><span class="verb">immorale</span></td><td>道德的 → 不道德的</td></tr>
+      <tr><td>ragionevole</td><td><span class="verb">irragionevole</span></td><td>合理的 → 不合理的</td></tr>
+      <tr><td>visibile</td><td><span class="verb">invisibile</span></td><td>可见的 → 不可见的</td></tr>
+      <tr><td>paziente</td><td><span class="verb">impaziente</span></td><td>有耐心的 → 不耐烦的</td></tr>
+      <tr><td>regolare</td><td><span class="verb">irregolare</span></td><td>规则的 → 不规则的</td></tr>
+      <tr><td>responsabile</td><td><span class="verb">irresponsabile</span></td><td>负责任的 → 不负责任的</td></tr>
+      <tr><td>tollerabile</td><td><span class="verb">intollerabile</span></td><td>可容忍的 → 不可容忍的</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">Esempi:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('È una persona capace. → È una persona incapace.')">è una persona capace → <span class="verb">incapace</span></span></td><td class="zh">有能力 → 没有能力</td></tr>
+      <tr><td><span class="it" onclick="speak('Si tratta di una storia credibile. → incredibile.')">credibile → <span class="verb">incredibile</span></span></td><td class="zh">可信 → 不可信</td></tr>
+      <tr><td><span class="it" onclick="speak('Questo caffè è imbevibile!')">Questo caffè è <span class="verb">imbevibile</span>!</span></td><td class="zh">这咖啡没法喝！</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 17. Avverbi in -mente -->
+<section class="page-section" id="t17">
+  <h2>17. Avverbi in -mente（副词）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">大多数副词由形容词的阴性单数形式加-mente构成。</p>
+    <table>
+      <tr><th>形容词</th><th>阴性形式</th><th>副词</th></tr>
+      <tr><td>certo</td><td>certa</td><td><span class="verb">certamente</span></td></tr>
+      <tr><td>effettivo</td><td>effettiva</td><td><span class="verb">effettivamente</span></td></tr>
+      <tr><td>probabile</td><td>probabile</td><td><span class="verb">probabilmente</span></td></tr>
+      <tr><td>vero</td><td>vera</td><td><span class="verb">veramente</span></td></tr>
+      <tr><td>naturale</td><td>naturale</td><td><span class="verb">naturalmente</span></td></tr>
+      <tr><td>recente</td><td>recente</td><td><span class="verb">recentemente</span></td></tr>
+      <tr><td>chiaro</td><td>chiara</td><td><span class="verb">chiaramente</span></td></tr>
+      <tr><td>principale</td><td>principale</td><td><span class="verb">principalmente</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">Esempi:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Effettivamente è strano!')"><span class="verb">Effettivamente</span> è strano!</span></td><td class="zh">确实很奇怪！</td></tr>
+      <tr><td><span class="it" onclick="speak('Probabilmente hai ragione.')"><span class="verb">Probabilmente</span> hai ragione.</span></td><td class="zh">你可能是对的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Recentemente ho viaggiato molto.')"><span class="verb">Recentemente</span> ho viaggiato molto.</span></td><td class="zh">最近我旅行了很多。</td></tr>
+      <tr><td><span class="it" onclick="speak('Certamente verrò alla festa.')"><span class="verb">Certamente</span> verrò alla festa.</span></td><td class="zh">我肯定会来派对。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 18. Suffisso -accio -->
+<section class="page-section" id="t18">
+  <h2>18. Suffisso -accio（贬义后缀）</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>原词</th><th>+ -accio</th><th>含义</th></tr>
+      <tr><td>il film</td><td><span class="verb">il filmaccio</span></td><td>烂片</td></tr>
+      <tr><td>la giornata</td><td><span class="verb">la giornataccia</span></td><td>糟糕的一天</td></tr>
+      <tr><td>il tempo</td><td><span class="verb">il tempaccio</span></td><td>坏天气</td></tr>
+      <tr><td>la partita</td><td><span class="verb">la partitaccia</span></td><td>糟糕的比赛</td></tr>
+      <tr><td>il ragazzo</td><td><span class="verb">il ragazzaccio</span></td><td>坏男孩</td></tr>
+      <tr><td>il lavoro</td><td><span class="verb">il lavoraccio</span></td><td>苦差事</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">Esempi:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Che filmaccio! Non lo guardo più.')">Che <span class="verb">filmaccio</span>! Non lo guardo più.</span></td><td class="zh">真是一部烂片！我再也不看了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho passato una giornataccia ieri.')">Ho passato una <span class="verb">giornataccia</span> ieri.</span></td><td class="zh">昨天我度过了糟糕的一天。</td></tr>
+      <tr><td><span class="it" onclick="speak('Che tempaccio! Restiamo a casa.')">Che <span class="verb">tempaccio</span>! Restiamo a casa.</span></td><td class="zh">天气真差！我们待在家里吧。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 19. Aggettivi in -bile -->
+<section class="page-section" id="t19">
+  <h2>19. Aggettivi in -bile（可...形容词）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">以-bile结尾的形容词有被动含义，表示"可以被..."。</p>
+    <table>
+      <tr><th>动词词根</th><th>+ -bile</th><th>含义</th></tr>
+      <tr><td>legg-ere</td><td><span class="verb">leggibile</span></td><td>可读的</td></tr>
+      <tr><td>cred-ere</td><td><span class="verb">credibile</span></td><td>可信的</td></tr>
+      <tr><td>risolv-ere</td><td><span class="verb">risolvibile</span></td><td>可解决的</td></tr>
+      <tr><td>realizz-are</td><td><span class="verb">realizzabile</span></td><td>可实现的</td></tr>
+      <tr><td>ricicl-are</td><td><span class="verb">riciclabile</span></td><td>可回收的</td></tr>
+      <tr><td>comprens-ibile</td><td><span class="verb">comprensibile</span></td><td>可理解的</td></tr>
+      <tr><td>toller-are</td><td><span class="verb">tollerabile</span></td><td>可容忍的</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">否定形式（加in-）：</p>
+    <table>
+      <tr><td>credibile → <span class="verb">incredibile</span></td><td>tollerabile → <span class="verb">intollerabile</span></td></tr>
+      <tr><td>leggibile → <span class="verb">illeggibile</span></td><td>comprensibile → <span class="verb">incomprensibile</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">Esempi:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('È un\'azione realizzabile.')">È un'azione <span class="verb">realizzabile</span>.</span></td><td class="zh">这是一个可以实现的行动。</td></tr>
+      <tr><td><span class="it" onclick="speak('È un materiale riciclabile.')">È un materiale <span class="verb">riciclabile</span>.</span></td><td class="zh">这是一种可回收材料。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è accettabile questo comportamento.')">Non è <span class="verb">accettabile</span> questo comportamento.</span></td><td class="zh">这种行为不可接受。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 20. Verbi pronominali -->
+<section class="page-section" id="t20">
+  <h2>20. Verbi pronominali（代动词）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">某些动词与不变代词(la, ci等)连用时会改变含义。</p>
+    <table>
+      <tr><th>动词</th><th>含义</th><th>例句</th></tr>
+      <tr><td><span class="verb">tenersi</span></td><td>在乎</td><td><span class="it" onclick="speak('Ci tengo a laurearmi quest\'anno!')"><span class="verb">Ci tengo</span> a laurearmi quest'anno!</span><br><span class="zh">我很在乎今年毕业！</span></td></tr>
+      <tr><td><span class="verb">volerci</span></td><td>需要</td><td><span class="it" onclick="speak('Per fare questo lavoro ci vuole molta esperienza.')">Per fare questo lavoro <span class="verb">ci vuole</span> molta esperienza.</span><br><span class="zh">做这个工作需要很多经验。</span></td></tr>
+      <tr><td><span class="verb">cavarsela</span></td><td>应付</td><td><span class="it" onclick="speak('Sa cavarsela bene in situazioni difficili.')">Sa <span class="verb">cavarsela</span> bene in situazioni difficili.</span><br><span class="zh">他能很好地应对困难局面。</span></td></tr>
+      <tr><td><span class="verb">farcela</span></td><td>能行</td><td><span class="it" onclick="speak('Ce la faccio a finire entro domani?')"><span class="verb">Ce la faccio</span> a finire entro domani?</span><br><span class="zh">我能在明天之前完成吗？</span></td></tr>
+      <tr><td><span class="verb">andarsene</span></td><td>离开</td><td><span class="it" onclick="speak('Me ne vado, ci vediamo domani.')"><span class="verb">Me ne vado</span>, ci vediamo domani.</span><br><span class="zh">我走了，明天见。</span></td></tr>
+      <tr><td><span class="verb">finirla</span></td><td>停止</td><td><span class="it" onclick="speak('Finiscila! Sono stanco!')"><span class="verb">Finiscila</span>! Sono stanco!</span><br><span class="zh">别说了！我烦了！</span></td></tr>
+      <tr><td><span class="verb">spuntarla</span></td><td>成功</td><td><span class="it" onclick="speak('La Roma l\'ha spuntata con un gol.')">La Roma <span class="verb">l'ha spuntata</span> con un gol.</span><br><span class="zh">罗马队以一球获胜。</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 21. Verbi irregolari -->
+<section class="page-section" id="t21">
+  <h2>21. Verbi irregolari（不规则动词变位表）</h2>
+  
+  <h3>Avere</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>时态</th><th>io</th><th>tu</th><th>lui/lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td>Presente</td><td>ho</td><td>hai</td><td>ha</td><td>abbiamo</td><td>avete</td><td>hanno</td></tr>
+      <tr><td>Imperfetto</td><td>avevo</td><td>avevi</td><td>aveva</td><td>avevamo</td><td>avevate</td><td>avevano</td></tr>
+      <tr><td>Passato remoto</td><td><span class="verb">ebbi</span></td><td>avesti</td><td><span class="verb">ebbe</span></td><td>avemmo</td><td>aveste</td><td><span class="verb">ebbero</span></td></tr>
+      <tr><td>Cong. presente</td><td><span class="verb">abbia</span></td><td><span class="verb">abbia</span></td><td><span class="verb">abbia</span></td><td><span class="verb">abbiamo</span></td><td><span class="verb">abbiate</span></td><td><span class="verb">abbiano</span></td></tr>
+      <tr><td>Cong. imperfetto</td><td><span class="verb">avessi</span></td><td><span class="verb">avessi</span></td><td><span class="verb">avesse</span></td><td><span class="verb">avessimo</span></td><td><span class="verb">aveste</span></td><td><span class="verb">avessero</span></td></tr>
+      <tr><td>Cond. presente</td><td>avrei</td><td>avresti</td><td>avrebbe</td><td>avremmo</td><td>avreste</td><td>avrebbero</td></tr>
+    </table>
+  </div>
+
+  <h3>Essere</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>时态</th><th>io</th><th>tu</th><th>lui/lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td>Presente</td><td>sono</td><td>sei</td><td>è</td><td>siamo</td><td>siete</td><td>sono</td></tr>
+      <tr><td>Imperfetto</td><td>ero</td><td>eri</td><td>era</td><td>eravamo</td><td>eravate</td><td>erano</td></tr>
+      <tr><td>Passato remoto</td><td><span class="verb">fui</span></td><td>fosti</td><td><span class="verb">fu</span></td><td>fummo</td><td>foste</td><td><span class="verb">furono</span></td></tr>
+      <tr><td>Cong. presente</td><td><span class="verb">sia</span></td><td><span class="verb">sia</span></td><td><span class="verb">sia</span></td><td><span class="verb">siamo</span></td><td><span class="verb">siate</span></td><td><span class="verb">siano</span></td></tr>
+      <tr><td>Cong. imperfetto</td><td><span class="verb">fossi</span></td><td><span class="verb">fossi</span></td><td><span class="verb">fosse</span></td><td><span class="verb">fossimo</span></td><td><span class="verb">foste</span></td><td><span class="verb">fossero</span></td></tr>
+      <tr><td>Cond. presente</td><td>sarei</td><td>saresti</td><td>sarebbe</td><td>saremmo</td><td>sareste</td><td>sarebbero</td></tr>
+    </table>
+  </div>
+
+  <h3>Fare / Dire / Potere / Dovere / Volere</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Verbo</th><th>Presente (io)</th><th>Passato remoto (io)</th><th>Cong. presente (io)</th><th>Cong. imperfetto (io)</th></tr>
+      <tr><td>fare</td><td>faccio</td><td><span class="verb">feci</span></td><td><span class="verb">faccia</span></td><td><span class="verb">facessi</span></td></tr>
+      <tr><td>dire</td><td>dico</td><td><span class="verb">dissi</span></td><td><span class="verb">dica</span></td><td><span class="verb">dicessi</span></td></tr>
+      <tr><td>potere</td><td>posso</td><td>potei</td><td><span class="verb">possa</span></td><td><span class="verb">potessi</span></td></tr>
+      <tr><td>dovere</td><td>devo</td><td>dovetti</td><td><span class="verb">debba</span></td><td><span class="verb">dovessi</span></td></tr>
+      <tr><td>volere</td><td>voglio</td><td>volli</td><td><span class="verb">voglia</span></td><td><span class="verb">volessi</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 22. Dovere per ipotesi -->
+<section class="page-section" id="t22">
+  <h2>22. Dovere per esprimere un'ipotesi（dovere表达假设）</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>形式</th><th>含义</th><th>例句</th></tr>
+      <tr><td><span class="verb">deve</span> + infinito</td><td>很可能...（强烈推测）</td><td><span class="it" onclick="speak('Deve essere ammalato, non è venuto.')"><span class="verb">Deve essere</span> ammalato, non è venuto.</span><br><span class="zh">他肯定病了，他没来。</span></td></tr>
+      <tr><td><span class="verb">dovrebbe</span> + infinito</td><td>可能...（较弱推测）</td><td><span class="it" onclick="speak('Dovrebbe essere a casa adesso.')"><span class="verb">Dovrebbe essere</span> a casa adesso.</span><br><span class="zh">他现在可能在家。</span></td></tr>
+      <tr><td><span class="verb">doveva</span> + infinito</td><td>当时应该...（过去推测）</td><td><span class="it" onclick="speak('Doveva essere tardi quando è uscito.')"><span class="verb">Doveva essere</span> tardi quando è uscito.</span><br><span class="zh">他出去的时候肯定很晚了。</span></td></tr>
+      <tr><td><span class="verb">avrebbe dovuto</span> + infinito</td><td>本应该...（遗憾）</td><td><span class="it" onclick="speak('Avrebbe dovuto studiare di più.')"><span class="verb">Avrebbe dovuto</span> studiare di più.</span><br><span class="zh">他本应该多学习。</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 23. Prima di + infinito -->
+<section class="page-section" id="t23">
+  <h2>23. Prima di + infinito（不定式前置）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">Prima di + 不定式表示在主要动作之前发生的动作。</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Prima di uscire, ho chiuso la porta.')"><span class="verb">Prima di uscire</span>, ho chiuso la porta.</span></td><td class="zh">出门之前，我关了门。</td></tr>
+      <tr><td><span class="it" onclick="speak('Prima di studiare l\'italiano, ho imparato lo spagnolo.')"><span class="verb">Prima di studiare</span> l'italiano, ho imparato lo spagnolo.</span></td><td class="zh">学意大利语之前，我学了西班牙语。</td></tr>
+      <tr><td><span class="it" onclick="speak('Devi chiamarmi prima di partire.')">Devi chiamarmi <span class="verb">prima di partire</span>.</span></td><td class="zh">你出发前必须给我打电话。</td></tr>
+      <tr><td><span class="it" onclick="speak('Prima di rispondere, pensa bene.')"><span class="verb">Prima di rispondere</span>, pensa bene.</span></td><td class="zh">回答之前，好好想想。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 24. Fare + infinito -->
+<section class="page-section" id="t24">
+  <h2>24. Fare + infinito（使役结构）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">Fare + 不定式表示"让/使某人做某事"。</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Le nonne accompagnano i nipoti per farli giocare.')">Le nonne accompagnano i nipoti per <span class="verb">farli giocare</span>.</span></td><td class="zh">奶奶们带孙子去玩。</td></tr>
+      <tr><td><span class="it" onclick="speak('I genitori fanno vedere troppa TV ai bambini.')">I genitori <span class="verb">fanno vedere</span> troppa TV ai bambini.</span></td><td class="zh">父母让孩子看太多电视。</td></tr>
+      <tr><td><span class="it" onclick="speak('Vieni, ti faccio vedere i miei giocattoli.')">Vieni, ti <span class="verb">faccio vedere</span> i miei giocattoli.</span></td><td class="zh">来，我给你看我的玩具。</td></tr>
+      <tr><td><span class="it" onclick="speak('Esco. Faccio fare una passeggiata al cane.')">Esco. <span class="verb">Faccio fare</span> una passeggiata al cane.</span></td><td class="zh">我出去遛狗。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 25. Come se -->
+<section class="page-section" id="t25">
+  <h2>25. Come se + congiuntivo（好像...）</h2>
+  <div class="grammar-box">
+    <p class="zh" style="font-size:13px;margin-bottom:10px;">Come se引导的从句用虚拟式，表示与现实相反的比较。</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Si comporta come se fosse il padrone.')">Si comporta <span class="verb">come se fosse</span> il padrone.</span></td><td class="zh">他的行为好像他是老板。</td></tr>
+      <tr><td><span class="it" onclick="speak('Parlo come se sapessi tutto.')">Parlo <span class="verb">come se sapessi</span> tutto.</span></td><td class="zh">我说话的样子好像什么都知道。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mi sento come se fossi a casa.')">Mi sento <span class="verb">come se fossi</span> a casa.</span></td><td class="zh">我感觉像在家里一样。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mi tratta come se fossi un bambino.')">Mi tratta <span class="verb">come se fossi</span> un bambino.</span></td><td class="zh">他把我当小孩一样对待。</td></tr>
+    </table>
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="facciamo-punto.html">&larr; Facciamo il punto</a>
+  <a href="eserciziario.html">Eserciziario &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 3</div>
+  <p>Corso di lingua italiana per stranieri · Livello B1</p>
+  <p style="margin-top:8px;opacity:0.6;">Maria Balì • Luciana Ziglio · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

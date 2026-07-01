@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 6 · Parole in musica · NUOVO Espresso 5</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 5 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 6 · C1</div>
+  <h1>&#x1F3B5; Parole in musica</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">音乐中的词汇 · p.65-76</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">多功能che · 双关系代词chi/quanto · 假设句变体 · se引导时间/原因从句 · 意大利音乐文化 · 文字游戏</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Che storia! -->
+  <h3>1. Che storia! · p.65-66</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">两个朋友在音乐会上交流，讨论音乐中的词汇游戏。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Che bella serata! Questa band suona che è un piacere.')"><strong>Luca</strong>: Che bella serata! Questa band suona che è un piacere.</span></td><td class="zh"><strong>卢卡</strong>: 多美好的夜晚！这支乐队演奏得让人很享受。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, peccato che il basso sia troppo alto. Non si sente bene la voce.')"><strong>Anna</strong>: Sì, peccato che il basso sia troppo alto. Non si sente bene la voce.</span></td><td class="zh"><strong>安娜</strong>: 是的，可惜贝斯声音太高了。听不清人声。</td></tr>
+    <tr><td><span class="it" onclick="speak('Eh, che vuoi farci? È rock! Che poi, il cantante che hanno scelto è bravissimo.')"><strong>Luca</strong>: Eh, che vuoi farci? È rock! Che poi, il cantante che hanno scelto è bravissimo.</span></td><td class="zh"><strong>卢卡</strong>: 嗯，有什么办法呢？这是摇滚！而且，他们选的歌手非常棒。</td></tr>
+    <tr><td><span class="it" onclick="speak('Hai notato che usano tanti giochi di parole nei testi?')"><strong>Anna</strong>: Hai notato che usano tanti giochi di parole nei testi?</span></td><td class="zh"><strong>安娜</strong>: 你注意到他们的歌词用了很多文字游戏吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, che siano voluti o casuali, sono molto efficaci. Tipo "L\'amore che non ho vissuto" — che bella frase!')"><strong>Luca</strong>: Sì, che siano voluti o casuali, sono molto efficaci. Tipo "L'amore che non ho vissuto" — che bella frase!</span></td><td class="zh"><strong>卢卡</strong>: 是的，不管是有意还是无意，都很有效。比如"我没有经历过的爱"——多美的句子！</td></tr>
+    <tr><td><span class="it" onclick="speak('Il che mi fa pensare a quanto la musica italiana sia poetica.')"><strong>Anna</strong>: Il che mi fa pensare a quanto la musica italiana sia poetica.</span></td><td class="zh"><strong>安娜</strong>: 这让我想到意大利音乐有多诗意。</td></tr>
+    <tr><td><span class="it" onclick="speak('Che dici, andiamo a prendere qualcosa? Che ne guadagni la salute!')"><strong>Luca</strong>: Che dici, andiamo a prendere qualcosa? Che ne guadagni la salute!</span></td><td class="zh"><strong>卢卡</strong>: 你说呢，我们去喝点什么？这对健康有好处！</td></tr>
+    <tr><td><span class="it" onclick="speak('Che aspettiamo? Andiamo!')"><strong>Anna</strong>: Che aspettiamo? Andiamo!</span></td><td class="zh"><strong>安娜</strong>: 我们还等什么？走吧！</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Giochi di parole -->
+  <h3>2. Giochi di parole · p.67-68</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">一档广播节目讨论意大利歌曲中的文字游戏。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Oggi parliamo dei "giochi di parole" nella musica italiana. Chi ha detto che la musica leggera è semplice, sbaglia.')"><strong>Conduttore</strong>: Oggi parliamo dei "giochi di parole" nella musica italiana. Chi ha detto che la musica leggera è semplice, sbaglia.</span></td><td class="zh"><strong>主持人</strong>: 今天我们聊聊意大利音乐中的"文字游戏"。谁说轻音乐很简单的，就错了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto. Pensiamo a quanto sia complesso il testo di una canzone di De André.')"><strong>Ospite</strong>: Esatto. Pensiamo a quanto sia complesso il testo di una canzone di De André.</span></td><td class="zh"><strong>嘉宾</strong>: 没错。想想De André的一首歌的歌词有多复杂。</td></tr>
+    <tr><td><span class="it" onclick="speak('Chi ascolta attentamente, capisce che ogni parola è pesata.')"><strong>Conduttore</strong>: Chi ascolta attentamente, capisce che ogni parola è pesata.</span></td><td class="zh"><strong>主持人</strong>: 仔细听的人会明白每个词都是经过斟酌的。</td></tr>
+    <tr><td><span class="it" onclick="speak('E quanto più ascolti, tanto più scopri nuovi significati.')"><strong>Ospite</strong>: E quanto più ascolti, tanto più scopri nuovi significati.</span></td><td class="zh"><strong>嘉宾</strong>: 你听得越多，就会发现越多新含义。</td></tr>
+    <tr><td><span class="it" onclick="speak('Chi non conosce "La canzone dell\'amore perduto"? Quella è poesia pura.')"><strong>Conduttore</strong>: Chi non conosce "La canzone dell'amore perduto"? Quella è poesia pura.</span></td><td class="zh"><strong>主持人</strong>: 谁不知道《失落的爱之歌》？那是纯粹的诗歌。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quantunque ne parliamo, non rendiamo mai abbastanza merito ai testi.')"><strong>Ospite</strong>: Quantunque ne parliamo, non rendiamo mai abbastanza merito ai testi.</span></td><td class="zh"><strong>嘉宾</strong>: 无论我们怎么谈论，都不足以公正评价这些歌词。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ecco, questo è quanto per oggi. Alla prossima!')"><strong>Conduttore</strong>: Ecco, questo è quanto per oggi. Alla prossima!</span></td><td class="zh"><strong>主持人</strong>: 好吧，今天就到这里。下次见！</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Se vieni, ti aspetto -->
+  <h3>3. Se vieni, ti aspetto · p.69-70</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">朋友通过电话商量去看音乐会。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Se vieni al concerto, ti aspetto fuori.')"><strong>Marco</strong>: Se vieni al concerto, ti aspetto fuori.</span></td><td class="zh"><strong>马可</strong>: 如果你来音乐会，我在外面等你。</td></tr>
+    <tr><td><span class="it" onclick="speak('Se potessi, verrei. Ma ho un impegno.')"><strong>Sara</strong>: Se potessi, verrei. Ma ho un impegno.</span></td><td class="zh"><strong>萨拉</strong>: 如果我能来，我就来了。但我有个安排。</td></tr>
+    <tr><td><span class="it" onclick="speak('Se avessi saputo prima, avrei preso un giorno di ferie.')"><strong>Marco</strong>: Se avessi saputo prima, avrei preso un giorno di ferie.</span></td><td class="zh"><strong>马可</strong>: 如果我早知道，我就请一天假了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Beh, se è per questo, posso provare a spostare l\'impegno.')"><strong>Sara</strong>: Beh, se è per questo, posso provare a spostare l'impegno.</span></td><td class="zh"><strong>萨拉</strong>: 嗯，如果是为了这个，我可以试着挪动安排。</td></tr>
+    <tr><td><span class="it" onclick="speak('Se ci riesci, è fantastico!')"><strong>Marco</strong>: Se ci riesci, è fantastico!</span></td><td class="zh"><strong>马可</strong>: 如果你能做到，那就太棒了！</td></tr>
+    <tr><td><span class="it" onclick="speak('Se non dovessi farcela, ti avviso.')"><strong>Sara</strong>: Se non dovessi farcela, ti avviso.</span></td><td class="zh"><strong>萨拉</strong>: 万一我做不到，我会通知你。</td></tr>
+    <tr><td><span class="it" onclick="speak('D\'accordo! Se senti il nuovo album, dimmi cosa ne pensi.')"><strong>Marco</strong>: D'accordo! Se senti il nuovo album, dimmi cosa ne pensi.</span></td><td class="zh"><strong>马可</strong>: 好的！如果你听了新专辑，告诉我你的想法。</td></tr>
+    <tr><td><span class="it" onclick="speak('Certo! Se lo compro domani, te lo faccio sapere subito.')"><strong>Sara</strong>: Certo! Se lo compro domani, te lo faccio sapere subito.</span></td><td class="zh"><strong>萨拉</strong>: 当然！如果我明天买了，我马上告诉你。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F3B5; 核心词汇 (Parole chiave)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la musica')">la musica</td><td>音乐</td></tr>
+    <tr><td class="it" onclick="speak('la canzone')">la canzone</td><td>歌曲</td></tr>
+    <tr><td class="it" onclick="speak('il cantante / la cantante')">il/la cantante</td><td>歌手</td></tr>
+    <tr><td class="it" onclick="speak('il testo')">il testo</td><td>歌词，文本</td></tr>
+    <tr><td class="it" onclick="speak('la melodia')">la melodia</td><td>旋律</td></tr>
+    <tr><td class="it" onclick="speak('il ritmo')">il ritmo</td><td>节奏</td></tr>
+    <tr><td class="it" onclick="speak('l\'accordo')">l'accordo (m.)</td><td>和弦</td></tr>
+    <tr><td class="it" onclick="speak('la nota')">la nota</td><td>音符</td></tr>
+    <tr><td class="it" onclick="speak('il musicista / la musicista')">il/la musicista</td><td>音乐家</td></tr>
+    <tr><td class="it" onclick="speak('la band')">la band</td><td>乐队</td></tr>
+    <tr><td class="it" onclick="speak('il cantautore / la cantautrice')">il/la cantautore/trice</td><td>创作歌手</td></tr>
+    <tr><td class="it" onclick="speak('il genere')">il genere</td><td>流派，类型</td></tr>
+    <tr><td class="it" onclick="speak('il rock')">il rock</td><td>摇滚</td></tr>
+    <tr><td class="it" onclick="speak('il pop')">il pop</td><td>流行</td></tr>
+    <tr><td class="it" onclick="speak('il jazz')">il jazz</td><td>爵士</td></tr>
+    <tr><td class="it" onclick="speak('la lirica')">la lirica</td><td>歌剧，抒情诗</td></tr>
+    <tr><td class="it" onclick="speak('il rap')">il rap</td><td>说唱</td></tr>
+    <tr><td class="it" onclick="speak('il concerto')">il concerto</td><td>音乐会</td></tr>
+    <tr><td class="it" onclick="speak('il festival')">il festival</td><td>音乐节</td></tr>
+    <tr><td class="it" onclick="speak('il palco')">il palco</td><td>舞台</td></tr>
+    <tr><td class="it" onclick="speak('il pubblico')">il pubblico</td><td>观众，公众</td></tr>
+    <tr><td class="it" onclick="speak('il ritornello')">il ritornello</td><td>副歌，叠句</td></tr>
+    <tr><td class="it" onclick="speak('la strofa')">la strofa</td><td>诗节，段落</td></tr>
+    <tr><td class="it" onclick="speak('la rima')">la rima</td><td>押韵</td></tr>
+    <tr><td class="it" onclick="speak('la metafora')">la metafora</td><td>隐喻</td></tr>
+    <tr><td class="it" onclick="speak('il gioco di parole')">il gioco di parole</td><td>文字游戏</td></tr>
+    <tr><td class="it" onclick="speak('il doppio senso')">il doppio senso</td><td>双关语</td></tr>
+    <tr><td class="it" onclick="speak('poetico')">poetico/a</td><td>诗意的</td></tr>
+    <tr><td class="it" onclick="speak('il significato')">il significato</td><td>含义</td></tr>
+    <tr><td class="it" onclick="speak('il suono')">il suono</td><td>声音</td></tr>
+    <tr><td class="it" onclick="speak('la voce')">la voce</td><td>嗓音，声音</td></tr>
+    <tr><td class="it" onclick="speak('l\'emozione')">l'emozione (f.)</td><td>情感</td></tr>
+    <tr><td class="it" onclick="speak('l\'ispirazione')">l'ispirazione (f.)</td><td>灵感</td></tr>
+    <tr><td class="it" onclick="speak('l\'album')">l'album (m.)</td><td>专辑</td></tr>
+    <tr><td class="it" onclick="speak('il singolo')">il singolo</td><td>单曲</td></tr>
+    <tr><td class="it" onclick="speak('il successo')">il successo</td><td>成功，热门</td></tr>
+    <tr><td class="it" onclick="speak('la hit')">la hit</td><td>热门歌曲</td></tr>
+  </table>
+
+  <h3>&#x1F4AD; 习语和表达 (Espressioni idiomatiche)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>字面意思</th><th>实际含义</th></tr>
+    <tr><td class="it" onclick="speak('Che storia!')">Che storia!</td><td>什么故事！</td><td>真有意思！/ 真是一出戏！</td></tr>
+    <tr><td class="it" onclick="speak('Che vuoi farci?')">Che vuoi farci?</td><td>你能做什么？</td><td>有什么办法呢？</td></tr>
+    <tr><td class="it" onclick="speak('Che ne guadagni...')">Che ne guadagni...</td><td>你会得到什么</td><td>对……有好处</td></tr>
+    <tr><td class="it" onclick="speak('Il che')">Il che</td><td>这</td><td>这件事/这</td></tr>
+    <tr><td class="it" onclick="speak('Quantunque')">Quantunque</td><td>尽管</td><td>无论多么</td></tr>
+    <tr><td class="it" onclick="speak('Questo è quanto')">Questo è quanto</td><td>这就是这么多</td><td>就这些/到此为止</td></tr>
+    <tr><td class="it" onclick="speak('Se è per questo...')">Se è per questo...</td><td>如果是为了这个</td><td>如果是为了这个……</td></tr>
+    <tr><td class="it" onclick="speak('Se non dovessi...')">Se non dovessi...</td><td>如果我不</td><td>万一不……</td></tr>
+    <tr><td class="it" onclick="speak('Alla prossima!')">Alla prossima!</td><td>到下一次</td><td>下次见！</td></tr>
+    <tr><td class="it" onclick="speak('Parla che è un piacere')">Parla che è un piacere</td><td>说是一种享受</td><td>说得真好听</td></tr>
+    <tr><td class="it" onclick="speak('Giocare con le parole')">Giocare con le parole</td><td>和词玩</td><td>玩文字游戏</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Che polivalente -->
+  <h3>1. 多功能 <span class="verb">che</span> (Il Che polivalente)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">在口语中，<span class="verb">che</span>可以替代多种标准语法形式，虽然"不正确"但在日常交流中非常常用。</p>
+    <table>
+      <tr><th>用法</th><th>标准形式</th><th>口语形式</th><th>中文</th></tr>
+      <tr><td><span class="verb">时间</span></td><td>L'anno <span class="verb">in cui</span></td><td>L'anno <span class="verb">che</span></td><td>在那年</td></tr>
+      <tr><td><span class="verb">原因</span></td><td><span class="verb">Perché</span></td><td><span class="verb">Che</span></td><td>因为</td></tr>
+      <tr><td><span class="verb">结果</span></td><td>Così... <span class="verb">che</span></td><td><span class="verb">che</span></td><td>以至于</td></tr>
+      <tr><td><span class="verb">目的</span></td><td><span class="verb">Affinché / perché</span></td><td><span class="verb">che</span></td><td>为了</td></tr>
+      <tr><td><span class="verb">关系代词</span></td><td><span class="verb">Il quale/la quale</span></td><td><span class="verb">che</span></td><td>那个/那些</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Il giorno che ci siamo conosciuti...')">Il giorno <span class="verb">che</span> ci siamo conosciuti...</span></td><td>我们认识的那天……</td></tr>
+      <tr><td><span class="it" onclick="speak('Sono stanco che non ci vedo più.')">Sono stanco <span class="verb">che</span> non ci vedo più.</span></td><td>我累得看不见了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Vieni che ti presento gli amici.')">Vieni <span class="verb">che</span> ti presento gli amici.</span></td><td>来，我把朋友们介绍给你。</td></tr>
+      <tr><td><span class="it" onclick="speak('L\'anno che è nato mio figlio...')">L'anno <span class="verb">che</span> è nato mio figlio...</span></td><td>我儿子出生的那年……</td></tr>
+      <tr><td><span class="it" onclick="speak('Che piange? (= Perché piange?)')"><span class="verb">Che</span> piange? (= Perché piange?)</span></td><td>他为什么哭？</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho fame che mangerei un cavallo.')">Ho fame <span class="verb">che</span> mangerei un cavallo.</span></td><td>我饿得可以吃下一匹马。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Chi e Quanto -->
+  <h3>2. 双关系代词 <span class="verb">Chi</span> 和 <span class="verb">Quanto</span></h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;"><span class="verb">Chi</span> 和 <span class="verb">quanto</span> 是C1级别的重要关系代词，它们不指代先行词，而是自身包含先行词。</p>
+    <table>
+      <tr><th>代词</th><th>含义</th><th>例句</th><th>中文</th></tr>
+      <tr><td><span class="verb">Chi</span></td><td>la persona che</td><td><span class="it" onclick="speak('Chi studia, impara.')"><span class="verb">Chi</span> studia, impara.</span></td><td>学习的人会学到东西</td></tr>
+      <tr><td><span class="verb">Chi...chi...</span></td><td>alcuni...altri...</td><td><span class="it" onclick="speak('Chi dice sì, chi dice no.')"><span class="verb">Chi</span> dice sì, <span class="verb">chi</span> dice no.</span></td><td>有人说是，有人说不是</td></tr>
+      <tr><td><span class="verb">Quanto</span></td><td>tutto ciò che</td><td><span class="it" onclick="speak('Quanto hai detto è vero.')"><span class="verb">Quanto</span> hai detto è vero.</span></td><td>你所说的一切都是真的</td></tr>
+      <tr><td><span class="verb">Quanto più...tanto più</span></td><td>correlazione</td><td><span class="it" onclick="speak('Quanto più studi, tanto più impari.')"><span class="verb">Quanto più</span> studi, <span class="verb">tanto più</span> impari.</span></td><td>你学得越多，懂得越多</td></tr>
+      <tr><td><span class="verb">Chiunque</span></td><td>qualsiasi persona</td><td><span class="it" onclick="speak('Chiunque venga, digli che non ci sono.')"><span class="verb">Chiunque</span> venga, digli che non ci sono.</span></td><td>不管谁来，告诉他我不在</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Chi ama la musica, non può perdersi questo concerto.')"><span class="verb">Chi</span> ama la musica, non può perdersi questo concerto.</span></td><td>热爱音乐的人不能错过这场音乐会。</td></tr>
+      <tr><td><span class="it" onclick="speak('Chi tace, acconsente.')"><span class="verb">Chi</span> tace, acconsente.</span></td><td>沉默即同意。</td></tr>
+      <tr><td><span class="it" onclick="speak('Quanto mi hai detto è molto interessante.')"><span class="verb">Quanto</span> mi hai detto è molto interessante.</span></td><td>你告诉我的事情非常有趣。</td></tr>
+      <tr><td><span class="it" onclick="speak('Chi non risica, non rosica.')"><span class="verb">Chi</span> non risica, non rosica.</span></td><td>不入虎穴，焉得虎子。</td></tr>
+      <tr><td><span class="it" onclick="speak('Chi va piano, va sano e va lontano.')"><span class="verb">Chi</span> va piano, va sano e va lontano.</span></td><td>欲速则不达。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dimmi quanto hai speso.')">Dimmi <span class="verb">quanto</span> hai speso.</span></td><td>告诉我你花了多少钱。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Varianti del periodo ipotetico -->
+  <h3>3. 假设句的变体 (Varianti del periodo ipotetico)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">除了三种标准假设句外，C1级别还要掌握混合型和非标准组合。</p>
+    <table>
+      <tr><th>结构</th><th>例句</th><th>中文</th></tr>
+      <tr><td><span class="verb">Se + trap. cong. + cond. presente</span></td><td><span class="it" onclick="speak('Se avessi studiato, ora sapresti.')"><span class="verb">Se avessi studiato</span>, ora <span class="verb">sapresti</span>.</span></td><td>如果你学了，现在就会了。</td></tr>
+      <tr><td><span class="verb">Se + impf. cong. + cond. passato</span></td><td><span class="it" onclick="speak('Se fossi più attento, non avresti sbagliato.')"><span class="verb">Se fossi</span> più attento, <span class="verb">non avresti sbagliato</span>.</span></td><td>如果你更仔细，就不会错了。</td></tr>
+      <tr><td><span class="verb">Se + presente + cond. presente</span></td><td><span class="it" onclick="speak('Se hai ragione, sarei contento.')"><span class="verb">Se</span> hai ragione, <span class="verb">sarei</span> contento.</span></td><td>如果你是对的，我会很高兴。</td></tr>
+      <tr><td><span class="verb">Se + futuro + futuro</span></td><td><span class="it" onclick="speak('Se verrai, vedrai.')"><span class="verb">Se</span> verrai, <span class="verb">vedrai</span>.</span></td><td>如果你来，你会看到的。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Se avessi preso la macchina, ora non saremmo in ritardo.')"><span class="verb">Se avessi</span> preso la macchina, ora <span class="verb">non saremmo</span> in ritardo.</span></td><td>如果当时开了车，现在就不会迟到了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se fossi stato attento, non avresti fatto questo errore.')"><span class="verb">Se fossi</span> stato attento, <span class="verb">non avresti</span> fatto questo errore.</span></td><td>如果你当时专心，就不会犯这个错了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se dovesse piovere, rimanderemo la gita.')"><span class="verb">Se</span> dovesse piovere, <span class="verb">rimanderemo</span> la gita.</span></td><td>万一明天下雨，我们就把郊游推迟。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se lavora così tanto, è perché ha bisogno di soldi.')"><span class="verb">Se</span> lavora così tanto, <span class="verb">è</span> perché ha bisogno di soldi.</span></td><td>他这么努力工作，是因为需要钱。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Se temporale e causale -->
+  <h3>4. 由 <span class="verb">se</span> 引导的时间和原因从句</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">口语中，<span class="verb">se</span>可以替代<span class="verb">quando</span>（时间）或<span class="verb">dal momento che</span>（原因）。</p>
+    <table>
+      <tr><th>用法</th><th>例句</th><th>实际含义</th><th>中文</th></tr>
+      <tr><td><span class="verb">时间</span></td><td><span class="it" onclick="speak('Se vedo Marco, lo saluto.')"><span class="verb">Se</span> vedo Marco, lo saluto.</span></td><td>Ogni volta che vedo Marco</td><td>每次我看到马可，都和他打招呼。</td></tr>
+      <tr><td><span class="verb">原因</span></td><td><span class="it" onclick="speak('Se hai finito, possiamo andare.')"><span class="verb">Se</span> hai finito, possiamo andare.</span></td><td>Dal momento che hai finito</td><td>既然你完成了，我们可以走了。</td></tr>
+      <tr><td><span class="verb">时间</span></td><td><span class="it" onclick="speak('Se senti quella canzone, ti ricordi di me?')"><span class="verb">Se</span> senti quella canzone...</span></td><td>Quando senti quella canzone</td><td>当你听到那首歌时，你会想起我吗？</td></tr>
+      <tr><td><span class="verb">原因</span></td><td><span class="it" onclick="speak('Se ti piace, compralo!')"><span class="verb">Se</span> ti piace, compralo!</span></td><td>Dal momento che ti piace</td><td>既然你喜欢，就买吧！</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Se vado a Roma, visito sempre il Colosseo.')"><span class="verb">Se</span> vado a Roma, visito sempre il Colosseo.</span></td><td>每次我去罗马，都参观斗兽场。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se ascolto questa canzone, mi viene in mente l\'estate.')"><span class="verb">Se</span> ascolto questa canzone, mi viene in mente l'estate.</span></td><td>每当我听到这首歌，就想起夏天。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se sei stanco, riposati un po\'.')"><span class="verb">Se</span> sei stanco, riposati un po'.</span></td><td>既然你累了，就休息一会儿吧。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se piove, prendo l\'ombrello.')"><span class="verb">Se</span> piove, prendo l'ombrello.</span></td><td>每次下雨，我都带伞。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se non hai voglia, non usciamo.')"><span class="verb">Se</span> non hai voglia, non usciamo.</span></td><td>既然你不想，那我们就不出去了。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale · p.71-74</h2>
+
+  <h3>&#x1F3B5; 意大利音乐文化 (Parole in musica)</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('Il Festival di Sanremo, nato nel 1951, è l\'evento musicale più importante d\'Italia. Ogni anno lancia nuove canzoni che diventano parte della cultura popolare italiana.')">Il Festival di Sanremo, nato nel 1951, è l'evento musicale più importante d'Italia. Ogni anno lancia nuove canzoni che diventano parte della cultura popolare italiana.</p>
+    <p class="it" onclick="speak('L\'Italia vanta una lunga tradizione di cantautori: artisti come Fabrizio De André, Francesco De Gregori, Lucio Battisti e Giorgio Gaber hanno elevato la canzone italiana a forma d\'arte.')">L'Italia vanta una lunga tradizione di cantautori: artisti come Fabrizio De André, Francesco De Gregori, Lucio Battisti e Giorgio Gaber hanno elevato la canzone italiana a forma d'arte.</p>
+    <p class="it" onclick="speak('I testi delle canzoni italiane sono ricchi di giochi di parole, metafore e doppi sensi. L\'italiano si presta particolarmente a questi giochi linguistici grazie alla sua ricchezza di omofonie e omografie.')">I testi delle canzoni italiane sono ricchi di giochi di parole, metafore e doppi sensi. L'italiano si presta particolarmente a questi giochi linguistici grazie alla sua ricchezza di omofonie e omografie.</p>
+    <p class="it" onclick="speak('Anche l\'opera italiana ha influenzato profondamente la musica popolare. La tradizione lirica italiana, da Verdi a Puccini, ha creato melodie che ancora oggi ispirano cantanti di ogni genere.')">Anche l'opera italiana ha influenzato profondamente la musica popolare. La tradizione lirica italiana, da Verdi a Puccini, ha creato melodie che ancora oggi ispirano cantanti di ogni genere.</p>
+    <p class="it" onclick="speak('Oggi artisti come Måneskin, Laura Pausini e Andrea Bocelli portano la musica italiana nel mondo. La scena hip-hop italiana, con artisti come Fabri Fibra e Sfera Ebbasta, è in forte crescita.')">Oggi artisti come Måneskin, Laura Pausini e Andrea Bocelli portano la musica italiana nel mondo. La scena hip-hop italiana, con artisti come Fabri Fibra e Sfera Ebbasta, è in forte crescita.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p class="zh">圣雷莫音乐节始于1951年，是意大利最重要的音乐盛事。每年推出新歌，成为意大利流行文化的一部分。</p>
+    <p class="zh">意大利有着悠久的创作歌手传统：Fabrizio De André、Francesco De Gregori、Lucio Battisti和Giorgio Gaber等艺术家将意大利歌曲提升为一种艺术形式。</p>
+    <p class="zh">意大利歌曲的歌词充满了文字游戏、隐喻和双关语。意大利语由于其丰富的同音词和同形词，特别适合这些语言游戏。</p>
+    <p class="zh">意大利歌剧也深刻影响了流行音乐。从威尔第到普契尼的意大利歌剧传统创作出的旋律，至今仍在激励着各种类型的歌手。</p>
+    <p class="zh">如今，Måneskin、Laura Pausini和Andrea Bocelli等艺术家将意大利音乐带向世界。意大利hip-hop界也在强劲增长，代表人物有Fabri Fibra和Sfera Ebbasta。</p>
+  </div>
+
+  <h3>相关文化词汇</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il Festival di Sanremo')">il Festival di Sanremo</td><td>圣雷莫音乐节</td></tr>
+    <tr><td class="it" onclick="speak('il/la cantautore/trice')">il/la cantautore/trice</td><td>创作歌手</td></tr>
+    <tr><td class="it" onclick="speak('il gioco di parole')">il gioco di parole</td><td>文字游戏</td></tr>
+    <tr><td class="it" onclick="speak('il doppio senso')">il doppio senso</td><td>双关语</td></tr>
+    <tr><td class="it" onclick="speak('la lirica')">la lirica</td><td>歌剧</td></tr>
+    <tr><td class="it" onclick="speak('la tradizione musicale')">la tradizione musicale</td><td>音乐传统</td></tr>
+    <tr><td class="it" onclick="speak('l\'omofonia')">l'omofonia (f.)</td><td>同音异义</td></tr>
+    <tr><td class="it" onclick="speak('l\'omografia')">l'omografia (f.)</td><td>同形异义</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化注释:</strong><br>
+    • 圣雷莫音乐节是意大利最重要的年度音乐赛事，影响深远<br>
+    • 意大利有悠久的"cantautore"（创作歌手）传统，歌词常具有诗歌品质<br>
+    • 意大利语丰富的词形变化为歌词创作提供了大量文字游戏素材<br>
+    • Måneskin在2021年赢得欧洲电视网冠军，将意大利音乐推向全球<br>
+    • 许多意大利歌手使用方言创作，如Fabrizio De André（利古里亚方言）、Pino Daniele（那不勒斯方言）<br>
+    • Nel tuo Paese, che tipo di musica è più popolare? Ci sono cantautori famosi? — 在你的国家，什么类型的音乐最流行？有哪些著名的创作歌手？
+  </div>
+</section>
+
+<!-- Esercizi -->
+<section class="page-section" id="esercizi">
+  <h2>&#x270F;&#xFE0F; Esercizi · 练习</h2>
+
+  <h3>Esercizio 1: 将口语化的che改为标准形式</h3>
+  <table class="dialog-table">
+    <tr><td><span class="it">L'anno che ci siamo sposati → _______</span></td><td class="zh">我们结婚的那年（改为标准形式）</td></tr>
+    <tr><td><span class="it">Vieni che ti presento Marco → _______</span></td><td class="zh">来，我介绍马可给你（改为标准形式）</td></tr>
+    <tr><td><span class="it">Sono stanco che non ci vedo → _______</span></td><td class="zh">我累得看不见了（改为标准形式）</td></tr>
+    <tr><td><span class="it">Che piangi? → _______</span></td><td class="zh">你哭什么？（改为标准形式）</td></tr>
+    <tr><td><span class="it">È così bello che non ci credo → _______</span></td><td class="zh">它美得我不敢相信（改为标准形式）</td></tr>
+  </table>
+
+  <h3>Esercizio 2: 用Chi或Quanto填空</h3>
+  <table class="dialog-table">
+    <tr><td><span class="it">_______ cerca trova.</span></td><td class="zh">寻找的人就会找到。</td></tr>
+    <tr><td><span class="it">_______ hai detto è giusto.</span></td><td class="zh">你所说的是对的。</td></tr>
+    <tr><td><span class="it">_______ più studi, più impari.</span></td><td class="zh">你学得越多，懂得越多。</td></tr>
+    <tr><td><span class="it">_______ non risica, non rosica.</span></td><td class="zh">不入虎穴，焉得虎子。</td></tr>
+    <tr><td><span class="it">Dimmi _______ hai speso.</span></td><td class="zh">告诉我你花了多少钱。</td></tr>
+  </table>
+
+  <h3>Esercizio 3: 混合型假设句——完成</h3>
+  <table class="dialog-table">
+    <tr><td><span class="it">Se _______ (studiare, io) di più, ora _______ (sapere) la risposta.</span></td><td class="zh">如果我多学一点，现在就会知道答案。</td></tr>
+    <tr><td><span class="it">Se _______ (essere) più attento, non _______ (fare) questo errore.</span></td><td class="zh">如果更仔细，就不会犯这个错了。</td></tr>
+    <tr><td><span class="it">Se _______ (loro - arrivare) in tempo, ora _______ (essere) qui con noi.</span></td><td class="zh">如果他们按时到了，现在就会和我们在一起。</td></tr>
+    <tr><td><span class="it">Se _______ (tu - prendere) la macchina, non _______ (essere) in ritardo.</span></td><td class="zh">如果你开了车，就不会迟到了。</td></tr>
+    <tr><td><span class="it">Se _______ (noi - ascoltare) il disco, ora _______ (conoscere) le canzoni.</span></td><td class="zh">如果我们听了那张专辑，现在就会知道那些歌。</td></tr>
+  </table>
+
+  <h3>Esercizio 4: 翻译（意→中）</h3>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Chi ama la musica, non può perdersi questo concerto.')">Chi ama la musica, non può perdersi questo concerto.</span></td><td class="zh">_______________</td></tr>
+    <tr><td><span class="it" onclick="speak('L\'anno che ci siamo conosciuti, è stato bellissimo.')">L'anno che ci siamo conosciuti, è stato bellissimo.</span></td><td class="zh">_______________</td></tr>
+    <tr><td><span class="it" onclick="speak('Se vedo Marco, lo saluto sempre.')">Se vedo Marco, lo saluto sempre.</span></td><td class="zh">_______________</td></tr>
+    <tr><td><span class="it" onclick="speak('Quanto più ascolti, tanto più scopri nuovi significati.')">Quanto più ascolti, tanto più scopri nuovi significati.</span></td><td class="zh">_______________</td></tr>
+    <tr><td><span class="it" onclick="speak('Se sei stanco, riposati un po\'.')">Se sei stanco, riposati un po'.</span></td><td class="zh">_______________</td></tr>
+  </table>
+
+  <h3>Esercizio 5: 翻译（中→意）</h3>
+  <table class="dialog-table">
+    <tr><td class="zh">热爱音乐的人不能错过这场音乐会。</td><td><span class="it">_______________</span></td></tr>
+    <tr><td class="zh">你来得越多，玩得越开心。</td><td><span class="it">_______________</span></td></tr>
+    <tr><td class="zh">如果我早知道，我就会买票了。</td><td><span class="it">_______________</span></td></tr>
+    <tr><td class="zh">既然你完成了，我们可以走了。</td><td><span class="it">_______________</span></td></tr>
+    <tr><td class="zh">沉默的人表示同意。</td><td><span class="it">_______________</span></td></tr>
+  </table>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 6 — Parole in musica · p.76</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频展示了一组学生讨论意大利音乐中的文字游戏和歌词的语言魅力，探讨不同音乐流派的表达方式。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">关键表达 (Espressioni chiave):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Che bella serata!')">Che bella serata!</span></td><td class="zh">多美好的夜晚！</td></tr>
+    <tr><td><span class="it" onclick="speak('Hai notato che...?')">Hai notato che...?</span></td><td class="zh">你注意到……了吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Il che mi fa pensare che...')">Il che mi fa pensare che...</span></td><td class="zh">这让我想到……</td></tr>
+    <tr><td><span class="it" onclick="speak('Chi ha detto che...?')">Chi ha detto che...?</span></td><td class="zh">谁说的……？</td></tr>
+    <tr><td><span class="it" onclick="speak('Quanto più... tanto più...')">Quanto più... tanto più...</span></td><td class="zh">越……越……</td></tr>
+    <tr><td><span class="it" onclick="speak('Se è per questo...')">Se è per questo...</span></td><td class="zh">如果是为了这个……</td></tr>
+    <tr><td><span class="it" onclick="speak('Questo è quanto.')">Questo è quanto.</span></td><td class="zh">就这些。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">视频讨论主题:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Gli studenti ascoltano e analizzano i testi delle canzoni italiane.')">歌曲分析: 学生聆听并分析意大利歌曲歌词</span></td><td class="zh">Gli studenti ascoltano e analizzano i testi delle canzoni italiane.</td></tr>
+    <tr><td><span class="it" onclick="speak('Identificano i giochi di parole e i doppi sensi.')">文字游戏: 识别歌词中的文字游戏和双关语</span></td><td class="zh">Identificano i giochi di parole e i doppi sensi.</td></tr>
+    <tr><td><span class="it" onclick="speak('Usano il che polivalente nelle conversazioni spontanee.')">口语表达: 在自然对话中使用多功能che</span></td><td class="zh">Usano il che polivalente nelle conversazioni spontanee.</td></tr>
+    <tr><td><span class="it" onclick="speak('Discutono dei diversi generi musicali italiani.')">音乐流派: 讨论不同的意大利音乐流派</span></td><td class="zh">Discutono dei diversi generi musicali italiani.</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 找一首你喜欢的意大利歌曲，分析歌词中的文字游戏<br>
+    &bull; 用chi/quanto造句谈论音乐和你的爱好<br>
+    &bull; 用多功能che改写一些标准意大利语句子<br>
+    &bull; 用假设句变体练习混合型条件句<br>
+    &bull; 讨论：为什么意大利歌曲在全球如此受欢迎？
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-5.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">&larr; Torna al corso</a>
+  <a href="unita-7.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 5</div>
+  <p>Corso di lingua italiana per stranieri · Livello C1</p>
+  <p style="margin-top:8px;opacity:0.6;">Maria Bali • Irene Dei · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 7 · C'era una volta · NUOVO Espresso 6</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 6 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 7 · C2</div>
+  <h1>&#x1F4D6; C'era una volta</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">从前有一次 · p.87-97</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">关系代词che · 特定亲属关系前定冠词+物主形容词 · 先愈过去时 · fare+不定式</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Favola vs Fiaba -->
+  <h3>1. "Favola vs Fiaba" · p.88</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">课堂上讨论寓言（favola）和童话（fiaba）的区别。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Sapete qual è la differenza tra favola e fiaba?')"><strong>Insegnante:</strong> Sapete qual è la differenza tra <strong>favola</strong> e <strong>fiaba</strong>?</span></td><td class="zh"><strong>老师：</strong> 你们知道favola和fiaba的区别吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('La favola ha personaggi immaginari come animali e piante, e contiene una morale.')"><strong>Studente:</strong> La <strong>favola</strong> ha personaggi immaginari come animali e piante, e contiene una <strong>morale</strong>.</span></td><td class="zh"><strong>学生：</strong> 寓言有虚构角色如动物和植物，并包含寓意。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto! Come quelle di Esopo o Fedro. E la fiaba?')"><strong>Insegnante:</strong> Esatto! Come quelle di Esopo o Fedro. E la <strong>fiaba</strong>?</span></td><td class="zh"><strong>老师：</strong> 正确！像伊索或费德鲁斯的寓言。那童话呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('La fiaba è un racconto fantastico popolare con esseri umani e creature magiche.')"><strong>Studente:</strong> La <strong>fiaba</strong> è un racconto fantastico popolare con esseri umani e creature magiche.</span></td><td class="zh"><strong>学生：</strong> 童话是有人类和魔法生物的民间奇幻故事。</td></tr>
+    <tr><td><span class="it" onclick="speak('Bene. E quali sono le fiabe italiane più famose?')"><strong>Insegnante:</strong> Bene. E quali sono le fiabe italiane più famose?</span></td><td class="zh"><strong>老师：</strong> 很好。那最有名的意大利童话是什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Quelle di Italo Calvino! Ha raccolto Fiabe italiane. E anche Pinocchio di Collodi.')"><strong>Studente:</strong> Quelle di Italo Calvino! Ha raccolto <strong>Fiabe italiane</strong>. E anche Pinocchio di Collodi.</span></td><td class="zh"><strong>学生：</strong> 伊塔洛 卡尔维诺收集的那些！还有科洛迪的《木偶奇遇记》。</td></tr>
+    <tr><td><span class="it" onclick="speak('Perfetto. Oggi leggiamo una fiaba e poi la raccontate con tutti i particolari.')"><strong>Insegnante:</strong> Perfetto. Oggi leggiamo una fiaba e poi la raccontate con tutti i particolari.</span></td><td class="zh"><strong>老师：</strong> 完美。今天我们读一个童话，然后你们详细地讲述出来。</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Il che relativo -->
+  <h3>2. "Il che relativo" · p.90</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">语法课上，老师讲解关系代词che的用法。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Oggi ripassiamo il che relativo. Come si usa?')"><strong>Insegnante:</strong> Oggi ripassiamo il <strong>che relativo</strong>. Come si usa?</span></td><td class="zh"><strong>老师：</strong> 今天我们复习关系代词che。怎么用？</td></tr>
+    <tr><td><span class="it" onclick="speak('Come soggetto: \'Ho comprato il vestito che era in vetrina.\'')"><strong>Studente:</strong> Come soggetto: "Ho comprato il vestito <strong>che</strong> era in vetrina."</span></td><td class="zh"><strong>学生：</strong> 作主语："我买了橱窗里的那件裙子。"</td></tr>
+    <tr><td><span class="it" onclick="speak('Benissimo. E come complemento oggetto?')"><strong>Insegnante:</strong> Benissimo. E come complemento oggetto?</span></td><td class="zh"><strong>老师：</strong> 很好。那作为直接宾语呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Ho rivisto un vecchio amico che non sentivo da tempo.')"><strong>Studente:</strong> "Ho rivisto un vecchio amico <strong>che</strong> non sentivo da tempo."</span></td><td class="zh"><strong>学生：</strong> "我又见到了一个很久没联系的老朋友。"</td></tr>
+    <tr><td><span class="it" onclick="speak('Perfetto. Notate che che è invariabile: si usa per maschile, femminile, singolare e plurale.')"><strong>Insegnante:</strong> Perfetto. Notate che <strong>che</strong> è invariabile: si usa per maschile, femminile, singolare e plurale.</span></td><td class="zh"><strong>老师：</strong> 完美。注意che是不变的：可用于阳性、阴性、单数和复数。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quindi è più semplice di \'il quale\', che cambia!')"><strong>Studente:</strong> Quindi è più semplice di "il quale", che cambia!</span></td><td class="zh"><strong>学生：</strong> 所以比"il quale"简单，因为后者要变化！</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto. Per questo che è il relativo più usato nell\'italiano parlato.')"><strong>Insegnante:</strong> Esatto. Per questo <strong>che</strong> è il relativo più usato nell'italiano parlato.</span></td><td class="zh"><strong>老师：</strong> 没错，因此che是口语中最常用的关系代词。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Il trapassato remoto -->
+  <h3>3. "Il trapassato remoto" · p.93</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">高级文学课上，老师介绍先愈过去时（trapassato remoto）。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Oggi parliamo del trapassato remoto. Chi sa dirmi come si forma?')"><strong>Insegnante:</strong> Oggi parliamo del <strong>trapassato remoto</strong>. Chi sa dirmi come si forma?</span></td><td class="zh"><strong>老师：</strong> 今天我们讲先愈过去时。谁能告诉我怎么构成？</td></tr>
+    <tr><td><span class="it" onclick="speak('Si forma con il passato remoto di avere o essere più participio passato.')"><strong>Studente:</strong> Si forma con il <strong>passato remoto</strong> di <strong>avere</strong> o <strong>essere</strong> + <strong>participio passato</strong>.</span></td><td class="zh"><strong>学生：</strong> 用avere或essere的远过去时+过去分词构成。</td></tr>
+    <tr><td><span class="it" onclick="speak('Bravo! E quando si usa?')"><strong>Insegnante:</strong> Bravo! E quando si usa?</span></td><td class="zh"><strong>老师：</strong> 很好！什么时候用？</td></tr>
+    <tr><td><span class="it" onclick="speak('Indica un\'azione anteriore a un\'altra al passato remoto. Si usa nella narrazione letteraria.')"><strong>Studente:</strong> Indica un'azione anteriore a un'altra al passato remoto. Si usa nella narrazione letteraria.</span></td><td class="zh"><strong>学生：</strong> 表示先于另一个远过去时动作的动作。用于文学叙事中。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto. Per esempio: \'Appena ebbe finito di piovere, il concerto iniziò.\'')"><strong>Insegnante:</strong> Esatto. Per esempio: "Appena <strong>ebbe finito</strong> di piovere, il concerto iniziò."</span></td><td class="zh"><strong>老师：</strong> 正确。例如："雨一停，音乐会就开始了。"</td></tr>
+    <tr><td><span class="it" onclick="speak('Quindi è come il trapassato prossimo ma con il passato remoto invece dell\'imperfetto?')"><strong>Studente:</strong> Quindi è come il trapassato prossimo ma con il passato remoto invece dell'imperfetto?</span></td><td class="zh"><strong>学生：</strong> 所以它就像愈近过去时，但用的是远过去时代替未完成时？</td></tr>
+    <tr><td><span class="it" onclick="speak('Esattamente. Si usa dopo quando, dopo che, finché, non appena, appena.')"><strong>Insegnante:</strong> Esattamente. Si usa dopo <strong>quando</strong>, <strong>dopo che</strong>, <strong>finché</strong>, <strong>non appena</strong>, <strong>appena</strong>.</span></td><td class="zh"><strong>老师：</strong> 没错。用在quando、dopo che、finché、non appena、appena之后。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F30D; 核心词汇 (Lessico chiave)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('favola')">la favola</td><td>寓言</td></tr>
+    <tr><td class="it" onclick="speak('fiaba')">la fiaba</td><td>童话</td></tr>
+    <tr><td class="it" onclick="speak('morale')">la morale</td><td>寓意</td></tr>
+    <tr><td class="it" onclick="speak('personaggio')">il personaggio</td><td>人物角色</td></tr>
+    <tr><td class="it" onclick="speak('animale')">l'animale (m.)</td><td>动物</td></tr>
+    <tr><td class="it" onclick="speak('creatura magica')">la creatura magica</td><td>魔法生物</td></tr>
+    <tr><td class="it" onclick="speak('racconto')">il racconto</td><td>故事，叙述</td></tr>
+    <tr><td class="it" onclick="speak('narrazione')">la narrazione</td><td>叙事</td></tr>
+    <tr><td class="it" onclick="speak('aneddoto')">l'aneddoto (m.)</td><td>轶事</td></tr>
+    <tr><td class="it" onclick="speak('particolare')">il particolare</td><td>细节</td></tr>
+    <tr><td class="it" onclick="speak('tipologia')">la tipologia</td><td>类型</td></tr>
+    <tr><td class="it" onclick="speak('protagonista')">il/la protagonista</td><td>主角</td></tr>
+    <tr><td class="it" onclick="speak('trama')">la trama</td><td>剧情</td></tr>
+    <tr><td class="it" onclick="speak('vicenda')">la vicenda</td><td>事件，情节</td></tr>
+    <tr><td class="it" onclick="speak('fiaba popolare')">la fiaba popolare</td><td>民间童话</td></tr>
+    <tr><td class="it" onclick="speak('tradizione')">la tradizione</td><td>传统</td></tr>
+    <tr><td class="it" onclick="speak('trapassato remoto')">il trapassato remoto</td><td>先愈过去时</td></tr>
+    <tr><td class="it" onclick="speak('parente')">il/la parente</td><td>亲属</td></tr>
+    <tr><td class="it" onclick="speak('relazione di parentela')">la relazione di parentela</td><td>亲属关系</td></tr>
+    <tr><td class="it" onclick="speak('possessivo')">il possessivo</td><td>物主形容词</td></tr>
+    <tr><td class="it" onclick="speak('articolo determinativo')">l'articolo determinativo</td><td>定冠词</td></tr>
+    <tr><td class="it" onclick="speak('pronome relativo')">il pronome relativo</td><td>关系代词</td></tr>
+    <tr><td class="it" onclick="speak('costrutto causativo')">il costrutto causativo</td><td>使役结构</td></tr>
+    <tr><td class="it" onclick="speak('verbo modale')">il verbo modale</td><td>情态动词</td></tr>
+    <tr><td class="it" onclick="speak('polso')">il polso</td><td>脉搏</td></tr>
+    <tr><td class="it" onclick="speak('ben bene')">ben bene</td><td>好好地，彻底地</td></tr>
+    <tr><td class="it" onclick="speak('pronunziare')">pronunziare</td><td>说出，发音（古语拼写）</td></tr>
+    <tr><td class="it" onclick="speak('corvo')">il corvo</td><td>乌鸦</td></tr>
+    <tr><td class="it" onclick="speak('tastare')">tastare</td><td>触摸，探查</td></tr>
+    <tr><td class="it" onclick="speak('matrigna')">la matrigna</td><td>继母</td></tr>
+    <tr><td class="it" onclick="speak('patrigno')">il patrigno</td><td>继父</td></tr>
+    <tr><td class="it" onclick="speak('fidanzato')">il/la fidanzato/a</td><td>未婚夫/妻</td></tr>
+    <tr><td class="it" onclick="speak('fratellastro')">il/la fratellastro/a</td><td>同父异母/同母异父的兄弟姐妹</td></tr>
+    <tr><td class="it" onclick="speak('babbo')">il babbo</td><td>爸爸（托斯卡纳用语）</td></tr>
+    <tr><td class="it" onclick="speak('mamma')">la mamma</td><td>妈妈</td></tr>
+    <tr><td class="it" onclick="speak('papà')">il papà</td><td>爸爸</td></tr>
+    <tr><td class="it" onclick="speak('nipotino')">il nipotino</td><td>小孙子/小外孙</td></tr>
+    <tr><td class="it" onclick="speak('variante affettiva')">la variante affettiva</td><td>情感变体</td></tr>
+    <tr><td class="it" onclick="speak('forma alterata')">la forma alterata</td><td>变形形式</td></tr>
+  </table>
+
+  <h3>&#x1F4AC; 习语和表达 (Espressioni idiomatiche)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>含义</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('c\'era una volta')">c'era una volta</td><td>formula di inizio delle fiabe</td><td>从前有一次</td></tr>
+    <tr><td class="it" onclick="speak('e vissero tutti felici e contenti')">e vissero tutti felici e contenti</td><td>formula di chiusura delle fiabe</td><td>他们从此幸福快乐地生活着</td></tr>
+    <tr><td class="it" onclick="speak('far muovere i primi passi')">far muovere i primi passi</td><td>insegnare a camminare</td><td>教迈出第一步</td></tr>
+    <tr><td class="it" onclick="speak('far arrabbiare')">far arrabbiare</td><td>provocare rabbia</td><td>使生气</td></tr>
+    <tr><td class="it" onclick="speak('far sapere')">far sapere</td><td>informare</td><td>告知</td></tr>
+    <tr><td class="it" onclick="speak('far capire')">far capire</td><td>spiegare</td><td>使理解</td></tr>
+    <tr><td class="it" onclick="speak('far vedere')">far vedere</td><td>mostrare</td><td>给……看</td></tr>
+    <tr><td class="it" onclick="speak('far sentire')">far sentire</td><td>far percepire</td><td>使感觉到</td></tr>
+    <tr><td class="it" onclick="speak('una volta tanto')">una volta tanto</td><td>occasionalmente</td><td>偶尔</td></tr>
+    <tr><td class="it" onclick="speak('al che')">al che</td><td>a questo punto</td><td>于是，这时</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Che relativo -->
+  <h3>1. 关系代词 "che" — Il che relativo</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">关系代词che用于连接两个有共同元素的句子。它是不变的（单复数、阴阳性相同）。</p>
+    <table>
+      <tr><th>Funzione</th><th>Descrizione</th><th>Esempio</th></tr>
+      <tr><td><span class="verb">Soggetto</span></td><td>作从句主语</td><td><span class="it" onclick="speak('Ho comprato il vestito che era in vetrina.')">"Ho comprato il vestito <span class="verb">che</span> era in vetrina."</span></td></tr>
+      <tr><td><span class="verb">Oggetto diretto</span></td><td>作直接宾语</td><td><span class="it" onclick="speak('Ho rivisto un vecchio amico che non sentivo da tanto tempo.')">"Ho rivisto un vecchio amico <span class="verb">che</span> non sentivo da tanto tempo."</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Il libro che ho letto è molto interessante.')">Il libro <span class="verb">che</span> ho letto è molto interessante.</span></td><td>我读的那本书非常有趣。</td></tr>
+      <tr><td><span class="it" onclick="speak('La ragazza che abita al terzo piano è simpatica.')">La ragazza <span class="verb">che</span> abita al terzo piano è simpatica.</span></td><td>住在三楼的女孩很友善。</td></tr>
+      <tr><td><span class="it" onclick="speak('I film che preferisco sono quelli italiani.')">I film <span class="verb">che</span> preferisco sono quelli italiani.</span></td><td>我偏爱的电影是意大利电影。</td></tr>
+      <tr><td><span class="it" onclick="speak('La casa che abbiamo comprato è vecchia ma bella.')">La casa <span class="verb">che</span> abbiamo comprato è vecchia ma bella.</span></td><td>我们买的那栋房子旧但漂亮。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il cane che abbaia sempre è del vicino.')">Il cane <span class="verb">che</span> abbaia sempre è del vicino.</span></td><td>总是叫的那条狗是邻居的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Le persone che incontri per strada a Roma sono di tutto il mondo.')">Le persone <span class="verb">che</span> incontri per strada a Roma sono di tutto il mondo.</span></td><td>在罗马街上遇到的人来自世界各地。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il ristorante che mi hai consigliato era ottimo.')">Il ristorante <span class="verb">che</span> mi hai consigliato era ottimo.</span></td><td>你推荐的那家餐厅非常好。</td></tr>
+      <tr><td><span class="it" onclick="speak('La canzone che cantavano ieri è famosissima.')">La canzone <span class="verb">che</span> cantavano ieri è famosissima.</span></td><td>他们昨天唱的那首歌非常有名。</td></tr>
+      <tr><td><span class="it" onclick="speak('Gli studenti che studiano di più ottengono risultati migliori.')">Gli studenti <span class="verb">che</span> studiano di più ottengono risultati migliori.</span></td><td>学习更努力的学生取得更好的成绩。</td></tr>
+      <tr><td><span class="it" onclick="speak('La macchina che ha comprato Marco è blu.')">La macchina <span class="verb">che</span> ha comprato Marco è blu.</span></td><td>Marco买的那辆车是蓝色的。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Articolo determinativo con possessivi e parentela -->
+  <h3>2. 亲属关系前的定冠词+物主形容词 — Articolo determinativo con possessivi e parentela</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">一般来说，单数、不带修饰语的基本亲属名词前不加冠词（如：mia madre, tuo padre），但在以下情况必须加冠词。</p>
+    <table>
+      <tr><th>Caso</th><th>Regola</th><th>Esempio</th></tr>
+      <tr><td><span class="verb">Varianti affettive</span></td><td>情感变体前必须加冠词</td><td><span class="it" onclick="speak('La mia mamma, Il mio babbo, Il mio papà')"><span class="verb">La</span> mia <span class="verb">mamma</span>, <span class="verb">Il</span> mio <span class="verb">babbo</span>, <span class="verb">Il</span> mio <span class="verb">papà</span></span></td></tr>
+      <tr><td><span class="verb">Forme alterate</span></td><td>变形形式前必须加冠词</td><td><span class="it" onclick="speak('La mia mammina, Il mio fratellino')"><span class="verb">La</span> mia <span class="verb">mammina</span>, <span class="verb">Il</span> mio <span class="verb">fratellino</span></span></td></tr>
+      <tr><td><span class="verb">Patrigno/matrigna/fratellastro/sorellastra</span></td><td>继亲/半亲前必须加冠词</td><td><span class="it" onclick="speak('La vostra matrigna, Il suo patrigno')"><span class="verb">La</span> vostra <span class="verb">matrigna</span>, <span class="verb">Il</span> suo <span class="verb">patrigno</span></span></td></tr>
+      <tr><td><span class="verb">Termini sentimentali (非亲属)</span></td><td>情感关系前必须加冠词</td><td><span class="it" onclick="speak('Il mio fidanzato, La sua ragazza')"><span class="verb">Il</span> mio <span class="verb">fidanzato</span>, <span class="verb">La</span> sua <span class="verb">ragazza</span></span></td></tr>
+      <tr><td><span class="verb">Con aggettivo</span></td><td>带形容词时加冠词</td><td><span class="it" onclick="speak('La mia bella figlia')"><span class="verb">La</span> mia <span class="verb">bella</span> figlia</span></td></tr>
+      <tr><td><span class="verb">Con specificazione</span></td><td>带补语时加冠词</td><td><span class="it" onclick="speak('La figlia di Maria')"><span class="verb">La</span> figlia <span class="verb">di Maria</span></span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('La mia mamma cucina benissimo.')"><span class="verb">La</span> mia <span class="verb">mamma</span> cucina benissimo.</span></td><td>我妈妈做饭非常好吃。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il tuo babbo è molto simpatico.')"><span class="verb">Il</span> tuo <span class="verb">babbo</span> è molto simpatico.</span></td><td>你爸爸很风趣。</td></tr>
+      <tr><td><span class="it" onclick="speak('La vostra matrigna è gentile?')"><span class="verb">La</span> vostra <span class="verb">matrigna</span> è gentile?</span></td><td>你们的继母和蔼吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Il mio fidanzato si chiama Marco.')"><span class="verb">Il</span> mio <span class="verb">fidanzato</span> si chiama Marco.</span></td><td>我的未婚夫叫Marco。</td></tr>
+      <tr><td><span class="it" onclick="speak('La mia bella figlia si è laureata.')"><span class="verb">La</span> mia <span class="verb">bella</span> figlia si è laureata.</span></td><td>我美丽的女儿毕业了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il suo fratellastro vive a Roma.')"><span class="verb">Il</span> suo <span class="verb">fratellastro</span> vive a Roma.</span></td><td>他同父异母的兄弟住在罗马。</td></tr>
+      <tr><td><span class="it" onclick="speak('La mia sorellastra è più giovane di me.')"><span class="verb">La</span> mia <span class="verb">sorellastra</span> è più giovane di me.</span></td><td>我同父异母的妹妹比我小。</td></tr>
+      <tr><td><span class="it" onclick="speak('La nostra mammina ci vizia sempre.')"><span class="verb">La</span> nostra <span class="verb">mammina</span> ci vizia sempre.</span></td><td>我们的小妈妈总是宠我们。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il mio papà lavora in banca.')"><span class="verb">Il</span> mio <span class="verb">papà</span> lavora in banca.</span></td><td>我爸爸在银行工作。</td></tr>
+      <tr><td><span class="it" onclick="speak('La figlia del dottore è molto studiosa.')"><span class="verb">La</span> figlia <span class="verb">del</span> dottore è molto studiosa.</span></td><td>医生的女儿非常用功。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Trapassato remoto -->
+  <h3>3. 先愈过去时 — Il trapassato remoto</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">先愈过去时表示先于另一个远过去时动作的过去动作，主要用于文学叙事。</p>
+    <table>
+      <tr><th>Persona</th><th>avere</th><th>essere</th><th>parlare</th><th>partire</th></tr>
+      <tr><td><span class="verb">io</span></td><td>ebbi</td><td>fui stato/a</td><td>ebbi parlato</td><td>fui partito/a</td></tr>
+      <tr><td><span class="verb">tu</span></td><td>avesti</td><td>fosti stato/a</td><td>avesti parlato</td><td>fosti partito/a</td></tr>
+      <tr><td><span class="verb">lui/lei</span></td><td><strong>ebbe</strong></td><td><strong>fu</strong> stato/a</td><td><strong>ebbe</strong> parlato</td><td><strong>fu</strong> partito/a</td></tr>
+      <tr><td><span class="verb">noi</span></td><td>avemmo</td><td>fummo stati/e</td><td>avemmo parlato</td><td>fummo partiti/e</td></tr>
+      <tr><td><span class="verb">voi</span></td><td>aveste</td><td>foste stati/e</td><td>aveste parlato</td><td>foste partiti/e</td></tr>
+      <tr><td><span class="verb">loro</span></td><td><strong>ebbero</strong></td><td><strong>furono</strong> stati/e</td><td><strong>ebbero</strong> parlato</td><td><strong>furono</strong> partiti/e</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">常用引导词</p>
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">quando · dopo che · non appena · appena · finché</p>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Appena ebbe finito di piovere, il concerto iniziò.')">Appena <span class="verb">ebbe finito</span> di piovere, il concerto iniziò.</span></td><td>雨一停，音乐会就开始了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Quando ebbe pronunciato quelle parole, tutti tacquero.')">Quando <span class="verb">ebbe</span> pronunciato quelle parole, tutti tacquero.</span></td><td>当他说出那些话后，所有人都沉默了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dopo che ebbe mangiato, si addormentò.')">Dopo che <span class="verb">ebbe</span> mangiato, si addormentò.</span></td><td>吃完后，他睡着了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non appena fu arrivato, lo chiamarono.')">Non appena <span class="verb">fu</span> arrivato, lo chiamarono.</span></td><td>他刚到就被叫走了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il Corvo tastò il polso a Pinocchio, e quand\'ebbe tastato ben bene, pronunziò queste parole.')">Il Corvo tastò il polso a Pinocchio, e quand'<span class="verb">ebbe tastato</span> ben bene, pronunziò queste parole.</span></td><td>乌鸦摸了摸皮诺曹的脉搏，仔细摸完后说出了这些话。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dopo che ebbero camminato per ore, finalmente videro il villaggio.')">Dopo che <span class="verb">ebbero</span> camminato per ore, finalmente videro il villaggio.</span></td><td>走了几个小时后，他们终于看到了村庄。</td></tr>
+      <tr><td><span class="it" onclick="speak('Appena fu entrato, tutti si alzarono.')">Appena <span class="verb">fu</span> entrato, tutti si alzarono.</span></td><td>他一进来，所有人都站了起来。</td></tr>
+      <tr><td><span class="it" onclick="speak('Quando ebbe finito il racconto, nessuno parlò.')">Quando <span class="verb">ebbe finito</span> il racconto, nessuno parlò.</span></td><td>当他讲完故事后，没人说话。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ebbero appena cominciato a mangiare quando sentirono un rumore.')"><span class="verb">Ebbero</span> appena cominciato a mangiare quando sentirono un rumore.</span></td><td>他们刚开始吃就听到了一个响声。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non appena ebbe saputo la verità, scoppiò a piangere.')">Non appena <span class="verb">ebbe</span> saputo la verità, scoppiò a piangere.</span></td><td>他一知道真相就哭了起来。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Fare + infinito -->
+  <h3>4. Fare + 不定式（使役结构）— Fare + infinito (costruzione causativa)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">使役结构"fare + 不定式"表示主语使/让/叫某人做某事。</p>
+    <table>
+      <tr><th>Funzione</th><th>Descrizione</th><th>Esempio</th></tr>
+      <tr><td><span class="verb">Mettere in condizione di</span></td><td>使能够</td><td><span class="it" onclick="speak('Luigi mi ha fatto muovere i primi passi.')">Luigi <span class="verb">mi ha fatto muovere</span> i primi passi.</span></td></tr>
+      <tr><td><span class="verb">Permettere</span></td><td>允许</td><td><span class="it" onclick="speak('Ti faccio usare il mio telefono.')"><span class="verb">Ti faccio</span> usare il mio telefono.</span></td></tr>
+      <tr><td><span class="verb">Provocare</span></td><td>引起，促使</td><td><span class="it" onclick="speak('Il suo atteggiamento fa arrabbiare gli amici.')">Il suo atteggiamento <span class="verb">fa arrabbiare</span> gli amici.</span></td></tr>
+      <tr><td><span class="verb">Obbligare</span></td><td>迫使</td><td><span class="it" onclick="speak('Fanno lavorare troppo in questo periodo.')"><span class="verb">Fanno lavorare</span> troppo in questo periodo.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Il professore ci ha fatto studiare molto.')">Il professore <span class="verb">ci ha fatto studiare</span> molto.</span></td><td>老师让我们学了很多。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mi ha fatto piangere con la sua storia.')"><span class="verb">Mi ha fatto</span> piangere con la sua storia.</span></td><td>他的故事让我哭了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ti faccio vedere le foto del viaggio.')"><span class="verb">Ti faccio</span> vedere le foto del viaggio.</span></td><td>我给你看旅行的照片。</td></tr>
+      <tr><td><span class="it" onclick="speak('Questo fa pensare.')">Questo <span class="verb">fa</span> pensare.</span></td><td>这引人思考。</td></tr>
+      <tr><td><span class="it" onclick="speak('Fammi sapere se vieni.')"><span class="verb">Fammi</span> sapere se vieni.</span></td><td>告诉我你是否来。</td></tr>
+      <tr><td><span class="it" onclick="speak('Lo farò chiamare dal dottore.')"><span class="verb">Lo farò</span> chiamare dal dottore.</span></td><td>我会让医生叫他。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non lo farò aspettare.')">Non <span class="verb">lo farò</span> aspettare.</span></td><td>我不会让他等的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Gli ho fatto preparare la cena.')"><span class="verb">Gli ho fatto</span> preparare la cena.</span></td><td>我让他准备了晚饭。</td></tr>
+      <tr><td><span class="it" onclick="speak('La mamma fa mangiare la verdura al bambino.')">La mamma <span class="verb">fa</span> mangiare la verdura al bambino.</span></td><td>妈妈让小孩吃蔬菜。</td></tr>
+      <tr><td><span class="it" onclick="speak('Faremo costruire una nuova casa.')"><span class="verb">Faremo</span> costruire una nuova casa.</span></td><td>我们将建造一栋新房子。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 7 — C'era una volta · p.97</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频 "Moglie compagna fidanzata" — Grammatica caffè su ALMA.tv，巩固关系代词che、先愈过去时和亲属关系前定冠词。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Pre-viewing — 观看前活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Quali favole o fiabe italiane conosci? Racconta brevemente la trama di una.')">1. Quali favole o fiabe italiane conosci? Racconta brevemente la trama di una.</span></td><td class="zh">你知道哪些意大利寓言或童话？简要讲述一个情节。</td></tr>
+    <tr><td><span class="it" onclick="speak('Secondo te, qual è la differenza tra una favola e una fiaba?')">2. Secondo te, qual è la differenza tra una favola e una fiaba?</span></td><td class="zh">你认为寓言和童话有什么区别？</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">While-viewing — 观看中活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Segna tutti i che relativi che senti nel video.')">1. Segna tutti i <strong>che</strong> relativi che senti nel video.</span></td><td class="zh">标记视频中听到的所有关系代词che。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quali forme di parentela vengono menzionate?')">2. Quali forme di parentela vengono menzionate?</span></td><td class="zh">提到了哪些亲属关系形式？</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">Post-viewing — 观看后活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Scrivi una breve favola (10-15 righe) usando il trapassato remoto e che relativo.')">1. Scrivi una breve favola (10-15 righe) usando il trapassato remoto e che relativo.</span></td><td class="zh">写一篇简短的寓言（10-15行），使用先愈过去时和关系代词che。</td></tr>
+    <tr><td><span class="it" onclick="speak('Descrivi la tua famiglia usando le regole dell\'articolo con i possessivi.')">2. Descrivi la tua famiglia usando le regole dell'articolo con i possessivi.</span></td><td class="zh">用冠词+物主形容词的规则描述你的家庭。</td></tr>
+    <tr><td><span class="it" onclick="speak('Crea 5 frasi con il costrutto causativo fare + infinito.')">3. Crea 5 frasi con il costrutto causativo fare + infinito.</span></td><td class="zh">用使役结构fare + 不定式造5个句子。</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 用关系代词che描述人物和物品<br>
+    &bull; 用正确冠词谈论家庭成员<br>
+    &bull; 用先愈过去时讲述一个故事<br>
+    &bull; 用fare+infinito造句（使能/允许/引起/迫使）<br>
+    &bull; 写一段以"C'era una volta"开头的小故事
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-6.html">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">&larr; Torna al corso</a>
+  <a href="unita-8.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 6</div>
+  <p>Corso di lingua italiana per stranieri · Livello C2</p>
+  <p style="margin-top:8px;opacity:0.6;">Ornella Discacciati · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

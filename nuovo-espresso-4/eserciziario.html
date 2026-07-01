@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eserciziario · NUOVO Espresso 4</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .ex-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 12px; padding: 14px 16px; margin: 10px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04); position: relative; }
+    .ex-box .ex-num { display: inline-block; background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); color: #fff; font-weight: 700; font-size: 11px; padding: 1px 8px; border-radius: 100px; margin-right: 6px; }
+    .ex-box .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .ex-box .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .ex-box .verb { color: var(--ne-red); font-weight: 700; }
+    .ex-box p { margin: 4px 0; font-size: 14px; line-height: 1.6; }
+    .ex-box .blank { display: inline-block; min-width: 80px; border-bottom: 2px solid var(--ne-gold-dark); margin: 0 4px; padding: 0 4px; color: var(--ne-red); font-weight: 600; }
+    .ex-box .tip { font-size: 12px; color: var(--ne-muted); font-style: italic; margin-top: 4px; }
+    .toc-links { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0; }
+    .toc-links a { display: inline-block; padding: 6px 14px; background: #fff; border: 1px solid var(--border-light); border-radius: 100px; text-decoration: none; color: var(--ne-blue); font-size: 12px; font-weight: 500; transition: all .2s; }
+    .toc-links a:hover { border-color: var(--ne-red); color: var(--ne-red); background: #FFF5F5; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 4 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Eserciziario B2</div>
+  <h1>&#x270F;&#xFE0F; Eserciziario</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">练习册 · 60题综合训练</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">涵盖全部10课的语法和词汇练习，每题均附意大利语原文和中文翻译。</p>
+</section>
+
+<section class="page-section">
+  <div class="toc-links">
+    <a href="#e1">Lezione 1</a>
+    <a href="#e2">Lezione 2</a>
+    <a href="#e3">Lezione 3</a>
+    <a href="#e4">Lezione 4</a>
+    <a href="#e5">Lezione 5</a>
+    <a href="#e6">Lezione 6</a>
+    <a href="#e7">Lezione 7</a>
+    <a href="#e8">Lezione 8</a>
+    <a href="#e9">Lezione 9</a>
+    <a href="#e10">Lezione 10</a>
+  </div>
+</section>
+
+<section class="page-section" id="e1">
+  <h2>Lezione 1 — Scuola e dintorni <span style="font-size:13px;color:var(--ne-muted);font-weight:400;">(6 esercizi)</span></h2>
+  <div class="ex-box"><p><span class="ex-num">1.1</span> 选择正确的助动词 (avere / essere): <span class="blank">___</span> cambiato lavoro (ho/sono) <span class="blank">___</span> partito ieri (ho/sono) <span class="blank">___</span> corso una maratona (ho/sono) <span class="blank">___</span> vissuto a Roma (ho/sono)</p><p class="tip">选avere表示及物动作，essere表示状态变化。</p></div>
+  <div class="ex-box"><p><span class="ex-num">1.2</span> 完成句子 (用trapassato prossimo): Quando sono arrivato, lui <span class="blank">___</span> (già, partire).</p><p class="it" onclick="speak('Era già partito.')">&rarr; <span class="verb">Era già partito</span>.</p></div>
+  <div class="ex-box"><p><span class="ex-num">1.3</span> 填入chi或ciò che: <span class="blank">___</span> studia, impara. / <span class="blank">___</span> dici è giusto.</p><p class="it" onclick="speak('Chi studia, impara. Ciò che dici è giusto.')">&rarr; <span class="verb">Chi</span> studia, impara. / <span class="verb">Ciò che</span> dici è giusto.</p></div>
+  <div class="ex-box"><p><span class="ex-num">1.4</span> 将以下句子改为左位移结构: Ho letto il libro. &rarr; <span class="blank">___</span></p><p class="it" onclick="speak('Il libro, l\'ho letto.')">&rarr; Il libro, <span class="verb">l\'ho letto</span>.</p></div>
+  <div class="ex-box"><p><span class="ex-num">1.5</span> 改写成间接引语: "Non ho tempo." &rarr; Ha detto che <span class="blank">___</span></p><p class="it" onclick="speak('Ha detto che non aveva tempo.')">&rarr; Ha detto che non <span class="verb">aveva</span> tempo.</p></div>
+  <div class="ex-box"><p><span class="ex-num">1.6</span> 翻译：我在找一个会说中文的男孩。<span class="blank">___</span></p><p class="it" onclick="speak('Cerco un ragazzo che parli cinese.')">&rarr; Cerco un ragazzo <span class="verb">che parli</span> cinese.</p></div>
+</section>
+
+<section class="page-section" id="e2">
+  <h2>Lezione 2 — Cibo, che passione! <span style="font-size:13px;color:var(--ne-muted);font-weight:400;">(6 esercizi)</span></h2>
+  <div class="ex-box"><p><span class="ex-num">2.1</span> 完成句子 (用futuro anteriore): Quando <span class="blank">___</span> (arrivare) a casa, ti chiamo.</p><p class="it" onclick="speak('Quando sarò arrivato a casa, ti chiamo.')">&rarr; Quando <span class="verb">sarò arrivato</span> a casa, ti chiamo.</p></div>
+  <div class="ex-box"><p><span class="ex-num">2.2</span> 选择不定代词: <span class="blank">___</span> (Nessuno / Qualcuno) ha chiamato. <span class="blank">___</span> (Ogni / Tutte) le mattine bevo un caffè.</p><p class="it" onclick="speak('Qualcuno ha chiamato. Tutte le mattine bevo un caffè.')">&rarr; <span class="verb">Qualcuno</span> ha chiamato. / <span class="verb">Tutte</span> le mattine.</p></div>
+  <div class="ex-box"><p><span class="ex-num">2.3</span> 改为si passivante: Qui le persone parlano italiano. &rarr; Qui <span class="blank">___</span></p><p class="it" onclick="speak('Qui si parla italiano.')">&rarr; Qui <span class="verb">si parla</span> italiano.</p></div>
+  <div class="ex-box"><p><span class="ex-num">2.4</span> 完成句子: Ho <span class="blank">___</span> amici a Roma. / <span class="blank">___</span> studenti sono in ritardo.</p></div>
+  <div class="ex-box"><p><span class="ex-num">2.5</span> 用左位移改写: Ho mangiato la pizza. &rarr; <span class="blank">___</span></p><p class="it" onclick="speak('La pizza, l\'ho mangiata.')">&rarr; La pizza, <span class="verb">l\'ho mangiata</span>.</p></div>
+  <div class="ex-box"><p><span class="ex-num">2.6</span> 翻译：在意大利人们吃很多意面。<span class="blank">___</span></p><p class="it" onclick="speak('In Italia si mangia molta pasta.')">&rarr; In Italia <span class="verb">si mangia</span> molta pasta.</p></div>
+</section>
+
+<section class="page-section" id="e3">
+  <h2>Lezione 3 — E tu, come fai a saperlo? <span style="font-size:13px;color:var(--ne-muted);font-weight:400;">(6 esercizi)</span></h2>
+  <div class="ex-box"><p><span class="ex-num">3.1</span> 改为间接引语: "Oggi vado al cinema." &rarr; Ha detto che <span class="blank">___</span></p><p class="it" onclick="speak('Ha detto che quel giorno andava al cinema.')">&rarr; <span class="verb">andava</span> al cinema.</p></div>
+  <div class="ex-box"><p><span class="ex-num">3.2</span> 改为间接疑问句: "Dove abiti?" &rarr; Mi ha chiesto <span class="blank">___</span></p><p class="it" onclick="speak('Mi ha chiesto dove abitavo.')">&rarr; Mi ha chiesto <span class="verb">dove abitavo</span>.</p></div>
+  <div class="ex-box"><p><span class="ex-num">3.3</span> 用non perché: Non vengo, non perché <span class="blank">___</span> (essere) stanco, ma perché non ho tempo.</p><p class="it" onclick="speak('Non perché sia stanco, ma perché non ho tempo.')">&rarr; Non perché <span class="verb">sia</span> stanco.</p></div>
+  <div class="ex-box"><p><span class="ex-num">3.4</span> 用条件式: Il ministro <span class="blank">___</span> (dare) le dimissioni.</p><p class="it" onclick="speak('Il ministro darebbe le dimissioni.')">&rarr; <span class="verb">darebbe</span> le dimissioni.</p></div>
+  <div class="ex-box"><p><span class="ex-num">3.5</span> 用su表达比例: Il 60% <span class="blank">___</span> 100 studenti ha superato.</p><p class="it" onclick="speak('Il 60% su 100 studenti.')">&rarr; 60% <span class="verb">su</span> 100.</p></div>
+  <div class="ex-box"><p><span class="ex-num">3.6</span> 翻译：他从未见过这么美的电影。<span class="blank">___</span></p><p class="it" onclick="speak('Non aveva mai visto un film così bello.')">&rarr; Non <span class="verb">aveva mai visto</span> un film così bello.</p></div>
+</section>
+
+<section class="page-section" id="e4">
+  <h2>Lezione 4 — Il mondo del lavoro <span style="font-size:13px;color:var(--ne-muted);font-weight:400;">(6 esercizi)</span></h2>
+  <div class="ex-box"><p><span class="ex-num">4.1</span> 关系从句虚拟式: Cerco un'azienda che <span class="blank">___</span> (offrire) opportunità.</p><p class="it" onclick="speak('Cerco un\'azienda che offra opportunità.')">&rarr; che <span class="verb">offra</span> opportunità.</p></div>
+  <div class="ex-box"><p><span class="ex-num">4.2</span> 最高级+虚拟式: È il miglior capo che <span class="blank">___</span> (io, avere).</p><p class="it" onclick="speak('È il miglior capo che io abbia mai avuto.')">&rarr; che io <span class="verb">abbia</span> mai avuto.</p></div>
+  <div class="ex-box"><p><span class="ex-num">4.3</span> 选词: <span class="blank">___</span> (Finalmente/Alla fine) ho trovato lavoro! Dopo mesi, <span class="blank">___</span> ce l'ho fatta.</p><p class="it" onclick="speak('Finalmente ho trovato lavoro! Alla fine ce l\'ho fatta.')">&rarr; <span class="verb">Finalmente</span> / <span class="verb">Alla fine</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">4.4</span> 用gerundio: Perché era preparato, ha superato. &rarr; <span class="blank">___</span></p><p class="it" onclick="speak('Essendo preparato, ha superato.')">&rarr; <span class="verb">Essendo</span> preparato.</p></div>
+  <div class="ex-box"><p><span class="ex-num">4.5</span> 阴性形式: direttore &rarr; <span class="blank">___</span> impiegato &rarr; <span class="blank">___</span> dottore &rarr; <span class="blank">___</span></p><p class="tip">direttrice / impiegata / dottoressa</p></div>
+  <div class="ex-box"><p><span class="ex-num">4.6</span> 用gerundio改写假设: Se studiassi, passeresti. &rarr; <span class="blank">___</span></p><p class="it" onclick="speak('Studiando, passeresti.')">&rarr; <span class="verb">Studiando</span>, passeresti.</p></div>
+</section>
+
+<section class="page-section" id="e5">
+  <h2>Lezione 5 — Che emozione! <span style="font-size:13px;color:var(--ne-muted);font-weight:400;">(6 esercizi)</span></h2>
+  <div class="ex-box"><p><span class="ex-num">5.1</span> 否定前缀: <span class="blank">___</span>capace <span class="blank">___</span>onesto <span class="blank">___</span>tipico <span class="blank">___</span>contento <span class="blank">___</span>normale</p><p class="tip">incapace / disonesto / atipico / scontento / anormale</p></div>
+  <div class="ex-box"><p><span class="ex-num">5.2</span> 用proprio: Ognuno ha le <span class="blank">___</span> opinioni. Preferisco fare a modo <span class="blank">___</span>.</p><p class="it" onclick="speak('Ognuno ha le proprie opinioni.')">&rarr; <span class="verb">proprie</span> / <span class="verb">mio</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">5.3</span> come se: Parla come se <span class="blank">___</span> (sapere) tutto.</p><p class="it" onclick="speak('Parla come se sapesse tutto.')">&rarr; come se <span class="verb">sapesse</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">5.4</span> senza che: È uscito senza che <span class="blank">___</span> (io, accorgermi).</p><p class="it" onclick="speak('Senza che io mi accorgessi.')">&rarr; senza che io <span class="verb">mi accorgessi</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">5.5</span> 第三类条件句: Se lui <span class="blank">___</span> (studiare), <span class="blank">___</span> (passare) l'esame.</p><p class="it" onclick="speak('Se avesse studiato, avrebbe passato.')">&rarr; <span class="verb">avesse studiato</span>, <span class="verb">avrebbe passato</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">5.6</span> 翻译：如果我知道，我就来了。<span class="blank">___</span></p><p class="it" onclick="speak('Se avessi saputo, sarei venuto.')">&rarr; Se <span class="verb">avessi saputo</span>, <span class="verb">sarei venuto</span>.</p></div>
+</section>
+
+<section class="page-section" id="e6">
+  <h2>Lezione 6 — I gusti son gusti! <span style="font-size:13px;color:var(--ne-muted);font-weight:400;">(6 esercizi)</span></h2>
+  <div class="ex-box"><p><span class="ex-num">6.1</span> purché: Vengo, <span class="blank">___</span> (esserci) anche tu.</p><p class="it" onclick="speak('Purché ci sia anche tu.')">&rarr; <span class="verb">purché ci sia</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">6.2</span> non è che... sia: <span class="blank">___</span> non <span class="blank">___</span> (piacermi), ma...</p><p class="it" onclick="speak('Non è che non mi piaccia.')">&rarr; Non è che non <span class="verb">mi piaccia</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">6.3</span> fare+infinito: Il professore <span class="blank">___</span> (leggere, un articolo, agli studenti).</p><p class="it" onclick="speak('Fa leggere un articolo.')">&rarr; <span class="verb">fa leggere</span> un articolo</p></div>
+  <div class="ex-box"><p><span class="ex-num">6.4</span> 形容词位置: Un film (bello) &rarr; un <span class="blank">___</span> film. Un uomo (grande, figurato) &rarr; un <span class="blank">___</span> uomo.</p></div>
+  <div class="ex-box"><p><span class="ex-num">6.5</span> 完成句子: <span class="blank">___</span> (Nonostante/Perché) piova, usciamo.</p><p class="it" onclick="speak('Nonostante piova, usciamo.')">&rarr; <span class="verb">Nonostante</span> piova</p></div>
+  <div class="ex-box"><p><span class="ex-num">6.6</span> 翻译：只要你也去，我就来。<span class="blank">___</span></p><p class="it" onclick="speak('Vengo purché ci vada anche tu.')">&rarr; Vengo, <span class="verb">purché</span> ci vada anche tu.</p></div>
+</section>
+
+<section class="page-section" id="e7">
+  <h2>Lezione 7 — In giro per musei <span style="font-size:13px;color:var(--ne-muted);font-weight:400;">(6 esercizi)</span></h2>
+  <div class="ex-box"><p><span class="ex-num">7.1</span> 用il quale: Il museo, <span class="blank">___</span> si trova a Roma, è famoso.</p><p class="it" onclick="speak('Il museo, il quale si trova a Roma.')">&rarr; <span class="verb">il quale</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">7.2</span> 用il cui: Il pittore, <span class="blank">___</span> opere sono famose.</p><p class="it" onclick="speak('Il pittore, le cui opere sono famose.')">&rarr; <span class="verb">le cui</span> opere</p></div>
+  <div class="ex-box"><p><span class="ex-num">7.3</span> 虚拟式时态一致: Pensavo che tu <span class="blank">___</span> (essere) in vacanza.</p><p class="it" onclick="speak('Pensavo che tu fossi in vacanza.')">&rarr; che tu <span class="verb">fossi</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">7.4</span> 不定式作名词: <span class="blank">___</span> (leggere) è il mio passatempo.</p><p class="it" onclick="speak('Leggere è il mio passatempo.')">&rarr; <span class="verb">Leggere</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">7.5</span> 用il che: Ha piovuto tutto il giorno, <span class="blank">___</span> è strano.</p><p class="it" onclick="speak('Il che è strano.')">&rarr; <span class="verb">il che</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">7.6</span> 翻译：这幅画让我反思。<span class="blank">___</span></p><p class="it" onclick="speak('Questo quadro mi fa riflettere.')">&rarr; Questo quadro mi <span class="verb">fa riflettere</span>.</p></div>
+</section>
+
+<section class="page-section" id="e8">
+  <h2>Lezione 8 — L'Italia sostenibile <span style="font-size:13px;color:var(--ne-muted);font-weight:400;">(6 esercizi)</span></h2>
+  <div class="ex-box"><p><span class="ex-num">8.1</span> 代词+副动词: <span class="blank">___</span> (fare + lo) con calma, eviti errori.</p><p class="it" onclick="speak('Faccendolo con calma.')">&rarr; <span class="verb">Faccendolo</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">8.2</span> 将来时推测: — Che ore sono? — <span class="blank">___</span> (essere) le 5.</p><p class="it" onclick="speak('Saranno le 5.')">&rarr; <span class="verb">Saranno</span> le 5.</p></div>
+  <div class="ex-box"><p><span class="ex-num">8.3</span> 将来时让步: <span class="blank">___</span> (essere) bello, ma è troppo caro.</p><p class="it" onclick="speak('Sarà bello, ma è troppo caro.')">&rarr; <span class="verb">Sarà</span> bello, ma...</p></div>
+  <div class="ex-box"><p><span class="ex-num">8.4</span> 形容词位置: Un amico (vecchio-affetto) &rarr; un <span class="blank">___</span> amico. Un uomo (vecchio-età) &rarr; un uomo <span class="blank">___</span>.</p></div>
+  <div class="ex-box"><p><span class="ex-num">8.5</span> 代词+不定式: È importante <span class="blank">___</span> (fare + lo) bene.</p><p class="it" onclick="speak('È importante farlo bene.')">&rarr; <span class="verb">farlo</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">8.6</span> 翻译：我们必须减少浪费。<span class="blank">___</span></p><p class="it" onclick="speak('Dobbiamo ridurre gli sprechi.')">&rarr; <span class="verb">ridurre gli sprechi</span></p></div>
+</section>
+
+<section class="page-section" id="e9">
+  <h2>Lezione 9 — Curiosità d'Italia <span style="font-size:13px;color:var(--ne-muted);font-weight:400;">(6 esercizi)</span></h2>
+  <div class="ex-box"><p><span class="ex-num">9.1</span> pur+gerundio: <span class="blank">___</span> (sapere) la verità, non ha parlato.</p><p class="it" onclick="speak('Pur sapendo la verità.')">&rarr; <span class="verb">Pur sapendo</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">9.2</span> gerundio passato: <span class="blank">___</span> (mangiare) troppo, mi sono sentito male.</p><p class="it" onclick="speak('Avendo mangiato troppo.')">&rarr; <span class="verb">Avendo mangiato</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">9.3</span> 定冠词+地理: <span class="blank">___</span> Italia <span class="blank">___</span> Sicilia <span class="blank">___</span> Stati Uniti</p><p class="tip">l'Italia / la Sicilia / gli Stati Uniti</p></div>
+  <div class="ex-box"><p><span class="ex-num">9.4</span> 双重复数: il ciglio &rarr; i <span class="blank">___</span> / le <span class="blank">___</span>. il braccio &rarr; i <span class="blank">___</span> / le <span class="blank">___</span>.</p><p class="tip">cigli (比喻) / ciglia (身体)</p></div>
+  <div class="ex-box"><p><span class="ex-num">9.5</span> 同音异义词: La <span class="blank">(pesca/pesca)</span> è un frutto. La <span class="blank">(pesca/pesca)</span> è uno sport.</p></div>
+  <div class="ex-box"><p><span class="ex-num">9.6</span> 翻译：你知道吗？意大利有很多方言。<span class="blank">___</span></p><p class="it" onclick="speak('Lo sapevi che in Italia ci sono tanti dialetti?')">&rarr; Lo sapevi che in Italia ci sono tanti dialetti?</p></div>
+</section>
+
+<section class="page-section" id="e10">
+  <h2>Lezione 10 — Una... centomila <span style="font-size:13px;color:var(--ne-muted);font-weight:400;">(6 esercizi)</span></h2>
+  <div class="ex-box"><p><span class="ex-num">10.1</span> mica: <span class="blank">___</span> facile! Non è <span class="blank">___</span> vero.</p><p class="it" onclick="speak('Mica facile! Non è mica vero.')">&rarr; <span class="verb">Mica</span> facile! Non è <span class="verb">mica</span> vero.</p></div>
+  <div class="ex-box"><p><span class="ex-num">10.2</span> 虚拟式比较句: È più bravo di quanto <span class="blank">___</span> (io, pensare).</p><p class="it" onclick="speak('Di quanto pensassi.')">&rarr; di quanto <span class="verb">pensassi</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">10.3</span> in modo che: Studio <span class="blank">___</span> tu <span class="blank">___</span> (essere) orgoglioso.</p><p class="it" onclick="speak('In modo che tu sia orgoglioso.')">&rarr; <span class="verb">in modo che</span> tu <span class="verb">sia</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">10.4</span> 复合词复数: portafoglio &rarr; <span class="blank">___</span>. cassaforte &rarr; <span class="blank">___</span>. arcobaleno &rarr; <span class="blank">___</span>.</p><p class="tip">portafogli / cassetteforti / arcobaleni</p></div>
+  <div class="ex-box"><p><span class="ex-num">10.5</span> tanto...quanto: Maria è <span class="blank">___</span> intelligente <span class="blank">___</span> sua sorella.</p><p class="it" onclick="speak('Tanto intelligente quanto sua sorella.')">&rarr; <span class="verb">tanto</span>...<span class="verb">quanto</span></p></div>
+  <div class="ex-box"><p><span class="ex-num">10.6</span> 翻译：不是我不喜欢，而是没时间。<span class="blank">___</span></p><p class="it" onclick="speak('Non è che non mi piaccia, ma non ho tempo.')">&rarr; Non è che non <span class="verb">mi piaccia</span></p></div>
+</section>
+
+<div class="nav-buttons">
+  <a href="grammatica-riassuntiva.html">&larr; Grammatica</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 4</div>
+  <p>Corso di lingua italiana per stranieri · Livello B2</p>
+  <p style="margin-top:8px;opacity:0.6;">Maria Bali · Irene Dei · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 4 · Ti va di venire? · NUOVO Espresso 2</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 2 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 4 · A2</div>
+  <h1>&#x1F389; Ti va di venire?</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">你想来吗？ · p.53-66</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">提出、接受和拒绝建议 · stare+gerundio · 直接宾语代词 · 关系代词che/cui · ce l'ho</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Fare una proposta -->
+  <h3>1. Fare una proposta · p.53</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">学习提出、接受和拒绝建议的表达方式。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ti va di andare a ballare?')">Ti va di andare a ballare?</span></td><td class="zh">你想去跳舞吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Che ne dici di andare a teatro?')">Che ne dici di andare a teatro?</span></td><td class="zh">去剧院怎么样？</td></tr>
+    <tr><td><span class="it" onclick="speak('Perché non andiamo al cinema?')">Perché non andiamo al cinema?</span></td><td class="zh">为什么不去电影院呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Potremmo andare a mangiare una pizza.')">Potremmo andare a mangiare una pizza.</span></td><td class="zh">我们可以去吃披萨。</td></tr>
+    <tr><td><span class="it" onclick="speak('Hai voglia di venire con me?')">Hai voglia di venire con me?</span></td><td class="zh">你想和我一起来吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Buona idea!')">Buona idea!</span></td><td class="zh">好主意！</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, volentieri!')">Sì, volentieri!</span></td><td class="zh">好的，很乐意！</td></tr>
+    <tr><td><span class="it" onclick="speak('Mi dispiace, ma ho già un appuntamento.')">Mi dispiace, ma ho già un appuntamento.</span></td><td class="zh">抱歉，我已经有约了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Veramente non mi va.')">Veramente non mi va.</span></td><td class="zh">其实我不太想去。</td></tr>
+    <tr><td><span class="it" onclick="speak('Mi dispiace, ma non posso.')">Mi dispiace, ma non posso.</span></td><td class="zh">抱歉，我不能去。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:12px 0 6px;">提出建议的四种方式：</p>
+  <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:12px 16px;margin:8px 0 16px;font-size:13px;">
+    <p><span class="it" onclick="speak('Ti va di...')"><strong>Ti va di...</strong> + 不定式？</span> → 你想...吗？（最常用）</p>
+    <p><span class="it" onclick="speak('Che ne dici di...')"><strong>Che ne dici di...</strong> + 不定式？</span> → ...怎么样？</p>
+    <p><span class="it" onclick="speak('Perché non...')"><strong>Perché non...</strong> + 现在时？</span> → 为什么不...？</p>
+    <p><span class="it" onclick="speak('Potremmo...')"><strong>Potremmo...</strong> + 不定式</span> → 我们可以...</p>
+  </div>
+
+  <!-- Dialogo 2: Al botteghino -->
+  <h3>2. Al botteghino · p.63, es.13</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">在售票处买剧票。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Buongiorno, senta, ho letto su internet che dal primo agosto c\'è la Tosca.')"><strong>Signore</strong>: Buongiorno, senta, ho letto su internet che dal primo agosto c'è la Tosca.</span></td><td class="zh"><strong>男士</strong>: 您好，我在网上看到从8月1日开始上演《托斯卡》。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, esatto, dal primo al sei agosto, alle... di sera. Tranne lunedì 5, che è chiuso.')"><strong>Impiegato</strong>: Sì, esatto, dal primo al sei agosto, alle... di sera. Tranne lunedì 5, che è chiuso.</span></td><td class="zh"><strong>职员</strong>: 是的，从8月1日到6日，晚上...点。周一5号除外，关门。</td></tr>
+    <tr><td><span class="it" onclick="speak('Perfetto, ci sono ancora biglietti?')"><strong>Signore</strong>: Perfetto, ci sono ancora biglietti?</span></td><td class="zh"><strong>男士</strong>: 太好了，还有票吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, qualcosa è rimasto, vediamo... Lei a che settore è interessato?')"><strong>Impiegato</strong>: Sì, qualcosa è rimasto, vediamo... Lei a che settore è interessato?</span></td><td class="zh"><strong>职员</strong>: 是的，还有一些，我看看...您对哪个区域感兴趣？</td></tr>
+    <tr><td><span class="it" onclick="speak('Mah, dipende dal prezzo.')"><strong>Signore</strong>: Mah, dipende dal prezzo.</span></td><td class="zh"><strong>男士</strong>: 嗯，取决于价格。</td></tr>
+    <tr><td><span class="it" onclick="speak('Allora, la poltronissima viene 61 euro.')"><strong>Impiegato</strong>: Allora, la poltronissima viene 61 euro.</span></td><td class="zh"><strong>职员</strong>: 最好的座位是61欧元。</td></tr>
+    <tr><td><span class="it" onclick="speak('No, no, è troppo!')"><strong>Signore</strong>: No, no, è troppo!</span></td><td class="zh"><strong>男士</strong>: 不不，太贵了！</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, poi ci sono tre settori, da 90, 70 e... euro.')"><strong>Impiegato</strong>: Sì, poi ci sono tre settori, da 90, 70 e... euro.</span></td><td class="zh"><strong>职员</strong>: 好的，还有三个区域，90、70和...欧元。</td></tr>
+    <tr><td><span class="it" onclick="speak('Mmhh, allora ne parlo con mia... Magari torno domani.')"><strong>Signore</strong>: Mmhh, allora ne parlo con mia... Magari torno domani.</span></td><td class="zh"><strong>男士</strong>: 嗯...那我跟我...商量一下。也许我明天再来。</td></tr>
+    <tr><td><span class="it" onclick="speak('Come vuole.')"><strong>Impiegato</strong>: Come vuole.</span></td><td class="zh"><strong>职员</strong>: 随您便。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Organizzare una serata -->
+  <h3>3. Organizzare una serata · p.58, es.8</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">安排一个晚上的活动。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Allora, che si fa stasera? Dove ci vediamo?')"><strong>A</strong>: Allora, che si fa stasera? Dove ci vediamo?</span></td><td class="zh"><strong>A</strong>: 那么，今晚做什么？我们在哪里见？</td></tr>
+    <tr><td><span class="it" onclick="speak('Mah, davanti al teatro...')"><strong>B</strong>: Mah, davanti al teatro...</span></td><td class="zh"><strong>B</strong>: 嗯，剧院前面...</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, sì, va bene. E a che ora?')"><strong>A</strong>: Sì, sì, va bene. E a che ora?</span></td><td class="zh"><strong>A</strong>: 好的好的。几点？</td></tr>
+    <tr><td><span class="it" onclick="speak('Alle otto meno venti?')"><strong>B</strong>: Alle otto meno venti?</span></td><td class="zh"><strong>B</strong>: 八点差二十分？</td></tr>
+    <tr><td><span class="it" onclick="speak('Alle otto meno venti? Ma lo spettacolo comincia alle otto! Io vorrei arrivare un po\' prima. Ma... hai già comprato i biglietti?')"><strong>A</strong>: Alle otto meno venti? Ma lo spettacolo comincia alle otto! Io vorrei arrivare un po' prima. Ma... hai già comprato i biglietti?</span></td><td class="zh"><strong>A</strong>: 八点差二十分？但演出八点开始！我想早点到。但...你已经买票了吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, sì, non preoccuparti, i biglietti li ho presi io ieri.')"><strong>B</strong>: Sì, sì, non preoccuparti, i biglietti li ho presi io ieri.</span></td><td class="zh"><strong>B</strong>: 是的，别担心，票我昨天买了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Anche per mio marito?')"><strong>A</strong>: Anche per mio marito?</span></td><td class="zh"><strong>A</strong>: 也给我丈夫买了？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, sì, ne ho presi 3: per me, per te e per tuo marito.')"><strong>B</strong>: Sì, sì, ne ho presi 3: per me, per te e per tuo marito.</span></td><td class="zh"><strong>B</strong>: 是的，我买了三张：给我自己、给你和你丈夫。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>邀请和约会 (Inviti e appuntamenti)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la proposta')">la proposta</td><td>s.f.</td><td>建议</td></tr>
+    <tr><td class="it" onclick="speak('l\'invito')">l'invito</td><td>s.m.</td><td>邀请</td></tr>
+    <tr><td class="it" onclick="speak('l\'appuntamento')">l'appuntamento</td><td>s.m.</td><td>约会/约定</td></tr>
+    <tr><td class="it" onclick="speak('il biglietto')">il biglietto</td><td>s.m.</td><td>票</td></tr>
+    <tr><td class="it" onclick="speak('il teatro')">il teatro</td><td>s.m.</td><td>剧院</td></tr>
+    <tr><td class="it" onclick="speak('il cinema')">il cinema</td><td>s.m.</td><td>电影院</td></tr>
+    <tr><td class="it" onclick="speak('il botteghino')">il botteghino</td><td>s.m.</td><td>售票处</td></tr>
+    <tr><td class="it" onclick="speak('la poltrona')">la poltrona</td><td>s.f.</td><td>扶手椅/座位</td></tr>
+    <tr><td class="it" onclick="speak('il settore')">il settore</td><td>s.m.</td><td>区域</td></tr>
+    <tr><td class="it" onclick="speak('il prezzo')">il prezzo</td><td>s.m.</td><td>价格</td></tr>
+    <tr><td class="it" onclick="speak('prenotare')">prenotare</td><td>v.</td><td>预订</td></tr>
+    <tr><td class="it" onclick="speak('il telefonino')">il telefonino</td><td>s.m.</td><td>手机</td></tr>
+    <tr><td class="it" onclick="speak('la pausa')">la pausa</td><td>s.f.</td><td>休息/中断</td></tr>
+    <tr><td class="it" onclick="speak('lo spettacolo')">lo spettacolo</td><td>s.m.</td><td>演出</td></tr>
+  </table>
+
+  <h3>表达态度 (Espressioni di opinioni)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('Buona idea!')">Buona idea!</td><td>好主意！</td></tr>
+    <tr><td class="it" onclick="speak('Volentieri!')">Volentieri!</td><td>很乐意！</td></tr>
+    <tr><td class="it" onclick="speak('Mi dispiace, ma...')">Mi dispiace, ma...</td><td>很抱歉，但是...</td></tr>
+    <tr><td class="it" onclick="speak('Non mi va.')">Non mi va.</td><td>我不想去。</td></tr>
+    <tr><td class="it" onclick="speak('Veramente...')">Veramente...</td><td>其实...</td></tr>
+    <tr><td class="it" onclick="speak('Dipende.')">Dipende.</td><td>看情况。</td></tr>
+    <tr><td class="it" onclick="speak('Magari!')">Magari!</td><td>希望如此/也许吧！</td></tr>
+    <tr><td class="it" onclick="speak('Che peccato!')">Che peccato!</td><td>真可惜！</td></tr>
+  </table>
+
+  <h3>日常生活 (Vita quotidiana)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la spesa')">la spesa</td><td>s.f.</td><td>购物/食材采购</td></tr>
+    <tr><td class="it" onclick="speak('la bolletta')">la bolletta</td><td>s.f.</td><td>账单</td></tr>
+    <tr><td class="it" onclick="speak('il dentista')">il dentista</td><td>s.m.</td><td>牙医</td></tr>
+    <tr><td class="it" onclick="speak('il medico')">il medico</td><td>s.m.</td><td>医生</td></tr>
+    <tr><td class="it" onclick="speak('il meccanico')">il meccanico</td><td>s.m.</td><td>修理工/机修工</td></tr>
+    <tr><td class="it" onclick="speak('la lavanderia')">la lavanderia</td><td>s.f.</td><td>洗衣店</td></tr>
+    <tr><td class="it" onclick="speak('riparare')">riparare</td><td>v.</td><td>修理</td></tr>
+    <tr><td class="it" onclick="speak('pulire')">pulire</td><td>v.</td><td>清洁</td></tr>
+    <tr><td class="it" onclick="speak('ordinare')">ordinare</td><td>v.</td><td>整理/订购</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Stare + Gerundio -->
+  <h3>1. Stare + Gerundio（正在进行时）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>stare</th><th>parlare</th><th>leggere</th><th>dormire</th></tr>
+      <tr><td>io</td><td><span class="verb">sto</span></td><td rowspan="5">parlando</td><td rowspan="5">leggendo</td><td rowspan="5">dormendo</td></tr>
+      <tr><td>tu</td><td><span class="verb">stai</span></td></tr>
+      <tr><td>lui/lei</td><td><span class="verb">sta</span></td></tr>
+      <tr><td>noi</td><td><span class="verb">stiamo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb">state</span></td></tr>
+      <tr><td>loro</td><td><span class="verb">stanno</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">构成规则：</p>
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">
+      -are 动词：parl<strong>ando</strong> (cantare → cant<strong>ando</strong>)<br>
+      -ere 动词：legg<strong>endo</strong> (vedere → ved<strong>endo</strong>)<br>
+      -ire 动词：dorm<strong>endo</strong> (finire → fin<strong>endo</strong>)<br>
+      不规则：fare → fac<strong>endo</strong>, dire → dic<strong>endo</strong>, bere → bev<strong>endo</strong>
+    </p>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Marco sta lavorando.')">Marco <strong>sta lavorando</strong>.</span></td><td>马可正在工作。</td></tr>
+      <tr><td><span class="it" onclick="speak('I bambini stanno dormendo.')">I bambini <strong>stanno dormendo</strong>.</span></td><td>孩子们正在睡觉。</td></tr>
+      <tr><td><span class="it" onclick="speak('Lisa sta leggendo.')">Lisa <strong>sta leggendo</strong>.</span></td><td>丽莎正在读书。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sto facendo la fila.')"><strong>Sto facendo</strong> la fila.</span></td><td>我正在排队。</td></tr>
+      <tr><td><span class="it" onclick="speak('Cosa stai facendo?')">Cosa <strong>stai facendo</strong>?</span></td><td>你在做什么？</td></tr>
+      <tr><td><span class="it" onclick="speak('Stiamo preparando la cena.')"><strong>Stiamo preparando</strong> la cena.</span></td><td>我们正在准备晚餐。</td></tr>
+      <tr><td><span class="it" onclick="speak('State aspettando qualcuno?')"><strong>State aspettando</strong> qualcuno?</span></td><td>你们在等人吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('I ragazzi stanno giocando a calcio.')">I ragazzi <strong>stanno giocando</strong> a calcio.</span></td><td>男孩子们正在踢足球。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. 直接宾语代词 + 近过去时的一致 -->
+  <h3>2. 直接宾语代词 + 近过去时的一致</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>代词</th><th>过去分词变化</th><th>示例</th></tr>
+      <tr><td><span class="verb">lo</span> (他/它，阳单)</td><td>阳性单数</td><td><span class="it" onclick="speak('I biglietti li ho presi ieri.')">I biglietti <strong>li ho presi</strong> ieri.</span></td></tr>
+      <tr><td><span class="verb">la</span> (她/它，阴单)</td><td>阴性单数</td><td><span class="it" onclick="speak('La macchina l\'ho portata dal meccanico.')">La macchina <strong>l'ho portata</strong> dal meccanico.</span></td></tr>
+      <tr><td><span class="verb">li</span> (他们/它们，阳复)</td><td>阳性复数</td><td><span class="it" onclick="speak('I libri li ho già comprati.')">I libri <strong>li ho già comprati</strong>.</span></td></tr>
+      <tr><td><span class="verb">le</span> (她们/它们，阴复)</td><td>阴性复数</td><td><span class="it" onclick="speak('Le chiavi le ho perse.')">Le chiavi <strong>le ho perse</strong>.</span></td></tr>
+      <tr><td><span class="verb">ne</span> (部分/数量)</td><td>与宾语一致</td><td><span class="it" onclick="speak('Di biglietti, ne ho presi 3.')">Di biglietti, <strong>ne ho presi</strong> 3.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Il film l\'ho già visto.')">Il film <strong>l'ho già visto</strong>.</span></td><td>这部电影我看过了。</td></tr>
+      <tr><td><span class="it" onclick="speak('La macchina l\'ho portata dal meccanico.')">La macchina <strong>l'ho portata</strong> dal meccanico.</span></td><td>我把车送去修理工那里了。</td></tr>
+      <tr><td><span class="it" onclick="speak('I biglietti li ho presi io ieri.')">I biglietti <strong>li ho presi</strong> io ieri.</span></td><td>票我昨天买了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Le chiavi le ho dimenticate a casa.')">Le chiavi <strong>le ho dimenticate</strong> a casa.</span></td><td>钥匙我忘在家里了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Quante mele hai comprato? Ne ho comprate tre.')">Quante mele hai comprato? <strong>Ne ho comprate</strong> tre.</span></td><td>你买了几个苹果？我买了三个。</td></tr>
+      <tr><td><span class="it" onclick="speak('Hai già fatto la spesa? Sì, l\'ho già fatta.')">Hai già fatto la spesa? Sì, <strong>l'ho già fatta</strong>.</span></td><td>你已经买菜了吗？是的，我已经买了。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Ce l'ho -->
+  <h3>3. Ce l'ho（我有它/它们）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">ce l'ho = ci + lo/la/li/le + avere，用于强调拥有某物。</p>
+    <table>
+      <tr><th>形式</th><th>示例</th></tr>
+      <tr><td><span class="verb">Ce l'ho</span> (我有它，单阳)</td><td><span class="it" onclick="speak('Hai la macchina? Sì, ce l\'ho.')">Hai la macchina? Sì, <strong>ce l'ho</strong>.</span></td></tr>
+      <tr><td><span class="verb">Ce l'ho</span> (我有它，单阴)</td><td><span class="it" onclick="speak('Hai la chiave? Sì, ce l\'ho.')">Hai la chiave? Sì, <strong>ce l'ho</strong>.</span></td></tr>
+      <tr><td><span class="verb">Ce li ho</span> (我有它们，阳复)</td><td><span class="it" onclick="speak('Hai i libri? Sì, ce li ho.')">Hai i libri? Sì, <strong>ce li ho</strong>.</span></td></tr>
+      <tr><td><span class="verb">Ce le ho</span> (我有它们，阴复)</td><td><span class="it" onclick="speak('Hai le riviste? Sì, ce le ho.')">Hai le riviste? Sì, <strong>ce le ho</strong>.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Ce l\'hai la macchina?')"><strong>Ce l'hai</strong> la macchina?</span></td><td>你有车吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('No, non ce l\'ho.')">No, non <strong>ce l'ho</strong>.</span></td><td>不，我没有。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ce l\'ho già fatta la spesa.')"><strong>Ce l'ho</strong> già fatta la spesa.</span></td><td>我已经买好菜了。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. 副词 già / non... ancora -->
+  <h3>4. 副词 già / non... ancora</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>副词</th><th>含义</th><th>例句</th></tr>
+      <tr><td><span class="verb">già</span></td><td>已经</td><td><span class="it" onclick="speak('Ho già comprato i biglietti.')"><strong>Ho già</strong> comprato i biglietti.</span> 我已经买了票。</td></tr>
+      <tr><td><span class="verb">non... ancora</span></td><td>还没</td><td><span class="it" onclick="speak('Non ho ancora chiamato il medico.')"><strong>Non</strong> ho <strong>ancora</strong> chiamato il medico.</span> 我还没给医生打电话。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:12px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Hai già finito?')">Hai <strong>già</strong> finito?</span></td><td>你已经结束了吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('No, non ho ancora finito.')">No, <strong>non</strong> ho <strong>ancora</strong> finito.</span></td><td>不，我还没结束。</td></tr>
+      <tr><td><span class="it" onclick="speak('Hai già mangiato?')">Hai <strong>già</strong> mangiato?</span></td><td>你吃过了吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Non ho ancora visto quel film.')"><strong>Non</strong> ho <strong>ancora</strong> visto quel film.</span></td><td>我还没看那部电影。</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. 关系代词 che 和 cui -->
+  <h3>5. 关系代词 che 和 cui</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>代词</th><th>用法</th><th>例句</th></tr>
+      <tr><td><span class="verb">che</span></td><td>作主语或直接宾语（不变）</td><td><span class="it" onclick="speak('Il libro che ho letto è bello.')">Il libro <strong>che</strong> ho letto è bello.</span> 我读的那本书很好看。</td></tr>
+      <tr><td><span class="verb">cui</span></td><td>带前置介词（a, di, con, in等）</td><td><span class="it" onclick="speak('La persona a cui ho parlato...')">La persona <strong>a cui</strong> ho parlato...</span> 我和他说话的那个人...</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Il film che abbiamo visto ieri era molto interessante.')">Il film <strong>che</strong> abbiamo visto ieri era molto interessante.</span></td><td>我们昨天看的那部电影很有趣。</td></tr>
+      <tr><td><span class="it" onclick="speak('La ragazza che abita al piano di sopra è simpatica.')">La ragazza <strong>che</strong> abita al piano di sopra è simpatica.</span></td><td>住在楼上的那个女孩很友善。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il ristorante in cui abbiamo mangiato era ottimo.')">Il ristorante <strong>in cui</strong> abbiamo mangiato era ottimo.</span></td><td>我们吃饭的那家餐厅很好。</td></tr>
+      <tr><td><span class="it" onclick="speak('La persona con cui lavoro è molto competente.')">La persona <strong>con cui</strong> lavoro è molto competente.</span></td><td>和我一起工作的那个人很能干。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il paese da cui vengo è piccolo.')">Il paese <strong>da cui</strong> vengo è piccolo.</span></td><td>我来自的那个小镇很小。</td></tr>
+      <tr><td><span class="it" onclick="speak('La cosa di cui ho bisogno è un po\' di tempo.')">La cosa <strong>di cui</strong> ho bisogno è un po' di tempo.</span></td><td>我需要的东西是一点时间。</td></tr>
+    </table>
+  </div>
+
+  <!-- 6. tranne -->
+  <h3>6. tranne（除了...之外）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><td><span class="it" onclick="speak('Sono tutti invitati, tranne Luca.')">Sono tutti invitati, <strong>tranne</strong> Luca.</span></td><td>所有人都被邀请了，除了卢卡。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mi piace tutto, tranne il calcio.')">Mi piace tutto, <strong>tranne</strong> il calcio.</span></td><td>我什么都喜欢，除了足球。</td></tr>
+      <tr><td><span class="it" onclick="speak('Tranne che...')"><strong>Tranne che</strong>...</span></td><td>除了...（+ 从句）</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 4 · p.66</h2>
+
+  <h3>&#x1F30D; Dove vai se...（如果你...你要去哪里）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">将事件与最合适的地点配对：</p>
+    <table class="vocab-table">
+      <tr><th>兴趣爱好</th><th>推荐活动/地点</th></tr>
+      <tr><td>爱书之人</td><td><span class="it" onclick="speak('Salone internazionale del Libro a Torino')"><strong>Salone internazionale del Libro a Torino</strong></span>（都灵国际书展）- 每年五月在Lingotto展览中心</td></tr>
+      <tr><td>电影爱好者</td><td><span class="it" onclick="speak('Mostra Internazionale d\'Arte Cinematografica di Venezia')"><strong>Mostra Internazionale d'Arte Cinematografica di Venezia</strong></span>（威尼斯国际电影节）- 每年8-9月在Lido岛，最佳影片获金狮奖</td></tr>
+      <tr><td>意大利语言文化爱好者</td><td><span class="it" onclick="speak('ALMA.tv')"><strong>ALMA.tv</strong></span> - 首个专注于意大利语言文化的网络电视</td></tr>
+      <tr><td>美食美酒爱好者</td><td><span class="it" onclick="speak('Eataly')"><strong>Eataly</strong></span> - 品鉴、烹饪课程、主题活动和意大利各地门店</td></tr>
+      <tr><td>歌剧爱好者</td><td><span class="it" onclick="speak('Festival Pucciniano a Torre del Lago')"><strong>Festival Pucciniano a Torre del Lago</strong></span>（普契尼音乐节）- 7-8月在Torre del Lago，伟大作曲家普契尼的故居所在地</td></tr>
+    </table>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化对比:</strong><br>
+    Nel tuo Paese quali sono gli eventi culturali più importanti? — 在你的国家，最重要的文化活动是什么？<br>
+    Quali festival ci sono nella tua città? — 你的城市有哪些节日？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 4 — Un appuntamento mancato · p.64-65</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">Matteo和Valentina排队买音乐会门票，Federico打电话说他有足球票。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">关键表达:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Stiamo facendo la fila per un concerto.')">Stiamo facendo la fila per un concerto.</span></td><td class="zh">我们正在排队买音乐会票。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ma davvero ce li hai?')">Ma davvero ce li hai?</span></td><td class="zh">你真的有（票）吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Come hai fatto a trovarli?')">Come hai fatto a trovarli?</span></td><td class="zh">你怎么找到的？</td></tr>
+    <tr><td><span class="it" onclick="speak('Veramente, io la musica contemporanea, insomma...')">Veramente, io la musica contemporanea, insomma...</span></td><td class="zh">老实说，当代音乐嘛...（= 我不太喜欢）</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">对话填空练习:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ma no, il film l\'ho già visto.')">Ma no, il film <strong>l'ho già visto</strong>.</span></td><td class="zh">不，这部电影我已经看过了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non mi dispiaceva rivederlo...')">Non mi dispiaceva <strong>rivederlo</strong>...</span></td><td class="zh">我不介意再看一次...</td></tr>
+    <tr><td><span class="it" onclick="speak('Proprio in questi giorni al Nazionale stanno facendo le sinfonie...')">Proprio in questi giorni al Nazionale <strong>stanno facendo</strong> le sinfonie...</span></td><td class="zh">正好这几天国家剧院在上演交响乐...</td></tr>
+    <tr><td><span class="it" onclick="speak('...che poi è lo stesso su cui ho fatto la tesi di laurea...')">...che poi è lo stesso <strong>su cui</strong> ho fatto la tesi di laurea...</span></td><td class="zh">...就是我写论文的那个作曲家...</td></tr>
+    <tr><td><span class="it" onclick="speak('Niente, sono qui con Valentina, stiamo facendo la fila per un concerto.')">Niente, sono qui con Valentina, <strong>stiamo facendo</strong> la fila per un concerto.</span></td><td class="zh">没什么，我和瓦伦蒂娜在这里，正在排队买音乐会票。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, sta comprando i biglietti proprio adesso.')">Sì, <strong>sta comprando</strong> i biglietti proprio adesso.</span></td><td class="zh">是的，她正在买票。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ma davvero ce li hai? Come hai fatto a trovarli?')">Ma davvero <strong>ce li hai</strong>? Come hai fatto a <strong>trovarli</strong>?</span></td><td class="zh">你真的有吗？你怎么找到的？</td></tr>
+    <tr><td><span class="it" onclick="speak('Matteo! Io i biglietti li ho già comprati!')">Matteo! Io i biglietti <strong>li ho già comprati</strong>!</span></td><td class="zh">马泰奥！我已经买了票了！</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演在剧院或电影院购票的场景<br>
+    &bull; 练习使用"Ti va di...?"、"Che ne dici di...?"提出建议<br>
+    &bull; 用"ce l'ho"、"l'ho già visto"等表达练习直接宾语代词
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-3.html" class="home-btn">&larr; Unità 3</a>
+  <a href="index.html">Torna al corso</a>
+  <a href="unita-5.html">Unità 5 &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 2</div>
+  <p>Corso di lingua italiana per stranieri · Livello A2</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

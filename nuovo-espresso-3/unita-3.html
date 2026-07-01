@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 3 · Made in Italy · NUOVO Espresso 3</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 3 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 3 · B1</div>
+  <h1>&#x1F1EE;&#x1F1F9; Made in Italy</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">意大利制造 · p.33-48</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">描述产品 · 虚拟式过去时 · 虚拟式复习 · 时态一致 · 条件连词 · 后缀-accio · -mente副词</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Prodotti italiani -->
+  <h3>1. Prodotti italiani · p.35, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">听录音，把图片与产品匹配。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Questa borsa è di cuoio italiano.')"><strong>A</strong>: Questa borsa è di cuoio italiano.</span></td><td class="zh"><strong>A</strong>: 这个包是意大利皮革的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Bellissima! Il cuoio italiano è famoso in tutto il mondo.')"><strong>B</strong>: Bellissima! Il cuoio italiano è famoso in tutto il mondo.</span></td><td class="zh"><strong>B</strong>: 真漂亮！意大利皮革世界闻名。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, e anche la pelle è molto pregiata.')"><strong>A</strong>: Sì, e anche la pelle è molto pregiata.</span></td><td class="zh"><strong>A</strong>: 是的，而且皮革也非常珍贵。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quanto costa?')"><strong>B</strong>: Quanto costa?</span></td><td class="zh"><strong>B</strong>: 多少钱？</td></tr>
+    <tr><td><span class="it" onclick="speak('È un po\' cara, ma la qualità è eccellente.')"><strong>A</strong>: È un po' cara, ma la qualità è eccellente.</span></td><td class="zh"><strong>A</strong>: 有点贵，但质量非常好。</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Descrizioni di oggetti -->
+  <h3>2. Descrizioni di oggetti · p.36, es.3</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读描述并完成表格。</p>
+  <table class="dialog-table">
+    <tr><th style="background:var(--ne-cream);">方面</th><th style="background:var(--ne-cream);">表达</th><th style="background:var(--ne-cream);">例句</th></tr>
+    <tr><td>材料</td><td>essere di + 材料</td><td><span class="it" onclick="speak('È di cuoio, di seta, di legno...')">È di cuoio, di seta, di legno...</span></td></tr>
+    <tr><td>用途</td><td>servire per + 目的</td><td><span class="it" onclick="speak('Serve per portare i documenti.')">Serve per portare i documenti.</span></td></tr>
+    <tr><td>特点</td><td>essere + 形容词</td><td><span class="it" onclick="speak('È elegante, robusto, pratico...')">È elegante, robusto, pratico...</span></td></tr>
+    <tr><td>起源</td><td>essere di / fabbricato in + 地方</td><td><span class="it" onclick="speak('È di Firenze, fabbricato in Italia.')">È di Firenze, fabbricato in Italia.</span></td></tr>
+    <tr><td>质量</td><td>essere di qualità</td><td><span class="it" onclick="speak('È di ottima qualità.')">È di ottima qualità.</span></td></tr>
+  </table>
+
+  <!-- Dialogo 3: Oggetto misterioso -->
+  <h3>3. Un oggetto misterioso · p.38, es.4</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">听对话，猜猜是什么物品。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('È rotondo, pesante, di legno...')"><strong>A</strong>: È rotondo, pesante, di legno...</span></td><td class="zh"><strong>A</strong>: 圆的，重的，木头的...</td></tr>
+    <tr><td><span class="it" onclick="speak('Non mi serve!')"><strong>B</strong>: Non mi serve!</span></td><td class="zh"><strong>B</strong>: 我不需要它！</td></tr>
+    <tr><td><span class="it" onclick="speak('Serve per pulire, per aprire...')"><strong>A</strong>: Serve per pulire, per aprire...</span></td><td class="zh"><strong>A</strong>: 可以用来清洁、打开...</td></tr>
+    <tr><td><span class="it" onclick="speak('Ma che oggetto è?')"><strong>B</strong>: Ma che oggetto è?</span></td><td class="zh"><strong>B</strong>: 这是什么东西？</td></tr>
+    <tr><td><span class="it" onclick="speak('È un portasigari! È un oggetto tipico degli anni \'50.')"><strong>A</strong>: È un portasigari! È un oggetto tipico degli anni '50.</span></td><td class="zh"><strong>A</strong>: 是一个雪茄架！是50年代的典型物品。</td></tr>
+  </table>
+
+  <!-- Dialogo 4: Perché -->
+  <h3>4. Perché · p.39, es.6</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">用原因完成句子。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Perché hai comprato questo prodotto?')"><strong>Perché</strong> hai comprato questo prodotto?</span></td><td class="zh">你为什么买这个产品？</td></tr>
+    <tr><td><span class="it" onclick="speak('Perché è di buona qualità.')">Perché è di buona qualità.</span></td><td class="zh">因为质量好。</td></tr>
+    <tr><td><span class="it" onclick="speak('Perché l\'ho visto in televisione.')">Perché l'ho visto in televisione.</span></td><td class="zh">因为在电视上看到的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Perché me l\'ha consigliato un amico.')">Perché me l'ha consigliato un amico.</span></td><td class="zh">因为朋友推荐的。</td></tr>
+  </table>
+
+  <!-- Dialogo 5: Un reclamo -->
+  <h3>5. Un reclamo · p.42, es.10</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读投诉对话。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Buongiorno, voglio fare un reclamo.')"><strong>Cliente</strong>: Buongiorno, voglio fare un reclamo.</span></td><td class="zh"><strong>客户</strong>: 您好，我想投诉。</td></tr>
+    <tr><td><span class="it" onclick="speak('Cosa è successo?')"><strong>Impiegato</strong>: Cosa è successo?</span></td><td class="zh"><strong>职员</strong>: 发生什么事了？</td></tr>
+    <tr><td><span class="it" onclick="speak('Ho comprato questa borsa tre giorni fa, ma già non funziona più la cerniera.')"><strong>Cliente</strong>: Ho comprato questa borsa tre giorni fa, ma già non funziona più la cerniera.</span></td><td class="zh"><strong>客户</strong>: 三天前我买了这个包，但拉链已经坏了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Mi dispiace. Può cambiarla con un\'altra?')"><strong>Impiegato</strong>: Mi dispiace. Può cambiarla con un'altra?</span></td><td class="zh"><strong>职员</strong>: 很抱歉。您可以换另一个吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Spero di sì.')"><strong>Cliente</strong>: Spero di sì.</span></td><td class="zh"><strong>客户</strong>: 希望可以。</td></tr>
+  </table>
+
+  <!-- Dialogo 6: Emozioni -->
+  <h3>6. Emozioni · p.43, es.11</h3>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Sono contento per lui.')">Sono contento per lui.</span></td><td class="zh">我为他高兴。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sono arrabbiato con te.')">Sono arrabbiato con te.</span></td><td class="zh">我生你的气。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ho paura che le cose possano peggiorare.')">Ho paura che le cose possano peggiorare.</span></td><td class="zh">我担心情况可能会恶化。</td></tr>
+    <tr><td><span class="it" onclick="speak('Che bellezza!')">Che bellezza!</span></td><td class="zh">真美！</td></tr>
+    <tr><td><span class="it" onclick="speak('Che peccato!')">Che peccato!</span></td><td class="zh">真遗憾！</td></tr>
+  </table>
+
+  <!-- Dialogo 7: Prodotti italiani da esportazione -->
+  <h3>7. Prodotti italiani da esportazione · p.44, es.13</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">听录音并指出提到的产品类别。</p>
+  <table class="dialog-table">
+    <tr><th style="background:var(--ne-cream);">产品类别</th><th style="background:var(--ne-cream);">例子</th></tr>
+    <tr><td>时尚</td><td><span class="it" onclick="speak('moda, abbigliamento, calzature, pelletteria')">moda, abbigliamento, calzature, pelletteria</span></td></tr>
+    <tr><td>食品</td><td><span class="it" onclick="speak('olio d\'oliva, vino, formaggio, prosciutto')">olio d'oliva, vino, formaggio, prosciutto</span></td></tr>
+    <tr><td>设计</td><td><span class="it" onclick="speak('mobili, lampade, oggetti di design')">mobili, lampade, oggetti di design</span></td></tr>
+    <tr><td>汽车</td><td><span class="it" onclick="speak('Ferrari, Lamborghini, Alfa Romeo')">Ferrari, Lamborghini, Alfa Romeo</span></td></tr>
+    <tr><td>机械</td><td><span class="it" onclick="speak('macchinari, attrezzature')">macchinari, attrezzature</span></td></tr>
+    <tr><td>珠宝</td><td><span class="it" onclick="speak('gioielli, orologi')">gioielli, orologi</span></td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F1EE;&#x1F1F9; 意大利制造 (Made in Italy)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il made in Italy')">il made in Italy</td><td>s.m.</td><td>意大利制造</td></tr>
+    <tr><td class="it" onclick="speak('il cuoio')">il cuoio</td><td>s.m.</td><td>皮革</td></tr>
+    <tr><td class="it" onclick="speak('la pelle')">la pelle</td><td>s.f.</td><td>皮肤，皮革</td></tr>
+    <tr><td class="it" onclick="speak('la seta')">la seta</td><td>s.f.</td><td>丝绸</td></tr>
+    <tr><td class="it" onclick="speak('il legno')">il legno</td><td>s.m.</td><td>木材</td></tr>
+    <tr><td class="it" onclick="speak('il vetro')">il vetro</td><td>s.m.</td><td>玻璃</td></tr>
+    <tr><td class="it" onclick="speak('la ceramica')">la ceramica</td><td>s.f.</td><td>陶瓷</td></tr>
+    <tr><td class="it" onclick="speak('la qualità')">la qualità</td><td>s.f.</td><td>质量</td></tr>
+    <tr><td class="it" onclick="speak('il prodotto')">il prodotto</td><td>s.m.</td><td>产品</td></tr>
+    <tr><td class="it" onclick="speak('l\'artigianato')">l'artigianato</td><td>s.m.</td><td>手工业</td></tr>
+    <tr><td class="it" onclick="speak('la fabbrica')">la fabbrica</td><td>s.f.</td><td>工厂</td></tr>
+    <tr><td class="it" onclick="speak('l\'azienda')">l'azienda</td><td>s.f.</td><td>企业</td></tr>
+    <tr><td class="it" onclick="speak('l\'esportazione')">l'esportazione</td><td>s.f.</td><td>出口</td></tr>
+    <tr><td class="it" onclick="speak('l\'importazione')">l'importazione</td><td>s.f.</td><td>进口</td></tr>
+  </table>
+
+  <h3>&#x1F3A8; 描述产品的词汇 (Lessico per descrivere i prodotti)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('elegante')">elegante</td><td>agg.</td><td>优雅的</td></tr>
+    <tr><td class="it" onclick="speak('robusto')">robusto</td><td>agg.</td><td>坚固的</td></tr>
+    <tr><td class="it" onclick="speak('pratico')">pratico</td><td>agg.</td><td>实用的</td></tr>
+    <tr><td class="it" onclick="speak('raffinato')">raffinato</td><td>agg.</td><td>精致的</td></tr>
+    <tr><td class="it" onclick="speak('originale')">originale</td><td>agg.</td><td>原创的</td></tr>
+    <tr><td class="it" onclick="speak('tradizionale')">tradizionale</td><td>agg.</td><td>传统的</td></tr>
+    <tr><td class="it" onclick="speak('moderno')">moderno</td><td>agg.</td><td>现代的</td></tr>
+    <tr><td class="it" onclick="speak('pregiato')">pregiato</td><td>agg.</td><td>珍贵的</td></tr>
+    <tr><td class="it" onclick="speak('autentico')">autentico</td><td>agg.</td><td>正宗的</td></tr>
+    <tr><td class="it" onclick="speak('costoso')">costoso</td><td>agg.</td><td>昂贵的</td></tr>
+    <tr><td class="it" onclick="speak('economico')">economico</td><td>agg.</td><td>便宜的</td></tr>
+  </table>
+
+  <h3>&#x1F527; 物品与用途 (Oggetti e uso)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('servire per')">servire per</td><td>v.</td><td>用于</td></tr>
+    <tr><td class="it" onclick="speak('utilizzare')">utilizzare</td><td>v.</td><td>使用</td></tr>
+    <tr><td class="it" onclick="speak('fabbricare')">fabbricare</td><td>v.</td><td>生产</td></tr>
+    <tr><td class="it" onclick="speak('produrre')">produrre</td><td>v.</td><td>生产</td></tr>
+    <tr><td class="it" onclick="speak('progettare')">progettare</td><td>v.</td><td>设计</td></tr>
+    <tr><td class="it" onclick="speak('costruire')">costruire</td><td>v.</td><td>建造</td></tr>
+    <tr><td class="it" onclick="speak('riparare')">riparare</td><td>v.</td><td>修理</td></tr>
+    <tr><td class="it" onclick="speak('cambiare')">cambiare</td><td>v.</td><td>更换</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Congiuntivo passato -->
+  <h3>1. 虚拟式过去时 (Congiuntivo passato)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">虚拟式过去时用于表达过去的观点、情感、怀疑等。</p>
+    <p style="font-weight:600;margin:8px 0 4px;">构成: avere/essere的虚拟式现在时 + 过去分词</p>
+    <table>
+      <tr><th>主语</th><th>avere</th><th>essere</th></tr>
+      <tr><td>io</td><td><span class="verb">abbia</span></td><td><span class="verb">sia</span></td></tr>
+      <tr><td>tu</td><td><span class="verb">abbia</span></td><td><span class="verb">sia</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb">abbia</span></td><td><span class="verb">sia</span></td></tr>
+      <tr><td>noi</td><td><span class="verb">abbiamo</span></td><td><span class="verb">siamo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb">abbiate</span></td><td><span class="verb">siate</span></td></tr>
+      <tr><td>loro</td><td><span class="verb">abbiano</span></td><td><span class="verb">siano</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Credo che sia partito.')">Credo che <span class="verb">sia partito</span>.</span></td><td>我相信他已经出发了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Penso che l\'abbiano assunto come responsabile.')">Penso che <span class="verb">l'abbiano assunto</span> come responsabile.</span></td><td>我认为他们已经聘用了负责人。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho paura che questo documento sia sbagliato.')">Ho paura che questo documento <span class="verb">sia sbagliato</span>.</span></td><td>我担心这份文件是错的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Spero che abbiate capito la lezione.')">Spero che <span class="verb">abbiate capito</span> la lezione.</span></td><td>我希望你们已经理解了这节课。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non credo che sia venuto ieri.')">Non credo che <span class="verb">sia venuto</span> ieri.</span></td><td>我不相信他昨天来了。</td></tr>
+      <tr><td><span class="it" onclick="speak('È possibile che abbiano sbagliato numero.')">È possibile che <span class="verb">abbiano sbagliato</span> numero.</span></td><td>他们可能打错号码了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Temo che non abbiamo avuto il tempo.')">Temo che non <span class="verb">abbiamo avuto</span> il tempo.</span></td><td>我担心我们没有时间。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">规则:</p>
+    <table>
+      <tr><th>主句动词时态</th><th>从句用时态</th></tr>
+      <tr><td>现在时/将来时</td><td>congiuntivo passato</td></tr>
+      <tr><td>过去时</td><td>congiuntivo trapassato</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Ripasso del congiuntivo -->
+  <h3>2. 虚拟式复习 (Ripasso del congiuntivo)</h3>
+  <div class="grammar-box">
+    <p style="font-weight:600;margin:0 0 8px;">何时使用:</p>
+    <table>
+      <tr><th>类型</th><th>例句</th></tr>
+      <tr><td>表达观点</td><td><span class="it" onclick="speak('Penso che... Credo che... Secondo me...')">Penso che..., Credo che...</span></td></tr>
+      <tr><td>表达情感</td><td><span class="it" onclick="speak('Sono felice che... Ho paura che...')">Sono felice che..., Ho paura che...</span></td></tr>
+      <tr><td>表达欲望</td><td><span class="it" onclick="speak('Voglio che... Desidero che... Spero che...')">Voglio che..., Desidero che..., Spero che...</span></td></tr>
+      <tr><td>表达不确定</td><td><span class="it" onclick="speak('Può darsi che... È possibile che...')">Può darsi che..., È possibile che...</span></td></tr>
+      <tr><td>无人称结构</td><td><span class="it" onclick="speak('È importante che... È necessario che...')">È importante che..., È necessario che...</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Credo che Roberto sia andato in Cina.')">Credo che Roberto <span class="verb">sia andato</span> in Cina.</span></td><td>我相信Roberto已经去中国了。</td></tr>
+      <tr><td><span class="it" onclick="speak('L\'importante è che tu sia soddisfatto.')">L'importante è che tu <span class="verb">sia</span> soddisfatto.</span></td><td>重要的是你满意。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non credo che lui lo sappia.')">Non credo che lui lo <span class="verb">sappia</span>.</span></td><td>我不相信他知道这件事。</td></tr>
+      <tr><td><span class="it" onclick="speak('Speriamo che tutto vada bene.')">Speriamo che tutto <span class="verb">vada</span> bene.</span></td><td>希望一切顺利。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sono contenta che siate venuti.')">Sono contenta che <span class="verb">siate venuti</span>.</span></td><td>你们来了我很高兴。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Concordanza dei tempi -->
+  <h3>3. 时态和语气一致规则 I (Concordanza dei tempi)</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>主句时态</th><th>从句时态</th></tr>
+      <tr><td>现在时 → passato prossimo</td><td>从句用 <span class="verb">congiuntivo passato</span></td></tr>
+      <tr><td>现在时 → presente</td><td>从句用 <span class="verb">congiuntivo presente</span></td></tr>
+      <tr><td>过去时 → trapassato prossimo</td><td>从句用 <span class="verb">congiuntivo trapassato</span></td></tr>
+      <tr><td>过去时 → imperfetto</td><td>从句用 <span class="verb">congiuntivo imperfetto</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Ho paura che le cose possano peggiorare.')">Ho paura che le cose <span class="verb">possano</span> peggiorare.</span></td><td>我担心情况可能会恶化。</td></tr>
+      <tr><td><span class="it" onclick="speak('Può darsi che sia già partito.')">Può darsi che <span class="verb">sia</span> già partito.</span></td><td>他可能已经出发了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Credevo che lui fosse partito.')">Credevo che lui <span class="verb">fosse</span> partito.</span></td><td>我以为他已经出发了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Pensavo che voi lo sapeste.')">Pensavo che voi lo <span class="verb">sapeste</span>.</span></td><td>我以为你们知道。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. A patto che, purché, a condizione che -->
+  <h3>4. 条件连词 + 虚拟式 (A patto che, purché, a condizione che)</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>连词</th><th>含义</th><th>例句</th></tr>
+      <tr><td><span class="verb">a patto che</span></td><td>条件是...</td><td><span class="it" onclick="speak('È molto bello, a patto che ti piacciano i gialli.')">È molto bello, <span class="verb">a patto che</span> ti piacciano i gialli.</span></td></tr>
+      <tr><td><span class="verb">purché</span></td><td>只要...</td><td><span class="it" onclick="speak('Ti presto i libri, purché tu me li riporti.')">Ti presto i libri, <span class="verb">purché</span> tu me li riporti.</span></td></tr>
+      <tr><td><span class="verb">a condizione che</span></td><td>在...条件下</td><td><span class="it" onclick="speak('Posso aiutarti, a condizione che tu mi aiuti anche tu.')">Posso aiutarti, <span class="verb">a condizione che</span> tu mi aiuti anche tu.</span></td></tr>
+      <tr><td><span class="verb">a meno che</span></td><td>除非...</td><td><span class="it" onclick="speak('Andremo al mare, a meno che non piova.')">Andremo al mare, <span class="verb">a meno che</span> non piova.</span></td></tr>
+      <tr><td><span class="verb">prima che</span></td><td>在...之前</td><td><span class="it" onclick="speak('Devi finire prima che io vada via.')">Devi finire <span class="verb">prima che</span> io vada via.</span></td></tr>
+    </table>
+  </div>
+
+  <!-- 5. Suffisso -accio -->
+  <h3>5. 后缀 -accio（贬义）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">-accio后缀给名词添加负面、贬义的含义。</p>
+    <table>
+      <tr><th>原词</th><th>+ -accio</th><th>中文</th></tr>
+      <tr><td>il film</td><td><span class="verb">il filmaccio</span></td><td>烂片</td></tr>
+      <tr><td>la giornata</td><td><span class="verb">la giornataccia</span></td><td>糟糕的一天</td></tr>
+      <tr><td>il tempo</td><td><span class="verb">il tempaccio</span></td><td>坏天气</td></tr>
+      <tr><td>la partita</td><td><span class="verb">la partitaccia</span></td><td>糟糕的比赛</td></tr>
+      <tr><td>il ragazzo</td><td><span class="verb">il ragazzaccio</span></td><td>坏男孩</td></tr>
+      <tr><td>il lavoro</td><td><span class="verb">il lavoraccio</span></td><td>苦差事</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Ho passato una nottataccia!')">Ho passato una <span class="verb">nottataccia</span>!</span></td><td>我度过了糟糕的一晚！</td></tr>
+      <tr><td><span class="it" onclick="speak('Non dire le parolacce!')">Non dire le <span class="verb">parolacce</span>!</span></td><td>别说脏话！</td></tr>
+      <tr><td><span class="it" onclick="speak('Che tempaccio oggi!')">Che <span class="verb">tempaccio</span> oggi!</span></td><td>今天天气真差！</td></tr>
+      <tr><td><span class="it" onclick="speak('Che lavoraccio! Sono stanco morto.')">Che <span class="verb">lavoraccio</span>! Sono stanco morto.</span></td><td>这苦差事！我累死了。</td></tr>
+    </table>
+  </div>
+
+  <!-- 6. Avverbi in -mente -->
+  <h3>6. -mente副词 (Avverbi in -mente)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">大多数副词由形容词的阴性单数形式加-mente构成。</p>
+    <table>
+      <tr><th>形容词</th><th>副词</th></tr>
+      <tr><td>effettivo</td><td><span class="verb">effettivamente</span></td></tr>
+      <tr><td>probabile</td><td><span class="verb">probabilmente</span></td></tr>
+      <tr><td>certo</td><td><span class="verb">certamente</span></td></tr>
+      <tr><td>vero</td><td><span class="verb">veramente</span></td></tr>
+      <tr><td>speciale</td><td><span class="verb">specialmente</span></td></tr>
+      <tr><td>naturale</td><td><span class="verb">naturalmente</span></td></tr>
+      <tr><td>recente</td><td><span class="verb">recentemente</span></td></tr>
+      <tr><td>chiaro</td><td><span class="verb">chiaramente</span></td></tr>
+      <tr><td>veloce</td><td><span class="verb">velocemente</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Effettivamente è strano!')"><span class="verb">Effettivamente</span> è strano!</span></td><td>确实很奇怪！</td></tr>
+      <tr><td><span class="it" onclick="speak('Probabilmente hai confuso il numero.')"><span class="verb">Probabilmente</span> hai confuso il numero.</span></td><td>你可能搞错了号码。</td></tr>
+      <tr><td><span class="it" onclick="speak('Certamente verrò alla festa.')"><span class="verb">Certamente</span> verrò alla festa.</span></td><td>我肯定会来派对。</td></tr>
+      <tr><td><span class="it" onclick="speak('Naturalmente, ognuno ha la sua opinione.')"><span class="verb">Naturalmente</span>, ognuno ha la sua opinione.</span></td><td>当然，每个人都有自己的观点。</td></tr>
+      <tr><td><span class="it" onclick="speak('Recentemente ho comprato una casa.')"><span class="verb">Recentemente</span> ho comprato una casa.</span></td><td>最近我买了一栋房子。</td></tr>
+      <tr><td><span class="it" onclick="speak('Si muoveva lentamente nel corridoio.')">Si muoveva <span class="verb">lentamente</span> nel corridoio.</span></td><td>他在走廊里慢慢移动。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 3 · p.48</h2>
+
+  <h3>&#x1F30D; Made in Italy nel mondo（世界上的意大利制造）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">四大传统产业:</p>
+    <table class="vocab-table">
+      <tr><th>产业</th><th>代表产品</th><th>全球声誉</th></tr>
+      <tr><td>时尚</td><td>服装、鞋类、皮具</td><td>Armani, Prada, Gucci, Ferragamo</td></tr>
+      <tr><td>食品</td><td>橄榄油、葡萄酒、奶酪</td><td>Parmigiano, Prosciutto, Barolo</td></tr>
+      <tr><td>设计</td><td>家具、灯具、家居</td><td>Kartell, Alessi, B&amp;B Italia</td></tr>
+      <tr><td>机械</td><td>机床、工业设备</td><td>Fiat, Leonardo</td></tr>
+    </table>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">关键表达:</p>
+    <table class="vocab-table">
+      <tr><th>意大利语</th><th>中文</th></tr>
+      <tr><td class="it" onclick="speak('il marchio')">il marchio</td><td>品牌</td></tr>
+      <tr><td class="it" onclick="speak('lo stile italiano')">lo stile italiano</td><td>意大利风格</td></tr>
+      <tr><td class="it" onclick="speak('la tradizione')">la tradizione</td><td>传统</td></tr>
+      <tr><td class="it" onclick="speak('l\'artigianato')">l'artigianato</td><td>手工业</td></tr>
+      <tr><td class="it" onclick="speak('il know-how')">il know-how</td><td>专业知识</td></tr>
+      <tr><td class="it" onclick="speak('l\'eccellenza')">l'eccellenza</td><td>卓越</td></tr>
+    </table>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化注释:</strong><br>
+    &bull; "Made in Italy"不仅是产品标识，更是品质保证<br>
+    &bull; 意大利手工业传统对全球奢侈品行业影响深远<br>
+    &bull; 意大利设计强调美学与功能的结合
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 3 — L'oggetto misterioso · p.46-47</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">Valeria和Paolo猜测一个神秘的圆形木制物品。最终揭晓是"portasigari"（雪茄架）。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">场景:</p>
+  <table class="dialog-table">
+    <tr><th style="background:var(--ne-cream);">步骤</th><th style="background:var(--ne-cream);">内容</th></tr>
+    <tr><td>1</td><td>在家里，桌上有一个神秘的圆形木制物品</td></tr>
+    <tr><td>2</td><td>从艺术装饰品到各种实用物品的猜测</td></tr>
+    <tr><td>3</td><td>最终揭晓是"portasigari"（雪茄架）</td></tr>
+    <tr><td>4</td><td>意大利人对古董和复古物品的喜爱</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">关键表达:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('È rotondo, pesante, di legno.')">È rotondo, pesante, di legno.</span></td><td class="zh">圆的，重的，木头的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Serve per pulire, per aprire.')">Serve per pulire, per aprire.</span></td><td class="zh">可以用来清洁、打开。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non mi serve!')">Non mi serve!</span></td><td class="zh">我不需要它！</td></tr>
+    <tr><td><span class="it" onclick="speak('Ma che oggetto è?')">Ma che oggetto è?</span></td><td class="zh">这是什么东西？</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 描述一个你喜欢的物品（材料、用途、特点）<br>
+    &bull; 练习用"serve per"、"è di..."描述物品功能<br>
+    &bull; 讨论意大利产品的特点与品质
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-2.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+  <a href="unita-4.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 3</div>
+  <p>Corso di lingua italiana per stranieri · Livello B1</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

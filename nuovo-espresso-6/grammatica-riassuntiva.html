@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammatica Riassuntiva · C2 · NUOVO Espresso 6</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .page-section h4 { font-size: 15px; font-weight: 700; color: var(--ne-blue); margin: 14px 0 6px; }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; cursor: pointer; }
+    .grammar-box .verb:hover { background: #fff3cd; }
+    .it { cursor: pointer; }
+    .it:hover { background: rgba(241,196,15,0.15); }
+    .grammar-index { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 0 20px; justify-content: center; }
+    .grammar-index a { display: inline-block; padding: 6px 14px; background: var(--ne-cream); border-radius: 20px; font-size: 12px; color: var(--ne-blue); text-decoration: none; font-weight: 600; border: 1px solid var(--border-light); transition: all 0.2s; }
+    .grammar-index a:hover { background: var(--ne-gold); color: #fff; border-color: var(--ne-gold); transform: translateY(-2px); }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    .nav-buttons .next-btn { background: linear-gradient(135deg, var(--ne-orange), #e67e22); box-shadow: 0 3px 12px rgba(230,126,34,0.25); }
+    .nav-buttons .next-btn:hover { box-shadow: 0 6px 20px rgba(230,126,34,0.35); }
+    .grammar-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border-light), transparent); margin: 10px 0; }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 6 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Grammatica Sistematica · C2</div>
+  <h1>&#x1F4DA; Grammatica Riassuntiva</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">系统语法参考 · Tutti i punti grammaticali del livello C2</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">32 个语法主题，涵盖 Nuovo Espresso 6 全部 C2 语法要点</p>
+</section>
+
+<section class="page-section">
+  <p style="font-weight:700;margin-bottom:10px;font-size:14px;">&#x1F4CD; Indice rapido — 快速索引</p>
+  <div class="grammar-index">
+    <a href="#g1">1. Nomi invariabili</a>
+    <a href="#g2">2. Alterazione</a>
+    <a href="#g3">3. Articolo + possessivo + parentela</a>
+    <a href="#g4">4. Trapassato remoto</a>
+    <a href="#g5">5. Fare + infinito</a>
+    <a href="#g6">6. Il quale</a>
+    <a href="#g7">7. Vocali E/O aperte e chiuse</a>
+    <a href="#g8">8. Accento grafico</a>
+    <a href="#g9">9. Duplicazione del verbo</a>
+    <a href="#g10">10. Forma impersonale</a>
+    <a href="#g11">11. Pronomi relativi partitivi</a>
+    <a href="#g12">12. Falsa negazione</a>
+    <a href="#g13">13. Verbi che cambiano significato</a>
+    <a href="#g14">14. Condizionale speciale</a>
+    <a href="#g15">15. Imperfetto speciale</a>
+    <a href="#g16">16. Infinito nelle secondarie</a>
+    <a href="#g17">17. Omissione articolo</a>
+    <a href="#g18">18. Subordinate implicite</a>
+    <a href="#g19">19. Litote</a>
+    <a href="#g20">20. Verbi frasali</a>
+    <a href="#g21">21. Pure e Anzi</a>
+    <a href="#g22">22. Pronome affettivo</a>
+    <a href="#g23">23. Duplicazione espressiva</a>
+    <a href="#g24">24. Idiomi con numeri</a>
+    <a href="#g25">25. Neologismi internet</a>
+    <a href="#g26">26. Gesti italiani</a>
+    <a href="#g27">27. Orale &rarr; Scritto</a>
+    <a href="#g28">28. Polisemia animali</a>
+    <a href="#g29">29. Manifesto comunicazione</a>
+    <a href="#g30">30. Onomatopee</a>
+    <a href="#g31">31. Connettivi avanzati</a>
+    <a href="#g32">32. Infinito sostantivato</a>
+    <a href="#g33">33. Posizione aggettivo</a>
+  </div>
+</section>
+
+<!-- 1. Nomi invariabili -->
+<section class="page-section" id="g1">
+  <h2>1. I Nomi Invariabili <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">不变名词</span></h2>
+  <div class="grammar-box">
+    <h4>1.1 分类总表</h4>
+    <table>
+      <tr><th>Categoria</th><th>Esempi</th></tr>
+      <tr><td><strong>Abbreviazioni</strong> (缩写词)</td><td>l'auto, il cinema, la foto, la moto, la bici, la metro, la radio</td></tr>
+      <tr><td><strong>Monosillabi e parole accentate</strong> (单音节/重音结尾)</td><td>il re, il d&igrave;, la virt&ugrave;, la citt&agrave;, caff&egrave;, sof&agrave;, t&egrave;, rag&ugrave;</td></tr>
+      <tr><td><strong>Parole straniere</strong> (外来词)</td><td>il/i bar, la/le moquette, il/i computer, il/i film</td></tr>
+      <tr><td><strong>Colori</strong> (颜色词)</td><td>blu, fucsia, lilla, indaco, rosa, viola</td></tr>
+      <tr><td><strong>Femminili in -ie</strong></td><td>la balbuzie, la barbarie, la carie, la serie, la specie</td></tr>
+      <tr><td><strong>Maschili in -i</strong></td><td>l'alibi, il bisturi, il brindisi, il taxi, il kiwi</td></tr>
+      <tr><td><strong>Maschili in -a</strong></td><td>il boa, il gorilla, il puma, il sosia</td></tr>
+      <tr><td><strong>Nomi in -si</strong></td><td>l'analisi, la crisi, la tesi, la diagnosi, l'ipotesi, la sintesi</td></tr>
+      <tr><td><strong>Femminili in -o</strong></td><td>la biro, la dinamo, la polo (unico cambia: la mano &rarr; le mani)</td></tr>
+    </table>
+    <h4>1.2 注意例外</h4>
+    <table>
+      <tr><th>Regola</th><th>Esempi</th></tr>
+      <tr><td>阳性-a结尾，规则复数-i</td><td>il problema &rarr; i problemi, l'autista &rarr; gli autisti, il geometra &rarr; i geometri, il tema &rarr; i temi</td></tr>
+      <tr><td>颜色词始终不变</td><td>pantaloni blu, scarpe rosa, maglioni lilla</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 2. Alterazione -->
+<section class="page-section" id="g2">
+  <h2>2. L'Alterazione <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">变形词</span></h2>
+  <div class="grammar-box">
+    <h4>2.1 后缀对照表</h4>
+    <table>
+      <tr><th>Alterazione</th><th>Suffisso</th><th>Esempio</th></tr>
+      <tr><td><strong>Diminutivo</strong> (指小)</td><td>-ino, -etto, -ello, -uccio</td><td>libro &rarr; libricino, casa &rarr; casetta</td></tr>
+      <tr><td><strong>Accrescitivo</strong> (指大)</td><td>-one, -ona</td><td>libro &rarr; librone, donna &rarr; donnona</td></tr>
+      <tr><td><strong>Vezzeggiativo</strong> (爱称)</td><td>-uccio, -uzzo, -otto</td><td>cavallo &rarr; cavalluccio, piccolo &rarr; piccolotto</td></tr>
+      <tr><td><strong>Peggiorativo</strong> (贬义)</td><td>-accio, -astro</td><td>tempo &rarr; tempaccio, parola &rarr; parolaccia</td></tr>
+    </table>
+    <h4>2.2 假变形词 (Falsi alterati)</h4>
+    <table>
+      <tr><th>Parola</th><th>Non &egrave; alterato di</th><th></th><th></th></tr>
+      <tr><td>aquilone</td><td>aquila</td><td>tacchino</td><td>tacco</td></tr>
+      <tr><td>spaghetti</td><td>spago</td><td>bottone</td><td>botto</td></tr>
+      <tr><td>martello</td><td>marto</td><td>fumetto</td><td>fumo</td></tr>
+      <tr><td>pulcino</td><td>pulce</td><td>mulino</td><td>mulo</td></tr>
+      <tr><td>postino</td><td>posto</td><td>latino</td><td>lato</td></tr>
+      <tr><td>torrone</td><td>torre</td><td>burrone</td><td>burro</td></tr>
+      <tr><td>calzone</td><td>calza</td><td>lampone</td><td>lampo</td></tr>
+      <tr><td>merluzzo</td><td>merlo</td><td></td><td></td></tr>
+    </table>
+    <h4>2.3 变形词叠用 (Cumulo di alterati)</h4>
+    <table>
+      <tr><th>Processo</th><th>Esempio</th></tr>
+      <tr><td>Doppio diminutivo</td><td>libro &rarr; libretto &rarr; librettino</td></tr>
+      <tr><td>Accrescitivo + accrescitivo</td><td>uomo &rarr; omone &rarr; omaccione</td></tr>
+      <tr><td>Diminutivo + vezzeggiativo</td><td>casa &rarr; casetta &rarr; casettina</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 3. Articolo + possessivo + parentela -->
+<section class="page-section" id="g3">
+  <h2>3. Articolo determinativo con possessivi e parentela <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">定冠词+物主+亲属</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Caso</th><th>Regola</th><th>Esempio</th></tr>
+      <tr><td>Varianti affettive</td><td>情感变体前必须加冠词</td><td><span class="verb">La</span> mia mamma, <span class="verb">Il</span> mio babbo</td></tr>
+      <tr><td>Forme alterate</td><td>变形亲属词前加冠词</td><td><span class="verb">La</span> mia mammina, <span class="verb">Il</span> mio fratellino</td></tr>
+      <tr><td>Patrigno/matrigna/fratellastro</td><td>继亲/半亲前必须加冠词</td><td><span class="verb">La</span> vostra matrigna, <span class="verb">Il</span> suo patrigno</td></tr>
+      <tr><td>Termini sentimentali</td><td>情感关系前加冠词</td><td><span class="verb">Il</span> mio fidanzato, <span class="verb">La</span> sua ragazza</td></tr>
+      <tr><td>Con aggettivo</td><td>带形容词时加冠词</td><td><span class="verb">La</span> mia bella figlia</td></tr>
+      <tr><td>Con specificazione</td><td>带补语时加冠词</td><td><span class="verb">La</span> figlia di Maria</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 4. Trapassato remoto -->
+<section class="page-section" id="g4">
+  <h2>4. Il Trapassato Remoto <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">先愈过去时</span></h2>
+  <div class="grammar-box">
+    <h4>变位</h4>
+    <table>
+      <tr><th>Persona</th><th>avere</th><th>essere</th></tr>
+      <tr><td>io</td><td>ebbi + participio</td><td>fui + stato/a</td></tr>
+      <tr><td>tu</td><td>avesti + participio</td><td>fosti + stato/a</td></tr>
+      <tr><td>lui/lei</td><td><span class="verb">ebbe</span> + participio</td><td><span class="verb">fu</span> + stato/a</td></tr>
+      <tr><td>noi</td><td>avemmo + participio</td><td>fummo + stati/e</td></tr>
+      <tr><td>voi</td><td>aveste + participio</td><td>foste + stati/e</td></tr>
+      <tr><td>loro</td><td><span class="verb">ebbero</span> + participio</td><td><span class="verb">furono</span> + stati/e</td></tr>
+    </table>
+    <h4>引导词</h4>
+    <p>quando, dopo che, non appena, appena, finch&eacute;</p>
+    <h4>用法</h4>
+    <p>表示先于另一个远过去时动作的过去动作，主要用于文学叙事。</p>
+    <p><em>Esempio:</em> <span class="it" onclick="speak('Quando ebbe finito il lavoro, uscì.')">Quando <strong>ebbe finito</strong> il lavoro, usc&igrave;.</span></p>
+  </div>
+</section>
+
+<!-- 5. Fare + infinito -->
+<section class="page-section" id="g5">
+  <h2>5. Fare + Infinito <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">使役结构</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Funzione</th><th>Esempio</th></tr>
+      <tr><td>Mettere in condizione di (使能够)</td><td>Luigi <span class="verb">mi ha fatto muovere</span> i primi passi.</td></tr>
+      <tr><td>Permettere (允许)</td><td>Ti <span class="verb">faccio usare</span> il mio telefono.</td></tr>
+      <tr><td>Provocare (引起)</td><td>Il suo atteggiamento <span class="verb">fa arrabbiare</span> gli amici.</td></tr>
+      <tr><td>Obbligare (迫使)</td><td><span class="verb">Fanno lavorare</span> troppo in questo periodo.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 6. Il quale -->
+<section class="page-section" id="g6">
+  <h2>6. Il Pronome Relativo "il quale" <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">关系代词il quale</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Genere</th><th>Singolare</th><th>Plurale</th></tr>
+      <tr><td>Maschile</td><td><span class="verb">il quale</span></td><td><span class="verb">i quali</span></td></tr>
+      <tr><td>Femminile</td><td><span class="verb">la quale</span></td><td><span class="verb">le quali</span></td></tr>
+    </table>
+    <table>
+      <tr><th>Preposizione</th><th>Maschile</th><th>Femminile</th></tr>
+      <tr><td>di</td><td>del quale</td><td>della quale</td></tr>
+      <tr><td>a</td><td>al quale</td><td>alla quale</td></tr>
+      <tr><td>da</td><td>dal quale</td><td>dalla quale</td></tr>
+      <tr><td>in</td><td>nel quale</td><td>nella quale</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 7. Vocali E/O -->
+<section class="page-section" id="g7">
+  <h2>7. Pronuncia delle vocali E/O aperte e chiuse <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">E/O 开闭元音</span></h2>
+  <div class="grammar-box">
+    <h4>Vocale E</h4>
+    <table>
+      <tr><th>e chiusa (&eacute;)</th><th>e aperta (&egrave;)</th></tr>
+      <tr><td>accetta (piccola ascia)</td><td>accetta (verbo accettare)</td></tr>
+      <tr><td>affetto (verbo affettare)</td><td>affetto (sentimento)</td></tr>
+      <tr><td>legge (norma)</td><td>legge (verbo leggere)</td></tr>
+      <tr><td>pesca (prendere pesci)</td><td>pesca (frutto)</td></tr>
+      <tr><td>venti (numero 20)</td><td>venti (plurale di vento)</td></tr>
+      <tr><td>corresse (verbo correggere)</td><td>corresse (verbo correre)</td></tr>
+    </table>
+    <h4>Vocale O</h4>
+    <table>
+      <tr><th>o chiusa (&oacute;)</th><th>o aperta (&ograve;)</th></tr>
+      <tr><td>botte (contenitore)</td><td>botte (plurale di botta)</td></tr>
+      <tr><td>colto (istruito)</td><td>colto (verbo cogliere)</td></tr>
+      <tr><td>corso (verbo correre)</td><td>corso (della Corsica)</td></tr>
+      <tr><td>volto (viso)</td><td>volto (verbo volgere)</td></tr>
+      <tr><td>posta (verbo porre)</td><td>posta (servizio postale)</td></tr>
+      <tr><td>rosa (verbo rodere)</td><td>rosa (fiore/colore)</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 8. Accento grafico -->
+<section class="page-section" id="g8">
+  <h2>8. L'Accento Grafico <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">书写重音</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Con accento</th><th>Senza accento</th></tr>
+      <tr><td><span class="verb">d&agrave;</span> (verbo dare)</td><td><span class="verb">da</span> (preposizione)</td></tr>
+      <tr><td><span class="verb">&egrave;</span> (verbo essere)</td><td><span class="verb">e</span> (congiunzione)</td></tr>
+      <tr><td><span class="verb">n&eacute;</span> (cong. negativa)</td><td><span class="verb">ne</span> (pronome)</td></tr>
+      <tr><td><span class="verb">s&eacute;</span> (pronome tonico)</td><td><span class="verb">se</span> (congiunzione)</td></tr>
+      <tr><td><span class="verb">s&igrave;</span> (avverbio)</td><td><span class="verb">si</span> (pronome)</td></tr>
+      <tr><td><span class="verb">t&egrave;</span> (sostantivo)</td><td><span class="verb">te</span> (pronome)</td></tr>
+      <tr><td><span class="verb">l&agrave;</span> (avverbio)</td><td><span class="verb">la</span> (articolo/pronome)</td></tr>
+      <tr><td><span class="verb">l&igrave;</span> (avverbio)</td><td><span class="verb">li</span> (pronome)</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 9. Duplicazione del verbo -->
+<section class="page-section" id="g9">
+  <h2>9. La Duplicazione del Verbo <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">动词重复</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Funzione</th><th>Esempio</th></tr>
+      <tr><td>Significato indefinito</td><td>"Quello che <span class="verb">faccio faccio</span>, sbaglio."</td></tr>
+      <tr><td>Valore enfatico</td><td>"<span class="verb">Guarda guarda!</span> Chi si rivede!"</td></tr>
+      <tr><td>Valore narrativo</td><td>"<span class="verb">Cammina, cammina, cammina</span>, arrivarono nel bosco."</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 10. Forma impersonale -->
+<section class="page-section" id="g10">
+  <h2>10. Forma Impersonale &mdash; Si <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">无人称形式</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Tempo</th><th>Forma</th></tr>
+      <tr><td>Presente</td><td><span class="verb">Si mangia</span> bene qui.</td></tr>
+      <tr><td>Passato prossimo</td><td><span class="verb">Si &egrave; mangiato</span> bene.</td></tr>
+      <tr><td>Imperfetto</td><td><span class="verb">Si mangiava</span> sempre insieme.</td></tr>
+      <tr><td>Futuro</td><td><span class="verb">Si manger&agrave;</span> all'aperto.</td></tr>
+      <tr><td>Condizionale</td><td><span class="verb">Si mangerebbe</span> volentieri.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 11. Pronomi relativi partitivi -->
+<section class="page-section" id="g11">
+  <h2>11. Pronomi Relativi Partitivi <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">部分关系代词</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Struttura</th><th>Esempio</th></tr>
+      <tr><td>di cui + quantit&agrave;</td><td>"Ha scritto molti libri, <span class="verb">di cui</span> quattro a tema scientifico."</td></tr>
+      <tr><td>quantit&agrave; + dei quali</td><td>"Ha scritto molti libri, quattro <span class="verb">dei quali</span> sono romanzi."</td></tr>
+      <tr><td>di cui uno</td><td>"Ha molti amici, <span class="verb">di cui</span> uno molto famoso."</td></tr>
+      <tr><td>tra cui</td><td>"Ci sono molte citt&agrave;, <span class="verb">tra cui</span> Roma e Firenze."</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 12. Falsa negazione -->
+<section class="page-section" id="g12">
+  <h2>12. La Falsa Negazione <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">假否定</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Espressione</th><th>Significato reale</th></tr>
+      <tr><td>Non &egrave; esente da...</td><td>&Egrave; soggetto a...</td></tr>
+      <tr><td>Non &egrave; un mistero che...</td><td>Tutti sanno che...</td></tr>
+      <tr><td>Non stupisce che...</td><td>&Egrave; normale che...</td></tr>
+      <tr><td>Non &egrave; obbligato a...</td><td>&Egrave; libero di...</td></tr>
+      <tr><td>Non &egrave; scontato che...</td><td>&Egrave; una sorpresa che...</td></tr>
+      <tr><td>Non mi stupisce che...</td><td>Mi aspettavo che...</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 13. Verbi che cambiano significato -->
+<section class="page-section" id="g13">
+  <h2>13. Verbi che Cambiano Significato <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">改变含义的动词</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Verbo</th><th>Con Indicativo</th><th>Con Congiuntivo</th></tr>
+      <tr><td><strong>Prevedere</strong></td><td>conoscere in anticipo</td><td>indicare, dire, considerare</td></tr>
+      <tr><td><strong>Considerare</strong></td><td>tener conto</td><td>supporre, immaginare</td></tr>
+      <tr><td><strong>Ammettere</strong></td><td>riconoscere</td><td>supporre, immaginare</td></tr>
+      <tr><td><strong>Capire</strong></td><td>comprendere</td><td>trovare naturale</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 14. Condizionale speciale -->
+<section class="page-section" id="g14">
+  <h2>14. Usi Particolari del Condizionale <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">条件式特殊用法</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Funzione</th><th>Esempio</th></tr>
+      <tr><td>Condizionale giornalistico</td><td>"Le scie chimiche <span class="verb">sarebbero</span> tracce..."</td></tr>
+      <tr><td>Desiderio irrealizzato</td><td>"<span class="verb">Avrei voluto</span> fare un viaggio."</td></tr>
+      <tr><td>Stupore</td><td>"Anna <span class="verb">non avrebbe mai detto</span>..."</td></tr>
+      <tr><td>Pentimento / Rimpianto</td><td>"<span class="verb">Sarei dovuta</span> andare al concerto."</td></tr>
+    </table>
+    <div class="grammar-divider"></div>
+    <p><span class="it" onclick="speak('Secondo il giornale, il ladro sarebbe entrato dalla finestra.')">&bull; <strong>Giornalistico:</strong> Secondo il giornale, il ladro <span class="verb">sarebbe entrato</span> dalla finestra.</span></p>
+    <p><span class="it" onclick="speak('Dopo la laurea, avrei voluto fare un viaggio in Sudamerica.')">&bull; <strong>Desiderio:</strong> Dopo la laurea, <span class="verb">avrei voluto</span> fare un viaggio in Sudamerica.</span></p>
+    <p><span class="it" onclick="speak('Sarei dovuta andare al concerto invece di rimanere a casa.')">&bull; <strong>Pentimento:</strong> <span class="verb">Sarei dovuta</span> andare al concerto invece di rimanere a casa.</span></p>
+    <p><span class="it" onclick="speak('Anna non avrebbe mai detto una cosa simile!')">&bull; <strong>Stupore:</strong> Anna <span class="verb">non avrebbe mai detto</span> una cosa simile!</span></p>
+  </div>
+</section>
+
+<!-- 15. Imperfetto speciale -->
+<section class="page-section" id="g15">
+  <h2>15. Usi Particolari dell'Imperfetto <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">未完成时特殊用法</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Tipo</th><th>Esempio</th></tr>
+      <tr><td><strong>Imperfetto narrativo</strong></td><td>"Il ladro si <span class="verb">introduceva</span> nel caveau..."</td></tr>
+      <tr><td><strong>Imperfetto ipotetico</strong></td><td>"Se me lo <span class="verb">dicevi</span>, non <span class="verb">venivo</span>."</td></tr>
+      <tr><td><strong>Imperfetto ludico</strong></td><td>"Facciamo che io <span class="verb">ero</span> il lupo cattivo!"</td></tr>
+      <tr><td><strong>Imperfetto di cortesia</strong></td><td>"<span class="verb">Volevo</span> un caff&egrave; macchiato."</td></tr>
+      <tr><td><strong>Imperfetto descrittivo</strong></td><td>"Il sole <span class="verb">sorgeva</span> all'orizzonte."</td></tr>
+    </table>
+    <div class="grammar-divider"></div>
+    <p><span class="it" onclick="speak('Durante la notte i ladri si introducevano nel museo e rubavano tre quadri.')">&bull; <strong>Narrativo:</strong> Durante la notte, i ladri si <span class="verb">introducevano</span> nel museo e <span class="verb">rubavano</span> tre quadri.</span></p>
+    <p><span class="it" onclick="speak('Se me lo dicevi, non venivo.')">&bull; <strong>Ipotetico:</strong> Se me lo <span class="verb">dicevi</span>, non <span class="verb">venivo</span>.</span></p>
+    <p><span class="it" onclick="speak('Da bambini, giocavamo a fare che io ero il dottore e tu il paziente.')">&bull; <strong>Ludico:</strong> Da bambini, <span class="verb">giocavamo</span> a fare che io <span class="verb">ero</span> il dottore e tu il paziente.</span></p>
+    <p><span class="it" onclick="speak('Buongiorno, volevo sapere a che ora parte il treno per Roma.')">&bull; <strong>Cortesia:</strong> Buongiorno, <span class="verb">volevo</span> sapere a che ora parte il treno per Roma.</span></p>
+  </div>
+</section>
+
+<!-- 16. Infinito nelle secondarie -->
+<section class="page-section" id="g16">
+  <h2>16. L'Infinito nelle Frasi Secondarie <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">不定式在从句中</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Congiunzione</th><th>Esempio</th></tr>
+      <tr><td>anzich&eacute; / invece di</td><td><span class="verb">Anzich&eacute;</span> uscire, studia.</td></tr>
+      <tr><td>in modo da / cos&igrave; da</td><td>Parla forte <span class="verb">cos&igrave; da</span> farti sentire.</td></tr>
+      <tr><td>fino a / tanto da</td><td>Ha studiato <span class="verb">fino a</span> diventare esperto.</td></tr>
+      <tr><td>neanche a / nemmeno a</td><td><span class="verb">Neanche a</span> pagarmi lo farei.</td></tr>
+      <tr><td>a costo di / a rischio di</td><td><span class="verb">A costo di</span> perdere, ci prover&ograve;.</td></tr>
+      <tr><td>in quanto a</td><td><span class="verb">In quanto a</span> essere pigro...</td></tr>
+      <tr><td>abbastanza da</td><td>&Egrave; maturo <span class="verb">abbastanza da</span> decidere.</td></tr>
+    </table>
+    <div class="grammar-divider"></div>
+    <p><span class="it" onclick="speak('Anziché lamentarti, prova a fare qualcosa.')">&bull; <span class="verb">Anzich&eacute;</span> lamentarti, prova a fare qualcosa.</span></p>
+    <p><span class="it" onclick="speak('Ha studiato fino a diventare un esperto.')">&bull; Ha studiato <span class="verb">fino a</span> diventare un esperto.</span></p>
+    <p><span class="it" onclick="speak('Dirò la verità a costo di perdere il lavoro.')">&bull; Dir&ograve; la verit&agrave; <span class="verb">a costo di</span> perdere il lavoro.</span></p>
+  </div>
+</section>
+
+<!-- 17. Omissione articolo -->
+<section class="page-section" id="g17">
+  <h2>17. Omissione dell'Articolo <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">冠词省略</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Contesto</th><th>Esempio</th></tr>
+      <tr><td>Verbo + nome (unit&agrave; di significato)</td><td>avere <strong>fame</strong>, volere <strong>bene</strong>, cercare <strong>casa</strong></td></tr>
+      <tr><td>Dopo <strong>in</strong></td><td>andare <strong>in</strong> Francia, <strong>in</strong> aereo</td></tr>
+      <tr><td>Dopo <strong>con/senza</strong> (modo)</td><td>con <strong>calma</strong>, senza <strong>fretta</strong></td></tr>
+      <tr><td>In elenchi</td><td>pane, latte e marmellata</td></tr>
+      <tr><td>MA con aggettivo</td><td>con <strong>una</strong> calma olimpica</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 18. Subordinate implicite -->
+<section class="page-section" id="g18">
+  <h2>18. Le Subordinate Implicite <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">隐性从句</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Forma</th><th>Esempio</th></tr>
+      <tr><td>Participio</td><td>"<span class="verb">Visti</span> i precedenti, l'imputato &egrave; colpevole."</td></tr>
+      <tr><td>Gerundio</td><td>"<span class="verb">Considerando</span> i precedenti..."</td></tr>
+      <tr><td>Infinito</td><td>"<span class="verb">Essere</span> o non <span class="verb">essere</span>..."</td></tr>
+    </table>
+    <h4>Uso assoluto (主语不同)</h4>
+    <p><span class="it" onclick="speak('Partito Luigi, non sapemmo più cosa fare.')">"<span class="verb">Partito</span> Luigi, non sapemmo pi&ugrave; cosa fare."</span></p>
+    <p><span class="it" onclick="speak('Essendo stati informati, si fermarono.')">"<span class="verb">Essendo</span> stati informati, si fermarono."</span></p>
+  </div>
+</section>
+
+<!-- 19. Litote -->
+<section class="page-section" id="g19">
+  <h2>19. La Litote <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">反叙法/曲言法</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Funzione</th><th>Esempio</th></tr>
+      <tr><td>Sfumare (缓和)</td><td>"Un ragazzo <span class="verb">nient'affatto stupido</span>"</td></tr>
+      <tr><td>Enfasi (强调)</td><td>"La cena <span class="verb">non era niente male</span>"</td></tr>
+      <tr><td>Ironia (反讽)</td><td>"Don Abbondio <span class="verb">non era un cuor di leone</span>"</td></tr>
+      <tr><td>Limitazione (限制)</td><td>"Il collega mi pare <span class="verb">poco sveglio</span>"</td></tr>
+      <tr><td>Eufemismo (委婉)</td><td>"<span class="verb">diversamente abili</span>"</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 20. Verbi frasali -->
+<section class="page-section" id="g20">
+  <h2>20. I Verbi Frasali <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">短语动词</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Verbo frasale</th><th>Significato</th></tr>
+      <tr><td><span class="verb">buttare gi&ugrave;</span></td><td>scrivere / deprimere</td></tr>
+      <tr><td><span class="verb">buttare via</span></td><td>gettare</td></tr>
+      <tr><td><span class="verb">fare fuori</span></td><td>uccidere / esaurire</td></tr>
+      <tr><td><span class="verb">andare via</span></td><td>allontanarsi</td></tr>
+      <tr><td><span class="verb">tirare avanti</span></td><td>sopravvivere, continuare</td></tr>
+      <tr><td><span class="verb">tirare fuori</span></td><td>estrarre</td></tr>
+      <tr><td><span class="verb">venire fuori</span></td><td>emergere, risultare</td></tr>
+      <tr><td><span class="verb">entrare dentro</span></td><td>entrare (intensivo)</td></tr>
+      <tr><td><span class="verb">salire su</span></td><td>salire (intensivo)</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 21. Pure e Anzi -->
+<section class="page-section" id="g21">
+  <h2>21. Gli Avverbi "Pure" e "Anzi"</h2>
+  <div class="grammar-box">
+    <h4>Pure</h4>
+    <table>
+      <tr><th>Uso</th><th>Esempio</th></tr>
+      <tr><td>Anche (也)</td><td>"Domani e <span class="verb">pure</span> domenica."</td></tr>
+      <tr><td>Anche se + gerundio (pur)</td><td>"<span class="verb">Pur</span> ammettendo che abbia ragione..."</td></tr>
+      <tr><td>Esortazione / concessione (请/尽管)</td><td>"Andiamo <span class="verb">pure</span>..."</td></tr>
+    </table>
+    <h4>Anzi</h4>
+    <table>
+      <tr><th>Uso</th><th>Esempio</th></tr>
+      <tr><td>Modificare (更确切地说)</td><td>"Un sms, <span class="verb">anzi</span>, ti telefono."</td></tr>
+      <tr><td>Rafforzare (甚至更)</td><td>"Male, <span class="verb">anzi</span>, malissimo!"</td></tr>
+      <tr><td>Esclamazione (一点也不/哪里话)</td><td>"Nessun disturbo. <span class="verb">Anzi!</span>"</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 22. Pronome affettivo -->
+<section class="page-section" id="g22">
+  <h2>22. Il Pronome Affettivo (Dativo Etico) <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">感情代词/与格伦理</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Pronome</th><th>Esempio</th></tr>
+      <tr><td>mi / ci</td><td>"Che <span class="verb">mi</span> combini? <span class="verb">Stammi</span> bene."</td></tr>
+      <tr><td>ti / vi</td><td>"Chi <span class="verb">ti</span> incontro?"</td></tr>
+      <tr><td>gli / le</td><td>"Giulia non <span class="verb">le</span> cresce tanto."</td></tr>
+      <tr><td>Con ecco</td><td>"<span class="verb">Eccoti</span> le chiavi!"</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 23. Duplicazione espressiva -->
+<section class="page-section" id="g23">
+  <h2>23. La Duplicazione Espressiva <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">表达性重复</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Categoria</th><th>Esempi</th></tr>
+      <tr><td>Nomi</td><td>via via</td></tr>
+      <tr><td>Aggettivi</td><td>bel bello, quatto quatto</td></tr>
+      <tr><td>Avverbi</td><td>ben bene, cos&igrave; cos&igrave;, piano piano, presto presto</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 24. Idiomi con numeri -->
+<section class="page-section" id="g24">
+  <h2>24. Espressioni Idiomatiche con Numeri <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">数字习语</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Espressione</th><th>Significato</th></tr>
+      <tr><td><span class="verb">andare per la tangente</span></td><td>uscire dal tema (跑题)</td></tr>
+      <tr><td><span class="verb">prova del 9</span></td><td>test di controllo (验算/测试)</td></tr>
+      <tr><td><span class="verb">quadratura del cerchio</span></td><td>problema difficilissimo (天大的难题)</td></tr>
+      <tr><td><span class="verb">dare i numeri</span></td><td>dire cose senza senso (胡说八道)</td></tr>
+      <tr><td><span class="verb">avere i numeri per</span></td><td>avere le caratteristiche per (有资质做)</td></tr>
+      <tr><td><span class="verb">sparare a zero</span></td><td>criticare duramente (严厉批评)</td></tr>
+      <tr><td><span class="verb">valere zero</span></td><td>non avere valore (一文不值)</td></tr>
+      <tr><td><span class="verb">fare due pi&ugrave; due</span></td><td>arrivare a una conclusione (得出结论)</td></tr>
+      <tr><td><span class="verb">ogni due per tre</span></td><td>molto spesso (经常，动不动就)</td></tr>
+      <tr><td><span class="verb">farsi in quattro</span></td><td>impegnarsi molto (竭尽全力)</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 25. Neologismi internet -->
+<section class="page-section" id="g25">
+  <h2>25. I Neologismi di Internet <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">互联网新词</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Neologismo</th><th>Significato</th></tr>
+      <tr><td><span class="verb">taggare</span></td><td>associare un nome a un volto / richiamare attenzione (标记/@某人)</td></tr>
+      <tr><td><span class="verb">loggarsi</span></td><td>accedere al proprio profilo (登录)</td></tr>
+      <tr><td><span class="verb">spammare</span></td><td>inviare messaggi inutili (发送垃圾信息)</td></tr>
+      <tr><td><span class="verb">trollare</span></td><td>partecipare a un forum solo per disturbare (网上挑衅/捣乱)</td></tr>
+      <tr><td><span class="verb">postare</span></td><td>pubblicare un contenuto (发布帖子)</td></tr>
+      <tr><td><span class="verb">bannare</span></td><td>escludere qualcuno per sempre (封禁)</td></tr>
+      <tr><td><span class="verb">blastare</span></td><td>deridere senza piet&agrave; (无情嘲讽)</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 26. Gesti italiani -->
+<section class="page-section" id="g26">
+  <h2>26. I Gesti Italiani <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">意大利手势</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Gesto</th><th>Significato</th></tr>
+      <tr><td><strong>Fare le corna</strong></td><td>portafortuna / tradimento</td></tr>
+      <tr><td><strong>Il gesto a borsa</strong></td><td>"Che cosa vuoi?" / "Ma che stai dicendo?"</td></tr>
+      <tr><td><strong>Gesto della mano sotto il mento</strong></td><td>"Non me ne importa"</td></tr>
+      <tr><td><strong>Toccare ferro</strong></td><td>portafortuna (scaramanzia)</td></tr>
+      <tr><td><strong>Le dita incrociate</strong></td><td>augurio di buona fortuna</td></tr>
+      <tr><td><strong>Alzare le spalle</strong></td><td>"Non lo so" / "Non mi interessa"</td></tr>
+      <tr><td><strong>Baciarsi le dita</strong></td><td>"Che buono!" / "Eccellente!"</td></tr>
+      <tr><td><strong>Pizzicarsi la guancia</strong></td><td>"Complimenti, che bello!"</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 27. Orale -> Scritto -->
+<section class="page-section" id="g27">
+  <h2>27. Trasformazione Orale &rarr; Scritto <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">口语转书面语</span></h2>
+  <div class="grammar-box">
+    <h4>Elementi dell'oralit&agrave;</h4>
+    <table>
+      <tr><th>Elemento orale</th><th>Equivalente scritto formale</th></tr>
+      <tr><td>Mah</td><td>Non so, forse</td></tr>
+      <tr><td>Beh</td><td>Dunque / Allora</td></tr>
+      <tr><td>Cio&egrave;</td><td>In altre parole, ossia</td></tr>
+      <tr><td>Tipo</td><td>Per esempio / Ad esempio</td></tr>
+      <tr><td>Praticamente</td><td>In pratica / Di fatto</td></tr>
+      <tr><td>Ecco</td><td>Questo &egrave; / Questi sono</td></tr>
+      <tr><td>Cosa / Roba</td><td>Oggetto / Questione</td></tr>
+      <tr><td>Roba da matti</td><td>&Egrave; incredibile</td></tr>
+      <tr><td>Boh</td><td>Non ho idea</td></tr>
+      <tr><td>Ma dai!</td><td>Non &egrave; possibile!</td></tr>
+    </table>
+    <h4>Strategie di trasformazione</h4>
+    <ol style="font-size:13px;">
+      <li>Eliminare ripetizioni e pause &mdash; 删除重复和停顿</li>
+      <li>Strutturare in paragrafi &mdash; 分段组织</li>
+      <li>Usare connettivi formali &mdash; 使用正式连接词</li>
+      <li>Eliminare interiezioni &mdash; 删除感叹词</li>
+      <li>Completare frasi incomplete &mdash; 补全不完整的句子</li>
+      <li>Sostituire deittici con riferimenti espliciti &mdash; 用明确指代替换指示词</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 28. Polisemia animali -->
+<section class="page-section" id="g28">
+  <h2>28. Polisemia dei Nomi di Animali <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">动物名词多义性</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Parola</th><th>Significato base</th><th>Significato figurato</th></tr>
+      <tr><td><span class="verb">bufala</span></td><td>femmina del bufalo</td><td>notizia falsa (fake news)</td></tr>
+      <tr><td><span class="verb">gorilla</span></td><td>primate</td><td>guardia del corpo (保镖)</td></tr>
+      <tr><td><span class="verb">papera</span></td><td>anatra</td><td>errore/lapsus in pubblico (口误)</td></tr>
+      <tr><td><span class="verb">giraffa</span></td><td>animale africano</td><td>braccio del microfono (麦克风吊杆)</td></tr>
+      <tr><td><span class="verb">lupo</span></td><td>animale selvatico</td><td>uomo affamato (avere fame da lupi)</td></tr>
+      <tr><td><span class="verb">cane</span></td><td>animale domestico</td><td>persona malvagia; tempo da cani</td></tr>
+      <tr><td><span class="verb">gatto</span></td><td>felino domestico</td><td>persona furba (gatto e volpe)</td></tr>
+      <tr><td><span class="verb">volpe</span></td><td>animale selvatico</td><td>persona astuta (vecchia volpe)</td></tr>
+      <tr><td><span class="verb">asino</span></td><td>equino</td><td>persona ignorante (sei un asino!)</td></tr>
+      <tr><td><span class="verb">serpente</span></td><td>rettile</td><td>persona perfida e traditrice</td></tr>
+      <tr><td><span class="verb">pecora</span></td><td>ovino</td><td>persona che segue gli altri</td></tr>
+      <tr><td><span class="verb">leone</span></td><td>felino africano</td><td>persona coraggiosa (cuor di leone)</td></tr>
+      <tr><td><span class="verb">coniglio</span></td><td>mammifero</td><td>persona paurosa (farsi le ./. di coniglio)</td></tr>
+      <tr><td><span class="verb">tacchino</span></td><td>uccello</td><td>persona ingenua (fare il tacchino)</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 29. Manifesto comunicazione -->
+<section class="page-section" id="g29">
+  <h2>29. Il Manifesto della Comunicazione Non Ostile <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">非敌意沟通宣言</span></h2>
+  <div class="grammar-box">
+    <ol style="font-size:13px;line-height:1.8;">
+      <li><span class="it" onclick="speak('Virtuale è reale')"><strong>Virtuale &egrave; reale</strong> &mdash; 虚拟即真实</span></li>
+      <li><span class="it" onclick="speak('Si è ciò che si comunica')"><strong>Si &egrave; ci&ograve; che si comunica</strong> &mdash; 人如其言</span></li>
+      <li><span class="it" onclick="speak('Le parole danno forma al pensiero')"><strong>Le parole danno forma al pensiero</strong> &mdash; 言语塑造思想</span></li>
+      <li><span class="it" onclick="speak('Prima di parlare bisogna ascoltare')"><strong>Prima di parlare bisogna ascoltare</strong> &mdash; 先听后说</span></li>
+      <li><span class="it" onclick="speak('Le parole sono un ponte')"><strong>Le parole sono un ponte</strong> &mdash; 言语是桥梁</span></li>
+      <li><span class="it" onclick="speak('Le parole hanno conseguenze')"><strong>Le parole hanno conseguenze</strong> &mdash; 言语有后果</span></li>
+      <li><span class="it" onclick="speak('Condividere è una responsabilità')"><strong>Condividere &egrave; una responsabilit&agrave;</strong> &mdash; 分享是责任</span></li>
+      <li><span class="it" onclick="speak('Le idee si possono discutere. Le persone si devono rispettare.')"><strong>Le idee si possono discutere. Le persone si devono rispettare.</strong> &mdash; 观点可讨论，人应受尊重</span></li>
+      <li><span class="it" onclick="speak('Gli insulti non sono argomenti')"><strong>Gli insulti non sono argomenti</strong> &mdash; 侮辱不是论据</span></li>
+      <li><span class="it" onclick="speak('Anche il silenzio comunica')"><strong>Anche il silenzio comunica</strong> &mdash; 沉默也是沟通</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 30. Onomatopee -->
+<section class="page-section" id="g30">
+  <h2>30. Onomatopee e Interiezioni <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">拟声词与感叹词</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Onomatopea</th><th>Significato / Situazione</th></tr>
+      <tr><td><span class="verb">Ahi!</span></td><td>dolore fisico</td></tr>
+      <tr><td><span class="verb">Oh!</span></td><td>sorpresa, stupore</td></tr>
+      <tr><td><span class="verb">Ah!</span></td><td>capire improvvisamente</td></tr>
+      <tr><td><span class="verb">Ehi!</span></td><td>chiamare qualcuno</td></tr>
+      <tr><td><span class="verb">Uffa!</span></td><td>noia, fastidio</td></tr>
+      <tr><td><span class="verb">Boh!</span></td><td>non lo so</td></tr>
+      <tr><td><span class="verb">Ssh!</span></td><td>fare silenzio</td></tr>
+      <tr><td><span class="verb">Bau bau</span></td><td>verso del cane</td></tr>
+      <tr><td><span class="verb">Miao</span></td><td>verso del gatto</td></tr>
+      <tr><td><span class="verb">Chicchirich&igrave;</span></td><td>verso del gallo</td></tr>
+      <tr><td><span class="verb">Drin drin</span></td><td>suono del telefono</td></tr>
+      <tr><td><span class="verb">Toc toc</span></td><td>bussare alla porta</td></tr>
+      <tr><td><span class="verb">Splash</span></td><td>rumore di caduta in acqua</td></tr>
+      <tr><td><span class="verb">Boom</span></td><td>esplosione</td></tr>
+      <tr><td><span class="verb">Gulp</span></td><td>deglutizione per sorpresa</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 31. Connettivi avanzati -->
+<section class="page-section" id="g31">
+  <h2>31. Connettivi Testuali Avanzati <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">高级篇章连接词</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Categoria</th><th>Connettivo</th><th>Esempio</th></tr>
+      <tr><td><strong>Ordine</strong></td><td>innanzitutto, anzitutto, in primo luogo, infine</td><td><span class="verb">Innanzitutto</span> vorrei ringraziare tutti.</td></tr>
+      <tr><td><strong>Aggiunta</strong></td><td>inoltre, per di pi&ugrave;, oltretutto, addirittura</td><td><span class="verb">Oltretutto</span>, non mi ha nemmeno avvisato.</td></tr>
+      <tr><td><strong>Conclusione</strong></td><td>dunque, quindi, pertanto, di conseguenza, insomma</td><td><span class="verb">Ne consegue che</span> dobbiamo cambiare strategia.</td></tr>
+      <tr><td><strong>Riformulazione</strong></td><td>cio&egrave;, ossia, ovvero, in altre parole</td><td><span class="verb">In altre parole</span>, non abbiamo tempo.</td></tr>
+      <tr><td><strong>Opposizione</strong></td><td>al contrario, invece, mentre, ciononostante</td><td><span class="verb">Ciononostante</span>, abbiamo proseguito.</td></tr>
+      <tr><td><strong>Esemplificazione</strong></td><td>ad esempio, per esempio, a titolo di esempio</td><td><span class="verb">A titolo di esempio</span>, consideriamo il caso di Roma.</td></tr>
+      <tr><td><strong>Spiegazione</strong></td><td>infatti, difatti, in effetti</td><td><span class="verb">In effetti</span>, hai perfettamente ragione.</td></tr>
+      <tr><td><strong>Limitazione</strong></td><td>almeno, quantomeno, perlomeno</td><td><span class="verb">Quantomeno</span> poteva avvisare.</td></tr>
+      <tr><td><strong>Riepilogo</strong></td><td>in breve, in sintesi, in poche parole</td><td><span class="verb">In breve</span>, il progetto &egrave; fallito.</td></tr>
+      <tr><td><strong>Rilevanza</strong></td><td>soprattutto, principalmente, in particolare</td><td><span class="verb">Particolarmente</span> interessante &egrave; la sezione finale.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 32. Infinito sostantivato -->
+<section class="page-section" id="g32">
+  <h2>32. L'Uso dell'Infinito in Funzione di Sostantivo <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">不定式作名词</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="verb">Il sapere</span> &egrave; potere.</td><td>知识就是力量。</td></tr>
+      <tr><td><span class="verb">Il mangiare</span> sano &egrave; importante.</td><td>吃得健康很重要。</td></tr>
+      <tr><td><span class="verb">Il dormire</span> bene influisce sull'umore.</td><td>睡得好影响情绪。</td></tr>
+      <tr><td><span class="verb">Il viaggiare</span> arricchisce la mente.</td><td>旅行丰富心灵。</td></tr>
+      <tr><td><span class="verb">Lo studiare</span> richiede impegno.</td><td>学习需要投入。</td></tr>
+      <tr><td><span class="verb">Il lavorare</span> troppo stressa.</td><td>工作太多会有压力。</td></tr>
+      <tr><td><span class="verb">Il leggere</span> &egrave; un piacere.</td><td>阅读是一种乐趣。</td></tr>
+      <tr><td><span class="verb">Il fumare</span> fa male alla salute.</td><td>吸烟有害健康。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 33. Posizione aggettivo -->
+<section class="page-section" id="g33">
+  <h2>33. La Posizione dell'Aggettivo e Cambiamento di Significato <span style="font-size:14px;font-weight:400;color:var(--ne-muted);">形容词位置与意义变化</span></h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Prima del nome (字面义/引申)</th><th>Dopo il nome (本义/限制性)</th></tr>
+      <tr><td><strong>un grande uomo</strong> (伟大的人)</td><td><strong>un uomo grande</strong> (高个子男人)</td></tr>
+      <tr><td><strong>un povero uomo</strong> (可怜的人)</td><td><strong>un uomo povero</strong> (贫穷的男人)</td></tr>
+      <tr><td><strong>un vecchio amico</strong> (老朋友)</td><td><strong>un amico vecchio</strong> (年长的朋友)</td></tr>
+      <tr><td><strong>un certo fatto</strong> (某个事实)</td><td><strong>un fatto certo</strong> (确定的事实)</td></tr>
+      <tr><td><strong>una nuova macchina</strong> (另一辆车)</td><td><strong>una macchina nuova</strong> (崭新的车)</td></tr>
+      <tr><td><strong>diverse ragioni</strong> (多种原因)</td><td><strong>ragioni diverse</strong> (不同的原因)</td></tr>
+      <tr><td><strong>un semplice problema</strong> (仅仅是个问题)</td><td><strong>un problema semplice</strong> (简单的问题)</td></tr>
+      <tr><td><strong>la stessa persona</strong> (同一个人)</td><td><strong>la persona stessa</strong> (本人)</td></tr>
+      <tr><td><strong>un vero amico</strong> (真正的朋友)</td><td><strong>una storia vera</strong> (真实的故事)</td></tr>
+      <tr><td><strong>un alto funzionario</strong> (高级官员)</td><td><strong>un funzionario alto</strong> (高个子官员)</td></tr>
+    </table>
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="facciamo-punto.html">&larr; Facciamo il punto</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+  <a href="eserciziario.html" class="next-btn">Eserciziario &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 6</div>
+  <p>Corso di lingua italiana per stranieri &middot; Livello C2</p>
+  <p style="margin-top:8px;opacity:0.6;">Ornella Discacciati &middot; ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

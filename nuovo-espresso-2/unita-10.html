@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 10 · Casa dolce casa · NUOVO Espresso 2</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 2 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 10 · A2</div>
+  <h1>&#x1F3E0; Casa dolce casa</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">家与公寓 · p.143-159</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">找房子 · 描述住宅 · 虚拟式现在时 · 比较级 · magari</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Alla ricerca di un appartamento -->
+  <h3>1. Alla ricerca di un appartamento · 找公寓 · p.145, es.2</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">听对话，了解Daniela在找什么样的公寓。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('E allora, Daniela, trovi casa?')"><strong>Carlo</strong>: E allora, Daniela, trovi casa?</span></td><td class="zh"><strong>卡洛</strong>: 那么，丹妮拉，你找到房子了吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Senti, ho saputo che forse un mio amico si trasferisce e vende l\'appartamento.')"><strong>Daniela</strong>: Senti, ho saputo che forse un mio amico si trasferisce e vende l'appartamento.</span></td><td class="zh"><strong>丹妮拉</strong>: 我听说一个朋友可能要搬家卖公寓。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ah sì? E dov\'è?')"><strong>Carlo</strong>: Ah sì? E dov'è?</span></td><td class="zh"><strong>卡洛</strong>: 是吗？在哪里？</td></tr>
+    <tr><td><span class="it" onclick="speak('Non sono mai andata a casa sua, ma penso che abiti vicino al Duomo... mi pare. Una bella zona, direi.')"><strong>Daniela</strong>: Non sono mai andata a casa sua, ma penso che abiti vicino al Duomo... mi pare. Una bella zona, direi.</span></td><td class="zh"><strong>丹妮拉</strong>: 我从没去过他家，但我想他住在主教座堂附近...好像是的。一个不错的区域。</td></tr>
+    <tr><td><span class="it" onclick="speak('Bellissima! E quanto è grande? Balconi? Se non c\'è almeno un balcone non se ne fa niente. E anche due bagni...')"><strong>Carlo</strong>: Bellissima! E quanto è grande? Balconi? Se non c'è almeno un balcone non se ne fa niente. E anche due bagni...</span></td><td class="zh"><strong>卡洛</strong>: 太棒了！有多大？阳台？如果连个阳台都没有那就算了。还有两个卫生间...</td></tr>
+    <tr><td><span class="it" onclick="speak('Veramente non lo so, ma ogni mese fa una festa e invita un sacco di gente, quindi deve essere abbastanza spazioso. Mi sembra che abbia addirittura una terrazza, perché è all\'ultimo piano.')"><strong>Daniela</strong>: Veramente non lo so, ma ogni mese fa una festa e invita un sacco di gente, quindi deve essere abbastanza spazioso. Mi sembra che abbia addirittura una terrazza, perché è all'ultimo piano.</span></td><td class="zh"><strong>丹妮拉</strong>: 我还真不知道，但他每个月举办派对邀请很多人，所以应该够宽敞。好像还有一个大露台，因为是在顶楼。</td></tr>
+    <tr><td><span class="it" onclick="speak('Wow, un attico, sarebbe fantastico. Ma perché va via?')"><strong>Carlo</strong>: Wow, un attico, sarebbe fantastico. Ma perché va via?</span></td><td class="zh"><strong>卡洛</strong>: 哇，顶层公寓，太棒了。但他为什么要搬走？</td></tr>
+    <tr><td><span class="it" onclick="speak('Non ho ben capito, credo che la moglie voglia avvicinarsi ai genitori, che sono anziani. Vanno in un bel quartiere, ma in periferia, a quanto ho capito.')"><strong>Daniela</strong>: Non ho ben capito, credo che la moglie voglia avvicinarsi ai genitori, che sono anziani. Vanno in un bel quartiere, ma in periferia, a quanto ho capito.</span></td><td class="zh"><strong>丹妮拉</strong>: 我没太搞明白，我想是他妻子想离父母近一点，父母年纪大了。他们要去一个不错的区域，但在郊区，据我所知。</td></tr>
+    <tr><td><span class="it" onclick="speak('E senti, quanto costa l\'affitto?')"><strong>Carlo</strong>: E senti, quanto costa l'affitto?</span></td><td class="zh"><strong>卡洛</strong>: 那租金多少钱？</td></tr>
+    <tr><td><span class="it" onclick="speak('Ah... no. Veramente, credo che lo venda, l\'appartamento. Non so se vuole affittarlo.')"><strong>Daniela</strong>: Ah... no. Veramente, credo che lo venda, l'appartamento. Non so se vuole affittarlo.</span></td><td class="zh"><strong>丹妮拉</strong>: 啊...不。实际上，我想他是要卖掉公寓。不知道他是否想出租。</td></tr>
+    <tr><td><span class="it" onclick="speak('Aaahh. Allora no.')"><strong>Carlo</strong>: Aaahh. Allora no.</span></td><td class="zh"><strong>卡洛</strong>: 啊...那算了。</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Una casa a Venezia -->
+  <h3>2. Una casa a Venezia · 威尼斯的一所房子 · p.148, es.6</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读关于威尼斯公寓的邮件。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ciao Mariuccia, finalmente trovo il tempo di scriverti! Spero che tu stia bene!')">Ciao Mariuccia, finalmente trovo il tempo di scriverti! Spero che tu stia bene!</span></td><td class="zh">嗨，马鲁西亚，我终于找到时间给你写信了！希望你一切都好！</td></tr>
+    <tr><td><span class="it" onclick="speak('Allora, volevi sapere com\'è la casa dove si sono trasferiti Alberto e Lucia.')">Allora, volevi sapere com'è la casa dove si sono trasferiti Alberto e Lucia.</span></td><td class="zh">那么，你想知道阿尔贝托和露琪亚搬去的房子怎么样。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ti ho già detto che è bellissima, ma per capirlo devi assolutamente andarci!')">Ti ho già detto che è bellissima, ma per capirlo devi assolutamente andarci!</span></td><td class="zh">我已经告诉过你房子很美，但要真正理解你必须亲自去看看！</td></tr>
+    <tr><td><span class="it" onclick="speak('La casa si trova nella zona del ghetto, secondo me una delle più belle di Venezia...')">La casa si trova nella zona del ghetto, secondo me una delle più belle di Venezia...</span></td><td class="zh">房子位于犹太区，是我认为威尼斯最美的地方之一...</td></tr>
+    <tr><td><span class="it" onclick="speak('L\'appartamento, di circa 100 metri quadrati e su due livelli, è al terzo piano di un edificio senza ascensore e con delle scale strette e ripide.')">L'appartamento, di circa 100 metri quadrati e su due livelli, è al terzo piano di un edificio senza ascensore e con delle scale strette e ripide.</span></td><td class="zh">公寓约100平方米，分两层，在无电梯建筑的第三层（意大利计数），楼梯又窄又陡。</td></tr>
+    <tr><td><span class="it" onclick="speak('Al primo piano ci sono, oltre alla cucina, il salone, due bagni e la camera degli ospiti. La camera da letto e il terrazzo si trovano invece al secondo piano.')">Al primo piano ci sono, oltre alla cucina, il salone, due bagni e la camera degli ospiti. La camera da letto e il terrazzo si trovano invece al secondo piano.</span></td><td class="zh">一楼（意大利二楼）有厨房、客厅、两个卫生间和客房。卧室和露台在二楼（意大利三楼）。</td></tr>
+    <tr><td><span class="it" onclick="speak('La camera da letto è veramente molto bella, ha un parquet molto vecchio e un terrazzo delizioso che dà su un cortile.')">La camera da letto è veramente molto bella, ha un parquet molto vecchio e un terrazzo delizioso che dà su un cortile.</span></td><td class="zh">卧室非常漂亮，有很旧的木地板和一个俯瞰庭院的可爱露台。</td></tr>
+    <tr><td><span class="it" onclick="speak('Anche il salone è bello, con tre finestre molto grandi da cui si ha una magnifica vista dei canali.')">Anche il salone è bello, con tre finestre molto grandi da cui si ha una magnifica vista dei canali.</span></td><td class="zh">客厅也很漂亮，有三个大窗户，可以看到运河的壮丽景色。</td></tr>
+    <tr><td><span class="it" onclick="speak('Alberto ha portato i mobili che aveva nella vecchia casa di Treviso. La cucina invece era già arredata, elettrodomestici compresi.')">Alberto ha portato i mobili che aveva nella vecchia casa di Treviso. La cucina invece era già arredata, elettrodomestici compresi.</span></td><td class="zh">阿尔贝托带来了他在特雷维索旧房子的家具。厨房则是装修好的，包括电器。</td></tr>
+    <tr><td><span class="it" onclick="speak('La casa è abbastanza silenziosa perché non esistono macchine e perché la zona non è troppo turistica. L\'unico problema è quello dell\'acqua alta, che a Venezia è molto frequente.')">La casa è abbastanza silenziosa perché non esistono macchine e perché la zona non è troppo turistica. L'unico problema è quello dell'acqua alta, che a Venezia è molto frequente.</span></td><td class="zh">房子相当安静，因为（威尼斯）没有汽车，而且该区域不太旅游化。唯一的问题是涨潮水，这在威尼斯非常频繁。</td></tr>
+    <tr><td><span class="it" onclick="speak('Alberto e Lucia mi hanno detto che devi assolutamente andare a trovarli! Magari ci andiamo insieme! Fammi sapere! A presto. Ti abbraccio, Alessandra')">Alberto e Lucia mi hanno detto che devi assolutamente andare a trovarli! Magari ci andiamo insieme! Fammi sapere! A presto. Ti abbraccio, Alessandra</span></td><td class="zh">阿尔贝托和露琪亚说你一定要去看他们！也许我们一起去！告诉我！回见。拥抱你，亚历山德拉。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Necessità e desideri -->
+  <h3>3. Necessità e desideri · 需求和愿望 · p.147, es.4</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">讨论找房子时的重要条件。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('È importante che sia grande.')">È importante che sia grande.</span></td><td class="zh">重要的是要大。</td></tr>
+    <tr><td><span class="it" onclick="speak('È fondamentale che ci sia l\'ascensore.')">È fondamentale che ci sia l'ascensore.</span></td><td class="zh">必须有电梯。</td></tr>
+    <tr><td><span class="it" onclick="speak('È necessario che abbia un balcone.')">È necessario che abbia un balcone.</span></td><td class="zh">必须有阳台。</td></tr>
+    <tr><td><span class="it" onclick="speak('Per me è importante che l\'appartamento abbia un garage.')">Per me è importante che l'appartamento abbia un garage.</span></td><td class="zh">对我来说重要的是公寓要有车库。</td></tr>
+    <tr><td><span class="it" onclick="speak('È importante che sia in una zona tranquilla.')">È importante che sia in una zona tranquilla.</span></td><td class="zh">重要的是在安静的区域。</td></tr>
+    <tr><td><span class="it" onclick="speak('È fondamentale che sia ben collegato.')">È fondamentale che sia ben collegato.</span></td><td class="zh">必须交通便利。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>房子和公寓 (Casa e appartamento)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la casa')">la casa</td><td>s.f.</td><td>房子</td></tr>
+    <tr><td class="it" onclick="speak('l\'appartamento')">l'appartamento</td><td>s.m.</td><td>公寓</td></tr>
+    <tr><td class="it" onclick="speak('la stanza')">la stanza / la camera</td><td>s.f.</td><td>房间</td></tr>
+    <tr><td class="it" onclick="speak('il soggiorno')">il soggiorno / il salone</td><td>s.m.</td><td>客厅</td></tr>
+    <tr><td class="it" onclick="speak('la cucina')">la cucina</td><td>s.f.</td><td>厨房</td></tr>
+    <tr><td class="it" onclick="speak('la camera da letto')">la camera da letto</td><td>s.f.</td><td>卧室</td></tr>
+    <tr><td class="it" onclick="speak('il bagno')">il bagno</td><td>s.m.</td><td>卫生间</td></tr>
+    <tr><td class="it" onclick="speak('la sala da pranzo')">la sala da pranzo</td><td>s.f.</td><td>餐厅</td></tr>
+    <tr><td class="it" onclick="speak('la camera degli ospiti')">la camera degli ospiti</td><td>s.f.</td><td>客房</td></tr>
+    <tr><td class="it" onclick="speak('il corridoio')">il corridoio</td><td>s.m.</td><td>走廊</td></tr>
+    <tr><td class="it" onclick="speak('l\'ingresso')">l'ingresso</td><td>s.m.</td><td>入口</td></tr>
+    <tr><td class="it" onclick="speak('la terrazza')">la terrazza</td><td>s.f.</td><td>露台</td></tr>
+    <tr><td class="it" onclick="speak('il balcone')">il balcone</td><td>s.m.</td><td>阳台</td></tr>
+    <tr><td class="it" onclick="speak('il giardino')">il giardino</td><td>s.m.</td><td>花园</td></tr>
+    <tr><td class="it" onclick="speak('il garage')">il garage</td><td>s.m.</td><td>车库</td></tr>
+    <tr><td class="it" onclick="speak('la cantina')">la cantina</td><td>s.f.</td><td>地下室</td></tr>
+    <tr><td class="it" onclick="speak('l\'ascensore')">l'ascensore</td><td>s.m.</td><td>电梯</td></tr>
+    <tr><td class="it" onclick="speak('le scale')">le scale</td><td>s.f.pl.</td><td>楼梯</td></tr>
+    <tr><td class="it" onclick="speak('il piano')">il piano</td><td>s.m.</td><td>楼层</td></tr>
+    <tr><td class="it" onclick="speak('l\'attico')">l'attico</td><td>s.m.</td><td>顶层公寓</td></tr>
+    <tr><td class="it" onclick="speak('il monolocale')">il monolocale</td><td>s.m.</td><td>单间公寓</td></tr>
+    <tr><td class="it" onclick="speak('la villetta')">la villetta</td><td>s.f.</td><td>小别墅</td></tr>
+  </table>
+
+  <h3>家具和电器 (Arredamento ed elettrodomestici)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il mobile')">il mobile</td><td>s.m.</td><td>家具</td></tr>
+    <tr><td class="it" onclick="speak('il tavolo')">il tavolo</td><td>s.m.</td><td>桌子</td></tr>
+    <tr><td class="it" onclick="speak('la sedia')">la sedia</td><td>s.f.</td><td>椅子</td></tr>
+    <tr><td class="it" onclick="speak('il divano')">il divano</td><td>s.m.</td><td>沙发</td></tr>
+    <tr><td class="it" onclick="speak('il letto')">il letto</td><td>s.m.</td><td>床</td></tr>
+    <tr><td class="it" onclick="speak('l\'armadio')">l'armadio</td><td>s.m.</td><td>衣柜</td></tr>
+    <tr><td class="it" onclick="speak('la libreria')">la libreria</td><td>s.f.</td><td>书架</td></tr>
+    <tr><td class="it" onclick="speak('la scrivania')">la scrivania</td><td>s.f.</td><td>书桌</td></tr>
+    <tr><td class="it" onclick="speak('il frigorifero')">il frigorifero</td><td>s.m.</td><td>冰箱</td></tr>
+    <tr><td class="it" onclick="speak('il forno')">il forno</td><td>s.m.</td><td>烤箱</td></tr>
+    <tr><td class="it" onclick="speak('la lavatrice')">la lavatrice</td><td>s.f.</td><td>洗衣机</td></tr>
+    <tr><td class="it" onclick="speak('la televisione')">la televisione</td><td>s.f.</td><td>电视</td></tr>
+    <tr><td class="it" onclick="speak('il computer')">il computer</td><td>s.m.</td><td>电脑</td></tr>
+    <tr><td class="it" onclick="speak('il parquet')">il parquet</td><td>s.m.</td><td>木地板</td></tr>
+  </table>
+
+  <h3>找房相关 (Cercare casa)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('l\'affitto')">l'affitto</td><td>s.m.</td><td>租金</td></tr>
+    <tr><td class="it" onclick="speak('comprare')">comprare</td><td>v.</td><td>购买</td></tr>
+    <tr><td class="it" onclick="speak('vendere')">vendere</td><td>v.</td><td>出售</td></tr>
+    <tr><td class="it" onclick="speak('affittare')">affittare</td><td>v.</td><td>出租</td></tr>
+    <tr><td class="it" onclick="speak('trasferirsi')">trasferirsi</td><td>v.</td><td>搬家</td></tr>
+    <tr><td class="it" onclick="speak('l\'agenzia immobiliare')">l'agenzia immobiliare</td><td>s.f.</td><td>房产中介</td></tr>
+    <tr><td class="it" onclick="speak('il proprietario')">il proprietario</td><td>s.m.</td><td>房主</td></tr>
+    <tr><td class="it" onclick="speak('ristrutturare')">ristrutturare</td><td>v.</td><td>翻新</td></tr>
+    <tr><td class="it" onclick="speak('arredato')">arredato</td><td>agg.</td><td>带家具的</td></tr>
+    <tr><td class="it" onclick="speak('il quartiere')">il quartiere</td><td>s.m.</td><td>街区</td></tr>
+    <tr><td class="it" onclick="speak('la periferia')">la periferia</td><td>s.f.</td><td>郊区</td></tr>
+    <tr><td class="it" onclick="speak('il centro')">il centro</td><td>s.m.</td><td>市中心</td></tr>
+    <tr><td class="it" onclick="speak('la zona')">la zona</td><td>s.f.</td><td>区域</td></tr>
+    <tr><td class="it" onclick="speak('i metri quadrati')">i metri quadrati (mq)</td><td>s.m.pl.</td><td>平方米</td></tr>
+  </table>
+
+  <h3>bello的特殊形式</h3>
+  <table class="vocab-table">
+    <tr><th>所处位置</th><th>单数</th><th>复数</th></tr>
+    <tr><td>普通辅音前</td><td><strong>bel</strong> ragazzo</td><td><strong>bei</strong> ragazzi</td></tr>
+    <tr><td>元音前</td><td><strong>bell'</strong> amico</td><td><strong>begli</strong> amici</td></tr>
+    <tr><td>s+辅音/z/gn等前</td><td><strong>bello</strong> straniero</td><td><strong>begli</strong> stranieri</td></tr>
+    <tr><td>阴性</td><td><strong>bella</strong> donna</td><td><strong>belle</strong> donne</td></tr>
+  </table>
+  <div class="grammar-box" style="margin-top:0;">
+    <p style="font-weight:600;margin-bottom:6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('un bel ragazzo')">un <strong>bel</strong> ragazzo</span></td><td>一个帅气的男孩</td></tr>
+      <tr><td><span class="it" onclick="speak('un bell\' albero')">un <strong>bell'</strong> albero</span></td><td>一棵漂亮的树</td></tr>
+      <tr><td><span class="it" onclick="speak('una bella casa')">una <strong>bella</strong> casa</span></td><td>一所漂亮的房子</td></tr>
+      <tr><td><span class="it" onclick="speak('dei bei fiori')">dei <strong>bei</strong> fiori</span></td><td>一些漂亮的花</td></tr>
+      <tr><td><span class="it" onclick="speak('delle belle scarpe')">delle <strong>belle</strong> scarpe</span></td><td>漂亮的鞋子</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Congiuntivo presente -->
+  <h3>1. 虚拟式现在时 (Congiuntivo presente)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">规则动词变位：</p>
+    <table>
+      <tr><th>人称</th><th>parlare</th><th>vedere</th><th>sentire</th></tr>
+      <tr><td>io</td><td><span class="verb">parli</span></td><td><span class="verb">veda</span></td><td><span class="verb">senta</span></td></tr>
+      <tr><td>tu</td><td><span class="verb">parli</span></td><td><span class="verb">veda</span></td><td><span class="verb">senta</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb">parli</span></td><td><span class="verb">veda</span></td><td><span class="verb">senta</span></td></tr>
+      <tr><td>noi</td><td><span class="verb">parliamo</span></td><td><span class="verb">vediamo</span></td><td><span class="verb">sentiamo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb">parliate</span></td><td><span class="verb">vediate</span></td><td><span class="verb">sentiate</span></td></tr>
+      <tr><td>loro</td><td><span class="verb">parlino</span></td><td><span class="verb">vedano</span></td><td><span class="verb">sentano</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">不规则动词变位：</p>
+    <table>
+      <tr><th>动词</th><th>变位</th></tr>
+      <tr><td><span class="verb">essere</span></td><td><strong>sia</strong>, sia, sia, <strong>siamo</strong>, <strong>siate</strong>, <strong>siano</strong></td></tr>
+      <tr><td><span class="verb">avere</span></td><td><strong>abbia</strong>, abbia, abbia, <strong>abbiamo</strong>, <strong>abbiate</strong>, <strong>abbiano</strong></td></tr>
+      <tr><td><span class="verb">stare</span></td><td><strong>stia</strong>, stia, stia, <strong>stiamo</strong>, <strong>stiate</strong>, <strong>stiano</strong></td></tr>
+      <tr><td><span class="verb">andare</span></td><td><strong>vada</strong>, vada, vada, <strong>andiamo</strong>, <strong>andiate</strong>, <strong>vadano</strong></td></tr>
+      <tr><td><span class="verb">fare</span></td><td><strong>faccia</strong>, faccia, faccia, <strong>facciamo</strong>, <strong>facciate</strong>, <strong>facciano</strong></td></tr>
+      <tr><td><span class="verb">dire</span></td><td><strong>dica</strong>, dica, dica, <strong>diciamo</strong>, <strong>diciate</strong>, <strong>dicano</strong></td></tr>
+      <tr><td><span class="verb">dare</span></td><td><strong>dia</strong>, dia, dia, <strong>diamo</strong>, <strong>diate</strong>, <strong>diano</strong></td></tr>
+      <tr><td><span class="verb">sapere</span></td><td><strong>sappia</strong>, sappia, sappia, <strong>sappiamo</strong>, <strong>sappiate</strong>, <strong>sappiano</strong></td></tr>
+      <tr><td><span class="verb">volere</span></td><td><strong>voglia</strong>, voglia, voglia, <strong>vogliamo</strong>, <strong>vogliate</strong>, <strong>vogliano</strong></td></tr>
+      <tr><td><span class="verb">potere</span></td><td><strong>possa</strong>, possa, possa, <strong>possiamo</strong>, <strong>possiate</strong>, <strong>possano</strong></td></tr>
+      <tr><td><span class="verb">dovere</span></td><td><strong>debba</strong>, debba, debba, <strong>dobbiamo</strong>, <strong>dobbiate</strong>, <strong>debbano</strong></td></tr>
+      <tr><td><span class="verb">venire</span></td><td><strong>venga</strong>, venga, venga, <strong>veniamo</strong>, <strong>veniate</strong>, <strong>vengano</strong></td></tr>
+      <tr><td><span class="verb">bere</span></td><td><strong>beva</strong>, beva, beva, <strong>beviamo</strong>, <strong>beviate</strong>, <strong>bevano</strong></td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Uso del congiuntivo -->
+  <h3>2. 虚拟式的用法</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">虚拟式主要用于表达主观性的内容，如意见、希望、必要性和感受。</p>
+    <p style="font-weight:600;margin:14px 0 6px;">用法1：表达主观意见</p>
+    <table>
+      <tr><td><span class="verb">Penso che</span></td><td>我认为...</td></tr>
+      <tr><td><span class="verb">Credo che</span></td><td>我相信...</td></tr>
+      <tr><td><span class="verb">Mi sembra che</span></td><td>我觉得...</td></tr>
+      <tr><td><span class="verb">Secondo me</span></td><td>+ 直陈式（不用虚拟式）</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">用法2：表达希望</p>
+    <table>
+      <tr><td><span class="verb">Spero che</span></td><td>我希望...</td></tr>
+      <tr><td><span class="verb">Desidero che</span></td><td>我希望/渴望...</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">用法3：表达必要性</p>
+    <table>
+      <tr><td><span class="verb">È importante che</span></td><td>重要的是...</td></tr>
+      <tr><td><span class="verb">È necessario che</span></td><td>必要的是...</td></tr>
+      <tr><td><span class="verb">È fondamentale che</span></td><td>基本的是...</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">用法4：表达可能性/不确定性</p>
+    <table>
+      <tr><td><span class="verb">Può darsi che</span></td><td>可能...</td></tr>
+      <tr><td><span class="verb">Non sono sicuro che</span></td><td>我不确定...</td></tr>
+      <tr><td><span class="verb">Forse</span></td><td>+ 直陈式（不用虚拟式）</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Penso che Maria sia simpatica.')"><strong>Penso che</strong> Maria <strong>sia</strong> simpatica.</span></td><td>我认为玛丽亚很友善。</td></tr>
+      <tr><td><span class="it" onclick="speak('Credo che loro abitino vicino al Duomo.')"><strong>Credo che</strong> loro <strong>abitino</strong> vicino al Duomo.</span></td><td>我相信他们住在主教座堂附近。</td></tr>
+      <tr><td><span class="it" onclick="speak('Spero che tu stia bene.')"><strong>Spero che</strong> tu <strong>stia</strong> bene.</span></td><td>希望你过得好。</td></tr>
+      <tr><td><span class="it" onclick="speak('È importante che l\'appartamento sia grande.')"><strong>È importante che</strong> l'appartamento <strong>sia</strong> grande.</span></td><td>重要的是公寓要大。</td></tr>
+      <tr><td><span class="it" onclick="speak('È necessario che ci sia un balcone.')"><strong>È necessario che</strong> ci <strong>sia</strong> un balcone.</span></td><td>必须要有阳台。</td></tr>
+      <tr><td><span class="it" onclick="speak('Può darsi che piova domani.')"><strong>Può darsi che</strong> <strong>piova</strong> domani.</span></td><td>可能明天下雨。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non credo che venga.')">Non <strong>credo che</strong> <strong>venga</strong>.</span></td><td>我不认为他会来。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">注意：当主语与主句主语相同时，使用不定式而非che从句：</p>
+    <table>
+      <tr><td><span class="verb">Spero di passare</span> l'esame. (而不是 Spero che io passi...)</td><td>我希望通过考试。</td></tr>
+      <tr><td><span class="verb">Penso di avere</span> ragione. (而不是 Penso che io abbia...)</td><td>我认为我是对的。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Comparativi -->
+  <h3>3. 比较级 più... di / che</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>结构</th><th>用法</th><th>例句</th></tr>
+      <tr><td><span class="verb">più... di</span> + 名词/代词</td><td>比较两个不同的人/物</td><td><span class="it" onclick="speak('Questa casa è più grande di quella.')">Questa casa è <strong>più</strong> grande <strong>di</strong> quella.</span> 这房子比那间大。</td></tr>
+      <tr><td><span class="verb">più... che</span> + 形容词/不定式</td><td>比较同一事物的两个特质</td><td><span class="it" onclick="speak('È più bello che comodo.')">È <strong>più</strong> bello <strong>che</strong> comodo.</span> 好看但不舒服。</td></tr>
+      <tr><td><span class="verb">meno... di</span></td><td>反义比较</td><td><span class="it" onclick="speak('Questo è meno caro di quello.')">Questo è <strong>meno</strong> caro <strong>di</strong> quello.</span> 这个没那个贵。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Marco è più alto di Luigi.')">Marco è <strong>più</strong> alto <strong>di</strong> Luigi.</span></td><td>马可比路易吉高。</td></tr>
+      <tr><td><span class="it" onclick="speak('La pasta è più buona del riso.')">La pasta è <strong>più</strong> buona <strong>del</strong> riso.</span></td><td>意面比米饭好吃。</td></tr>
+      <tr><td><span class="it" onclick="speak('È più importante studiare che guardare la TV.')">È <strong>più</strong> importante studiare <strong>che</strong> guardare la TV.</span></td><td>学习比看电视更重要。</td></tr>
+      <tr><td><span class="it" onclick="speak('Preferisco più il tè del caffè.')">Preferisco <strong>più</strong> il tè <strong>del</strong> caffè.</span></td><td>比起咖啡我更喜欢茶。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. magari -->
+  <h3>4. magari</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">magari是一个非常实用的意大利语副词，有多种用法。</p>
+    <table>
+      <tr><th>用法</th><th>含义</th><th>例句</th></tr>
+      <tr><td>表达愿望</td><td>要是...就好了</td><td><span class="it" onclick="speak('Magari fosse vero!')"><strong>Magari</strong> fosse vero!</span> 要是真的就好了！</td></tr>
+      <tr><td>也许/可能</td><td>或许</td><td><span class="it" onclick="speak('Oggi non posso, magari domani.')">Oggi non posso, <strong>magari</strong> domani.</span> 今天不行，也许明天吧。</td></tr>
+      <tr><td>接受提议（语气保留）</td><td>好吧/也许</td><td><span class="it" onclick="speak('Andiamo al cinema? Magari!')">Andiamo al cinema? <strong>Magari</strong>!</span> 去看电影？好（但有点犹豫）！</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Magari torno domani.')"><strong>Magari</strong> torno domani.</span></td><td>也许我明天再来。</td></tr>
+      <tr><td><span class="it" onclick="speak('Magari ci andiamo insieme.')"><strong>Magari</strong> ci andiamo insieme.</span></td><td>也许我们一起去。</td></tr>
+      <tr><td><span class="it" onclick="speak('Magari!')"><strong>Magari</strong>!</span></td><td>希望如此！</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 10 · p.155</h2>
+
+  <h3>&#x1F3DA;&#xFE0F; Così abita l'Italia（意大利人这样住）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p style="font-size:14px;line-height:1.8;">一项关于意大利人家居的研究，将住宅分为五种类型：</p>
+    <ol style="font-size:14px;line-height:1.8;">
+      <li><strong>30多岁已婚夫妇的家</strong>：公寓不太豪华，厨房是核心空间</li>
+      <li><strong>40-50岁人群的家</strong>：客厅更重要，作为会客场所，但缺乏个性和温暖，卫生间很少使用</li>
+      <li><strong>60-70岁人群的家</strong>：有珍贵的古董家具，主人自己都不知道其价值</li>
+      <li><strong>青少年的房间（所有年龄段）</strong>：充满经常无用、购买后很快被遗忘的物品，墙上贴满海报，到处挂着照片</li>
+      <li><strong>独居者的家</strong>：自由布置，卧室作为核心空间（居住、打电话、听音乐）</li>
+    </ol>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化对比:</strong><br>
+    Nel tuo Paese ci sono le stesse tipologie di case? — 你的国家有同样的住宅类型吗？<br>
+    A quale tipologia appartiene la tua casa? — 你的家属于哪种类型？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 10 — La casa di Federico · p.154</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">Federico要搬家，朋友们讨论他的新家和家具。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">关键表达:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Non credo che ci sia bisogno di descriverti l\'appartamento.')">Non credo che ci sia bisogno di descriverti l'appartamento.</span></td><td class="zh">我想不需要给你描述公寓。</td></tr>
+    <tr><td><span class="it" onclick="speak('Hai dei begli elettrodomestici.')">Hai dei begli elettrodomestici.</span></td><td class="zh">你有不错的电器。</td></tr>
+    <tr><td><span class="it" onclick="speak('Oddio, qui è meglio che non faccia fotografie!')">Oddio, qui è meglio che non faccia fotografie!</span></td><td class="zh">天哪，这里最好不要拍照！</td></tr>
+    <tr><td><span class="it" onclick="speak('Preferisco una zona più tranquilla che centrale.')">Preferisco una zona più tranquilla che centrale.</span></td><td class="zh">我更喜欢安静的区域而非中心区域。</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 描述自己的家或理想中的房子<br>
+    &bull; 练习使用虚拟式表达意见（Penso che... / Credo che...）<br>
+    &bull; 用比较级描述房屋的优缺点
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-9.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html">Torna al corso</a>
+  <a href="facciamo-punto.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 2</div>
+  <p>Corso di lingua italiana per stranieri · Livello A2</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

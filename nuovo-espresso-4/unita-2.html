@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 2 · Cibo, che passione! · NUOVO Espresso 4</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 4 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 2 · B2</div>
+  <h1>&#x1F35D; Cibo, che passione!</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">美食，好有热情！ · p.19-26</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">谈论饮食习惯 · 不定代词 · 虚拟式与不定代词 · futuro anteriore · 左位移结构 · si passivante · 描述烹饪流程</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Al ristorante -->
+  <h3>1. Al ristorante — Che cosa prendiamo? · p.19, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">朋友们在餐厅讨论点什么菜，谈论饮食偏好和习惯。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Allora, che cosa prendiamo? Io non mangio la carne.')"><strong>A</strong>: Allora, che cosa prendiamo? Io non mangio la carne.</span></td><td class="zh"><strong>A</strong>: 那么，我们点什么？我不吃肉。</td></tr>
+    <tr><td><span class="it" onclick="speak('Nessun problema. Qui c\'è di tutto: pesce, verdura, pasta... Qualunque cosa tu scelga, andrà bene.')"><strong>B</strong>: Nessun problema. Qui c'è di tutto: pesce, verdura, pasta... Qualunque cosa tu scelga, andrà bene.</span></td><td class="zh"><strong>B</strong>: 没问题。这里什么都有：鱼、蔬菜、意大利面……不管你选什么，都会好的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Allora prendo gli spaghetti alle vongole. E tu?')"><strong>A</strong>: Allora prendo gli spaghetti alle vongole. E tu?</span></td><td class="zh"><strong>A</strong>: 那我点蛤蜊意面。你呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Io ho voglia di qualcosa di leggero. Prendo un\'insalata mista, ma senza cipolla, per favore.')"><strong>B</strong>: Io ho voglia di qualcosa di leggero. Prendo un'insalata mista, ma senza cipolla, per favore.</span></td><td class="zh"><strong>B</strong>: 我想吃点清淡的。我点一份混合沙拉，但请不要放洋葱。</td></tr>
+    <tr><td><span class="it" onclick="speak('Il caffè, lo prendo sempre amaro. E tu?')"><strong>A</strong>: Il caffè, lo prendo sempre amaro. E tu?</span></td><td class="zh"><strong>A</strong>: 咖啡，我总喝清咖啡。你呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Anch\'io amaro. Si mangia bene in questo ristorante!')"><strong>B</strong>: Anch'io amaro. Si mangia bene in questo ristorante!</span></td><td class="zh"><strong>B</strong>: 我也是清咖啡。这家餐厅真好吃！</td></tr>
+  </table>
+
+  <!-- Dialogo 2: La ricetta segreta -->
+  <h3>2. La ricetta segreta · p.21, es.4</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">祖母教孙女做传统的意大利甜点，描述烹饪步骤。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Nonna, come si prepara il tuo tiramisù? È il migliore che abbia mai mangiato!')"><strong>Nipote</strong>: Nonna, come si prepara il tuo tiramisù? È il migliore che abbia mai mangiato!</span></td><td class="zh"><strong>孙女</strong>: 奶奶，你的提拉米苏怎么做？这是我吃过最好吃的！</td></tr>
+    <tr><td><span class="it" onclick="speak('È semplice: prima si prepara il caffè, poi si montano le uova con lo zucchero.')"><strong>Nonna</strong>: È semplice: prima si prepara il caffè, poi si montano le uova con lo zucchero.</span></td><td class="zh"><strong>奶奶</strong>: 很简单：先准备咖啡，然后把鸡蛋和糖打发。</td></tr>
+    <tr><td><span class="it" onclick="speak('Qualunque tipo di caffè si usi, l\'importante è che sia forte.')"><strong>Nonna</strong>: Qualunque tipo di caffè si usi, l'importante è che sia forte.</span></td><td class="zh"><strong>奶奶</strong>: 不管用什么咖啡，重要的是要浓。</td></tr>
+    <tr><td><span class="it" onclick="speak('E il mascarpone? Quando si aggiunge?')"><strong>Nipote</strong>: E il mascarpone? Quando si aggiunge?</span></td><td class="zh"><strong>孙女</strong>: 那马斯卡彭奶酪呢？什么时候加？</td></tr>
+    <tr><td><span class="it" onclick="speak('Dopo aver montato le uova, si aggiunge il mascarpone e si mescola delicatamente.')"><strong>Nonna</strong>: Dopo aver montato le uova, si aggiunge il mascarpone e si mescola delicatamente.</span></td><td class="zh"><strong>奶奶</strong>: 打发鸡蛋后，加入马斯卡彭奶酪并轻轻搅拌。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quando arriveranno gli ospiti, avrò già preparato tutto!')"><strong>Nipote</strong>: Quando arriveranno gli ospiti, avrò già preparato tutto!</span></td><td class="zh"><strong>孙女</strong>: 等客人到的时候，我会已经准备好一切了！</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Al mercato -->
+  <h3>3. Al mercato — Che freschezza! · p.23, es.6</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">在市场上讨价还价，谈论食材的新鲜度。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Quanto costa questa frutta?')"><strong>A</strong>: Quanto costa questa frutta?</span></td><td class="zh"><strong>A</strong>: 这水果多少钱？</td></tr>
+    <tr><td><span class="it" onclick="speak('Tutta la frutta che vedi è freschissima. Costa 3 euro al chilo.')"><strong>Venditore</strong>: Tutta la frutta che vedi è freschissima. Costa 3 euro al chilo.</span></td><td class="zh"><strong>卖家</strong>: 你看到的这些水果都非常新鲜。每公斤3欧元。</td></tr>
+    <tr><td><span class="it" onclick="speak('Di pesche, ne prendo un chilo. E di ciliegie, quanto costano?')"><strong>A</strong>: Di pesche, ne prendo un chilo. E di ciliegie, quanto costano?</span></td><td class="zh"><strong>A</strong>: 桃子，我买一公斤。樱桃呢，多少钱？</td></tr>
+    <tr><td><span class="it" onclick="speak('Le ciliegie sono più care: 5 euro al chilo, ma sono dolcissime.')"><strong>Venditore</strong>: Le ciliegie sono più care: 5 euro al chilo, ma sono dolcissime.</span></td><td class="zh"><strong>卖家</strong>: 樱桃更贵，每公斤5欧元，但非常甜。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ne prendo mezzo chilo. Quando arriverà mia figlia, avrò già preparato una crostata!')"><strong>A</strong>: Ne prendo mezzo chilo. Quando arriverà mia figlia, avrò già preparato una crostata!</span></td><td class="zh"><strong>A</strong>: 我买半公斤。等我女儿到的时候，我应该已经做好水果挞了！</td></tr>
+  </table>
+
+  <!-- Dialogo 4: Espressioni idiomatiche -->
+  <h3>4. Espressioni idiomatiche sul cibo · p.24, es.8</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">常见的意大利饮食习语。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Marco è un buon forchetta: mangia per due!')"><strong>Essere un buon forchetta</strong>: Marco è un buon forchetta: mangia per due!</span></td><td class="zh"><strong>"好叉子"</strong>: 马尔科很能吃，能吃两个人的份！</td></tr>
+    <tr><td><span class="it" onclick="speak('Dopo la pasta, faccio sempre la scarpetta per non sprecare il sugo.')"><strong>Fare la scarpetta</strong>: Dopo la pasta, faccio sempre la scarpetta per non sprecare il sugo.</span></td><td class="zh"><strong>"做小鞋"</strong>: 吃完意面后，我总用面包擦干净盘子里的酱汁。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quel critico è come il prezzemolo, lo trovi dappertutto.')"><strong>Essere come il prezzemolo</strong>: Quel critico è come il prezzemolo, lo trovi dappertutto.</span></td><td class="zh"><strong>"像欧芹一样"</strong>: 那个评论家像欧芹一样，无处不在。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ha fatto una cosa senza senso, non ha proprio sale in zucca.')"><strong>Non avere sale in zucca</strong>: Ha fatto una cosa senza senso, non ha proprio sale in zucca.</span></td><td class="zh"><strong>"脑袋里没有盐"</strong>: 他做了件没意义的事，真没脑子。</td></tr>
+    <tr><td><span class="it" onclick="speak('Il segreto è tra noi: acqua in bocca!')"><strong>Acqua in bocca</strong>: Il segreto è tra noi: acqua in bocca!</span></td><td class="zh"><strong>"嘴里含着水"</strong>: 这是我们的秘密：守口如瓶！</td></tr>
+    <tr><td><span class="it" onclick="speak('Sono le 12:30, è ora di buttare la pasta.')"><strong>Buttare la pasta</strong>: Sono le 12:30, è ora di buttare la pasta.</span></td><td class="zh"><strong>"扔意面"</strong>: 12点半了，该下意面了。</td></tr>
+    <tr><td><span class="it" onclick="speak('La pasta è perfetta, cotta al dente.')"><strong>Al dente</strong>: La pasta è perfetta, cotta al dente.</span></td><td class="zh"><strong>"到牙齿"</strong>: 意大利面煮得恰到好处，弹牙。</td></tr>
+    <tr><td><span class="it" onclick="speak('Dopo la palestra mangio come un lupo.')"><strong>Mangiare come un lupo</strong>: Dopo la palestra mangio come un lupo.</span></td><td class="zh"><strong>"像狼一样吃"</strong>: 健身后我狼吞虎咽地吃。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F964; 食物与烹饪 (Cibo e cucina)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il cibo')">il cibo</td><td>nm</td><td>食物</td></tr>
+    <tr><td class="it" onclick="speak('la cucina')">la cucina</td><td>nf</td><td>厨房；烹饪</td></tr>
+    <tr><td class="it" onclick="speak('l\'ingrediente')">l'ingrediente</td><td>nm</td><td>食材，成分</td></tr>
+    <tr><td class="it" onclick="speak('la ricetta')">la ricetta</td><td>nf</td><td>食谱</td></tr>
+    <tr><td class="it" onclick="speak('il piatto')">il piatto</td><td>nm</td><td>菜肴；盘子</td></tr>
+    <tr><td class="it" onclick="speak('il pasto')">il pasto</td><td>nm</td><td>餐</td></tr>
+    <tr><td class="it" onclick="speak('la colazione')">la colazione</td><td>nf</td><td>早餐</td></tr>
+    <tr><td class="it" onclick="speak('il pranzo')">il pranzo</td><td>nm</td><td>午餐</td></tr>
+    <tr><td class="it" onclick="speak('la cena')">la cena</td><td>nf</td><td>晚餐</td></tr>
+    <tr><td class="it" onclick="speak('l\'antipasto')">l'antipasto</td><td>nm</td><td>前菜</td></tr>
+    <tr><td class="it" onclick="speak('il primo')">il primo</td><td>nm</td><td>第一道（意面/汤）</td></tr>
+    <tr><td class="it" onclick="speak('il secondo')">il secondo</td><td>nm</td><td>第二道（肉/鱼）</td></tr>
+    <tr><td class="it" onclick="speak('il contorno')">il contorno</td><td>nm</td><td>配菜</td></tr>
+    <tr><td class="it" onclick="speak('il dolce')">il dolce</td><td>nm</td><td>甜点</td></tr>
+  </table>
+
+  <h3>&#x1F34E; 不定代词 (Indefiniti)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('qualche')">qualche</td><td>agg indef</td><td>一些（后跟单数名词）</td></tr>
+    <tr><td class="it" onclick="speak('alcuni/e')">alcuni/e</td><td>agg/pron indef</td><td>一些（复数）</td></tr>
+    <tr><td class="it" onclick="speak('nessuno/a')">nessuno/a</td><td>agg/pron indef</td><td>没有一个；没有人</td></tr>
+    <tr><td class="it" onclick="speak('ogni')">ogni</td><td>agg indef</td><td>每个</td></tr>
+    <tr><td class="it" onclick="speak('tutto/a/i/e')">tutto/a/i/e</td><td>agg/pron indef</td><td>全部，所有</td></tr>
+    <tr><td class="it" onclick="speak('qualcosa')">qualcosa</td><td>pron indef</td><td>某物，某事</td></tr>
+    <tr><td class="it" onclick="speak('qualcuno/a')">qualcuno/a</td><td>pron indef</td><td>某人</td></tr>
+    <tr><td class="it" onclick="speak('chiunque')">chiunque</td><td>pron indef</td><td>无论谁</td></tr>
+    <tr><td class="it" onclick="speak('qualunque/qualsiasi')">qualunque/qualsiasi</td><td>agg indef</td><td>任何的，无论哪个</td></tr>
+    <tr><td class="it" onclick="speak('ciascuno/a')">ciascuno/a</td><td>agg/pron indef</td><td>每一个</td></tr>
+  </table>
+
+  <h3>&#x1F469;&#x200D;&#x1F373; 烹饪动词 (Verbi di cucina)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('cucinare')">cucinare</td><td>vt</td><td>烹饪</td></tr>
+    <tr><td class="it" onclick="speak('preparare')">preparare</td><td>vt</td><td>准备</td></tr>
+    <tr><td class="it" onclick="speak('cuocere')">cuocere</td><td>vt</td><td>煮，烹饪</td></tr>
+    <tr><td class="it" onclick="speak('bollire')">bollire</td><td>vi</td><td>煮沸</td></tr>
+    <tr><td class="it" onclick="speak('friggere')">friggere</td><td>vt</td><td>炸</td></tr>
+    <tr><td class="it" onclick="speak('arrostire')">arrostire</td><td>vt</td><td>烤</td></tr>
+    <tr><td class="it" onclick="speak('mescolare')">mescolare</td><td>vt</td><td>搅拌</td></tr>
+    <tr><td class="it" onclick="speak('tagliare')">tagliare</td><td>vt</td><td>切</td></tr>
+    <tr><td class="it" onclick="speak('aggiungere')">aggiungere</td><td>vt</td><td>添加</td></tr>
+    <tr><td class="it" onclick="speak('assaggiare')">assaggiare</td><td>vt</td><td>品尝</td></tr>
+    <tr><td class="it" onclick="speak('condire')">condire</td><td>vt</td><td>调味</td></tr>
+    <tr><td class="it" onclick="speak('servire')">servire</td><td>vt</td><td>上菜；服务</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Indefiniti -->
+  <h3>1. Aggettivi e pronomi indefiniti（不定形容词和代词）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">不定代词和形容词用来表达不确定的数量、身份或程度。</p>
+    <table>
+      <tr><th>词</th><th>类型</th><th>用法</th><th>例句</th></tr>
+      <tr><td><span class="verb">qualche</span></td><td>agg (单数)</td><td>一些，几个</td><td>Ho <span class="verb">qualche</span> amico italiano.</td></tr>
+      <tr><td><span class="verb">alcuni/e</span></td><td>agg/pron (复数)</td><td>一些</td><td><span class="verb">Alcuni</span> studenti parlano bene.</td></tr>
+      <tr><td><span class="verb">nessuno/a</span></td><td>agg/pron</td><td>没有一个</td><td>Non c'è <span class="verb">nessuno</span> in cucina.</td></tr>
+      <tr><td><span class="verb">ogni</span></td><td>agg (单数)</td><td>每个</td><td><span class="verb">Ogni</span> persona ha i suoi gusti.</td></tr>
+      <tr><td><span class="verb">tutto/i/e</span></td><td>agg/pron</td><td>全部，所有</td><td><span class="verb">Tutti</span> amano la pizza.</td></tr>
+      <tr><td><span class="verb">qualcosa</span></td><td>pron</td><td>某物</td><td>Voglio <span class="verb">qualcosa</span> di buono.</td></tr>
+      <tr><td><span class="verb">qualcuno/a</span></td><td>pron</td><td>某人</td><td>C'è <span class="verb">qualcuno</span> che sa cucinare?</td></tr>
+      <tr><td><span class="verb">chiunque</span></td><td>pron</td><td>无论谁</td><td><span class="verb">Chiunque</span> venga, è il benvenuto.</td></tr>
+      <tr><td><span class="verb">qualunque/qualsiasi</span></td><td>agg</td><td>任何的</td><td><span class="verb">Qualunque</span> piatto scegli, sarà buono.</td></tr>
+      <tr><td><span class="verb">ciascuno/a</span></td><td>agg/pron</td><td>每一个</td><td><span class="verb">Ciascuno</span> porti qualcosa.</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Congiuntivo + Indefiniti -->
+  <h3>2. Il congiuntivo dopo gli indefiniti（虚拟式与不定代词）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">在qualunque/chiunque/dovunque等不定代词之后，常用虚拟式表示假设或泛指的意味。</p>
+    <table>
+      <tr><th>结构</th><th>例句</th><th>中文</th></tr>
+      <tr><td><span class="verb">Qualunque cosa + 虚拟式</span></td><td><span class="it" onclick="speak('Qualunque cosa tu scelga, sarà buona.')">Qualunque cosa tu <span class="verb">scelga</span>, sarà buona.</span></td><td>不管你选什么，都会好吃。</td></tr>
+      <tr><td><span class="verb">Chiunque + 虚拟式</span></td><td><span class="it" onclick="speak('Chiunque assaggi il tuo tiramisù, lo amerà.')">Chiunque <span class="verb">assaggi</span> il tuo tiramisù, lo amerà.</span></td><td>无论谁尝了你的提拉米苏，都会爱上它。</td></tr>
+      <tr><td><span class="verb">Dovunque + 虚拟式</span></td><td><span class="it" onclick="speak('Dovunque tu vada in Italia, troverai buon cibo.')">Dovunque tu <span class="verb">vada</span> in Italia, troverai buon cibo.</span></td><td>无论你去意大利的哪里，都会找到好吃的。</td></tr>
+      <tr><td><span class="verb">Qualsiasi + 虚拟式</span></td><td><span class="it" onclick="speak('Qualsiasi ricetta provi, ti verrà bene.')">Qualsiasi ricetta <span class="verb">provi</span>, ti verrà bene.</span></td><td>不管试什么食谱，你都能做好。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Futuro anteriore -->
+  <h3>3. Il futuro anteriore（先将来时）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">Futuro anteriore表示在将来某个时间之前已经完成的动作。构成：futuro semplice di essere/avere + participio passato。</p>
+    <table>
+      <tr><th>主语</th><th>avere</th><th>essere</th></tr>
+      <tr><td>io</td><td><span class="verb">avrò</span> cucinato</td><td><span class="verb">sarò</span> andato/a</td></tr>
+      <tr><td>tu</td><td><span class="verb">avrai</span> cucinato</td><td><span class="verb">sarai</span> andato/a</td></tr>
+      <tr><td>lui/lei</td><td><span class="verb">avrà</span> cucinato</td><td><span class="verb">sarà</span> andato/a</td></tr>
+      <tr><td>noi</td><td><span class="verb">avremo</span> cucinato</td><td><span class="verb">saremo</span> andati/e</td></tr>
+      <tr><td>voi</td><td><span class="verb">avrete</span> cucinato</td><td><span class="verb">sarete</span> andati/e</td></tr>
+      <tr><td>loro</td><td><span class="verb">avranno</span> cucinato</td><td><span class="verb">saranno</span> andati/e</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Quando arriveranno gli ospiti, avrò già preparato tutto.')">Quando arriveranno gli ospiti, <span class="verb">avrò già preparato</span> tutto.</span></td><td>当客人到达时，我会已经准备好一切。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dopo che avremo mangiato, usciremo.')">Dopo che <span class="verb">avremo mangiato</span>, usciremo.</span></td><td>吃完之后我们会出去。</td></tr>
+      <tr><td><span class="it" onclick="speak('Quando avrai finito di cucinare, chiamami.')">Quando <span class="verb">avrai finito</span> di cucinare, chiamami.</span></td><td>等你做完饭了叫我。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Dislocazione a sinistra -->
+  <h3>4. La dislocazione a sinistra（左位移结构）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">左位移是意大利口语中的典型结构：将宾语提前到句首，然后用代词复指，以达到强调作用。</p>
+    <table>
+      <tr><th>正常语序</th><th>左位移</th><th>中文</th></tr>
+      <tr><td>Prendo il caffè amaro.</td><td><span class="verb">Il caffè, lo prendo amaro.</span></td><td>咖啡，我喝不加糖的。</td></tr>
+      <tr><td>Ho visto Maria ieri.</td><td><span class="verb">Maria, l'ho vista ieri.</span></td><td>Maria，我昨天见到她了。</td></tr>
+      <tr><td>Compro il pane al supermercato.</td><td><span class="verb">Il pane, lo compro al supermercato.</span></td><td>面包，我在超市买。</td></tr>
+      <tr><td>Leggo molti libri.</td><td><span class="verb">Di libri, ne leggo molti.</span></td><td>书，我读很多。</td></tr>
+      <tr><td>Vado a Roma domani.</td><td><span class="verb">A Roma, ci vado domani.</span></td><td>罗马，我明天去。</td></tr>
+      <tr><td>Prendo due chili di mele.</td><td><span class="verb">Di mele, ne prendo due chili.</span></td><td>苹果，我买两公斤。</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. Si passivante -->
+  <h3>5. Il "si" passivante（被动si结构）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">Si passivante用si + 第三人称动词的形式来表达被动含义，不指明动作执行者。常用于食谱、说明和一般性描述。</p>
+    <table>
+      <tr><th>结构</th><th>例句</th><th>中文</th></tr>
+      <tr><td>si + 单数动词 + 单数主语</td><td><span class="it" onclick="speak('Si mangia bene in Italia.')"><span class="verb">Si mangia</span> bene in Italia.</span></td><td>在意大利吃得好。</td></tr>
+      <tr><td>si + 复数动词 + 复数主语</td><td><span class="it" onclick="speak('Si preparano gli spaghetti al dente.')"><span class="verb">Si preparano</span> gli spaghetti al dente.</span></td><td>意面煮到弹牙。</td></tr>
+      <tr><td>si + 动词（一般描述）</td><td><span class="it" onclick="speak('In questo ristorante si cucina molto bene.')">In questo ristorante <span class="verb">si cucina</span> molto bene.</span></td><td>这家餐厅做得非常好。</td></tr>
+      <tr><td>si + 动词（食谱）</td><td><span class="it" onclick="speak('Prima, si montano le uova con lo zucchero.')">Prima, <span class="verb">si montano</span> le uova con lo zucchero.</span></td><td>首先，将鸡蛋和糖打发。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('In Italia si mangia molta pasta.')">In Italia <span class="verb">si mangia</span> molta pasta.</span></td><td>在意大利人们吃很多意面。</td></tr>
+      <tr><td><span class="it" onclick="speak('Si consiglia di servire il vino rosso a 18 gradi.')"><span class="verb">Si consiglia</span> di servire il vino rosso a 18 gradi.</span></td><td>建议红葡萄酒在18度时饮用。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non si accettano prenotazioni dopo le 21.')">Non <span class="verb">si accettano</span> prenotazioni dopo le 21.</span></td><td>21点后不接受预订。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale · p.26</h2>
+
+  <h3>&#x1F30D; Il pomodoro: storia di un successo italiano（番茄：意大利的成功故事）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('Il pomodoro è arrivato in Europa dall\'America dopo il 1492, ma per molto tempo è stato considerato una pianta ornamentale e velenosa.')">Il pomodoro è arrivato in Europa dall'America dopo il 1492, ma per molto tempo è stato considerato una pianta ornamentale e velenosa.</p>
+    <p class="it" onclick="speak('Solo nell\'Ottocento è diventato l\'ingrediente fondamentale della cucina italiana, soprattutto al Sud.')">Solo nell'Ottocento è diventato l'ingrediente fondamentale della cucina italiana, soprattutto al Sud.</p>
+    <p class="it" onclick="speak('Oggi l\'Italia è uno dei principali produttori mondiali di pomodoro, con la regione Campania in testa.')">Oggi l'Italia è uno dei principali produttori mondiali di pomodoro, con la regione Campania in testa.</p>
+    <p class="it" onclick="speak('Il pomodoro San Marzano, coltivato alle pendici del Vesuvio, è considerato il migliore per le conserve.')">Il pomodoro San Marzano, coltivato alle pendici del Vesuvio, è considerato il migliore per le conserve.</p>
+    <p class="it" onclick="speak('Senza il pomodoro, non esisterebbero piatti come la pizza Margherita, la pasta al pomodoro o la caprese.')">Senza il pomodoro, non esisterebbero piatti come la pizza Margherita, la pasta al pomodoro o la caprese.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p class="zh">番茄在1492年后从美洲传入欧洲，但长期以来被视为观赏植物和有毒植物。直到19世纪，它才成为意大利烹饪的基本食材，尤其是在南部。如今，意大利是世界上主要的番茄生产国之一，坎帕尼亚大区处于领先地位。种植在维苏威火山坡上的圣马扎诺番茄被认为最适合做番茄酱。没有番茄，就不会有玛格丽特披萨、番茄意面或卡布里沙拉这些菜肴。</p>
+  </div>
+
+  <h3>相关词汇</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il pomodoro')">il pomodoro</td><td>番茄</td></tr>
+    <tr><td class="it" onclick="speak('la conserva')">la conserva</td><td>番茄酱/罐头</td></tr>
+    <tr><td class="it" onclick="speak('la cucina mediterranea')">la cucina mediterranea</td><td>地中海饮食</td></tr>
+    <tr><td class="it" onclick="speak('l\'ingrediente fondamentale')">l'ingrediente fondamentale</td><td>基本食材</td></tr>
+    <tr><td class="it" onclick="speak('la tradizione culinaria')">la tradizione culinaria</td><td>烹饪传统</td></tr>
+    <tr><td class="it" onclick="speak('il prodotto tipico')">il prodotto tipico</td><td>特色产品</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化注释:</strong><br>
+    &bull; 意大利的慢食运动（Slow Food）起源于1980年代，反对快餐文化<br>
+    &bull; 地中海饮食被联合国教科文组织列为非物质文化遗产<br>
+    &bull; 意大利美食的核心是新鲜食材和简单烹饪<br>
+    &bull; Nel tuo Paese, quali sono i piatti tipici? — 在你的国家，有哪些特色菜？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 2 — Cibo italiano</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频展示了意大利的饮食文化和传统：从市场采购到餐桌准备，探讨意大利人对美食的热情和烹饪传统。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">关键表达 (Espressioni chiave):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Che cosa prendiamo?')">Che cosa prendiamo?</span></td><td class="zh">我们点什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Si mangia bene in Italia!')">Si mangia bene in Italia!</span></td><td class="zh">在意大利吃得真好！</td></tr>
+    <tr><td><span class="it" onclick="speak('Qualunque cosa tu scelga, sarà buona.')">Qualunque cosa tu scelga, sarà buona.</span></td><td class="zh">不管你选什么，都会好吃。</td></tr>
+    <tr><td><span class="it" onclick="speak('Di verdura, ne prendo un chilo.')">Di verdura, ne prendo un chilo.</span></td><td class="zh">蔬菜，我买一公斤。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quando arriveranno, avrò già cucinato.')">Quando arriveranno, avrò già cucinato.</span></td><td class="zh">他们到的时候，我已经做好了。</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演：在餐厅点餐，使用左位移结构（Il caffè, lo prendo...）<br>
+    &bull; 用si passivante描述一道你最喜欢的菜的烹饪步骤<br>
+    &bull; 用futuro anteriore造句：当朋友到时，你已经做完了什么<br>
+    &bull; 用chiunque/qualunque/qualsiasi + 虚拟式表达泛指
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-1.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html">Torna al corso</a>
+  <a href="unita-3.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 4</div>
+  <p>Corso di lingua italiana per stranieri · Livello B2</p>
+  <p style="margin-top:8px;opacity:0.6;">Maria Bali • Irene Dei · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eserciziario · NUOVO Espresso 3</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .es-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .es-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .es-table tr:last-child td { border-bottom: none; }
+    .es-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .es-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .es-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .es-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .es-table .zh { color: var(--ne-muted); font-size: 13px; }
+    .es-table .num { color: var(--ne-blue); font-weight: 700; width: 36px; text-align: center; }
+    .es-table .answer { color: var(--ne-red); font-weight: 700; font-size: 13px; width: 140px; cursor: pointer; }
+    .es-table .answer:hover { background: #fff3cd; }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 3 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Eserciziario · B1</div>
+  <h1>&#x270F;&#xFE0F; Eserciziario</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">综合练习册 · p.145-230</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">50+ 练习题 · 覆盖全部10课 · 含答案</p>
+</section>
+
+<!-- Lezione 1 -->
+<section class="page-section" id="lez1">
+  <h2>&#x1F4D6; Lezione 1 — Do you speak Italian?</h2>
+
+  <h3>Es.1 Trapassato prossimo</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">1</td><td><span class="it" onclick="speak('Prima di venire in Italia, non ___ (studiare) mai l\'italiano.')">Prima di venire in Italia, non ___ (studiare) mai l'italiano.</span></td><td class="answer" onclick="speak('avevo studiato')">avevo studiato</td></tr>
+      <tr><td class="num">2</td><td><span class="it" onclick="speak('Quando sono arrivato, lei ___ già ___ (partire).')">Quando sono arrivato, lei ___ già ___ (partire).</span></td><td class="answer" onclick="speak('era già partita')">era già partita</td></tr>
+      <tr><td class="num">3</td><td><span class="it" onclick="speak('Non ___ (mangiare) niente prima di uscire.')">Non ___ (mangiare) niente prima di uscire.</span></td><td class="answer" onclick="speak('avevo mangiato')">avevo mangiato</td></tr>
+      <tr><td class="num">4</td><td><span class="it" onclick="speak('Loro ___ già ___ (finire) quando li ho chiamati.')">Loro ___ già ___ (finire) quando li ho chiamati.</span></td><td class="answer" onclick="speak('avevano già finito')">avevano già finito</td></tr>
+      <tr><td class="num">5</td><td><span class="it" onclick="speak('___ (lavarsi) prima di uscire.')">___ (lavarsi) prima di uscire.</span></td><td class="answer" onclick="speak('Si era lavato')">Si era lavato</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.2 Pronomi combinati</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">6</td><td><span class="it" onclick="speak('Mi presti il libro? — Certo, ___ do volentieri.')">Mi presti il libro? — Certo, ___ do volentieri.</span></td><td class="answer" onclick="speak('te lo')">te lo</td></tr>
+      <tr><td class="num">7</td><td><span class="it" onclick="speak('Le puoi prestare i CD? — Sì, ___ presto.')">Le puoi prestare i CD? — Sì, ___ presto.</span></td><td class="answer" onclick="speak('glieli')">glieli</td></tr>
+      <tr><td class="num">8</td><td><span class="it" onclick="speak('Chi vi ha dato la macchina? — Ce ___ ha prestata Giovanni.')">Chi vi ha dato la macchina? — Ce ___ ha prestata Giovanni.</span></td><td class="answer" onclick="speak('la')">la</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.3 Dovere per ipotesi</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">9</td><td><span class="it" onclick="speak('Marco non è in ufficio, ___ essere uscito.')">Marco non è in ufficio, ___ essere uscito.</span></td><td class="answer" onclick="speak('deve')">deve</td></tr>
+      <tr><td class="num">10</td><td><span class="it" onclick="speak('___ studiare di più per l\'esame, ma non l\'ha fatto.')">___ studiare di più per l'esame, ma non l'ha fatto.</span></td><td class="answer" onclick="speak('Avrebbe dovuto')">Avrebbe dovuto</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Lezione 2 -->
+<section class="page-section" id="lez2">
+  <h2>&#x1F4D6; Lezione 2 — Vivere in città</h2>
+
+  <h3>Es.4 Condizionale passato</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">11</td><td><span class="it" onclick="speak('___ (volere) venire, ma ero malato.')">___ (volere) venire, ma ero malato.</span></td><td class="answer" onclick="speak('Avrei voluto')">Avrei voluto</td></tr>
+      <tr><td class="num">12</td><td><span class="it" onclick="speak('___ (essere) meglio costruire un parco.')">___ (essere) meglio costruire un parco.</span></td><td class="answer" onclick="speak('Sarebbe stato')">Sarebbe stato</td></tr>
+      <tr><td class="num">13</td><td><span class="it" onclick="speak('Loro ___ (dovere) avvertirci prima.')">Loro ___ (dovere) avvertirci prima.</span></td><td class="answer" onclick="speak('avrebbero dovuto')">avrebbero dovuto</td></tr>
+      <tr><td class="num">14</td><td><span class="it" onclick="speak('Io ti ___ (potere) aiutare, ma non ero libero.')">Io ti ___ (potere) aiutare, ma non ero libero.</span></td><td class="answer" onclick="speak('avrei potuto')">avrei potuto</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.5 Ci e Ne</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">15</td><td><span class="it" onclick="speak('Sei mai stato a Roma? — Sì, ___ sono stato due volte.')">Sei mai stato a Roma? — Sì, ___ sono stato due volte.</span></td><td class="answer" onclick="speak('ci')">ci</td></tr>
+      <tr><td class="num">16</td><td><span class="it" onclick="speak('Quanti libri hai letto? — ___ ho letti dieci.')">Quanti libri hai letto? — ___ ho letti dieci.</span></td><td class="answer" onclick="speak('Ne')">Ne</td></tr>
+      <tr><td class="num">17</td><td><span class="it" onclick="speak('Penso al problema. — ___ penso.')">Penso al problema. — ___ penso.</span></td><td class="answer" onclick="speak('Ci')">Ci</td></tr>
+      <tr><td class="num">18</td><td><span class="it" onclick="speak('Cosa ___ pensi di questa idea?')">Cosa ___ pensi di questa idea?</span></td><td class="answer" onclick="speak('ne')">ne</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.6 Pronomi possessivi</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">19</td><td><span class="it" onclick="speak('È Sua questa macchina? — Sì, è ___.')">È Sua questa macchina? — Sì, è ___.</span></td><td class="answer" onclick="speak('mia')">mia</td></tr>
+      <tr><td class="num">20</td><td><span class="it" onclick="speak('Di chi è quest\'ombrello? — È ___.')">Di chi è quest'ombrello? — È ___.</span></td><td class="answer" onclick="speak('mio')">mio</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Lezione 3 -->
+<section class="page-section" id="lez3">
+  <h2>&#x1F4D6; Lezione 3 — Made in Italy</h2>
+
+  <h3>Es.7 Congiuntivo passato</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">21</td><td><span class="it" onclick="speak('Credo che lui ___ (partire) ieri.')">Credo che lui ___ (partire) ieri.</span></td><td class="answer" onclick="speak('sia partito')">sia partito</td></tr>
+      <tr><td class="num">22</td><td><span class="it" onclick="speak('Penso che loro ___ (arrivare) in tempo.')">Penso che loro ___ (arrivare) in tempo.</span></td><td class="answer" onclick="speak('siano arrivati')">siano arrivati</td></tr>
+      <tr><td class="num">23</td><td><span class="it" onclick="speak('Non credo che ___ (dire) la verità.')">Non credo che ___ (dire) la verità.</span></td><td class="answer" onclick="speak('abbia detto')">abbia detto</td></tr>
+      <tr><td class="num">24</td><td><span class="it" onclick="speak('Temo che non ___ (avere) tempo.')">Temo che non ___ (avere) tempo.</span></td><td class="answer" onclick="speak('abbia avuto')">abbia avuto</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.8 A patto che / purché</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">25</td><td><span class="it" onclick="speak('Ti aiuto ___ tu mi aiuti anche tu.')">Ti aiuto ___ tu mi aiuti anche tu.</span></td><td class="answer" onclick="speak('a patto che')">a patto che</td></tr>
+      <tr><td class="num">26</td><td><span class="it" onclick="speak('Verrò ___ non sia troppo tardi.')">Verrò ___ non sia troppo tardi.</span></td><td class="answer" onclick="speak('purché')">purché</td></tr>
+      <tr><td class="num">27</td><td><span class="it" onclick="speak('Andremo al mare, ___ non piova.')">Andremo al mare, ___ non piova.</span></td><td class="answer" onclick="speak('a meno che')">a meno che</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.9 Avverbi in -mente</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Aggettivo</th><th>Avverbio</th></tr>
+      <tr><td class="num">28</td><td>probabile →</td><td class="answer" onclick="speak('probabilmente')">probabilmente</td></tr>
+      <tr><td class="num">29</td><td>naturale →</td><td class="answer" onclick="speak('naturalmente')">naturalmente</td></tr>
+      <tr><td class="num">30</td><td>recente →</td><td class="answer" onclick="speak('recentemente')">recentemente</td></tr>
+      <tr><td class="num">31</td><td>chiaro →</td><td class="answer" onclick="speak('chiaramente')">chiaramente</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Lezione 4 -->
+<section class="page-section" id="lez4">
+  <h2>&#x1F4D6; Lezione 4 — Parole parole... parole</h2>
+
+  <h3>Es.10 Congiuntivo imperfetto</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">32</td><td><span class="it" onclick="speak('Vorrei che tu mi ___ (aiutare).')">Vorrei che tu mi ___ (aiutare).</span></td><td class="answer" onclick="speak('aiutassi')">aiutassi</td></tr>
+      <tr><td class="num">33</td><td><span class="it" onclick="speak('Se ___ (avere) tempo, verrei.')">Se ___ (avere) tempo, verrei.</span></td><td class="answer" onclick="speak('avessi')">avessi</td></tr>
+      <tr><td class="num">34</td><td><span class="it" onclick="speak('Era importante che lui ___ (essere) presente.')">Era importante che lui ___ (essere) presente.</span></td><td class="answer" onclick="speak('fosse')">fosse</td></tr>
+      <tr><td class="num">35</td><td><span class="it" onclick="speak('Non credevo che ___ (essere) così difficile.')">Non credevo che ___ (essere) così difficile.</span></td><td class="answer" onclick="speak('fosse')">fosse</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.11 Come se + congiuntivo</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">36</td><td><span class="it" onclick="speak('Si comporta come se ___ (essere) il padrone.')">Si comporta come se ___ (essere) il padrone.</span></td><td class="answer" onclick="speak('fosse')">fosse</td></tr>
+      <tr><td class="num">37</td><td><span class="it" onclick="speak('Parla come se ___ (sapere) tutto.')">Parla come se ___ (sapere) tutto.</span></td><td class="answer" onclick="speak('sapesse')">sapesse</td></tr>
+      <tr><td class="num">38</td><td><span class="it" onclick="speak('Mi tratta come se ___ (essere) un bambino.')">Mi tratta come se ___ (essere) un bambino.</span></td><td class="answer" onclick="speak('fossi')">fossi</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.12 Suffisso -accio</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Parola</th><th>+ -accio</th></tr>
+      <tr><td class="num">39</td><td>film →</td><td class="answer" onclick="speak('filmaccio')">filmaccio</td></tr>
+      <tr><td class="num">40</td><td>giornata →</td><td class="answer" onclick="speak('giornataccia')">giornataccia</td></tr>
+      <tr><td class="num">41</td><td>tempo →</td><td class="answer" onclick="speak('tempaccio')">tempaccio</td></tr>
+      <tr><td class="num">42</td><td>partita →</td><td class="answer" onclick="speak('partitaccia')">partitaccia</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Lezione 5 -->
+<section class="page-section" id="lez5">
+  <h2>&#x1F4D6; Lezione 5 — Parli bene l'italiano!</h2>
+
+  <h3>Es.13 Passato remoto</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">43</td><td><span class="it" onclick="speak('Nel 1492 Colombo ___ (scoprire) l\'America.')">Nel 1492 Colombo ___ (scoprire) l'America.</span></td><td class="answer" onclick="speak('scoprì')">scoprì</td></tr>
+      <tr><td class="num">44</td><td><span class="it" onclick="speak('Leonardo ___ (dipingere) la Gioconda nel 1503.')">Leonardo ___ (dipingere) la Gioconda nel 1503.</span></td><td class="answer" onclick="speak('dipinse')">dipinse</td></tr>
+      <tr><td class="num">45</td><td><span class="it" onclick="speak('Lui ___ (nascere) a Roma nel 1980.')">Lui ___ (nascere) a Roma nel 1980.</span></td><td class="answer" onclick="speak('nacque')">nacque</td></tr>
+      <tr><td class="num">46</td><td><span class="it" onclick="speak('Noi ___ (essere) molto felici quel giorno.')">Noi ___ (essere) molto felici quel giorno.</span></td><td class="answer" onclick="speak('fummo')">fummo</td></tr>
+      <tr><td class="num">47</td><td><span class="it" onclick="speak('Loro ___ (fare) un lungo viaggio.')">Loro ___ (fare) un lungo viaggio.</span></td><td class="answer" onclick="speak('fecero')">fecero</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.14 Aggettivi in -bile</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Verbo</th><th>Aggettivo in -bile</th></tr>
+      <tr><td class="num">48</td><td>leggere →</td><td class="answer" onclick="speak('leggibile')">leggibile</td></tr>
+      <tr><td class="num">49</td><td>credere →</td><td class="answer" onclick="speak('credibile')">credibile</td></tr>
+      <tr><td class="num">50</td><td>riciclare →</td><td class="answer" onclick="speak('riciclabile')">riciclabile</td></tr>
+      <tr><td class="num">51</td><td>realizzare →</td><td class="answer" onclick="speak('realizzabile')">realizzabile</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Lezione 6 -->
+<section class="page-section" id="lez6">
+  <h2>&#x1F4D6; Lezione 6 — La famiglia cambia faccia</h2>
+
+  <h3>Es.15 Fare + infinito</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">52</td><td><span class="it" onclick="speak('La nonna ___ (fare) giocare i nipoti al parco.')">La nonna ___ (fare) giocare i nipoti al parco.</span></td><td class="answer" onclick="speak('fa')">fa</td></tr>
+      <tr><td class="num">53</td><td><span class="it" onclick="speak('Ti ___ (fare) vedere le mie foto.')">Ti ___ (fare) vedere le mie foto.</span></td><td class="answer" onclick="speak('faccio')">faccio</td></tr>
+      <tr><td class="num">54</td><td><span class="it" onclick="speak('I genitori ___ (fare) studiare troppo i bambini.')">I genitori ___ (fare) studiare troppo i bambini.</span></td><td class="answer" onclick="speak('fanno')">fanno</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.16 Comparativi e superlativi</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">55</td><td><span class="it" onclick="speak('Questo libro è ___ (bello) di quello.')">Questo libro è ___ (bello) di quello.</span></td><td class="answer" onclick="speak('più bello')">più bello</td></tr>
+      <tr><td class="num">56</td><td><span class="it" onclick="speak('Roma è la città ___ (antico) del mondo.')">Roma è la città ___ (antico) del mondo.</span></td><td class="answer" onclick="speak('più antica')">più antica</td></tr>
+      <tr><td class="num">57</td><td><span class="it" onclick="speak('Questa giacca è ___ (buono) di quella.')">Questa giacca è ___ (buono) di quella.</span></td><td class="answer" onclick="speak('migliore')">migliore</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Lezione 7 -->
+<section class="page-section" id="lez7">
+  <h2>&#x1F4D6; Lezione 7 — I soldi non fanno la felicità?</h2>
+
+  <h3>Es.17 Frasi concessive</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">58</td><td><span class="it" onclick="speak('___ piove, esco ugualmente.')">___ piove, esco ugualmente.</span></td><td class="answer" onclick="speak('Anche se')">Anche se</td></tr>
+      <tr><td class="num">59</td><td><span class="it" onclick="speak('___ sia stanco, continua a lavorare.')">___ sia stanco, continua a lavorare.</span></td><td class="answer" onclick="speak('Sebbene')">Sebbene</td></tr>
+      <tr><td class="num">60</td><td><span class="it" onclick="speak('___ non abbia tempo, vengo.')">___ non abbia tempo, vengo.</span></td><td class="answer" onclick="speak('Nonostante')">Nonostante</td></tr>
+      <tr><td class="num">61</td><td><span class="it" onclick="speak('___ fosse tardi, uscì.')">___ fosse tardi, uscì.</span></td><td class="answer" onclick="speak('Benché')">Benché</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.18 Periodo ipotetico della possibilità</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">62</td><td><span class="it" onclick="speak('Se ___ (avere) soldi, ___ (viaggiare).')">Se ___ (avere) soldi, ___ (viaggiare).</span></td><td class="answer" onclick="speak('avessi / viaggerei')">avessi / viaggerei</td></tr>
+      <tr><td class="num">63</td><td><span class="it" onclick="speak('Se ___ (essere) ricco, ___ (comprare) una villa.')">Se ___ (essere) ricco, ___ (comprare) una villa.</span></td><td class="answer" onclick="speak('fossi / comprerei')">fossi / comprerei</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Lezione 8 -->
+<section class="page-section" id="lez8">
+  <h2>&#x1F4D6; Lezione 8 — Italiani nella storia</h2>
+
+  <h3>Es.19 Gerundio</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">64</td><td><span class="it" onclick="speak('___, si impara. (studiare)')">___, si impara. (studiare)</span></td><td class="answer" onclick="speak('Studiando')">Studiando</td></tr>
+      <tr><td class="num">65</td><td><span class="it" onclick="speak('___ fame, sono uscito. (avere)')">___ fame, sono uscito. (avere)</span></td><td class="answer" onclick="speak('Avendo')">Avendo</td></tr>
+      <tr><td class="num">66</td><td><span class="it" onclick="speak('___ i compiti, sono uscito. (finire)')">___ i compiti, sono uscito. (finire)</span></td><td class="answer" onclick="speak('Avendo finito')">Avendo finito</td></tr>
+      <tr><td class="num">67</td><td><span class="it" onclick="speak('___ stanco, sono andato a letto. (essere)')">___ stanco, sono andato a letto. (essere)</span></td><td class="answer" onclick="speak('Essendo')">Essendo</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.20 Terza persona plurale impersonale</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">68</td><td><span class="it" onclick="speak('In quel cinema ___ un film storico.')">In quel cinema ___ un film storico.</span></td><td class="answer" onclick="speak('fanno')">fanno</td></tr>
+      <tr><td class="num">69</td><td><span class="it" onclick="speak('___ che Colombo non fosse genovese.')">___ che Colombo non fosse genovese.</span></td><td class="answer" onclick="speak('Dicono')">Dicono</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.21 Prefisso in-</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Aggettivo</th><th>Negativo</th></tr>
+      <tr><td class="num">70</td><td>capace →</td><td class="answer" onclick="speak('incapace')">incapace</td></tr>
+      <tr><td class="num">71</td><td>credibile →</td><td class="answer" onclick="speak('incredibile')">incredibile</td></tr>
+      <tr><td class="num">72</td><td>paziente →</td><td class="answer" onclick="speak('impaziente')">impaziente</td></tr>
+      <tr><td class="num">73</td><td>regolare →</td><td class="answer" onclick="speak('irregolare')">irregolare</td></tr>
+      <tr><td class="num">74</td><td>responsabile →</td><td class="answer" onclick="speak('irresponsabile')">irresponsabile</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Lezione 9 -->
+<section class="page-section" id="lez9">
+  <h2>&#x1F4D6; Lezione 9 — Italia da scoprire</h2>
+
+  <h3>Es.22 Discorso indiretto</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Diretto → Indiretto</th><th>Risposta</th></tr>
+      <tr><td class="num">75</td><td><span class="it" onclick="speak('Marco: Vengo domani. → Ha detto che...')">"Vengo domani." → Ha detto che...</span></td><td class="answer" onclick="speak('sarebbe venuto il giorno dopo')">sarebbe venuto il giorno dopo</td></tr>
+      <tr><td class="num">76</td><td><span class="it" onclick="speak('Giulia: Sono felice. → Ha detto che...')">"Sono felice." → Ha detto che...</span></td><td class="answer" onclick="speak('era felice')">era felice</td></tr>
+      <tr><td class="num">77</td><td><span class="it" onclick="speak('L\'insegnante: Chiudi la porta! → Ha detto di...')">"Chiudi la porta!" → Ha detto di...</span></td><td class="answer" onclick="speak('chiudere la porta')">chiudere la porta</td></tr>
+      <tr><td class="num">78</td><td><span class="it" onclick="speak('Maria: Ieri ho visto Luca. → Ha detto che...')">"Ieri ho visto Luca." → Ha detto che...</span></td><td class="answer" onclick="speak('il giorno prima aveva visto Luca')">il giorno prima aveva visto Luca</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.23 Forma passiva</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Attiva → Passiva</th><th>Risposta</th></tr>
+      <tr><td class="num">79</td><td><span class="it" onclick="speak('Il direttore firma il documento. → Il documento...')">Il direttore firma il documento. → Il documento...</span></td><td class="answer" onclick="speak('è firmato dal direttore')">è firmato dal direttore</td></tr>
+      <tr><td class="num">80</td><td><span class="it" onclick="speak('La segreteria organizza la riunione. → La riunione...')">La segreteria organizza la riunione. → La riunione...</span></td><td class="answer" onclick="speak('viene organizzata dalla segreteria')">viene organizzata dalla segreteria</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Lezione 10 -->
+<section class="page-section" id="lez10">
+  <h2>&#x1F4D6; Lezione 10 — Il viaggio della vita</h2>
+
+  <h3>Es.24 Periodo ipotetico dell'irrealtà</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">81</td><td><span class="it" onclick="speak('Se ___ (sapere) prima, ___ (venire) in metropolitana.')">Se ___ (sapere) prima, ___ (venire) in metropolitana.</span></td><td class="answer" onclick="speak('avessi saputo / sarei venuto')">avessi saputo / sarei venuto</td></tr>
+      <tr><td class="num">82</td><td><span class="it" onclick="speak('Se ___ (studiare) di più, ___ (superare) l\'esame.')">Se ___ (studiare) di più, ___ (superare) l'esame.</span></td><td class="answer" onclick="speak('avessi studiato / avrei superato')">avessi studiato / avrei superato</td></tr>
+      <tr><td class="num">83</td><td><span class="it" onclick="speak('Se ___ (nascere) in Italia, ___ (parlare) italiano meglio.')">Se ___ (nascere) in Italia, ___ (parlare) italiano meglio.</span></td><td class="answer" onclick="speak('fossi nato / parlerei')">fossi nato / parlerei</td></tr>
+      <tr><td class="num">84</td><td><span class="it" onclick="speak('Se ___ (avere) tempo, ti ___ (chiamare).')">Se ___ (avere) tempo, ti ___ (chiamare).</span></td><td class="answer" onclick="speak('avessi avuto / avrei chiamato')">avessi avuto / avrei chiamato</td></tr>
+      <tr><td class="num">85</td><td><span class="it" onclick="speak('Se non ___ (piovere), ___ (andare) al mare.')">Se non ___ (piovere), ___ (andare) al mare.</span></td><td class="answer" onclick="speak('avesse piovuto / saremmo andati')">avesse piovuto / saremmo andati</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.25 Verbi pronominali</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">86</td><td><span class="it" onclick="speak('___ tengo a laurearmi quest\'anno!')">___ tengo a laurearmi quest'anno!</span></td><td class="answer" onclick="speak('Ci')">Ci</td></tr>
+      <tr><td class="num">87</td><td><span class="it" onclick="speak('___ la faccio a finire entro domani?')">___ la faccio a finire entro domani?</span></td><td class="answer" onclick="speak('Ce')">Ce</td></tr>
+      <tr><td class="num">88</td><td><span class="it" onclick="speak('___ ne vado, ci vediamo domani.')">___ ne vado, ci vediamo domani.</span></td><td class="answer" onclick="speak('Me')">Me</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.26 Verbi irregolari — passato remoto</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Infinito (io)</th><th>Passato remoto</th></tr>
+      <tr><td class="num">89</td><td>essere →</td><td class="answer" onclick="speak('fui')">fui</td></tr>
+      <tr><td class="num">90</td><td>avere →</td><td class="answer" onclick="speak('ebbi')">ebbi</td></tr>
+      <tr><td class="num">91</td><td>fare →</td><td class="answer" onclick="speak('feci')">feci</td></tr>
+      <tr><td class="num">92</td><td>dire →</td><td class="answer" onclick="speak('dissi')">dissi</td></tr>
+      <tr><td class="num">93</td><td>prendere →</td><td class="answer" onclick="speak('presi')">presi</td></tr>
+      <tr><td class="num">94</td><td>scrivere →</td><td class="answer" onclick="speak('scrissi')">scrissi</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.27 Condizionale passato — revisione</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Frase</th><th>Risposta</th></tr>
+      <tr><td class="num">95</td><td><span class="it" onclick="speak('Io ti ___ (aiutare), ma non sapevo.')">Io ti ___ (aiutare), ma non sapevo.</span></td><td class="answer" onclick="speak('avrei aiutato')">avrei aiutato</td></tr>
+      <tr><td class="num">96</td><td><span class="it" onclick="speak('Noi ___ (venire) volentieri, ma eravamo impegnati.')">Noi ___ (venire) volentieri, ma eravamo impegnati.</span></td><td class="answer" onclick="speak('saremmo venuti')">saremmo venuti</td></tr>
+      <tr><td class="num">97</td><td><span class="it" onclick="speak('Loro ___ (dovere) partire prima.')">Loro ___ (dovere) partire prima.</span></td><td class="answer" onclick="speak('avrebbero dovuto')">avrebbero dovuto</td></tr>
+    </table>
+  </div>
+
+  <h3>Es.28 Mist — traduzione</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>#</th><th>Italiano</th><th>Cinese</th></tr>
+      <tr><td class="num">98</td><td><span class="it" onclick="speak('Che io sappia, è uno scrittore molto bravo.')">Che io sappia, è uno scrittore molto bravo.</span></td><td class="zh">据我所知，他是一位很优秀的作家。</td></tr>
+      <tr><td class="num">99</td><td><span class="it" onclick="speak('Ce l\'ho fatta! Ho superato l\'esame!')">Ce l'ho fatta! Ho superato l'esame!</span></td><td class="zh">我成功了！我通过了考试！</td></tr>
+      <tr><td class="num">100</td><td><span class="it" onclick="speak('Se non avesse piovuto, saremmo andati al mare.')">Se non avesse piovuto, saremmo andati al mare.</span></td><td class="zh">如果没有下雨，我们就去海边了。</td></tr>
+    </table>
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="grammatica-riassuntiva.html">&larr; Grammatica</a>
+  <a href="index.html" class="home-btn">Torna al corso &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 3</div>
+  <p>Corso di lingua italiana per stranieri · Livello B1</p>
+  <p style="margin-top:8px;opacity:0.6;">Maria Balì • Luciana Ziglio · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

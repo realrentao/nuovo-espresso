@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 4 · Letteratura come cura · NUOVO Espresso 6</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 6 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 4 · C2</div>
+  <h1>&#x1F4DA; Letteratura come cura</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">文学如良药 · p.45-58</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">引号的使用 · 假变形词 · 变形词叠用 · che的不同用法 · 动词省略</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Citazioni letterarie -->
+  <h3>1. "Citazioni letterarie" · p.46</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">在文学课上，学生需要将著名引文与作品配对。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Oggi giochiamo ad abbinare citazioni e titoli. Cominciamo: \'Lasciate ogni speranza, voi ch\'entrate\'.')"><strong>Insegnante:</strong> Oggi giochiamo ad abbinare citazioni e titoli. Cominciamo: "Lasciate ogni speranza, voi ch'entrate".</span></td><td class="zh"><strong>老师：</strong> 今天我们玩配对游戏——引文对标题。开始："入此门者，当放弃一切希望。"</td></tr>
+    <tr><td><span class="it" onclick="speak('Dante, Divina Commedia!')"><strong>Studente:</strong> Dante, Divina Commedia!</span></td><td class="zh"><strong>学生：</strong> 但丁，《神曲》！</td></tr>
+    <tr><td><span class="it" onclick="speak('Benissimo! E \'Sempre caro mi fu quest\'ermo colle\'?')"><strong>Insegnante:</strong> Benissimo! E "Sempre caro mi fu quest'ermo colle"?</span></td><td class="zh"><strong>老师：</strong> 非常好！那"这孤寂的山丘于我始终亲切"？</td></tr>
+    <tr><td><span class="it" onclick="speak('Leopardi, L\'infinito!')"><strong>Studente:</strong> Leopardi, L'infinito!</span></td><td class="zh"><strong>学生：</strong> 莱奥帕尔迪，《无限》！</td></tr>
+    <tr><td><span class="it" onclick="speak('Perfetto. E \'Quel ramo del lago di Como\'?')"><strong>Insegnante:</strong> Perfetto. E <strong>"Quel ramo del lago di Como"</strong>?</span></td><td class="zh"><strong>老师：</strong> 完美。那"科莫湖的那一支流"呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Manzoni, I Promessi Sposi!')"><strong>Studente:</strong> Manzoni, I Promessi Sposi!</span></td><td class="zh"><strong>学生：</strong> 曼佐尼，《约婚夫妇》！</td></tr>
+    <tr><td><span class="it" onclick="speak('E \'C\'è del marcio in Danimarca\'?')"><strong>Insegnante:</strong> E <strong>"C'è del marcio in Danimarca"</strong>?</span></td><td class="zh"><strong>老师：</strong> 那"丹麦王国里有些腐朽的事情"呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Shakespeare, Amleto. Un classico!')"><strong>Studente:</strong> Shakespeare, Amleto. Un classico!</span></td><td class="zh"><strong>学生：</strong> 莎士比亚，《哈姆雷特》。经典！</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Il canto di Ulisse -->
+  <h3>2. "Il canto di Ulisse" · p.48-49</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读Primo Levi《这是不是个人》中引用但丁《神曲·尤利西斯之歌》的片段。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Primo Levi, nel suo libro \'Se questo è un uomo\', cita Dante. Ricorda il canto di Ulisse mentre è ad Auschwitz.')"><strong>Insegnante:</strong> Primo Levi, nel suo libro "Se questo è un uomo", cita Dante. Ricorda il canto di Ulisse mentre è ad Auschwitz.</span></td><td class="zh"><strong>老师：</strong> 普里莫 莱维在他的《这是不是个人》中引用了但丁。在奥斯维辛集中营里，他回忆起了尤利西斯之歌。</td></tr>
+    <tr><td><span class="it" onclick="speak('Che cosa cita esattamente?')"><strong>Studente:</strong> Che cosa cita esattamente?</span></td><td class="zh"><strong>学生：</strong> 具体引用了什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('\'Considerate la vostra semenza: fatti non foste a viver come bruti, ma per seguir virtute e canoscenza.\'')"><strong>Insegnante:</strong> "Considerate la vostra semenza: fatti non foste a viver come bruti, ma per seguir virtute e canoscenza."</span></td><td class="zh"><strong>老师：</strong> "想想你们的出身：你们生来不是像野兽一样活着，而是为了追求美德和知识。"</td></tr>
+    <tr><td><span class="it" onclick="speak('Che potenza in queste parole. Levi le usava per ricordare a sé stesso e ai compagni la propria umanità.')"><strong>Studente:</strong> Che potenza in queste parole. Levi le usava per ricordare a sé stesso e ai compagni la propria umanità.</span></td><td class="zh"><strong>学生：</strong> 这些话真有力。莱维用它们来提醒自己和同伴们自己的人性。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto. La letteratura come cura, come resistenza alla disumanizzazione.')"><strong>Insegnante:</strong> Esatto. La letteratura come <strong>cura</strong>, come resistenza alla <strong>disumanizzazione</strong>.</span></td><td class="zh"><strong>老师：</strong> 没错。文学如良药，作为对抗非人化的抵抗。</td></tr>
+    <tr><td><span class="it" onclick="speak('È incredibile come un testo del Trecento potesse dare forza in un lager del Novecento.')"><strong>Studente:</strong> È incredibile come un testo del Trecento potesse dare forza in un lager del Novecento.</span></td><td class="zh"><strong>学生：</strong> 难以置信十四世纪的文本能在二十世纪的集中营中给予力量。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Antonomasie letterarie -->
+  <h3>3. "Antonomasie letterarie" · p.54-55</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">朋友们讨论文学人物名字进入日常语言的例子。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Sai che alcuni nomi di personaggi letterari sono diventati parole comuni?')"><strong>Marco:</strong> Sai che alcuni nomi di personaggi letterari sono diventati parole comuni?</span></td><td class="zh"><strong>马尔科：</strong> 你知道吗，一些文学人物的名字变成了日常用词？</td></tr>
+    <tr><td><span class="it" onclick="speak('Tipo sosia? Lo usiamo per due persone che si assomigliano molto.')"><strong>Giulia:</strong> Tipo <strong>sosia</strong>? Lo usiamo per due persone che si assomigliano molto.</span></td><td class="zh"><strong>朱莉娅：</strong> 比如sosia？我们用它来形容长得很像的两个人。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto, deriva dall\'Amphitruo di Plauto. E anfitrione? Una persona molto ospitale.')"><strong>Marco:</strong> Esatto, deriva dall'Amphitruo di Plauto. E <strong>anfitrione</strong>? Una persona molto ospitale.</span></td><td class="zh"><strong>马尔科：</strong> 没错，源自普劳图斯的《安菲特律翁》。那anfitrione呢？指非常好客的人。</td></tr>
+    <tr><td><span class="it" onclick="speak('E dubbio amletico per indicare un\'indecisione fortissima!')"><strong>Giulia:</strong> E <strong>dubbio amletico</strong> per indicare un'indecisione fortissima!</span></td><td class="zh"><strong>朱莉娅：</strong> 还有dubbio amletico，表示极度的犹豫不决！</td></tr>
+    <tr><td><span class="it" onclick="speak('E azzeccagarbugli? L\'avvocato senza scrupoli dei Promessi Sposi.')"><strong>Marco:</strong> E <strong>azzeccagarbugli</strong>? L'avvocato senza scrupoli dei Promessi Sposi.</span></td><td class="zh"><strong>马尔科：</strong> 还有azzeccagarbugli？《约婚夫妇》中那个没道德的律师。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non dimentichiamo don giovanni per un seduttore appassionato.')"><strong>Giulia:</strong> Non dimentichiamo <strong>don giovanni</strong> per un seduttore appassionato.</span></td><td class="zh"><strong>朱莉娅：</strong> 别忘了don giovanni，表示风流的诱惑者。</td></tr>
+    <tr><td><span class="it" onclick="speak('La letteratura è ovunque, anche nelle parole che usiamo ogni giorno!')"><strong>Marco:</strong> La letteratura è ovunque, anche nelle parole che usiamo ogni giorno!</span></td><td class="zh"><strong>马尔科：</strong> 文学无处不在，甚至在我们每天使用的词汇中！</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F30D; 核心词汇 (Lessico chiave)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('semenza')">la semenza</td><td>种子，出身（古语）</td></tr>
+    <tr><td class="it" onclick="speak('bruto')">il bruto</td><td>野兽，畜生</td></tr>
+    <tr><td class="it" onclick="speak('virtute')">virtute (f.)</td><td>美德（古语拼写，即virtù）</td></tr>
+    <tr><td class="it" onclick="speak('canoscenza')">canoscenza (f.)</td><td>知识（古语拼写，即conoscenza）</td></tr>
+    <tr><td class="it" onclick="speak('scaltro')">scaltro/a</td><td>狡猾的，精明的</td></tr>
+    <tr><td class="it" onclick="speak('mite')">mite</td><td>温和的，耐心的</td></tr>
+    <tr><td class="it" onclick="speak('tenacia')">la tenacia</td><td>坚韧，毅力</td></tr>
+    <tr><td class="it" onclick="speak('destare')">destare</td><td>唤起，引起</td></tr>
+    <tr><td class="it" onclick="speak('cavarsela')">cavarsela</td><td>摆脱困境，勉强应付</td></tr>
+    <tr><td class="it" onclick="speak('accurato')">accurato/a</td><td>精确的，仔细的</td></tr>
+    <tr><td class="it" onclick="speak('scialbo')">scialbo/a</td><td>平淡的，无表情的</td></tr>
+    <tr><td class="it" onclick="speak('pedestre')">pedestre</td><td>平庸的，乏味的</td></tr>
+    <tr><td class="it" onclick="speak('travaglio')">il travaglio</td><td>痛苦，磨难</td></tr>
+    <tr><td class="it" onclick="speak('antifrasi')">l'antifrasi (f.)</td><td>反语</td></tr>
+    <tr><td class="it" onclick="speak('antonomasia')">l'antonomasia (f.)</td><td>换称，代名</td></tr>
+    <tr><td class="it" onclick="speak('anfitrione')">l'anfitrione (m.)</td><td>好客的主人</td></tr>
+    <tr><td class="it" onclick="speak('rocambolesco')">rocambolesco/a</td><td>惊险离奇的</td></tr>
+    <tr><td class="it" onclick="speak('sosia')">il/la sosia</td><td>替身，极相似的人</td></tr>
+    <tr><td class="it" onclick="speak('dubbio amletico')">il dubbio amletico</td><td>哈姆雷特式的犹豫</td></tr>
+    <tr><td class="it" onclick="speak('azzeccagarbugli')">l'azzeccagarbugli (m.)</td><td>诡辩的律师</td></tr>
+    <tr><td class="it" onclick="speak('don giovanni')">il don giovanni</td><td>风流浪子</td></tr>
+    <tr><td class="it" onclick="speak('machiavellico')">machiavellico/a</td><td>马基雅维利式的，不择手段的</td></tr>
+    <tr><td class="it" onclick="speak('boccaccesco')">boccaccesco/a</td><td>薄伽丘式的（充满性暗示的）</td></tr>
+    <tr><td class="it" onclick="speak('shakespeariano')">shakespeariano/a</td><td>莎士比亚式的</td></tr>
+    <tr><td class="it" onclick="speak('kafkiano')">kafkiano/a</td><td>卡夫卡式的（荒诞压抑的）</td></tr>
+    <tr><td class="it" onclick="speak('dantesco')">dantesco/a</td><td>但丁式的（可怕恐怖的）</td></tr>
+    <tr><td class="it" onclick="speak('citazione')">la citazione</td><td>引文</td></tr>
+    <tr><td class="it" onclick="speak('personaggio')">il personaggio</td><td>人物角色</td></tr>
+    <tr><td class="it" onclick="speak('capolavoro')">il capolavoro</td><td>杰作</td></tr>
+    <tr><td class="it" onclick="speak('incubo')">l'incubo (m.)</td><td>噩梦</td></tr>
+    <tr><td class="it" onclick="speak('sofferenza')">la sofferenza</td><td>痛苦</td></tr>
+    <tr><td class="it" onclick="speak('disumanizzazione')">la disumanizzazione</td><td>非人化</td></tr>
+    <tr><td class="it" onclick="speak('resistenza')">la resistenza</td><td>抵抗</td></tr>
+    <tr><td class="it" onclick="speak('digressione')">la digressione</td><td>离题</td></tr>
+    <tr><td class="it" onclick="speak('genere')">il genere</td><td>体裁，类型</td></tr>
+    <tr><td class="it" onclick="speak('poesia')">la poesia</td><td>诗歌</td></tr>
+    <tr><td class="it" onclick="speak('romanzo')">il romanzo</td><td>小说</td></tr>
+    <tr><td class="it" onclick="speak('tragedia')">la tragedia</td><td>悲剧</td></tr>
+    <tr><td class="it" onclick="speak('commedia')">la commedia</td><td>喜剧</td></tr>
+  </table>
+
+  <h3>&#x1F4AC; 习语和表达 (Espressioni idiomatiche)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>含义</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('lasciare ogni speranza')">lasciare ogni speranza</td><td>abbandonare la speranza</td><td>放弃一切希望</td></tr>
+    <tr><td class="it" onclick="speak('seguire il filo del discorso')">seguire il filo del discorso</td><td>non perdere il punto del discorso</td><td>跟上谈话思路</td></tr>
+    <tr><td class="it" onclick="speak('tornare in carreggiata')">tornare in carreggiata</td><td>ritornare al tema principale</td><td>回到正题</td></tr>
+    <tr><td class="it" onclick="speak('perdere il filo')">perdere il filo</td><td>non ricordare più cosa si stava dicendo</td><td>断了思路</td></tr>
+    <tr><td class="it" onclick="speak('venire al dunque')">venire al dunque</td><td>arrivare al punto principale</td><td>言归正传</td></tr>
+    <tr><td class="it" onclick="speak('fare una digressione')">fare una digressione</td><td>allontanarsi dal tema</td><td>离题</td></tr>
+    <tr><td class="it" onclick="speak('non stare né in cielo né in terra')">non stare né in cielo né in terra</td><td>non avere senso</td><td>毫无道理</td></tr>
+    <tr><td class="it" onclick="speak('avere l\'acqua alla gola')">avere l'acqua alla gola</td><td>essere in difficoltà</td><td>陷入困境</td></tr>
+    <tr><td class="it" onclick="speak('essere al settimo cielo')">essere al settimo cielo</td><td>essere felicissimo</td><td>非常幸福</td></tr>
+    <tr><td class="it" onclick="speak('non avere peli sulla lingua')">non avere peli sulla lingua</td><td>dire tutto senza timore</td><td>直言不讳</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Virgolette -->
+  <h3>1. 引号的使用 — L'uso delle virgolette</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">C2级别要求掌握引号的高级用法，包括反讽、直接引用、表示距离、书名和比喻义。</p>
+    <table>
+      <tr><th>功能</th><th>说明</th><th>例句</th></tr>
+      <tr><td><span class="verb">Ironica</span></td><td>反讽用法，表示矛盾</td><td><span class="it" onclick="speak('«perciò» ha diritto a mezza razione supplementare.')">«perciò» ha diritto a mezza razione supplementare.</span></td></tr>
+      <tr><td><span class="verb">Citazione diretta</span></td><td>直接引用</td><td><span class="it" onclick="speak('Dante scrisse: \'Lasciate ogni speranza\'.')">Dante scrisse: "Lasciate ogni speranza".</span></td></tr>
+      <tr><td><span class="verb">Distanza</span></td><td>表示对用词的保留态度</td><td><span class="it" onclick="speak('Questo si chiama \'progresso\'.')">Questo si chiama "progresso".</span></td></tr>
+      <tr><td><span class="verb">Titolo</span></td><td>书名、文章名</td><td><span class="it" onclick="speak('Ho letto \'Se questo è un uomo\'.')">Ho letto "Se questo è un uomo".</span></td></tr>
+      <tr><td><span class="verb">Senso metaforico</span></td><td>比喻义</td><td><span class="it" onclick="speak('È un vero \'genio\' (ma non lo è).')">È un vero "genio" (ma non lo è).</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>意大利语</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Primo Levi ha scritto \'Se questo è un uomo\'.')">Primo Levi ha scritto <strong>"Se questo è un uomo"</strong>.</span></td><td>Primo Levi写了《这是不是个人》。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il cosiddetto \'progresso\' ha portato anche problemi.')">Il cosiddetto <strong>"progresso"</strong> ha portato anche problemi.</span></td><td>所谓的"进步"也带来了问题。</td></tr>
+      <tr><td><span class="it" onclick="speak('\'Considerate la vostra semenza\' è un verso di Dante.')"><strong>"Considerate la vostra semenza"</strong> è un verso di Dante.</span></td><td>"想想你们的出身"是但丁的诗句。</td></tr>
+      <tr><td><span class="it" onclick="speak('È un \'amico\' che non si fa mai sentire.')">È un <strong>"amico"</strong> che non si fa mai sentire. (ironico)</span></td><td>他是一个从不让别人有他消息的"朋友"。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ha usato la parola \'libertà\' in modo ambiguo.')">Ha usato la parola <strong>"libertà"</strong> in modo ambiguo.</span></td><td>他以模棱两可的方式使用了"自由"这个词。</td></tr>
+      <tr><td><span class="it" onclick="speak('\'C\'è del marcio in Danimarca\' è una citazione shakespeariana.')"><strong>"C'è del marcio in Danimarca"</strong> è una citazione shakespeariana.</span></td><td>"丹麦王国里有些腐朽的事情"是莎士比亚的引文。</td></tr>
+      <tr><td><span class="it" onclick="speak('L\'articolo intitolato \'La fine del mondo\' è virale.')">L'articolo intitolato <strong>"La fine del mondo"</strong> è virale.</span></td><td>题为"世界末日"的文章火了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ha detto di essere \'stanco\' ma non dimostrava.')">Ha detto di essere <strong>"stanco"</strong> ma non dimostrava.</span></td><td>他说自己"累了"，但看起来并不像。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il \'capolavoro\' si è rivelato un fallimento.')">Il <strong>"capolavoro"</strong> si è rivelato un fallimento.</span></td><td>这部"杰作"结果是个失败。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il documento dice che \'il sottoscritto\' si è recato...')">Il documento dice che <strong>"il sottoscritto"</strong> si è recato...</span></td><td>文件写道"签署人"前往……</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Falsi Alterati -->
+  <h3>2. 假变形词 — I Falsi Alterati</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">假变形词看起来有指小/指大词缀，但实际上不是变形词，而是独立的词汇。</p>
+    <table>
+      <tr><th>词</th><th>看似是……的变形</th><th>真相</th></tr>
+      <tr><td><span class="verb">tacchino</span></td><td>tacco + -ino</td><td>火鸡（独立词）</td></tr>
+      <tr><td><span class="verb">bottone</span></td><td>botto + -one</td><td>纽扣</td></tr>
+      <tr><td><span class="verb">spaghetti</span></td><td>spago + -etto</td><td>意大利面条</td></tr>
+      <tr><td><span class="verb">aquilone</span></td><td>aquila + -one</td><td>风筝</td></tr>
+      <tr><td><span class="verb">latino</span></td><td>lato + -ino</td><td>拉丁语</td></tr>
+      <tr><td><span class="verb">architetto</span></td><td>archite + -etto</td><td>建筑师</td></tr>
+      <tr><td><span class="verb">martello</span></td><td>marto + -ello</td><td>锤子</td></tr>
+      <tr><td><span class="verb">fumetto</span></td><td>fumo + -etto</td><td>漫画</td></tr>
+      <tr><td><span class="verb">pulcino</span></td><td>pulce + -ino</td><td>小鸡</td></tr>
+      <tr><td><span class="verb">mulino</span></td><td>mulo + -ino</td><td>磨坊</td></tr>
+      <tr><td><span class="verb">postino</span></td><td>posto + -ino</td><td>邮递员</td></tr>
+      <tr><td><span class="verb">cerotto</span></td><td>cero + -otto</td><td>创可贴</td></tr>
+      <tr><td><span class="verb">merluzzo</span></td><td>merlo + -uzzo</td><td>鳕鱼</td></tr>
+      <tr><td><span class="verb">lampone</span></td><td>lampo + -one</td><td>覆盆子</td></tr>
+      <tr><td><span class="verb">calzone</span></td><td>calza + -one</td><td>意式饺子/披萨饺</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">变形词叠用 — Cumulo di alterati</p>
+    <table>
+      <tr><th>过程</th><th>例句</th></tr>
+      <tr><td>双重指小</td><td><span class="it" onclick="speak('libro → libretto → librettino')">libro → libretto → librettino</span></td></tr>
+      <tr><td>指大+指大</td><td><span class="it" onclick="speak('uomo → omone → omaccione')">uomo → omone → omaccione</span></td></tr>
+      <tr><td>指小+爱称</td><td><span class="it" onclick="speak('casa → casetta → casettina')">casa → casetta → casettina</span></td></tr>
+      <tr><td>指大+贬义</td><td><span class="it" onclick="speak('donna → donnona → donnaccia')">donna → donnona → donnaccia</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>意大利语</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Tacchino non è il diminutivo di tacco.')"><strong>Tacchino</strong> non è il diminutivo di tacco.</span></td><td>Tacchino不是tacco的指小词。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho mangiato gli spaghetti al pomodoro.')">Ho mangiato gli <strong>spaghetti</strong> al pomodoro.</span></td><td>我吃了番茄意大利面。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il bambino ha fatto volare l\'aquilone.')">Il bambino ha fatto volare l'<strong>aquilone</strong>.</span></td><td>孩子放了风筝。</td></tr>
+      <tr><td><span class="it" onclick="speak('Martello non è un alterato, è una parola a sé.')"><strong>Martello</strong> non è un alterato, è una parola a sé.</span></td><td>Martello不是变形词，是一个独立的词。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho letto un fumetto molto interessante.')">Ho letto un <strong>fumetto</strong> molto interessante.</span></td><td>我读了一本非常有趣的漫画。</td></tr>
+      <tr><td><span class="it" onclick="speak('Libretto è il diminutivo di libro, librettino è un doppio diminutivo.')"><strong>Libretto</strong> è il diminutivo di libro, <strong>librettino</strong> è un doppio diminutivo.</span></td><td>Libretto是libro的指小词，librettino是双重指小词。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dal forno è uscito un calzone caldo.')">Dal forno è uscito un <strong>calzone</strong> caldo.</span></td><td>从烤箱里出来一个热乎乎的披萨饺。</td></tr>
+      <tr><td><span class="it" onclick="speak('Omone è l\'accrescitivo di uomo, omaccione è ancora più grande.')"><strong>Omone</strong> è l'accrescitivo di uomo, <strong>omaccione</strong> è ancora più grande.</span></td><td>Omone是uomo的指大词，omaccione更大。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il postino ha portato una lettera.')">Il <strong>postino</strong> ha portato una lettera.</span></td><td>邮递员送来了一封信。</td></tr>
+      <tr><td><span class="it" onclick="speak('Pulcino e tacchino sono entrambi falsi alterati.')"><strong>Pulcino</strong> e <strong>tacchino</strong> sono entrambi falsi alterati.</span></td><td>Pulcino和tacchino都是假变形词。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Che -->
+  <h3>3. "che"的不同用法 — Diversi usi di "che"</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">"che"在意大利语中有多种语法功能，C2级别要求区分其不同用法。</p>
+    <table>
+      <tr><th>功能</th><th>说明</th><th>例句</th></tr>
+      <tr><td><span class="verb">Pronome relativo</span></td><td>关系代词</td><td><span class="it" onclick="speak('Il libro che ho letto è bello.')">"Il libro <span class="verb">che</span> ho letto è bello."</span></td></tr>
+      <tr><td><span class="verb">Congiunzione</span></td><td>连词</td><td><span class="it" onclick="speak('Penso che sia giusto.')">"Penso <span class="verb">che</span> sia giusto."</span></td></tr>
+      <tr><td><span class="verb">Aggettivo esclamativo</span></td><td>感叹形容词</td><td><span class="it" onclick="speak('Che bella giornata!')">"<span class="verb">Che</span> bella giornata!"</span></td></tr>
+      <tr><td><span class="verb">Pronome interrogativo</span></td><td>疑问代词</td><td><span class="it" onclick="speak('Che cosa vuoi?')">"<span class="verb">Che</span> cosa vuoi?"</span></td></tr>
+      <tr><td><span class="verb">Che polivalente</span></td><td>多功能che（口语）</td><td><span class="it" onclick="speak('È il giorno che ci siamo conosciuti.')">"È il giorno <span class="verb">che</span> ci siamo conosciuti." (= in cui)</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>意大利语</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Il vestito che era in vetrina è bellissimo.')">Il vestito <span class="verb">che</span> era in vetrina è bellissimo. (relativo)</span></td><td>橱窗里的那件裙子非常漂亮。</td></tr>
+      <tr><td><span class="it" onclick="speak('Penso che tu abbia ragione.')">Penso <span class="verb">che</span> tu abbia ragione. (congiunzione)</span></td><td>我认为你是对的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Che sorpresa vederti qui!')"><span class="verb">Che</span> sorpresa vederti qui! (esclamativo)</span></td><td>在这里见到你真是太惊喜了！</td></tr>
+      <tr><td><span class="it" onclick="speak('Che cosa hai detto?')"><span class="verb">Che</span> cosa hai detto? (interrogativo)</span></td><td>你说了什么？</td></tr>
+      <tr><td><span class="it" onclick="speak('È più alto che intelligente.')">È più alto <span class="verb">che</span> intelligente. (comparativo)</span></td><td>他个子高但不怎么聪明。</td></tr>
+      <tr><td><span class="it" onclick="speak('È il momento che aspettavo da tanto.')">È il momento <span class="verb">che</span> aspettavo da tanto. (relativo)</span></td><td>这是我期待已久的时刻。</td></tr>
+      <tr><td><span class="it" onclick="speak('Che bello! Sei arrivato!')"><span class="verb">Che</span> bello! Sei arrivato! (esclamativo)</span></td><td>太好了！你到了！</td></tr>
+      <tr><td><span class="it" onclick="speak('Non so che fare.')">Non so <span class="verb">che</span> fare. (interrogativo indiretto)</span></td><td>我不知道该怎么办。</td></tr>
+      <tr><td><span class="it" onclick="speak('L\'anno che siamo andati in Italia è stato fantastico.')">L'anno <span class="verb">che</span> siamo andati in Italia è stato fantastico. (temporale)</span></td><td>我们去意大利的那一年真是太棒了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Voglio che tu capisca.')">Voglio <span class="verb">che</span> tu capisca. (congiunzione)</span></td><td>我希望你能理解。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Verbo sottinteso -->
+  <h3>4. 动词省略 — Il verbo sottinteso</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">动词省略在诗歌、新闻标题、列表和日常表达中广泛使用，是C2级别理解文本的重要能力。</p>
+    <table>
+      <tr><th>场合</th><th>例句</th><th>中文</th></tr>
+      <tr><td><span class="verb">Linguaggio poetico</span></td><td>"Sebbene (fossero) tanto offuscate."</td><td>诗歌中动词可省略</td></tr>
+      <tr><td><span class="verb">Titoli dei giornali</span></td><td>"A Roma (ci sono) nuove proteste."</td><td>新闻标题</td></tr>
+      <tr><td><span class="verb">Per evitare ripetizioni</span></td><td>"Marco mangia la carne, Giulio (mangia) il pesce."</td><td>避免重复</td></tr>
+      <tr><td><span class="verb">Elenchi</span></td><td>"Ingredienti: farina, uova, zucchero."</td><td>列表</td></tr>
+      <tr><td><span class="verb">Frase nominale</span></td><td>"Bella giornata oggi!"</td><td>名词句（不用动词）</td></tr>
+      <tr><td><span class="verb">Cartelli / avvisi</span></td><td>"Vietato fumare." = È vietato fumare</td><td>告示牌</td></tr>
+      <tr><td><span class="verb">Ricette</span></td><td>"Aggiungere sale e pepe." = Si deve aggiungere</td><td>菜谱</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>意大利语</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('A Roma nuove proteste dei tassisti.')">"A Roma nuove proteste dei tassisti." (titolo)</span></td><td>"罗马出租车司机新抗议活动。"</td></tr>
+      <tr><td><span class="it" onclick="speak('Marco studia medicina, Luca ingegneria.')">Marco studia medicina, Luca ingegneria.</span></td><td>Marco学医，Luca学工程。</td></tr>
+      <tr><td><span class="it" onclick="speak('Bellissima la tua nuova casa!')">"Bellissima la tua nuova casa!"</span></td><td>"你的新家真漂亮！"</td></tr>
+      <tr><td><span class="it" onclick="speak('Divieto di sosta.')">Divieto di sosta. (= È vietato sostare)</span></td><td>禁止停车。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ingredienti: 300g di farina, 2 uova, 100g di zucchero.')">"Ingredienti: 300g di farina, 2 uova, 100g di zucchero."</span></td><td>"材料：300克面粉，2个鸡蛋，100克糖。"</td></tr>
+      <tr><td><span class="it" onclick="speak('Che noia questa lezione!')">"Che noia questa lezione!"</span></td><td>"这课真无聊！"</td></tr>
+      <tr><td><span class="it" onclick="speak('Pronti, partenza, via!')">"Pronti, partenza, via!"</span></td><td>"各就各位，预备，跑！"</td></tr>
+      <tr><td><span class="it" onclick="speak('Niente paura!')">"Niente paura!"</span></td><td>"别怕！"</td></tr>
+      <tr><td><span class="it" onclick="speak('Così sia.')">"Così sia." (formula)</span></td><td>"就这样吧。"</td></tr>
+      <tr><td><span class="it" onclick="speak('A domani!')">"A domani!" (= Ci vediamo domani)</span></td><td>"明天见！"</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 4 — Letteratura come cura · p.58</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频讨论文学的力量、经典引文、以及文学人物如何成为日常用语的一部分。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Pre-viewing — 观看前活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Qual è il tuo libro preferito? Perché?')">1. Qual è il tuo libro preferito? Perché?</span></td><td class="zh">你最喜欢的书是什么？为什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Conosci qualche citazione letteraria famosa?')">2. Conosci qualche citazione letteraria famosa?</span></td><td class="zh">你知道哪些著名的文学引文？</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">While-viewing — 观看中活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Segna le citazioni letterarie menzionate nel video.')">1. Segna le citazioni letterarie menzionate nel video.</span></td><td class="zh">标记视频中提到的文学引文。</td></tr>
+    <tr><td><span class="it" onclick="speak('Identifica gli usi delle virgolette (ironico, citazione, distanza).')">2. Identifica gli usi delle virgolette (ironico, citazione, distanza).</span></td><td class="zh">识别引号的不同用法（反讽、引用、距离）。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">Post-viewing — 观看后活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Scrivi un breve testo su un libro che ti ha cambiato la vita.')">1. Scrivi un breve testo su un libro che ti ha cambiato la vita.</span></td><td class="zh">写一篇短文讲述一本改变你生活的书。</td></tr>
+    <tr><td><span class="it" onclick="speak('Discuti: la letteratura può essere una \'cura\'?')">2. Discuti: la letteratura può essere una "cura"?</span></td><td class="zh">讨论：文学可以是"良药"吗？</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演：模拟文学课堂讨论，引用经典作品<br>
+    &bull; 用引号的不同功能造句（反讽、引用、距离）<br>
+    &bull; 识别并造句假变形词（tacchino, spaghetti, aquilone）<br>
+    &bull; 用省略动词的表达写一个新闻标题或告示
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-3.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html">Torna al corso</a>
+  <a href="unita-5.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 6</div>
+  <p>Corso di lingua italiana per stranieri · Livello C2</p>
+  <p style="margin-top:8px;opacity:0.6;">Ornella Discacciati · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

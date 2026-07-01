@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 10 · Terra del sì · NUOVO Espresso 6</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 6 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 10 · C2</div>
+  <h1>&#x1F1EE;&#x1F1F9; Terra del sì</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">"是的"之地 · p.125-137</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">动词重复 · si+voi无人称形式 · 关系代词il quale · 地域同义词 · 方言与意大利语发音差异</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Nord e Sud -->
+  <h3>1. "Nord e Sud" · p.126</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">两个朋友讨论意大利南北方的差异。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Secondo te, esistono ancora differenze tra Nord e Sud Italia?')"><strong>Marco:</strong> Secondo te, esistono ancora differenze tra Nord e Sud Italia?</span></td><td class="zh"><strong>马尔科：</strong> 你觉得意大利南北方的差异还存在吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Certo! Basta ascoltare gli accenti regionali. Uno di Napoli parla in modo molto diverso da uno di Milano.')"><strong>Anna:</strong> Certo! Basta ascoltare gli <strong>accenti regionali</strong>. Uno di Napoli parla in modo molto diverso da uno di Milano.</span></td><td class="zh"><strong>安娜：</strong> 当然！只要听听地区口音就知道了。那不勒斯人和米兰人说话方式大不相同。</td></tr>
+    <tr><td><span class="it" onclick="speak('Vero. E anche i dialetti sono molto diversi tra loro.')"><strong>Marco:</strong> Vero. E anche i <strong>dialetti</strong> sono molto diversi tra loro.</span></td><td class="zh"><strong>马尔科：</strong> 没错。而且方言也各不相同。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, il siciliano, il napoletano, il veneto, il milanese... sono quasi delle lingue diverse!')"><strong>Anna:</strong> Sì, il siciliano, il napoletano, il veneto, il milanese... sono quasi delle lingue diverse!</span></td><td class="zh"><strong>安娜：</strong> 是的，西西里语、那不勒斯语、威尼托语、米兰语……几乎是不同的语言！</td></tr>
+    <tr><td><span class="it" onclick="speak('E i geosinonimi? Parole diverse per dire la stessa cosa in regioni diverse!')"><strong>Marco:</strong> E i <strong>geosinonimi</strong>? Parole diverse per dire la stessa cosa in regioni diverse!</span></td><td class="zh"><strong>马尔科：</strong> 还有地域同义词？不同地区用不同的词说同一件事！</td></tr>
+    <tr><td><span class="it" onclick="speak('Come anguria al Nord e cocomero al Sud? O babbo in Toscana e papà altrove.')"><strong>Anna:</strong> Come <strong>anguria</strong> al Nord e <strong>cocomero</strong> al Sud? O <strong>babbo</strong> in Toscana e <strong>papà</strong> altrove.</span></td><td class="zh"><strong>安娜：</strong> 比如北方说anguria，南方说cocomero（西瓜）？或者托斯卡纳说babbo，其他地方说papà。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto. L\'Italia è una terra del "sì", ma con mille modi diversi di dirlo!')"><strong>Marco:</strong> Esatto. L'Italia è una <strong>terra del "sì"</strong>, ma con mille modi diversi di dirlo!</span></td><td class="zh"><strong>马尔科：</strong> 没错。意大利是"是的"之地，但有一千种不同的说法！</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Duplicazione del verbo -->
+  <h3>2. "Duplicazione del verbo" · p.128</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">在课堂上，老师讲解动词重复的特殊用法。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Oggi parliamo della duplicazione del verbo.')"><strong>Insegnante:</strong> Oggi parliamo della <strong>duplicazione del verbo</strong>.</span></td><td class="zh"><strong>老师：</strong> 今天我们讲动词的重复。</td></tr>
+    <tr><td><span class="it" onclick="speak('Come "Quello che faccio faccio, sbaglio"?')"><strong>Studente:</strong> Come "Quello che <strong>faccio faccio</strong>, sbaglio"?</span></td><td class="zh"><strong>学生：</strong> 比如"Quello che faccio faccio, sbaglio"？</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto! Qui ha un significato indefinito: qualunque cosa faccia.')"><strong>Insegnante:</strong> Esatto! Qui ha un <strong>significato indefinito</strong>: qualunque cosa faccia.</span></td><td class="zh"><strong>老师：</strong> 正确！这里表示不定意义：无论我做什么。</td></tr>
+    <tr><td><span class="it" onclick="speak('E "Guarda guarda! Chi si rivede!"?')"><strong>Studente:</strong> E "<strong>Guarda guarda!</strong> Chi si rivede!"?</span></td><td class="zh"><strong>学生：</strong> 那"Guarda guarda! Chi si rivede!"呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Quello ha valore enfatico — stupore nel rivedere qualcuno.')"><strong>Insegnante:</strong> Quello ha <strong>valore enfatico</strong> — stupore nel rivedere qualcuno.</span></td><td class="zh"><strong>老师：</strong> 那是强调意义——惊讶地再次见到某人。</td></tr>
+    <tr><td><span class="it" onclick="speak('E "Cammina, cammina, cammina, arrivarono nel bosco"?')"><strong>Studente:</strong> E "<strong>Cammina, cammina, cammina</strong>, arrivarono nel bosco"?</span></td><td class="zh"><strong>学生：</strong> 那"Cammina, cammina, cammina, arrivarono nel bosco"呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Valore narrativo — indica un\'azione che continua nel tempo.')"><strong>Insegnante:</strong> <strong>Valore narrativo</strong> — indica un'azione che continua nel tempo.</span></td><td class="zh"><strong>老师：</strong> 叙事意义——表示持续进行的动作。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quindi la ripetizione ha funzioni diverse a seconda del contesto!')"><strong>Studente:</strong> Quindi la ripetizione ha funzioni diverse a seconda del contesto!</span></td><td class="zh"><strong>学生：</strong> 所以重复根据语境有不同的功能！</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Il pronome relativo "il quale" -->
+  <h3>3. "Il pronome relativo 'il quale'" · p.132</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">高级语法课上学习关系代词"il quale"的正式用法。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Oggi vediamo quando si usa il quale invece di che o cui.')"><strong>Insegnante:</strong> Oggi vediamo quando si usa <strong>il quale</strong> invece di <strong>che</strong> o <strong>cui</strong>.</span></td><td class="zh"><strong>老师：</strong> 今天我们看什么时候用il quale代替che或cui。</td></tr>
+    <tr><td><span class="it" onclick="speak('Dopo un numerale o un pronome indefinito, giusto?')"><strong>Studente:</strong> Dopo un numerale o un pronome indefinito, giusto?</span></td><td class="zh"><strong>学生：</strong> 在数词或不定义代词之后，对吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto: "Ha scritto molti libri, due dei quali sono best seller."')"><strong>Insegnante:</strong> Esatto: "Ha scritto molti libri, due <strong>dei quali</strong> sono best seller."</span></td><td class="zh"><strong>老师：</strong> 正确："他写了很多书，其中两本是畅销书。"</td></tr>
+    <tr><td><span class="it" onclick="speak('E dopo forme nominali del verbo?')"><strong>Studente:</strong> E dopo forme nominali del verbo?</span></td><td class="zh"><strong>学生：</strong> 动词的名词形式之后呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('"È un traguardo importante, raggiunto il quale..."')"><strong>Insegnante:</strong> "È un traguardo importante, raggiunto <strong>il quale</strong>..."</span></td><td class="zh"><strong>老师：</strong> "这是一个重要的里程碑，达到之后……"</td></tr>
+    <tr><td><span class="it" onclick="speak('E dopo locuzioni come "per conto di"?')"><strong>Studente:</strong> E dopo locuzioni come "per conto di"?</span></td><td class="zh"><strong>学生：</strong> 在短语如"per conto di"之后？</td></tr>
+    <tr><td><span class="it" onclick="speak('"Mio fratello, per conto del quale..." Oppure "Gino, la figlia del quale ti ho parlato."')"><strong>Insegnante:</strong> "Mio fratello, per conto <strong>del quale</strong>..." Oppure "Gino, <strong>la figlia del quale</strong> (= la cui figlia) ti ho parlato."</span></td><td class="zh"><strong>老师：</strong> "我的兄弟，代表他……"或者"吉诺，他的女儿我跟你说过。"</td></tr>
+    <tr><td><span class="it" onclick="speak('Quindi il quale è più formale e preciso?')"><strong>Studente:</strong> Quindi <strong>il quale</strong> è più formale e preciso?</span></td><td class="zh"><strong>学生：</strong> 所以il quale更正式更精确？</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto. Si usa soprattutto nello scritto formale.')"><strong>Insegnante:</strong> Esatto. Si usa soprattutto nello scritto formale.</span></td><td class="zh"><strong>老师：</strong> 没错。主要用于正式书面语。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F1EE;&#x1F1F9; 核心词汇 (Lessico chiave)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('dialetto')">il dialetto</td><td>方言</td></tr>
+    <tr><td class="it" onclick="speak('accento regionale')">l'accento regionale (m.)</td><td>地区口音</td></tr>
+    <tr><td class="it" onclick="speak('pronuncia')">la pronuncia</td><td>发音</td></tr>
+    <tr><td class="it" onclick="speak('geosinonimo')">il geosinonimo</td><td>地域同义词</td></tr>
+    <tr><td class="it" onclick="speak('bilinguismo')">il bilinguismo</td><td>双语现象</td></tr>
+    <tr><td class="it" onclick="speak('madrelingua')">il/la madrelingua</td><td>母语者</td></tr>
+    <tr><td class="it" onclick="speak('vocale chiusa')">la vocale chiusa</td><td>闭元音</td></tr>
+    <tr><td class="it" onclick="speak('vocale aperta')">la vocale aperta</td><td>开元音</td></tr>
+    <tr><td class="it" onclick="speak('poliglotta')">il/la poliglotta</td><td>多语者</td></tr>
+    <tr><td class="it" onclick="speak('seconda lingua')">la seconda lingua</td><td>第二语言</td></tr>
+    <tr><td class="it" onclick="speak('variante locale')">la variante locale</td><td>地方变体</td></tr>
+    <tr><td class="it" onclick="speak('scatola cranica')">la scatola cranica</td><td>头盖骨</td></tr>
+    <tr><td class="it" onclick="speak('sinapsi')">la sinapsi</td><td>突触</td></tr>
+    <tr><td class="it" onclick="speak('materia grigia')">la materia grigia</td><td>灰质</td></tr>
+    <tr><td class="it" onclick="speak('apprendimento')">l'apprendimento (m.)</td><td>学习</td></tr>
+    <tr><td class="it" onclick="speak('conoscenza')">la conoscenza</td><td>知识</td></tr>
+    <tr><td class="it" onclick="speak('consapevolezza')">la consapevolezza</td><td>意识</td></tr>
+    <tr><td class="it" onclick="speak('ricerca')">la ricerca</td><td>研究</td></tr>
+    <tr><td class="it" onclick="speak('analizzare')">analizzare</td><td>分析</td></tr>
+    <tr><td class="it" onclick="speak('duplicazione del verbo')">la duplicazione del verbo</td><td>动词重复</td></tr>
+    <tr><td class="it" onclick="speak('indefinito')">indefinito/a</td><td>不定的</td></tr>
+    <tr><td class="it" onclick="speak('enfatico')">enfatico/a</td><td>强调的</td></tr>
+    <tr><td class="it" onclick="speak('narrativo')">narrativo/a</td><td>叙事的</td></tr>
+    <tr><td class="it" onclick="speak('impersonale')">impersonale</td><td>无人称的</td></tr>
+    <tr><td class="it" onclick="speak('relazione')">la relazione</td><td>关系</td></tr>
+    <tr><td class="it" onclick="speak('pronome relativo')">il pronome relativo</td><td>关系代词</td></tr>
+    <tr><td class="it" onclick="speak('il quale / la quale')">il quale / la quale</td><td>关系代词（正式）</td></tr>
+    <tr><td class="it" onclick="speak('i quali / le quali')">i quali / le quali</td><td>关系代词复数</td></tr>
+    <tr><td class="it" onclick="speak('locuzione')">la locuzione</td><td>短语</td></tr>
+    <tr><td class="it" onclick="speak('numerale')">il numerale</td><td>数词</td></tr>
+    <tr><td class="it" onclick="speak('pronome indefinito')">il pronome indefinito</td><td>不定代词</td></tr>
+    <tr><td class="it" onclick="speak('traguardo')">il traguardo</td><td>里程碑，目标</td></tr>
+    <tr><td class="it" onclick="speak('forma implicita')">la forma implicita</td><td>隐含形式</td></tr>
+    <tr><td class="it" onclick="speak('soggetto')">il soggetto</td><td>主语</td></tr>
+    <tr><td class="it" onclick="speak('concordanza')">la concordanza</td><td>一致（性/数）</td></tr>
+    <tr><td class="it" onclick="speak('differenza')">la differenza</td><td>区别</td></tr>
+    <tr><td class="it" onclick="speak('confronto')">il confronto</td><td>比较</td></tr>
+    <tr><td class="it" onclick="speak('complessità')">la complessità</td><td>复杂性</td></tr>
+    <tr><td class="it" onclick="speak('lingua straniera')">la lingua straniera</td><td>外语</td></tr>
+    <tr><td class="it" onclick="speak('accento')">l'accento (m.)</td><td>口音，重音</td></tr>
+  </table>
+
+  <h3>&#x1F4AC; 习语和表达 (Espressioni idiomatiche)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>含义</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('Terra del "sì"')">Terra del "sì"</td><td>l'Italia (per l'assenza della parola "sì" in altri contesti)</td><td>"是的"之地（意大利）</td></tr>
+    <tr><td class="it" onclick="speak('Nord e Sud')">Nord e Sud</td><td>le due macro-aree italiane</td><td>南北</td></tr>
+    <tr><td class="it" onclick="speak('parlare in dialetto')">parlare in dialetto</td><td>usare il dialetto locale</td><td>说方言</td></tr>
+    <tr><td class="it" onclick="speak('avere l\'accento')">avere l'accento</td><td>parlare con inflessione regionale</td><td>带口音</td></tr>
+    <tr><td class="it" onclick="speak('casa dolce casa')">casa dolce casa</td><td>espressione di affetto per la propria casa</td><td>家，甜蜜的家</td></tr>
+    <tr><td class="it" onclick="speak('che io sappia')">che io sappia</td><td>per quanto ne so</td><td>据我所知</td></tr>
+    <tr><td class="it" onclick="speak('a quanto pare')">a quanto pare</td><td>sembra che</td><td>看起来</td></tr>
+    <tr><td class="it" onclick="speak('per conto di')">per conto di</td><td>a nome di / per incarico di</td><td>代表</td></tr>
+    <tr><td class="it" onclick="speak('alla vista di')">alla vista di</td><td>quando si vede</td><td>当看到……时</td></tr>
+    <tr><td class="it" onclick="speak('essere madrelingua')">essere madrelingua</td><td>parlare una lingua dalla nascita</td><td>是母语者</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Duplicazione del verbo -->
+  <h3>1. 动词重复 — La Duplicazione del Verbo</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">动词重复在意大利语中有三种主要功能：不定意义、强调意义和叙事意义。</p>
+    <p style="font-weight:600;margin:14px 0 6px;">三种功能对照表</p>
+    <table>
+      <tr><th>Funzione</th><th>Descrizione</th><th>Esempio</th></tr>
+      <tr><td><span class="verb">Significato indefinito</span></td><td>不定意义：无论做什么……</td><td>"Quello che <span class="verb">faccio faccio</span>, sbaglio." (= qualunque cosa faccia)</td></tr>
+      <tr><td><span class="verb">Valore enfatico</span></td><td>强调意义：惊讶/感叹</td><td>"<span class="verb">Guarda guarda!</span> Chi si rivede!"</td></tr>
+      <tr><td><span class="verb">Valore narrativo</span></td><td>叙事意义：持续进行的动作</td><td>"<span class="verb">Cammina, cammina, cammina</span>, arrivarono nel bosco."</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Aspetta aspetta, non correre!');"><span class="verb">Aspetta aspetta</span>, non correre!</span></td><td>等等等等，别急！</td></tr>
+      <tr><td><span class="it" onclick="speak('Parla parla, ha finito per stancare tutti.');"><span class="verb">Parla parla</span>, ha finito per stancare tutti.</span></td><td>说啊说啊，最后让所有人厌烦了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Cammina cammina, siamo finalmente arrivati.');"><span class="verb">Cammina cammina</span>, siamo finalmente arrivati.</span></td><td>走啊走啊，我们终于到了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Guarda guarda chi si rivede!');"><span class="verb">Guarda guarda</span> chi si rivede!</span></td><td>看看看！这是谁呀！</td></tr>
+      <tr><td><span class="it" onclick="speak('Quello che dico dico, è giusto.');">Quello che <span class="verb">dico dico</span>, è giusto.</span></td><td>无论我说什么，都是对的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mangia mangia, non ha smesso un attimo.');"><span class="verb">Mangia mangia</span>, non ha smesso un attimo.</span></td><td>吃啊吃啊，一刻没停。</td></tr>
+      <tr><td><span class="it" onclick="speak('Cerca cerca, alla fine ho trovato le chiavi.');"><span class="verb">Cerca cerca</span>, alla fine ho trovato le chiavi.</span></td><td>找啊找啊，最后我找到了钥匙。</td></tr>
+      <tr><td><span class="it" onclick="speak('Piove piove, non possiamo uscire.');"><span class="verb">Piove piove</span>, non possiamo uscire.</span></td><td>不停地下雨，我们出不去。</td></tr>
+      <tr><td><span class="it" onclick="speak('Leggi leggi, si è addormentato sul divano.');"><span class="verb">Leggi leggi</span>, si è addormentato sul divano.</span></td><td>读着读着，他在沙发上睡着了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Prova prova, alla fine ce l\'ha fatta.');"><span class="verb">Prova prova</span>, alla fine ce l'ha fatta.</span></td><td>试啊试啊，最后他成功了。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Forma impersonale si + voi -->
+  <h3>2. 无人称形式"si" + "voi" — La forma impersonale</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">"si"的无人称用法表示泛指主语，在托斯卡纳地区也用来代替"noi"。</p>
+    <p style="font-weight:600;margin:14px 0 6px;">si 的无人称用法</p>
+    <table>
+      <tr><th>Uso</th><th>Descrizione</th><th>Esempio</th></tr>
+      <tr><td>泛指主语</td><td>不指定具体主语</td><td>"Come <span class="verb">si mangia</span> in questo ristorante?"</td></tr>
+      <tr><td>托斯卡纳用si代替noi</td><td>相当于"noi"</td><td>"Allora <span class="verb">si mangia</span> insieme stasera?" (= mangiamo)</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">变位表</p>
+    <table>
+      <tr><th>Tempo</th><th>Forma</th></tr>
+      <tr><td>Presente</td><td><span class="verb">Si mangia</span> bene qui.</td></tr>
+      <tr><td>Passato prossimo</td><td><span class="verb">Si è mangiato</span> bene.</td></tr>
+      <tr><td>Imperfetto</td><td><span class="verb">Si mangiava</span> sempre insieme.</td></tr>
+      <tr><td>Futuro</td><td><span class="verb">Si mangerà</span> all'aperto.</td></tr>
+      <tr><td>Condizionale</td><td><span class="verb">Si mangerebbe</span> volentieri.</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Come si dice "grazie" in italiano?');">Come <span class="verb">si dice</span> "grazie" in italiano?</span></td><td>意大利语"谢谢"怎么说？</td></tr>
+      <tr><td><span class="it" onclick="speak('Qui si sta molto bene.');">Qui <span class="verb">si sta</span> molto bene.</span></td><td>这里很舒服。</td></tr>
+      <tr><td><span class="it" onclick="speak('Si può entrare?');"><span class="verb">Si può</span> entrare?</span></td><td>可以进来吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('In Italia si mangia molta pasta.');">In Italia <span class="verb">si mangia</span> molta pasta.</span></td><td>在意大利人们吃很多意大利面。</td></tr>
+      <tr><td><span class="it" onclick="speak('Si è deciso di partire domani.');"><span class="verb">Si è</span> deciso di partire domani.</span></td><td>已经决定明天出发了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Si vede che non sei italiano.');"><span class="verb">Si vede</span> che non sei italiano.</span></td><td>看得出来你不是意大利人。</td></tr>
+      <tr><td><span class="it" onclick="speak('Si sa, la vita è imprevedibile.');"><span class="verb">Si sa</span>, la vita è imprevedibile.</span></td><td>众所周知，生活是不可预测的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Allora, si va o no?');">Allora, <span class="verb">si va</span> o no? (= andiamo?)</span></td><td>那么，我们走不走？</td></tr>
+      <tr><td><span class="it" onclick="speak('Si dice che lui sia ricco.');"><span class="verb">Si dice</span> che lui sia ricco.</span></td><td>据说他很有钱。</td></tr>
+      <tr><td><span class="it" onclick="speak('In Toscana si dice "babbo" per "papà".');">In Toscana <span class="verb">si dice</span> "babbo" per "papà".</span></td><td>在托斯卡纳，人们用"babbo"代替"papà"。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Il pronome relativo "il quale" -->
+  <h3>3. 关系代词"il quale" — Il pronome relativo "il quale"</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">关系代词"il quale"（及其变体）用于正式书面语中，尤其在数词/不定代词后、动词名词形式后、短语后，或替代"介词+冠词+cui+名词"结构。</p>
+    <p style="font-weight:600;margin:14px 0 6px;">变位表</p>
+    <table>
+      <tr><th>Genere</th><th>Singolare</th><th>Plurale</th></tr>
+      <tr><td><strong>Maschile</strong></td><td><span class="verb">il quale</span></td><td><span class="verb">i quali</span></td></tr>
+      <tr><td><strong>Femminile</strong></td><td><span class="verb">la quale</span></td><td><span class="verb">le quali</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">带介词的形式</p>
+    <table>
+      <tr><th>Preposizione</th><th>Maschile sing.</th><th>Femminile sing.</th><th>Maschile pl.</th><th>Femminile pl.</th></tr>
+      <tr><td><strong>di</strong></td><td><span class="verb">del quale</span></td><td><span class="verb">della quale</span></td><td><span class="verb">dei quali</span></td><td><span class="verb">delle quali</span></td></tr>
+      <tr><td><strong>a</strong></td><td><span class="verb">al quale</span></td><td><span class="verb">alla quale</span></td><td><span class="verb">ai quali</span></td><td><span class="verb">alle quali</span></td></tr>
+      <tr><td><strong>da</strong></td><td><span class="verb">dal quale</span></td><td><span class="verb">dalla quale</span></td><td><span class="verb">dai quali</span></td><td><span class="verb">dalle quali</span></td></tr>
+      <tr><td><strong>in</strong></td><td><span class="verb">nel quale</span></td><td><span class="verb">nella quale</span></td><td><span class="verb">nei quali</span></td><td><span class="verb">nelle quali</span></td></tr>
+      <tr><td><strong>su</strong></td><td><span class="verb">sul quale</span></td><td><span class="verb">sulla quale</span></td><td><span class="verb">sui quali</span></td><td><span class="verb">sulle quali</span></td></tr>
+      <tr><td><strong>con</strong></td><td><span class="verb">con il quale</span></td><td><span class="verb">con la quale</span></td><td><span class="verb">con i quali</span></td><td><span class="verb">con le quali</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">使用场合</p>
+    <table>
+      <tr><th>Contesto</th><th>Esempio</th></tr>
+      <tr><td>在数词或不定代词后</td><td>"Ha scritto molti libri, due <span class="verb">dei quali</span> sono best seller."</td></tr>
+      <tr><td>在动词的名词形式后</td><td>"È un traguardo importante, raggiunto <span class="verb">il quale</span>..."</td></tr>
+      <tr><td>在短语后（per conto, alla vista）</td><td>"Mio fratello, per conto <span class="verb">del quale</span>..."</td></tr>
+      <tr><td>替代"介词+冠词+cui+名词"</td><td>"Gino, <span class="verb">la figlia del quale</span> (= la cui figlia) ti ho parlato."</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Ha scritto molti libri, due dei quali sono best seller.');">Ha scritto molti libri, due <span class="verb">dei quali</span> sono best seller.</span></td><td>他写了很多书，其中两本是畅销书。</td></tr>
+      <tr><td><span class="it" onclick="speak('Gino, la figlia del quale ti ho parlato, arriverà domani.');">Gino, <span class="verb">la figlia del quale</span> ti ho parlato, arriverà domani.</span></td><td>Gino，我跟你说过他的女儿，明天到。</td></tr>
+      <tr><td><span class="it" onclick="speak('È un traguardo importante, raggiunto il quale potremo riposarci.');">È un traguardo importante, raggiunto <span class="verb">il quale</span> potremo riposarci.</span></td><td>这是一个重要的里程碑，达到之后我们就可以休息了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mio fratello, per conto del quale ho agito, è via.');">Mio fratello, per conto <span class="verb">del quale</span> ho agito, è via.</span></td><td>我的哥哥，我代表他行事，他不在。</td></tr>
+      <tr><td><span class="it" onclick="speak('La ragazza, della quale ti ho parlato, si chiama Maria.');">La ragazza, <span class="verb">della quale</span> ti ho parlato, si chiama Maria.</span></td><td>那个女孩，我跟你说过她的，叫Maria。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ci sono molte soluzioni, tra le quali puoi scegliere.');">Ci sono molte soluzioni, <span class="verb">tra le quali</span> puoi scegliere.</span></td><td>有很多解决方案，你可以在其中选择。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il progetto, per il quale ho lavorato due anni, è finito.');">Il progetto, <span class="verb">per il quale</span> ho lavorato due anni, è finito.</span></td><td>那个项目，我为之工作了两年，结束了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il momento nel quale ci siamo conosciuti è stato magico.');">Il momento <span class="verb">nel quale</span> ci siamo conosciuti è stato magico.</span></td><td>我们相识的那一刻很奇妙。</td></tr>
+      <tr><td><span class="it" onclick="speak('Queste sono le ragioni per le quali ho deciso di partire.');">Queste sono le ragioni <span class="verb">per le quali</span> ho deciso di partire.</span></td><td>这些是我决定离开的原因。</td></tr>
+      <tr><td><span class="it" onclick="speak('I colleghi, alcuni dei quali sono stranieri, parlano tutti italiano.');">I colleghi, alcuni <span class="verb">dei quali</span> sono stranieri, parlano tutti italiano.</span></td><td>同事们，其中一些是外国人，都说意大利语。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Geosinonimi -->
+  <h3>4. 地域同义词 — I Geosinonimi</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">意大利不同地区使用不同的词来表示同一事物。</p>
+    <table>
+      <tr><th>Concetto</th><th>Nord</th><th>Centro</th><th>Sud</th></tr>
+      <tr><td>西瓜</td><td><span class="verb">Anguria</span></td><td>Cocomero</td><td>Cocomero / Melone d'acqua</td></tr>
+      <tr><td>父亲</td><td>Papà</td><td><span class="verb">Babbo</span> (Toscana)</td><td>Papà / Patre (dialetto)</td></tr>
+      <tr><td>现在</td><td>Adesso</td><td>Ora</td><td><span class="verb">Mo'</span> / Mò</td></tr>
+      <tr><td>垃圾桶</td><td>Pattumiera</td><td><span class="verb">Secchio</span> / Cestino</td><td>Munnezza / Mastello</td></tr>
+      <tr><td>塑料袋</td><td>Busta</td><td><span class="verb">Sacchetto</span></td><td>Sporta / Sacco</td></tr>
+      <tr><td>水龙头</td><td>Rubinetto</td><td>Rubinetto / <span class="verb">Cannella</span></td><td>Cannella / Rubinetto</td></tr>
+      <tr><td>玉米</td><td>Granturco / <span class="verb">Mais</span></td><td>Granoturco</td><td>Mais / Granone</td></tr>
+      <tr><td>服务员</td><td>Cameriere</td><td>Cameriere</td><td>Cameriere / <span class="verb">Guaglione</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 10 · p.129-133</h2>
+
+  <h3>&#x1F1EE;&#x1F1F9; Dialetti italiani e differenze Nord-Sud — 意大利方言与南北差异</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">I dialetti italiani: un patrimonio culturale</p>
+    <p class="it" onclick="speak('L\'Italia è un paese ricchissimo di dialetti. Ogni regione, quasi ogni città, ha il proprio dialetto con pronuncia, lessico e grammatica diversi dall\'italiano standard. I dialetti non sono "varianti scorrette" dell\'italiano, ma lingue romanze a sé stanti, derivate dal latino volgare.')">L'Italia è un paese ricchissimo di dialetti. Ogni regione, quasi ogni città, ha il proprio dialetto con pronuncia, lessico e grammatica diversi dall'italiano standard. I dialetti non sono "varianti scorrette" dell'italiano, ma lingue romanze a sé stanti, derivate dal latino volgare.</p>
+    <p class="it" onclick="speak('Il siciliano, il napoletano, il veneto, il lombardo, il piemontese, il sardo... ciascuno ha una storia e una letteratura. Ancora oggi molti italiani usano il dialetto in contesti familiari o informali.')">Il siciliano, il napoletano, il veneto, il lombardo, il piemontese, il sardo... ciascuno ha una storia e una letteratura. Ancora oggi molti italiani usano il dialetto in contesti familiari o informali.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Differenze Nord-Sud nella lingua e nella cultura</p>
+    <p class="it" onclick="speak('Le differenze linguistiche tra Nord e Sud Italia riflettono anche differenze culturali. Al Nord si usa spesso "dare del lei", mentre al Sud è più comune "dare del voi". Al Nord i ritmi di lavoro sono più serrati, al Sud si dà più importanza alle relazioni personali e alla famiglia.')">Le differenze linguistiche tra Nord e Sud Italia riflettono anche differenze culturali. Al Nord si usa spesso "dare del lei", mentre al Sud è più comune "dare del voi". Al Nord i ritmi di lavoro sono più serrati, al Sud si dà più importanza alle relazioni personali e alla famiglia.</p>
+    <p class="it" onclick="speak('I geosinonimi sono un esempio perfetto di queste differenze: anguria/cocomero, babbo/papà, adesso/ora/mo\'. Parlare di queste diversità significa parlare dell\'identità italiana, fatta di unità nella varietà.')">I <strong>geosinonimi</strong> sono un esempio perfetto di queste differenze: anguria/cocomero, babbo/papà, adesso/ora/mo'. Parlare di queste diversità significa parlare dell'identità italiana, fatta di unità nella varietà.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译</p>
+    <p class="zh">意大利是一个方言极其丰富的国家。每个地区、几乎每个城市都有自己的方言，发音、词汇和语法都与标准意大利语不同。方言不是意大利语的"错误变体"，而是独立的罗曼语支语言，源自通俗拉丁语。</p>
+    <p class="zh">西西里语、那不勒斯语、威尼托语、伦巴第语、皮埃蒙特语、撒丁语……每个方言都有自己的历史和文学。至今许多意大利人在家庭或非正式场合仍使用方言。</p>
+    <p class="zh">南北语言差异也反映了文化差异。北方常用"Lei"尊称形式，而南方更常用"voi"。北方工作节奏更紧凑，南方更注重人际关系和家庭。地域同义词是这些差异的完美例证。</p>
+  </div>
+
+  <h3>意大利主要方言一览</h3>
+  <table class="vocab-table">
+    <tr><th>Dialetto</th><th>Regione</th><th>Parola tipica</th></tr>
+    <tr><td class="it" onclick="speak('Siciliano')">Siciliano</td><td>Sicilia</td><td>L'arancino</td></tr>
+    <tr><td class="it" onclick="speak('Napoletano')">Napoletano</td><td>Campania</td><td>'O rraù</td></tr>
+    <tr><td class="it" onclick="speak('Romanesco')">Romanesco</td><td>Lazio</td><td>La porchetta</td></tr>
+    <tr><td class="it" onclick="speak('Milanese')">Milanese</td><td>Lombardia</td><td>El panettone</td></tr>
+    <tr><td class="it" onclick="speak('Veneto')">Veneto</td><td>Veneto</td><td>La polenta</td></tr>
+    <tr><td class="it" onclick="speak('Genovese')">Genovese</td><td>Liguria</td><td>Il pesto</td></tr>
+    <tr><td class="it" onclick="speak('Sardo')">Sardo</td><td>Sardegna</td><td>I culurgiones</td></tr>
+    <tr><td class="it" onclick="speak('Piemontese')">Piemontese</td><td>Piemonte</td><td>La bagna cauda</td></tr>
+    <tr><td class="it" onclick="speak('Bolognese')">Bolognese</td><td>Emilia-Romagna</td><td>Le tagliatelle al ragù</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化注释:</strong><br>
+    &bull; 意大利有20个大区，几乎每个大区都有独特的方言<br>
+    &bull; 方言不是"错误的意大利语"，而是独立的语言变体<br>
+    &bull; 地域同义词（geosinonimi）体现了意大利语言的丰富多样性<br>
+    &bull; Nel tuo paese, ci sono differenze dialettali simili? — 在你的国家，有类似的方言差异吗？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 10 — Terra del sì · p.137</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">视频：</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">"10 domande a Nicola Lagioia" — Dieci domande a... su ALMA.tv</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">动词重复复习 (Duplicazione del verbo):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Quello che faccio faccio, sbaglio.')">1. Indefinito: Quello che <strong>faccio faccio</strong>, sbaglio.</span></td><td class="zh">不定意义：无论我做什么，都是错的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Guarda guarda! Chi si rivede!')">2. Enfatico: <strong>Guarda guarda!</strong> Chi si rivede!</span></td><td class="zh">强调意义：看看看！这是谁呀！</td></tr>
+    <tr><td><span class="it" onclick="speak('Cammina, cammina, cammina, arrivarono nel bosco.')">3. Narrativo: <strong>Cammina, cammina, cammina</strong>, arrivarono nel bosco.</span></td><td class="zh">叙事意义：走啊走啊走啊，他们到了森林里。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">无人称形式复习 (Forma impersonale):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Come si mangia in questo ristorante?')">1. Soggetto generico: Come <strong>si mangia</strong> in questo ristorante?</span></td><td class="zh">泛指主语：这家餐厅吃得怎么样？</td></tr>
+    <tr><td><span class="it" onclick="speak('Allora si mangia insieme stasera?')">2. "Noi" (Toscana): Allora <strong>si mangia</strong> insieme stasera?</span></td><td class="zh">表示"我们"（托斯卡纳）：那我们今晚一起吃？</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">关系代词il quale复习 (Il pronome relativo "il quale"):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ha scritto molti libri, due dei quali sono best seller.')">1. Dopo numerale: due <strong>dei quali</strong></span></td><td class="zh">在数词后：其中两本</td></tr>
+    <tr><td><span class="it" onclick="speak('È un traguardo importante, raggiunto il quale...')">2. Dopo forma nominale: raggiunto <strong>il quale</strong></span></td><td class="zh">在动词名词形式后：达到之后</td></tr>
+    <tr><td><span class="it" onclick="speak('Mio fratello, per conto del quale...')">3. Dopo locuzione: per conto <strong>del quale</strong></span></td><td class="zh">在短语后：代表他</td></tr>
+    <tr><td><span class="it" onclick="speak('Gino, la figlia del quale ti ho parlato.')">4. Sostituisce "cui": la figlia <strong>del quale</strong></span></td><td class="zh">替代cui：他的女儿</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 讨论：你所在的国家有南北差异吗？语言上如何体现？<br>
+    &bull; 用动词重复写3个句子（每个功能一种）<br>
+    &bull; 用关系代词il quale改写3个句子<br>
+    &bull; 找出你的母语中的3个地域同义词<br>
+    &bull; 角色扮演：模拟采访一个来自意大利不同地区的人
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-9.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">&larr; Torna al corso</a>
+  <a href="facciamo-punto.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 6</div>
+  <p>Corso di lingua italiana per stranieri · Livello C2</p>
+  <p style="margin-top:8px;opacity:0.6;">Ornella Discacciati · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

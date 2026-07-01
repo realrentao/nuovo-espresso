@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 8 · Uguale per tutti · NUOVO Espresso 6</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 6 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 8 · C2</div>
+  <h1>&#x2696;&#xFE0F; Uguale per tutti</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">对所有人平等 · p.99-112</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">冠词省略 · 隐性从句 · fare动词的下义词 · e/o开闭元音发音</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: La Costituzione Italiana -->
+  <h3>1. "La Costituzione Italiana" · p.100</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">课堂上讨论意大利宪法的基本原则。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Oggi parliamo della Costituzione Italiana. Qual è il primo articolo?')"><strong>Insegnante:</strong> Oggi parliamo della Costituzione Italiana. Qual è il primo articolo?</span></td><td class="zh"><strong>老师：</strong> 今天我们讨论意大利宪法。第一条是什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('L\'Italia è una Repubblica democratica, fondata sul lavoro. La sovranità appartiene al popolo.')"><strong>Studente:</strong> "L'Italia è una Repubblica democratica, <strong>fondata sul lavoro</strong>. La sovranità appartiene al popolo."</span></td><td class="zh"><strong>学生：</strong> "意大利是一个民主共和国，以劳动为基础。主权属于人民。"</td></tr>
+    <tr><td><span class="it" onclick="speak('Benissimo. E l\'articolo 3?')"><strong>Insegnante:</strong> Benissimo. E l'articolo 3?</span></td><td class="zh"><strong>老师：</strong> 非常好。第三条呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Tutti i cittadini hanno pari dignità sociale e sono eguali davanti alla legge, senza distinzione di sesso, di razza, di lingua, di religione...')"><strong>Studente:</strong> "Tutti i cittadini hanno pari dignità sociale e sono <strong>eguali</strong> davanti alla legge, senza distinzione di sesso, di razza, di lingua, di religione..."</span></td><td class="zh"><strong>学生：</strong> "所有公民具有同等的社会尊严，在法律面前平等，不分性别、种族、语言、宗教……"</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto. L\'uguaglianza è il principio fondamentale.')"><strong>Insegnante:</strong> Esatto. L'uguaglianza è il principio fondamentale.</span></td><td class="zh"><strong>老师：</strong> 正确。平等是基本原则。</td></tr>
+    <tr><td><span class="it" onclick="speak('E l\'articolo 11 dice che l\'Italia ripudia la guerra.')"><strong>Studente:</strong> E l'articolo 11 dice che l'Italia <strong>ripudia la guerra</strong>.</span></td><td class="zh"><strong>学生：</strong> 第11条说意大利谴责战争。</td></tr>
+    <tr><td><span class="it" onclick="speak('Come diceva Roberto Benigni: \'Tutti gli articoli cominciano con "La Repubblica...", ma questo comincia con "L\'Italia".\'')"><strong>Insegnante:</strong> Come diceva Roberto Benigni: "Tutti gli articoli cominciano con 'La Repubblica...', ma questo comincia con 'L'Italia'."</span></td><td class="zh"><strong>老师：</strong> 就像罗伯托 贝尼尼说的："所有条款都以'共和国……'开头，但这一条以'意大利'开头。"</td></tr>
+    <tr><td><span class="it" onclick="speak('Per sottolineare che è l\'Italia, tutta intera, a ripudiare la guerra.')"><strong>Studente:</strong> Per sottolineare che è l'Italia, tutta intera, a ripudiare la guerra.</span></td><td class="zh"><strong>学生：</strong> 为了强调是整个意大利在谴责战争。</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Italo Calvino e l'antilingua -->
+  <h3>2. "Italo Calvino e l'antilingua" · p.105-106</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读Italo Calvino关于"反语言"（官僚语言）的文章。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Hai letto l\'articolo di Calvino sull\'antilingua?')"><strong>Paolo:</strong> Hai letto l'articolo di Calvino sull'<strong>antilingua</strong>?</span></td><td class="zh"><strong>保罗：</strong> 你读了卡尔维诺关于"反语言"的文章吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, è geniale! Mostra come il linguaggio burocratico allontani i significati.')"><strong>Anna:</strong> Sì, è geniale! Mostra come il linguaggio burocratico allontani i significati.</span></td><td class="zh"><strong>安娜：</strong> 读了，太精彩了！展示了官僚语言如何扭曲意义。</td></tr>
+    <tr><td><span class="it" onclick="speak('Per esempio, invece di dire \'stamattina presto andavo in cantina ad accendere la stufa\', l\'antilingua dice: \'Il sottoscritto, essendosi recato nelle prime ore antimeridiane nei locali dello scantinato per eseguire l\'avviamento dell\'impianto termico...\'')"><strong>Paolo:</strong> Per esempio, invece di dire "stamattina presto andavo in cantina ad accendere la stufa", l'<strong>antilingua</strong> dice: "Il sottoscritto, <strong>essendosi recato</strong> nelle prime ore antimeridiane nei locali dello scantinato per <strong>eseguire l'avviamento dell'impianto termico</strong>..."</span></td><td class="zh"><strong>保罗：</strong> 比如，不说"今天一大早我去地下室点炉子"，反语言说："签署人，于清晨时分前往地下室空间以执行供暖系统的启动操作……"</td></tr>
+    <tr><td><span class="it" onclick="speak('Calvino chiama questo \'terrore semantico\' — la fuga di fronte a ogni vocabolo che abbia un significato.')"><strong>Anna:</strong> Calvino chiama questo <strong>"terrore semantico"</strong> — la fuga di fronte a ogni vocabolo che abbia un significato.</span></td><td class="zh"><strong>安娜：</strong> 卡尔维诺称之为"语义恐惧"——逃避任何有意义的词汇。</td></tr>
+    <tr><td><span class="it" onclick="speak('È una critica potentissima al linguaggio oscuro usato per non farsi capire.')"><strong>Paolo:</strong> È una critica potentissima al linguaggio oscuro usato per non farsi capire.</span></td><td class="zh"><strong>保罗：</strong> 这是对晦涩语言的有力批判，这种语言的目的就是让人听不懂。</td></tr>
+    <tr><td><span class="it" onclick="speak('Come il \'latinorum\' di Don Abbondio nei Promessi Sposi!')"><strong>Anna:</strong> Come il <strong>"latinorum"</strong> di Don Abbondio nei Promessi Sposi!</span></td><td class="zh"><strong>安娜：</strong> 就像《约婚夫妇》里唐·阿邦迪奥的"拉丁语"！</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Pronuncia di e/o aperte e chiuse -->
+  <h3>3. "Pronuncia di e/o aperte e chiuse" · p.111-112</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">语音课上练习意大利语中e和o的开闭元音发音。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Oggi esercitiamo la pronuncia di e e o aperte e chiuse.')"><strong>Insegnante:</strong> Oggi esercitiamo la pronuncia di <strong>e</strong> e <strong>o</strong> aperte e chiuse.</span></td><td class="zh"><strong>老师：</strong> 今天我们练习e和o的开闭元音发音。</td></tr>
+    <tr><td><span class="it" onclick="speak('È difficile! \'Legge\' con e chiusa è il verbo leggere, con e aperta è la norma.')"><strong>Studente:</strong> È difficile! "Legge" con e chiusa è il verbo leggere, con e aperta è la norma.</span></td><td class="zh"><strong>学生：</strong> 真难！e闭口的legge是动词leggere，e开口的是法律规范。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto! E botte?')"><strong>Insegnante:</strong> Esatto! E <strong>botte</strong>?</span></td><td class="zh"><strong>老师：</strong> 正确！那botte呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Con o chiusa è un contenitore, con o aperta sono percosse.')"><strong>Studente:</strong> Con o chiusa è un contenitore, con o aperta sono percosse.</span></td><td class="zh"><strong>学生：</strong> o闭口是容器，o开口是殴打。</td></tr>
+    <tr><td><span class="it" onclick="speak('Bravo! E colto?')"><strong>Insegnante:</strong> Bravo! E <strong>colto</strong>?</span></td><td class="zh"><strong>老师：</strong> 很好！那colto呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Con o chiusa significa istruito, con o aperta è il participio di cogliere.')"><strong>Studente:</strong> Con o chiusa significa istruito, con o aperta è il participio di cogliere.</span></td><td class="zh"><strong>学生：</strong> o闭口是有教养的，o开口是cogliere的过去分词。</td></tr>
+    <tr><td><span class="it" onclick="speak('Perfetto. Queste coppie si chiamano omonimi grafici — stesse lettere, pronuncia diversa.')"><strong>Insegnante:</strong> Perfetto. Queste coppie si chiamano <strong>omonimi grafici</strong> — stesse lettere, pronuncia diversa.</span></td><td class="zh"><strong>老师：</strong> 完美。这些词对叫做同形异音词——拼写相同，发音不同。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F30D; 核心词汇 (Lessico chiave)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('Costituzione')">la Costituzione</td><td>宪法</td></tr>
+    <tr><td class="it" onclick="speak('Repubblica')">la Repubblica</td><td>共和国</td></tr>
+    <tr><td class="it" onclick="speak('democratico')">democratico/a</td><td>民主的</td></tr>
+    <tr><td class="it" onclick="speak('sovranità')">la sovranità</td><td>主权</td></tr>
+    <tr><td class="it" onclick="speak('popolo')">il popolo</td><td>人民</td></tr>
+    <tr><td class="it" onclick="speak('dignità')">la dignità</td><td>尊严</td></tr>
+    <tr><td class="it" onclick="speak('eguale')">eguale / uguale</td><td>平等的</td></tr>
+    <tr><td class="it" onclick="speak('legge')">la legge</td><td>法律</td></tr>
+    <tr><td class="it" onclick="speak('distinzione')">la distinzione</td><td>区分</td></tr>
+    <tr><td class="it" onclick="speak('sesso')">il sesso</td><td>性别</td></tr>
+    <tr><td class="it" onclick="speak('razza')">la razza</td><td>种族</td></tr>
+    <tr><td class="it" onclick="speak('lingua')">la lingua</td><td>语言</td></tr>
+    <tr><td class="it" onclick="speak('religione')">la religione</td><td>宗教</td></tr>
+    <tr><td class="it" onclick="speak('ripudiare')">ripudiare</td><td>谴责，放弃</td></tr>
+    <tr><td class="it" onclick="speak('guerra')">la guerra</td><td>战争</td></tr>
+    <tr><td class="it" onclick="speak('controversia')">la controversia</td><td>争议，争端</td></tr>
+    <tr><td class="it" onclick="speak('bandiera')">la bandiera</td><td>旗帜</td></tr>
+    <tr><td class="it" onclick="speak('tricolore')">il tricolore</td><td>三色旗</td></tr>
+    <tr><td class="it" onclick="speak('articolo')">l'articolo (m.)</td><td>条款，文章</td></tr>
+    <tr><td class="it" onclick="speak('principio')">il principio</td><td>原则</td></tr>
+    <tr><td class="it" onclick="speak('diritto')">il diritto</td><td>权利</td></tr>
+    <tr><td class="it" onclick="speak('dovere')">il dovere</td><td>义务</td></tr>
+    <tr><td class="it" onclick="speak('cittadino')">il/la cittadino/a</td><td>公民</td></tr>
+    <tr><td class="it" onclick="speak('società')">la società</td><td>社会</td></tr>
+    <tr><td class="it" onclick="speak('condizione')">la condizione</td><td>条件，状况</td></tr>
+    <tr><td class="it" onclick="speak('linguaggio burocratico')">il linguaggio burocratico</td><td>官僚语言</td></tr>
+    <tr><td class="it" onclick="speak('antilingua')">l'antilingua (f.)</td><td>反语言（Calvino术语）</td></tr>
+    <tr><td class="it" onclick="speak('terrore semantico')">il terrore semantico</td><td>语义恐惧</td></tr>
+    <tr><td class="it" onclick="speak('atto')">l'atto (m.)</td><td>文件，行为</td></tr>
+    <tr><td class="it" onclick="speak('firma')">la firma</td><td>签名</td></tr>
+    <tr><td class="it" onclick="speak('sottoscritto')">il/la sottoscritto/a</td><td>签署人</td></tr>
+    <tr><td class="it" onclick="speak('locali dello scantinato')">i locali dello scantinato</td><td>地下室空间</td></tr>
+    <tr><td class="it" onclick="speak('impianto termico')">l'impianto termico (m.)</td><td>供暖系统</td></tr>
+    <tr><td class="it" onclick="speak('fuga')">la fuga</td><td>逃避</td></tr>
+    <tr><td class="it" onclick="speak('significato')">il significato</td><td>意义</td></tr>
+    <tr><td class="it" onclick="speak('giudice')">il/la giudice</td><td>法官</td></tr>
+    <tr><td class="it" onclick="speak('verdetto')">il verdetto</td><td>判决</td></tr>
+    <tr><td class="it" onclick="speak('imputato')">l'imputato/a (m./f.)</td><td>被告</td></tr>
+    <tr><td class="it" onclick="speak('testimone')">il/la testimone</td><td>证人</td></tr>
+    <tr><td class="it" onclick="speak('sentenza')">la sentenza</td><td>判决书</td></tr>
+    <tr><td class="it" onclick="speak('processo')">il processo</td><td>审判，过程</td></tr>
+    <tr><td class="it" onclick="speak('udienza')">l'udienza (f.)</td><td>听证会</td></tr>
+  </table>
+
+  <h3>&#x1F4AC; 习语和表达 (Espressioni idiomatiche)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>含义</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('fare appello')">fare appello (senza articolo)</td><td>invocare aiuto</td><td>求助</td></tr>
+    <tr><td class="it" onclick="speak('fare l\'appello')">fare l'appello (con articolo)</td><td>chiamare i presenti</td><td>点名</td></tr>
+    <tr><td class="it" onclick="speak('dare spago')">dare spago (senza articolo)</td><td>incoraggiare</td><td>鼓励/怂恿</td></tr>
+    <tr><td class="it" onclick="speak('dare lo spago')">dare lo spago (con articolo)</td><td>dare il filo</td><td>给绳子</td></tr>
+    <tr><td class="it" onclick="speak('prendere nota')">prendere nota (senza articolo)</td><td>annotare</td><td>记下</td></tr>
+    <tr><td class="it" onclick="speak('prendere la nota')">prendere la nota (con articolo)</td><td>ricevere nota disciplinare</td><td>收到处分通知</td></tr>
+    <tr><td class="it" onclick="speak('tenere conto')">tenere conto (senza articolo)</td><td>considerare</td><td>考虑</td></tr>
+    <tr><td class="it" onclick="speak('tenere il conto')">tenere il conto (con articolo)</td><td>contare</td><td>记账/数数</td></tr>
+    <tr><td class="it" onclick="speak('dare voce')">dare voce (senza articolo)</td><td>lasciar parlare</td><td>让……发言</td></tr>
+    <tr><td class="it" onclick="speak('dare la voce')">dare la voce (con articolo)</td><td>prestare la voce</td><td>配音</td></tr>
+    <tr><td class="it" onclick="speak('fare colpo')">fare colpo (senza articolo)</td><td>impressionare</td><td>留下好印象</td></tr>
+    <tr><td class="it" onclick="speak('fare il colpo')">fare il colpo (con articolo)</td><td>commettere un furto</td><td>盗窃</td></tr>
+    <tr><td class="it" onclick="speak('uguale per tutti')">uguale per tutti</td><td>senza distinzioni</td><td>对所有人都一样</td></tr>
+    <tr><td class="it" onclick="speak('davanti alla legge')">davanti alla legge</td><td>secondo la legge</td><td>在法律面前</td></tr>
+    <tr><td class="it" onclick="speak('avere pari dignità')">avere pari dignità</td><td>essere considerati allo stesso modo</td><td>享有同等尊严</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Omissione dell'articolo -->
+  <h3>1. 冠词省略 — Omissione dell'articolo</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">当动词和名词形成一个意义单位时，冠词可以省略。</p>
+    <table>
+      <tr><th>无冠词 (意义单位)</th><th>有冠词 (字面意义)</th></tr>
+      <tr><td><span class="verb">fare appello</span> (求助)</td><td><span class="it" onclick="speak('fare l\'appello')">fare l'appello</span> (点名)</td></tr>
+      <tr><td><span class="verb">dare spago</span> (鼓励)</td><td><span class="it" onclick="speak('dare lo spago')">dare lo spago</span> (给绳子)</td></tr>
+      <tr><td><span class="verb">prendere nota</span> (记下)</td><td><span class="it" onclick="speak('prendere la nota')">prendere la nota</span> (收处分通知)</td></tr>
+      <tr><td><span class="verb">tenere conto</span> (考虑)</td><td><span class="it" onclick="speak('tenere il conto')">tenere il conto</span> (数数/记账)</td></tr>
+      <tr><td><span class="verb">dare voce</span> (让发言)</td><td><span class="it" onclick="speak('dare la voce')">dare la voce</span> (配音)</td></tr>
+      <tr><td><span class="verb">fare colpo</span> (留下好印象)</td><td><span class="it" onclick="speak('fare il colpo')">fare il colpo</span> (盗窃)</td></tr>
+      <tr><td><span class="verb">avere fame</span> (饿)</td><td>_字面义单独存在_</td></tr>
+      <tr><td><span class="verb">volere bene</span> (爱)</td><td>_字面义单独存在_</td></tr>
+      <tr><td><span class="verb">cercare casa</span> (找房子)</td><td>_字面义单独存在_</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">其他省略冠词的情况</p>
+    <table>
+      <tr><th>Contesto</th><th>Esempio</th></tr>
+      <tr><td><span class="verb">Con in (某地/方式)</span></td><td><span class="it" onclick="speak('andare in Francia, in aereo, in auto')">andare <span class="verb">in</span> Francia, in aereo, in auto</span></td></tr>
+      <tr><td><span class="verb">Con con/senza (方式)</span></td><td><span class="it" onclick="speak('con calma, senza fretta, con pazienza')">con calma, senza fretta, con pazienza</span></td></tr>
+      <tr><td><span class="verb">Elenchi</span></td><td><span class="it" onclick="speak('pane, latte, uova, formaggio')">pane, latte, uova, formaggio</span></td></tr>
+      <tr><td><span class="verb">MA con aggettivo</span></td><td><span class="it" onclick="speak('con una calma olimpica')">con <span class="verb">una</span> calma olimpica</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Devi tenere conto delle difficoltà.')">Devi <span class="verb">tenere conto</span> delle difficoltà.</span></td><td>你必须考虑到困难。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il professore ha fatto l\'appello all\'inizio della lezione.')">Il professore ha <span class="verb">fatto l'appello</span> all'inizio della lezione.</span></td><td>老师在上课开始时点了名。</td></tr>
+      <tr><td><span class="it" onclick="speak('Prendi nota di quello che dico.')"><span class="verb">Prendi nota</span> di quello che dico.</span></td><td>记下我说的话。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ha fatto colpo su tutti con il suo discorso.')">Ha <span class="verb">fatto colpo</span> su tutti con il suo discorso.</span></td><td>他的演讲给所有人留下了好印象。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il ladro ha fatto il colpo in pieno giorno.')">Il ladro ha <span class="verb">fatto il colpo</span> in pieno giorno.</span></td><td>小偷在光天化日之下作案。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dai voce anche a chi non parla molto.')"><span class="verb">Dai voce</span> anche a chi non parla molto.</span></td><td>也给那些不怎么说话的人发言机会。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho cercato casa per mesi.')">Ho <span class="verb">cercato casa</span> per mesi.</span></td><td>我找房子找了几个月。</td></tr>
+      <tr><td><span class="it" onclick="speak('Avevo sonno, ma non riuscivo a dormire.')"><span class="verb">Avevo sonno</span>, ma non riuscivo a dormire.</span></td><td>我困了，但睡不着。</td></tr>
+      <tr><td><span class="it" onclick="speak('Andiamo in ufficio in macchina.')">Andiamo <span class="verb">in ufficio</span> in macchina.</span></td><td>我们开车去办公室。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mangia con calma, non avere fretta.')">Mangia <span class="verb">con calma</span>, non avere fretta.</span></td><td>慢慢吃，别着急。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Subordinate implicite -->
+  <h3>2. 隐性从句 — Le subordinate implicite</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">隐性从句是指使用动词的非限定形式（分词、副动词、不定式）替代限定形式（带连词的从句）。</p>
+    <table>
+      <tr><th>Forma</th><th>Esempio</th><th>对应显性从句</th></tr>
+      <tr><td><span class="verb">Participio (分词)</span></td><td><span class="it" onclick="speak('Visti i precedenti, l\'imputato è colpevole.')">"<span class="verb">Visti</span> i precedenti, l'imputato è colpevole."</span></td><td>"Dopo che sono stati visti i precedenti..."</td></tr>
+      <tr><td><span class="verb">Gerundio (副动词)</span></td><td><span class="it" onclick="speak('Considerando i precedenti penali...')">"<span class="verb">Considerando</span> i precedenti penali..."</span></td><td>"Se consideriamo i precedenti..."</td></tr>
+      <tr><td><span class="verb">Infinito (不定式)</span></td><td><span class="it" onclick="speak('Essere o non essere, questo è il problema.')">"<span class="verb">Essere</span> o non <span class="verb">essere</span>, questo è il problema."</span></td><td>"Che uno sia o non sia..."</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Considerando i precedenti penali, l\'imputato meritava una condanna.')"><span class="verb">Considerando</span> i precedenti penali, l'imputato meritava una condanna.</span></td><td>考虑到犯罪前科，被告应被判刑。</td></tr>
+      <tr><td><span class="it" onclick="speak('Visti i risultati, possiamo essere soddisfatti.')"><span class="verb">Visti</span> i risultati, possiamo essere soddisfatti.</span></td><td>看到了结果，我们可以满意了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Essendo stato avvisato, non può lamentarsi.')"><span class="verb">Essendo</span> stato avvisato, non può lamentarsi.</span></td><td>既然已被告知，他不能抱怨。</td></tr>
+      <tr><td><span class="it" onclick="speak('Arrivato a casa, mi sono riposato.')"><span class="verb">Arrivato</span> a casa, mi sono riposato.</span></td><td>到家后，我休息了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Finita la pioggia, siamo usciti.')"><span class="verb">Finita</span> la pioggia, siamo usciti.</span></td><td>雨停后，我们出去了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Partita la nave, salutarono con la mano.')"><span class="verb">Partita</span> la nave, salutarono con la mano.</span></td><td>船离开后，他们挥手告别。</td></tr>
+      <tr><td><span class="it" onclick="speak('Essendo in ritardo, ha preso un taxi.')"><span class="verb">Essendo</span> in ritardo, ha preso un taxi.</span></td><td>因为迟到了，他打了出租车。</td></tr>
+      <tr><td><span class="it" onclick="speak('Aperta la porta, entrò silenziosamente.')"><span class="verb">Aperta</span> la porta, entrò silenziosamente.</span></td><td>打开门后，他悄悄地进去了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mangiato il pranzo, sono andato a fare una passeggiata.')"><span class="verb">Mangiato</span> il pranzo, sono andato a fare una passeggiata.</span></td><td>吃完午饭后，我去散步了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Detto questo, concludo il mio discorso.')"><span class="verb">Detto</span> questo, concludo il mio discorso.</span></td><td>说完这些，我结束我的发言。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Iponimi del verbo fare -->
+  <h3>3. fare 动词的下义词 — Iponimi del verbo fare</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">在C2级别，我们使用更加精确的动词来替代通用的fare。</p>
+    <table>
+      <tr><th>Uso generico (fare)</th><th>Iponimo preciso</th></tr>
+      <tr><td>fare l'esame</td><td><span class="verb">sostenere</span> l'esame</td></tr>
+      <tr><td>fare una domanda</td><td><span class="verb">porre</span> una domanda</td></tr>
+      <tr><td>fare una foto</td><td><span class="verb">scattare</span> una foto</td></tr>
+      <tr><td>fare una ricetta</td><td><span class="verb">preparare</span> una ricetta</td></tr>
+      <tr><td>fare una proposta</td><td><span class="verb">avanzare</span> una proposta</td></tr>
+      <tr><td>fare una riunione</td><td><span class="verb">tenere</span> una riunione</td></tr>
+      <tr><td>fare una scelta</td><td><span class="verb">operare</span> una scelta</td></tr>
+      <tr><td>fare un contratto</td><td><span class="verb">stipulare</span> un contratto</td></tr>
+      <tr><td>fare un discorso</td><td><span class="verb">pronunciare</span> un discorso</td></tr>
+      <tr><td>fare un viaggio</td><td><span class="verb">effettuare</span> un viaggio</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Domani sosterrò l\'esame di maturità.')">Domani <span class="verb">sosterrò</span> l'esame di maturità.</span></td><td>明天我参加高中毕业考试。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il professore ha posto una domanda difficile.')">Il professore ha <span class="verb">posto</span> una domanda difficile.</span></td><td>教授提出了一个难题。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho scattato molte foto durante il viaggio.')">Ho <span class="verb">scattato</span> molte foto durante il viaggio.</span></td><td>旅行中我拍了很多照片。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mia nonna prepara una torta deliziosa.')">Mia nonna <span class="verb">prepara</span> una torta deliziosa.</span></td><td>我奶奶做了一个美味的蛋糕。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il sindaco ha avanzato una proposta interessante.')">Il sindaco ha <span class="verb">avanzato</span> una proposta interessante.</span></td><td>市长提出了一个有趣的建议。</td></tr>
+      <tr><td><span class="it" onclick="speak('Domani terremo una riunione importante.')">Domani <span class="verb">terremo</span> una riunione importante.</span></td><td>明天我们将举行一个重要会议。</td></tr>
+      <tr><td><span class="it" onclick="speak('Devi operare una scelta difficile.')">Devi <span class="verb">operare</span> una scelta difficile.</span></td><td>你必须做出一个艰难的选择。</td></tr>
+      <tr><td><span class="it" onclick="speak('Le due aziende hanno stipulato un contratto.')">Le due aziende <span class="verb">hanno stipulato</span> un contratto.</span></td><td>两家公司签订了一份合同。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il presidente ha pronunciato un discorso memorabile.')">Il presidente ha <span class="verb">pronunciato</span> un discorso memorabile.</span></td><td>总统发表了一个难忘的演讲。</td></tr>
+      <tr><td><span class="it" onclick="speak('Abbiamo effettuato un viaggio in Giappone.')">Abbiamo <span class="verb">effettuato</span> un viaggio in Giappone.</span></td><td>我们进行了一次日本旅行。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Pronuncia di e/o -->
+  <h3>4. e/o 开闭元音发音 — Pronuncia delle vocali e e o aperte e chiuse</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">意大利语中e和o有开闭两种发音，拼写相同但发音不同的词对叫做"同形异音词"（omonimi grafici）。</p>
+    <p style="font-weight:600;margin:14px 0 6px;">元音 E 开闭对照</p>
+    <table>
+      <tr><th>e chiusa (é)</th><th>e aperta (è)</th></tr>
+      <tr><td><span class="it" onclick="speak('accetta')">accetta (piccola ascia — 小斧头)</span></td><td><span class="it" onclick="speak('accetta')">accetta (verbo accettare — 接受)</span></td></tr>
+      <tr><td><span class="it" onclick="speak('affetto')">affetto (verbo affettare — 切片)</span></td><td><span class="it" onclick="speak('affetto')">affetto (sentimento — 感情)</span></td></tr>
+      <tr><td><span class="it" onclick="speak('legge')">legge (norma — 法律)</span></td><td><span class="it" onclick="speak('legge')">legge (verbo leggere — 阅读)</span></td></tr>
+      <tr><td><span class="it" onclick="speak('pesca')">pesca (verbo pescare — 钓鱼)</span></td><td><span class="it" onclick="speak('pesca')">pesca (frutto — 桃子)</span></td></tr>
+      <tr><td><span class="it" onclick="speak('venti')">venti (numero 20 — 二十)</span></td><td><span class="it" onclick="speak('venti')">venti (plurale di vento — 风)</span></td></tr>
+      <tr><td><span class="it" onclick="speak('corresse')">corresse (verbo correggere — 纠正)</span></td><td><span class="it" onclick="speak('corresse')">corresse (verbo correre — 跑)</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">元音 O 开闭对照</p>
+    <table>
+      <tr><th>o chiusa (ó)</th><th>o aperta (ò)</th></tr>
+      <tr><td><span class="it" onclick="speak('botte')">botte (contenitore — 桶)</span></td><td><span class="it" onclick="speak('botte')">botte (plurale di botta — 殴打)</span></td></tr>
+      <tr><td><span class="it" onclick="speak('colto')">colto (istruito — 有教养的)</span></td><td><span class="it" onclick="speak('colto')">colto (verbo cogliere — 采摘)</span></td></tr>
+      <tr><td><span class="it" onclick="speak('corso')">corso (verbo correre — 跑)</span></td><td><span class="it" onclick="speak('corso')">corso (della Corsica — 科西嘉的)</span></td></tr>
+      <tr><td><span class="it" onclick="speak('fossi')">fossi (verbo essere — 虚拟式)</span></td><td><span class="it" onclick="speak('fossi')">fossi (plurale di fossa — 沟)</span></td></tr>
+      <tr><td><span class="it" onclick="speak('posta')">posta (verbo porre — 放置)</span></td><td><span class="it" onclick="speak('posta')">posta (servizio postale — 邮政)</span></td></tr>
+      <tr><td><span class="it" onclick="speak('volto')">volto (viso — 脸)</span></td><td><span class="it" onclick="speak('volto')">volto (verbo volgere — 转向)</span></td></tr>
+      <tr><td><span class="it" onclick="speak('torta')">torta (dolce — 蛋糕)</span></td><td><span class="it" onclick="speak('torta')">torta (verbo torcere — 扭曲)</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 8 — Uguale per tutti · p.112</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频 "Tutto cambia" — Grammatica caffè su ALMA.tv，巩固冠词省略、隐性从句和fare动词的下义词。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Pre-viewing — 观看前活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Cosa sai della Costituzione Italiana? Quali articoli conosci?')">1. Cosa sai della Costituzione Italiana? Quali articoli conosci?</span></td><td class="zh">你对意大利宪法了解多少？你知道哪些条款？</td></tr>
+    <tr><td><span class="it" onclick="speak('Secondo te, cosa significa \'uguale per tutti\'?')">2. Secondo te, cosa significa "uguale per tutti"?</span></td><td class="zh">你认为"对所有人平等"意味着什么？</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">While-viewing — 观看中活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Segna gli esempi di omissione dell\'articolo che senti.')">1. Segna gli esempi di omissione dell'articolo che senti.</span></td><td class="zh">标记你听到的冠词省略例子。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quali subordinate implicite vengono usate?')">2. Quali subordinate implicite vengono usate?</span></td><td class="zh">使用了哪些隐性从句？</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">Post-viewing — 观看后活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Spiega la differenza tra \'fare appello\' e \'fare l\'appello\' con un esempio per ciascuno.')">1. Spiega la differenza tra "fare appello" e "fare l'appello" con un esempio per ciascuno.</span></td><td class="zh">解释"fare appello"和"fare l'appello"的区别，各举一例。</td></tr>
+    <tr><td><span class="it" onclick="speak('Riscrivi 5 frasi usando gli iponimi di fare.')">2. Riscrivi 5 frasi usando gli iponimi di fare.</span></td><td class="zh">用fare的下义词重写5个句子。</td></tr>
+    <tr><td><span class="it" onclick="speak('Cerca 3 coppie di omonimi grafici con e/o e usali in una frase ciascuno.')">3. Cerca 3 coppie di omonimi grafici con e/o e usali in una frase ciascuno.</span></td><td class="zh">找出3对e/o的同形异音词，每个造一个句子。</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 讨论意大利宪法中你支持的原则<br>
+    &bull; 用隐性从句改写复杂句子（分词/副动词/不定式）<br>
+    &bull; 用fare的下义词替换句子中的fare<br>
+    &bull; 练习e/o开闭元音发音，注意区分同形异音词<br>
+    &bull; 写一段关于"法律面前人人平等"的短文
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-7.html">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">&larr; Torna al corso</a>
+  <a href="unita-9.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 6</div>
+  <p>Corso di lingua italiana per stranieri · Livello C2</p>
+  <p style="margin-top:8px;opacity:0.6;">Ornella Discacciati · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

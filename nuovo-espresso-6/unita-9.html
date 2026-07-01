@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 9 · Dica trentatré · NUOVO Espresso 6</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 6 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 9 · C2</div>
+  <h1>&#x1F3E5; Dica trentatré</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">说"三十三" · p.113-124</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">短语动词 · 副词già · 反叙法（双重否定） · -fobia后缀 · 音强重音与书写重音</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Eufemismi in ospedale -->
+  <h3>1. "Eufemismi in ospedale" · p.115</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">在医院里，医生和患者家属之间关于病情的委婉表达。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Signora, sua zia è in una fase molto delicata.')"><strong>Medico:</strong> Signora, sua zia è in una <strong>fase molto delicata</strong>.</span></td><td class="zh"><strong>医生：</strong> 女士，您的姨妈处于一个非常微妙的阶段。</td></tr>
+    <tr><td><span class="it" onclick="speak('Cosa vuol dire? Sta male?')"><strong>Parente:</strong> Cosa vuol dire? Sta male?</span></td><td class="zh"><strong>家属：</strong> 什么意思？她情况不好吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Diciamo che non si può lamentare, ma la situazione è complessa.')"><strong>Medico:</strong> Diciamo che <strong>non si può lamentare</strong>, ma la situazione è complessa.</span></td><td class="zh"><strong>医生：</strong> 可以说她还不错，但情况很复杂。</td></tr>
+    <tr><td><span class="it" onclick="speak('Posso vederla?')"><strong>Parente:</strong> Posso vederla?</span></td><td class="zh"><strong>家属：</strong> 我能看她吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Certamente. Ora riposa.')"><strong>Medico:</strong> Certamente. Ora <strong>riposa</strong>.</span></td><td class="zh"><strong>医生：</strong> 当然可以。她现在在休息。</td></tr>
+    <tr><td><span class="it" onclick="speak('E quando si sveglia?')"><strong>Parente:</strong> E quando si sveglia?</span></td><td class="zh"><strong>家属：</strong> 她什么时候醒来？</td></tr>
+    <tr><td><span class="it" onclick="speak('Purtroppo, potrebbe non svegliarsi più. Dobbiamo essere preparati.')"><strong>Medico:</strong> Purtroppo, potrebbe <strong>non svegliarsi più</strong>. Dobbiamo essere preparati.</span></td><td class="zh"><strong>医生：</strong> 不幸的是，她可能不会再醒来了。我们必须做好准备。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non posso credere che se ne sia andata così.')"><strong>Parente:</strong> Non posso credere che <strong>se ne sia andata</strong> così.</span></td><td class="zh"><strong>家属：</strong> 我不敢相信她就这样走了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non è ancora successo. Ma la situazione è critica.')"><strong>Medico:</strong> Non è ancora successo. Ma la situazione è <strong>critica</strong>.</span></td><td class="zh"><strong>医生：</strong> 还没发生。但情况很危急。</td></tr>
+  </table>
+
+  <!-- Dialogo 2: La litote -->
+  <h3>2. "La litote" · p.117</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">课堂上讲解反叙法（litote）这种修辞手法。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Oggi parliamo della litote. Sapete cos\'è?')"><strong>Insegnante:</strong> Oggi parliamo della <strong>litote</strong>. Sapete cos'è?</span></td><td class="zh"><strong>老师：</strong> 今天我们讲反叙法。你们知道是什么吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('È una figura retorica che nega il contrario per esprimere un concetto.')"><strong>Studente:</strong> È una figura retorica che nega il contrario per esprimere un concetto.</span></td><td class="zh"><strong>学生：</strong> 是一种通过否定反义词来表达概念的修辞手法。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto. Per esempio: "Un ragazzo nient\'affatto stupido" invece di "intelligente".')"><strong>Insegnante:</strong> Esatto. Per esempio: "Un ragazzo <strong>nient'affatto stupido</strong>" invece di "intelligente".</span></td><td class="zh"><strong>老师：</strong> 正确。比如："一个一点都不笨的男孩"代替"聪明"。</td></tr>
+    <tr><td><span class="it" onclick="speak('O "La cena non era niente male" invece di "era buona".')"><strong>Studente:</strong> O "La cena <strong>non era niente male</strong>" invece di "era buona".</span></td><td class="zh"><strong>学生：</strong> 或者"晚餐还不错"代替"很好吃"。</td></tr>
+    <tr><td><span class="it" onclick="speak('Perfetto. La litote può sfumare, attenuare o ironizzare.')"><strong>Insegnante:</strong> Perfetto. La litote può <strong>sfumare</strong>, <strong>attenuare</strong> o <strong>ironizzare</strong>.</span></td><td class="zh"><strong>老师：</strong> 完美。反叙法可以缓和、弱化或反讽。</td></tr>
+    <tr><td><span class="it" onclick="speak('Come "Don Abbondio di certo non era un cuor di leone"?')"><strong>Studente:</strong> Come "Don Abbondio di certo <strong>non era un cuor di leone</strong>"?</span></td><td class="zh"><strong>学生：</strong> 就像"唐·阿邦迪奥当然不是个狮子心"？</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto! È molto più ironico che dire "era un codardo".')"><strong>Insegnante:</strong> Esatto! È molto più ironico che dire "era un codardo".</span></td><td class="zh"><strong>老师：</strong> 没错！这比说"他是个懦夫"讽刺得多。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ah, e "diversamente abili" è un eufemismo per disabili?')"><strong>Studente:</strong> Ah, e <strong>"diversamente abili"</strong> è un eufemismo per disabili?</span></td><td class="zh"><strong>学生：</strong> 啊，那"diversamente abili"是残疾人的委婉说法？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, fa parte dell\'eufemismo, una figura parente della litote.')"><strong>Insegnante:</strong> Sì, fa parte dell'eufemismo, una figura parente della litote.</span></td><td class="zh"><strong>老师：</strong> 是的，属于委婉语，与反叙法相近的修辞手法。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Dica trentatré -->
+  <h3>3. "Dica trentatré" · p.120</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">朋友们讨论意大利语中的发音测试和重音规则。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Sai perché si dice "Dica trentatré"?')"><strong>Luca:</strong> Sai perché si dice "Dica trentatré"?</span></td><td class="zh"><strong>卢卡：</strong> 你知道为什么人们说"Dica trentatré"吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Per controllare la pronuncia della "r" moscia?')"><strong>Maria:</strong> Per controllare la pronuncia della "r" moscia?</span></td><td class="zh"><strong>玛丽亚：</strong> 为了检查大舌头发音？</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto! "Trentatré" ha molte "r" e la "e" accentata.')"><strong>Luca:</strong> Esatto! "Trentatré" ha molte "r" e la "e" accentata.</span></td><td class="zh"><strong>卢卡：</strong> 没错！"Trentatré"有很多r和重读的e。</td></tr>
+    <tr><td><span class="it" onclick="speak('Interessante. E l\'accento grafico? In "trentatré" c\'è l\'acuto sulla "e".')"><strong>Maria:</strong> Interessante. E l'<strong>accento grafico</strong>? In "trentatré" c'è l'acuto sulla "e".</span></td><td class="zh"><strong>玛丽亚：</strong> 有意思。那书写重音呢？在trentatré中e上是尖音符。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, perché la "e" finale è chiusa. Se fosse aperta useremmo l\'accento grave.')"><strong>Luca:</strong> Sì, perché la "e" finale è chiusa. Se fosse aperta useremmo l'accento grave.</span></td><td class="zh"><strong>卢卡：</strong> 对，因为结尾的e是闭口的。如果开口就用钝音符。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ma molti italiani sbagliano gli accenti! Scrivono "perchè" invece di "perché".')"><strong>Maria:</strong> Ma molti italiani sbagliano gli accenti! Scrivono "perchè" invece di "perché".</span></td><td class="zh"><strong>玛丽亚：</strong> 但很多意大利人会写错重音！写"perchè"而不是"perché"。</td></tr>
+    <tr><td><span class="it" onclick="speak('Vero. L\'accento tonico è quello che ogni parola ha, l\'accento grafico si scrive solo in certi casi.')"><strong>Luca:</strong> Vero. L'<strong>accento tonico</strong> è quello che ogni parola ha, l'<strong>accento grafico</strong> si scrive solo in certi casi.</span></td><td class="zh"><strong>卢卡：</strong> 确实。音强重音每个词都有，书写重音只在某些情况下写出来。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F3E5; 核心词汇 (Lessico chiave)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('eufemismo')">l'eufemismo (m.)</td><td>委婉语</td></tr>
+    <tr><td class="it" onclick="speak('litote')">la litote (f.)</td><td>反叙法（曲言法）</td></tr>
+    <tr><td class="it" onclick="speak('doppia negazione')">la doppia negazione</td><td>双重否定</td></tr>
+    <tr><td class="it" onclick="speak('attenuare')">attenuare</td><td>缓和，减弱</td></tr>
+    <tr><td class="it" onclick="speak('fase delicata')">la fase delicata</td><td>微妙阶段</td></tr>
+    <tr><td class="it" onclick="speak('parente')">il/la parente</td><td>亲属</td></tr>
+    <tr><td class="it" onclick="speak('diagnosi')">la diagnosi</td><td>诊断（不变名词）</td></tr>
+    <tr><td class="it" onclick="speak('prescrizione')">la prescrizione</td><td>处方</td></tr>
+    <tr><td class="it" onclick="speak('analisi')">l'analisi (f.)</td><td>分析（不变名词）</td></tr>
+    <tr><td class="it" onclick="speak('radiografia')">la radiografia</td><td>X光片</td></tr>
+    <tr><td class="it" onclick="speak('ricoverare')">ricoverare</td><td>收治入院</td></tr>
+    <tr><td class="it" onclick="speak('reparto')">il reparto</td><td>科室，部门</td></tr>
+    <tr><td class="it" onclick="speak('trauma')">il trauma</td><td>创伤</td></tr>
+    <tr><td class="it" onclick="speak('ansia')">l'ansia (f.)</td><td>焦虑</td></tr>
+    <tr><td class="it" onclick="speak('ossessione')">l'ossessione (f.)</td><td>强迫症，执念</td></tr>
+    <tr><td class="it" onclick="speak('attacco di panico')">l'attacco di panico</td><td>惊恐发作</td></tr>
+    <tr><td class="it" onclick="speak('nutriente')">il nutriente</td><td>营养物质</td></tr>
+    <tr><td class="it" onclick="speak('apporto')">l'apporto (m.)</td><td>摄入，供给</td></tr>
+    <tr><td class="it" onclick="speak('zucchero')">lo zucchero</td><td>糖</td></tr>
+    <tr><td class="it" onclick="speak('carboidrato')">il carboidrato</td><td>碳水化合物</td></tr>
+    <tr><td class="it" onclick="speak('proteina')">la proteina</td><td>蛋白质</td></tr>
+    <tr><td class="it" onclick="speak('grasso')">il grasso</td><td>脂肪</td></tr>
+    <tr><td class="it" onclick="speak('esercizio fisico')">l'esercizio fisico (m.)</td><td>体育锻炼</td></tr>
+    <tr><td class="it" onclick="speak('alimentazione')">l'alimentazione (f.)</td><td>饮食，营养</td></tr>
+    <tr><td class="it" onclick="speak('stile di vita')">lo stile di vita</td><td>生活方式</td></tr>
+    <tr><td class="it" onclick="speak('verbo frasale')">il verbo frasale</td><td>短语动词</td></tr>
+    <tr><td class="it" onclick="speak('prefisso')">il prefisso</td><td>前缀</td></tr>
+    <tr><td class="it" onclick="speak('derivazione greca')">la derivazione greca</td><td>希腊语起源</td></tr>
+    <tr><td class="it" onclick="speak('derivazione latina')">la derivazione latina</td><td>拉丁语起源</td></tr>
+    <tr><td class="it" onclick="speak('accento tonico')">l'accento tonico (m.)</td><td>音强重音</td></tr>
+    <tr><td class="it" onclick="speak('accento grafico')">l'accento grafico (m.)</td><td>书写重音</td></tr>
+    <tr><td class="it" onclick="speak('accento acuto')">l'accento acuto (m.)</td><td>尖音符 (´)</td></tr>
+    <tr><td class="it" onclick="speak('accento grave')">l'accento grave (m.)</td><td>钝音符 (`)</td></tr>
+    <tr><td class="it" onclick="speak('vocale tonica')">la vocale tonica</td><td>重读元音</td></tr>
+    <tr><td class="it" onclick="speak('parola tronca')">la parola tronca</td><td>尾重音词</td></tr>
+    <tr><td class="it" onclick="speak('monosillabo')">il monosillabo</td><td>单音节词</td></tr>
+    <tr><td class="it" onclick="speak('fobia')">la fobia</td><td>恐惧症</td></tr>
+    <tr><td class="it" onclick="speak('punteggiatura')">la punteggiatura</td><td>标点符号</td></tr>
+    <tr><td class="it" onclick="speak('tipografia')">la tipografia</td><td>印刷术</td></tr>
+  </table>
+
+  <h3>&#x1F4AC; 习语和表达 (Espressioni idiomatiche)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>含义</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('dica trentatré')">dica trentatré</td><td>esercizio di pronuncia per la "r"</td><td>说"三十三"（发音测试）</td></tr>
+    <tr><td class="it" onclick="speak('andarsene per sempre')">andarsene per sempre</td><td>morire (eufemismo)</td><td>永远离开（死的委婉语）</td></tr>
+    <tr><td class="it" onclick="speak('non si può lamentare')">non si può lamentare</td><td>sta abbastanza bene</td><td>还不错</td></tr>
+    <tr><td class="it" onclick="speak('fase delicata')">fase delicata</td><td>situazione grave</td><td>微妙阶段/危重时期</td></tr>
+    <tr><td class="it" onclick="speak('se n\'è andato/a')">se n'è andato/a</td><td>è morto/a (eufemismo)</td><td>走了（死了）</td></tr>
+    <tr><td class="it" onclick="speak('riposare')">riposare</td><td>dormire / essere morto (eufemismo)</td><td>休息/长眠</td></tr>
+    <tr><td class="it" onclick="speak('diversamente abile')">diversamente abile</td><td>disabile (eufemismo)</td><td>残障人士（委婉语）</td></tr>
+    <tr><td class="it" onclick="speak('non era niente male')">non era niente male</td><td>era buono</td><td>还不错</td></tr>
+    <tr><td class="it" onclick="speak('nient\'affatto stupido')">nient'affatto stupido</td><td>intelligente</td><td>一点都不笨</td></tr>
+    <tr><td class="it" onclick="speak('non essere un cuor di leone')">non essere un cuor di leone</td><td>essere codardo</td><td>不是狮子心（不是勇士）</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Verbi frasali -->
+  <h3>1. 短语动词 — I Verbi Frasali</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">短语动词由动词+小品词（介词或副词）组成，用于改变或加强动词的意义。</p>
+    <p style="font-weight:600;margin:14px 0 6px;">分类对照表</p>
+    <table>
+      <tr><th>Tipo</th><th>Esempio</th><th>Significato</th></tr>
+      <tr><td>字面义 + 地点</td><td>"Tira <span class="verb">fuori</span> la lingua!"</td><td>伸出（舌头）</td></tr>
+      <tr><td>特殊含义</td><td>"Ho buttato <span class="verb">giù</span> due righe."</td><td>写下（buttare giù = 草草写下）</td></tr>
+      <tr><td>加强语义（可省略）</td><td>"Entrate <span class="verb">(dentro)</span> ad aspettarlo."</td><td>进去（dentro可省略）</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">常用短语动词表</p>
+    <table>
+      <tr><th>Verbo frasale</th><th>Significato</th><th>Esempio</th></tr>
+      <tr><td><span class="verb">buttare giù</span></td><td>写下 / 使沮丧</td><td>"Ho <span class="verb">buttato giù</span> un appunto."</td></tr>
+      <tr><td><span class="verb">buttare via</span></td><td>扔掉</td><td>"<span class="verb">Butta via</span> la carta."</td></tr>
+      <tr><td><span class="verb">dare via</span></td><td>赠送</td><td>"<span class="verb">Dà via</span> i suoi vecchi libri."</td></tr>
+      <tr><td><span class="verb">fare fuori</span></td><td>杀死 / 耗尽</td><td>"<span class="verb">Hanno fatto fuori</span> tutte le scorte."</td></tr>
+      <tr><td><span class="verb">andare via</span></td><td>离开 / 消失</td><td>"<span class="verb">Vai via</span> da qui!"</td></tr>
+      <tr><td><span class="verb">tirare avanti</span></td><td>维持 / 继续</td><td>"<span class="verb">Tiriamo avanti</span> come possiamo."</td></tr>
+      <tr><td><span class="verb">tirare fuori</span></td><td>取出 / 拿出</td><td>"<span class="verb">Tira fuori</span> la lingua!"</td></tr>
+      <tr><td><span class="verb">venire fuori</span></td><td>出来 / 结果是</td><td>"<span class="verb">È venuto fuori</span> un problema."</td></tr>
+      <tr><td><span class="verb">entrare dentro</span></td><td>进入</td><td>"<span class="verb">Entrate dentro</span> a prendere un caffè."</td></tr>
+      <tr><td><span class="verb">salire su</span></td><td>登上</td><td>"<span class="verb">Sali su</span> la macchina!"</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Tira fuori la lingua, devo visitarti.');"><span class="verb">Tira fuori</span> la lingua, devo visitarti.</span></td><td>伸出舌头，我要检查你。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho buttato giù alcune idee per il progetto.');">Ho <span class="verb">buttato giù</span> alcune idee per il progetto.</span></td><td>我草草写下了项目的一些想法。</td></tr>
+      <tr><td><span class="it" onclick="speak('Butta via la spazzatura, per favore.');"><span class="verb">Butta via</span> la spazzatura, per favore.</span></td><td>请把垃圾扔掉。</td></tr>
+      <tr><td><span class="it" onclick="speak('I ladri hanno fatto fuori tutto il denaro.');">I ladri hanno <span class="verb">fatto fuori</span> tutto il denaro.</span></td><td>小偷把所有钱都拿走了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Vai via! Non voglio più vederti.');"><span class="verb">Vai via</span>! Non voglio più vederti.</span></td><td>走开！我不想再见到你了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Tiriamo avanti nonostante le difficoltà.');"><span class="verb">Tiriamo avanti</span> nonostante le difficoltà.</span></td><td>尽管困难，我们坚持向前。</td></tr>
+      <tr><td><span class="it" onclick="speak('Vieni fuori con una soluzione.');"><span class="verb">Vieni fuori</span> con una soluzione.</span></td><td>想出一个解决方案来。</td></tr>
+      <tr><td><span class="it" onclick="speak('Entrate dentro, fuori fa freddo.');"><span class="verb">Entrate dentro</span>, fuori fa freddo.</span></td><td>进来吧，外面冷。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sali su che partiamo.');"><span class="verb">Sali su</span> che partiamo.</span></td><td>上车吧，我们要出发了。</td></tr>
+      <tr><td><span class="it" onclick="speak('È venuto fuori che mentiva.');"><span class="verb">È venuto fuori</span> che mentiva.</span></td><td>结果发现他在撒谎。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Avverbio già -->
+  <h3>2. 副词 "già" 的用法 — L'avverbio "già"</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">"già" 在意大利语中有多种用法，从表示"已经"到表示"是的、的确"。</p>
+    <table>
+      <tr><th>Uso</th><th>Significato</th><th>Esempio</th></tr>
+      <tr><td>在参考时间点之前</td><td>已经</td><td>"Il professore è <span class="verb">già</span> andato via."</td></tr>
+      <tr><td>在参考时间点（ormai）</td><td>已经</td><td>"È <span class="verb">già</span> tardi per fargli una sorpresa."</td></tr>
+      <tr><td>提前（fin da ora/allora）</td><td>早已，早就</td><td>"<span class="verb">Già</span> so come andrà a finire."</td></tr>
+      <tr><td>再次肯定（sì, certo）</td><td>是的，的确</td><td>"<span class="verb">Già</span>, hai ragione."</td></tr>
+      <tr><td>疑问（davvero?）</td><td>真的吗？</td><td>"<span class="verb">Già</span>? Non ci credo."</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Ho già mangiato, grazie.');">Ho <span class="verb">già</span> mangiato, grazie.</span></td><td>我已经吃过了，谢谢。</td></tr>
+      <tr><td><span class="it" onclick="speak('È già tardi, dobbiamo andare.');">È <span class="verb">già</span> tardi, dobbiamo andare.</span></td><td>已经晚了，我们得走了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Già sapevo che sarebbe successo.');"><span class="verb">Già</span> sapevo che sarebbe successo.</span></td><td>我早就知道会发生。</td></tr>
+      <tr><td><span class="it" onclick="speak('Già, è proprio così.');"><span class="verb">Già</span>, è proprio così.</span></td><td>是的，确实如此。</td></tr>
+      <tr><td><span class="it" onclick="speak('Già? Sei sicuro?');"><span class="verb">Già</span>? Sei sicuro?</span></td><td>真的吗？你确定？</td></tr>
+      <tr><td><span class="it" onclick="speak('Quando siamo arrivati, il film era già iniziato.');">Quando siamo arrivati, il film era <span class="verb">già</span> iniziato.</span></td><td>我们到的时候，电影已经开始了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Lo so già, non serve ripetere.');">Lo so <span class="verb">già</span>, non serve ripetere.</span></td><td>我已经知道了，不用重复。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sono già le dieci? Come passa il tempo!');">Sono <span class="verb">già</span> le dieci? Come passa il tempo!</span></td><td>已经十点了？时间过得真快！</td></tr>
+      <tr><td><span class="it" onclick="speak('Già da allora avevo capito tutto.');"><span class="verb">Già</span> da allora avevo capito tutto.</span></td><td>从那时起我就已经明白了一切。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non l\'ho già fatto?');">Non l'ho <span class="verb">già</span> fatto?</span></td><td>我不是已经做了吗？</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Litote -->
+  <h3>3. 反叙法（曲言法）— La Litote</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">反叙法是一种通过否定其反面来缓和或加强语义的修辞手法。</p>
+    <p style="font-weight:600;margin:14px 0 6px;">功能对照表</p>
+    <table>
+      <tr><th>Funzione</th><th>Esempio</th><th>Significato reale</th></tr>
+      <tr><td>缓和 / 弱化</td><td>"Un ragazzo <span class="verb">nient'affatto stupido</span>"</td><td>intelligente</td></tr>
+      <tr><td>强调</td><td>"La cena <span class="verb">non era niente male</span>"</td><td>era buona</td></tr>
+      <tr><td>反讽</td><td>"Don Abbondio <span class="verb">non era un cuor di leone</span>"</td><td>era un codardo</td></tr>
+      <tr><td>限制形容词</td><td>"Il nuovo collega mi pare <span class="verb">poco sveglio</span>"</td><td>è lento a capire</td></tr>
+      <tr><td>委婉语</td><td>"<span class="verb">Diversamente abili</span>"</td><td>disabili</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">常用反叙法表达</p>
+    <table>
+      <tr><th>Espressione</th><th>Significato reale</th></tr>
+      <tr><td><span class="verb">non male</span></td><td>abbastanza buono</td></tr>
+      <tr><td><span class="verb">nient'affatto stupido</span></td><td>intelligente</td></tr>
+      <tr><td><span class="verb">non poco</span></td><td>molto</td></tr>
+      <tr><td><span class="verb">non è raro</span></td><td>è frequente</td></tr>
+      <tr><td><span class="verb">non è difficile</span></td><td>è facile</td></tr>
+      <tr><td><span class="verb">non è impossibile</span></td><td>è possibile</td></tr>
+      <tr><td><span class="verb">non è escluso</span></td><td>è possibile</td></tr>
+      <tr><td><span class="verb">poco convincente</span></td><td>debole, scarso</td></tr>
+      <tr><td><span class="verb">poco simpatico</span></td><td>antipatico</td></tr>
+      <tr><td><span class="verb">poco chiaro</span></td><td>confuso, ambiguo</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Il film non era niente male.');">Il film <span class="verb">non era niente male</span>.</span></td><td>这部电影还不错。</td></tr>
+      <tr><td><span class="it" onclick="speak('È una persona nient\'affatto stupida.');">È una persona <span class="verb">nient'affatto stupida</span>.</span></td><td>他是一个一点都不笨的人。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è raro che lui arrivi in ritardo.');"><span class="verb">Non è raro</span> che lui arrivi in ritardo.</span></td><td>他迟到并不罕见。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è difficile capire il problema.');"><span class="verb">Non è difficile</span> capire il problema.</span></td><td>理解问题并不难。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è impossibile che vincano.');"><span class="verb">Non è impossibile</span> che vincano.</span></td><td>他们赢并非不可能。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è escluso che partiamo domani.');"><span class="verb">Non è escluso</span> che partiamo domani.</span></td><td>不排除我们明天出发。</td></tr>
+      <tr><td><span class="it" onclick="speak('La sua spiegazione è stata poco chiara.');">La sua spiegazione è stata <span class="verb">poco chiara</span>.</span></td><td>他的解释不太清楚。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il tuo amico mi è sembrato poco simpatico.');">Il tuo amico mi è sembrato <span class="verb">poco simpatico</span>.</span></td><td>你的朋友我觉得不太讨人喜欢。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non ho poco da fare oggi!');"><span class="verb">Non ho poco</span> da fare oggi! (= Ho molto da fare)</span></td><td>我今天有不少事要做！</td></tr>
+      <tr><td><span class="it" onclick="speak('La situazione non è priva di rischi.');">La situazione <span class="verb">non è priva di</span> rischi. (= Ci sono rischi)</span></td><td>情况并非没有风险。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. -fobia e prefissi -->
+  <h3>4. 后缀 -fobia 与希腊/拉丁前缀 — Il suffisso -fobia e prefissi</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">-fobia 表示"恐惧"，希腊/拉丁前缀用于构成复合词。</p>
+    <p style="font-weight:600;margin:14px 0 6px;">-fobia (恐惧)</p>
+    <table>
+      <tr><th>Parola</th><th>Significato</th><th>中文</th></tr>
+      <tr><td><span class="verb">claustrofobia</span></td><td>paura degli spazi chiusi</td><td>幽闭恐惧症</td></tr>
+      <tr><td><span class="verb">agorafobia</span></td><td>paura degli spazi aperti</td><td>广场恐惧症</td></tr>
+      <tr><td><span class="verb">aracnofobia</span></td><td>paura dei ragni</td><td>蜘蛛恐惧症</td></tr>
+      <tr><td><span class="verb">acrofobia</span></td><td>paura dell'altezza</td><td>恐高症</td></tr>
+      <tr><td><span class="verb">xenofobia</span></td><td>paura degli stranieri</td><td>仇外</td></tr>
+      <tr><td><span class="verb">idrofobia</span></td><td>paura dell'acqua</td><td>恐水症</td></tr>
+      <tr><td><span class="verb">omofobia</span></td><td>paura/pregiudizio verso gli omosessuali</td><td>恐同</td></tr>
+      <tr><td><span class="verb">fotofobia</span></td><td>intolleranza alla luce</td><td>畏光</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">希腊/拉丁前缀</p>
+    <table>
+      <tr><th>Prefisso</th><th>Significato</th><th>Prefisso</th><th>Significato</th></tr>
+      <tr><td><span class="verb">AERO-</span></td><td>aria（空气）</td><td><span class="verb">ELIO-</span></td><td>sole（太阳）</td></tr>
+      <tr><td><span class="verb">DEMO-</span></td><td>popolo（人民）</td><td><span class="verb">FOTO-</span></td><td>luce（光）</td></tr>
+      <tr><td><span class="verb">ECO-</span></td><td>ambiente（环境）</td><td><span class="verb">ASTRO-</span></td><td>stella（星）</td></tr>
+      <tr><td><span class="verb">MONO-</span></td><td>uno solo（单一）</td><td><span class="verb">TERMO-</span></td><td>calore（热）</td></tr>
+      <tr><td><span class="verb">BIO-</span></td><td>vita（生命）</td><td><span class="verb">GEO-</span></td><td>terra（地球）</td></tr>
+      <tr><td><span class="verb">ANTROPO-</span></td><td>uomo（人类）</td><td><span class="verb">CRONO-</span></td><td>tempo（时间）</td></tr>
+      <tr><td><span class="verb">TELE-</span></td><td>lontano（远）</td><td><span class="verb">MICRO-</span></td><td>piccolo（小）</td></tr>
+      <tr><td><span class="verb">MACRO-</span></td><td>grande（大）</td><td><span class="verb">POLI-</span></td><td>molti（多）</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('La sua claustrofobia gli impedisce di prendere l\'ascensore.');">La sua <span class="verb">claustrofobia</span> gli impedisce di prendere l'ascensore.</span></td><td>他的幽闭恐惧症使他无法乘坐电梯。</td></tr>
+      <tr><td><span class="it" onclick="speak('La xenofobia è un fenomeno in crescita in alcune società.');">La <span class="verb">xenofobia</span> è un fenomeno in crescita in alcune società.</span></td><td>仇外心理在一些社会中日益严重。</td></tr>
+      <tr><td><span class="it" onclick="speak('L\'acrofobia gli impedisce di salire su edifici alti.');">L'<span class="verb">acrofobia</span> gli impedisce di salire su edifici alti.</span></td><td>恐高症使他无法登上高楼。</td></tr>
+      <tr><td><span class="it" onclick="speak('La bibliofobia è la paura irrazionale dei libri.');">La <span class="verb">bibliofobia</span> è la paura irrazionale dei libri.</span></td><td>书籍恐惧症是对书籍的非理性恐惧。</td></tr>
+      <tr><td><span class="it" onclick="speak('Lo studio dell\'ecologia è fondamentale per il futuro del pianeta.');">Lo studio dell'<span class="verb">ecologia</span> è fondamentale per il futuro del pianeta.</span></td><td>生态学研究对地球未来至关重要。</td></tr>
+      <tr><td><span class="it" onclick="speak('Un monologo è un discorso di una sola persona.');">Un <span class="verb">monologo</span> è un discorso di una sola persona.</span></td><td>独白是一个人的讲话。</td></tr>
+      <tr><td><span class="it" onclick="speak('L\'astronomia studia le stelle e i pianeti.');">L'<span class="verb">astronomia</span> studia le stelle e i pianeti.</span></td><td>天文学研究恒星和行星。</td></tr>
+      <tr><td><span class="it" onclick="speak('La biologia è lo studio della vita.');">La <span class="verb">biologia</span> è lo studio della vita.</span></td><td>生物学是研究生命的学科。</td></tr>
+      <tr><td><span class="it" onclick="speak('La geografia descrive la superficie terrestre.');">La <span class="verb">geografia</span> descrive la superficie terrestre.</span></td><td>地理学描述地球表面。</td></tr>
+      <tr><td><span class="it" onclick="speak('Il termometro misura la temperatura.');">Il <span class="verb">termometro</span> misura la temperatura.</span></td><td>温度计测量温度。</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. Accento tonico e grafico -->
+  <h3>5. 音强重音和书写重音 — L'accento tonico e grafico</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">音强重音（accento tonico）每个词都有，而书写重音（accento grafico）只在特定情况下写出来。</p>
+    <p style="font-weight:600;margin:14px 0 6px;">区别对照表</p>
+    <table>
+      <tr><th>Tipo</th><th>Descrizione</th><th>Esempio</th></tr>
+      <tr><td><span class="verb">Accento tonico</span></td><td>音强重音：每个词的重读音节</td><td><strong>cà</strong>sa, <strong>can</strong>ta, <strong>man</strong>gia</td></tr>
+      <tr><td><span class="verb">Accento grafico</span></td><td>书写重音：在书写中标出的重音符号</td><td>caffè, città, <strong>perché</strong></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">书写重音使用规则</p>
+    <table>
+      <tr><th>Regola</th><th>Esempi</th></tr>
+      <tr><td><strong>尾重音词必标</strong></td><td>caffè, città, università, virtù, lunedì, così</td></tr>
+      <tr><td><strong>区分同音单音节词</strong></td><td>dà (v.) vs da (prep.), è (v.) vs e (cong.), né vs ne, sé vs se, sì vs si, tè vs te, là vs la, lì vs li</td></tr>
+      <tr><td><strong>区分同形词</strong></td><td>principi (pl. di principe) vs prìncipi (pl. di principio)</td></tr>
+      <tr><td><strong>疑问代词/形容词</strong></td><td>chi, come, cosa, dove, quando, quanto, perché</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">需要区分重音的单音节词</p>
+    <table>
+      <tr><th>Con accento</th><th>Senza accento</th></tr>
+      <tr><td><span class="verb">dà</span> (verbo dare — 给)</td><td><span class="verb">da</span> (preposizione — 从/被)</td></tr>
+      <tr><td><span class="verb">è</span> (verbo essere — 是)</td><td><span class="verb">e</span> (congiunzione — 和)</td></tr>
+      <tr><td><span class="verb">né</span> (congiunzione — 也不)</td><td><span class="verb">ne</span> (pronome — 从中/对此)</td></tr>
+      <tr><td><span class="verb">sé</span> (pronome — 自己)</td><td><span class="verb">se</span> (congiunzione — 如果)</td></tr>
+      <tr><td><span class="verb">sì</span> (avverbio — 是的)</td><td><span class="verb">si</span> (pronome — 自己/人们)</td></tr>
+      <tr><td><span class="verb">tè</span> (bevanda — 茶)</td><td><span class="verb">te</span> (pronome — 你)</td></tr>
+      <tr><td><span class="verb">là</span> (avverbio — 那里)</td><td><span class="verb">la</span> (articolo — 那/她)</td></tr>
+      <tr><td><span class="verb">lì</span> (avverbio — 那里)</td><td><span class="verb">li</span> (pronome — 他们)</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Mi dà sempre un libro da leggere.');">Mi <span class="verb">dà</span> sempre un libro da leggere.</span></td><td>他总是给我一本书读。</td></tr>
+      <tr><td><span class="it" onclick="speak('Vengo da Roma.');">Vengo <span class="verb">da</span> Roma.</span></td><td>我从罗马来。</td></tr>
+      <tr><td><span class="it" onclick="speak('È una bella giornata.');"><span class="verb">È</span> una bella giornata.</span></td><td>今天天气很好。</td></tr>
+      <tr><td><span class="it" onclick="speak('Marco e Lucia sono amici.');">Marco <span class="verb">e</span> Lucia sono amici.</span></td><td>Marco和Lucia是朋友。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non voglio né carne né pesce.');">Non voglio <span class="verb">né</span> carne <span class="verb">né</span> pesce.</span></td><td>我既不要肉也不要鱼。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ne voglio due.');"><span class="verb">Ne</span> voglio due.</span></td><td>我要两个。</td></tr>
+      <tr><td><span class="it" onclick="speak('Pensa solo a sé stesso.');">Pensa solo a <span class="verb">sé</span> stesso.</span></td><td>他只想着自己。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se vieni, ti aspetto.');"><span class="verb">Se</span> vieni, ti aspetto.</span></td><td>如果你来，我等你。</td></tr>
+      <tr><td><span class="it" onclick="speak('Di\' sì!');">Di' <span class="verb">sì</span>!</span></td><td>说是！</td></tr>
+      <tr><td><span class="it" onclick="speak('Si dice così in italiano.');"><span class="verb">Si</span> dice così in italiano.</span></td><td>意大利语是这么说的。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 9 · p.118-121</h2>
+
+  <h3>&#x1F3E5; Eufemismi nella medicina italiana — 意大利医学中的委婉语</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Eufemismi medici nella comunicazione quotidiana</p>
+    <p class="it" onclick="speak('In Italia, i medici usano spesso eufemismi per comunicare diagnosi gravi. Frasi come "fase delicata", "non si può lamentare" o "riposa" sostituiscono termini più diretti come "malato grave" o "morente".')">In Italia, i medici usano spesso eufemismi per comunicare diagnosi gravi. Frasi come "fase delicata", "non si può lamentare" o "riposa" sostituiscono termini più diretti come "malato grave" o "morente".</p>
+    <p class="it" onclick="speak('Anche nella comunicazione quotidiana, gli italiani tendono a usare la litote per smussare concetti scomodi: "Non mi sento molto bene" invece di "Sto male", "Non è stato un grande successo" invece di "È stato un fallimento".')">Anche nella comunicazione quotidiana, gli italiani tendono a usare la litote per smussare concetti scomodi: "Non mi sento molto bene" invece di "Sto male", "Non è stato un grande successo" invece di "È stato un fallimento".</p>
+    <p class="it" onclick="speak('Questo fenomeno riflette una caratteristica culturale italiana: la cortesia e la prudenza nel linguaggio, soprattutto quando si tratta di argomenti delicati come la salute, la morte o i fallimenti personali.')">Questo fenomeno riflette una caratteristica culturale italiana: la cortesia e la prudenza nel linguaggio, soprattutto quando si tratta di argomenti delicati come la salute, la morte o i fallimenti personali.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Eufemismi comuni in italiano</p>
+    <p class="it" onclick="speak('Categorie di eufemismi: per la morte — "se n\'è andato", "ci ha lasciato", "non c\'è più", "riposa in pace". Per la malattia — "non sta bene", "ha qualche problema di salute", "è in fase di recupero". Per il lavoro — "essere in mobilità" (disoccupato), "ottimizzazione del personale" (licenziamenti). Per l\'età — "terza età" (vecchiaia), "maturo" (anziano).')">Categorie di eufemismi: per la morte — "se n'è andato", "ci ha lasciato", "non c'è più", "riposa in pace". Per la malattia — "non sta bene", "ha qualche problema di salute", "è in fase di recupero". Per il lavoro — "essere in mobilità" (disoccupato), "ottimizzazione del personale" (licenziamenti). Per l'età — "terza età" (vecchiaia), "maturo" (anziano).</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译</p>
+    <p class="zh">在意大利，医生经常使用委婉语来传达严重的诊断结果。诸如"微妙阶段"、"还不错"或"在休息"之类的短语取代了更直接的术语如"重病"或"濒死"。</p>
+    <p class="zh">在日常交流中，意大利人也倾向于使用反叙法来缓和不适的概念：不说"我病了"而说"我感觉不太好"，不说"这是一个失败"而说"这不是一个巨大的成功"。</p>
+    <p class="zh">委婉语类别：死亡类——"他走了"、"他离开了我们"、"他不在了"、"安息"；疾病类——"他身体不太好"、"有一些健康问题"、"在恢复中"；工作类——"在流动中"（失业）、"人员优化"（裁员）；年龄类——"第三年龄"（老年）、"成熟"（年长）。</p>
+  </div>
+
+  <h3>相关文化词汇</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('eufemismo')">l'eufemismo</td><td>委婉语</td></tr>
+    <tr><td class="it" onclick="speak('litote')">la litote</td><td>反叙法</td></tr>
+    <tr><td class="it" onclick="speak('diagnosi')">la diagnosi</td><td>诊断</td></tr>
+    <tr><td class="it" onclick="speak('cortesia')">la cortesia</td><td>礼貌</td></tr>
+    <tr><td class="it" onclick="speak('prudenza')">la prudenza</td><td>谨慎</td></tr>
+    <tr><td class="it" onclick="speak('comunicazione')">la comunicazione</td><td>交流</td></tr>
+    <tr><td class="it" onclick="speak('tabù linguistico')">il tabù linguistico</td><td>语言禁忌</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化注释:</strong><br>
+    &bull; 委婉语是意大利语交际中的重要策略，尤其在医疗场景中<br>
+    &bull; 反叙法（litote）通过否定反面来缓和语气，是C2级别的重要修辞手段<br>
+    &bull; "Dica trentatré" 是一种经典的意大利语发音测试，用于检查"r"的发音<br>
+    &bull; Nel tuo paese, come si comunicano le diagnosi gravi? — 在你的国家，如何传达严重诊断？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 9 — Dica trentatré · p.124</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">视频：</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">"La coscienza di Zeno" — L'osteria del libro italiano su ALMA.tv</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">短语动词复习 (Verbi frasali):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Tira fuori la lingua!')">1. Tira <strong>fuori</strong> la lingua!</span></td><td class="zh">伸出舌头！（字面义+地点）</td></tr>
+    <tr><td><span class="it" onclick="speak('Ho buttato giù due righe.')">2. Ho buttato <strong>giù</strong> (ho scritto) due righe.</span></td><td class="zh">我草草写了几行。（特殊含义）</td></tr>
+    <tr><td><span class="it" onclick="speak('Entrate dentro ad aspettarlo.')">3. Entrate <strong>(dentro)</strong> ad aspettarlo.</span></td><td class="zh">进去等他。（加强语义，可省略）</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">副词già复习 (Avverbio già):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Il professore è già andato via.')">1. In anticipo: Il professore è <strong>già</strong> andato via.</span></td><td class="zh">在参考时间前：教授已经走了。</td></tr>
+    <tr><td><span class="it" onclick="speak('È già tardi per fargli una sorpresa.')">2. Ormai: È <strong>già</strong> tardi per fargli una sorpresa.</span></td><td class="zh">在参考时间点：给他惊喜已经太晚了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Già so come andrà a finire.')">3. Fin da ora: <strong>Già</strong> so come andrà a finire.</span></td><td class="zh">提前：我早就知道结果如何。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">反叙法复习 (Litote):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Un ragazzo nient\'affatto stupido.')">1. Sfumare: Un ragazzo <strong>nient'affatto stupido</strong> (= intelligente)</span></td><td class="zh">缓和：一个一点都不笨的男孩</td></tr>
+    <tr><td><span class="it" onclick="speak('La cena non era niente male.')">2. Enfasi: La cena <strong>non era niente male</strong> (= era buona)</span></td><td class="zh">强调：晚餐还不错</td></tr>
+    <tr><td><span class="it" onclick="speak('Don Abbondio di certo non era un cuor di leone.')">3. Ironia: Don Abbondio <strong>non era un cuor di leone</strong></span></td><td class="zh">反讽：唐·阿邦迪奥不是狮子心</td></tr>
+    <tr><td><span class="it" onclick="speak('Il nuovo collega mi pare poco sveglio.')">4. Limitazione: Il nuovo collega mi pare <strong>poco sveglio</strong></span></td><td class="zh">限制形容词：新同事不太机灵</td></tr>
+    <tr><td><span class="it" onclick="speak('Diversamente abili.')">5. Eufemismo: <strong>Diversamente abili</strong> (= disabili)</span></td><td class="zh">委婉语：残障人士</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演：模拟医生和患者家属对话，练习使用委婉语<br>
+    &bull; 找出现实中的5个委婉语表达（在新闻、广告、日常对话中）<br>
+    &bull; 用短语动词写一段短故事（3-5句）<br>
+    &bull; 用反叙法改写5个直白陈述句<br>
+    &bull; 练习发音："Dica trentatré" — 检查字母"r"的发音
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-8.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">&larr; Torna al corso</a>
+  <a href="unita-10.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 6</div>
+  <p>Corso di lingua italiana per stranieri · Livello C2</p>
+  <p style="margin-top:8px;opacity:0.6;">Ornella Discacciati · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

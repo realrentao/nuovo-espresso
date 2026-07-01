@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 3 · Un tipo interessante · NUOVO Espresso 2</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 2 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 3 · A2</div>
+  <h1>&#x1F9D1; Un tipo interessante</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">一个有趣的人 · p.37-52</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">外貌描述 · 性格描述 · 条件式现在时 · farcela/sapere/andarsene · qualcuno/nessuno · 比较级</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Che tipo è? -->
+  <h3>1. Che tipo è? · p.39, es.4</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">听对话，判断形容词是形容Luis还是Giorgio。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Catia, perché non sei più venuta alla festa sabato?')"><strong>Martina</strong>: Catia, perché non sei più venuta alla festa sabato?</span></td><td class="zh"><strong>玛蒂娜</strong>: 卡蒂亚，你为什么周六没来参加派对？</td></tr>
+    <tr><td><span class="it" onclick="speak('Non ce l\'ho fatta. Il concerto è cominciato tardi ed è finito a mezzanotte e mezza.')"><strong>Catia</strong>: Non ce l'ho fatta. Il concerto è cominciato tardi ed è finito a mezzanotte e mezza.</span></td><td class="zh"><strong>卡蒂亚</strong>: 我没能去成。音乐会开始得晚，十二点半才结束。</td></tr>
+    <tr><td><span class="it" onclick="speak('Peccato! È stata una bella festa. Ho pure conosciuto il nuovo ragazzo di Sandra, uno spagnolo.')"><strong>Martina</strong>: Peccato! È stata una bella festa. Ho pure conosciuto il nuovo ragazzo di Sandra, uno spagnolo.</span></td><td class="zh"><strong>玛蒂娜</strong>: 可惜！派对很棒。我还认识了桑德拉的新男友，一个西班牙人。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ah, e com\'è? Carino?')"><strong>Catia</strong>: Ah, e com'è? Carino?</span></td><td class="zh"><strong>卡蒂亚</strong>: 啊，他怎么样？帅吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Molto, assomiglia un po\' a Pedro, l\'insegnante di spagnolo, alto quanto lui, occhi scuri... bello come lui...')"><strong>Martina</strong>: Molto, assomiglia un po' a Pedro, l'insegnante di spagnolo, alto quanto lui, occhi scuri... bello come lui...</span></td><td class="zh"><strong>玛蒂娜</strong>: 很帅，有点像佩德罗，那个西班牙语老师，和他一样高，深色眼睛...和他一样帅...</td></tr>
+    <tr><td><span class="it" onclick="speak('Però! E che tipo è?')"><strong>Catia</strong>: Però! E che tipo è?</span></td><td class="zh"><strong>卡蒂亚</strong>: 哇！他人怎么样？</td></tr>
+    <tr><td><span class="it" onclick="speak('Beh, mi è sembrato un tipo interessante, aperto, divertente, forse un po\' vanitoso.')"><strong>Martina</strong>: Beh, mi è sembrato un tipo interessante, aperto, divertente, forse un po' vanitoso.</span></td><td class="zh"><strong>玛蒂娜</strong>: 嗯，我觉得他是个有趣的人，开放、风趣，可能有点虚荣。</td></tr>
+    <tr><td><span class="it" onclick="speak('Insomma, tutto il contrario di Giorgio!')"><strong>Catia</strong>: Insomma, tutto il contrario di Giorgio!</span></td><td class="zh"><strong>卡蒂亚</strong>: 总之，和乔治完全相反！</td></tr>
+    <tr><td><span class="it" onclick="speak('Perché? A me Giorgio è simpatico, è un po\' timido, però in fondo è una persona sensibile, intelligente, sa suonare il violino...')"><strong>Martina</strong>: Perché? A me Giorgio è simpatico, è un po' timido, però in fondo è una persona sensibile, intelligente, sa suonare il violino...</span></td><td class="zh"><strong>玛蒂娜</strong>: 为什么？我觉得乔治挺好的，他有点害羞，但本质上是个敏感、聪明的人，他会拉小提琴...</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, però è noioso! E pure bruttino...')"><strong>Catia</strong>: Sì, però è noioso! E pure bruttino...</span></td><td class="zh"><strong>卡蒂亚</strong>: 是的，但他很无聊！而且还有点丑...</td></tr>
+    <tr><td><span class="it" onclick="speak('Mah, io non lo trovo affatto brutto, forse è un po\' grasso.')"><strong>Martina</strong>: Mah, io non lo trovo affatto brutto, forse è un po' grasso.</span></td><td class="zh"><strong>玛蒂娜</strong>: 嗯，我一点也不觉得他丑，可能有点胖。</td></tr>
+    <tr><td><span class="it" onclick="speak('Va be\', lasciamo perdere Giorgio. E senti, che cosa fa questo... come si chiama?')"><strong>Catia</strong>: Va be', lasciamo perdere Giorgio. E senti, che cosa fa questo... come si chiama?</span></td><td class="zh"><strong>卡蒂亚</strong>: 算了，不谈乔治了。那这个...他叫什么来着？</td></tr>
+    <tr><td><span class="it" onclick="speak('Luis. Mah, è venuto qui in Italia per fare un master, però adesso ha finito.')"><strong>Martina</strong>: Luis. Mah, è venuto qui in Italia per fare un master, però adesso ha finito.</span></td><td class="zh"><strong>玛蒂娜</strong>: 路易斯。嗯，他来意大利读硕士，但现在已经读完了。</td></tr>
+    <tr><td><span class="it" onclick="speak('E che fa? Torna in Spagna?')"><strong>Catia</strong>: E che fa? Torna in Spagna?</span></td><td class="zh"><strong>卡蒂亚</strong>: 他做什么？回西班牙吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Penso di no. Mi ha detto che ha cominciato a lavorare da poco in uno studio pubblicitario.')"><strong>Martina</strong>: Penso di no. Mi ha detto che ha cominciato a lavorare da poco in uno studio pubblicitario.</span></td><td class="zh"><strong>玛蒂娜</strong>: 我想不会。他告诉我他最近开始在一家广告公司工作。</td></tr>
+  </table>
+
+  <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:8px;padding:12px 16px;margin:12px 0;font-size:13px;">
+    <strong>&#x1F4DD; 形容词分配</strong>:<br>
+    <strong>Luis</strong>: carino, divertente, interessante, vanitoso, aperto<br>
+    <strong>Giorgio</strong>: bruttino, timido, sensibile, intelligente, noioso, simpatico
+  </div>
+
+  <!-- Dialogo 2: Descrizioni fisiche -->
+  <h3>2. Descrizioni fisiche · p.38, es.2</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">阅读游客描述，找出谁是混入者。</p>
+  <table class="dialog-table">
+    <tr><th style="background:var(--ne-cream);">#</th><th style="background:var(--ne-cream);">意大利语描述</th><th style="background:var(--ne-cream);">中文翻译</th></tr>
+    <tr><td>1</td><td><span class="it" onclick="speak('È alta, magra e molto bella. Ha i capelli neri, lunghi e ricci e gli occhi azzurri.')">È alta, magra e molto bella. Ha i capelli neri, lunghi e ricci e gli occhi azzurri.</span></td><td>她高挑、苗条、非常漂亮。黑色长发卷发，蓝色眼睛。</td></tr>
+    <tr><td>2</td><td><span class="it" onclick="speak('È alto, un po\' grasso, ha i capelli e gli occhi castani e porta gli occhiali. Non è molto giovane ed è sempre elegante.')">È alto, un po' grasso, ha i capelli e gli occhi castani e porta gli occhiali. Non è molto giovane ed è sempre elegante.</span></td><td>他高大、有点胖，棕色头发和眼睛，戴眼镜。不太年轻，总是很优雅。</td></tr>
+    <tr><td>3</td><td><span class="it" onclick="speak('Giovane, abbastanza alta, né magra né grassa, ha i capelli corti, biondi e gli occhi verdi. Porta quasi sempre i jeans.')">Giovane, abbastanza alta, né magra né grassa, ha i capelli corti, biondi e gli occhi verdi. Porta quasi sempre i jeans.</span></td><td>年轻，相当高，不胖不瘦，金色短发，绿色眼睛。几乎总是穿牛仔裤。</td></tr>
+    <tr><td>4</td><td><span class="it" onclick="speak('È una persona anziana, bassa, magra, un po\' calva. Ha la barba e gli occhiali.')">È una persona anziana, bassa, magra, un po' calva. Ha la barba e gli occhiali.</span></td><td>年纪大，矮小，瘦，有点秃。有胡须，戴眼镜。</td></tr>
+    <tr><td>5</td><td><span class="it" onclick="speak('Non è né alta né bassa, abbastanza magra, ha i capelli e gli occhi neri, non è più giovane, ma ancora molto sportiva.')">Non è né alta né bassa, abbastanza magra, ha i capelli e gli occhi neri, non è più giovane, ma ancora molto sportiva.</span></td><td>不高不矮，相当瘦，黑色头发和眼睛，不再年轻，但仍然非常运动。</td></tr>
+    <tr><td>6</td><td><span class="it" onclick="speak('È alto, magro, sportivo e attraente. Ha i capelli neri non molto corti e gli occhi azzurri.')">È alto, magro, sportivo e attraente. Ha i capelli neri non molto corti e gli occhi azzurri.</span></td><td>他高大、瘦削、运动、迷人。黑色头发不太短，蓝色眼睛。</td></tr>
+  </table>
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:10px 14px;margin-top:8px;font-size:13px;">
+    <strong>&#x1F50D; 答案</strong>: 混入者是 <strong>第3号</strong>。
+  </div>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>外貌描述 (Aspetto fisico)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('alto')">alto</td><td>agg.</td><td>高的</td></tr>
+    <tr><td class="it" onclick="speak('basso')">basso</td><td>agg.</td><td>矮的</td></tr>
+    <tr><td class="it" onclick="speak('magro')">magro</td><td>agg.</td><td>瘦的</td></tr>
+    <tr><td class="it" onclick="speak('grasso')">grasso</td><td>agg.</td><td>胖的</td></tr>
+    <tr><td class="it" onclick="speak('snello')">snello</td><td>agg.</td><td>苗条的</td></tr>
+    <tr><td class="it" onclick="speak('robusto')">robusto</td><td>agg.</td><td>壮实的</td></tr>
+    <tr><td class="it" onclick="speak('calvo')">calvo</td><td>agg.</td><td>秃头的</td></tr>
+    <tr><td class="it" onclick="speak('i capelli')">i capelli</td><td>s.m.pl.</td><td>头发</td></tr>
+    <tr><td class="it" onclick="speak('lisci')">lisci</td><td>agg.pl.</td><td>直的</td></tr>
+    <tr><td class="it" onclick="speak('ricci')">ricci</td><td>agg.pl.</td><td>卷的</td></tr>
+    <tr><td class="it" onclick="speak('biondi')">biondi</td><td>agg.pl.</td><td>金色的</td></tr>
+    <tr><td class="it" onclick="speak('castani')">castani</td><td>agg.pl.</td><td>棕色的</td></tr>
+    <tr><td class="it" onclick="speak('la barba')">la barba</td><td>s.f.</td><td>胡须</td></tr>
+    <tr><td class="it" onclick="speak('i baffi')">i baffi</td><td>s.m.pl.</td><td>胡子/髭</td></tr>
+    <tr><td class="it" onclick="speak('gli occhiali')">gli occhiali</td><td>s.m.pl.</td><td>眼镜</td></tr>
+    <tr><td class="it" onclick="speak('gli occhi azzurri')">gli occhi azzurri</td><td>s.m.pl.</td><td>蓝色眼睛</td></tr>
+    <tr><td class="it" onclick="speak('gli occhi verdi')">gli occhi verdi</td><td>s.m.pl.</td><td>绿色眼睛</td></tr>
+    <tr><td class="it" onclick="speak('gli occhi scuri')">gli occhi scuri</td><td>s.m.pl.</td><td>深色眼睛</td></tr>
+  </table>
+
+  <h3>性格描述 (Carattere)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('simpatico')">simpatico</td><td>agg.</td><td>友善的/讨人喜欢的</td></tr>
+    <tr><td class="it" onclick="speak('antipatico')">antipatico</td><td>agg.</td><td>不讨人喜欢的</td></tr>
+    <tr><td class="it" onclick="speak('divertente')">divertente</td><td>agg.</td><td>有趣的</td></tr>
+    <tr><td class="it" onclick="speak('noioso')">noioso</td><td>agg.</td><td>无聊的</td></tr>
+    <tr><td class="it" onclick="speak('timido')">timido</td><td>agg.</td><td>害羞的</td></tr>
+    <tr><td class="it" onclick="speak('sensibile')">sensibile</td><td>agg.</td><td>敏感的</td></tr>
+    <tr><td class="it" onclick="speak('intelligente')">intelligente</td><td>agg.</td><td>聪明的</td></tr>
+    <tr><td class="it" onclick="speak('vanitoso')">vanitoso</td><td>agg.</td><td>虚荣的</td></tr>
+    <tr><td class="it" onclick="speak('aperto')">aperto</td><td>agg.</td><td>开放的</td></tr>
+    <tr><td class="it" onclick="speak('chiuso')">chiuso</td><td>agg.</td><td>封闭的</td></tr>
+    <tr><td class="it" onclick="speak('ottimista')">ottimista</td><td>agg.</td><td>乐观的</td></tr>
+    <tr><td class="it" onclick="speak('pessimista')">pessimista</td><td>agg.</td><td>悲观的</td></tr>
+    <tr><td class="it" onclick="speak('generoso')">generoso</td><td>agg.</td><td>慷慨的</td></tr>
+    <tr><td class="it" onclick="speak('egoista')">egoista</td><td>agg.</td><td>自私的</td></tr>
+    <tr><td class="it" onclick="speak('ambizioso')">ambizioso</td><td>agg.</td><td>有雄心的</td></tr>
+    <tr><td class="it" onclick="speak('geloso')">geloso</td><td>agg.</td><td>嫉妒的</td></tr>
+    <tr><td class="it" onclick="speak('possessivo')">possessivo</td><td>agg.</td><td>占有欲强的</td></tr>
+    <tr><td class="it" onclick="speak('gentile')">gentile</td><td>agg.</td><td>有礼貌的/亲切的</td></tr>
+    <tr><td class="it" onclick="speak('scortese')">scortese</td><td>agg.</td><td>粗鲁的</td></tr>
+    <tr><td class="it" onclick="speak('socievole')">socievole</td><td>agg.</td><td>善于社交的</td></tr>
+  </table>
+
+  <h3>比较表达 (Espressioni di confronto)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('assomigliare a')">assomigliare a</td><td>v.</td><td>像/似</td></tr>
+    <tr><td class="it" onclick="speak('simile')">simile</td><td>agg.</td><td>相似的</td></tr>
+    <tr><td class="it" onclick="speak('diverso')">diverso</td><td>agg.</td><td>不同的</td></tr>
+    <tr><td class="it" onclick="speak('uguale')">uguale</td><td>agg.</td><td>相同的</td></tr>
+    <tr><td class="it" onclick="speak('quanto')">quanto / come</td><td>cong.</td><td>像...一样</td></tr>
+    <tr><td class="it" onclick="speak('né... né')">né... né</td><td>cong.</td><td>既不...也不</td></tr>
+    <tr><td class="it" onclick="speak('tutto il contrario')">tutto il contrario</td><td>esp.</td><td>完全相反</td></tr>
+  </table>
+
+  <h3>星座 (Segni zodiacali)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('Ariete')">Ariete</td><td>白羊座</td></tr>
+    <tr><td class="it" onclick="speak('Toro')">Toro</td><td>金牛座</td></tr>
+    <tr><td class="it" onclick="speak('Gemelli')">Gemelli</td><td>双子座</td></tr>
+    <tr><td class="it" onclick="speak('Cancro')">Cancro</td><td>巨蟹座</td></tr>
+    <tr><td class="it" onclick="speak('Leone')">Leone</td><td>狮子座</td></tr>
+    <tr><td class="it" onclick="speak('Vergine')">Vergine</td><td>处女座</td></tr>
+    <tr><td class="it" onclick="speak('Bilancia')">Bilancia</td><td>天秤座</td></tr>
+    <tr><td class="it" onclick="speak('Scorpione')">Scorpione</td><td>天蝎座</td></tr>
+    <tr><td class="it" onclick="speak('Sagittario')">Sagittario</td><td>射手座</td></tr>
+    <tr><td class="it" onclick="speak('Capricorno')">Capricorno</td><td>摩羯座</td></tr>
+    <tr><td class="it" onclick="speak('Acquario')">Acquario</td><td>水瓶座</td></tr>
+    <tr><td class="it" onclick="speak('Pesci')">Pesci</td><td>双鱼座</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Condizionale presente -->
+  <h3>1. 条件式现在时 (Condizionale presente)</h3>
+  <div class="grammar-box">
+    <p style="font-weight:600;font-size:14px;margin-bottom:8px;">规则动词变位：</p>
+    <table>
+      <tr><th>人称</th><th>parlare</th><th>vendere</th><th>dormire</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('parlerei')">parlerei</span></td><td><span class="verb" onclick="speak('venderei')">venderei</span></td><td><span class="verb" onclick="speak('dormirei')">dormirei</span></td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('parleresti')">parleresti</span></td><td><span class="verb" onclick="speak('venderesti')">venderesti</span></td><td><span class="verb" onclick="speak('dormiresti')">dormiresti</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb" onclick="speak('parlerebbe')">parlerebbe</span></td><td><span class="verb" onclick="speak('venderebbe')">venderebbe</span></td><td><span class="verb" onclick="speak('dormirebbe')">dormirebbe</span></td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('parleremmo')">parleremmo</span></td><td><span class="verb" onclick="speak('venderemmo')">venderemmo</span></td><td><span class="verb" onclick="speak('dormiremmo')">dormiremmo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('parlereste')">parlereste</span></td><td><span class="verb" onclick="speak('vendereste')">vendereste</span></td><td><span class="verb" onclick="speak('dormireste')">dormireste</span></td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('parlerebbero')">parlerebbero</span></td><td><span class="verb" onclick="speak('venderebbero')">venderebbero</span></td><td><span class="verb" onclick="speak('dormirebbero')">dormirebbero</span></td></tr>
+    </table>
+    <p style="font-size:12px;color:var(--ne-muted);margin:6px 0;">注意：-are动词的-a变为-e：abitare → abiter<strong>ei</strong></p>
+    <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">不规则动词变位：</p>
+    <table>
+      <tr><th>动词</th><th>条件式词干</th></tr>
+      <tr><td>essere</td><td><span class="verb" onclick="speak('sarei')">sarei</span>, saresti, sarebbe, saremmo, sareste, sarebbero</td></tr>
+      <tr><td>avere</td><td><span class="verb" onclick="speak('avrei')">avrei</span>, avresti, avrebbe, avremmo, avreste, avrebbero</td></tr>
+      <tr><td>dovere</td><td><span class="verb" onclick="speak('dovrei')">dovrei</span>, dovresti, dovrebbe, dovremmo, dovreste, dovrebbero</td></tr>
+      <tr><td>potere</td><td><span class="verb" onclick="speak('potrei')">potrei</span>, potresti, potrebbe, potremmo, potreste, potrebbero</td></tr>
+      <tr><td>volere</td><td><span class="verb" onclick="speak('vorrei')">vorrei</span>, vorresti, vorrebbe, vorremmo, vorreste, vorrebbero</td></tr>
+      <tr><td>sapere</td><td><span class="verb" onclick="speak('saprei')">saprei</span>, sapresti, saprebbe, sapremmo, sapreste, saprebbero</td></tr>
+      <tr><td>vedere</td><td><span class="verb" onclick="speak('vedrei')">vedrei</span>, vedresti, vedrebbe, vedremmo, vedreste, vedrebbero</td></tr>
+      <tr><td>venire</td><td><span class="verb" onclick="speak('verrei')">verrei</span>, verresti, verrebbe, verremmo, verreste, verrebbero</td></tr>
+      <tr><td>andare</td><td><span class="verb" onclick="speak('andrei')">andrei</span>, andresti, andrebbe, andremmo, andreste, andrebbero</td></tr>
+      <tr><td>fare</td><td><span class="verb" onclick="speak('farei')">farei</span>, faresti, farebbe, faremmo, fareste, farebbero</td></tr>
+      <tr><td>dare</td><td><span class="verb" onclick="speak('darei')">darei</span>, daresti, darebbe, daremmo, dareste, darebbero</td></tr>
+      <tr><td>stare</td><td><span class="verb" onclick="speak('starei')">starei</span>, staresti, starebbe, staremmo, stareste, starebbero</td></tr>
+      <tr><td>rimanere</td><td><span class="verb" onclick="speak('rimarrei')">rimarrei</span>, rimarresti, rimarrebbe, rimarremmo, rimarreste, rimarrebbero</td></tr>
+      <tr><td>tenere</td><td><span class="verb" onclick="speak('terrei')">terrei</span>, terresti, terrebbe, terremmo, terreste, terrebbero</td></tr>
+      <tr><td>vivere</td><td><span class="verb" onclick="speak('vivrei')">vivrei</span>, vivresti, vivrebbe, vivremmo, vivreste, vivrebbero</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Usi del condizionale -->
+  <h3>2. 条件式现在时的用法</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>用法</th><th>说明</th><th>例句</th></tr>
+      <tr><td>礼貌请求</td><td>委婉地请求</td><td><span class="it" onclick="speak('Vorrei un caffè.')"><strong>Vorrei</strong> un caffè.</span> 我想要一杯咖啡。</td></tr>
+      <tr><td>愿望</td><td>表达愿望</td><td><span class="it" onclick="speak('Vorrei fare un corso di spagnolo.')"><strong>Vorrei</strong> fare un corso di spagnolo.</span> 我想上西班牙语课。</td></tr>
+      <tr><td>建议</td><td>提出建议</td><td><span class="it" onclick="speak('Dovresti fumare meno.')"><strong>Dovresti</strong> fumare meno.</span> 你应该少抽烟。</td></tr>
+      <tr><td>提议</td><td>提出方案</td><td><span class="it" onclick="speak('Potremmo andare al cinema!')"><strong>Potremmo</strong> andare al cinema!</span> 我们可以去看电影！</td></tr>
+      <tr><td>推测</td><td>未必发生的事</td><td><span class="it" onclick="speak('Verrebbe con noi?')"><strong>Verrebbe</strong> con noi?</span> 他会跟我们一起来吗？</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">更多例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Vorrei chiederLe una cosa.')">Vorrei chiederLe una cosa.</span></td><td>我想问您一件事。</td></tr>
+      <tr><td><span class="it" onclick="speak('Potresti aiutarmi, per favore?')">Potresti aiutarmi, per favore?</span></td><td>你能帮我吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Dovremmo partire prima per evitare il traffico.')">Dovremmo partire prima per evitare il traffico.</span></td><td>我们应该早点出发以避开交通堵塞。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sarebbe bello andare in vacanza insieme.')">Sarebbe bello andare in vacanza insieme.</span></td><td>一起度假会很美好。</td></tr>
+      <tr><td><span class="it" onclick="speak('Preferirei restare a casa stasera.')">Preferirei restare a casa stasera.</span></td><td>我今晚宁愿呆在家里。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non saprei dirti con certezza.')">Non saprei dirti con certezza.</span></td><td>我不能肯定地告诉你。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Farcela -->
+  <h3>3. 动词 farcela（做到/成功）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">farcela由代词ce + la + fare构成，意为"成功做到某事"。</p>
+    <table>
+      <tr><th>人称</th><th>现在时</th><th>近过去时</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('ce la faccio')">ce la faccio</span></td><td><span class="verb" onclick="speak('ce l\'ho fatta')">ce l'ho fatta</span></td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('ce la fai')">ce la fai</span></td><td><span class="verb" onclick="speak('ce l\'hai fatta')">ce l'hai fatta</span></td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb" onclick="speak('ce la fa')">ce la fa</span></td><td><span class="verb" onclick="speak('ce l\'ha fatta')">ce l'ha fatta</span></td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('ce la facciamo')">ce la facciamo</span></td><td><span class="verb" onclick="speak('ce l\'abbiamo fatta')">ce l'abbiamo fatta</span></td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('ce la fate')">ce la fate</span></td><td><span class="verb" onclick="speak('ce l\'avete fatta')">ce l'avete fatta</span></td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('ce la fanno')">ce la fanno</span></td><td><span class="verb" onclick="speak('ce l\'hanno fatta')">ce l'hanno fatta</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Non ce la faccio a stare lontano da loro.')">Non ce la faccio a stare lontano da loro.</span></td><td>我无法离开他们。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ce l\'hai fatta a prendere il treno?')">Ce l'hai fatta a prendere il treno?</span></td><td>你赶上火车了吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Non ce la faccio ad arrivare per le otto.')">Non ce la faccio ad arrivare per le otto.</span></td><td>我没办法八点到。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ce l\'ho fatta! Ho superato l\'esame!')">Ce l'ho fatta! Ho superato l'esame!</span></td><td>我成功了！我通过了考试！</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Sapere -->
+  <h3>4. 动词 sapere（知道/会）</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>人称</th><th>现在时</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('so')">so</span></td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('sai')">sai</span></td></tr>
+      <tr><td>lui/lei</td><td><span class="verb" onclick="speak('sa')">sa</span></td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('sappiamo')">sappiamo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('sapete')">sapete</span></td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('sanno')">sanno</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Lui sa suonare il violino.')">Lui sa suonare il violino.</span></td><td>他会拉小提琴。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sai parlare lo spagnolo?')">Sai parlare lo spagnolo?</span></td><td>你会说西班牙语吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Io non so usare il computer.')">Io non so usare il computer.</span></td><td>我不会用电脑。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sappiamo cucinare molto bene.')">Sappiamo cucinare molto bene.</span></td><td>我们很会做饭。</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. Andarsene -->
+  <h3>5. 动词 andarsene（离开）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">andarsene由andare + si(自反代词) + ne构成。</p>
+    <table>
+      <tr><th>人称</th><th>现在时</th></tr>
+      <tr><td>io</td><td><span class="verb" onclick="speak('me ne vado')">me ne vado</span></td></tr>
+      <tr><td>tu</td><td><span class="verb" onclick="speak('te ne vai')">te ne vai</span></td></tr>
+      <tr><td>lui/lei</td><td><span class="verb" onclick="speak('se ne va')">se ne va</span></td></tr>
+      <tr><td>noi</td><td><span class="verb" onclick="speak('ce ne andiamo')">ce ne andiamo</span></td></tr>
+      <tr><td>voi</td><td><span class="verb" onclick="speak('ve ne andate')">ve ne andate</span></td></tr>
+      <tr><td>loro</td><td><span class="verb" onclick="speak('se ne vanno')">se ne vanno</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Gli italiani se ne vanno dalle città in estate.')">Gli italiani se ne vanno dalle città in estate.</span></td><td>夏天意大利人离开城市。</td></tr>
+      <tr><td><span class="it" onclick="speak('A che ora te ne vai?')">A che ora te ne vai?</span></td><td>你几点走？</td></tr>
+      <tr><td><span class="it" onclick="speak('Noi ce ne andiamo domani mattina.')">Noi ce ne andiamo domani mattina.</span></td><td>我们明天早上走。</td></tr>
+      <tr><td><span class="it" onclick="speak('Scusa, ma me ne devo andare.')">Scusa, ma me ne devo andare.</span></td><td>抱歉，我得走了。</td></tr>
+    </table>
+  </div>
+
+  <!-- 6. Comparativi quanto/come -->
+  <h3>6. 比较级 quanto / come</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>结构</th><th>说明</th><th>例句</th></tr>
+      <tr><td><span class="verb">quanto/come</span> + 名词/代词</td><td>表示同等程度</td><td><span class="it" onclick="speak('Luis è alto quanto Pedro.')">Luis è alto <strong>quanto</strong> Pedro.</span></td></tr>
+      <tr><td></td><td></td><td><span class="it" onclick="speak('Carla è simpatica come Lucia.')">Carla è simpatica <strong>come</strong> Lucia.</span></td></tr>
+      <tr><td></td><td></td><td><span class="it" onclick="speak('Luigi è alto quanto me.')">Luigi è alto <strong>quanto</strong> me.</span></td></tr>
+      <tr><td></td><td></td><td><span class="it" onclick="speak('Questa gonna è stretta come l\'altra.')">Questa gonna è stretta <strong>come</strong> l'altra.</span></td></tr>
+    </table>
+    <p style="font-size:12px;color:var(--ne-muted);margin:6px 0;"><strong>come</strong> 在口语中更为常用。</p>
+  </div>
+
+  <!-- 7. Qualcuno / Nessuno -->
+  <h3>7. qualcuno / nessuno</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>代词</th><th>用法</th><th>例句</th></tr>
+      <tr><td><span class="verb">qualcuno</span></td><td>某人（肯定句/疑问句）</td><td><span class="it" onclick="speak('Hai visto qualcuno?')">Hai visto qualcuno?</span> 你看见什么人了吗？</td></tr>
+      <tr><td><span class="verb">nessuno</span></td><td>没有人（否定句，与non连用）</td><td>No, <span class="it" onclick="speak('non ho visto nessuno.')">non ho visto nessuno.</span> 不，我谁也没看见。</td></tr>
+    </table>
+  </div>
+
+  <!-- 8. né... né -->
+  <h3>8. né... né（既不...也不）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">结构：né + 名词/形容词 + né + 名词/形容词</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Non è né alta né bassa.')">Non è <strong>né</strong> alta <strong>né</strong> bassa.</span></td><td>她不高也不矮。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non mi piace né il rosso né il blu.')">Non mi piace <strong>né</strong> il rosso <strong>né</strong> il blu.</span></td><td>红色和蓝色我都不喜欢。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è né simpatico né antipatico.')">Non è <strong>né</strong> simpatico <strong>né</strong> antipatico.</span></td><td>他不算友善也不讨厌。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non ho né fame né sete.')">Non ho <strong>né</strong> fame <strong>né</strong> sete.</span></td><td>我不饿也不渴。</td></tr>
+    </table>
+  </div>
+
+  <!-- 9. Cominciare/finire passato prossimo -->
+  <h3>9. 动词 cominciare 和 finire 的 passato prossimo</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>动词</th><th>及物(用avere)</th><th>不及物(用essere)</th></tr>
+      <tr><td><span class="verb">cominciare</span></td><td><span class="it" onclick="speak('Ho cominciato un corso di salsa.')">Ho cominciato un corso di salsa.</span></td><td><span class="it" onclick="speak('Il concerto è cominciato.')">Il concerto è cominciato.</span></td></tr>
+      <tr><td><span class="verb">finire</span></td><td><span class="it" onclick="speak('Luis ha finito l\'università.')">Luis ha finito l'università.</span></td><td><span class="it" onclick="speak('Il film è finito tardi.')">Il film è finito tardi.</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 3 · p.52</h2>
+
+  <h3>&#x1F3DB;&#xFE0F; Italiani famosi（意大利名人）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <table>
+      <tr><th>Personaggio</th><th>Professione</th><th>Descrizione</th></tr>
+      <tr><td class="it" onclick="speak('Paolo Sorrentino')"><strong>Paolo Sorrentino</strong></td><td>regista</td><td class="it" onclick="speak('Ha vinto l\'Oscar per il miglior film straniero nel 2014 con "La grande bellezza".')">Oscar 2014 con "La grande bellezza"</td></tr>
+      <tr><td class="it" onclick="speak('Andrea Camilleri')"><strong>Andrea Camilleri</strong></td><td>scrittore</td><td class="it" onclick="speak('Famoso per i romanzi del Commissario Montalbano.')">Commissario Montalbano</td></tr>
+      <tr><td class="it" onclick="speak('Roberto Benigni')"><strong>Roberto Benigni</strong></td><td>attore/regista</td><td class="it" onclick="speak('Ha vinto l\'Oscar come miglior attore nel 1999 con "La vita è bella".')">Oscar 1999 "La vita è bella"</td></tr>
+      <tr><td class="it" onclick="speak('Laura Pausini')"><strong>Laura Pausini</strong></td><td>cantante</td><td class="it" onclick="speak('Prima cantante italiana a vincere un Grammy Award nel 2006.')">Grammy Award 2006</td></tr>
+      <tr><td class="it" onclick="speak('Umberto Eco')"><strong>Umberto Eco</strong></td><td>scrittore</td><td class="it" onclick="speak('Famoso in tutto il mondo per "Il nome della rosa".')">"Il nome della rosa"</td></tr>
+      <tr><td class="it" onclick="speak('Andrea Bocelli')"><strong>Andrea Bocelli</strong></td><td>tenore</td><td class="it" onclick="speak('Uno dei tenori italiani più famosi al mondo.')">Tenore famoso mondiale</td></tr>
+    </table>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p><strong>Paolo Sorrentino</strong> — 导演，凭借《绝美之城》(La grande bellezza)获2014年奥斯卡最佳外语片奖</p>
+    <p><strong>Andrea Camilleri</strong> — 作家，以警探蒙塔巴诺(Commissario Montalbano)为主角的侦探小说闻名</p>
+    <p><strong>Roberto Benigni</strong> — 演员/导演，1999年凭《美丽人生》(La vita è bella)获奥斯卡最佳男主角</p>
+    <p><strong>Laura Pausini</strong> — 歌手，2006年成为首位获格莱美奖的意大利女歌手</p>
+    <p><strong>Umberto Eco</strong> — 作家，以《玫瑰之名》(Il nome della rosa)闻名于世</p>
+    <p><strong>Andrea Bocelli</strong> — 世界最著名的意大利男高音之一</p>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化对比:</strong><br>
+    Quali personaggi famosi italiani conosci? — 你认识哪些意大利名人？<br>
+    Nel tuo Paese quali sono le persone più famose? — 在你的国家，谁最有名？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 3 — Una serata tra amici · p.50-51</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">饭后，Valentina给所有人读星座运势，大家开玩笑。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">星座分配:</p>
+  <table class="vocab-table">
+    <tr><th>Personaggio</th><th>Segno zodiacale</th></tr>
+    <tr><td>Valentina</td><td class="it" onclick="speak('Scorpione')">Scorpione（天蝎座）</td></tr>
+    <tr><td>Laura</td><td class="it" onclick="speak('Scorpione')">Scorpione（天蝎座）</td></tr>
+    <tr><td>Matteo</td><td class="it" onclick="speak('Ariete')">Ariete（白羊座）</td></tr>
+    <tr><td>Federico</td><td class="it" onclick="speak('Cancro')">Cancro（巨蟹座）</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">星座性格描述:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ariete: vanitoso, permaloso, aperto al dialogo.')"><strong>Ariete</strong>: vanitoso, permaloso, aperto al dialogo.</span></td><td class="zh">白羊座：虚荣、易生气、开放对话</td></tr>
+    <tr><td><span class="it" onclick="speak('Scorpione: passionale, geloso, possessivo.')"><strong>Scorpione</strong>: passionale, geloso, possessivo.</span></td><td class="zh">天蝎座：热情的、嫉妒的、占有欲强的</td></tr>
+    <tr><td><span class="it" onclick="speak('Cancro: gentile, buono, legato alla famiglia.')"><strong>Cancro</strong>: gentile, buono, legato alla famiglia.</span></td><td class="zh">巨蟹座：亲切的、善良的、重视家庭的</td></tr>
+    <tr><td><span class="it" onclick="speak('Acquario: generoso, vive di idee.')"><strong>Acquario</strong>: generoso, vive di idee.</span></td><td class="zh">水瓶座：慷慨的、活在想法中</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">关键表达:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Niente scuse!')">Niente scuse!</span></td><td class="zh">不要找借口！</td></tr>
+    <tr><td><span class="it" onclick="speak('E quando mai tu pensi a me?')">E quando mai tu pensi a me?</span></td><td class="zh">你什么时候想过我？（=你从不想我）</td></tr>
+    <tr><td><span class="it" onclick="speak('Dovresti cominciare a pensare più a te stesso.')">Dovresti cominciare a pensare più a te stesso.</span></td><td class="zh">你应该开始多为自己想想。</td></tr>
+    <tr><td><span class="it" onclick="speak('Potreste anche abbassare le vostre difese.')">Potreste anche abbassare le vostre difese.</span></td><td class="zh">你们也可以降低防备。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non ce la fate a stare lontano da loro.')">Non ce la fate a stare lontano da loro.</span></td><td class="zh">你们无法离开他们。</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 用condizionale礼貌地提出建议<br>
+    &bull; 描述朋友的外貌和性格<br>
+    &bull; 练习使用assomigliare a、quanto/come等比较表达
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-2.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">&larr; Torna al corso</a>
+  <a href="unita-4.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 2</div>
+  <p>Corso di lingua italiana per stranieri · Livello A2</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&#x1F4DA; Grammatica Riassuntiva · NUOVO Espresso 5</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+    .grammar-toc { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0 24px; }
+    .grammar-toc a { display: inline-block; padding: 6px 14px; background: var(--ne-light-blue); color: var(--ne-blue); border-radius: 20px; text-decoration: none; font-size: 12px; font-weight: 600; transition: all 0.2s; }
+    .grammar-toc a:hover { background: var(--ne-blue); color: #fff; transform: translateY(-1px); }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 5 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> &#x1F4DA; Grammatica Riassuntiva · C1</div>
+  <h1>&#x1F4DA; Grammatica Riassuntiva</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">C1级别系统语法参考 · 25个语法主题</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">动词变位 · 虚拟式 · 条件式 · 假设句 · 分裂句 · 代词动词 · 全部C1语法点</p>
+</section>
+
+<section class="page-section" id="indice">
+  <h2>&#x1F4CB; Indice delle sezioni</h2>
+  <div class="grammar-toc">
+    <a href="#indicativo">1. Indicativo</a>
+    <a href="#congiuntivo">2. Congiuntivo</a>
+    <a href="#condizionale">3. Condizionale</a>
+    <a href="#imperativo">4. Imperativo</a>
+    <a href="#gerundio">5. Gerundio</a>
+    <a href="#participio">6. Participio</a>
+    <a href="#pronominali">7. Verbi Pronominali</a>
+    <a href="#periodo-ipotetico">8. Periodo Ipotetico</a>
+    <a href="#frase-scissa">9. Frase Scissa</a>
+    <a href="#concordanza-congiuntivo">10. Concordanza Cong.</a>
+    <a href="#che-polivalente">11. Che Polivalente</a>
+    <a href="#connettivi">12. Connettivi Ipotetici</a>
+    <a href="#relativi-doppi">13. Pronomi Rel. Doppi</a>
+    <a href="#difettivi">14. Verbi Difettivi</a>
+    <a href="#segnali">15. Segnali Discorsivi</a>
+    <a href="#preposizioni">16. Preposizioni</a>
+    <a href="#passiva">17. Forma Passiva</a>
+    <a href="#impersonale">18. Forma Impersonale</a>
+    <a href="#aggettivo">19. Gradi dell'Aggettivo</a>
+    <a href="#combinati">20. Pronomi Combinati</a>
+    <a href="#avverbi">21. Avverbi</a>
+    <a href="#congiunzioni">22. Congiunzioni</a>
+    <a href="#formazione">23. Formazione Parole</a>
+    <a href="#irregolari">24. Verbi Irregolari</a>
+    <a href="#concordanza-completa">25. Concordanza Tempi</a>
+    <a href="#quick-ref">Quick Reference</a>
+    <a href="#verbi-tabelle">Tabelle dei Verbi</a>
+  </div>
+</section>
+
+<!-- 1. I TEMPI DELL'INDICATIVO -->
+<section class="page-section" id="indicativo">
+  <h2>1. I TEMPI DELL'INDICATIVO — 直陈式时态总览</h2>
+
+  <h3>1.1 Presente</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th><th>-IRE (dormire)</th></tr>
+      <tr><td>io</td><td class="it" onclick="speak('parlo')">parlo</td><td class="it" onclick="speak('leggo')">leggo</td><td class="it" onclick="speak('finisco')">finisco</td><td class="it" onclick="speak('dormo')">dormo</td></tr>
+      <tr><td>tu</td><td class="it" onclick="speak('parli')">parli</td><td class="it" onclick="speak('leggi')">leggi</td><td class="it" onclick="speak('finisci')">finisci</td><td class="it" onclick="speak('dormi')">dormi</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="it" onclick="speak('parla')">parla</td><td class="it" onclick="speak('legge')">legge</td><td class="it" onclick="speak('finisce')">finisce</td><td class="it" onclick="speak('dorme')">dorme</td></tr>
+      <tr><td>noi</td><td class="it" onclick="speak('parliamo')">parliamo</td><td class="it" onclick="speak('leggiamo')">leggiamo</td><td class="it" onclick="speak('finiamo')">finiamo</td><td class="it" onclick="speak('dormiamo')">dormiamo</td></tr>
+      <tr><td>voi</td><td class="it" onclick="speak('parlate')">parlate</td><td class="it" onclick="speak('leggete')">leggete</td><td class="it" onclick="speak('finite')">finite</td><td class="it" onclick="speak('dormite')">dormite</td></tr>
+      <tr><td>loro</td><td class="it" onclick="speak('parlano')">parlano</td><td class="it" onclick="speak('leggono')">leggono</td><td class="it" onclick="speak('finiscono')">finiscono</td><td class="it" onclick="speak('dormono')">dormono</td></tr>
+    </table>
+  </div>
+
+  <h3>1.2 Passato prossimo</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th></tr>
+      <tr><td>io</td><td class="it" onclick="speak('ho parlato')">ho parlato</td><td class="it" onclick="speak('ho letto')">ho letto</td><td class="it" onclick="speak('ho finito')">ho finito</td></tr>
+      <tr><td>tu</td><td class="it" onclick="speak('hai parlato')">hai parlato</td><td class="it" onclick="speak('hai letto')">hai letto</td><td class="it" onclick="speak('hai finito')">hai finito</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="it" onclick="speak('ha parlato')">ha parlato</td><td class="it" onclick="speak('ha letto')">ha letto</td><td class="it" onclick="speak('ha finito')">ha finito</td></tr>
+      <tr><td>noi</td><td class="it" onclick="speak('abbiamo parlato')">abbiamo parlato</td><td class="it" onclick="speak('abbiamo letto')">abbiamo letto</td><td class="it" onclick="speak('abbiamo finito')">abbiamo finito</td></tr>
+      <tr><td>voi</td><td class="it" onclick="speak('avete parlato')">avete parlato</td><td class="it" onclick="speak('avete letto')">avete letto</td><td class="it" onclick="speak('avete finito')">avete finito</td></tr>
+      <tr><td>loro</td><td class="it" onclick="speak('hanno parlato')">hanno parlato</td><td class="it" onclick="speak('hanno letto')">hanno letto</td><td class="it" onclick="speak('hanno finito')">hanno finito</td></tr>
+    </table>
+    <p style="margin-top:8px;font-size:13px;"><strong>Verbi con essere:</strong> <span class="it" onclick="speak('andare, arrivare, diventare, entrare, nascere, morire, partire, restare, rimanere, salire, scendere, stare, tornare, uscire, venire')">andare, arrivare, diventare, entrare, nascere, morire, partire, restare, rimanere, salire, scendere, stare, tornare, uscire, venire</span> (+ tutti i verbi riflessivi)</p>
+  </div>
+
+  <h3>1.3 Imperfetto</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th><th>ESSERE</th></tr>
+      <tr><td>io</td><td class="it" onclick="speak('parlavo')">parlavo</td><td class="it" onclick="speak('leggevo')">leggevo</td><td class="it" onclick="speak('finivo')">finivo</td><td class="it" onclick="speak('ero')">ero</td></tr>
+      <tr><td>tu</td><td class="it" onclick="speak('parlavi')">parlavi</td><td class="it" onclick="speak('leggevi')">leggevi</td><td class="it" onclick="speak('finivi')">finivi</td><td class="it" onclick="speak('eri')">eri</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="it" onclick="speak('parlava')">parlava</td><td class="it" onclick="speak('leggeva')">leggeva</td><td class="it" onclick="speak('finiva')">finiva</td><td class="it" onclick="speak('era')">era</td></tr>
+      <tr><td>noi</td><td class="it" onclick="speak('parlavamo')">parlavamo</td><td class="it" onclick="speak('leggevamo')">leggevamo</td><td class="it" onclick="speak('finivamo')">finivamo</td><td class="it" onclick="speak('eravamo')">eravamo</td></tr>
+      <tr><td>voi</td><td class="it" onclick="speak('parlavate')">parlavate</td><td class="it" onclick="speak('leggevate')">leggevate</td><td class="it" onclick="speak('finivate')">finivate</td><td class="it" onclick="speak('eravate')">eravate</td></tr>
+      <tr><td>loro</td><td class="it" onclick="speak('parlavano')">parlavano</td><td class="it" onclick="speak('leggevano')">leggevano</td><td class="it" onclick="speak('finivano')">finivano</td><td class="it" onclick="speak('erano')">erano</td></tr>
+    </table>
+  </div>
+
+  <h3>1.4 Passato remoto</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th><th>ESSERE</th></tr>
+      <tr><td>io</td><td class="it" onclick="speak('parlai')">parlai</td><td class="it" onclick="speak('lessi')">lessi</td><td class="it" onclick="speak('finii')">finii</td><td class="it" onclick="speak('fui')">fui</td></tr>
+      <tr><td>tu</td><td class="it" onclick="speak('parlasti')">parlasti</td><td class="it" onclick="speak('leggesti')">leggesti</td><td class="it" onclick="speak('finisti')">finisti</td><td class="it" onclick="speak('fosti')">fosti</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="it" onclick="speak('parlò')">parlò</td><td class="it" onclick="speak('lesse')">lesse</td><td class="it" onclick="speak('finì')">finì</td><td class="it" onclick="speak('fu')">fu</td></tr>
+      <tr><td>noi</td><td class="it" onclick="speak('parlammo')">parlammo</td><td class="it" onclick="speak('leggemmo')">leggemmo</td><td class="it" onclick="speak('finimmo')">finimmo</td><td class="it" onclick="speak('fummo')">fummo</td></tr>
+      <tr><td>voi</td><td class="it" onclick="speak('parlaste')">parlaste</td><td class="it" onclick="speak('leggeste')">leggeste</td><td class="it" onclick="speak('finiste')">finiste</td><td class="it" onclick="speak('foste')">foste</td></tr>
+      <tr><td>loro</td><td class="it" onclick="speak('parlarono')">parlarono</td><td class="it" onclick="speak('lessero')">lessero</td><td class="it" onclick="speak('finirono')">finirono</td><td class="it" onclick="speak('furono')">furono</td></tr>
+    </table>
+  </div>
+
+  <h3>1.5 Trapassato prossimo</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th></tr>
+      <tr><td>io</td><td class="it" onclick="speak('avevo parlato')">avevo parlato</td><td class="it" onclick="speak('avevo letto')">avevo letto</td><td class="it" onclick="speak('avevo finito')">avevo finito</td></tr>
+      <tr><td>tu</td><td class="it" onclick="speak('avevi parlato')">avevi parlato</td><td class="it" onclick="speak('avevi letto')">avevi letto</td><td class="it" onclick="speak('avevi finito')">avevi finito</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="it" onclick="speak('aveva parlato')">aveva parlato</td><td class="it" onclick="speak('aveva letto')">aveva letto</td><td class="it" onclick="speak('aveva finito')">aveva finito</td></tr>
+      <tr><td>noi</td><td class="it" onclick="speak('avevamo parlato')">avevamo parlato</td><td class="it" onclick="speak('avevamo letto')">avevamo letto</td><td class="it" onclick="speak('avevamo finito')">avevamo finito</td></tr>
+      <tr><td>voi</td><td class="it" onclick="speak('avevate parlato')">avevate parlato</td><td class="it" onclick="speak('avevate letto')">avevate letto</td><td class="it" onclick="speak('avevate finito')">avevate finito</td></tr>
+      <tr><td>loro</td><td class="it" onclick="speak('avevano parlato')">avevano parlato</td><td class="it" onclick="speak('avevano letto')">avevano letto</td><td class="it" onclick="speak('avevano finito')">avevano finito</td></tr>
+    </table>
+  </div>
+
+  <h3>1.6 Trapassato remoto</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th></tr>
+      <tr><td>io</td><td class="it" onclick="speak('ebbi parlato')">ebbi parlato</td><td class="it" onclick="speak('ebbi letto')">ebbi letto</td><td class="it" onclick="speak('ebbi finito')">ebbi finito</td></tr>
+      <tr><td>tu</td><td class="it" onclick="speak('avesti parlato')">avesti parlato</td><td class="it" onclick="speak('avesti letto')">avesti letto</td><td class="it" onclick="speak('avesti finito')">avesti finito</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="it" onclick="speak('ebbe parlato')">ebbe parlato</td><td class="it" onclick="speak('ebbe letto')">ebbe letto</td><td class="it" onclick="speak('ebbe finito')">ebbe finito</td></tr>
+      <tr><td>noi</td><td class="it" onclick="speak('avemmo parlato')">avemmo parlato</td><td class="it" onclick="speak('avemmo letto')">avemmo letto</td><td class="it" onclick="speak('avemmo finito')">avemmo finito</td></tr>
+      <tr><td>voi</td><td class="it" onclick="speak('aveste parlato')">aveste parlato</td><td class="it" onclick="speak('aveste letto')">aveste letto</td><td class="it" onclick="speak('aveste finito')">aveste finito</td></tr>
+      <tr><td>loro</td><td class="it" onclick="speak('ebbero parlato')">ebbero parlato</td><td class="it" onclick="speak('ebbero letto')">ebbero letto</td><td class="it" onclick="speak('ebbero finito')">ebbero finito</td></tr>
+    </table>
+  </div>
+
+  <h3>1.7 Futuro semplice</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th></tr>
+      <tr><td>io</td><td class="it" onclick="speak('parlerò')">parlerò</td><td class="it" onclick="speak('leggerò')">leggerò</td><td class="it" onclick="speak('finirò')">finirò</td></tr>
+      <tr><td>tu</td><td class="it" onclick="speak('parlerai')">parlerai</td><td class="it" onclick="speak('leggerai')">leggerai</td><td class="it" onclick="speak('finirai')">finirai</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="it" onclick="speak('parlerà')">parlerà</td><td class="it" onclick="speak('leggerà')">leggerà</td><td class="it" onclick="speak('finirà')">finirà</td></tr>
+      <tr><td>noi</td><td class="it" onclick="speak('parleremo')">parleremo</td><td class="it" onclick="speak('leggeremo')">leggeremo</td><td class="it" onclick="speak('finiremo')">finiremo</td></tr>
+      <tr><td>voi</td><td class="it" onclick="speak('parlerete')">parlerete</td><td class="it" onclick="speak('leggerete')">leggerete</td><td class="it" onclick="speak('finirete')">finirete</td></tr>
+      <tr><td>loro</td><td class="it" onclick="speak('parleranno')">parleranno</td><td class="it" onclick="speak('leggeranno')">leggeranno</td><td class="it" onclick="speak('finiranno')">finiranno</td></tr>
+    </table>
+  </div>
+
+  <h3>1.8 Futuro anteriore</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th></tr>
+      <tr><td>io</td><td class="it" onclick="speak('avrò parlato')">avrò parlato</td><td class="it" onclick="speak('avrò letto')">avrò letto</td><td class="it" onclick="speak('avrò finito')">avrò finito</td></tr>
+      <tr><td>tu</td><td class="it" onclick="speak('avrai parlato')">avrai parlato</td><td class="it" onclick="speak('avrai letto')">avrai letto</td><td class="it" onclick="speak('avrai finito')">avrai finito</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="it" onclick="speak('avrà parlato')">avrà parlato</td><td class="it" onclick="speak('avrà letto')">avrà letto</td><td class="it" onclick="speak('avrà finito')">avrà finito</td></tr>
+      <tr><td>noi</td><td class="it" onclick="speak('avremo parlato')">avremo parlato</td><td class="it" onclick="speak('avremo letto')">avremo letto</td><td class="it" onclick="speak('avremo finito')">avremo finito</td></tr>
+      <tr><td>voi</td><td class="it" onclick="speak('avrete parlato')">avrete parlato</td><td class="it" onclick="speak('avrete letto')">avrete letto</td><td class="it" onclick="speak('avrete finito')">avrete finito</td></tr>
+      <tr><td>loro</td><td class="it" onclick="speak('avranno parlato')">avranno parlato</td><td class="it" onclick="speak('avranno letto')">avranno letto</td><td class="it" onclick="speak('avranno finito')">avranno finito</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 2. IL CONGIUNTIVO -->
+<section class="page-section" id="congiuntivo">
+  <h2>2. IL CONGIUNTIVO — 虚拟式完整变位表</h2>
+
+  <h3>2.1 Congiuntivo presente</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th><th>ESSERE</th><th>AVERE</th></tr>
+      <tr><td>io</td><td class="it" onclick="speak('parli')">parli</td><td class="it" onclick="speak('legga')">legga</td><td class="it" onclick="speak('finisca')">finisca</td><td class="it" onclick="speak('sia')">sia</td><td class="it" onclick="speak('abbia')">abbia</td></tr>
+      <tr><td>tu</td><td class="it" onclick="speak('parli')">parli</td><td class="it" onclick="speak('legga')">legga</td><td class="it" onclick="speak('finisca')">finisca</td><td class="it" onclick="speak('sia')">sia</td><td class="it" onclick="speak('abbia')">abbia</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="it" onclick="speak('parli')">parli</td><td class="it" onclick="speak('legga')">legga</td><td class="it" onclick="speak('finisca')">finisca</td><td class="it" onclick="speak('sia')">sia</td><td class="it" onclick="speak('abbia')">abbia</td></tr>
+      <tr><td>noi</td><td class="it" onclick="speak('parliamo')">parliamo</td><td class="it" onclick="speak('leggiamo')">leggiamo</td><td class="it" onclick="speak('finiamo')">finiamo</td><td class="it" onclick="speak('siamo')">siamo</td><td class="it" onclick="speak('abbiamo')">abbiamo</td></tr>
+      <tr><td>voi</td><td class="it" onclick="speak('parliate')">parliate</td><td class="it" onclick="speak('leggiate')">leggiate</td><td class="it" onclick="speak('finiate')">finiate</td><td class="it" onclick="speak('siate')">siate</td><td class="it" onclick="speak('abbiate')">abbiate</td></tr>
+      <tr><td>loro</td><td class="it" onclick="speak('parlino')">parlino</td><td class="it" onclick="speak('leggano')">leggano</td><td class="it" onclick="speak('finiscano')">finiscano</td><td class="it" onclick="speak('siano')">siano</td><td class="it" onclick="speak('abbiano')">abbiano</td></tr>
+    </table>
+  </div>
+
+  <h3>2.2 Congiuntivo imperfetto</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th><th>ESSERE</th><th>AVERE</th></tr>
+      <tr><td>io</td><td class="it" onclick="speak('parlassi')">parlassi</td><td class="it" onclick="speak('leggessi')">leggessi</td><td class="it" onclick="speak('finissi')">finissi</td><td class="it" onclick="speak('fossi')">fossi</td><td class="it" onclick="speak('avessi')">avessi</td></tr>
+      <tr><td>tu</td><td class="it" onclick="speak('parlassi')">parlassi</td><td class="it" onclick="speak('leggessi')">leggessi</td><td class="it" onclick="speak('finissi')">finissi</td><td class="it" onclick="speak('fossi')">fossi</td><td class="it" onclick="speak('avessi')">avessi</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="it" onclick="speak('parlasse')">parlasse</td><td class="it" onclick="speak('leggesse')">leggesse</td><td class="it" onclick="speak('finisse')">finisse</td><td class="it" onclick="speak('fosse')">fosse</td><td class="it" onclick="speak('avesse')">avesse</td></tr>
+      <tr><td>noi</td><td class="it" onclick="speak('parlassimo')">parlassimo</td><td class="it" onclick="speak('leggessimo')">leggessimo</td><td class="it" onclick="speak('finissimo')">finissimo</td><td class="it" onclick="speak('fossimo')">fossimo</td><td class="it" onclick="speak('avessimo')">avessimo</td></tr>
+      <tr><td>voi</td><td class="it" onclick="speak('parlaste')">parlaste</td><td class="it" onclick="speak('leggeste')">leggeste</td><td class="it" onclick="speak('finiste')">finiste</td><td class="it" onclick="speak('foste')">foste</td><td class="it" onclick="speak('aveste')">aveste</td></tr>
+      <tr><td>loro</td><td class="it" onclick="speak('parlassero')">parlassero</td><td class="it" onclick="speak('leggessero')">leggessero</td><td class="it" onclick="speak('finissero')">finissero</td><td class="it" onclick="speak('fossero')">fossero</td><td class="it" onclick="speak('avessero')">avessero</td></tr>
+    </table>
+  </div>
+
+  <h3>2.3 Congiuntivo passato</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th></tr>
+      <tr><td>io</td><td class="it" onclick="speak('abbia parlato')">abbia parlato</td><td class="it" onclick="speak('abbia letto')">abbia letto</td><td class="it" onclick="speak('abbia finito')">abbia finito</td></tr>
+      <tr><td>tu</td><td class="it" onclick="speak('abbia parlato')">abbia parlato</td><td class="it" onclick="speak('abbia letto')">abbia letto</td><td class="it" onclick="speak('abbia finito')">abbia finito</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="it" onclick="speak('abbia parlato')">abbia parlato</td><td class="it" onclick="speak('abbia letto')">abbia letto</td><td class="it" onclick="speak('abbia finito')">abbia finito</td></tr>
+      <tr><td>noi</td><td class="it" onclick="speak('abbiamo parlato')">abbiamo parlato</td><td class="it" onclick="speak('abbiamo letto')">abbiamo letto</td><td class="it" onclick="speak('abbiamo finito')">abbiamo finito</td></tr>
+      <tr><td>voi</td><td class="it" onclick="speak('abbiate parlato')">abbiate parlato</td><td class="it" onclick="speak('abbiate letto')">abbiate letto</td><td class="it" onclick="speak('abbiate finito')">abbiate finito</td></tr>
+      <tr><td>loro</td><td class="it" onclick="speak('abbiano parlato')">abbiano parlato</td><td class="it" onclick="speak('abbiano letto')">abbiano letto</td><td class="it" onclick="speak('abbiano finito')">abbiano finito</td></tr>
+    </table>
+  </div>
+
+  <h3>2.4 Congiuntivo trapassato</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th></tr>
+      <tr><td>io</td><td class="it" onclick="speak('avessi parlato')">avessi parlato</td><td class="it" onclick="speak('avessi letto')">avessi letto</td><td class="it" onclick="speak('avessi finito')">avessi finito</td></tr>
+      <tr><td>tu</td><td class="it" onclick="speak('avessi parlato')">avessi parlato</td><td class="it" onclick="speak('avessi letto')">avessi letto</td><td class="it" onclick="speak('avessi finito')">avessi finito</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="it" onclick="speak('avesse parlato')">avesse parlato</td><td class="it" onclick="speak('avesse letto')">avesse letto</td><td class="it" onclick="speak('avesse finito')">avesse finito</td></tr>
+      <tr><td>noi</td><td class="it" onclick="speak('avessimo parlato')">avessimo parlato</td><td class="it" onclick="speak('avessimo letto')">avessimo letto</td><td class="it" onclick="speak('avessimo finito')">avessimo finito</td></tr>
+      <tr><td>voi</td><td class="it" onclick="speak('aveste parlato')">aveste parlato</td><td class="it" onclick="speak('aveste letto')">aveste letto</td><td class="it" onclick="speak('aveste finito')">aveste finito</td></tr>
+      <tr><td>loro</td><td class="it" onclick="speak('avessero parlato')">avessero parlato</td><td class="it" onclick="speak('avessero letto')">avessero letto</td><td class="it" onclick="speak('avessero finito')">avessero finito</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 3. IL CONDIZIONALE -->
+<section class="page-section" id="condizionale">
+  <h2>3. IL CONDIZIONALE — 条件式完整变位表</h2>
+
+  <h3>3.1 Condizionale presente</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th><th>ESSERE</th><th>AVERE</th></tr>
+      <tr><td>io</td><td class="it" onclick="speak('parlerei')">parlerei</td><td class="it" onclick="speak('leggerei')">leggerei</td><td class="it" onclick="speak('finirei')">finirei</td><td class="it" onclick="speak('sarei')">sarei</td><td class="it" onclick="speak('avrei')">avrei</td></tr>
+      <tr><td>tu</td><td class="it" onclick="speak('parleresti')">parleresti</td><td class="it" onclick="speak('leggeresti')">leggeresti</td><td class="it" onclick="speak('finiresti')">finiresti</td><td class="it" onclick="speak('saresti')">saresti</td><td class="it" onclick="speak('avresti')">avresti</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="it" onclick="speak('parlerebbe')">parlerebbe</td><td class="it" onclick="speak('leggerebbe')">leggerebbe</td><td class="it" onclick="speak('finirebbe')">finirebbe</td><td class="it" onclick="speak('sarebbe')">sarebbe</td><td class="it" onclick="speak('avrebbe')">avrebbe</td></tr>
+      <tr><td>noi</td><td class="it" onclick="speak('parleremmo')">parleremmo</td><td class="it" onclick="speak('leggeremmo')">leggeremmo</td><td class="it" onclick="speak('finiremmo')">finiremmo</td><td class="it" onclick="speak('saremmo')">saremmo</td><td class="it" onclick="speak('avremmo')">avremmo</td></tr>
+      <tr><td>voi</td><td class="it" onclick="speak('parlereste')">parlereste</td><td class="it" onclick="speak('leggereste')">leggereste</td><td class="it" onclick="speak('finireste')">finireste</td><td class="it" onclick="speak('sareste')">sareste</td><td class="it" onclick="speak('avreste')">avreste</td></tr>
+      <tr><td>loro</td><td class="it" onclick="speak('parlerebbero')">parlerebbero</td><td class="it" onclick="speak('leggerebbero')">leggerebbero</td><td class="it" onclick="speak('finirebbero')">finirebbero</td><td class="it" onclick="speak('sarebbero')">sarebbero</td><td class="it" onclick="speak('avrebbero')">avrebbero</td></tr>
+    </table>
+  </div>
+
+  <h3>3.2 Condizionale passato</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th></tr>
+      <tr><td>io</td><td class="it" onclick="speak('avrei parlato')">avrei parlato</td><td class="it" onclick="speak('avrei letto')">avrei letto</td><td class="it" onclick="speak('avrei finito')">avrei finito</td></tr>
+      <tr><td>tu</td><td class="it" onclick="speak('avresti parlato')">avresti parlato</td><td class="it" onclick="speak('avresti letto')">avresti letto</td><td class="it" onclick="speak('avresti finito')">avresti finito</td></tr>
+      <tr><td>lui/lei/Lei</td><td class="it" onclick="speak('avrebbe parlato')">avrebbe parlato</td><td class="it" onclick="speak('avrebbe letto')">avrebbe letto</td><td class="it" onclick="speak('avrebbe finito')">avrebbe finito</td></tr>
+      <tr><td>noi</td><td class="it" onclick="speak('avremmo parlato')">avremmo parlato</td><td class="it" onclick="speak('avremmo letto')">avremmo letto</td><td class="it" onclick="speak('avremmo finito')">avremmo finito</td></tr>
+      <tr><td>voi</td><td class="it" onclick="speak('avreste parlato')">avreste parlato</td><td class="it" onclick="speak('avreste letto')">avreste letto</td><td class="it" onclick="speak('avreste finito')">avreste finito</td></tr>
+      <tr><td>loro</td><td class="it" onclick="speak('avrebbero parlato')">avrebbero parlato</td><td class="it" onclick="speak('avrebbero letto')">avrebbero letto</td><td class="it" onclick="speak('avrebbero finito')">avrebbero finito</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 4. L'IMPERATIVO -->
+<section class="page-section" id="imperativo">
+  <h2>4. L'IMPERATIVO — 命令式</h2>
+
+  <h3>4.1 Imperativo diretto (tu, noi, voi)</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th></tr>
+      <tr><td>tu (afferm.)</td><td class="it" onclick="speak('Parla!')"><strong>parla!</strong></td><td class="it" onclick="speak('Leggi!')"><strong>leggi!</strong></td><td class="it" onclick="speak('Finisci!')"><strong>finisci!</strong></td></tr>
+      <tr><td>tu (negat.)</td><td class="it" onclick="speak('Non parlare!')"><strong>non parlare!</strong></td><td class="it" onclick="speak('Non leggere!')"><strong>non leggere!</strong></td><td class="it" onclick="speak('Non finire!')"><strong>non finire!</strong></td></tr>
+      <tr><td>noi</td><td class="it" onclick="speak('Parliamo!')"><strong>parliamo!</strong></td><td class="it" onclick="speak('Leggiamo!')"><strong>leggiamo!</strong></td><td class="it" onclick="speak('Finiamo!')"><strong>finiamo!</strong></td></tr>
+      <tr><td>voi</td><td class="it" onclick="speak('Parlate!')"><strong>parlate!</strong></td><td class="it" onclick="speak('Leggete!')"><strong>leggete!</strong></td><td class="it" onclick="speak('Finite!')"><strong>finite!</strong></td></tr>
+    </table>
+  </div>
+
+  <h3>4.2 Imperativo indiretto (lui/lei, loro)</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Persona</th><th>-ARE (parlare)</th><th>-ERE (leggere)</th><th>-IRE (finire)</th></tr>
+      <tr><td>Lei (formale)</td><td class="it" onclick="speak('Parli!')"><strong>parli!</strong></td><td class="it" onclick="speak('Legga!')"><strong>legga!</strong></td><td class="it" onclick="speak('Finisca!')"><strong>finisca!</strong></td></tr>
+      <tr><td>loro</td><td class="it" onclick="speak('Parlino!')"><strong>parlino!</strong></td><td class="it" onclick="speak('Leggano!')"><strong>leggano!</strong></td><td class="it" onclick="speak('Finiscano!')"><strong>finiscano!</strong></td></tr>
+    </table>
+  </div>
+
+  <h3>4.3 Imperativo con pronomi</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Forma</th><th>Esempio</th></tr>
+      <tr><td>Affermativo (tu) + pronome</td><td class="it" onclick="speak('Parlagli! Leggilo! Finiscilo!')"><strong>parlagli!</strong>, <strong>leggilo!</strong>, <strong>finiscilo!</strong></td></tr>
+      <tr><td>Negativo (tu) + pronome</td><td class="it" onclick="speak('Non parlare!')"><strong>non parlare!</strong> &rarr; <strong>non parlargli!</strong> / <strong>non gli parlare!</strong></td></tr>
+      <tr><td>Affermativo (noi) + pronome</td><td class="it" onclick="speak('Parliamogli!')"><strong>parliamogli!</strong>, <strong>leggiamolo!</strong></td></tr>
+      <tr><td>Affermativo (voi) + pronome</td><td class="it" onclick="speak('Parlatele!')"><strong>parlatele!</strong>, <strong>leggetelo!</strong></td></tr>
+      <tr><td>Formale (Lei) + pronome</td><td class="it" onclick="speak('Mi parli! Lo legga!')"><strong>mi parli!</strong>, <strong>lo legga!</strong></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 5. IL GERUNDIO -->
+<section class="page-section" id="gerundio">
+  <h2>5. IL GERUNDIO — 副动词</h2>
+
+  <h3>5.1 Gerundio presente</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>-ARE</th><th>-ERE</th><th>-IRE</th></tr>
+      <tr><td class="it" onclick="speak('parlando')"><strong>parlando</strong></td><td class="it" onclick="speak('leggendo')"><strong>leggendo</strong></td><td class="it" onclick="speak('finendo')"><strong>finendo</strong></td></tr>
+    </table>
+  </div>
+
+  <h3>5.2 Gerundio passato</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Verbo</th><th>Forma</th></tr>
+      <tr><td>parlare</td><td class="it" onclick="speak('avendo parlato')"><strong>avendo parlato</strong></td></tr>
+      <tr><td>leggere</td><td class="it" onclick="speak('avendo letto')"><strong>avendo letto</strong></td></tr>
+      <tr><td>finire</td><td class="it" onclick="speak('avendo finito')"><strong>avendo finito</strong></td></tr>
+      <tr><td>andare (essere)</td><td class="it" onclick="speak('essendo andato')"><strong>essendo andato/a/i/e</strong></td></tr>
+    </table>
+  </div>
+
+  <h3>5.3 Gerundio assoluto</h3>
+  <div class="grammar-box">
+    <p>Il gerundio assoluto ha un soggetto diverso dalla principale.</p>
+    <table>
+      <tr><th>Tempo</th><th>Esempio</th></tr>
+      <tr><td>Presente</td><td class="it" onclick="speak('Essendo tu stanco, ho deciso di rimandare.')"><strong>Essendo tu stanco</strong>, ho deciso di rimandare.</td></tr>
+      <tr><td>Passato</td><td class="it" onclick="speak('Avendo lui finito il lavoro, siamo usciti.')"><strong>Avendo lui finito</strong> il lavoro, siamo usciti.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 6. IL PARTICIPIO -->
+<section class="page-section" id="participio">
+  <h2>6. IL PARTICIPIO — 分词</h2>
+
+  <h3>6.1 Participio presente</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>-ARE</th><th>-ERE</th><th>-IRE</th></tr>
+      <tr><td class="it" onclick="speak('parlante')"><strong>parlante</strong></td><td class="it" onclick="speak('leggete')"><strong>leggete</strong>nte*</td><td class="it" onclick="speak('finente')"><strong>finente</strong></td></tr>
+    </table>
+  </div>
+
+  <h3>6.2 Participio passato (principali irregolari)</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Verbo</th><th>Participio</th><th>Verbo</th><th>Participio</th></tr>
+      <tr><td class="it" onclick="speak('aprire')">aprire</td><td class="it" onclick="speak('aperto')">aperto</td><td class="it" onclick="speak('chiedere')">chiedere</td><td class="it" onclick="speak('chiesto')">chiesto</td></tr>
+      <tr><td class="it" onclick="speak('chiudere')">chiudere</td><td class="it" onclick="speak('chiuso')">chiuso</td><td class="it" onclick="speak('correggere')">correggere</td><td class="it" onclick="speak('corretto')">corretto</td></tr>
+      <tr><td class="it" onclick="speak('correre')">correre</td><td class="it" onclick="speak('corso')">corso</td><td class="it" onclick="speak('decidere')">decidere</td><td class="it" onclick="speak('deciso')">deciso</td></tr>
+      <tr><td class="it" onclick="speak('discutere')">discutere</td><td class="it" onclick="speak('discusso')">discusso</td><td class="it" onclick="speak('distinguere')">distinguere</td><td class="it" onclick="speak('distinto')">distinto</td></tr>
+      <tr><td class="it" onclick="speak('dividere')">dividere</td><td class="it" onclick="speak('diviso')">diviso</td><td class="it" onclick="speak('esprimere')">esprimere</td><td class="it" onclick="speak('espresso')">espresso</td></tr>
+      <tr><td class="it" onclick="speak('fare')">fare</td><td class="it" onclick="speak('fatto')">fatto</td><td class="it" onclick="speak('friggere')">friggere</td><td class="it" onclick="speak('fritto')">fritto</td></tr>
+      <tr><td class="it" onclick="speak('leggere')">leggere</td><td class="it" onclick="speak('letto')">letto</td><td class="it" onclick="speak('mettere')">mettere</td><td class="it" onclick="speak('messo')">messo</td></tr>
+      <tr><td class="it" onclick="speak('morire')">morire</td><td class="it" onclick="speak('morto')">morto</td><td class="it" onclick="speak('nascere')">nascere</td><td class="it" onclick="speak('nato')">nato</td></tr>
+      <tr><td class="it" onclick="speak('offrire')">offrire</td><td class="it" onclick="speak('offerto')">offerto</td><td class="it" onclick="speak('porre')">porre</td><td class="it" onclick="speak('posto')">posto</td></tr>
+      <tr><td class="it" onclick="speak('prendere')">prendere</td><td class="it" onclick="speak('preso')">preso</td><td class="it" onclick="speak('ridere')">ridere</td><td class="it" onclick="speak('riso')">riso</td></tr>
+      <tr><td class="it" onclick="speak('rimanere')">rimanere</td><td class="it" onclick="speak('rimasto')">rimasto</td><td class="it" onclick="speak('rispondere')">rispondere</td><td class="it" onclick="speak('risposto')">risposto</td></tr>
+      <tr><td class="it" onclick="speak('scegliere')">scegliere</td><td class="it" onclick="speak('scelto')">scelto</td><td class="it" onclick="speak('scendere')">scendere</td><td class="it" onclick="speak('sceso')">sceso</td></tr>
+      <tr><td class="it" onclick="speak('scrivere')">scrivere</td><td class="it" onclick="speak('scritto')">scritto</td><td class="it" onclick="speak('spegnere')">spegnere</td><td class="it" onclick="speak('spento')">spento</td></tr>
+      <tr><td class="it" onclick="speak('spingere')">spingere</td><td class="it" onclick="speak('spinto')">spinto</td><td class="it" onclick="speak('succedere')">succedere</td><td class="it" onclick="speak('successo')">successo</td></tr>
+      <tr><td class="it" onclick="speak('tradurre')">tradurre</td><td class="it" onclick="speak('tradotto')">tradotto</td><td class="it" onclick="speak('vedere')">vedere</td><td class="it" onclick="speak('visto/veduto')">visto/veduto</td></tr>
+      <tr><td class="it" onclick="speak('vincere')">vincere</td><td class="it" onclick="speak('vinto')">vinto</td><td class="it" onclick="speak('vivere')">vivere</td><td class="it" onclick="speak('vissuto')">vissuto</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 7. VERBI PRONOMINALI -->
+<section class="page-section" id="pronominali">
+  <h2>7. VERBI PRONOMINALI — 代词动词</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Verbo</th><th>Presente (io)</th><th>Passato prossimo</th><th>Significato</th></tr>
+      <tr><td class="it" onclick="speak('farcela')"><strong>farcela</strong></td><td class="it" onclick="speak('ce la faccio')">ce la faccio</td><td class="it" onclick="speak('ce l\'ho fatta')">ce l'ho fatta</td><td>做到，成功</td></tr>
+      <tr><td class="it" onclick="speak('andarsene')"><strong>andarsene</strong></td><td class="it" onclick="speak('me ne vado')">me ne vado</td><td class="it" onclick="speak('me ne sono andato')">me ne sono andato/a</td><td>离开</td></tr>
+      <tr><td class="it" onclick="speak('volerci')"><strong>volerci</strong></td><td class="it" onclick="speak('ci vuole')">ci vuole/ci vogliono</td><td class="it" onclick="speak('c\'è voluto')">c'è voluto/a/ci sono voluti/e</td><td>需要（时间/努力）</td></tr>
+      <tr><td class="it" onclick="speak('metterci')"><strong>metterci</strong></td><td class="it" onclick="speak('ci metto')">ci metto</td><td class="it" onclick="speak('ci ho messo')">ci ho messo</td><td>花费（时间）</td></tr>
+      <tr><td class="it" onclick="speak('starsene')"><strong>starsene</strong></td><td class="it" onclick="speak('me ne sto')">me ne sto</td><td class="it" onclick="speak('me ne sono stato')">me ne sono stato/a</td><td>待着不动</td></tr>
+      <tr><td class="it" onclick="speak('sentirsela')"><strong>sentirsela</strong></td><td class="it" onclick="speak('me la sento')">me la sento</td><td class="it" onclick="speak('me la sono sentita')">me la sono sentita</td><td>有勇气/意愿</td></tr>
+      <tr><td class="it" onclick="speak('prendersela')"><strong>prendersela</strong></td><td class="it" onclick="speak('me la prendo')">me la prendo</td><td class="it" onclick="speak('me la sono presa')">me la sono presa</td><td>生气，介意</td></tr>
+      <tr><td class="it" onclick="speak('vedersela')"><strong>vedersela</strong></td><td class="it" onclick="speak('me la vedo')">me la vedo</td><td class="it" onclick="speak('me la sono vista')">me la sono vista</td><td>处理，应对</td></tr>
+      <tr><td class="it" onclick="speak('cavarsela')"><strong>cavarsela</strong></td><td class="it" onclick="speak('me la cavo')">me la cavo</td><td class="it" onclick="speak('me la sono cavata')">me la sono cavata</td><td>勉强应付</td></tr>
+      <tr><td class="it" onclick="speak('fregarsene')"><strong>fregarsene</strong></td><td class="it" onclick="speak('me ne frego')">me ne frego</td><td class="it" onclick="speak('me ne sono fregato')">me ne sono fregato/a</td><td>不在乎</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 8. PERIODO IPOTETICO -->
+<section class="page-section" id="periodo-ipotetico">
+  <h2>8. PERIODO IPOTETICO — 假设句</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Tipo</th><th>Se (ipotesi)</th><th>Principale</th><th>Esempio</th></tr>
+      <tr><td><strong>1&deg; tipo (realt&agrave;)</strong></td><td>Indicativo presente</td><td>Indicativo presente/futuro</td><td class="it" onclick="speak('Se studio, imparo.')">Se studio, imparo.</td></tr>
+      <tr><td><strong>2&deg; tipo (possibilit&agrave;)</strong></td><td>Congiuntivo imperfetto</td><td>Condizionale presente</td><td class="it" onclick="speak('Se studiassi, impareresti.')">Se studiassi, impareresti.</td></tr>
+      <tr><td><strong>3&deg; tipo (irrealt&agrave;)</strong></td><td>Congiuntivo trapassato</td><td>Condizionale passato</td><td class="it" onclick="speak('Se avessi studiato, avrei imparato.')">Se avessi studiato, avrei imparato.</td></tr>
+      <tr><td><strong>Misto</strong></td><td>Cong. trapassato</td><td>Condizionale presente</td><td class="it" onclick="speak('Se avessi studiato, ora saprei.')">Se avessi studiato, ora saprei.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 9. FRASE SCISSA -->
+<section class="page-section" id="frase-scissa">
+  <h2>9. FRASE SCISSA E PSEUDOSCISSA</h2>
+
+  <h3>9.1 Frase scissa esplicita</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Elemento enfatizzato</th><th>Struttura</th></tr>
+      <tr><td>Soggetto</td><td class="it" onclick="speak('È Marco che ha chiamato.')"><strong>&Egrave; Marco che</strong> ha chiamato.</td></tr>
+      <tr><td>Oggetto diretto</td><td class="it" onclick="speak('È te che cerco.')"><strong>&Egrave; te che</strong> cerco.</td></tr>
+      <tr><td>Oggetto indiretto</td><td class="it" onclick="speak('È a te che parlo.')"><strong>&Egrave; a te che</strong> parlo.</td></tr>
+      <tr><td>Luogo</td><td class="it" onclick="speak('È qui che abito.')"><strong>&Egrave; qui che</strong> abito.</td></tr>
+      <tr><td>Tempo</td><td class="it" onclick="speak('È ieri che l\'ho visto.')"><strong>&Egrave; ieri che</strong> l'ho visto.</td></tr>
+      <tr><td>Causa</td><td class="it" onclick="speak('È per questo che sono qui.')"><strong>&Egrave; per questo che</strong> sono qui.</td></tr>
+      <tr><td>Modo</td><td class="it" onclick="speak('È così che si fa.')"><strong>&Egrave; cos&igrave; che</strong> si fa.</td></tr>
+    </table>
+  </div>
+
+  <h3>9.2 Frase scissa implicita</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Elemento</th><th>Struttura</th></tr>
+      <tr><td>Soggetto</td><td class="it" onclick="speak('Sono io a decidere.')"><strong>Sono io a</strong> decidere.</td></tr>
+      <tr><td>Soggetto (neg.)</td><td class="it" onclick="speak('Non sei tu a comandare.')"><strong>Non sei tu a</strong> comandare.</td></tr>
+    </table>
+  </div>
+
+  <h3>9.3 Frase pseudoscissa</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Tipo</th><th>Struttura</th></tr>
+      <tr><td>Cosa</td><td class="it" onclick="speak('Quello che voglio è...')"><strong>Quello che</strong> voglio &egrave;...</td></tr>
+      <tr><td>Chi</td><td class="it" onclick="speak('Chi ha parlato è...')"><strong>Chi</strong> ha parlato &egrave;...</td></tr>
+      <tr><td>Dove</td><td class="it" onclick="speak('Dove andiamo è...')"><strong>Dove</strong> andiamo &egrave;...</td></tr>
+      <tr><td>Quando</td><td class="it" onclick="speak('Quando è successo è...')"><strong>Quando</strong> &egrave; successo &egrave;...</td></tr>
+      <tr><td>Perch&eacute;</td><td class="it" onclick="speak('Perché l\'ho fatto è...')"><strong>Perch&eacute;</strong> l'ho fatto &egrave;...</td></tr>
+      <tr><td>Come</td><td class="it" onclick="speak('Come si fa è...')"><strong>Come</strong> si fa &egrave;...</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 10. CONCORDANZA CONGIUNTIVO -->
+<section class="page-section" id="concordanza-congiuntivo">
+  <h2>10. CONCORDANZA DEI TEMPI AL CONGIUNTIVO</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Principale</th><th>Subordinata (simultanea)</th><th>Subordinata (anteriore)</th><th>Subordinata (posteriore)</th></tr>
+      <tr><td><strong>Presente</strong></td><td>Cong. presente</td><td>Cong. passato</td><td>Futuro / Cond.</td></tr>
+      <tr><td><strong>Passato prossimo</strong></td><td>Cong. imperfetto</td><td>Cong. trapassato</td><td>Cond. presente</td></tr>
+      <tr><td><strong>Imperfetto</strong></td><td>Cong. imperfetto</td><td>Cong. trapassato</td><td>Cond. presente</td></tr>
+      <tr><td><strong>Passato remoto</strong></td><td>Cong. imperfetto</td><td>Cong. trapassato</td><td>Cond. presente</td></tr>
+      <tr><td><strong>Cond. presente</strong></td><td>Cong. imperfetto</td><td>Cong. trapassato</td><td>Cond. passato</td></tr>
+      <tr><td><strong>Cond. passato</strong></td><td>Cong. imperfetto</td><td>Cong. trapassato</td><td>Cond. passato</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 11. CHE POLIVALENTE -->
+<section class="page-section" id="che-polivalente">
+  <h2>11. IL CHE POLIVALENTE</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Uso</th><th>Esempio</th><th>Standard</th></tr>
+      <tr><td><strong>Temporale</strong></td><td class="it" onclick="speak('L\'anno che ci siamo sposati...')">L'anno <strong>che</strong> ci siamo sposati...</td><td>L'anno <strong>in cui</strong>...</td></tr>
+      <tr><td><strong>Causale</strong></td><td class="it" onclick="speak('Che fame ho!')"><strong>Che</strong> fame ho!</td><td>Perch&eacute;...</td></tr>
+      <tr><td><strong>Consecutivo</strong></td><td class="it" onclick="speak('Così stanco che mi addormento.')">Cos&igrave; stanco <strong>che</strong> mi addormento.</td><td>...da addormentarmi</td></tr>
+      <tr><td><strong>Finale</strong></td><td class="it" onclick="speak('Vieni che ti vedo.')">Vieni <strong>che</strong> ti vedo.</td><td>Vieni <strong>perch&eacute;/cosicch&eacute;</strong></td></tr>
+      <tr><td><strong>Relativo generico</strong></td><td class="it" onclick="speak('È una persona che ha sempre fretta.')">&Egrave; una persona <strong>che</strong> ha sempre fretta.</td><td>(corretto anche nello standard)</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 12. CONNETTIVI IPOTETICI -->
+<section class="page-section" id="connettivi">
+  <h2>12. I CONNETTIVI IPOTETICI</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Connettivo</th><th>Esempio</th><th>中文</th></tr>
+      <tr><td><strong>Qualora</strong></td><td class="it" onclick="speak('Qualora tu venissi, sarei felice.')"><strong>Qualora</strong> tu venissi, sarei felice.</td><td>倘若你来</td></tr>
+      <tr><td><strong>Nel caso in cui</strong></td><td class="it" onclick="speak('Nel caso in cui piova, rimandiamo.')"><strong>Nel caso in cui</strong> piova, rimandiamo.</td><td>万一下雨</td></tr>
+      <tr><td><strong>A patto che</strong></td><td class="it" onclick="speak('Vengo a patto che tu paghi.')">Vengo <strong>a patto che</strong> tu paghi.</td><td>条件是你付钱</td></tr>
+      <tr><td><strong>Purch&eacute;</strong></td><td class="it" onclick="speak('Partirò purché tu sia d\'accordo.')">Partir&ograve; <strong>purch&eacute;</strong> tu sia d'accordo.</td><td>只要你同意</td></tr>
+      <tr><td><strong>Condizione che</strong></td><td class="it" onclick="speak('A condizione che studi, passerai.')">A <strong>condizione che</strong> studi, passerai.</td><td>条件是你学习</td></tr>
+      <tr><td><strong>Sempre che</strong></td><td class="it" onclick="speak('Vengo, sempre che lui non si opponga.')">Vengo, <strong>sempre che</strong> lui non si opponga.</td><td>只要他不反对</td></tr>
+      <tr><td><strong>A costo di</strong></td><td class="it" onclick="speak('Lo farò, a costo di perdere tutto.')">Lo far&ograve;, <strong>a costo di</strong> perdere tutto.</td><td>即使失去一切</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 13. PRONOMI RELATIVI DOPPI -->
+<section class="page-section" id="relativi-doppi">
+  <h2>13. PRONOMI RELATIVI DOPPI</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Pronome</th><th>Significato</th><th>Esempio</th></tr>
+      <tr><td><strong>Chi</strong></td><td>colui/colei che / la persona che</td><td class="it" onclick="speak('Chi tace acconsente.')"><strong>Chi</strong> tace acconsente.</td></tr>
+      <tr><td><strong>Quanto</strong></td><td>tutto ci&ograve; che</td><td class="it" onclick="speak('Ho fatto quanto mi hai chiesto.')">Ho fatto <strong>quanto</strong> mi hai chiesto.</td></tr>
+      <tr><td><strong>Chiunque</strong></td><td>qualsiasi persona che</td><td class="it" onclick="speak('Chiunque venga, digli che non ci sono.')"><strong>Chiunque</strong> venga, digli che non ci sono.</td></tr>
+      <tr><td><strong>Quantunque</strong></td><td>per quanto</td><td class="it" onclick="speak('Quantunque tu dica, non ti credo.')"><strong>Quantunque</strong> tu dica, non ti credo.</td></tr>
+      <tr><td><strong>Ovunque / dovunque</strong></td><td>in qualsiasi luogo</td><td class="it" onclick="speak('Dovunque vada, lo seguo.')"><strong>Dovunque</strong> vada, lo seguo.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 14. VERBI DIFETTIVI -->
+<section class="page-section" id="difettivi">
+  <h2>14. VERBI DIFETTIVI (缺损动词)</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Verbo</th><th>Forme esistenti</th><th>Significato</th></tr>
+      <tr><td><strong>Solere</strong></td><td class="it" onclick="speak('soglio, suoli, suole, sogliamo, solete, sogliono')">presente: soglio, suoli, suole, sogliamo, solete, sogliono; imperfetto: solevo...</td><td>惯常</td></tr>
+      <tr><td><strong>Vertere</strong></td><td class="it" onclick="speak('verte, vertono')">3s: verte; 3p: vertono; imperfetto: verteva...</td><td>关于</td></tr>
+      <tr><td><strong>Fervere</strong></td><td class="it" onclick="speak('ferve, fervono')">3s: ferve; 3p: fervono; imperfetto: ferveva...</td><td>沸腾/热烈</td></tr>
+      <tr><td><strong>Prudere</strong></td><td class="it" onclick="speak('prude, prudono')">3s: prude; 3p: prudono; imperfetto: prudeva...</td><td>发痒</td></tr>
+      <tr><td><strong>Competere</strong></td><td>tutte le forme tranne il participio passato</td><td>竞争</td></tr>
+      <tr><td><strong>Arrogere</strong></td><td>tutte le forme tranne il participio passato</td><td>添加</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 15. SEGNALI DISCORSIVI -->
+<section class="page-section" id="segnali">
+  <h2>15. SEGNALI DISCORSIVI (话语标记语)</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Segnale</th><th>Funzione</th><th>中文</th></tr>
+      <tr><td class="it" onclick="speak('Allora')"><strong>Allora</strong></td><td>inizio discorso / conclusione</td><td>那么/于是</td></tr>
+      <tr><td class="it" onclick="speak('Dunque')"><strong>Dunque</strong></td><td>conclusione / ripresa</td><td>因此/那么</td></tr>
+      <tr><td class="it" onclick="speak('Insomma')"><strong>Insomma</strong></td><td>riassunto / esitazione</td><td>总之/嗯</td></tr>
+      <tr><td class="it" onclick="speak('Cioè')"><strong>Cio&egrave;</strong></td><td>spiegazione / correzione</td><td>也就是说/即</td></tr>
+      <tr><td class="it" onclick="speak('Praticamente')"><strong>Praticamente</strong></td><td>riformulazione colloquiale</td><td>实际上/说白了</td></tr>
+      <tr><td class="it" onclick="speak('Diciamo')"><strong>Diciamo</strong></td><td>attenuazione</td><td>可以说/算是</td></tr>
+      <tr><td class="it" onclick="speak('Comunque')"><strong>Comunque</strong></td><td>cambio di argomento / ripresa</td><td>无论如何/不过</td></tr>
+      <tr><td class="it" onclick="speak('Ecco')"><strong>Ecco</strong></td><td>presentazione / conclusione</td><td>好了/这就是</td></tr>
+      <tr><td class="it" onclick="speak('Mah')"><strong>Mah</strong></td><td>dubbio / incertezza</td><td>嗯/唔</td></tr>
+      <tr><td class="it" onclick="speak('Beh')"><strong>Beh</strong></td><td>esitazione / reazione</td><td>嗯/好吧</td></tr>
+      <tr><td class="it" onclick="speak('Caspita')"><strong>Caspita</strong></td><td>sorpresa</td><td>哎呀/天哪</td></tr>
+      <tr><td class="it" onclick="speak('Mannaggia')"><strong>Mannaggia</strong></td><td>disappunto</td><td>糟糕/倒霉</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 16. PREPOSIZIONI -->
+<section class="page-section" id="preposizioni">
+  <h2>16. PREPOSIZIONI: USI AVANZATI (高级介词用法)</h2>
+
+  <h3>16.1 DA</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Uso</th><th>Esempio</th><th>中文</th></tr>
+      <tr><td><strong>Agente</strong></td><td class="it" onclick="speak('È amato da tutti.')">&Egrave; amato <strong>da</strong> tutti.</td><td>被所有人爱</td></tr>
+      <tr><td><strong>Moto da luogo</strong></td><td class="it" onclick="speak('Vengo da Roma.')">Vengo <strong>da</strong> Roma.</td><td>我从罗马来。</td></tr>
+      <tr><td><strong>Tempo</strong> (da...a)</td><td class="it" onclick="speak('Lavoro dalle 9 alle 17.')">Lavoro <strong>dalle</strong> 9 <strong>alle</strong> 17.</td><td>我从9点工作到17点。</td></tr>
+      <tr><td><strong>Tempo</strong> (da + tempo)</td><td class="it" onclick="speak('Ti aspetto da un\'ora.')">Ti aspetto <strong>da</strong> un'ora.</td><td>我等了你一小时。</td></tr>
+      <tr><td><strong>Scopo</strong></td><td class="it" onclick="speak('Macchina da scrivere.')">Macchina <strong>da</strong> scrivere.</td><td>打字机</td></tr>
+      <tr><td><strong>Qualit&agrave;</strong></td><td class="it" onclick="speak('Un uomo da bene.')">Un uomo <strong>da</strong> bene.</td><td>一个好人</td></tr>
+      <tr><td><strong>Prezzo</strong></td><td class="it" onclick="speak('Un francobollo da 1 euro.')">Un francobollo <strong>da</strong> 1 euro.</td><td>一张1欧元的邮票</td></tr>
+      <tr><td><strong>Conseguenza</strong></td><td class="it" onclick="speak('Un freddo da morire.')">Un freddo <strong>da</strong> morire.</td><td>冷得要命</td></tr>
+      <tr><td><strong>Passivo</strong></td><td class="it" onclick="speak('È da fare.')">&Egrave; <strong>da</strong> fare.</td><td>要做</td></tr>
+      <tr><td><strong>Causa</strong></td><td class="it" onclick="speak('Tremare dal freddo.')">Tremare <strong>dal</strong> freddo.</td><td>冷得发抖</td></tr>
+    </table>
+  </div>
+
+  <h3>16.2 PER</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Uso</th><th>Esempio</th><th>中文</th></tr>
+      <tr><td><strong>Moto per luogo</strong></td><td class="it" onclick="speak('Cammino per la città.')">Cammino <strong>per</strong> la citt&agrave;.</td><td>我在城里走。</td></tr>
+      <tr><td><strong>Durata</strong></td><td class="it" onclick="speak('Ho studiato per tre ore.')">Ho studiato <strong>per</strong> tre ore.</td><td>我学习了三个小时。</td></tr>
+      <tr><td><strong>Scopo</strong></td><td class="it" onclick="speak('Lavoro per vivere.')">Lavoro <strong>per</strong> vivere.</td><td>我为生活而工作。</td></tr>
+      <tr><td><strong>Causa</strong></td><td class="it" onclick="speak('Per il freddo non sono uscito.')"><strong>Per</strong> il freddo non sono uscito.</td><td>因为冷我没出门。</td></tr>
+      <tr><td><strong>Prezzo</strong></td><td class="it" onclick="speak('L\'ho comprato per 10 euro.')">L'ho comprato <strong>per</strong> 10 euro.</td><td>我花10欧元买的。</td></tr>
+      <tr><td><strong>Distributivo</strong></td><td class="it" onclick="speak('Per me, hai ragione.')"><strong>Per</strong> me, hai ragione.</td><td>对我来说，你是对的。</td></tr>
+      <tr><td><strong>Medio</strong></td><td class="it" onclick="speak('Mandare per posta.')">Mandare <strong>per</strong> posta.</td><td>邮寄</td></tr>
+    </table>
+  </div>
+
+  <h3>16.3 SU</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Uso</th><th>Esempio</th></tr>
+      <tr><td><strong>Argomento</strong></td><td class="it" onclick="speak('Un libro su Roma.')">Un libro <strong>su</strong> Roma.</td></tr>
+      <tr><td><strong>Approssimazione</strong></td><td class="it" onclick="speak('Su 100 persone, 70 sono d\'accordo.')"><strong>Su</strong> 100 persone, 70 sono d'accordo.</td></tr>
+      <tr><td><strong>Et&agrave; approssimativa</strong></td><td class="it" onclick="speak('Sui 30 anni.')"><strong>Sui</strong> 30 anni.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 17. FORMA PASSIVA -->
+<section class="page-section" id="passiva">
+  <h2>17. FORMA PASSIVA (被动语态)</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Tempo</th><th>Attivo</th><th>Passivo</th></tr>
+      <tr><td><strong>Presente</strong></td><td>Io leggo</td><td class="it" onclick="speak('Il libro è letto')">Il libro <strong>&egrave; letto</strong></td></tr>
+      <tr><td><strong>Passato prossimo</strong></td><td>Io ho letto</td><td class="it" onclick="speak('Il libro è stato letto')">Il libro <strong>&egrave; stato letto</strong></td></tr>
+      <tr><td><strong>Imperfetto</strong></td><td>Io leggevo</td><td class="it" onclick="speak('Il libro era letto')">Il libro <strong>era letto</strong></td></tr>
+      <tr><td><strong>Futuro</strong></td><td>Io legger&ograve;</td><td class="it" onclick="speak('Il libro sarà letto')">Il libro <strong>sar&agrave; letto</strong></td></tr>
+      <tr><td><strong>Condizionale</strong></td><td>Io leggerei</td><td class="it" onclick="speak('Il libro sarebbe letto')">Il libro <strong>sarebbe letto</strong></td></tr>
+      <tr><td><strong>Congiuntivo</strong></td><td>Che io legga</td><td class="it" onclick="speak('Che il libro sia letto')">Che il libro <strong>sia letto</strong></td></tr>
+      <tr><td><strong>Si passivante</strong></td><td>&mdash;</td><td class="it" onclick="speak('Si legge il libro')"><strong>Si</strong> <strong>legge</strong> il libro.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 18. FORMA IMPERSONALE -->
+<section class="page-section" id="impersonale">
+  <h2>18. FORMA IMPERSONALE (无人称形式)</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Struttura</th><th>Esempio</th></tr>
+      <tr><td><strong>Si + 3s</strong></td><td class="it" onclick="speak('Si mangia bene in Italia.')"><strong>Si</strong> <strong>mangia</strong> bene in Italia.</td></tr>
+      <tr><td><strong>Si + 3p</strong> (oggetto plurale)</td><td class="it" onclick="speak('Si vendono libri.')"><strong>Si</strong> <strong>vendono</strong> libri.</td></tr>
+      <tr><td><strong>Si + 3s</strong> (impersonale puro)</td><td class="it" onclick="speak('Quando si è giovani...')"><strong>Quando</strong> <strong>si</strong> <strong>&egrave;</strong> giovani...</td></tr>
+      <tr><td><strong>Si + verbo riflessivo</strong></td><td class="it" onclick="speak('Ci si sveglia presto.')"><strong>Ci</strong> <strong>si</strong> <strong>sveglia</strong> presto.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 19. GRADI DELL'AGGETTIVO -->
+<section class="page-section" id="aggettivo">
+  <h2>19. GRADI DELL'AGGETTIVO (形容词级)</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Grado</th><th>Comparativo</th><th>Superlativo</th></tr>
+      <tr><td><strong>Maggioranza</strong></td><td class="it" onclick="speak('più bello di')"><strong>pi&ugrave;</strong> bello <strong>di</strong></td><td class="it" onclick="speak('il più bello')"><strong>il pi&ugrave; bello</strong> / <strong>bellissimo</strong></td></tr>
+      <tr><td><strong>Minoranza</strong></td><td class="it" onclick="speak('meno bello di')"><strong>meno</strong> bello <strong>di</strong></td><td class="it" onclick="speak('il meno bello')"><strong>il meno bello</strong></td></tr>
+      <tr><td><strong>Uguaglianza</strong></td><td class="it" onclick="speak('tanto bello quanto')">(tanto) bello <strong>quanto</strong> / cos&igrave; bello <strong>come</strong></td><td>&mdash;</td></tr>
+      <tr><td><strong>Superlativo assoluto</strong></td><td>&mdash;</td><td class="it" onclick="speak('molto bello, bellissimo, strabello')"><strong>molto bello</strong>, <strong>bellissimo</strong>, <strong>strabello</strong></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">Comparativi e superlativi irregolari</p>
+    <table>
+      <tr><th>Aggettivo</th><th>Comparativo</th><th>Superlativo relativo</th><th>Superlativo assoluto</th></tr>
+      <tr><td class="it" onclick="speak('buono')">buono</td><td class="it" onclick="speak('migliore')">migliore</td><td class="it" onclick="speak('il migliore')">il migliore</td><td class="it" onclick="speak('ottimo')">ottimo / buonissimo</td></tr>
+      <tr><td class="it" onclick="speak('cattivo')">cattivo</td><td class="it" onclick="speak('peggiore')">peggiore</td><td class="it" onclick="speak('il peggiore')">il peggiore</td><td class="it" onclick="speak('pessimo')">pessimo / cattivissimo</td></tr>
+      <tr><td class="it" onclick="speak('grande')">grande</td><td class="it" onclick="speak('maggiore')">maggiore</td><td class="it" onclick="speak('il maggiore')">il maggiore</td><td class="it" onclick="speak('massimo')">massimo / grandissimo</td></tr>
+      <tr><td class="it" onclick="speak('piccolo')">piccolo</td><td class="it" onclick="speak('minore')">minore</td><td class="it" onclick="speak('il minore')">il minore</td><td class="it" onclick="speak('minimo')">minimo / piccolissimo</td></tr>
+      <tr><td class="it" onclick="speak('alto')">alto</td><td class="it" onclick="speak('superiore')">superiore</td><td class="it" onclick="speak('il superiore')">il superiore</td><td class="it" onclick="speak('supremo')">supremo / altissimo</td></tr>
+      <tr><td class="it" onclick="speak('basso')">basso</td><td class="it" onclick="speak('inferiore')">inferiore</td><td class="it" onclick="speak('l\'inferiore')">l'inferiore</td><td class="it" onclick="speak('infimo')">infimo / bassissimo</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 20. PRONOMI COMBINATI -->
+<section class="page-section" id="combinati">
+  <h2>20. PRONOMI COMBINATI (组合代词)</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th></th><th><strong>Mi</strong></th><th><strong>Ti</strong></th><th><strong>Gli/Le</strong></th><th><strong>Ci</strong></th><th><strong>Vi</strong></th><th><strong>Loro</strong></th></tr>
+      <tr><td><strong>Lo</strong></td><td class="it" onclick="speak('me lo')"><strong>me lo</strong></td><td class="it" onclick="speak('te lo')"><strong>te lo</strong></td><td class="it" onclick="speak('glielo')"><strong>glielo</strong></td><td class="it" onclick="speak('ce lo')"><strong>ce lo</strong></td><td class="it" onclick="speak('ve lo')"><strong>ve lo</strong></td><td><strong>lo...a loro</strong></td></tr>
+      <tr><td><strong>La</strong></td><td class="it" onclick="speak('me la')"><strong>me la</strong></td><td class="it" onclick="speak('te la')"><strong>te la</strong></td><td class="it" onclick="speak('gliela')"><strong>gliela</strong></td><td class="it" onclick="speak('ce la')"><strong>ce la</strong></td><td class="it" onclick="speak('ve la')"><strong>ve la</strong></td><td><strong>la...a loro</strong></td></tr>
+      <tr><td><strong>Li</strong></td><td class="it" onclick="speak('me li')"><strong>me li</strong></td><td class="it" onclick="speak('te li')"><strong>te li</strong></td><td class="it" onclick="speak('glieli')"><strong>glieli</strong></td><td class="it" onclick="speak('ce li')"><strong>ce li</strong></td><td class="it" onclick="speak('ve li')"><strong>ve li</strong></td><td><strong>li...a loro</strong></td></tr>
+      <tr><td><strong>Le</strong></td><td class="it" onclick="speak('me le')"><strong>me le</strong></td><td class="it" onclick="speak('te le')"><strong>te le</strong></td><td class="it" onclick="speak('gliele')"><strong>gliele</strong></td><td class="it" onclick="speak('ce le')"><strong>ce le</strong></td><td class="it" onclick="speak('ve le')"><strong>ve le</strong></td><td><strong>le...a loro</strong></td></tr>
+      <tr><td><strong>Ne</strong></td><td class="it" onclick="speak('me ne')"><strong>me ne</strong></td><td class="it" onclick="speak('te ne')"><strong>te ne</strong></td><td class="it" onclick="speak('gliene')"><strong>gliene</strong></td><td class="it" onclick="speak('ce ne')"><strong>ce ne</strong></td><td class="it" onclick="speak('ve ne')"><strong>ve ne</strong></td><td><strong>ne...a loro</strong></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">Esempi</p>
+    <table>
+      <tr><th>Combinazione</th><th>Esempio</th><th>中文</th></tr>
+      <tr><td class="it" onclick="speak('me lo')"><strong>me lo</strong></td><td class="it" onclick="speak('Me lo dai?')"><strong>Me lo</strong> dai?</td><td>你把它给我？</td></tr>
+      <tr><td class="it" onclick="speak('te la')"><strong>te la</strong></td><td class="it" onclick="speak('Te la racconto.')"><strong>Te la</strong> racconto.</td><td>我把它讲给你听。</td></tr>
+      <tr><td class="it" onclick="speak('glielo')"><strong>glielo</strong></td><td class="it" onclick="speak('Glielo dico.')"><strong>Glielo</strong> dico.</td><td>我告诉他/她/您这件事。</td></tr>
+      <tr><td class="it" onclick="speak('ce li')"><strong>ce li</strong></td><td class="it" onclick="speak('Ce li presti?')"><strong>Ce li</strong> presti?</td><td>你把他们借给我们？</td></tr>
+      <tr><td class="it" onclick="speak('ve ne')"><strong>ve ne</strong></td><td class="it" onclick="speak('Ve ne parlo dopo.')"><strong>Ve ne</strong> parlo dopo.</td><td>我过后跟你们说这件事。</td></tr>
+      <tr><td class="it" onclick="speak('gliene')"><strong>gliene</strong></td><td class="it" onclick="speak('Gliene ho parlato.')"><strong>Gliene</strong> ho parlato.</td><td>我跟他说过这件事了。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 21. AVVERBI -->
+<section class="page-section" id="avverbi">
+  <h2>21. AVVERBI (副词分类总表)</h2>
+
+  <h3>21.1 Avverbi di modo</h3>
+  <div class="grammar-box">
+    <p class="it" onclick="speak('bene, male, volentieri, piano, forte, velocemente, lentamente, facilmente, difficilmente, chiaramente, sicuramente, probabilmente, certamente, assolutamente, esattamente, semplicemente, veramente, francamente, onestamente, allegramente, tristemente')">bene, male, volentieri, piano, forte, velocemente, lentamente, facilmente, difficilmente, chiaramente, sicuramente, probabilmente, certamente, assolutamente, esattamente, semplicemente, veramente, francamente, onestamente, allegramente, tristemente</p>
+  </div>
+
+  <h3>21.2 Avverbi di tempo</h3>
+  <div class="grammar-box">
+    <p class="it" onclick="speak('oggi, ieri, domani, subito, già, ancora, mai, sempre, spesso, raramente, talvolta, a volte, ogni tanto, di solito, prima, dopo, ora, adesso, poi, infine, finalmente, presto, tardi, recentemente, ultimamente, anticamente, ormai, finora, d\'ora in poi')">oggi, ieri, domani, subito, gi&agrave;, ancora, mai, sempre, spesso, raramente, talvolta, a volte, ogni tanto, di solito, prima, dopo, ora, adesso, poi, infine, finalmente, presto, tardi, recentemente, ultimamente, anticamente, ormai, finora, d'ora in poi</p>
+  </div>
+
+  <h3>21.3 Avverbi di luogo</h3>
+  <div class="grammar-box">
+    <p class="it" onclick="speak('qui, qua, lì, là, là, dentro, fuori, sopra, sotto, davanti, dietro, vicino, lontano, su, giù, ovunque, da nessuna parte, altrove, dappertutto')">qui, qua, l&igrave;, l&agrave;, dentro, fuori, sopra, sotto, davanti, dietro, vicino, lontano, su, gi&ugrave;, ovunque, da nessuna parte, altrove, dappertutto</p>
+  </div>
+
+  <h3>21.4 Avverbi di quantit&agrave;</h3>
+  <div class="grammar-box">
+    <p class="it" onclick="speak('molto, poco, tanto, abbastanza, troppo, parecchio, niente, nulla, meno, più, almeno, circa, quasi, affatto, assai, perlomeno')">molto, poco, tanto, abbastanza, troppo, parecchio, niente, nulla, meno, pi&ugrave;, almeno, circa, quasi, affatto, assai, perlomeno</p>
+  </div>
+
+  <h3>21.5 Avverbi di giudizio/affermazione/negazione</h3>
+  <div class="grammar-box">
+    <p class="it" onclick="speak('sì, no, certo, certamente, sicuro, sicuramente, davvero, proprio, nemmeno, neppure, neanche, mica, affatto, forse, magari, chissà, probabilmente, possibile, impossibile')">s&igrave;, no, certo, certamente, sicuro, sicuramente, davvero, proprio, nemmeno, neppure, neanche, mica, affatto, forse, magari, chiss&agrave;, probabilmente, possibile, impossibile</p>
+  </div>
+</section>
+
+<!-- 22. CONGIUNZIONI -->
+<section class="page-section" id="congiunzioni">
+  <h2>22. CONGIUNZIONI (连词分类总表)</h2>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Tipo</th><th>Congiunzioni</th><th>Esempio</th></tr>
+      <tr><td><strong>Coordinanti</strong></td><td>e, ma, o, anche, pure, n&eacute;, per&ograve;, anzi, quindi, dunque, perci&ograve;, infatti, inoltre, oppure, ovvero, ossia</td><td class="it" onclick="speak('E vengo anche io.')"><strong>E</strong> vengo <strong>anche</strong> io.</td></tr>
+      <tr><td><strong>Subordinanti dichiarative</strong></td><td>che, come</td><td class="it" onclick="speak('Penso che sia vero.')">Penso <strong>che</strong> sia vero.</td></tr>
+      <tr><td><strong>Subordinanti temporali</strong></td><td>quando, mentre, appena, prima che, dopo che, finch&eacute;, fino a quando</td><td class="it" onclick="speak('Quando arrivi, chiamami.')"><strong>Quando</strong> arrivi, chiamami.</td></tr>
+      <tr><td><strong>Subordinanti causali</strong></td><td>perch&eacute;, poich&eacute;, siccome, dato che, visto che, dal momento che</td><td class="it" onclick="speak('Siccome piove, resto.')"><strong>Siccome</strong> piove, resto.</td></tr>
+      <tr><td><strong>Subordinanti finali</strong></td><td>affinch&eacute;, perch&eacute;, in modo che</td><td class="it" onclick="speak('Studio affinché io impari.')">Studio <strong>affinch&eacute;</strong> io impari.</td></tr>
+      <tr><td><strong>Subordinanti concessive</strong></td><td>bench&eacute;, sebbene, nonostante, malgrado, quantunque, per quanto</td><td class="it" onclick="speak('Benché piova, esco.')"><strong>Bench&eacute;</strong> piova, esco.</td></tr>
+      <tr><td><strong>Subordinanti condizionali</strong></td><td>se, qualora, purch&eacute;, a patto che, a condizione che, nel caso che</td><td class="it" onclick="speak('Se vieni, mangiamo.')"><strong>Se</strong> vieni, mangiamo.</td></tr>
+      <tr><td><strong>Subordinanti consecutive</strong></td><td>cosicch&eacute;, tanto che, in modo che</td><td class="it" onclick="speak('Piove cosicché resto.')">Piove <strong>cosicch&eacute;</strong> resto.</td></tr>
+      <tr><td><strong>Subordinanti modali</strong></td><td>come, nel modo che, secondo come</td><td class="it" onclick="speak('Fa\' come vuoi.')">Fa' <strong>come</strong> vuoi.</td></tr>
+      <tr><td><strong>Subordinanti avversative</strong></td><td>mentre, quando, laddove</td><td class="it" onclick="speak('Lui studia, mentre lei dorme.')">Lui studia, <strong>mentre</strong> lei dorme.</td></tr>
+      <tr><td><strong>Subordinanti comparative</strong></td><td>come, pi&ugrave; di, meno di, tanto quanto</td><td class="it" onclick="speak('È più alto di me.')">&Egrave; <strong>pi&ugrave;</strong> alto <strong>di</strong> me.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 23. FORMAZIONE DELLE PAROLE -->
+<section class="page-section" id="formazione">
+  <h2>23. FORMAZIONE DELLE PAROLE (构词法)</h2>
+
+  <h3>23.1 Suffissi pi&ugrave; comuni</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Suffisso</th><th>Funzione</th><th>Esempio</th></tr>
+      <tr><td><strong>-zione</strong></td><td>verbo &rarr; sostantivo</td><td class="it" onclick="speak('informazione')">informare &rarr; informa<strong>zione</strong></td></tr>
+      <tr><td><strong>-mento</strong></td><td>verbo &rarr; sostantivo</td><td class="it" onclick="speak('cambiamento')">cambiare &rarr; cambia<strong>mento</strong></td></tr>
+      <tr><td><strong>-anza / -enza</strong></td><td>aggettivo &rarr; sostantivo</td><td class="it" onclick="speak('importanza')">importante &rarr; import<strong>anza</strong></td></tr>
+      <tr><td><strong>-it&agrave;</strong></td><td>aggettivo &rarr; sostantivo</td><td class="it" onclick="speak('possibilità')">possibile &rarr; possibil<strong>it&agrave;</strong></td></tr>
+      <tr><td><strong>-ista</strong></td><td>sostantivo &rarr; persona</td><td class="it" onclick="speak('artista')">arte &rarr; art<strong>ista</strong></td></tr>
+      <tr><td><strong>-tore / -trice</strong></td><td>verbo &rarr; persona</td><td class="it" onclick="speak('lavoratore')">lavorare &rarr; lavora<strong>tore</strong> / lavora<strong>trice</strong></td></tr>
+      <tr><td><strong>-abile / -ibile</strong></td><td>verbo &rarr; aggettivo</td><td class="it" onclick="speak('mangiabile')">mangiare &rarr; mangi<strong>abile</strong></td></tr>
+      <tr><td><strong>-oso</strong></td><td>sostantivo &rarr; aggettivo</td><td class="it" onclick="speak('piovoso')">pioggia &rarr; piov<strong>oso</strong></td></tr>
+      <tr><td><strong>-ale</strong></td><td>sostantivo &rarr; aggettivo</td><td class="it" onclick="speak('culturale')">cultura &rarr; cultur<strong>ale</strong></td></tr>
+      <tr><td><strong>-evole</strong></td><td>verbo &rarr; aggettivo</td><td class="it" onclick="speak('piacevole')">piacere &rarr; piacev<strong>ole</strong></td></tr>
+    </table>
+  </div>
+
+  <h3>23.2 Prefissi negativi</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Prefisso</th><th>Esempio</th></tr>
+      <tr><td><strong>in- / im- / ir- / il-</strong></td><td class="it" onclick="speak('impossibile, imperfetto, irregolare, illegale')">inpossibile, <strong>im</strong>perfetto, <strong>ir</strong>regolare, <strong>il</strong>legale</td></tr>
+      <tr><td><strong>dis-</strong></td><td class="it" onclick="speak('disonesto, dispiacere, disordine')"><strong>dis</strong>onesto, <strong>dis</strong>piacere, <strong>dis</strong>ordine</td></tr>
+      <tr><td><strong>a- / an-</strong></td><td class="it" onclick="speak('anormale, anarchia, analfabeta')"><strong>a</strong>normale, <strong>a</strong>narchia, <strong>an</strong>alfabeta</td></tr>
+      <tr><td><strong>s-</strong> (consonante)</td><td class="it" onclick="speak('scomodo, scontento, sfortunato')"><strong>s</strong>comodo, <strong>s</strong>contento, <strong>s</strong>fortunato</td></tr>
+    </table>
+  </div>
+
+  <h3>23.3 Alterati (变形词)</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Alterazione</th><th>Suffisso</th><th>Esempio</th></tr>
+      <tr><td><strong>Accrescitivo</strong></td><td>-one, -ona</td><td class="it" onclick="speak('librone, donnona')">libro &rarr; libr<strong>one</strong>, donna &rarr; donn<strong>ona</strong></td></tr>
+      <tr><td><strong>Diminutivo</strong></td><td>-ino, -ina, -etto, -etta, -ello, -ella</td><td class="it" onclick="speak('gattino, casetta')">gatto &rarr; gatt<strong>ino</strong>, casa &rarr; cas<strong>etta</strong></td></tr>
+      <tr><td><strong>Vezzeggiativo</strong></td><td>-uccio, -uccia, -otto</td><td class="it" onclick="speak('cavalluccio')">cavallo &rarr; cavall<strong>uccio</strong></td></tr>
+      <tr><td><strong>Peggiorativo</strong></td><td>-accio, -accia, -astro</td><td class="it" onclick="speak('tempaccio, parolaccia')">tempo &rarr; temp<strong>accio</strong>, parola &rarr; parol<strong>accia</strong></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 24. VERBI IRREGOLARI -->
+<section class="page-section" id="irregolari">
+  <h2>24. VERBI IRREGOLARI PRINCIPALI (主要不规则动词)</h2>
+
+  <h3>24.1 Presente indicativo</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Verbo</th><th>io</th><th>tu</th><th>lui/lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td class="it" onclick="speak('andare')"><strong>andare</strong></td><td class="it" onclick="speak('vado')">vado</td><td class="it" onclick="speak('vai')">vai</td><td class="it" onclick="speak('va')">va</td><td class="it" onclick="speak('andiamo')">andiamo</td><td class="it" onclick="speak('andate')">andate</td><td class="it" onclick="speak('vanno')">vanno</td></tr>
+      <tr><td class="it" onclick="speak('dare')"><strong>dare</strong></td><td class="it" onclick="speak('do')">do</td><td class="it" onclick="speak('dai')">dai</td><td class="it" onclick="speak('dà')">d&agrave;</td><td>diamo</td><td>date</td><td>danno</td></tr>
+      <tr><td class="it" onclick="speak('stare')"><strong>stare</strong></td><td class="it" onclick="speak('sto')">sto</td><td class="it" onclick="speak('stai')">stai</td><td class="it" onclick="speak('sta')">sta</td><td>stiamo</td><td>state</td><td>stanno</td></tr>
+      <tr><td class="it" onclick="speak('fare')"><strong>fare</strong></td><td class="it" onclick="speak('faccio')">faccio</td><td class="it" onclick="speak('fai')">fai</td><td class="it" onclick="speak('fa')">fa</td><td>facciamo</td><td>fate</td><td>fanno</td></tr>
+      <tr><td class="it" onclick="speak('dire')"><strong>dire</strong></td><td class="it" onclick="speak('dico')">dico</td><td class="it" onclick="speak('dici')">dici</td><td class="it" onclick="speak('dice')">dice</td><td>diciamo</td><td>dite</td><td>dicono</td></tr>
+      <tr><td class="it" onclick="speak('bere')"><strong>bere</strong></td><td class="it" onclick="speak('bevo')">bevo</td><td class="it" onclick="speak('bevi')">bevi</td><td class="it" onclick="speak('beve')">beve</td><td>beviamo</td><td>bevete</td><td>bevono</td></tr>
+      <tr><td class="it" onclick="speak('venire')"><strong>venire</strong></td><td class="it" onclick="speak('vengo')">vengo</td><td class="it" onclick="speak('vieni')">vieni</td><td class="it" onclick="speak('viene')">viene</td><td>veniamo</td><td>venite</td><td>vengono</td></tr>
+      <tr><td class="it" onclick="speak('tenere')"><strong>tenere</strong></td><td class="it" onclick="speak('tengo')">tengo</td><td class="it" onclick="speak('tieni')">tieni</td><td class="it" onclick="speak('tiene')">tiene</td><td>teniamo</td><td>tenete</td><td>tengono</td></tr>
+      <tr><td class="it" onclick="speak('rimanere')"><strong>rimanere</strong></td><td class="it" onclick="speak('rimango')">rimango</td><td class="it" onclick="speak('rimani')">rimani</td><td class="it" onclick="speak('rimane')">rimane</td><td>rimaniamo</td><td>rimanete</td><td>rimangono</td></tr>
+      <tr><td class="it" onclick="speak('volere')"><strong>volere</strong></td><td class="it" onclick="speak('voglio')">voglio</td><td class="it" onclick="speak('vuoi')">vuoi</td><td class="it" onclick="speak('vuole')">vuole</td><td>vogliamo</td><td>volete</td><td>vogliono</td></tr>
+      <tr><td class="it" onclick="speak('dovere')"><strong>dovere</strong></td><td class="it" onclick="speak('devo')">devo</td><td class="it" onclick="speak('devi')">devi</td><td class="it" onclick="speak('deve')">deve</td><td>dobbiamo</td><td>dovete</td><td>devono</td></tr>
+      <tr><td class="it" onclick="speak('potere')"><strong>potere</strong></td><td class="it" onclick="speak('posso')">posso</td><td class="it" onclick="speak('puoi')">puoi</td><td class="it" onclick="speak('può')">pu&ograve;</td><td>possiamo</td><td>potete</td><td>possono</td></tr>
+      <tr><td class="it" onclick="speak('sapere')"><strong>sapere</strong></td><td class="it" onclick="speak('so')">so</td><td class="it" onclick="speak('sai')">sai</td><td class="it" onclick="speak('sa')">sa</td><td>sappiamo</td><td>sapete</td><td>sanno</td></tr>
+      <tr><td class="it" onclick="speak('vedere')"><strong>vedere</strong></td><td class="it" onclick="speak('vedo')">vedo</td><td class="it" onclick="speak('vedi')">vedi</td><td class="it" onclick="speak('vede')">vede</td><td>vediamo</td><td>vedete</td><td>vedono</td></tr>
+      <tr><td class="it" onclick="speak('uscire')"><strong>uscire</strong></td><td class="it" onclick="speak('esco')">esco</td><td class="it" onclick="speak('esci')">esci</td><td class="it" onclick="speak('esce')">esce</td><td>usciamo</td><td>uscite</td><td>escono</td></tr>
+      <tr><td class="it" onclick="speak('salire')"><strong>salire</strong></td><td class="it" onclick="speak('salgo')">salgo</td><td class="it" onclick="speak('sali')">sali</td><td class="it" onclick="speak('sale')">sale</td><td>saliamo</td><td>salite</td><td>salgono</td></tr>
+      <tr><td class="it" onclick="speak('spegnere')"><strong>spegnere</strong></td><td class="it" onclick="speak('spengo')">spengo</td><td class="it" onclick="speak('spegni')">spegni</td><td class="it" onclick="speak('spegne')">spegne</td><td>spegniamo</td><td>spegnete</td><td>spengono</td></tr>
+      <tr><td class="it" onclick="speak('scegliere')"><strong>scegliere</strong></td><td class="it" onclick="speak('scelgo')">scelgo</td><td class="it" onclick="speak('scegli')">scegli</td><td class="it" onclick="speak('sceglie')">sceglie</td><td>scegliamo</td><td>scegliete</td><td>scelgono</td></tr>
+    </table>
+  </div>
+
+  <h3>24.2 Passato remoto irregolare</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Verbo</th><th>io</th><th>tu</th><th>lui/lei</th><th>noi</th><th>voi</th><th>loro</th></tr>
+      <tr><td class="it" onclick="speak('essere')"><strong>essere</strong></td><td class="it" onclick="speak('fui')">fui</td><td class="it" onclick="speak('fosti')">fosti</td><td class="it" onclick="speak('fu')">fu</td><td>fummo</td><td>foste</td><td>furono</td></tr>
+      <tr><td class="it" onclick="speak('avere')"><strong>avere</strong></td><td class="it" onclick="speak('ebbi')">ebbi</td><td class="it" onclick="speak('avesti')">avesti</td><td class="it" onclick="speak('ebbe')">ebbe</td><td>avemmo</td><td>aveste</td><td>ebbero</td></tr>
+      <tr><td class="it" onclick="speak('fare')"><strong>fare</strong></td><td class="it" onclick="speak('feci')">feci</td><td class="it" onclick="speak('facesti')">facesti</td><td class="it" onclick="speak('fece')">fece</td><td>facemmo</td><td>faceste</td><td>fecero</td></tr>
+      <tr><td class="it" onclick="speak('dire')"><strong>dire</strong></td><td class="it" onclick="speak('dissi')">dissi</td><td class="it" onclick="speak('dicesti')">dicesti</td><td class="it" onclick="speak('disse')">disse</td><td>dicemmo</td><td>diceste</td><td>dissero</td></tr>
+      <tr><td class="it" onclick="speak('leggere')"><strong>leggere</strong></td><td class="it" onclick="speak('lessi')">lessi</td><td class="it" onclick="speak('leggesti')">leggesti</td><td class="it" onclick="speak('lesse')">lesse</td><td>leggemmo</td><td>leggeste</td><td>lessero</td></tr>
+      <tr><td class="it" onclick="speak('scrivere')"><strong>scrivere</strong></td><td class="it" onclick="speak('scrissi')">scrissi</td><td class="it" onclick="speak('scrivesti')">scrivesti</td><td class="it" onclick="speak('scrisse')">scrisse</td><td>scrivemmo</td><td>scriveste</td><td>scrissero</td></tr>
+      <tr><td class="it" onclick="speak('prendere')"><strong>prendere</strong></td><td class="it" onclick="speak('presi')">presi</td><td class="it" onclick="speak('prendesti')">prendesti</td><td class="it" onclick="speak('prese')">prese</td><td>prendemmo</td><td>prendeste</td><td>presero</td></tr>
+      <tr><td class="it" onclick="speak('vedere')"><strong>vedere</strong></td><td class="it" onclick="speak('vidi')">vidi</td><td class="it" onclick="speak('vedesti')">vedesti</td><td class="it" onclick="speak('vide')">vide</td><td>vedemmo</td><td>vedeste</td><td>videro</td></tr>
+      <tr><td class="it" onclick="speak('venire')"><strong>venire</strong></td><td class="it" onclick="speak('venni')">venni</td><td class="it" onclick="speak('venisti')">venisti</td><td class="it" onclick="speak('venne')">venne</td><td>venimmo</td><td>veniste</td><td>vennero</td></tr>
+      <tr><td class="it" onclick="speak('rimanere')"><strong>rimanere</strong></td><td class="it" onclick="speak('rimasi')">rimasi</td><td class="it" onclick="speak('rimanesti')">rimanesti</td><td class="it" onclick="speak('rimase')">rimase</td><td>rimanemmo</td><td>rimaneste</td><td>rimasero</td></tr>
+      <tr><td class="it" onclick="speak('vivere')"><strong>vivere</strong></td><td class="it" onclick="speak('vissi')">vissi</td><td class="it" onclick="speak('vivesti')">vivesti</td><td class="it" onclick="speak('visse')">visse</td><td>vivemmo</td><td>viveste</td><td>vissero</td></tr>
+      <tr><td class="it" onclick="speak('morire')"><strong>morire</strong></td><td class="it" onclick="speak('morii')">morii</td><td class="it" onclick="speak('moristi')">moristi</td><td class="it" onclick="speak('morì')">mor&igrave;</td><td>morimmo</td><td>moriste</td><td>morirono</td></tr>
+      <tr><td class="it" onclick="speak('nascere')"><strong>nascere</strong></td><td class="it" onclick="speak('nacqui')">nacqui</td><td class="it" onclick="speak('nascesti')">nascesti</td><td class="it" onclick="speak('nacque')">nacque</td><td>nascemmo</td><td>nasceste</td><td>nacquero</td></tr>
+      <tr><td class="it" onclick="speak('mettere')"><strong>mettere</strong></td><td class="it" onclick="speak('misi')">misi</td><td class="it" onclick="speak('mettesti')">mettesti</td><td class="it" onclick="speak('mise')">mise</td><td>mettemmo</td><td>metteste</td><td>misero</td></tr>
+      <tr><td class="it" onclick="speak('chiedere')"><strong>chiedere</strong></td><td class="it" onclick="speak('chiesi')">chiesi</td><td class="it" onclick="speak('chiedesti')">chiedesti</td><td class="it" onclick="speak('chiese')">chiese</td><td>chiedemmo</td><td>chiedeste</td><td>chiesero</td></tr>
+      <tr><td class="it" onclick="speak('rispondere')"><strong>rispondere</strong></td><td class="it" onclick="speak('risposi')">risposi</td><td class="it" onclick="speak('rispondesti')">rispondesti</td><td class="it" onclick="speak('rispose')">rispose</td><td>rispondemmo</td><td>rispondeste</td><td>risposero</td></tr>
+      <tr><td class="it" onclick="speak('aprire')"><strong>aprire</strong></td><td class="it" onclick="speak('aprii')">aprii / apersi</td><td class="it" onclick="speak('apristi')">apristi</td><td class="it" onclick="speak('aprì')">apr&igrave; / aperse</td><td>aprimmo</td><td>apriste</td><td>aprirono / apersero</td></tr>
+      <tr><td class="it" onclick="speak('bere')"><strong>bere</strong></td><td class="it" onclick="speak('bevvi')">bevvi</td><td class="it" onclick="speak('bevesti')">bevesti</td><td class="it" onclick="speak('bevve')">bevve</td><td>bevemmo</td><td>beveste</td><td>bevvero</td></tr>
+      <tr><td class="it" onclick="speak('sapere')"><strong>sapere</strong></td><td class="it" onclick="speak('seppi')">seppi</td><td class="it" onclick="speak('sapesti')">sapesti</td><td class="it" onclick="speak('seppe')">seppe</td><td>sapemmo</td><td>sapeste</td><td>seppero</td></tr>
+      <tr><td class="it" onclick="speak('volere')"><strong>volere</strong></td><td class="it" onclick="speak('volli')">volli</td><td class="it" onclick="speak('volesti')">volesti</td><td class="it" onclick="speak('volle')">volle</td><td>volemmo</td><td>voleste</td><td>vollero</td></tr>
+      <tr><td class="it" onclick="speak('dovere')"><strong>dovere</strong></td><td class="it" onclick="speak('dovetti')">dovetti</td><td class="it" onclick="speak('dovesti')">dovesti</td><td class="it" onclick="speak('dovette')">dovette</td><td>dovemmo</td><td>doveste</td><td>dovettero</td></tr>
+      <tr><td class="it" onclick="speak('potere')"><strong>potere</strong></td><td class="it" onclick="speak('potei')">potei</td><td class="it" onclick="speak('potesti')">potesti</td><td class="it" onclick="speak('poté')">pot&eacute;</td><td>potemmo</td><td>poteste</td><td>poterono</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- 25. CONCORDANZA DEI TEMPI COMPLETA -->
+<section class="page-section" id="concordanza-completa">
+  <h2>25. CONCORDANZA DEI TEMPI COMPLETA (时态配合完整表)</h2>
+
+  <h3>25.1 Indicativo &rarr; Congiuntivo</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Principale (indicativo)</th><th>Contemporaneit&agrave;</th><th>Anteriorit&agrave;</th><th>Posteriorit&agrave;</th></tr>
+      <tr><td><strong>Presente</strong> (Penso...)</td><td>Cong. presente (che sia)</td><td>Cong. passato (che sia stato)</td><td>Futuro/Cond. (che sar&agrave;/sarebbe)</td></tr>
+      <tr><td><strong>Passato prossimo</strong> (Ho pensato...)</td><td>Cong. imperfetto (che fosse)</td><td>Cong. trapassato (che fosse stato)</td><td>Cond. presente (che sarebbe)</td></tr>
+      <tr><td><strong>Imperfetto</strong> (Pensavo...)</td><td>Cong. imperfetto (che fosse)</td><td>Cong. trapassato (che fosse stato)</td><td>Cond. presente (che sarebbe)</td></tr>
+      <tr><td><strong>Passato remoto</strong> (Pensai...)</td><td>Cong. imperfetto (che fosse)</td><td>Cong. trapassato (che fosse stato)</td><td>Cond. presente (che sarebbe)</td></tr>
+      <tr><td><strong>Trapassato prossimo</strong> (Avevo pensato...)</td><td>Cong. imperfetto (che fosse)</td><td>Cong. trapassato (che fosse stato)</td><td>Cond. presente (che sarebbe)</td></tr>
+    </table>
+  </div>
+
+  <h3>25.2 Condizionale &rarr; Congiuntivo</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Principale (condizionale)</th><th>Contemporaneit&agrave;</th><th>Anteriorit&agrave;</th><th>Posteriorit&agrave;</th></tr>
+      <tr><td><strong>Cond. presente</strong> (Vorrei...)</td><td>Cong. imperfetto (che venisse)</td><td>Cong. trapassato (che fosse venuto)</td><td>Cond. presente (che verrebbe)</td></tr>
+      <tr><td><strong>Cond. passato</strong> (Avrei voluto...)</td><td>Cong. imperfetto (che venisse)</td><td>Cong. trapassato (che fosse venuto)</td><td>Cond. passato (che sarebbe venuto)</td></tr>
+    </table>
+  </div>
+
+  <h3>25.3 Periodo ipotetico completo</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Tipo</th><th>Protasi (se)</th><th>Apodosi</th><th>Esempio</th></tr>
+      <tr><td><strong>1&deg; — Realt&agrave;</strong></td><td>Presente</td><td>Presente / Futuro</td><td class="it" onclick="speak('Se studio, imparo.')">Se studio, imparo.</td></tr>
+      <tr><td><strong>1&deg; — Realt&agrave;</strong></td><td>Presente</td><td>Futuro</td><td class="it" onclick="speak('Se studio, imparerò.')">Se studio, imparer&ograve;.</td></tr>
+      <tr><td><strong>1&deg; — Realt&agrave;</strong></td><td>Passato prossimo</td><td>Presente</td><td class="it" onclick="speak('Se ho studiato, so.')">Se ho studiato, so.</td></tr>
+      <tr><td><strong>2&deg; — Possibilit&agrave;</strong></td><td>Cong. imperfetto</td><td>Cond. presente</td><td class="it" onclick="speak('Se studiassi, imparerei.')">Se studiassi, imparerei.</td></tr>
+      <tr><td><strong>2&deg; — Possibilit&agrave;</strong></td><td>Cong. imperfetto</td><td>Imperativo</td><td class="it" onclick="speak('Se venissi, ascolta!')">Se venissi, ascolta!</td></tr>
+      <tr><td><strong>3&deg; — Irrealt&agrave;</strong></td><td>Cong. trapassato</td><td>Cond. passato</td><td class="it" onclick="speak('Se avessi studiato, avrei imparato.')">Se avessi studiato, avrei imparato.</td></tr>
+      <tr><td><strong>3&deg; — Irrealt&agrave;</strong></td><td>Cong. trapassato</td><td>Cond. presente (misto)</td><td class="it" onclick="speak('Se avessi studiato, ora saprei.')">Se avessi studiato, ora saprei.</td></tr>
+      <tr><td><strong>Implicito</strong></td><td>A + infinito</td><td>Condizionale</td><td class="it" onclick="speak('A studiare, impareresti.')">A studiare, impareresti.</td></tr>
+      <tr><td><strong>Implicito</strong></td><td>Gerundio</td><td>Verbo</td><td class="it" onclick="speak('Studiando, si impara.')">Studiando, si impara.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Quick Reference -->
+<section class="page-section" id="quick-ref">
+  <h2>&#x1F4DD; &mdash; 核心表达速查表 (Quick Reference)</h2>
+
+  <h3>Prefissi superlativi</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Prefisso</th><th>Significato</th><th>Esempio</th></tr>
+      <tr><td><strong>arci-</strong></td><td>molto, estremamente</td><td class="it" onclick="speak('arcifamoso, arcinoto, arcicontento')">arcifamoso, arcinoto, arcicontento</td></tr>
+      <tr><td><strong>stra-</strong></td><td>super, molto (colloquiale)</td><td class="it" onclick="speak('strafatto, stracontento, strabello')">strafatto, stracontento, strabello</td></tr>
+      <tr><td><strong>super-</strong></td><td>super</td><td class="it" onclick="speak('superalcolico, superveloce')">superalcolico, superveloce</td></tr>
+      <tr><td><strong>iper-</strong></td><td>eccessivamente</td><td class="it" onclick="speak('iperattivo, ipercritico, iperconnesso')">iperattivo, ipercritico, iperconnesso</td></tr>
+      <tr><td><strong>extra-</strong></td><td>extra, speciale</td><td class="it" onclick="speak('extra-large, extra-lusso')">extra-large, extra-lusso</td></tr>
+    </table>
+  </div>
+
+  <h3>Latinismi comuni</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Latinismo</th><th>中文</th></tr>
+      <tr><td class="it" onclick="speak('de facto, de jure')">de facto / de jure</td><td>事实上 / 法律上</td></tr>
+      <tr><td class="it" onclick="speak('a priori, a posteriori')">a priori / a posteriori</td><td>先验地 / 后验地</td></tr>
+      <tr><td class="it" onclick="speak('curriculum vitae')">curriculum vitae</td><td>简历</td></tr>
+      <tr><td class="it" onclick="speak('statu quo')">statu quo</td><td>现状</td></tr>
+      <tr><td class="it" onclick="speak('viceversa')">viceversa</td><td>反之亦然</td></tr>
+      <tr><td class="it" onclick="speak('ergo')">ergo</td><td>因此</td></tr>
+      <tr><td class="it" onclick="speak('ad hoc')">ad hoc</td><td>专门的</td></tr>
+      <tr><td class="it" onclick="speak('in itinere')">in itinere</td><td>过程中</td></tr>
+      <tr><td class="it" onclick="speak('sine die')">sine die</td><td>无限期地</td></tr>
+    </table>
+  </div>
+
+  <h3>Tipi di frase scissa</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Tipo</th><th>Struttura</th><th>Esempio</th></tr>
+      <tr><td><strong>Esplicita</strong></td><td>&Egrave; + elemento + CHE</td><td class="it" onclick="speak('È Marco che ha vinto.')">&Egrave; Marco che ha vinto.</td></tr>
+      <tr><td><strong>Implicita</strong></td><td>&Egrave; + elemento + A</td><td class="it" onclick="speak('Sei tu a dover decidere.')">Sei tu a dover decidere.</td></tr>
+      <tr><td><strong>Pseudoscissa</strong></td><td>Quello che... + &Egrave;</td><td class="it" onclick="speak('Quello che conta è la qualità.')">Quello che conta &egrave; la qualit&agrave;.</td></tr>
+      <tr><td><strong>Interrogativa</strong></td><td>&Egrave; + vero/per questo + CHE...?</td><td class="it" onclick="speak('È vero che parti?')">&Egrave; vero che parti?</td></tr>
+      <tr><td><strong>Temporale</strong></td><td>Dopo che + trap. remoto... + pass. remoto</td><td class="it" onclick="speak('Dopo che ebbe finito, partì.')">Dopo che ebbe finito, part&igrave;.</td></tr>
+    </table>
+  </div>
+
+  <h3>Congiuntivo indipendente</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Tipo</th><th>Funzione</th><th>Esempio</th></tr>
+      <tr><td><strong>Esortativo</strong></td><td>comando/auspicio</td><td class="it" onclick="speak('Che Dio ti benedica!')">Che Dio ti benedica!</td></tr>
+      <tr><td><strong>Dubitativo</strong></td><td>dubbio/incertezza</td><td class="it" onclick="speak('Che sia vero?')">Che sia vero?</td></tr>
+      <tr><td><strong>Ottativo</strong></td><td>desiderio</td><td class="it" onclick="speak('Magari fosse qui!')">Magari fosse qui!</td></tr>
+    </table>
+  </div>
+
+  <h3>Condizionale passato + Congiuntivo</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Tempo</th><th>Esempio</th></tr>
+      <tr><td>Cong. imperfetto (simultaneit&agrave;)</td><td class="it" onclick="speak('Avrei voluto che tu fossi qui.')"><strong>Avrei voluto che tu fossi qui.</strong></td></tr>
+      <tr><td>Cong. trapassato (anteriorit&agrave;)</td><td class="it" onclick="speak('Avrei voluto che tu fossi arrivato.')"><strong>Avrei voluto che tu fossi arrivato.</strong></td></tr>
+      <tr><td>Cond. passato (posteriorit&agrave;)</td><td class="it" onclick="speak('Pensavo che saresti venuto.')"><strong>Pensavo che saresti venuto.</strong></td></tr>
+    </table>
+  </div>
+
+  <h3>Intensificatori</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Intensificatore</th><th>Uso</th><th>Esempio</th></tr>
+      <tr><td><strong>bello + agg./avv.</strong></td><td>rafforza</td><td class="it" onclick="speak('bello pronto, bello chiaro')">bello pronto, bello chiaro</td></tr>
+      <tr><td><strong>buono + agg.</strong></td><td>rafforza</td><td class="it" onclick="speak('buono grasso')">buono grasso</td></tr>
+      <tr><td><strong>raddoppio</strong></td><td>rafforza</td><td class="it" onclick="speak('buono buono, piano piano')">buono buono, piano piano</td></tr>
+    </table>
+  </div>
+
+  <h3>Verbi pronominali principali (riepilogo)</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>Verbo</th><th>Significato</th></tr>
+      <tr><td class="it" onclick="speak('farcela')">farcela</td><td>成功，做到</td></tr>
+      <tr><td class="it" onclick="speak('andarsene')">andarsene</td><td>离开</td></tr>
+      <tr><td class="it" onclick="speak('volerci')">volerci</td><td>需要（时间/努力）</td></tr>
+      <tr><td class="it" onclick="speak('metterci')">metterci</td><td>花费（时间）</td></tr>
+      <tr><td class="it" onclick="speak('starsene')">starsene</td><td>待着不动</td></tr>
+      <tr><td class="it" onclick="speak('sentirsela')">sentirsela</td><td>有勇气/意愿做</td></tr>
+      <tr><td class="it" onclick="speak('prendersela')">prendersela</td><td>生气，介意</td></tr>
+      <tr><td class="it" onclick="speak('vedersela')">vedersela</td><td>处理，应对</td></tr>
+      <tr><td class="it" onclick="speak('cavarsela')">cavarsela</td><td>勉强应付</td></tr>
+      <tr><td class="it" onclick="speak('fregarsene')">fregarsene</td><td>不在乎</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Tabelle dei Verbi -->
+<section class="page-section" id="verbi-tabelle">
+  <h2>&#x1F4CB; Tabelle dei verbi — 动词变位总表</h2>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:12px;">所有表格已在上述语法章节中完整列出。以下是关键变位表的快速索引。</p>
+
+  <div class="cultura-box">
+    <p><strong>&#x1F4DD; 动词变位参考索引:</strong></p>
+    <ul>
+      <li><a href="#indicativo">&#x2192; 直陈式 8 个时态 (Indicativo)</a></li>
+      <li><a href="#congiuntivo">&#x2192; 虚拟式 4 个时态 (Congiuntivo)</a></li>
+      <li><a href="#condizionale">&#x2192; 条件式 2 个时态 (Condizionale)</a></li>
+      <li><a href="#imperativo">&#x2192; 命令式 (Imperativo diretto/indiretto/con pronomi)</a></li>
+      <li><a href="#gerundio">&#x2192; 副动词 (Gerundio presente/passato/assoluto)</a></li>
+      <li><a href="#participio">&#x2192; 分词 (Participio presente/passato con irregolari)</a></li>
+      <li><a href="#irregolari">&#x2192; 不规则动词变位 (Presente + Passato remoto)</a></li>
+    </ul>
+  </div>
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x2139;&#xFE0F; Nota:</strong> Questa sezione raccoglie tutte le tabelle di coniugazione del livello C1. Le tabelle complete sono distribuite nelle sezioni precedenti di questa pagina.
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="facciamo-punto.html">&larr; Facciamo il punto</a>
+  <a href="eserciziario.html">Eserciziario &rarr;</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 5</div>
+  <p>Corso di lingua italiana per stranieri · Livello C1</p>
+  <p style="margin-top:8px;opacity:0.6;">Giorgio Massei • Rosella Bellagamba · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

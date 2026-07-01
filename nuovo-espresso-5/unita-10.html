@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 10 · L'italiano (mi) cambia · NUOVO Espresso 5</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 5 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 10 · C1</div>
+  <h1>&#x1F5E3;&#xFE0F; L'italiano (mi) cambia</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">意大利语在变化 · p.109-119</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">使用习语性最高级 · 代词动词 · 间接引语中的命令式 · 副词tanto · 语言变化讨论</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: La lingua cambia -->
+  <h3>1. La lingua cambia · p.109-110</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">讨论意大利语的当代变化和英语借词现象。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Senti, l\'italiano sta cambiando velocemente.')"><strong>Anna</strong>: Senti, l'italiano sta cambiando velocemente.</span></td><td class="zh"><strong>安娜</strong>: 你听着，意大利语正在快速变化。</td></tr>
+    <tr><td><span class="it" onclick="speak('Lo so bene. I giovani usano parole nuove ogni giorno.')"><strong>Marco</strong>: Lo so bene. I giovani usano parole nuove ogni giorno.</span></td><td class="zh"><strong>马可</strong>: 我非常清楚。年轻人每天用新词。</td></tr>
+    <tr><td><span class="it" onclick="speak('Pensa, si incontrano tanti anglicismi.')"><strong>Anna</strong>: Pensa, si incontrano tanti anglicismi.</span></td><td class="zh"><strong>安娜</strong>: 你想想，遇到了很多英语借词。</td></tr>
+    <tr><td><span class="it" onclick="speak('Se ne parla tanto ultimamente. Me ne sto accorgendo sempre di più.')"><strong>Marco</strong>: Se ne parla tanto ultimamente. Me ne sto accorgendo sempre di più.</span></td><td class="zh"><strong>马可</strong>: 最近大家都在谈论这个。我越来越多地注意到这一点。</td></tr>
+    <tr><td><span class="it" onclick="speak('Cavarsela con i nuovi termini non è facile.')"><strong>Anna</strong>: Cavarsela con i nuovi termini non è facile.</span></td><td class="zh"><strong>安娜</strong>: 应付这些新词可不容易。</td></tr>
+    <tr><td><span class="it" onclick="speak('Fregatene, tanto la lingua è viva!')"><strong>Marco</strong>: Fregatene, tanto la lingua è viva!</span></td><td class="zh"><strong>马可</strong>: 别在意，语言是活的！</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Imperativo nel discorso indiretto -->
+  <h3>2. Imperativo nel discorso indiretto · p.111-112</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">直接命令式转变为间接引语。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('"Studia!" — Mi ha detto che studiassi. / Mi ha detto di studiare.')"><strong>Diretto:</strong> "Studia!" → <strong>Indiretto:</strong> Mi ha detto che studiassi. / Mi ha detto di studiare.</span></td><td class="zh"><strong>直接:</strong> "学习！" → <strong>间接:</strong> 他让我学习。</td></tr>
+    <tr><td><span class="it" onclick="speak('"Non venire!" — Mi ha detto di non venire.')"><strong>Diretto:</strong> "Non venire!" → <strong>Indiretto:</strong> Mi ha detto di non venire.</span></td><td class="zh"><strong>直接:</strong> "别来！" → <strong>间接:</strong> 他让我别来。</td></tr>
+    <tr><td><span class="it" onclick="speak('"Fallo!" — Mi ha ordinato di farlo.')"><strong>Diretto:</strong> "Fallo!" → <strong>Indiretto:</strong> Mi ha ordinato di farlo.</span></td><td class="zh"><strong>直接:</strong> "做吧！" → <strong>间接:</strong> 他命令我去做。</td></tr>
+    <tr><td><span class="it" onclick="speak('"Sii gentile!" — Mi ha chiesto di essere gentile.')"><strong>Diretto:</strong> "Sii gentile!" → <strong>Indiretto:</strong> Mi ha chiesto di essere gentile.</span></td><td class="zh"><strong>直接:</strong> "要友善！" → <strong>间接:</strong> 他请我要友善。</td></tr>
+    <tr><td><span class="it" onclick="speak('"Non parlare!" — Mi ha detto di non parlare.')"><strong>Diretto:</strong> "Non parlare!" → <strong>Indiretto:</strong> Mi ha detto di non parlare.</span></td><td class="zh"><strong>直接:</strong> "别说话！" → <strong>间接:</strong> 他让我别说话。</td></tr>
+    <tr><td><span class="it" onclick="speak('"Studia di più!" — Mi ha consigliato di studiare di più.')"><strong>Diretto:</strong> "Studia di più!" → <strong>Indiretto:</strong> Mi ha consigliato di studiare di più.</span></td><td class="zh"><strong>直接:</strong> "多用功！" → <strong>间接:</strong> 他建议我多用功。</td></tr>
+    <tr><td><span class="it" onclick="speak('"Abbi pazienza!" — Mi ha chiesto di avere pazienza.')"><strong>Diretto:</strong> "Abbi pazienza!" → <strong>Indiretto:</strong> Mi ha chiesto di avere pazienza.</span></td><td class="zh"><strong>直接:</strong> "耐心点！" → <strong>间接:</strong> 他让我耐心点。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Superlativi idiomatici -->
+  <h3>3. Superlativi idiomatici · p.113-114</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">习语性最高级表达——用生动的短语表达最高程度。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('È bello da morire, quel cantante! Lo seguo ovunque.')"><strong>Bello da morire</strong>: È bello da morire, quel cantante! Lo seguo ovunque.</span></td><td class="zh"><strong>帅得要命</strong>: 那个歌手帅得要命！我到处跟着他。</td></tr>
+    <tr><td><span class="it" onclick="speak('Mio nonno è povero in canna, vive con una piccola pensione.')"><strong>Povero in canna</strong>: Mio nonno è povero in canna, vive con una piccola pensione.</span></td><td class="zh"><strong>一贫如洗</strong>: 我爷爷一贫如洗，靠微薄的养老金生活。</td></tr>
+    <tr><td><span class="it" onclick="speak('Dopo la maratona ero stanco morto.')"><strong>Stanco morto</strong>: Dopo la maratona ero stanco morto.</span></td><td class="zh"><strong>累得要死</strong>: 马拉松之后我累得要死。</td></tr>
+    <tr><td><span class="it" onclick="speak('Il mio vicino è ricco sfondato, ha tre case e due yacht.')"><strong>Ricco sfondato</strong>: Il mio vicino è ricco sfondato, ha tre case e due yacht.</span></td><td class="zh"><strong>富得流油</strong>: 我的邻居富得流油，有三栋房子和两艘游艇。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quel professore è vecchio come il cucco, insegna da cinquant\'anni.')"><strong>Vecchio come il cucco</strong>: Quel professore è vecchio come il cucco, insegna da cinquant'anni.</span></td><td class="zh"><strong>老掉牙</strong>: 那位教授老掉牙了，教了五十年书。</td></tr>
+    <tr><td><span class="it" onclick="speak('Mia nonna è buona come il pane, aiuterebbe chiunque.')"><strong>Buono come il pane</strong>: Mia nonna è buona come il pane, aiuterebbe chiunque.</span></td><td class="zh"><strong>像面包一样善良</strong>: 我奶奶心地善良，她愿意帮助任何人。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ieri alla festa, Marco era ubriaco fradicio.')"><strong>Ubriaco fradicio</strong>: Ieri alla festa, Marco era ubriaco fradicio.</span></td><td class="zh"><strong>烂醉如泥</strong>: 昨天派对上，马可烂醉如泥。</td></tr>
+    <tr><td><span class="it" onclick="speak('Il nuovo centro commerciale è alto come un palo, si vede da lontano.')"><strong>Alto come un palo</strong>: Il nuovo centro commerciale è alto come un palo, si vede da lontano.</span></td><td class="zh"><strong>高得像根杆子</strong>: 新的购物中心高得像根杆子，从远处就能看见。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quel pazzo da legare ha guidato a 200 all\'ora!')"><strong>Pazzo da legare</strong>: Quel pazzo da legare ha guidato a 200 all'ora!</span></td><td class="zh"><strong>疯得该被绑起来</strong>: 那个疯子居然以200公里的时速开车！</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F5E3;&#xFE0F; 语言变化 (Cambiamenti linguistici)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>词性</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il cambiamento linguistico')">il cambiamento linguistico</td><td>nm</td><td>语言变化</td></tr>
+    <tr><td class="it" onclick="speak('l\'anglicismo')">l'anglicismo (m.)</td><td>nm</td><td>英语借词</td></tr>
+    <tr><td class="it" onclick="speak('il neologismo')">il neologismo</td><td>nm</td><td>新词</td></tr>
+    <tr><td class="it" onclick="speak('il prestito linguistico')">il prestito linguistico</td><td>nm</td><td>语言借词</td></tr>
+    <tr><td class="it" onclick="speak('il dialetto')">il dialetto</td><td>nm</td><td>方言</td></tr>
+    <tr><td class="it" onclick="speak('la lingua viva')">la lingua viva</td><td>nf</td><td>活语言</td></tr>
+    <tr><td class="it" onclick="speak('l\'evoluzione')">l'evoluzione (f.)</td><td>nf</td><td>演变</td></tr>
+    <tr><td class="it" onclick="speak('il registro')">il registro</td><td>nm</td><td>语域（正式/非正式）</td></tr>
+    <tr><td class="it" onclick="speak('la forma colloquiale')">la forma colloquiale</td><td>nf</td><td>口语形式</td></tr>
+    <tr><td class="it" onclick="speak('l\'espressione idiomatica')">l'espressione idiomatica (f.)</td><td>nf</td><td>习语表达</td></tr>
+    <tr><td class="it" onclick="speak('il forestierismo')">il forestierismo</td><td>nm</td><td>外来词</td></tr>
+    <tr><td class="it" onclick="speak('il gergo')">il gergo</td><td>nm</td><td>行话，俚语</td></tr>
+    <tr><td class="it" onclick="speak('la parlata giovanile')">la parlata giovanile</td><td>nf</td><td>年轻人用语</td></tr>
+  </table>
+
+  <h3>&#x1F4AD; 习语性最高级 (Superlativi idiomatici)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>字面意思</th><th>实际含义</th></tr>
+    <tr><td class="it" onclick="speak('Bello da morire')">Bello da morire</td><td>美到死</td><td>帅得要命，美极了</td></tr>
+    <tr><td class="it" onclick="speak('Pazzo da legare')">Pazzo da legare</td><td>疯到该被绑</td><td>完全疯了</td></tr>
+    <tr><td class="it" onclick="speak('Povero in canna')">Povero in canna</td><td>穷得像芦苇秆</td><td>一贫如洗</td></tr>
+    <tr><td class="it" onclick="speak('Ricco sfondato')">Ricco sfondato</td><td>富到破底</td><td>富得流油</td></tr>
+    <tr><td class="it" onclick="speak('Ubriaco fradicio')">Ubriaco fradicio</td><td>湿透的醉</td><td>烂醉如泥</td></tr>
+    <tr><td class="it" onclick="speak('Stanco morto')">Stanco morto</td><td>累到死</td><td>累得要死</td></tr>
+    <tr><td class="it" onclick="speak('Buono come il pane')">Buono come il pane</td><td>像面包一样好</td><td>心地善良</td></tr>
+    <tr><td class="it" onclick="speak('Alto come un palo')">Alto come un palo</td><td>像杆子一样高</td><td>高得像根杆子</td></tr>
+    <tr><td class="it" onclick="speak('Vecchio come il cucco')">Vecchio come il cucco</td><td>像杜鹃鸟一样老</td><td>老掉牙了</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Superlativi idiomatici -->
+  <h3>1. 习语性最高级 (Superlativi idiomatici)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">习语性最高级使用固定的比喻性短语来表达极高程度，是C1级别口语地道性的重要标志。</p>
+    <table>
+      <tr><th>意大利语</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('È bello da morire.')">È <span class="verb">bello da morire</span>.</span></td><td>他帅得要命。</td></tr>
+      <tr><td><span class="it" onclick="speak('È pazzo da legare.')">È <span class="verb">pazzo da legare</span>.</span></td><td>他疯得该被绑起来。</td></tr>
+      <tr><td><span class="it" onclick="speak('È povero in canna.')">È <span class="verb">povero in canna</span>.</span></td><td>他一贫如洗。</td></tr>
+      <tr><td><span class="it" onclick="speak('È ricco sfondato.')">È <span class="verb">ricco sfondato</span>.</span></td><td>他富得流油。</td></tr>
+      <tr><td><span class="it" onclick="speak('È ubriaco fradicio.')">È <span class="verb">ubriaco fradicio</span>.</span></td><td>他烂醉如泥。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sono stanco morto.')">Sono <span class="verb">stanco morto</span>.</span></td><td>我累得要死。</td></tr>
+      <tr><td><span class="it" onclick="speak('È buono come il pane.')">È <span class="verb">buono come il pane</span>.</span></td><td>他像面包一样善良。</td></tr>
+      <tr><td><span class="it" onclick="speak('È alto come un palo.')">È <span class="verb">alto come un palo</span>.</span></td><td>他高得像根杆子。</td></tr>
+      <tr><td><span class="it" onclick="speak('È vecchio come il cucco.')">È <span class="verb">vecchio come il cucco</span>.</span></td><td>他老掉牙了。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Verbi pronominali -->
+  <h3>2. 代词动词 (Verbi pronominali)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">代词动词是意大利语中一类特殊的动词，由动词+两个或以上代词粒子构成，具有固定含义。C1级别需要掌握这些常见代词动词。</p>
+    <table>
+      <tr><th>动词</th><th>含义</th><th>例句</th></tr>
+      <tr><td><span class="verb">farcela</span></td><td>做到</td><td><span class="it" onclick="speak('Ce la faccio?')"><span class="verb">Ce la faccio</span>?</span></td></tr>
+      <tr><td><span class="verb">andarsene</span></td><td>离开</td><td><span class="it" onclick="speak('Me ne vado.')"><span class="verb">Me ne vado</span>.</span></td></tr>
+      <tr><td><span class="verb">cavarsela</span></td><td>应付</td><td><span class="it" onclick="speak('Me la cavo.')"><span class="verb">Me la cavo</span>.</span></td></tr>
+      <tr><td><span class="verb">sentirsela</span></td><td>有勇气</td><td><span class="it" onclick="speak('Me la sento.')"><span class="verb">Me la sento</span>.</span></td></tr>
+      <tr><td><span class="verb">prendersela</span></td><td>生气</td><td><span class="it" onclick="speak('Se la prende.')"><span class="verb">Se la prende</span>.</span></td></tr>
+      <tr><td><span class="verb">vedersela</span></td><td>处理</td><td><span class="it" onclick="speak('Se la vede.')"><span class="verb">Se la vede</span>.</span></td></tr>
+      <tr><td><span class="verb">fregarsene</span></td><td>不在乎</td><td><span class="it" onclick="speak('Me ne frego.')"><span class="verb">Me ne frego</span>.</span></td></tr>
+      <tr><td><span class="verb">starsene</span></td><td>待着</td><td><span class="it" onclick="speak('Me ne sto.')"><span class="verb">Me ne sto</span>.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">例句:</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Non ce la faccio più, sono troppo stanco.')">Non <span class="verb">ce la faccio</span> più, sono troppo stanco.</span></td><td>我撑不住了，太累了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Me ne vado, è tardi.')"><span class="verb">Me ne vado</span>, è tardi.</span></td><td>我走了，太晚了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Come te la cavi con l\'italiano?')">Come <span class="verb">te la cavi</span> con l'italiano?</span></td><td>你意大利语应付得怎么样？</td></tr>
+      <tr><td><span class="it" onclick="speak('Non me la sento di uscire stasera.')">Non <span class="verb">me la sento</span> di uscire stasera.</span></td><td>我今晚没心情出去。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non se la prenda, stavo scherzando.')">Non <span class="verb">se la prenda</span>, stavo scherzando.</span></td><td>别生气，我在开玩笑。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se la vede lui con il capo.')"><span class="verb">Se la vede</span> lui con il capo.</span></td><td>他自己去和头儿处理。</td></tr>
+      <tr><td><span class="it" onclick="speak('Fregatene, non è importante.')"><span class="verb">Fregatene</span>, non è importante.</span></td><td>别在意，这不重要。</td></tr>
+      <tr><td><span class="it" onclick="speak('Me ne sto a casa oggi.')"><span class="verb">Me ne sto</span> a casa oggi.</span></td><td>我今天待在家里。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Imperativo nel discorso indiretto -->
+  <h3>3. 间接引语中的命令式 (Imperativo nel discorso indiretto)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">将直接命令式转换为间接引语时，有两种常见结构：di + 不定式 或 che + 虚拟式。</p>
+    <table>
+      <tr><th>直接</th><th>间接</th></tr>
+      <tr><td><span class="verb">"Vieni!"</span></td><td>Mi ha detto <span class="verb">che venissi</span> / <span class="verb">di venire</span></td></tr>
+      <tr><td><span class="verb">"Non parlare!"</span></td><td>Mi ha detto <span class="verb">di non parlare</span></td></tr>
+      <tr><td><span class="verb">"Studia di più!"</span></td><td>Mi ha consigliato <span class="verb">di studiare</span> di più</td></tr>
+      <tr><td><span class="verb">"Abbi pazienza!"</span></td><td>Mi ha chiesto <span class="verb">di avere</span> pazienza</td></tr>
+      <tr><td><span class="verb">"Fallo!"</span></td><td>Mi ha ordinato <span class="verb">di farlo</span></td></tr>
+      <tr><td><span class="verb">"Sii gentile!"</span></td><td>Mi ha chiesto <span class="verb">di essere</span> gentile</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">规则总结:</p>
+    <table>
+      <tr><td>肯定命令 → <span class="verb">di + infinito</span></td><td>"Vieni!" → Mi ha detto di venire.</td></tr>
+      <tr><td>否定命令 → <span class="verb">di non + infinito</span></td><td>"Non venire!" → Mi ha detto di non venire.</td></tr>
+      <tr><td><span class="verb">che + congiuntivo</span></td><td>（较正式）"Vieni!" → Mi ha detto che venissi.</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Tanto -->
+  <h3>4. 副词 <span class="verb">tanto</span></h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">Tanto 是一个多义副词，在不同语境中表达不同含义。</p>
+    <table>
+      <tr><th>用法</th><th>含义</th><th>例句</th><th>中文</th></tr>
+      <tr><td><span class="verb">数量</span></td><td>很多</td><td><span class="it" onclick="speak('Ho tanto tempo.')">Ho <span class="verb">tanto</span> tempo.</span></td><td>我有很多时间。</td></tr>
+      <tr><td><span class="verb">强度</span></td><td>非常</td><td><span class="it" onclick="speak('Mi piace tanto.')">Mi piace <span class="verb">tanto</span>.</span></td><td>我非常喜欢。</td></tr>
+      <tr><td><span class="verb">频率/反正</span></td><td>反正</td><td><span class="it" onclick="speak('Tanto lui non viene.')"><span class="verb">Tanto</span> lui non viene.</span></td><td>反正他不来。</td></tr>
+      <tr><td><span class="verb">关联</span></td><td>和……一样</td><td><span class="it" onclick="speak('Tanto... quanto...')"><span class="verb">Tanto</span>...quanto...</span></td><td>和……一样……</td></tr>
+      <tr><td><span class="verb">让步</span></td><td>反正，无论如何</td><td><span class="it" onclick="speak('Tanto vale provare.')"><span class="verb">Tanto</span> vale provare.</span></td><td>反正试试也无妨。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale · p.115-118</h2>
+
+  <h3>&#x1F5E3;&#xFE0F; L'italiano contemporaneo（当代意大利语）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('La lingua italiana sta vivendo una fase di profondo cambiamento. L\'influenza dell\'inglese è sempre più forte, specialmente nel linguaggio tecnologico, economico e giovanile. Parole come "computer", "smartphone", "marketing" sono ormai di uso comune.')">La lingua italiana sta vivendo una fase di profondo cambiamento. L'influenza dell'inglese è sempre più forte, specialmente nel linguaggio tecnologico, economico e giovanile. Parole come "computer", "smartphone", "marketing" sono ormai di uso comune.</p>
+    <p class="it" onclick="speak('L\'Accademia della Crusca, la più antica istituzione linguistica d\'Italia, osserva e analizza questi fenomeni. Alcuni anglicismi vengono "italianizzati" (come "chattare" da "chat"), altri restano invariati.')">L'Accademia della Crusca, la più antica istituzione linguistica d'Italia, osserva e analizza questi fenomeni. Alcuni anglicismi vengono "italianizzati" (come "chattare" da "chat"), altri restano invariati.</p>
+    <p class="it" onclick="speak('Un altro fenomeno interessante è la riscoperta dei dialetti. Sebbene l\'italiano standard sia parlato da tutti, i dialetti locali stanno vivendo una rinascita, specialmente nella musica e nella letteratura contemporanea.')">Un altro fenomeno interessante è la riscoperta dei dialetti. Sebbene l'italiano standard sia parlato da tutti, i dialetti locali stanno vivendo una rinascita, specialmente nella musica e nella letteratura contemporanea.</p>
+    <p class="it" onclick="speak('La lingua è viva e in continua evoluzione. Come diceva il grande scrittore italiano Italo Calvino: "Ogni lingua è un modo di vedere il mondo."')">La lingua è viva e in continua evoluzione. Come diceva il grande scrittore italiano Italo Calvino: "Ogni lingua è un modo di vedere il mondo."</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p class="zh">意大利语正经历着深刻的变化阶段。英语的影响越来越强，尤其是在科技、经济和年轻人用语中。"computer"、"smartphone"、"marketing"等词已成为日常用语。</p>
+    <p class="zh">意大利最古老的语言机构"L'Accademia della Crusca"（糠秕学院）观察和分析这些现象。一些英语借词被"意大利化"（如"chattare"来自"chat"），另一些则保持原样。</p>
+    <p class="zh">另一个有趣的现象是方言的复兴。虽然所有人都在说标准意大利语，但本地方言正在经历复兴，尤其是在当代音乐和文学中。</p>
+    <p class="zh">语言是活的，并且在不断演变。正如伟大的意大利作家伊塔洛·卡尔维诺所说："每一种语言都是看待世界的一种方式。"</p>
+  </div>
+
+  <h3>相关文化词汇</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('l\'Accademia della Crusca')">l'Accademia della Crusca</td><td>糠秕学院（意大利语权威机构）</td></tr>
+    <tr><td class="it" onclick="speak('l\'italiano standard')">l'italiano standard</td><td>标准意大利语</td></tr>
+    <tr><td class="it" onclick="speak('il dialetto')">il dialetto</td><td>方言</td></tr>
+    <tr><td class="it" onclick="speak('il neologismo')">il neologismo</td><td>新词</td></tr>
+    <tr><td class="it" onclick="speak('l\'anglicismo')">l'anglicismo (m.)</td><td>英语借词</td></tr>
+    <tr><td class="it" onclick="speak('l\'italianizzazione')">l'italianizzazione (f.)</td><td>意大利化</td></tr>
+    <tr><td class="it" onclick="speak('la lingua viva')">la lingua viva</td><td>活的语言</td></tr>
+    <tr><td class="it" onclick="speak('il linguaggio giovanile')">il linguaggio giovanile</td><td>年轻人用语</td></tr>
+    <tr><td class="it" onclick="speak('il gergo')">il gergo</td><td>俚语，行话</td></tr>
+    <tr><td class="it" onclick="speak('il parlato')">il parlato</td><td>口语</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化注释:</strong><br>
+    &bull; 糠秕学院（Accademia della Crusca）成立于1583年，是世界上最古老的语言学院之一<br>
+    &bull; 意大利方言种类繁多，有些方言（如那不勒斯语、西西里语）被认为是独立的语言<br>
+    &bull; 近年来"italiano standard"受到英语、社交媒体和移民语言的多重影响<br>
+    &bull; 许多年轻人混用意大利语、英语和方言，形成"italiese"(italiano+inglese)<br>
+    &bull; Nel tuo Paese, la lingua sta cambiando? Quali sono le maggiori influenze? — 在你的国家，语言在变化吗？主要受什么影响？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 10 — L'italiano (mi) cambia · p.119</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频展示学生们讨论意大利语的变化，使用代词动词、习语性最高级和间接引语中的命令式。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">关键表达 (Espressioni chiave):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Lo so bene.')">Lo so bene.</span></td><td class="zh">我非常清楚。</td></tr>
+    <tr><td><span class="it" onclick="speak('Me ne sto accorgendo.')">Me ne sto accorgendo.</span></td><td class="zh">我越来越多地注意到。</td></tr>
+    <tr><td><span class="it" onclick="speak('Cavarsela / Farcela')">Cavarsela / Farcela</span></td><td class="zh">应付 / 做到</td></tr>
+    <tr><td><span class="it" onclick="speak('Fregatene!')">Fregatene!</span></td><td class="zh">别在意！</td></tr>
+    <tr><td><span class="it" onclick="speak('Bello da morire')">Bello da morire</span></td><td class="zh">帅得要命</td></tr>
+    <tr><td><span class="it" onclick="speak('Stanco morto')">Stanco morto</span></td><td class="zh">累得要死</td></tr>
+    <tr><td><span class="it" onclick="speak('Mi ha detto di...')">Mi ha detto di...</span></td><td class="zh">他让我……</td></tr>
+    <tr><td><span class="it" onclick="speak('Tanto...')">Tanto...</span></td><td class="zh">反正……</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">视频讨论主题:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Gli studenti parlano dei cambiamenti della lingua italiana.')">语言变化: 学生讨论意大利语的变化</span></td><td class="zh">Gli studenti parlano dei cambiamenti della lingua italiana.</td></tr>
+    <tr><td><span class="it" onclick="speak('Usano i verbi pronominali come "farcela" e "cavarsela".')">代词动词: 使用"farcela""cavarsela"等代词动词</span></td><td class="zh">Usano i verbi pronominali come "farcela" e "cavarsela".</td></tr>
+    <tr><td><span class="it" onclick="speak('Praticano i superlativi idiomatici come "bello da morire".')">习语最高级: 练习习语性最高级表达</span></td><td class="zh">Praticano i superlativi idiomatici come "bello da morire".</td></tr>
+    <tr><td><span class="it" onclick="speak('Trasformano comandi diretti in discorso indiretto.')">间接引语: 将直接命令转成间接引语</span></td><td class="zh">Trasformano comandi diretti in discorso indiretto.</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演：讨论你注意到的新词和语言变化<br>
+    &bull; 用3个代词动词各造一个句子<br>
+    &bull; 用5个习语性最高级描述人和事物<br>
+    &bull; 将5个直接命令句转换为间接引语<br>
+    &bull; 用tanto的四种用法各造一句
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-9.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">&larr; Torna al corso</a>
+  <a href="facciamo-punto.html">Facciamo il punto &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 5</div>
+  <p>Corso di lingua italiana per stranieri · Livello C1</p>
+  <p style="margin-top:8px;opacity:0.6;">Maria Bali • Irene Dei · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

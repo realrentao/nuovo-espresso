@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&#x1F504; Facciamo il punto · NUOVO Espresso 5</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 5 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> &#x1F504; Facciamo il punto · C1</div>
+  <h1>&#x1F504; Facciamo il punto</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">复习单元 · 自我评估与项目</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">检测你的C1水平 · 4个复习单元 · 自我评估 · 项目任务</p>
+</section>
+
+<!-- Facciamo il punto 1 -->
+<section class="page-section" id="punto1">
+  <h2>&#x1F504; Facciamo il punto 1 (Lezioni 1-2)</h2>
+
+  <h3>&#x1F4CA; Competenze acquisite</h3>
+  <table class="vocab-table">
+    <tr><th>Competenza</th><th>Lezione 1</th><th>Lezione 2</th></tr>
+    <tr><td><strong>Comunicazione</strong></td><td>Esprimere enfasi, sorpresa, rabbia; difendere la propria posizione</td><td>Obiettare, contraddire, ribattere; raccontare fatti passati</td></tr>
+    <tr><td><strong>Grammatica</strong></td><td>Prefissi superlativi, futuro negativo, congiuntivo dislocato, latinismi</td><td>Frase scissa, pseudoscissa, tempi passati, trapassato remoto</td></tr>
+    <tr><td><strong>Lessico</strong></td><td>Goffo, flessibile, influente, insofferente, tresca, fare le corna</td><td>Narrativa, critica, editor, dialetto, metafora, recensione</td></tr>
+    <tr><td><strong>Cultura</strong></td><td>Italianità, stereotipi, gestualità, campanilismo</td><td>Ferrante, letteratura contemporanea, premi letterari</td></tr>
+  </table>
+
+  <h3>&#x1F4DD; Autovalutazione</h3>
+  <table class="vocab-table">
+    <tr><th>Cosa so fare</th><th>Per niente</th><th>Poco</th><th>Abbastanza</th><th>Bene</th><th>Molto bene</th></tr>
+    <tr><td class="it">Usare i prefissi stra-/arci-/super-/iper-</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td></tr>
+    <tr><td class="it">Usare il futuro negativo per esprimere dubbio</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td></tr>
+    <tr><td class="it">Riconoscere e usare i latinismi</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td></tr>
+    <tr><td class="it">Formare frasi scisse (esplicite e implicite)</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td></tr>
+    <tr><td class="it">Usare la frase pseudoscissa</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td></tr>
+    <tr><td class="it">Distinguere i tempi passati dell'indicativo</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td></tr>
+    <tr><td class="it">Usare il trapassato remoto</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td></tr>
+  </table>
+
+  <h3>&#x1F3ED; Progetto — "Chi sono io? — La mia identità culturale"</h3>
+  <div class="grammar-box">
+    <p>Crea un breve testo (200-250 parole) in cui descrivi la tua identità culturale. Usa almeno:</p>
+    <ul>
+      <li>3 prefissi superlativi (stra-, arci-, super-, iper-)</li>
+      <li>2 frasi scisse (esplicite o implicite)</li>
+      <li>1 pseudoscissa</li>
+      <li>2 latinismi</li>
+      <li>2 espressioni del lessico delle lezioni 1-2</li>
+    </ul>
+  </div>
+
+  <h3>&#x1F50D; Per approfondire</h3>
+  <div class="cultura-box">
+    <p><strong>Ricerche suggerite:</strong></p>
+    <ol>
+      <li>La storia della letteratura italiana dal dopoguerra a oggi</li>
+      <li>Il fenomeno dei "nuovi italiani" nella letteratura contemporanea</li>
+      <li>L'influenza del dialetto nella narrativa italiana moderna</li>
+    </ol>
+  </div>
+</section>
+
+<!-- Facciamo il punto 2 -->
+<section class="page-section" id="punto2">
+  <h2>&#x1F504; Facciamo il punto 2 (Lezioni 3-4)</h2>
+
+  <h3>&#x1F4CA; Competenze acquisite</h3>
+  <table class="vocab-table">
+    <tr><th>Competenza</th><th>Lezione 3</th><th>Lezione 4</th></tr>
+    <tr><td><strong>Comunicazione</strong></td><td>Esprimere opinioni e dubbi; parlare di sport; intenzioni e desideri</td><td>Fare ironia; esprimere emozioni, comandi, auguri; descrizioni precise</td></tr>
+    <tr><td><strong>Grammatica</strong></td><td>Concordanza congiuntivo (anteriorità); verbi difettivi; condizionale+congiuntivo; essere/stare regionale</td><td>Cong. esortativo/dubitativo/ottativo; participio presente/passato; aggettivo bello</td></tr>
+    <tr><td><strong>Lessico</strong></td><td>Sport, varietà regionali, dialetto, tifo, tenere/avere</td><td>Bellezza, arte, emozioni, descrizioni, aggettivi valutativi</td></tr>
+    <tr><td><strong>Cultura</strong></td><td>Calcio italiano, varietà linguistiche, Nord-Sud</td><td>Patrimonio UNESCO, Rinascimento, arte contemporanea</td></tr>
+  </table>
+
+  <h3>&#x1F4DD; Autovalutazione</h3>
+  <table class="vocab-table">
+    <tr><th>Cosa so fare</th><th>Per niente</th><th>Poco</th><th>Abbastanza</th><th>Bene</th><th>Molto bene</th></tr>
+    <tr><td class="it">Concordare i tempi del congiuntivo (anteriorità)</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td></tr>
+    <tr><td class="it">Riconoscere e usare verbi difettivi</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td></tr>
+    <tr><td class="it">Distinguere essere/stare nelle varietà regionali</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td></tr>
+    <tr><td class="it">Usare il congiuntivo esortativo, dubitativo, ottativo</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td></tr>
+    <tr><td class="it">Usare il participio presente e passato</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td></tr>
+    <tr><td class="it">Usare correttamente l'aggettivo bello</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td><td>&#x2610;</td></tr>
+  </table>
+
+  <h3>&#x1F3ED; Progetto — "La bellezza secondo me"</h3>
+  <div class="grammar-box">
+    <p>Scrivi un testo (200-250 parole) in cui descrivi cosa rappresenta per te la bellezza, usando:</p>
+    <ul>
+      <li>3 congiuntivi indipendenti (esortativo/dubitativo/ottativo)</li>
+      <li>2 participi presenti</li>
+      <li>3 participi passati in subordinate implicite</li>
+      <li>3 forme diverse di bello</li>
+    </ul>
+  </div>
+
+  <h3>&#x1F50D; Per approfondire</h3>
+  <div class="cultura-box">
+    <p><strong>Ricerche suggerite:</strong></p>
+    <ol>
+      <li>Le varietà linguistiche italiane e la loro origine storica</li>
+      <li>Il calcio come fenomeno sociale in Italia</li>
+      <li>Il patrimonio artistico italiano e la sua tutela</li>
+      <li>Il film "La grande bellezza" di Paolo Sorrentino</li>
+    </ol>
+  </div>
+</section>
+
+<!-- Facciamo il punto 3 -->
+<section class="page-section" id="punto3">
+  <h2>&#x1F504; Facciamo il punto 3 (Lezioni 5-7)</h2>
+
+  <h3>&#x1F4CA; Competenze acquisite</h3>
+  <table class="vocab-table">
+    <tr><th>Competenza</th><th>Lezione 5</th><th>Lezione 6</th><th>Lezione 7</th></tr>
+    <tr><td><strong>Comunicazione</strong></td><td>Rammarico, lamentele, previsioni</td><td>Giochi di parole, consapevolezza forme colloquiali</td><td>Esclamazioni, dubbi, descrizioni</td></tr>
+    <tr><td><strong>Grammatica</strong></td><td>Futuro/cond. passato, intensificatori bello/buono</td><td>Che polivalente, chi/quanto, periodo ipotetico varianti</td><td>Infinito presente/passato, gerundio assoluto, ancora</td></tr>
+    <tr><td><strong>Lessico</strong></td><td>Cucina, ristorante, cibo</td><td>Musica, testi, giochi di parole</td><td>Descrizioni, moda, gestualità</td></tr>
+  </table>
+
+  <h3>&#x1F3ED; Progetto — "I cambiamenti della lingua italiana"</h3>
+  <div class="grammar-box">
+    <p>Analizza 3 cambiamenti recenti dell'italiano (es. inglesismi, nuove parole, uso del <span class="it" onclick="speak('che polivalente')">che polivalente</span>) con esempi concreti.</p>
+  </div>
+</section>
+
+<!-- Facciamo il punto 4 -->
+<section class="page-section" id="punto4">
+  <h2>&#x1F504; Facciamo il punto 4 (Lezioni 8-10)</h2>
+
+  <h3>&#x1F4CA; Competenze acquisite</h3>
+  <table class="vocab-table">
+    <tr><th>Competenza</th><th>Lezione 8</th><th>Lezione 9</th><th>Lezione 10</th></tr>
+    <tr><td><strong>Comunicazione</strong></td><td>Descrivere musica, esprimere preferenze</td><td>Commentare statistiche, attenuare opinioni</td><td>Superlativi idiomatici, comandi indiretti</td></tr>
+    <tr><td><strong>Grammatica</strong></td><td>Da/per+inf., dislocazione a destra, addirittura</td><td>Periodo ip. implicito, connettivi ipotetici, non pleonastico</td><td>Superlativi idiomatici, verbi pronominali, imperativo indiretto, tanto</td></tr>
+    <tr><td><strong>Lessico</strong></td><td>Opera, musica classica, teatro</td><td>Donne, statistiche, diritti</td><td>Cambiamenti linguistici, neologismi</td></tr>
+  </table>
+
+  <h3>&#x1F3ED; Progetto — "L'italiano del futuro"</h3>
+  <div class="grammar-box">
+    <p>Descrivi come immagini l'italiano tra 20 anni: quali parole scompariranno e quali nuove parole entreranno in uso.</p>
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-10.html">&larr; Unità 10</a>
+  <a href="grammatica-riassuntiva.html">Grammatica Riassuntiva &rarr;</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 5</div>
+  <p>Corso di lingua italiana per stranieri · Livello C1</p>
+  <p style="margin-top:8px;opacity:0.6;">Giorgio Massei • Rosella Bellagamba · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NUOVO Espresso 2 · Corso di italiano A2</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    .quick-links { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 20px 0; }
+    .quick-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 18px; background: white;
+      border: 1px solid var(--border-light); border-radius: 100px;
+      text-decoration: none; color: var(--ne-dark);
+      font-size: 13px; font-weight: 500; transition: all .25s;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+    .quick-link:hover { border-color: var(--ne-red); color: var(--ne-red); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(192,57,43,0.10); background: linear-gradient(135deg, #FFF, #FFF5F5); }
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; max-width: 600px; margin: 20px auto 0; }
+    .stats-card { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 16px 10px; text-align: center; box-shadow: 0 3px 12px rgba(0,0,0,0.04); transition: all .3s; }
+    .stats-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.08); border-color: var(--ne-gold); }
+    .stats-card .number { font-size: 30px; font-weight: 800; color: var(--ne-red); font-family: var(--font-serif); }
+    .stats-card .label { font-size: 12px; color: var(--ne-muted); margin-top: 3px; font-weight: 500; }
+    .units-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+    @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 2 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano A2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#unita" class="active">Unità 单元</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="level-badge">
+    <span class="flag-it"></span> Livello A2 · 初级
+  </div>
+  <h1>NUOVO Espresso 2</h1>
+  <p class="subtitle">Corso di lingua italiana · Livello elementare</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin-bottom:12px;">Maria Bali • Giovanna Rizzo · ALMA Edizioni</p>
+  <p class="tagline">
+    完整的意大利语 A2 级别数字化课程，涵盖 <strong>10 个主题单元</strong>、
+    语法、词汇、真实对话场景和练习。适合已掌握 A1 基础的学习者继续进阶。
+  </p>
+  <div class="stats-grid">
+    <div class="stats-card"><div class="number">10</div><div class="label">Lezioni 课程</div></div>
+    <div class="stats-card"><div class="number">40+</div><div class="label">Sezioni 章节</div></div>
+    <div class="stats-card"><div class="number">600+</div><div class="label">Vocaboli 词汇</div></div>
+    <div class="stats-card"><div class="number">🏆</div><div class="label">A2 Completo</div></div>
+  </div>
+  <div class="quick-links">
+    <a href="unita-1.html" class="quick-link">🛍️ Unità 1 · In giro per negozi</a>
+    <a href="#unita" class="quick-link">📚 Tutte le unità</a>
+    <a href="facciamo-punto.html" class="quick-link">📝 Facciamo il punto</a>
+    <a href="grammatica-riassuntiva.html" class="quick-link">📘 Grammatica riassuntiva</a>
+    <a href="eserciziario.html" class="quick-link">✏️ Eserciziario</a>
+  </div>
+</section>
+
+<div class="features-strip">
+  <div class="features-grid">
+    <div class="feature-item"><div class="icon">🗣️</div><h4>Comunicazione</h4><p>真实场景对话练习</p></div>
+    <div class="feature-item"><div class="icon">📚</div><h4>Grammatica</h4><p>A2 级语法精讲</p></div>
+    <div class="feature-item"><div class="icon">📝</div><h4>Lessico</h4><p>主题词汇扩展</p></div>
+    <div class="feature-item"><div class="icon">🎯</div><h4>Esercizi</h4><p>即时反馈练习题</p></div>
+    <div class="feature-item"><div class="icon">☕</div><h4>Caffè culturale</h4><p>意大利文化角</p></div>
+  </div>
+</div>
+
+<section class="section" id="unita">
+  <h2 class="section-title">Unità · 单元目录</h2>
+  <p class="section-subtitle">点击任意单元进入详细学习页面。</p>
+  <div class="course-grid">
+    <div class="unit-card" onclick="location.href='unita-1.html'">
+      <div class="card-header"><span class="unit-number">Unità 1</span><span class="unit-id">1</span></div>
+      <div class="card-body">
+        <h3>🛍️ In giro per negozi</h3>
+        <div class="unit-goals"><span class="goal-tag">购物</span><span class="goal-tag">衣物描述</span><span class="goal-tag">颜色尺寸</span><span class="goal-tag">比较级</span></div>
+        <p class="unit-preview">描述和购买衣物、颜色、尺寸、piacere动词、间接代词、命令式(tu)、比较级。涵盖 p.5-20。</p>
+      </div>
+      <div class="card-footer"><a href="unita-1.html" class="btn-study">Inizia 开始 →</a></div>
+    </div>
+    <div class="unit-card" onclick="location.href='unita-2.html'">
+      <div class="card-header"><span class="unit-number">Unità 2</span><span class="unit-id">2</span></div>
+      <div class="card-body">
+        <h3>👶 Quando ero piccola...</h3>
+        <div class="unit-goals"><span class="goal-tag">回忆</span><span class="goal-tag">未完成过去时</span><span class="goal-tag">近过去时对比</span><span class="goal-tag">指小词</span></div>
+        <p class="unit-preview">回忆过去、描述童年、学习 imperfetto 与 passato prossimo 的对比使用。涵盖 p.21-36。</p>
+      </div>
+      <div class="card-footer"><a href="unita-2.html" class="btn-study">Inizia 开始 →</a></div>
+    </div>
+    <div class="unit-card" onclick="location.href='unita-3.html'">
+      <div class="card-header"><span class="unit-number">Unità 3</span><span class="unit-id">3</span></div>
+      <div class="card-body">
+        <h3>🧑 Un tipo interessante</h3>
+        <div class="unit-goals"><span class="goal-tag">外貌描述</span><span class="goal-tag">性格描述</span><span class="goal-tag">条件式</span><span class="goal-tag">人物比较</span></div>
+        <p class="unit-preview">描述人物外貌和性格、条件式现在时、farcela/sapere/andarsene。涵盖 p.37-52。</p>
+      </div>
+      <div class="card-footer"><a href="unita-3.html" class="btn-study">Inizia 开始 →</a></div>
+    </div>
+    <div class="unit-card" onclick="location.href='unita-4.html'">
+      <div class="card-header"><span class="unit-number">Unità 4</span><span class="unit-id">4</span></div>
+      <div class="card-body">
+        <h3>🎉 Ti va di venire?</h3>
+        <div class="unit-goals"><span class="goal-tag">提出建议</span><span class="goal-tag">stare+gerundio</span><span class="goal-tag">直接代词</span><span class="goal-tag">关系代词</span></div>
+        <p class="unit-preview">提出建议、接受/拒绝邀请、stare+gerundio 进行时。涵盖 p.53-66。</p>
+      </div>
+      <div class="card-footer"><a href="unita-4.html" class="btn-study">Inizia 开始 →</a></div>
+    </div>
+    <div class="unit-card" onclick="location.href='unita-5.html'">
+      <div class="card-header"><span class="unit-number">Unità 5</span><span class="unit-id">5</span></div>
+      <div class="card-body">
+        <h3>✈️ Buon viaggio!</h3>
+        <div class="unit-goals"><span class="goal-tag">礼貌请求</span><span class="goal-tag">volerci</span><span class="goal-tag">旅行</span><span class="goal-tag">sapere/conoscere</span></div>
+        <p class="unit-preview">礼貌请求、volerci 表达所需时间、旅行相关词汇。涵盖 p.67-82。</p>
+      </div>
+      <div class="card-footer"><a href="unita-5.html" class="btn-study">Inizia 开始 →</a></div>
+    </div>
+    <div class="unit-card" onclick="location.href='unita-6.html'">
+      <div class="card-header"><span class="unit-number">Unità 6</span><span class="unit-id">6</span></div>
+      <div class="card-body">
+        <h3>🍽️ A tavola!</h3>
+        <div class="unit-goals"><span class="goal-tag">饮食</span><span class="goal-tag">不规则命令式</span><span class="goal-tag">servire</span><span class="goal-tag">代词位置</span></div>
+        <p class="unit-preview">饮食用语、不规则命令式(tu)、否定命令式、servire 动词用法。涵盖 p.83-96。</p>
+      </div>
+      <div class="card-footer"><a href="unita-6.html" class="btn-study">Inizia 开始 →</a></div>
+    </div>
+    <div class="unit-card" onclick="location.href='unita-7.html'">
+      <div class="card-header"><span class="unit-number">Unità 7</span><span class="unit-id">7</span></div>
+      <div class="card-body">
+        <h3>💊 Come va?</h3>
+        <div class="unit-goals"><span class="goal-tag">健康问题</span><span class="goal-tag">命令式(Lei)</span><span class="goal-tag">比较级最高级</span><span class="goal-tag">-tore/-ista</span></div>
+        <p class="unit-preview">谈论健康问题、命令式(Lei/voi)、buono/bene 的特殊比较级和最高级。涵盖 p.97-112。</p>
+      </div>
+      <div class="card-footer"><a href="unita-7.html" class="btn-study">Inizia 开始 →</a></div>
+    </div>
+    <div class="unit-card" onclick="location.href='unita-8.html'">
+      <div class="card-header"><span class="unit-number">Unità 8</span><span class="unit-id">8</span></div>
+      <div class="card-body">
+        <h3>📧 Egregio Dottor...</h3>
+        <div class="unit-goals"><span class="goal-tag">将来时</span><span class="goal-tag">bisogna</span><span class="goal-tag">条件从句</span><span class="goal-tag">工作</span></div>
+        <p class="unit-preview">将来时(futuro semplice)、bisogna 表达必要性、条件从句 se+现在/将来。涵盖 p.113-128。</p>
+      </div>
+      <div class="card-footer"><a href="unita-8.html" class="btn-study">Inizia 开始 →</a></div>
+    </div>
+    <div class="unit-card" onclick="location.href='unita-9.html'">
+      <div class="card-header"><span class="unit-number">Unità 9</span><span class="unit-id">9</span></div>
+      <div class="card-body">
+        <h3>💘 Colpo di fulmine</h3>
+        <div class="unit-goals"><span class="goal-tag">讲故事</span><span class="goal-tag">stare per</span><span class="goal-tag">情态动词近过去时</span><span class="goal-tag">连接词</span></div>
+        <p class="unit-preview">讲述故事、stare per+不定式、情态动词的近过去时、mentre/durante。涵盖 p.129-142。</p>
+      </div>
+      <div class="card-footer"><a href="unita-9.html" class="btn-study">Inizia 开始 →</a></div>
+    </div>
+    <div class="unit-card" onclick="location.href='unita-10.html'">
+      <div class="card-header"><span class="unit-number">Unità 10</span><span class="unit-id">10</span></div>
+      <div class="card-body">
+        <h3>🏠 Casa dolce casa</h3>
+        <div class="unit-goals"><span class="goal-tag">描述公寓</span><span class="goal-tag">虚拟式</span><span class="goal-tag">bello特殊形式</span><span class="goal-tag">比较级</span></div>
+        <p class="unit-preview">描述住房、虚拟式现在时(congiuntivo presente)、bello 的特殊形式。涵盖 p.143-159。</p>
+      </div>
+      <div class="card-footer"><a href="unita-10.html" class="btn-study">Inizia 开始 →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="extra">
+  <h2 class="section-title">📖 Extra · 补充学习资源</h2>
+  <p class="section-subtitle">复习总结、语法总表、额外练习题</p>
+  <div class="units-grid">
+    <div class="unit-card" onclick="location.href='facciamo-punto.html'">
+      <div class="card-header" style="background:linear-gradient(135deg,#8E44AD,#9B59B6);"><span class="unit-number">📝 Ripasso</span><span class="unit-id">★</span></div>
+      <div class="card-body">
+        <h3>Facciamo il punto</h3>
+        <div class="unit-goals"><span class="goal-tag">复习1-2</span><span class="goal-tag">复习3-5</span><span class="goal-tag">复习6-7</span><span class="goal-tag">复习8-10</span></div>
+        <p class="unit-preview">每 2-3 单元一次系统复习，含语法回顾、词汇巩固和项目实践。</p>
+      </div>
+      <div class="card-footer"><a href="facciamo-punto.html" class="btn-study">Inizia 开始 →</a></div>
+    </div>
+    <div class="unit-card" onclick="location.href='grammatica-riassuntiva.html'">
+      <div class="card-header" style="background:linear-gradient(135deg,#2980B9,#3498DB);"><span class="unit-number">📘 Grammatica</span><span class="unit-id">★</span></div>
+      <div class="card-body">
+        <h3>Grammatica riassuntiva</h3>
+        <div class="unit-goals"><span class="goal-tag">A2语法</span><span class="goal-tag">动词变位</span><span class="goal-tag">命令式</span><span class="goal-tag">虚拟式</span></div>
+        <p class="unit-preview">全册 A2 语法点总表，动词变位、命令式、虚拟式等完整归纳，便于快速查阅。</p>
+      </div>
+      <div class="card-footer"><a href="grammatica-riassuntiva.html" class="btn-study">Inizia 开始 →</a></div>
+    </div>
+    <div class="unit-card" onclick="location.href='eserciziario.html'">
+      <div class="card-header" style="background:linear-gradient(135deg,#27AE60,#2ECC71);"><span class="unit-number">✏️ Esercizi</span><span class="unit-id">★</span></div>
+      <div class="card-body">
+        <h3>Eserciziario</h3>
+        <div class="unit-goals"><span class="goal-tag">50道题</span><span class="goal-tag">即时反馈</span><span class="goal-tag">全10单元</span></div>
+        <p class="unit-preview">家庭作业练习，每单元 5 道选择性练习题，巩固课堂所学。</p>
+      </div>
+      <div class="card-footer"><a href="eserciziario.html" class="btn-study">Inizia 开始 →</a></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 2</div>
+  <p>Corso di lingua italiana per stranieri · Livello A2</p>
+  <p style="margin-top:8px;opacity:0.6;">Maria Bali • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+  document.querySelectorAll('.unit-card').forEach(el => {
+    el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } });
+    }, {threshold:0.1}).observe(el);
+  });
+</script>
+</body>
+</html>

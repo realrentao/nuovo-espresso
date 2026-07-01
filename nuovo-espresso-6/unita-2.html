@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 2 · È la scienza, bellezza! · NUOVO Espresso 6</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 6 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 2 · C2</div>
+  <h1>&#x1F52C; È la scienza, bellezza!</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">这就是科学，亲爱的！ · p.19-31</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">部分关系代词 · 假否定 · 改变含义的动词+虚拟式 · 指代不定的人或物 · 类比 · 书面语与口语差异</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: La divina proporzione -->
+  <h3>1. "La divina proporzione" · p.21</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">课堂讨论斐波那契数列和黄金比例在自然与艺术中的体现。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Oggi parliamo della successione di Fibonacci. Chi mi sa dire cos\'è?')"><strong>Insegnante:</strong> Oggi parliamo della successione di Fibonacci. Chi mi sa dire cos'è?</span></td><td class="zh"><strong>老师：</strong> 今天我们讲斐波那契数列。谁能告诉我它是什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('È una sequenza numerica in cui ogni numero è la somma dei due precedenti: 1, 1, 2, 3, 5, 8, 13, 21...')"><strong>Studente:</strong> È una sequenza numerica in cui ogni numero è la somma dei due precedenti: 1, 1, 2, 3, 5, 8, 13, 21...</span></td><td class="zh"><strong>学生：</strong> 是一个数列，每个数字是前两个之和：1, 1, 2, 3, 5, 8, 13, 21……</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto! E sapete che il 23 novembre è il Fibonacci Day?')"><strong>Insegnante:</strong> Esatto! E sapete che il 23 novembre è il <strong>Fibonacci Day</strong>?</span></td><td class="zh"><strong>老师：</strong> 正确！你们知道11月23日是斐波那契日吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Perché proprio il 23 novembre?')"><strong>Studente:</strong> Perché proprio il 23 novembre?</span></td><td class="zh"><strong>学生：</strong> 为什么是11月23日？</td></tr>
+    <tr><td><span class="it" onclick="speak('Perché nella notazione americana si scrive 11/23, che richiama i primi numeri della successione: 1, 1, 2, 3.')"><strong>Insegnante:</strong> Perché nella notazione americana si scrive 11/23, che richiama i primi numeri della successione: 1, 1, 2, 3.</span></td><td class="zh"><strong>老师：</strong> 因为美式写法是11/23，正好对应数列的前几个数字：1, 1, 2, 3。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ah, interessante! Ma a cosa serve questa successione?')"><strong>Studente:</strong> Ah, interessante! Ma a cosa serve questa successione?</span></td><td class="zh"><strong>学生：</strong> 啊，有意思！但这个数列有什么用呢？</td></tr>
+    <tr><td><span class="it" onclick="speak('Il rapporto tra due numeri consecutivi si avvicina sempre più a 1,618 — il numero aureo. Lo trovate in natura: nei girasoli, nei petali dei fiori, nel broccolo romano. E anche nell\'arte: nel Partenone e nella Gioconda di Leonardo.')"><strong>Insegnante:</strong> Il rapporto tra due numeri consecutivi si avvicina sempre più a <strong>1,618</strong> — il <strong>numero aureo</strong>. Lo trovate in natura: nei girasoli, nei petali dei fiori, nel broccolo romano. E anche nell'arte: nel Partenone e nella Gioconda di Leonardo.</span></td><td class="zh"><strong>老师：</strong> 相邻两个数字的比值越来越接近1.618——即黄金比例。你们可以在自然界中找到它：向日葵、花瓣、罗马花椰菜。也在艺术中：帕特农神庙和达芬奇的蒙娜丽莎。</td></tr>
+    <tr><td><span class="it" onclick="speak('Quindi la matematica è ovunque!')"><strong>Studente:</strong> Quindi la matematica è ovunque!</span></td><td class="zh"><strong>学生：</strong> 所以数学无处不在！</td></tr>
+    <tr><td><span class="it" onclick="speak('Non è esente da questo rapporto neppure il corpo umano. Le proporzioni del corpo seguono la sezione aurea.')"><strong>Insegnante:</strong> <strong>Non è esente da</strong> questo rapporto neppure il corpo umano. Le proporzioni del corpo seguono la sezione aurea.</span></td><td class="zh"><strong>老师：</strong> 甚至人体也不能免于这个比例。人体的比例遵循黄金分割。</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Geometria di tutti i giorni -->
+  <h3>2. "Geometria di tutti i giorni" · p.24</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">Giada和Antonio的日常对话，Antonio在做DIY项目但忘了怎么计算圆的面积。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Giada, scusa com\'è che si calcola il coso lì...')"><strong>Antonio:</strong> Giada, scusa com'è che si calcola il <strong>coso</strong> lì...</span></td><td class="zh"><strong>安东尼奥：</strong> 贾达，抱歉，那个东西怎么算来着……</td></tr>
+    <tr><td><span class="it" onclick="speak('Il coso cosa?')"><strong>Giada:</strong> Il coso cosa?</span></td><td class="zh"><strong>贾达：</strong> 什么东西？</td></tr>
+    <tr><td><span class="it" onclick="speak('Ma quello dai, per i cerchi... Raggio al quadrato per?')"><strong>Antonio:</strong> Ma quello dai, per i cerchi... Raggio al quadrato per?</span></td><td class="zh"><strong>安东尼奥：</strong> 就那个啊，圆的……半径的平方乘以？</td></tr>
+    <tr><td><span class="it" onclick="speak('3,14. Pi greco.')"><strong>Giada:</strong> 3,14. Pi greco.</span></td><td class="zh"><strong>贾达：</strong> 3.14。圆周率。</td></tr>
+    <tr><td><span class="it" onclick="speak('Oh. Allora cinque per cinque fa venticinque, per tre virgola...')"><strong>Antonio:</strong> Oh. Allora cinque per cinque fa venticinque, per tre virgola...</span></td><td class="zh"><strong>安东尼奥：</strong> 哦。五乘五等于二十五，乘以三点一四……</td></tr>
+    <tr><td><span class="it" onclick="speak('Ma stai facendo di nuovo uno dei tuoi progetti fai-da-te? Ma non possiamo chiamare un falegname questa volta?')"><strong>Giada:</strong> Ma stai facendo di nuovo uno dei tuoi progetti fai-da-te? Ma non possiamo chiamare un falegname questa volta?</span></td><td class="zh"><strong>贾达：</strong> 你是不是又在搞你的DIY项目了？这次我们不能叫个木匠吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('E perché? Posso farlo benissimo da solo!')"><strong>Antonio:</strong> E perché? Posso farlo benissimo da solo!</span></td><td class="zh"><strong>安东尼奥：</strong> 为什么？我自己就能做得很好！</td></tr>
+    <tr><td><span class="it" onclick="speak('Certo che non sapere nemmeno quanto vale il pi greco...')"><strong>Giada:</strong> Certo che non sapere nemmeno quanto vale il pi greco...</span></td><td class="zh"><strong>贾达：</strong> 当然了，连圆周率是多少都不知道……</td></tr>
+    <tr><td><span class="it" onclick="speak('E che c\'entra? Io non mi occupo di queste cose, è per questo che mi sono sposato una professoressa di matematica.')"><strong>Antonio:</strong> E che c'entra? Io non mi occupo di queste cose, è per questo che mi sono sposato una professoressa di matematica.</span></td><td class="zh"><strong>安东尼奥：</strong> 那有什么关系？我不管这些事，这就是为什么我娶了一位数学老师。</td></tr>
+    <tr><td><span class="it" onclick="speak('Già, perché i professori di letteratura di queste cose non si occupano, giusto? Ma che vuoi che ne capisca io, di geometria? Io sto alla matematica come Einstein sta... non so, ai balli di gruppo.')"><strong>Giada:</strong> Già, perché i professori di letteratura di queste cose non si occupano, giusto? Ma che vuoi che ne capisca io, di geometria? Io sto alla matematica come Einstein sta... non so, ai balli di gruppo.</span></td><td class="zh"><strong>贾达：</strong> 就是，因为文学老师不管这些事，对吧？我能懂什么几何？我对于数学就像爱因斯坦对于……嗯，广场舞。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ahahah, ma non mi sembra, dai... hai appena fatto un\'equazione!')"><strong>Antonio:</strong> Ahahah, ma non mi sembra, dai... hai appena fatto un'equazione!</span></td><td class="zh"><strong>安东尼奥：</strong> 哈哈哈，这不像是吧……你刚刚做了个方程式！</td></tr>
+    <tr><td><span class="it" onclick="speak('Mah, veramente questa è un\'analogia, non un\'equazione.')"><strong>Giada:</strong> Mah, veramente questa è un'<strong>analogia</strong>, non un'equazione.</span></td><td class="zh"><strong>贾达：</strong> 嗯，这其实是个类比，不是方程式。</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Scienza quotidiana -->
+  <h3>3. "Scienza quotidiana" · p.27</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">朋友们在讨论科学在日常生活中的角色以及为什么有些人对科学持怀疑态度。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Secondo me, la gente non si fida della scienza perché non la capisce.')"><strong>Elena:</strong> Secondo me, la gente non si fida della scienza perché non la capisce.</span></td><td class="zh"><strong>埃莱娜：</strong> 依我看，人们不信任科学是因为他们不理解科学。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non è un mistero che molti preferiscano le credenze popolari. È più semplice.')"><strong>Marco:</strong> <strong>Non è un mistero che</strong> molti preferiscano le credenze popolari. È più semplice.</span></td><td class="zh"><strong>马尔科：</strong> 很多人更喜欢民间信仰，这并不神秘。因为更简单。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non stupisce che i social network diffondano tante bufale scientifiche.')"><strong>Elena:</strong> <strong>Non stupisce che</strong> i social network diffondano tante bufale scientifiche.</span></td><td class="zh"><strong>埃莱娜：</strong> 社交媒体传播这么多科学谣言并不奇怪。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto, non è obbligato a informarsi, ma poi non è scontato che le persone capiscano la differenza tra una fonte attendibile e una falsa.')"><strong>Marco:</strong> Esatto, <strong>non è obbligato</strong> a informarsi, ma poi <strong>non è scontato che</strong> le persone capiscano la differenza tra una fonte attendibile e una falsa.</span></td><td class="zh"><strong>马尔科：</strong> 没错，没有人有义务去了解信息，但就算了解了，人们也不一定就能分辨可靠来源和虚假来源。</td></tr>
+    <tr><td><span class="it" onclick="speak('Dovrebbero insegnare più scienze nelle scuole. Non è esente da colpe il sistema scolastico.')"><strong>Elena:</strong> Dovrebbero insegnare più scienze nelle scuole. <strong>Non è esente da colpe</strong> il sistema scolastico.</span></td><td class="zh"><strong>埃莱娜：</strong> 学校应该多教科学。教育系统也难辞其咎。</td></tr>
+    <tr><td><span class="it" onclick="speak('Vero. Ma per fortuna ci sono divulgatori scientifici bravi che rendono la scienza accessibile.')"><strong>Marco:</strong> Vero. Ma per fortuna ci sono divulgatori scientifici bravi che rendono la scienza accessibile.</span></td><td class="zh"><strong>马尔科：</strong> 说得对。但幸好有好的科学传播者让科学变得易于理解。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F30D; 核心词汇 (Lessico chiave)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('proporzione')">la proporzione</td><td>比例</td></tr>
+    <tr><td class="it" onclick="speak('successione')">la successione</td><td>数列，序列</td></tr>
+    <tr><td class="it" onclick="speak('numero aureo')">il numero aureo</td><td>黄金比例数 (1.618)</td></tr>
+    <tr><td class="it" onclick="speak('sezione aurea')">la sezione aurea</td><td>黄金分割</td></tr>
+    <tr><td class="it" onclick="speak('rapporto')">il rapporto</td><td>比率，关系</td></tr>
+    <tr><td class="it" onclick="speak('sequenza')">la sequenza</td><td>顺序，序列</td></tr>
+    <tr><td class="it" onclick="speak('matematico')">il/la matematico/a</td><td>数学家</td></tr>
+    <tr><td class="it" onclick="speak('analogia')">l'analogia (f.)</td><td>类比</td></tr>
+    <tr><td class="it" onclick="speak('equazione')">l'equazione (f.)</td><td>方程式</td></tr>
+    <tr><td class="it" onclick="speak('divulgazione')">la divulgazione</td><td>普及，传播</td></tr>
+    <tr><td class="it" onclick="speak('divulgatore')">il divulgatore</td><td>科普传播者</td></tr>
+    <tr><td class="it" onclick="speak('credenza')">la credenza</td><td>信仰</td></tr>
+    <tr><td class="it" onclick="speak('bufala')">la bufala</td><td>假新闻，谣言</td></tr>
+    <tr><td class="it" onclick="speak('fonte')">la fonte</td><td>来源</td></tr>
+    <tr><td class="it" onclick="speak('attendibile')">attendibile</td><td>可靠的</td></tr>
+    <tr><td class="it" onclick="speak('coso')">il coso</td><td>东西（口语，忘记名称时用）</td></tr>
+    <tr><td class="it" onclick="speak('aggeggio')">l'aggeggio (m.)</td><td>玩意儿，装置</td></tr>
+    <tr><td class="it" onclick="speak('affare')">l'affare (m.)</td><td>东西，物件</td></tr>
+    <tr><td class="it" onclick="speak('cosare')">cosare</td><td>做那个（口语，替代动词）</td></tr>
+    <tr><td class="it" onclick="speak('falegname')">il falegname</td><td>木匠</td></tr>
+    <tr><td class="it" onclick="speak('ipotesi')">l'ipotesi (f.)</td><td>假设（不变名词）</td></tr>
+    <tr><td class="it" onclick="speak('tangente')">la tangente</td><td>切线</td></tr>
+    <tr><td class="it" onclick="speak('quadratura')">la quadratura</td><td>求积，平方</td></tr>
+    <tr><td class="it" onclick="speak('premio')">il premio</td><td>奖，奖项</td></tr>
+    <tr><td class="it" onclick="speak('astronauta')">l'astronauta (m./f.)</td><td>宇航员</td></tr>
+    <tr><td class="it" onclick="speak('permanenza')">la permanenza</td><td>停留，居留</td></tr>
+    <tr><td class="it" onclick="speak('ricerca')">la ricerca</td><td>研究</td></tr>
+    <tr><td class="it" onclick="speak('stazione spaziale')">la stazione spaziale</td><td>空间站</td></tr>
+    <tr><td class="it" onclick="speak('ente')">l'ente (m.)</td><td>机构，组织</td></tr>
+    <tr><td class="it" onclick="speak('scienza')">la scienza</td><td>科学</td></tr>
+    <tr><td class="it" onclick="speak('ricercatore')">il/la ricercatore/trice</td><td>研究员</td></tr>
+    <tr><td class="it" onclick="speak('laboratorio')">il laboratorio</td><td>实验室</td></tr>
+    <tr><td class="it" onclick="speak('esperimento')">l'esperimento (m.)</td><td>实验</td></tr>
+    <tr><td class="it" onclick="speak('scoperta')">la scoperta</td><td>发现</td></tr>
+    <tr><td class="it" onclick="speak('teoria')">la teoria</td><td>理论</td></tr>
+    <tr><td class="it" onclick="speak('teorema')">il teorema</td><td>定理</td></tr>
+    <tr><td class="it" onclick="speak('formula')">la formula</td><td>公式</td></tr>
+    <tr><td class="it" onclick="speak('osservazione')">l'osservazione (f.)</td><td>观察</td></tr>
+  </table>
+
+  <h3>&#x1F4AC; 习语和表达 (Espressioni idiomatiche)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>含义</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('non è esente da')">non è esente da...</td><td>è soggetto a...</td><td>……不能免于……</td></tr>
+    <tr><td class="it" onclick="speak('non è un mistero che')">non è un mistero che</td><td>tutti sanno che</td><td>并不神秘，众所周知</td></tr>
+    <tr><td class="it" onclick="speak('non stupisce che')">non stupisce che</td><td>è normale che</td><td>……并不奇怪</td></tr>
+    <tr><td class="it" onclick="speak('non è obbligato a')">non è obbligato a</td><td>è libero di</td><td>没有义务……</td></tr>
+    <tr><td class="it" onclick="speak('non è scontato che')">non è scontato che</td><td>è una sorpresa che</td><td>并非理所当然</td></tr>
+    <tr><td class="it" onclick="speak('andare per la tangente')">andare per la tangente</td><td>uscire dal tema principale</td><td>跑题</td></tr>
+    <tr><td class="it" onclick="speak('prova del 9')">prova del 9</td><td>test di controllo</td><td>验证方法/九验法</td></tr>
+    <tr><td class="it" onclick="speak('quadratura del cerchio')">quadratura del cerchio</td><td>problema difficilissimo</td><td>化圆为方/极难的问题</td></tr>
+    <tr><td class="it" onclick="speak('dare i numeri')">dare i numeri</td><td>dire cose senza senso</td><td>胡说八道</td></tr>
+    <tr><td class="it" onclick="speak('avere tutti i numeri per')">avere (tutti) i numeri per</td><td>avere le caratteristiche necessarie</td><td>具备……的条件</td></tr>
+    <tr><td class="it" onclick="speak('sparare a zero')">sparare a zero</td><td>criticare con durezza</td><td>猛烈批评</td></tr>
+    <tr><td class="it" onclick="speak('valere zero')">valere zero</td><td>non avere nessun valore</td><td>毫无价值</td></tr>
+    <tr><td class="it" onclick="speak('fare due più due')">fare due più due</td><td>arrivare a una conclusione</td><td>得出推论</td></tr>
+    <tr><td class="it" onclick="speak('ogni due per tre')">ogni due per tre</td><td>molto spesso</td><td>经常，动不动就</td></tr>
+    <tr><td class="it" onclick="speak('farsi in quattro')">farsi in quattro</td><td>impegnarsi molto</td><td>竭尽全力</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Pronomi Relativi Partitivi -->
+  <h3>1. 部分关系代词 — I Pronomi Relativi Partitivi</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">部分关系代词用于表示"其中……"的概念，在表达数量关系时使用。</p>
+    <table>
+      <tr><th>Struttura</th><th>Esempio</th><th>中文</th></tr>
+      <tr><td><span class="verb">di cui + quantità</span></td><td><span class="it" onclick="speak('Ha scritto molti libri, di cui quattro a tema scientifico.')">Ha scritto molti libri, <span class="verb">di cui</span> quattro a tema scientifico.</span></td><td>他写了很多书，其中四本是科学主题的。</td></tr>
+      <tr><td><span class="verb">quantità + dei quali / delle quali</span></td><td><span class="it" onclick="speak('Ha scritto molti libri, quattro dei quali sono romanzi.')">Ha scritto molti libri, quattro <span class="verb">dei quali</span> sono romanzi.</span></td><td>他写了很多书，其中四本是小说。</td></tr>
+      <tr><td><span class="verb">di cui uno</span></td><td><span class="it" onclick="speak('Ha molti amici, di cui uno molto famoso.')">Ha molti amici, <span class="verb">di cui</span> uno molto famoso.</span></td><td>他有很多朋友，其中一位非常有名。</td></tr>
+      <tr><td><span class="verb">tra cui</span></td><td><span class="it" onclick="speak('Ci sono molte città, tra cui Roma e Firenze.')">Ci sono molte città, <span class="verb">tra cui</span> Roma e Firenze.</span></td><td>有很多城市，其中包括罗马和佛罗伦萨。</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('La professoressa ha scritto molti articoli, di cui tre pubblicati su riviste internazionali.')">La professoressa ha scritto molti articoli, <span class="verb">di cui</span> tre pubblicati su riviste internazionali.</span></td><td>这位教授写了很多文章，其中三篇发表在国际期刊上。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho comprato molti libri, due dei quali sono di scienza.')">Ho comprato molti libri, due <span class="verb">dei quali</span> sono di scienza.</span></td><td>我买了很多书，其中两本是科学类的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ci sono dieci studenti, otto dei quali hanno superato l\'esame.')">Ci sono dieci studenti, otto <span class="verb">dei quali</span> hanno superato l'esame.</span></td><td>有十个学生，其中八个通过了考试。</td></tr>
+      <tr><td><span class="it" onclick="speak('La mostra presenta cinquanta opere, di cui venti di artisti contemporanei.')">La mostra presenta cinquanta opere, <span class="verb">di cui</span> venti di artisti contemporanei.</span></td><td>展览展出了五十件作品，其中二十件是当代艺术家的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Conosco molte persone, tra cui alcuni scienziati famosi.')">Conosco molte persone, <span class="verb">tra cui</span> alcuni scienziati famosi.</span></td><td>我认识很多人，其中包括一些著名科学家。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ha viaggiato in molti paesi, di cui due in Asia.')">Ha viaggiato in molti paesi, <span class="verb">di cui</span> due in Asia.</span></td><td>他旅行了很多国家，其中两个在亚洲。</td></tr>
+      <tr><td><span class="it" onclick="speak('Gli astronauti italiani sono sei, di cui una donna.')">Gli astronauti italiani sono sei, <span class="verb">di cui</span> una donna.</span></td><td>意大利宇航员有六位，其中一位是女性。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Falsa Negazione -->
+  <h3>2. 假否定 — La Falsa Negazione</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">假否定是指通过否定其反义词来表达肯定概念的修辞手法。动词本身的意义与想要传达的信息相反。</p>
+    <table>
+      <tr><th>Espressione</th><th>Significato reale</th><th>中文</th></tr>
+      <tr><td><span class="verb">Non è esente da...</span></td><td>È soggetto a...</td><td>不能免于…… = 受……影响</td></tr>
+      <tr><td><span class="verb">Non è un mistero che...</span></td><td>Tutti sanno che...</td><td>并不神秘 = 众所周知</td></tr>
+      <tr><td><span class="verb">Non stupisce che...</span></td><td>È normale che...</td><td>并不奇怪 = 很正常</td></tr>
+      <tr><td><span class="verb">Non è obbligato a...</span></td><td>È libero di...</td><td>没有义务 = 可以自由……</td></tr>
+      <tr><td><span class="verb">Non è scontato che...</span></td><td>È una sorpresa che...</td><td>并非理所当然 = 令人惊讶</td></tr>
+      <tr><td><span class="verb">Non mi stupisce che...</span></td><td>Mi aspettavo che...</td><td>并不让我惊讶 = 我预料到……</td></tr>
+      <tr><td><span class="verb">Non è difficile capire che...</span></td><td>È facile capire che...</td><td>不难理解 = 很容易理解</td></tr>
+      <tr><td><span class="verb">Non è raro che...</span></td><td>È frequente che...</td><td>并不罕见 = 经常发生</td></tr>
+      <tr><td><span class="verb">Non è impossibile che...</span></td><td>È possibile che...</td><td>并非不可能 = 有可能</td></tr>
+      <tr><td><span class="verb">Non è da escludere che...</span></td><td>È possibile che...</td><td>不能排除 = 有可能</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Non mi stupisce che Mario sia venuto alla festa.')"><span class="verb">Non mi stupisce</span> che Mario sia venuto alla festa. (= Mi aspettavo che venisse)</span></td><td>我并不惊讶Mario来了派对。（我预料到他会来）</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è esente da questo rapporto neppure il corpo umano.')"><span class="verb">Non è esente da</span> questo rapporto neppure il corpo umano.</span></td><td>甚至人体也不能免于此比例关系。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è un mistero che la matematica sia utile nella vita quotidiana.')"><span class="verb">Non è un mistero che</span> la matematica sia utile nella vita quotidiana.</span></td><td>数学在日常生活中很有用，这并不是秘密。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non stupisce che i giovani amino i social network.')"><span class="verb">Non stupisce che</span> i giovani amino i social network.</span></td><td>年轻人喜欢社交媒体并不奇怪。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è obbligato a partecipare, ma sarebbe bello se venisse.')"><span class="verb">Non è obbligato</span> a partecipare, ma sarebbe bello se venisse.</span></td><td>他没有义务参加，但如果他能来就好了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è scontato che superi l\'esame, anche se ha studiato molto.')"><span class="verb">Non è scontato che</span> superi l'esame, anche se ha studiato molto.</span></td><td>他通过考试并非理所当然，尽管他学了很多。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è difficile capire perché il numero aureo affascini gli artisti.')"><span class="verb">Non è difficile capire</span> perché il numero aureo affascini gli artisti.</span></td><td>不难理解为什么黄金比例吸引着艺术家们。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è da escludere che ci siano altre forme di vita nell\'universo.')"><span class="verb">Non è da escludere che</span> ci siano altre forme di vita nell'universo.</span></td><td>不能排除宇宙中存在其他生命形式。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Verbi che cambiano significato -->
+  <h3>3. 改变含义的动词：直陈式 vs 虚拟式 — Verbi che cambiano significato</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">某些动词后接直陈式或虚拟式会改变动词本身的含义。</p>
+    <table>
+      <tr><th>Verbo</th><th>Con Indicativo</th><th>Con Congiuntivo</th></tr>
+      <tr><td><span class="verb">Prevedere</span></td><td>提前知道（将来时直陈式）—— "Prevedo che l'Italia <strong>vincerà</strong> i mondiali."</td><td>规定、指出（无灵主语）—— "Il regolamento prevede che gli studenti <strong>vengano</strong> espulsi."</td></tr>
+      <tr><td><span class="verb">Considerare</span></td><td>考虑到—— "Considera che dobbiamo essere a casa per cena."</td><td>假设、设想—— "Consideriamo per un momento che lui <strong>abbia</strong> ragione."</td></tr>
+      <tr><td><span class="verb">Ammettere</span></td><td>承认—— "Ha ammesso che <strong>avevo</strong> ragione io."</td><td>假设—— "Ammettiamo che Michele <strong>possa</strong> aiutarci."</td></tr>
+      <tr><td><span class="verb">Capire</span></td><td>理解—— "Capisco perfettamente che la situazione <strong>è</strong> complicata."</td><td>认为自然—— "Capisco che lui <strong>voglia</strong> andarsene da qui."</td></tr>
+      <tr><td><span class="verb">Credere</span></td><td>——</td><td>认为（+虚拟式，表示不确定性）—— "Credo che lui <strong>abbia</strong> ragione."</td></tr>
+      <tr><td><span class="verb">Pensare</span></td><td>——</td><td>认为（+虚拟式，表达主观意见）—— "Penso che <strong>sia</strong> giusto."</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Prevedo che il progetto sarà completato in tempo.')"><span class="verb">Prevedo</span> che il progetto <span class="verb">sarà</span> completato in tempo.</span></td><td>我预计项目将按时完成。</td></tr>
+      <tr><td><span class="it" onclick="speak('La legge prevede che i cittadini abbiano diritto all\'istruzione.')">La legge <span class="verb">prevede</span> che i cittadini <span class="verb">abbiano</span> diritto all'istruzione.</span></td><td>法律规定公民有受教育的权利。</td></tr>
+      <tr><td><span class="it" onclick="speak('Considera che domani c\'è sciopero dei treni.')"><span class="verb">Considera</span> che domani <span class="verb">c'è</span> sciopero dei treni.</span></td><td>考虑到明天有火车罢工。</td></tr>
+      <tr><td><span class="it" onclick="speak('Consideriamo che lui abbia detto la verità.')"><span class="verb">Consideriamo</span> che lui <span class="verb">abbia</span> detto la verità.</span></td><td>假设他说的是真话。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ammetto che avevi ragione tu.')"><span class="verb">Ammetto</span> che <span class="verb">avevi</span> ragione tu.</span></td><td>我承认你是对的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ammettiamo che piova, cosa facciamo?')"><span class="verb">Ammettiamo che</span> <span class="verb">piova</span>, cosa facciamo?</span></td><td>假设下雨，我们怎么办？</td></tr>
+      <tr><td><span class="it" onclick="speak('Capisco che la situazione è difficile.')"><span class="verb">Capisco</span> che la situazione <span class="verb">è</span> difficile.</span></td><td>我理解情况很困难。</td></tr>
+      <tr><td><span class="it" onclick="speak('Capisco che tu voglia andare via.')"><span class="verb">Capisco</span> che tu <span class="verb">voglia</span> andare via.</span></td><td>我理解你想离开（这是自然的）。</td></tr>
+      <tr><td><span class="it" onclick="speak('Credo che Mario sia una persona onesta.')"><span class="verb">Credo</span> che Mario <span class="verb">sia</span> una persona onesta.</span></td><td>我认为Mario是个诚实的人。</td></tr>
+      <tr><td><span class="it" onclick="speak('Penso che dovremmo partire subito.')"><span class="verb">Penso</span> che <span class="verb">dovremmo</span> partire subito.</span></td><td>我认为我们应该马上出发。</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Riferirsi a qualcosa di indefinito -->
+  <h3>4. 指代不定的人或物 — Riferirsi a qualcosa o qualcuno di indefinito</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">在口语中，当想不起确切名称时使用以下词替代。</p>
+    <table>
+      <tr><th>Parola</th><th>Uso</th><th>Esempio</th></tr>
+      <tr><td><span class="verb">il coso</span></td><td>oggetto di cui non si ricorda il nome</td><td><span class="it" onclick="speak('Passami il coso lì, per favore.')">Passami <span class="verb">il coso</span> lì, per favore.</span></td></tr>
+      <tr><td><span class="verb">l'affare (m.)</span></td><td>oggetto generico</td><td><span class="it" onclick="speak('Dove hai messo l\'affare per aprire le bottiglie?')">Dove hai messo <span class="verb">l'affare</span> per aprire le bottiglie?</span></td></tr>
+      <tr><td><span class="verb">l'aggeggio (m.)</span></td><td>oggetto complicato</td><td><span class="it" onclick="speak('Questo aggeggio non funziona più.')">Questo <span class="verb">aggeggio</span> non funziona più.</span></td></tr>
+      <tr><td><span class="verb">il tizio / la tizia</span></td><td>persona maschile/femminile</td><td><span class="it" onclick="speak('Il tizio che ho incontrato ieri...')"><span class="verb">Il tizio</span> che ho incontrato ieri...</span></td></tr>
+      <tr><td><span class="verb">il tipo / la tipa</span></td><td>persona (informale)</td><td><span class="it" onclick="speak('Chi era quel tipo alla festa?')">Chi era <span class="verb">quel tipo</span> alla festa?</span></td></tr>
+      <tr><td><span class="verb">cosare</span></td><td>azione (sostituisce un verbo)</td><td><span class="it" onclick="speak('Ho comprato un nuovo stereo ma non ho ancora avuto tempo di cosarlo.')">Ho comprato un nuovo stereo ma non ho ancora avuto tempo di <span class="verb">cosarlo</span>.</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale / Scienza nella cultura -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 2 · p.28-30</h2>
+
+  <h3>&#x1F52C; La scienza nella cultura italiana — 意大利文化中的科学</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Italiani nello spazio — 意大利人在太空</p>
+    <p class="it" onclick="speak('L\'Italia è stato il terzo paese al mondo a mandare un satellite in orbita dopo URSS e USA: il San Marco 1 fu lanciato il 15 dicembre 1964. Oggi l\'Italia è uno dei principali contributori dell\'Agenzia Spaziale Europea (ESA).')">L'Italia è stato il terzo paese al mondo a mandare un satellite in orbita dopo URSS e USA: il San Marco 1 fu lanciato il 15 dicembre 1964. Oggi l'Italia è uno dei principali contributori dell'Agenzia Spaziale Europea (ESA).</p>
+    <p class="it" onclick="speak('Samantha Cristoforetti è diventata famosa in tutto il mondo per la sua permanenza sulla Stazione Spaziale Internazionale. Ha stabilito il record europeo per la missione più lunga (199 giorni nel 2015).')">Samantha Cristoforetti è diventata famosa in tutto il mondo per la sua permanenza sulla Stazione Spaziale Internazionale. Ha stabilito il record europeo per la missione più lunga (199 giorni nel 2015).</p>
+    <p class="it" onclick="speak('Anche Luca Parmitano ha comandato la ISS, e altri astronauti italiani come Paolo Nespoli, Roberto Vittori e Umberto Guidoni hanno partecipato a missioni spaziali.')">Anche Luca Parmitano ha comandato la ISS, e altri astronauti italiani come Paolo Nespoli, Roberto Vittori e Umberto Guidoni hanno partecipato a missioni spaziali.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Divulgazione scientifica in Italia — 意大利的科学传播</p>
+    <p class="it" onclick="speak('Scienza e letteratura: Italo Calvino ha scritto "Le cosmicomiche", racconti che mescolano divulgazione scientifica e fantasia. Primo Levi, chimico e scrittore, ha unito scienza e letteratura nei suoi saggi.')">Scienza e letteratura: Italo Calvino ha scritto "Le cosmicomiche", racconti che mescolano divulgazione scientifica e fantasia. Primo Levi, chimico e scrittore, ha unito scienza e letteratura nei suoi saggi.</p>
+    <p class="it" onclick="speak('Oggi ci sono molti divulgatori scientifici italiani online: il sito scientificast.it, i canali YouTube di divulgatori come Barbascura X, e il Premio Nobel per la fisica Giorgio Parisi, che si batte per la comunicazione scientifica.')">Oggi ci sono molti divulgatori scientifici italiani online: il sito scientificast.it, i canali YouTube di divulgatori come Barbascura X, e il Premio Nobel per la fisica Giorgio Parisi, che si batte per la comunicazione scientifica.</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译</p>
+    <p class="zh">意大利是继苏联和美国之后第三个将卫星送入轨道的国家：圣马可1号于1964年12月15日发射。如今意大利是欧洲航天局（ESA）的主要贡献者之一。</p>
+    <p class="zh">Samantha Cristoforetti因在国际空间站的停留而闻名世界。她创下了欧洲最长的太空任务纪录（2015年，199天）。Luca Parmitano也曾指挥过国际空间站。</p>
+    <p class="zh">科学普及方面，Italo Calvino的《宇宙连环画》融合了科普与幻想，Primo Levi将科学与文学结合。如今有许多意大利科学传播者活跃在网络上。</p>
+  </div>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化注释:</strong><br>
+    • 意大利是第三个发射卫星的国家（1964年圣马可1号）<br>
+    • Samantha Cristoforetti — 欧洲女性太空最长停留纪录（199天）<br>
+    • 意大利拥有强大的科学传播传统：Calvino、Levi、Parisi<br>
+    • Nel tuo paese, come viene percepita la scienza? È considerata accessibile o elitaria? — 在你的国家，科学是如何被看待的？被认为是易于接近的还是精英化的？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 2 — È la scienza, bellezza! · p.31</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">视频：</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">"Grammatica e numeri" — Grammatica caffè su ALMA.tv</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">部分关系代词复习 (Pronomi relativi partitivi):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ha scritto molti libri di successo, di cui quattro a tema scientifico.')">1. "Ha scritto molti libri di successo, <strong>di cui</strong> quattro a tema scientifico."</span></td><td class="zh">他写了很多成功的书，其中四本是科学主题的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ha scritto molti libri, quattro dei quali sono arrivati primi in classifica.')">2. "Ha scritto molti libri, quattro <strong>dei quali</strong> sono arrivati primi in classifica."</span></td><td class="zh">他写了很多书，其中四本登上了榜首。</td></tr>
+    <tr><td><span class="it" onclick="speak('Ha molti amici, di cui uno molto famoso.')">3. 当关系代词后的部分没有动词时，使用 <strong>di cui uno</strong> 代替 <strong>uno dei quali</strong>。</span></td><td class="zh">他有很多朋友，其中一位非常有名。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">假否定复习 (Falsa negazione):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Non mi stupisce che Mario sia venuto alla festa.')">1. "Non mi stupisce che Mario sia venuto alla festa." = 我预料到Mario会来派对。</span></td><td class="zh">主句动词的含义与传达的信息相反。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non è esente da questo rapporto neppure il corpo umano.')">2. "Non è esente da questo rapporto neppure il corpo umano."</span></td><td class="zh">甚至人体也不能免于这个比例关系。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">改变含义的动词复习 (Verbi che cambiano significato):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Ammettere, capire e considerare cambiano significato con indicativo o congiuntivo.')">1. <strong>Ammettere, capire, considerare</strong> 跟直陈式或虚拟式有不同的含义。</span></td><td class="zh">承认/理解/考虑到 vs 假设</td></tr>
+    <tr><td><span class="it" onclick="speak('Credere e pensare con congiuntivo significano "supporre".')">2. <strong>Credere</strong> e <strong>pensare</strong>：如果跟虚拟式，意思是"假设"。</span></td><td class="zh">认为/想（虚拟式表示假设）</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">指代不定的人或物 (Riferirsi a qualcosa di indefinito):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Coso, aggeggio e affare sostituiscono oggetti.')">1. <strong>Coso, aggeggio, affare</strong> = 替代物品</span></td><td class="zh">东西、玩意儿、物件</td></tr>
+    <tr><td><span class="it" onclick="speak('Tizio e tipo si riferiscono a persone.')">2. <strong>Tizio / tipo</strong> = 指人</span></td><td class="zh">某人、家伙</td></tr>
+    <tr><td><span class="it" onclick="speak('Cosare sostituisce un\'azione.')">3. <strong>Cosare</strong> = 替代动作</span></td><td class="zh">做那个</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 用部分关系代词描述一组事物中的部分（di cui, dei quali, tra cui）<br>
+    &bull; 用假否定改写肯定句（Non è un mistero che... / Non stupisce che...）<br>
+    &bull; 用改变含义的动词造句（prevedere + indicativo vs congiuntivo）<br>
+    &bull; 用指代不定词的表达进行角色扮演（coso, tizio, cosare）
+  </div>
+</section>
+
+<!-- Facciamo il punto -->
+<section class="page-section" id="riepilogo">
+  <h2>&#x1F504; Facciamo il punto 1 · p.32</h2>
+
+  <h3>&#x1F4DD; Cosa so fare — 我会做什么</h3>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Raccontare una figuraccia')">1. Raccontare una figuraccia</span></td><td class="zh">讲述丢脸的经历</td></tr>
+    <tr><td><span class="it" onclick="speak('Usare espressioni per esagerare e minimizzare un racconto')">2. Usare espressioni per esagerare e minimizzare un racconto</span></td><td class="zh">使用夸张和弱化表达</td></tr>
+    <tr><td><span class="it" onclick="speak('Parlare della relazione fra il mio paese e il resto del mondo')">3. Parlare della relazione fra il mio paese e il resto del mondo</span></td><td class="zh">谈论祖国与世界的关系</td></tr>
+    <tr><td><span class="it" onclick="speak('Riassumere oralmente un testo scritto')">4. Riassumere oralmente un testo scritto</span></td><td class="zh">口头总结书面文本</td></tr>
+    <tr><td><span class="it" onclick="speak('Parlare usando delle analogie')">5. Parlare usando delle analogie</span></td><td class="zh">用类比说话</td></tr>
+    <tr><td><span class="it" onclick="speak('Trasformare un testo orale in un testo scritto')">6. Trasformare un testo orale in un testo scritto</span></td><td class="zh">将口语文本转为书面文本</td></tr>
+    <tr><td><span class="it" onclick="speak('Comprendere espressioni idiomatiche riguardanti la matematica e i numeri')">7. Comprendere espressioni idiomatiche riguardanti la matematica e i numeri</span></td><td class="zh">理解数学和数字相关习语</td></tr>
+  </table>
+
+  <h3>&#x1F3ED; Progetto: La fiera delle scienze</h3>
+  <p style="font-size:14px;color:var(--ne-muted);margin:8px 0;">学生分组制作科学展览，主题为"意大利人在太空"或"意大利发明"。</p>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4DA; Per approfondire — 扩展资源:</strong><br>
+    &bull; Film: <em>Scusate se esisto</em> (R. Milani, 2014), <em>My name is Tanino</em> (P. Virzì, 2002), <em>Il senso della bellezza</em> (V. Jalongo, 2017)<br>
+    &bull; Letture: <em>Elogio dell'imperfezione</em> (R. Levi Montalcini), <em>Italiani con valigia</em> (B. Severgnini)<br>
+    &bull; Siti: scientificast.it, italians.corriere.it
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-1.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+  <a href="unita-3.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 6</div>
+  <p>Corso di lingua italiana per stranieri · Livello C2</p>
+  <p style="margin-top:8px;opacity:0.6;">Ornella Discacciati · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

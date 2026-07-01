@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 10 · Il viaggio della vita · NUOVO Espresso 3</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 3 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano B1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 10 · B1</div>
+  <h1>&#x1F30D; Il viaggio della vita</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">人生之旅 · p.143-159</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">旅行词汇 · 虚拟现实条件句 · 虚拟式愈过去时 · 条件句总结</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <h3>1. Un viaggio — 一次旅行 · p.145, es.1</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">Ascolta il dialogo e rispondi alle domande.（听对话并回答问题。）</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Dove sei stato in vacanza?')"><strong>A:</strong> Dove sei stato in vacanza?</span></td><td class="zh">A: 你去哪里度假了？</td></tr>
+    <tr><td><span class="it" onclick="speak('Sono stato in Italia, ho visitato Roma, Firenze e Venezia.')"><strong>B:</strong> Sono stato in Italia, ho visitato Roma, Firenze e Venezia.</span></td><td class="zh">B: 我去了意大利，参观了罗马、佛罗伦萨和威尼斯。</td></tr>
+    <tr><td><span class="it" onclick="speak('Com\'è andata?')"><strong>A:</strong> Com'è andata?</span></td><td class="zh">A: 怎么样？</td></tr>
+    <tr><td><span class="it" onclick="speak('Benissimo! Ho visto molte cose belle e ho incontrato persone interessanti.')"><strong>B:</strong> Benissimo! Ho visto molte cose belle e ho incontrato persone interessanti.</span></td><td class="zh">B: 非常好！我看到了很多美丽的东西，遇到了有趣的人。</td></tr>
+  </table>
+
+  <h3>2. Se avessi saputo prima... — 如果我早知道的话... · p.147, es.4</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">Completa con il periodo ipotetico dell'irrealtà.（用虚拟现实条件句完成。）</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Se avessi saputo prima, sarei venuto in metropolitana.')">Se avessi saputo prima, sarei venuto in metropolitana.</span></td><td class="zh">如果我早知道，我就坐地铁来了。</td></tr>
+    <tr><td><span class="it" onclick="speak('Se fosse venuto, ne sarei stata felice.')">Se fosse venuto, ne sarei stata felice.</span></td><td class="zh">如果他来了，我会很高兴的。</td></tr>
+    <tr><td><span class="it" onclick="speak('Se avessi mangiato di meno, non starei così male.')">Se avessi mangiato di meno, non starei così male.</span></td><td class="zh">如果我少吃点，现在就不会这么难受了。</td></tr>
+  </table>
+
+  <h3>3. Se io fossi... — 如果我是... · p.148, es.5</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">Completa le frasi con il congiuntivo imperfetto.（用虚拟式未完成时完成句子。）</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Se io fossi un artista, dipingerei quadri bellissimi.')">Se io fossi un artista, dipingerei quadri bellissimi.</span></td><td class="zh">如果我是一位艺术家，我会画美丽的画。</td></tr>
+    <tr><td><span class="it" onclick="speak('Se lui fosse più gentile, tutti lo amerebbero.')">Se lui fosse più gentile, tutti lo amerebbero.</span></td><td class="zh">如果他更友善，大家都会喜欢他。</td></tr>
+    <tr><td><span class="it" onclick="speak('Se noi avessimo più tempo, viaggeremmo di più.')">Se noi avessimo più tempo, viaggeremmo di più.</span></td><td class="zh">如果我们有更多时间，我们会更多旅行。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x2708;&#xFE0F; 旅行词汇 (Viaggi)</h3>
+  <table class="vocab-table">
+    <tr><th>Italiano</th><th>词性</th><th>中文</th><th>例句</th></tr>
+    <tr><td class="it" onclick="speak('il viaggio')">il viaggio</td><td>s.m.</td><td>旅行</td><td class="it" onclick="speak('Il viaggio in Italia è stato bellissimo.')">Il viaggio in Italia è stato bellissimo.</td></tr>
+    <tr><td class="it" onclick="speak('la vacanza')">la vacanza</td><td>s.f.</td><td>假期</td><td class="it" onclick="speak('Le vacanze estive.')">Le vacanze estive.</td></tr>
+    <tr><td class="it" onclick="speak('il turista')">il turista</td><td>s.m.</td><td>游客</td><td class="it" onclick="speak('I turisti visitano Roma.')">I turisti visitano Roma.</td></tr>
+    <tr><td class="it" onclick="speak('il biglietto')">il biglietto</td><td>s.m.</td><td>票</td><td class="it" onclick="speak('Ho comprato il biglietto online.')">Ho comprato il biglietto online.</td></tr>
+    <tr><td class="it" onclick="speak('l\'albergo')">l'albergo</td><td>s.m.</td><td>酒店</td><td class="it" onclick="speak('L\'albergo era molto caro.')">L'albergo era molto caro.</td></tr>
+    <tr><td class="it" onclick="speak('la prenotazione')">la prenotazione</td><td>s.f.</td><td>预订</td><td class="it" onclick="speak('Ho fatto una prenotazione.')">Ho fatto una prenotazione.</td></tr>
+    <tr><td class="it" onclick="speak('il bagaglio')">il bagaglio</td><td>s.m.</td><td>行李</td><td class="it" onclick="speak('Il bagaglio è pesante.')">Il bagaglio è pesante.</td></tr>
+    <tr><td class="it" onclick="speak('il passaporto')">il passaporto</td><td>s.m.</td><td>护照</td><td class="it" onclick="speak('Il passaporto è scaduto.')">Il passaporto è scaduto.</td></tr>
+  </table>
+
+  <h3>&#x1F30D; 世界与国家 (Il mondo e i paesi)</h3>
+  <table class="vocab-table">
+    <tr><th>Italiano</th><th>词性</th><th>中文</th><th>例句</th></tr>
+    <tr><td class="it" onclick="speak('il mondo')">il mondo</td><td>s.m.</td><td>世界</td><td class="it" onclick="speak('Il mondo è grande.')">Il mondo è grande.</td></tr>
+    <tr><td class="it" onclick="speak('il paese')">il paese</td><td>s.m.</td><td>国家，乡村</td><td class="it" onclick="speak('L\'Italia è un paese bellissimo.')">L'Italia è un paese bellissimo.</td></tr>
+    <tr><td class="it" onclick="speak('il continente')">il continente</td><td>s.m.</td><td>大陆</td><td class="it" onclick="speak('L\'Europa è un continente.')">L'Europa è un continente.</td></tr>
+    <tr><td class="it" onclick="speak('la capitale')">la capitale</td><td>s.f.</td><td>首都</td><td class="it" onclick="speak('Roma è la capitale d\'Italia.')">Roma è la capitale d'Italia.</td></tr>
+    <tr><td class="it" onclick="speak('lo stato')">lo stato</td><td>s.m.</td><td>国家，州</td><td class="it" onclick="speak('Gli Stati Uniti.')">Gli Stati Uniti.</td></tr>
+    <tr><td class="it" onclick="speak('la regione')">la regione</td><td>s.f.</td><td>地区</td><td class="it" onclick="speak('La regione toscana.')">La regione toscana.</td></tr>
+    <tr><td class="it" onclick="speak('la provincia')">la provincia</td><td>s.f.</td><td>省</td><td class="it" onclick="speak('La provincia di Firenze.')">La provincia di Firenze.</td></tr>
+    <tr><td class="it" onclick="speak('la città')">la città</td><td>s.f.</td><td>城市</td><td class="it" onclick="speak('Una città molto grande.')">Una città molto grande.</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Periodo ipotetico dell'irrealtà -->
+  <h3>1. Il periodo ipotetico dell'irrealtà（虚拟现实条件句）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">表达过去不可能实现的假设。</p>
+    <p style="font-weight:600;margin:8px 0;">结构: <strong>se + congiuntivo trapassato</strong> + <strong>condizionale passato</strong></p>
+    <table>
+      <tr><th>se从句 (congiuntivo trapassato)</th><th>主句 (condizionale passato)</th></tr>
+      <tr><td>se avessi avuto</td><td>avrei avuto</td></tr>
+      <tr><td>se fossi stato</td><td>sarei stato</td></tr>
+      <tr><td>se avessi fatto</td><td>avrei fatto</td></tr>
+      <tr><td>se fosse venuto</td><td>sarebbe venuto</td></tr>
+    </table>
+    <p style="font-weight:600;margin:16px 0 8px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Se avessi saputo prima, sarei venuto in metropolitana.')">Se avessi saputo prima, sarei venuto in metropolitana.</span></td><td>如果我早知道，我就坐地铁来了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se fosse venuto, ne sarei stata felice.')">Se fosse venuto, ne sarei stata felice.</span></td><td>如果他来了，我会很高兴的。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se avessi mangiato di meno, non starei così male.')">Se avessi mangiato di meno, non starei così male.</span></td><td>如果我少吃点，现在就不会这么难受了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se Franco non fosse pessimista e avaro, lo troverei simpatico.')">Se Franco non fosse pessimista e avaro, lo troverei simpatico.</span></td><td>如果Franco不是悲观和吝啬，我会觉得他可爱。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se avessi vinto alla lotteria, avrei comprato una casa.')">Se avessi vinto alla lotteria, avrei comprato una casa.</span></td><td>如果我中了彩票，我就买房子了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se mi avesse telefonato, sarei andato.')">Se mi avesse telefonato, sarei andato.</span></td><td>如果他给我打电话了，我就去了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se avessi studiato di più, avrei superato l\'esame.')">Se avessi studiato di più, avrei superato l'esame.</span></td><td>如果我多学习了，我就通过考试了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se fossi nato in Italia, parlerei italiano meglio.')">Se fossi nato in Italia, parlerei italiano meglio.</span></td><td>如果我出生在意大利，我的意大利语会说更好。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Congiuntivo trapassato -->
+  <h3>2. Congiuntivo trapassato（虚拟式愈过去时）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">构成: avere/essere的虚拟式未完成时 + 过去分词</p>
+    <table>
+      <tr><th>主语</th><th>avere (cong. imperfetto)</th><th>essere (cong. imperfetto)</th></tr>
+      <tr><td>io</td><td><span class="verb">avessi</span> parlato</td><td><span class="verb">fossi</span> andato/a</td></tr>
+      <tr><td>tu</td><td><span class="verb">avessi</span> parlato</td><td><span class="verb">fossi</span> andato/a</td></tr>
+      <tr><td>lui/lei/Lei</td><td><span class="verb">avesse</span> parlato</td><td><span class="verb">fosse</span> andato/a</td></tr>
+      <tr><td>noi</td><td><span class="verb">avessimo</span> parlato</td><td><span class="verb">fossimo</span> andati/e</td></tr>
+      <tr><td>voi</td><td><span class="verb">aveste</span> parlato</td><td><span class="verb">foste</span> andati/e</td></tr>
+      <tr><td>loro</td><td><span class="verb">avessero</span> parlato</td><td><span class="verb">fossero</span> andati/e</td></tr>
+    </table>
+    <p style="font-weight:600;margin:16px 0 8px;">例句：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Se avessi avuto tempo, ti avrei chiamato.')">Se avessi avuto tempo, ti avrei chiamato.</span></td><td>如果我有时间，我就给你打电话了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se fossi stato presente, avrei aiutato.')">Se fossi stato presente, avrei aiutato.</span></td><td>如果我在场，我就帮忙了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se avesse studiato, avrebbe superato.')">Se avesse studiato, avrebbe superato.</span></td><td>如果他学习了，他就通过了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se avessimo saputo, saremmo venuti.')">Se avessimo saputo, saremmo venuti.</span></td><td>如果我们知道，我们就来了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se aveste telefonato, avremmo risposto.')">Se aveste telefonato, avremmo risposto.</span></td><td>如果你们打电话了，我们就接了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se avessero chiesto, avrei spiegato.')">Se avessero chiesto, avrei spiegato.</span></td><td>如果他们问了，我就解释了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se fossi uscito prima, non avrei perso il treno.')">Se fossi uscito prima, non avrei perso il treno.</span></td><td>如果我早点出去，就不会错过火车了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Se non avesse piovuto, saremmo andati al mare.')">Se non avesse piovuto, saremmo andati al mare.</span></td><td>如果没有下雨，我们就去看海了。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Periodo ipotetico总结 -->
+  <h3>3. Periodo ipotetico — 三种条件句总结</h3>
+  <div class="grammar-box">
+    <table>
+      <tr><th>类型</th><th>结构</th><th>含义</th></tr>
+      <tr><td><span class="verb">现实条件句</span></td><td>se + 直陈式现在/将来</td><td>可能实现</td></tr>
+      <tr><td><span class="verb">可能条件句</span></td><td>se + 虚拟式未完成时</td><td>不太可能实现</td></tr>
+      <tr><td><span class="verb">虚拟条件句</span></td><td>se + 虚拟式愈过去时</td><td>不可能实现（过去）</td></tr>
+    </table>
+    <p style="font-weight:600;margin:16px 0 8px;">例句对比：</p>
+    <table>
+      <tr><td><span class="it" onclick="speak('Se studi, superi l\'esame.')">Se studi, superi l'esame.</span></td><td class="zh">如果你学习，你会通过考试。（很可能）</td></tr>
+      <tr><td><span class="it" onclick="speak('Se studiassi, superresti l\'esame.')">Se studiassi, superresti l'esame.</span></td><td class="zh">如果你学习，你会通过考试。（不太可能）</td></tr>
+      <tr><td><span class="it" onclick="speak('Se avessi studiato, avresti superato l\'esame.')">Se avessi studiato, avresti superato l'esame.</span></td><td class="zh">如果你学习了，你就通过考试了。（已经过去）</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 10 — Dove vanno gli italiani in vacanza? · p.141</h2>
+
+  <h3>&#x1F30D; 意大利人的度假习惯</h3>
+
+  <div class="cultura-box">
+    <table>
+      <tr><th>类型</th><th>目的地</th></tr>
+      <tr><td>海滨</td><td class="it" onclick="speak('Lago di Garda, Rimini, Sardegna')">Lago di Garda, Rimini, Sardegna</td></tr>
+      <tr><td>山地</td><td class="it" onclick="speak('Dolomiti, Abruzzo')">Dolomiti, Abruzzo</td></tr>
+      <tr><td>城市</td><td class="it" onclick="speak('Roma, Firenze, Venezia')">Roma, Firenze, Venezia</td></tr>
+      <tr><td>国外</td><td class="it" onclick="speak('Spagna, Grecia, Stati Uniti')">Spagna, Grecia, Stati Uniti</td></tr>
+    </table>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">趋势：</p>
+    <ul style="margin:0;padding-left:20px;font-size:14px;line-height:1.8;">
+      <li>短期假期增多</li>
+      <li>自驾游更受欢迎</li>
+      <li>文化之旅增加</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 10 — Il viaggio · p.140-141</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">视频内容概要：</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频展示旅行计划。</p>
+
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Discutono le destinazioni di viaggio.')">Discutono le destinazioni di viaggio.</span></td><td class="zh">讨论旅行目的地。</td></tr>
+    <tr><td><span class="it" onclick="speak('Prenotano e si preparano.')">Prenotano e si preparano.</span></td><td class="zh">预订和准备。</td></tr>
+    <tr><td><span class="it" onclick="speak('Condividono le esperienze di viaggio.')">Condividono le esperienze di viaggio.</span></td><td class="zh">分享旅行经历。</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 讨论话题:</strong><br>
+    Qual è il viaggio più bello che hai fatto? — 你做过的最美的旅行是哪一次？
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-9.html" class="home-btn">&larr; Unità 9</a>
+  <a href="index.html">&#x1F3E0; Torna al corso</a>
+  <a href="facciamo-punto.html">Facciamo il punto &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 3</div>
+  <p>Corso di lingua italiana per stranieri · Livello B1</p>
+  <p style="margin-top:8px;opacity:0.6;">Luciana Ziglio • Giovanna Rizzo · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

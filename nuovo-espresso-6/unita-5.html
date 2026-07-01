@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 5 · A crepapelle · NUOVO Espresso 6</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 6 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 5 · C2</div>
+  <h1>&#x1F602; A crepapelle</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">笑破肚皮 · p.59-71</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">副词pure和anzi · 连接词 · 感情代词（与格伦理） · 反身代词深化 · 形容词强度</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Articolo 31 — L'italiano medio -->
+  <h3>1. "Articolo 31 — L'italiano medio" · p.62</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">朋友们一起听Articolo 31的歌曲"L'italiano medio"，讨论歌词中反映的意大利刻板印象。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Hai sentito la canzone degli Articolo 31? È una satira dell\'italiano medio.')"><strong>Paolo:</strong> Hai sentito la canzone degli Articolo 31? È una satira dell'italiano medio.</span></td><td class="zh"><strong>保罗：</strong> 你听过Articolo 31的那首歌吗？是对普通意大利人的讽刺。</td></tr>
+    <tr><td><span class="it" onclick="speak('Sì, è divertente! Cita un sacco di cose tipiche: il caffè corretto, La Gazzetta, auto blu...')"><strong>Anna:</strong> Sì, è divertente! Cita un sacco di cose tipiche: il <strong>caffè corretto</strong>, <strong>La Gazzetta</strong>, <strong>auto blu</strong>...</span></td><td class="zh"><strong>安娜：</strong> 听了，很有趣！提到了很多典型的东西：加烈酒咖啡、La Gazzetta体育报、公家车……</td></tr>
+    <tr><td><span class="it" onclick="speak('E non dimenticare Valentino, il miracolo italiano, sabato in centro.')"><strong>Paolo:</strong> E non dimenticare <strong>Valentino</strong>, <strong>il miracolo italiano</strong>, <strong>sabato in centro</strong>.</span></td><td class="zh"><strong>保罗：</strong> 还有Valentino、意大利经济奇迹、周六去市中心。</td></tr>
+    <tr><td><span class="it" onclick="speak('Anzi, è un ritratto perfetto dell\'italianità.')"><strong>Anna:</strong> <strong>Anzi</strong>, è un ritratto perfetto dell'italianità.</span></td><td class="zh"><strong>安娜：</strong> 不仅如此，这是对意大利特性的完美刻画。</td></tr>
+    <tr><td><span class="it" onclick="speak('Però secondo me è un po\' stereotipata. Non tutti gli italiani sono così!')"><strong>Paolo:</strong> Però secondo me è un po' stereotipata. Non tutti gli italiani sono così!</span></td><td class="zh"><strong>保罗：</strong> 不过我觉得有点刻板印象化了。不是所有意大利人都这样！</td></tr>
+    <tr><td><span class="it" onclick="speak('Certo, ma l\'umorismo funziona proprio perché esagera la realtà.')"><strong>Anna:</strong> Certo, ma l'umorismo funziona proprio perché esagera la realtà.</span></td><td class="zh"><strong>安娜：</strong> 当然，但幽默之所以有效，正是因为它夸张了现实。</td></tr>
+    <tr><td><span class="it" onclick="speak('Vero. Pure la parte sul \'baciamo le mani\' è esilarante.')"><strong>Paolo:</strong> Vero. <strong>Pure</strong> la parte sul "baciamo le mani" è esilarante.</span></td><td class="zh"><strong>保罗：</strong> 没错。连关于"baciamo le mani"那部分也很搞笑。</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Il pronome affettivo -->
+  <h3>2. "Il pronome affettivo" · p.65</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">两个朋友在讨论意大利语中感情代词（与格伦理）的使用。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Hai notato come a volte usiamo i pronomi senza un vero motivo grammaticale?')"><strong>Luca:</strong> Hai notato come a volte usiamo i pronomi senza un vero motivo grammaticale?</span></td><td class="zh"><strong>卢卡：</strong> 你有没有注意到我们有时使用代词并没有真正的语法理由？</td></tr>
+    <tr><td><span class="it" onclick="speak('Come quando dico \'Che mi combini?\' Non è necessario, ma esprime coinvolgimento.')"><strong>Maria:</strong> Come quando dico "Che <strong>mi</strong> combini?" Non è necessario, ma esprime coinvolgimento.</span></td><td class="zh"><strong>玛丽亚：</strong> 就像我说"Che mi combini？"时，mi并不是必须的，但表达了参与感。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto, si chiama dativo etico o pronome affettivo.')"><strong>Luca:</strong> Esatto, si chiama <strong>dativo etico</strong> o <strong>pronome affettivo</strong>.</span></td><td class="zh"><strong>卢卡：</strong> 没错，这叫与格伦理或感情代词。</td></tr>
+    <tr><td><span class="it" onclick="speak('O quando dico \'all\'arrivo chi ti incontro?\' per coinvolgere l\'interlocutore.')"><strong>Maria:</strong> O quando dico "all'arrivo chi <strong>ti</strong> incontro?" per coinvolgere l'interlocutore.</span></td><td class="zh"><strong>玛丽亚：</strong> 或者当我说"all'arrivo chi ti incontro？"来让对话者参与进来。</td></tr>
+    <tr><td><span class="it" onclick="speak('E con i bambini: \'Giulia non le cresce tanto.\'')"><strong>Luca:</strong> E con i bambini: "Giulia non <strong>le</strong> cresce tanto."</span></td><td class="zh"><strong>卢卡：</strong> 还有关于孩子时："朱莉娅 non le cresce tanto。"</td></tr>
+    <tr><td><span class="it" onclick="speak('Pure con \'ecco\': \'Eccoti le chiavi!\' Suona più naturale che \'Ecco le chiavi a te\'.')"><strong>Maria:</strong> <strong>Pure</strong> con "ecco": "<strong>Eccoti</strong> le chiavi!" Suona più naturale che "Ecco le chiavi a te".</span></td><td class="zh"><strong>玛丽亚：</strong> 还有和ecco一起："Eccoti le chiavi！"听起来比"Ecco le chiavi a te"更自然。</td></tr>
+    <tr><td><span class="it" onclick="speak('È affascinante come piccole parole cambino il tono del discorso!')"><strong>Luca:</strong> È affascinante come piccole parole cambino il tono del discorso!</span></td><td class="zh"><strong>卢卡：</strong> 这些小词如何改变语气的确很迷人！</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Stereotipi e risate -->
+  <h3>3. "Stereotipi e risate" · p.67</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">朋友们讨论意大利人在国外的刻板印象以及幽默的不同类型。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Secondo te, quali sono gli stereotipi più comuni sugli italiani all\'estero?')"><strong>Sara:</strong> Secondo te, quali sono gli stereotipi più comuni sugli italiani all'estero?</span></td><td class="zh"><strong>萨拉：</strong> 你觉得国外对意大利人最常见的刻板印象是什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Oh, i soliti: mangiamo pizza tutto il giorno, siamo tutti mafiosi, parliamo con le mani...')"><strong>Marco:</strong> Oh, i soliti: mangiamo pizza tutto il giorno, siamo tutti mafiosi, parliamo con le mani...</span></td><td class="zh"><strong>马尔科：</strong> 哦，老一套：整天吃披萨、都是黑手党、说话打手势……</td></tr>
+    <tr><td><span class="it" onclick="speak('Ma secondo te, c\'è del vero?')"><strong>Sara:</strong> Ma secondo te, c'è del vero?</span></td><td class="zh"><strong>萨拉：</strong> 但你觉得有真实成分吗？</td></tr>
+    <tr><td><span class="it" onclick="speak('Mah, un po\' sì, un po\' no. Anzi, secondo me alcuni stereotipi sono positivi: siamo creativi, alla mano, amichevoli.')"><strong>Marco:</strong> Mah, un po' sì, un po' no. <strong>Anzi</strong>, secondo me alcuni stereotipi sono positivi: siamo creativi, alla mano, amichevoli.</span></td><td class="zh"><strong>马尔科：</strong> 嗯，有一点吧。其实，我觉得有些刻板印象是正面的：我们很创意、随和、友好。</td></tr>
+    <tr><td><span class="it" onclick="speak('Vero. Però l\'umorismo sugli stereotipi può essere offensivo o divertente, a seconda di come lo usi.')"><strong>Sara:</strong> Vero. Però l'umorismo sugli stereotipi può essere <strong>offensivo</strong> o <strong>divertente</strong>, a seconda di come lo usi.</span></td><td class="zh"><strong>萨拉：</strong> 对。但关于刻板印象的幽默可能是冒犯性的或有趣的，取决于如何使用。</td></tr>
+    <tr><td><span class="it" onclick="speak('Esatto. Sai cos\'è l\'umorismo irriverente? È quello che non rispetta i tabù.')"><strong>Marco:</strong> Esatto. Sai cos'è <strong>l'umorismo irriverente</strong>? È quello che non rispetta i tabù.</span></td><td class="zh"><strong>马尔科：</strong> 没错。你知道什么是"不敬的幽默"吗？就是不尊重禁忌的那种。</td></tr>
+    <tr><td><span class="it" onclick="speak('Come la satira politica!')"><strong>Sara:</strong> Come la satira politica!</span></td><td class="zh"><strong>萨拉：</strong> 就像政治讽刺！</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F30D; 核心词汇 (Lessico chiave)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('crepapelle')">crepapelle</td><td>笑破肚皮</td></tr>
+    <tr><td class="it" onclick="speak('umorismo')">l'umorismo (m.)</td><td>幽默</td></tr>
+    <tr><td class="it" onclick="speak('irriverente')">irriverente</td><td>不敬的，无礼的</td></tr>
+    <tr><td class="it" onclick="speak('offensivo')">offensivo/a</td><td>冒犯的</td></tr>
+    <tr><td class="it" onclick="speak('stereotipo')">lo stereotipo</td><td>刻板印象</td></tr>
+    <tr><td class="it" onclick="speak('luogo comune')">il luogo comune</td><td>老生常谈，陈词滥调</td></tr>
+    <tr><td class="it" onclick="speak('satira')">la satira</td><td>讽刺</td></tr>
+    <tr><td class="it" onclick="speak('parodia')">la parodia</td><td>戏仿</td></tr>
+    <tr><td class="it" onclick="speak('ironia')">l'ironia (f.)</td><td>反讽</td></tr>
+    <tr><td class="it" onclick="speak('esilarante')">esilarante</td><td>令人捧腹的</td></tr>
+    <tr><td class="it" onclick="speak('divertente')">divertente</td><td>有趣的</td></tr>
+    <tr><td class="it" onclick="speak('battuta')">la battuta</td><td>俏皮话，玩笑</td></tr>
+    <tr><td class="it" onclick="speak('barzelletta')">la barzelletta</td><td>笑话</td></tr>
+    <tr><td class="it" onclick="speak('connettivo')">il connettivo</td><td>连接词</td></tr>
+    <tr><td class="it" onclick="speak('dativo etico')">il dativo etico</td><td>与格伦理</td></tr>
+    <tr><td class="it" onclick="speak('pronome affettivo')">il pronome affettivo</td><td>感情代词</td></tr>
+    <tr><td class="it" onclick="speak('coinvolgimento')">il coinvolgimento</td><td>参与，投入</td></tr>
+    <tr><td class="it" onclick="speak('interlocutore')">l'interlocutore/trice</td><td>对话者</td></tr>
+    <tr><td class="it" onclick="speak('caffè corretto')">il caffè corretto</td><td>加烈酒咖啡</td></tr>
+    <tr><td class="it" onclick="speak('auto blu')">l'auto blu (f.)</td><td>公家车（政府用车）</td></tr>
+    <tr><td class="it" onclick="speak('miracolo italiano')">il miracolo italiano</td><td>意大利经济奇迹</td></tr>
+    <tr><td class="it" onclick="speak('baciamo le mani')">baciamo le mani</td><td>（西西里）吻手礼/效忠表达</td></tr>
+    <tr><td class="it" onclick="speak('italiano medio')">l'italiano medio</td><td>普通意大利人</td></tr>
+    <tr><td class="it" onclick="speak('stilista')">il/la stilista</td><td>时装设计师</td></tr>
+    <tr><td class="it" onclick="speak('intensità')">l'intensità (f.)</td><td>强度</td></tr>
+    <tr><td class="it" onclick="speak('sfumatura')">la sfumatura</td><td>细微差别</td></tr>
+    <tr><td class="it" onclick="speak('enfasi')">l'enfasi (f.)</td><td>强调</td></tr>
+    <tr><td class="it" onclick="speak('tonalità')">la tonalità</td><td>语调</td></tr>
+    <tr><td class="it" onclick="speak('tabù')">il tabù</td><td>禁忌</td></tr>
+    <tr><td class="it" onclick="speak('creatività')">la creatività</td><td>创造力</td></tr>
+    <tr><td class="it" onclick="speak('spontaneo')">spontaneo/a</td><td>自发的</td></tr>
+  </table>
+
+  <h3>&#x1F4AC; 习语和表达 (Espressioni idiomatiche)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>含义</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('a crepapelle')">a crepapelle</td><td>ridere tantissimo</td><td>笑破肚皮</td></tr>
+    <tr><td class="it" onclick="speak('morire dal ridere')">morire dal ridere</td><td>ridere moltissimo</td><td>笑死了</td></tr>
+    <tr><td class="it" onclick="speak('non avere peli sulla lingua')">non avere peli sulla lingua</td><td>dire tutto liberamente</td><td>直言不讳</td></tr>
+    <tr><td class="it" onclick="speak('prendere in giro')">prendere in giro</td><td>deridere scherzosamente</td><td>开玩笑，取笑</td></tr>
+    <tr><td class="it" onclick="speak('farsi una risata')">farsi una risata</td><td>ridere di qualcosa</td><td>笑一笑</td></tr>
+    <tr><td class="it" onclick="speak('scherzo a parte')">scherzo a parte</td><td>seriamente</td><td>说正经的</td></tr>
+    <tr><td class="it" onclick="speak('mi raccomando')">mi raccomando</td><td>ti prego di fare attenzione</td><td>拜托了/请务必</td></tr>
+    <tr><td class="it" onclick="speak('stammi bene')">stammi bene</td><td>abbi cura di te</td><td>保重</td></tr>
+    <tr><td class="it" onclick="speak('eccoti')">eccoti</td><td>qui hai</td><td>给你</td></tr>
+    <tr><td class="it" onclick="speak('che mi combini?')">che mi combini?</td><td>cosa stai facendo?</td><td>你在搞什么？</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Pure e anzi -->
+  <h3>1. 副词 "pure" 和 "anzi" — Gli avverbi "pure" e "anzi"</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">"pure"和"anzi"是C2级别重要的副词，用法丰富，可以表达多种语气。</p>
+    <p style="font-weight:600;margin:14px 0 6px;">pure 的用法</p>
+    <table>
+      <tr><th>用法</th><th>说明</th><th>例句</th></tr>
+      <tr><td><span class="verb">Anche</span></td><td>也，同样</td><td><span class="it" onclick="speak('Sarà brutto tempo oggi, domani e pure domenica.')">Sarà brutto tempo oggi, domani e <span class="verb">pure</span> domenica.</span></td></tr>
+      <tr><td><span class="verb">Anche se + gerundio (pur)</span></td><td>即使（后跟副动词）</td><td><span class="it" onclick="speak('Pur ammettendo che abbia ragione, non farò come dice.')"><span class="verb">Pur</span> ammettendo che abbia ragione, non farò come dice.</span></td></tr>
+      <tr><td><span class="verb">Esortazione / concessione forzata</span></td><td>勉强同意/鼓励</td><td><span class="it" onclick="speak('Andiamo pure, ma dobbiamo tornare presto.')">Andiamo <span class="verb">pure</span>, ma dobbiamo tornare presto.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">anzi 的用法</p>
+    <table>
+      <tr><th>用法</th><th>说明</th><th>例句</th></tr>
+      <tr><td><span class="verb">Modificare</span></td><td>修正前面的话</td><td><span class="it" onclick="speak('Ti scrivo un sms, anzi, ti telefono.')">Ti scrivo un sms, <span class="verb">anzi</span>, ti telefono.</span></td></tr>
+      <tr><td><span class="verb">Rafforzare</span></td><td>加强</td><td><span class="it" onclick="speak('Hai fatto male, anzi, malissimo!')">Hai fatto male, <span class="verb">anzi</span>, malissimo!</span></td></tr>
+      <tr><td><span class="verb">Esclamazione</span></td><td>感叹（恰恰相反）</td><td><span class="it" onclick="speak('Nessun disturbo. Anzi! Mi fa piacere!')">Nessun disturbo. <span class="verb">Anzi!</span> Mi fa piacere!</span></td></tr>
+      <tr><td><span class="verb">Contrapposizione</span></td><td>对比</td><td><span class="it" onclick="speak('Non è stupido, anzi, è molto intelligente.')">Non è stupido, <span class="verb">anzi</span>, è molto intelligente.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>意大利语</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Vengo pure io alla festa.')">Vengo <span class="verb">pure</span> io alla festa.</span></td><td>我也去派对。</td></tr>
+      <tr><td><span class="it" onclick="speak('Pur essendo stanco, è venuto alla riunione.')"><span class="verb">Pur</span> essendo stanco, è venuto alla riunione.</span></td><td>尽管累了，他还是来开会了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Fai pure come credi.')">Fai <span class="verb">pure</span> come credi.</span></td><td>你就按你的想法做吧。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non è antipatico, anzi, è molto simpatico.')">Non è antipatico, <span class="verb">anzi</span>, è molto simpatico.</span></td><td>他不讨厌，恰恰相反，他非常友善。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ti accompagno a casa, anzi, ti offro anche un caffè.')">Ti accompagno a casa, <span class="verb">anzi</span>, ti offro anche un caffè.</span></td><td>我送你回家，不仅如此，我还请你喝杯咖啡。</td></tr>
+      <tr><td><span class="it" onclick="speak('Anzi! Tutto il contrario!')"><span class="verb">Anzi!</span> Tutto il contrario!</span></td><td>恰恰相反！完全相反！</td></tr>
+      <tr><td><span class="it" onclick="speak('Pure ammettendo che sia vero, non cambia niente.')"><span class="verb">Pure</span> ammettendo che sia vero, non cambia niente.</span></td><td>即使承认这是真的，也改变不了什么。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dimmelo pure, non ti vergognare.')">Dimmelo <span class="verb">pure</span>, non ti vergognare.</span></td><td>尽管告诉我，别害羞。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non solo non mi ha aiutato, anzi, mi ha creato problemi.')">Non solo non mi ha aiutato, <span class="verb">anzi</span>, mi ha creato problemi.</span></td><td>他不仅没有帮我，反而给我制造了麻烦。</td></tr>
+      <tr><td><span class="it" onclick="speak('Anzi, scusa, volevo dire un\'altra cosa.')"><span class="verb">Anzi</span>, scusa, volevo dire un'altra cosa.</span></td><td>哦不，抱歉，我想说的是另一件事。</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Connettivi -->
+  <h3>2. 连接词 — I Connettivi</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">连接词是将话语的不同部分连接起来的词或表达，C2级别要求掌握多种类别的连接词。</p>
+    <table>
+      <tr><th>类别</th><th>连接词</th><th>例句</th></tr>
+      <tr><td><span class="verb">Aggiuntivi</span></td><td>e, anche, inoltre, pure, nonché</td><td><span class="it" onclick="speak('Ho comprato pane e latte, inoltre ho preso il burro.')">Ho comprato pane e latte, <span class="verb">inoltre</span> ho preso il burro.</span></td></tr>
+      <tr><td><span class="verb">Avversativi</span></td><td>ma, però, invece, anzi, tuttavia</td><td><span class="it" onclick="speak('Volevo uscire, ma piove.')">Volevo uscire, <span class="verb">ma</span> piove.</span></td></tr>
+      <tr><td><span class="verb">Concessivi</span></td><td>benché, sebbene, nonostante, pur</td><td><span class="it" onclick="speak('Benché stanco, ha finito il lavoro.')"><span class="verb">Benché</span> stanco, ha finito il lavoro.</span></td></tr>
+      <tr><td><span class="verb">Conclusivi</span></td><td>quindi, dunque, perciò, pertanto</td><td><span class="it" onclick="speak('Ho studiato, quindi sono preparato.')">Ho studiato, <span class="verb">quindi</span> sono preparato.</span></td></tr>
+      <tr><td><span class="verb">Dichiarativi</span></td><td>cioè, infatti, ossia, ovvero</td><td><span class="it" onclick="speak('È italiano, cioè di Roma.')">È italiano, <span class="verb">cioè</span> di Roma.</span></td></tr>
+      <tr><td><span class="verb">Temporali</span></td><td>quando, mentre, dopo, prima</td><td><span class="it" onclick="speak('Quando arrivi, chiamami.')"><span class="verb">Quando</span> arrivi, chiamami.</span></td></tr>
+      <tr><td><span class="verb">Causali</span></td><td>perché, poiché, siccome, dato che</td><td><span class="it" onclick="speak('Siccome piove, resto a casa.')"><span class="verb">Siccome</span> piove, resto a casa.</span></td></tr>
+      <tr><td><span class="verb">Finali</span></td><td>affinché, perché, in modo che</td><td><span class="it" onclick="speak('Studio affinché possa capire.')">Studio <span class="verb">affinché</span> possa capire.</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>意大利语</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Ha studiato molto nonché lavorato sodo.')">Ha studiato molto <span class="verb">nonché</span> lavorato sodo.</span></td><td>他努力学习并且努力工作。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non mi piace il calcio, tuttavia guarderò la partita con te.')">Non mi piace il calcio, <span class="verb">tuttavia</span> guarderò la partita con te.</span></td><td>我不喜欢足球，但还是会和你一起看比赛。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sembrava semplice, invece era molto complesso.')">Sembrava semplice, <span class="verb">invece</span> era molto complesso.</span></td><td>看起来简单，实际上却很复杂。</td></tr>
+      <tr><td><span class="it" onclick="speak('Non hai ragione, anzi, hai torto marcio.')">Non hai ragione, <span class="verb">anzi</span>, hai torto marcio.</span></td><td>你没道理，恰恰相反，你大错特错。</td></tr>
+      <tr><td><span class="it" onclick="speak('Piove a dirotto, pertanto rimandiamo la gita.')">Piove a dirotto, <span class="verb">pertanto</span> rimandiamo la gita.</span></td><td>下着倾盆大雨，因此我们推迟远足。</td></tr>
+      <tr><td><span class="it" onclick="speak('È un medico, ossia una persona che cura i malati.')">È un medico, <span class="verb">ossia</span> una persona che cura i malati.</span></td><td>他是医生，即治疗病人的人。</td></tr>
+      <tr><td><span class="it" onclick="speak('Dato che sei qui, possiamo parlare.')"><span class="verb">Dato che</span> sei qui, possiamo parlare.</span></td><td>既然你在这里，我们可以谈谈。</td></tr>
+      <tr><td><span class="it" onclick="speak('Affinché tu capisca, ti farò un esempio.')"><span class="verb">Affinché</span> tu capisca, ti farò un esempio.</span></td><td>为了让你理解，我给你举个例子。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ho fame, perciò vado a mangiare.')">Ho fame, <span class="verb">perciò</span> vado a mangiare.</span></td><td>我饿了，所以我去吃饭。</td></tr>
+      <tr><td><span class="it" onclick="speak('Sebbene piovesse, siamo usciti lo stesso.')"><span class="verb">Sebbene</span> piovesse, siamo usciti lo stesso.</span></td><td>尽管下雨了，我们还是出去了。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Dativo etico -->
+  <h3>3. 感情代词（与格伦理）— Il pronome affettivo (dativo etico)</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">与格伦理是一种冗余的间接宾语代词（删除后不改变语法性或意义），用于表达情感参与。</p>
+    <table>
+      <tr><th>代词</th><th>功能</th><th>例句</th></tr>
+      <tr><td><span class="verb">mi / ci</span></td><td>表达说话者的关心/兴趣</td><td><span class="it" onclick="speak('Che mi combini? Stammi bene.')">"Che <span class="verb">mi</span> combini? <span class="verb">Stammi</span> bene."</span></td></tr>
+      <tr><td><span class="verb">ti / vi</span></td><td>让听话者参与</td><td><span class="it" onclick="speak('All\'arrivo chi ti incontro?')">"All'arrivo chi <span class="verb">ti</span> incontro?"</span></td></tr>
+      <tr><td><span class="verb">gli / le</span></td><td>用于谈论孩子/宠物</td><td><span class="it" onclick="speak('Giulia non le cresce tanto.')">"Giulia non <span class="verb">le</span> cresce tanto."</span></td></tr>
+      <tr><td><span class="verb">Con ecco</span></td><td>与ecco连用</td><td><span class="it" onclick="speak('Eccoti le chiavi!')">"<span class="verb">Eccoti</span> le chiavi!"</span></td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>意大利语</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Stammi bene, e non fare sciocchezze!')"><span class="verb">Stammi</span> bene, e non fare sciocchezze!</span></td><td>好好保重，别做傻事！</td></tr>
+      <tr><td><span class="it" onclick="speak('Che mi combini di bello?')">Che <span class="verb">mi</span> combini di bello?</span></td><td>你在搞什么名堂？</td></tr>
+      <tr><td><span class="it" onclick="speak('Alla festa, chi ti vedo? Maria con un altro!')">Alla festa, chi <span class="verb">ti</span> vedo? Maria con un altro!</span></td><td>在派对上，你猜我看见谁了？Maria和别人在一起！</td></tr>
+      <tr><td><span class="it" onclick="speak('Il bambino non mi mangia niente.')">Il bambino non <span class="verb">mi</span> mangia niente.</span></td><td>这孩子（我的）什么都不吃。</td></tr>
+      <tr><td><span class="it" onclick="speak('Eccoti il libro che cercavi.')"><span class="verb">Eccoti</span> il libro che cercavi.</span></td><td>给你你要找的书。</td></tr>
+      <tr><td><span class="it" onclick="speak('Come ti è andata?')">Come <span class="verb">ti</span> è andata?</span></td><td>（你）怎么样了？</td></tr>
+      <tr><td><span class="it" onclick="speak('La nonna le vuole tanto bene al nipotino.')">La nonna <span class="verb">le</span> vuole tanto bene al nipotino.</span></td><td>奶奶非常爱小孙子。</td></tr>
+      <tr><td><span class="it" onclick="speak('Eccovi serviti!')"><span class="verb">Eccovi</span> serviti!</span></td><td>（给你们）上菜了！</td></tr>
+      <tr><td><span class="it" onclick="speak('Eccotele finalmente!')"><span class="verb">Eccotele</span> finalmente!</span></td><td>终于给你了！（ecco + ti + le）</td></tr>
+      <tr><td><span class="it" onclick="speak('Che ci fai qui a quest\'ora?')">Che <span class="verb">ci</span> fai qui a quest'ora?</span></td><td>这个时间你在这里干什么？</td></tr>
+    </table>
+  </div>
+
+  <!-- 4. Riflessivo -->
+  <h3>4. 反身代词与所属关系 — Il riflessivo e il possesso</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">在提到身体部位或紧密接触的物体时，使用反身代词+定冠词，而不是物主形容词。</p>
+    <table>
+      <tr><th>正确</th><th>错误</th><th>中文</th></tr>
+      <tr><td><span class="verb">Si è sporcato la giacca.</span></td><td>_Ha sporcato la sua giacca_</td><td>他弄脏了自己的夹克。</td></tr>
+      <tr><td><span class="verb">Mi sono pettinata i capelli.</span></td><td>_Ho pettinato i miei capelli_</td><td>我梳了头发。</td></tr>
+      <tr><td><span class="verb">Si è rotto il braccio.</span></td><td>_Ha rotto il suo braccio_</td><td>他摔断了胳膊。</td></tr>
+      <tr><td><span class="verb">Mi sono lavato le mani.</span></td><td>_Ho lavato le mie mani_</td><td>我洗了手。</td></tr>
+      <tr><td><span class="verb">Ti sei tagliato il dito?</span></td><td>_Hai tagliato il tuo dito?_</td><td>你切到手指了吗？</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">完整例句</p>
+    <table>
+      <tr><th>意大利语</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Si è messa il cappotto ed è uscita.')"><span class="verb">Si</span> è messa <span class="verb">il</span> cappotto ed è uscita.</span></td><td>她穿上大衣出去了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mi sono rotta gli occhiali.')"><span class="verb">Mi</span> sono rotta <span class="verb">gli</span> occhiali.</span></td><td>我把眼镜摔坏了。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ti sei fatta male al ginocchio?')"><span class="verb">Ti</span> sei fatta male <span class="verb">al</span> ginocchio?</span></td><td>你伤到膝盖了吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Ci siamo tolti le scarpe.')"><span class="verb">Ci</span> siamo tolti <span class="verb">le</span> scarpe.</span></td><td>我们脱了鞋。</td></tr>
+      <tr><td><span class="it" onclick="speak('Vi siete dipinti il viso.')"><span class="verb">Vi</span> siete dipinti <span class="verb">il</span> viso.</span></td><td>你们在脸上画了画。</td></tr>
+      <tr><td><span class="it" onclick="speak('Si è lavata i denti dopo cena.')"><span class="verb">Si</span> è lavata <span class="verb">i</span> denti dopo cena.</span></td><td>她晚饭后刷了牙。</td></tr>
+      <tr><td><span class="it" onclick="speak('Mi sono stirato il muscolo.')"><span class="verb">Mi</span> sono stirato <span class="verb">il</span> muscolo.</span></td><td>我拉伤了肌肉。</td></tr>
+      <tr><td><span class="it" onclick="speak('Ti sei bruciato la lingua?')"><span class="verb">Ti</span> sei bruciato <span class="verb">la</span> lingua?</span></td><td>你烫到舌头了吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Si è messo gli occhiali da sole.')"><span class="verb">Si</span> è messo <span class="verb">gli</span> occhiali da sole.</span></td><td>他戴上了太阳镜。</td></tr>
+      <tr><td><span class="it" onclick="speak('Lei si è pettinata i capelli con cura.')">Lei <span class="verb">si</span> è pettinata <span class="verb">i</span> capelli con cura.</span></td><td>她仔细地梳了头发。</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 5 — A crepapelle · p.71</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频探讨意大利幽默文化、刻板印象、以及语言中表达情感和强度的方式。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Pre-viewing — 观看前活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Quali stereotipi sugli italiani conosci?')">1. Quali stereotipi sugli italiani conosci?</span></td><td class="zh">你知道哪些关于意大利人的刻板印象？</td></tr>
+    <tr><td><span class="it" onclick="speak('Secondo te, l\'umorismo italiano è diverso da quello cinese?')">2. Secondo te, l'umorismo italiano è diverso da quello cinese?</span></td><td class="zh">你认为意大利幽默和中式幽默不同吗？</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">While-viewing — 观看中活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Segna gli stereotipi menzionati nel video.')">1. Segna gli stereotipi menzionati nel video.</span></td><td class="zh">标记视频中提到的刻板印象。</td></tr>
+    <tr><td><span class="it" onclick="speak('Identifica gli usi di pure e anzi nel parlato.')">2. Identifica gli usi di pure e anzi nel parlato.</span></td><td class="zh">识别口语中pure和anzi的用法。</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">Post-viewing — 观看后活动:</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Scrivi un breve testo umoristico su un tema culturale.')">1. Scrivi un breve testo umoristico su un tema culturale.</span></td><td class="zh">写一篇关于文化主题的幽默短文。</td></tr>
+    <tr><td><span class="it" onclick="speak('Discuti: l\'umorismo può essere offensivo? Dove sta il limite?')">2. Discuti: l'umorismo può essere offensivo? Dove sta il limite?</span></td><td class="zh">讨论：幽默可以是冒犯的吗？界限在哪里？</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; 角色扮演：用感情代词模拟亲密对话（Che mi combini? Stammi bene!）<br>
+    &bull; 用pure和anzi替换普通表达，增强语气<br>
+    &bull; 用不同类别的连接词写一段议论文字<br>
+    &bull; 用反身代词+定冠词描述日常动作（Mi sono lavato le mani...）
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-4.html" class="home-btn">&larr; Precedente</a>
+  <a href="index.html">Torna al corso</a>
+  <a href="unita-6.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 6</div>
+  <p>Corso di lingua italiana per stranieri · Livello C2</p>
+  <p style="margin-top:8px;opacity:0.6;">Ornella Discacciati · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

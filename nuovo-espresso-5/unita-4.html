@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unità 4 · La grande bellezza · NUOVO Espresso 5</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .dialog-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .dialog-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+    .dialog-table tr:last-child td { border-bottom: none; }
+    .dialog-table tr:nth-child(even) td { background: rgba(254,249,231,0.4); }
+    .dialog-table tr:hover td { background: rgba(254,249,231,0.8); }
+    .dialog-table .it { font-weight: 600; cursor: pointer; border-bottom: 1px dashed #ddd; color: var(--ne-dark); transition: all 0.2s; }
+    .dialog-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .dialog-table .zh { color: var(--ne-muted); font-size: 13px; font-style: italic; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin: 12px 0 5px; font-size: 14px; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .vocab-table th { background: linear-gradient(135deg, var(--ne-light-blue), #D6EAF8); color: var(--ne-blue); padding: 9px 14px; font-weight: 700; font-size: 12px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+    .vocab-table td { padding: 8px 14px; border-bottom: 1px solid var(--border-light); }
+    .vocab-table tr:last-child td { border-bottom: none; }
+    .vocab-table tr:nth-child(even) td { background: rgba(212,230,241,0.15); }
+    .vocab-table .it { cursor: pointer; border-bottom: 1px dashed #ddd; font-weight: 600; transition: all 0.2s; }
+    .vocab-table .it:hover { background: #fff3cd; color: var(--ne-red); }
+    .grammar-box { background: linear-gradient(135deg, #FFF 0%, #FAF8F5 100%); border: 1px solid var(--border-light); border-radius: 14px; padding: 18px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(0,0,0,0.05); position: relative; overflow: hidden; }
+    .grammar-box::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 14px 0 0 14px; }
+    .grammar-box table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 8px 0; }
+    .grammar-box th { background: linear-gradient(135deg, rgba(254,249,231,0.8), rgba(253,235,208,0.4)); padding: 8px 12px; font-weight: 700; font-size: 12px; text-align: left; border-bottom: 2px solid var(--ne-gold-dark); color: var(--ne-blue); }
+    .grammar-box td { padding: 8px 12px; border-bottom: 1px solid var(--border-light); }
+    .grammar-box tr:last-child td { border-bottom: none; }
+    .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
+    .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
+    .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 5 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C1</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Unità 4 · C1</div>
+  <h1>&#x1F3DB;&#xFE0F; La grande bellezza</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">绝美之城 · p.41-52</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">讽刺 · 表达情感/命令/让步/祝愿/怀疑 · 高级形容词 · 独立句中虚拟式 · 现在/过去分词 · 形容词bello</p>
+</section>
+
+<!-- Dialoghi -->
+<section class="page-section" id="dialoghi">
+  <h2>&#x1F4AC; Dialoghi · 核心对话</h2>
+
+  <!-- Dialogo 1: Che spettacolo! -->
+  <h3>1. Che spettacolo! · p.41-42</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">两位朋友参观罗马后讨论所见所感。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Allora, che ne pensi di Roma?')"><strong>Marco:</strong> Allora, che ne pensi di Roma?</span></td><td class="zh"><strong>马可：</strong> 那么，你觉得罗马怎么样？</td></tr>
+    <tr><td><span class="it" onclick="speak('Che meraviglia! È la città più bella del mondo. Viva Roma!')"><strong>Giulia:</strong> Che meraviglia! È la città più bella del mondo. Viva Roma!</span></td><td class="zh"><strong>朱莉亚：</strong> 太美了！这是世界上最美的城市。罗马万岁！</td></tr>
+    <tr><td><span class="it" onclick="speak('Eh, la grande bellezza! Che sia benedetta questa città!')"><strong>Marco:</strong> Eh, la grande bellezza! Che sia benedetta questa città!</span></td><td class="zh"><strong>马可：</strong> 嗯，绝美之城！愿这座城市被保佑！</td></tr>
+    <tr><td><span class="it" onclick="speak('Ieri ho visitato i Musei Vaticani. Che capolavori! Pensare che ci sono voluti 150 anni per costruire San Pietro...')"><strong>Giulia:</strong> Ieri ho visitato i Musei Vaticani. Che capolavori! Pensare che ci sono voluti 150 anni per costruire San Pietro...</span></td><td class="zh"><strong>朱莉亚：</strong> 昨天我参观了梵蒂冈博物馆。那些杰作啊！想想看，建造圣彼得大教堂花了150年……</td></tr>
+    <tr><td><span class="it" onclick="speak('Incredibile. Che diresti della Cappella Sistina?')"><strong>Marco:</strong> Incredibile. Che diresti della Cappella Sistina?</span></td><td class="zh"><strong>马可：</strong> 难以置信。你觉得西斯廷教堂怎么样？</td></tr>
+    <tr><td><span class="it" onclick="speak('Ma che spettacolo! Michelangelo era un genio. Volesse il cielo che potessi tornare a vederla domani.')"><strong>Giulia:</strong> Ma che spettacolo! Michelangelo era un genio. Volesse il cielo che potessi tornare a vederla domani.</span></td><td class="zh"><strong>朱莉亚：</strong> 太壮观了！米开朗基罗是个天才。真希望明天能再去看一次。</td></tr>
+    <tr><td><span class="it" onclick="speak('Magari! Ma dobbiamo partire. Comunque, che ne diresti di un giro a Trastevere stasera?')"><strong>Marco:</strong> Magari! Ma dobbiamo partire. Comunque, che ne diresti di un giro a Trastevere stasera?</span></td><td class="zh"><strong>马可：</strong> 真希望可以！但我们必须走了。不过，今晚去特拉斯提弗列逛逛怎么样？</td></tr>
+    <tr><td><span class="it" onclick="speak('D\'accordo! Sia fatta la tua volontà!')"><strong>Giulia:</strong> D'accordo! Sia fatta la tua volontà!</span></td><td class="zh"><strong>朱莉亚：</strong> 好！就依你！</td></tr>
+  </table>
+
+  <!-- Dialogo 2: Che ironia! -->
+  <h3>2. Che ironia! · p.43-44</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">朋友之间讨论社交媒体上的"完美生活"展示。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Hai visto le foto di Sara su Instagram? Sempre al ristorante, sempre felice... Che vita perfetta!')"><strong>Anna:</strong> Hai visto le foto di Sara su Instagram? Sempre al ristorante, sempre felice... Che vita perfetta!</span></td><td class="zh"><strong>安娜：</strong> 你看到萨拉在Instagram上的照片了吗？总是在餐厅，总是很开心……多完美的生活啊！</td></tr>
+    <tr><td><span class="it" onclick="speak('Ma che vita perfetta! Sarà mica tutto oro quello che luccica!')"><strong>Luca:</strong> Ma che vita perfetta! Sarà mica tutto oro quello che luccica!</span></td><td class="zh"><strong>卢卡：</strong> 什么完美生活啊！闪闪发光的不一定都是金子！</td></tr>
+    <tr><td><span class="it" onclick="speak('Certo, chissà che dietro quelle foto non ci sia tanta solitudine.')"><strong>Anna:</strong> Certo, chissà che dietro quelle foto non ci sia tanta solitudine.</span></td><td class="zh"><strong>安娜：</strong> 当然，谁知道那些照片背后没有很多孤独呢。</td></tr>
+    <tr><td><span class="it" onclick="speak('Che sia un modo per sentirsi accettati? Forse che abbia bisogno di conferme?')"><strong>Luca:</strong> Che sia un modo per sentirsi accettati? Forse che abbia bisogno di conferme?</span></td><td class="zh"><strong>卢卡：</strong> 也许这是一种寻求被接受的方式？或许她需要肯定？</td></tr>
+    <tr><td><span class="it" onclick="speak('Mah, chi lo sa. Comunque sia, a me non piace mostrare tutto della mia vita.')"><strong>Anna:</strong> Mah, chi lo sa. Comunque sia, a me non piace mostrare tutto della mia vita.</span></td><td class="zh"><strong>安娜：</strong> 嗯，谁知道呢。不管怎样，我不喜欢展示生活的全部。</td></tr>
+    <tr><td><span class="it" onclick="speak('Giusto. Pensa un po\' — la gente passa ore a cercare lo scatto perfetto. Che tristezza!')"><strong>Luca:</strong> Giusto. Pensa un po' — la gente passa ore a cercare lo scatto perfetto. Che tristezza!</span></td><td class="zh"><strong>卢卡：</strong> 没错。你想想——人们花几个小时找完美的角度。多么悲哀啊！</td></tr>
+    <tr><td><span class="it" onclick="speak('Sia come sia, ognuno fa ciò che vuole. Ma Dio volesse che la gente fosse più autentica.')"><strong>Anna:</strong> Sia come sia, ognuno fa ciò che vuole. Ma Dio volesse che la gente fosse più autentica.</span></td><td class="zh"><strong>安娜：</strong> 不管怎样，各人做自己想做的事。但上帝啊，真希望人们更真实一些。</td></tr>
+    <tr><td><span class="it" onclick="speak('Amen! Brindiamo a questo!')"><strong>Luca:</strong> Amen! Brindiamo a questo!</span></td><td class="zh"><strong>卢卡：</strong> 阿门！为此干杯！</td></tr>
+  </table>
+
+  <!-- Dialogo 3: Descrizioni ricercate -->
+  <h3>3. Descrizioni ricercate · p.45-46</h3>
+  <p style="font-size:13px;color:var(--ne-muted);margin-bottom:8px;">艺术评论家和朋友在美术馆交谈。</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Osserva questo dipinto. Una vibrante esplosione di colori, un\'affascinante composizione.')"><strong>Critico:</strong> Osserva questo dipinto. Una vibrante esplosione di colori, un'affascinante composizione.</span></td><td class="zh"><strong>评论家：</strong> 观察这幅画。充满活力的色彩爆发，迷人的构图。</td></tr>
+    <tr><td><span class="it" onclick="speak('Affascinante dici? A me sembra un guazzabuglio di colori senza senso.')"><strong>Amico:</strong> Affascinante dici? A me sembra un guazzabuglio di colori senza senso.</span></td><td class="zh"><strong>朋友：</strong> 你说迷人？我觉得就是一团乱七八糟的颜色，毫无意义。</td></tr>
+    <tr><td><span class="it" onclick="speak('Non capisci! Quest\'opera è un capolavoro dell\'arte contemporanea. Affascinante nella sua complessità.')"><strong>Critico:</strong> Non capisci! Quest'opera è un capolavoro dell'arte contemporanea. Affascinante nella sua complessità.</span></td><td class="zh"><strong>评论家：</strong> 你不懂！这件作品是当代艺术的杰作。它的复杂性令人着迷。</td></tr>
+    <tr><td><span class="it" onclick="speak('Vedendo questo quadro, mi vengono i brividi... ma non di emozione! Sarà mica che l\'artista voleva prenderci in giro?')"><strong>Amico:</strong> Vedendo questo quadro, mi vengono i brividi... ma non di emozione! Sarà mica che l'artista voleva prenderci in giro?</span></td><td class="zh"><strong>朋友：</strong> 看到这幅画，我起鸡皮疙瘩了……但不是因为感动！艺术家该不会是在戏弄我们吧？</td></tr>
+    <tr><td><span class="it" onclick="speak('Detto questo, non si può negare che l\'artista avendo studiato a Brera, conosca la tecnica.')"><strong>Critico:</strong> Detto questo, non si può negare che l'artista avendo studiato a Brera, conosca la tecnica.</span></td><td class="zh"><strong>评论家：</strong> 话虽如此，不可否认这位艺术家曾在布雷拉美术学院学习，懂得技法。</td></tr>
+    <tr><td><span class="it" onclick="speak('Boh, a me rimane incomprensibile. Però, bello o brutto, ognuno ha i suoi gusti.')"><strong>Amico:</strong> Boh, a me rimane incomprensibile. Però, bello o brutto, ognuno ha i suoi gusti.</span></td><td class="zh"><strong>朋友：</strong> 嗯，对我来说还是难以理解。不过，美也好丑也好，各有所好吧。</td></tr>
+    <tr><td><span class="it" onclick="speak('Hai ragione. Fatta questa premessa, non discuto oltre.')"><strong>Critico:</strong> Hai ragione. Fatta questa premessa, non discuto oltre.</span></td><td class="zh"><strong>评论家：</strong> 你说得对。既然前提如此，我不再争论了。</td></tr>
+  </table>
+</section>
+
+<!-- Vocabolario -->
+<section class="page-section" id="vocabolario">
+  <h2 class="vocab-heading">&#x1F4D6; Vocabolario · 词汇表</h2>
+
+  <h3>&#x1F3A8; 核心词汇 (Lessico fondamentale)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('la bellezza')">la bellezza</td><td>美丽，美好</td></tr>
+    <tr><td class="it" onclick="speak('la meraviglia')">la meraviglia</td><td>奇迹，惊叹</td></tr>
+    <tr><td class="it" onclick="speak('il capolavoro')">il capolavoro</td><td>杰作</td></tr>
+    <tr><td class="it" onclick="speak('l\'opera d\'arte')">l'opera d'arte (f.)</td><td>艺术作品</td></tr>
+    <tr><td class="it" onclick="speak('il dipinto')">il dipinto</td><td>绘画</td></tr>
+    <tr><td class="it" onclick="speak('la composizione')">la composizione</td><td>构图，组成</td></tr>
+    <tr><td class="it" onclick="speak('l\'esplosione')">l'esplosione (f.)</td><td>爆发，迸发</td></tr>
+    <tr><td class="it" onclick="speak('vibrante')">vibrante</td><td>充满活力的，振动的</td></tr>
+    <tr><td class="it" onclick="speak('affascinante')">affascinante</td><td>迷人的，令人着迷的</td></tr>
+    <tr><td class="it" onclick="speak('incomprensibile')">incomprensibile</td><td>不可理解的</td></tr>
+    <tr><td class="it" onclick="speak('il guazzabuglio')">il guazzabuglio</td><td>混乱，一团糟</td></tr>
+    <tr><td class="it" onclick="speak('la complessità')">la complessità</td><td>复杂性</td></tr>
+    <tr><td class="it" onclick="speak('l\'ironia')">l'ironia (f.)</td><td>讽刺，反讽</td></tr>
+    <tr><td class="it" onclick="speak('autentico/a')">autentico/a</td><td>真实的，原真的</td></tr>
+    <tr><td class="it" onclick="speak('l\'emozione')">l'emozione (f.)</td><td>情感，感动</td></tr>
+    <tr><td class="it" onclick="speak('la solitudine')">la solitudine</td><td>孤独</td></tr>
+    <tr><td class="it" onclick="speak('la conferma')">la conferma</td><td>确认，肯定</td></tr>
+    <tr><td class="it" onclick="speak('lo scatto')">lo scatto</td><td>快门，照片</td></tr>
+    <tr><td class="it" onclick="speak('il brivido')">il brivido</td><td>战栗，寒战</td></tr>
+    <tr><td class="it" onclick="speak('genuino/a')">genuino/a</td><td>真诚的，纯正的</td></tr>
+    <tr><td class="it" onclick="speak('sublime')">sublime</td><td>崇高的，卓越的</td></tr>
+    <tr><td class="it" onclick="speak('magnifico/a')">magnifico/a</td><td>壮丽的，宏伟的</td></tr>
+    <tr><td class="it" onclick="speak('elegante')">elegante</td><td>优雅的</td></tr>
+    <tr><td class="it" onclick="speak('raffinato/a')">raffinato/a</td><td>精致的，高雅的</td></tr>
+    <tr><td class="it" onclick="speak('volgare')">volgare</td><td>粗俗的</td></tr>
+    <tr><td class="it" onclick="speak('banale')">banale</td><td>平庸的，陈腐的</td></tr>
+    <tr><td class="it" onclick="speak('scontato/a')">scontato/a</td><td>老套的，平淡无奇的</td></tr>
+    <tr><td class="it" onclick="speak('originale')">originale</td><td>原创的，独特的</td></tr>
+    <tr><td class="it" onclick="speak('l\'ammirazione')">l'ammirazione (f.)</td><td>钦佩，赞赏</td></tr>
+    <tr><td class="it" onclick="speak('il disgusto')">il disgusto</td><td>厌恶，反感</td></tr>
+    <tr><td class="it" onclick="speak('l\'estetica')">l'estetica (f.)</td><td>美学</td></tr>
+    <tr><td class="it" onclick="speak('il significato')">il significato</td><td>含义，意义</td></tr>
+    <tr><td class="it" onclick="speak('l\'interpretazione')">l'interpretazione (f.)</td><td>解读，阐释</td></tr>
+    <tr><td class="it" onclick="speak('la prospettiva')">la prospettiva</td><td>视角，透视</td></tr>
+    <tr><td class="it" onclick="speak('la mostra')">la mostra</td><td>展览</td></tr>
+    <tr><td class="it" onclick="speak('la galleria')">la galleria</td><td>画廊，美术馆</td></tr>
+    <tr><td class="it" onclick="speak('il museo')">il museo</td><td>博物馆</td></tr>
+    <tr><td class="it" onclick="speak('l\'architettura')">l'architettura (f.)</td><td>建筑</td></tr>
+    <tr><td class="it" onclick="speak('la scultura')">la scultura</td><td>雕塑</td></tr>
+    <tr><td class="it" onclick="speak('la fotografia')">la fotografia</td><td>摄影</td></tr>
+    <tr><td class="it" onclick="speak('l\'artista')">l'artista (m./f.)</td><td>艺术家</td></tr>
+    <tr><td class="it" onclick="speak('il/la pittore/trice')">il/la pittore/trice</td><td>画家</td></tr>
+    <tr><td class="it" onclick="speak('lo/la scultore/trice')">lo/la scultore/trice</td><td>雕塑家</td></tr>
+    <tr><td class="it" onclick="speak('il mecenate')">il mecenate</td><td>赞助人</td></tr>
+    <tr><td class="it" onclick="speak('il colore')">il colore</td><td>颜色</td></tr>
+    <tr><td class="it" onclick="speak('la luce')">la luce</td><td>光</td></tr>
+    <tr><td class="it" onclick="speak('l\'ombra')">l'ombra</td><td>影子，阴影</td></tr>
+    <tr><td class="it" onclick="speak('il contrasto')">il contrasto</td><td>对比，反差</td></tr>
+  </table>
+
+  <h3>&#x1F4AC; 习语和表达 (Espressioni idiomatiche)</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>含义</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('La grande bellezza')">La grande bellezza</td><td>Riferimento al film di Sorrentino / a Roma</td><td>绝美之城（索伦蒂诺电影/罗马）</td></tr>
+    <tr><td class="it" onclick="speak('Viva...!')">Viva...!</td><td>Esclamazione di acclamazione</td><td>……万岁！</td></tr>
+    <tr><td class="it" onclick="speak('Volesse il cielo che...')">Volesse il cielo che...</td><td>Esprime un desiderio forte</td><td>但愿……/真希望……</td></tr>
+    <tr><td class="it" onclick="speak('Dio volesse che...')">Dio volesse che...</td><td>Esprime un desiderio impossibile</td><td>上帝保佑……</td></tr>
+    <tr><td class="it" onclick="speak('Che sia benedetto/a!')">Che sia benedetto/a!</td><td>Benedizione</td><td>愿被保佑！</td></tr>
+    <tr><td class="it" onclick="speak('Magari!')">Magari!</td><td>Se solo fosse vero!</td><td>但愿如此！/真希望！</td></tr>
+    <tr><td class="it" onclick="speak('Sia fatta la tua volontà')">Sia fatta la tua volontà</td><td>Dal Padre Nostro</td><td>愿你的旨意实现</td></tr>
+    <tr><td class="it" onclick="speak('Comunque sia')">Comunque sia</td><td>In ogni caso</td><td>不管怎样</td></tr>
+    <tr><td class="it" onclick="speak('Sia come sia')">Sia come sia</td><td>Comunque vada</td><td>无论如何</td></tr>
+    <tr><td class="it" onclick="speak('Pensa un po\'!')">Pensa un po'!</td><td>Esprime stupore</td><td>你想想！</td></tr>
+    <tr><td class="it" onclick="speak('Mah, chi lo sa')">Mah, chi lo sa</td><td>Esprime incertezza</td><td>嗯，谁知道呢</td></tr>
+    <tr><td class="it" onclick="speak('Chissà che...')">Chissà che...</td><td>Forse... / non si sa</td><td>谁知道……/也许……</td></tr>
+    <tr><td class="it" onclick="speak('Non è tutto oro quello che luccica')">Non è tutto oro quello che luccica</td><td>Proverbio</td><td>闪光的不都是金子</td></tr>
+    <tr><td class="it" onclick="speak('Detto questo...')">Detto questo...</td><td>Ciò premesso...</td><td>话虽如此……</td></tr>
+    <tr><td class="it" onclick="speak('Fatta questa premessa...')">Fatta questa premessa...</td><td>Premesso ciò...</td><td>有了这个前提……</td></tr>
+  </table>
+</section>
+
+<!-- Grammatica -->
+<section class="page-section" id="grammatica">
+  <h2>&#x1F4DA; Grammatica · 语法点</h2>
+
+  <!-- 1. Congiuntivo nelle frasi indipendenti -->
+  <h3>1. Il congiuntivo nelle frasi indipendenti（独立句中的虚拟式）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">虚拟式在独立句中表达愿望、命令、怀疑、假设等语气。</p>
+
+    <p style="font-weight:600;margin:14px 0 6px;">A. 祈愿虚拟式 (Congiuntivo esortativo) — 表达礼貌命令、建议、号召</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="verb">Viva</span> l'Italia!</td><td>意大利万岁！</td></tr>
+      <tr><td><span class="verb">Che sia</span> fatta la tua volontà.</td><td>愿你的旨意实现。</td></tr>
+      <tr><td><span class="verb">Che</span> Dio <span class="verb">benedica</span> l'Italia!</td><td>愿上帝保佑意大利！</td></tr>
+      <tr><td><span class="verb">Che tu possa</span> realizzare i tuoi sogni!</td><td>愿你能实现你的梦想！</td></tr>
+      <tr><td><span class="it" onclick="speak('Si accomodi, prego.')"><span class="verb">Si accomodi</span>, prego.</span></td><td>请坐，请便。</td></tr>
+    </table>
+
+    <p style="font-weight:600;margin:14px 0 6px;">B. 怀疑虚拟式 (Congiuntivo dubitativo) — 表达不确定、怀疑</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Che sia vero quello che dicono?')"><span class="verb">Che sia</span> vero quello che dicono?</span></td><td>他们说的是真的吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Chissà che non sia vero?')"><span class="verb">Chissà che</span> non <span class="verb">sia</span> vero?</span></td><td>谁知道是不是真的？</td></tr>
+      <tr><td><span class="it" onclick="speak('Forse che abbia paura?')"><span class="verb">Forse che abbia</span> paura?</span></td><td>难道他害怕吗？</td></tr>
+      <tr><td><span class="it" onclick="speak('Che sia questa la grande bellezza?')"><span class="verb">Che sia</span> questa la grande bellezza?</span></td><td>这就是绝美之城吗？</td></tr>
+    </table>
+
+    <p style="font-weight:600;margin:14px 0 6px;">C. 祝愿虚拟式 (Congiuntivo ottativo) — 表达希望、祝愿</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="it" onclick="speak('Magari fosse vero!')"><span class="verb">Magari fosse</span> vero!</span></td><td>真希望是真的！</td></tr>
+      <tr><td><span class="it" onclick="speak('Volesse il cielo che arrivasse presto!')"><span class="verb">Volesse il cielo che arrivasse</span> presto!</span></td><td>真希望他能快点到！</td></tr>
+      <tr><td><span class="it" onclick="speak('Dio volesse che avessi ragione!')"><span class="verb">Dio volesse che avessi</span> ragione!</span></td><td>上帝啊，希望你说得对！</td></tr>
+      <tr><td><span class="it" onclick="speak('Almeno fosse già qui!')"><span class="verb">Almeno fosse</span> già qui!</span></td><td>至少希望他已经在这儿了！</td></tr>
+      <tr><td><span class="it" onclick="speak('Oh, se potessi tornare indietro!')">Oh, se <span class="verb">potessi</span> tornare indietro!</span></td><td>如果我能回到过去就好了！</td></tr>
+    </table>
+  </div>
+
+  <!-- 2. Participio presente e passato -->
+  <h3>2. Participio presente e passato（现在分词和过去分词）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">现在分词和过去分词在C1级别有重要的独立用法。</p>
+
+    <p style="font-weight:600;margin:14px 0 6px;">A. 现在分词 (Participio presente)</p>
+    <table>
+      <tr><th>Uso</th><th>Esempio</th><th>中文</th></tr>
+      <tr><td>Come aggettivo</td><td>Una <span class="verb">vibrante</span> esplosione di colori.</td><td>充满活力的色彩爆发</td></tr>
+      <tr><td>Come sostantivo</td><td>I <span class="verb">cantanti</span> italiani sono famosi.</td><td>意大利歌手很有名。</td></tr>
+      <tr><td>Aggettivo</td><td>È una persona <span class="verb">affascinante</span>.</td><td>他是一个迷人的人。</td></tr>
+      <tr><td>Aggettivo</td><td>Una storia <span class="verb">commovente</span>.</td><td>一个感人的故事。</td></tr>
+      <tr><td>Aggettivo</td><td>Il sole <span class="verb">splendente</span> illumina la piazza.</td><td>耀眼的太阳照亮了广场。</td></tr>
+    </table>
+
+    <p style="font-weight:600;margin:14px 0 6px;">B. 过去分词 (Participio passato) — 隐性从句用法</p>
+    <table>
+      <tr><th>Italiano</th><th>中文</th></tr>
+      <tr><td><span class="verb">Finito</span> il lavoro, andammo a cena.</td><td>工作结束后，我们去吃晚饭了。</td></tr>
+      <tr><td><span class="verb">Arrivato</span> a casa, si accorse di aver perso le chiavi.</td><td>到家后，他发现自己丢了钥匙。</td></tr>
+      <tr><td><span class="verb">Vista</span> la situazione, ho deciso di intervenire.</td><td>鉴于这种情况，我决定介入。</td></tr>
+      <tr><td><span class="verb">Detto</span> <span class="verb">fatto</span>!</td><td>说做就做！</td></tr>
+      <tr><td><span class="verb">Messa</span> così, la questione è chiara.</td><td>这么说的话，问题就很清楚了。</td></tr>
+      <tr><td><span class="verb">Considerate</span> le circostanze, è andata bene.</td><td>考虑到当时的情况，结果已经很好了。</td></tr>
+      <tr><td><span class="verb">Una volta finita</span> la lezione, gli studenti uscirono.</td><td>课程一结束，学生们就出去了。</td></tr>
+      <tr><td><span class="verb">Appena arrivato</span>, mi chiamò.</td><td>他一到就给我打了电话。</td></tr>
+    </table>
+  </div>
+
+  <!-- 3. Aggettivo Bello -->
+  <h3>3. L'aggettivo Bello（形容词bello）</h3>
+  <div class="grammar-box">
+    <p style="font-size:13px;color:var(--ne-muted);margin-bottom:10px;">形容词bello在意大利语中有特殊变化，取决于后面名词的冠词形式。</p>
+    <table>
+      <tr><th>Genere/Numero</th><th>Prima di...</th><th>Forma</th><th>Esempio</th></tr>
+      <tr><td>Maschile sing.</td><td>consonante semplice</td><td><span class="verb">bel</span></td><td><span class="verb">bel</span> ragazzo</td></tr>
+      <tr><td>Maschile sing.</td><td>s+consonante, z, ps, gn, x</td><td><span class="verb">bello</span></td><td><span class="verb">bello</span> studente</td></tr>
+      <tr><td>Maschile sing.</td><td>vocale</td><td><span class="verb">bell'</span></td><td><span class="verb">bell'</span>uomo</td></tr>
+      <tr><td>Femminile sing.</td><td>consonante</td><td><span class="verb">bella</span></td><td><span class="verb">bella</span> donna</td></tr>
+      <tr><td>Femminile sing.</td><td>vocale</td><td><span class="verb">bell'</span></td><td><span class="verb">bell'</span>amica</td></tr>
+      <tr><td>Maschile plur.</td><td>consonante semplice</td><td><span class="verb">bei</span></td><td><span class="verb">bei</span> ragazzi</td></tr>
+      <tr><td>Maschile plur.</td><td>s+consonante, z, ps, gn, x</td><td><span class="verb">begli</span></td><td><span class="verb">begli</span> studenti</td></tr>
+      <tr><td>Femminile plur.</td><td>consonante/vocale</td><td><span class="verb">belle</span></td><td><span class="verb">belle</span> donne</td></tr>
+    </table>
+    <p style="font-weight:600;margin:14px 0 6px;">特殊用法:</p>
+    <table>
+      <tr><th>Tipo</th><th>Esempio</th><th>中文</th></tr>
+      <tr><td>Posizione normale (prima del nome)</td><td>un <span class="verb">bel</span> libro</td><td>一本好书</td></tr>
+      <tr><td>Posizione enfatica (dopo il nome)</td><td>un libro <span class="verb">bello</span></td><td>一本书，很好的那种</td></tr>
+      <tr><td>Intensificatore</td><td><span class="verb">bello</span> grasso, <span class="verb">bello</span> pronto</td><td>相当胖的 / 完全准备好的</td></tr>
+      <tr><td>Sostantivato</td><td><span class="verb">Il bello</span> è che non lo sa.</td><td>好玩的是他不知道。</td></tr>
+      <tr><td>Ironico</td><td><span class="verb">Bella</span> storia! (storia noiosa)</td><td>真是个好故事！（讽刺）</td></tr>
+      <tr><td>Esclamativo</td><td>Che <span class="verb">bel</span> panorama!</td><td>多美的景色！</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- Caffè Culturale -->
+<section class="page-section" id="cultura">
+  <h2>&#x2615; Caffè Culturale 4 · p.51-52</h2>
+
+  <h3>&#x1F3DB;&#xFE0F; La grande bellezza italiana（意大利的绝美）</h3>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
+    <p class="it" onclick="speak('"La grande bellezza", il film di Paolo Sorrentino del 2013, ha vinto il premio Oscar come miglior film straniero. Attraverso lo sguardo di uno scrittore, il film mostra la grandezza e la decadenza di Roma, esplorando profondamente il significato della bellezza, dell\'invecchiamento e della vita.')">"La grande bellezza", il film di Paolo Sorrentino del 2013, ha vinto il premio Oscar come miglior film straniero. Attraverso lo sguardo di uno scrittore, il film mostra la grandezza e la decadenza di Roma, esplorando profondamente il significato della bellezza, dell'invecchiamento e della vita.</p>
+    <p class="it" onclick="speak('L\'Italia vanta 58 siti UNESCO, più di qualsiasi altro paese al mondo. Tra questi: il centro storico di Roma, Firenze, Venezia, Piazza del Duomo a Pisa, Pompei e la Costiera Amalfitana.')">L'Italia vanta 58 siti UNESCO, più di qualsiasi altro paese al mondo. Tra questi: il centro storico di Roma, Firenze, Venezia, Piazza del Duomo a Pisa, Pompei e la Costiera Amalfitana.</p>
+    <p class="it" onclick="speak('L\'Italia è la culla del Rinascimento, movimento che ha prodotto geni come Leonardo da Vinci, Michelangelo, Raffaello e Botticelli. La Galleria degli Uffizi a Firenze custodisce le più importanti opere rinascimentali del mondo.')">L'Italia è la culla del Rinascimento, movimento che ha prodotto geni come Leonardo da Vinci, Michelangelo, Raffaello e Botticelli. La Galleria degli Uffizi a Firenze custodisce le più importanti opere rinascimentali del mondo.</p>
+    <p class="it" onclick="speak('La Biennale di Venezia, fondata nel 1895, è una delle più antiche e importanti esposizioni di arte contemporanea al mondo. Si tiene ogni due anni.')">La Biennale di Venezia, fondata nel 1895, è una delle più antiche e importanti esposizioni di arte contemporanea al mondo. Si tiene ogni due anni.</p>
+    <p class="it" onclick="speak('"Bella figura" è un concetto fondamentale della cultura italiana. Il Design italiano è rinomato per la sua eleganza, semplicità e alta qualità, dai mobili (Cassina, Poltrona Frau) alle auto sportive (Ferrari, Lamborghini).')">"Bella figura" è un concetto fondamentale della cultura italiana. Il Design italiano è rinomato per la sua eleganza, semplicità e alta qualità, dai mobili (Cassina, Poltrona Frau) alle auto sportive (Ferrari, Lamborghini).</p>
+  </div>
+
+  <div class="cultura-box">
+    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
+    <p class="zh">保罗·索伦蒂诺2013年的电影《绝美之城》获得奥斯卡最佳外语片奖。影片通过一位作家的视角展现了罗马的壮丽与颓废，深刻探讨了美、衰老和人生的意义。</p>
+    <p class="zh">意大利拥有58处世界遗产，位居世界第一。包括罗马历史中心、佛罗伦萨、威尼斯、比萨大教堂广场、庞贝古城、阿马尔菲海岸等。</p>
+    <p class="zh">意大利是文艺复兴运动的发源地，诞生了达·芬奇、米开朗基罗、拉斐尔、波提切利等巨匠。佛罗伦萨的乌菲兹美术馆收藏着世界上最重要的文艺复兴作品。</p>
+    <p class="zh">威尼斯双年展成立于1895年，是全球最古老、最重要的当代艺术展览之一，每两年举办一次。</p>
+    <p class="zh">"Bella figura"（美好形象）是意大利文化核心概念。意大利设计以其优雅、简洁、高品质著称，从家具到跑车无不体现。</p>
+  </div>
+
+  <h3>相关文化词汇</h3>
+  <table class="vocab-table">
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="it" onclick="speak('il Rinascimento')">il Rinascimento</td><td>文艺复兴</td></tr>
+    <tr><td class="it" onclick="speak('il sito UNESCO')">il sito UNESCO</td><td>联合国教科文组织世界遗产</td></tr>
+    <tr><td class="it" onclick="speak('la Biennale di Venezia')">la Biennale di Venezia</td><td>威尼斯双年展</td></tr>
+    <tr><td class="it" onclick="speak('la bella figura')">la bella figura</td><td>美好形象</td></tr>
+    <tr><td class="it" onclick="speak('la Dolce Vita')">la Dolce Vita</td><td>甜蜜的生活</td></tr>
+    <tr><td class="it" onclick="speak('il Barocco')">il Barocco</td><td>巴洛克</td></tr>
+    <tr><td class="it" onclick="speak('l\'Arte Povera')">l'Arte Povera</td><td>贫穷艺术</td></tr>
+    <tr><td class="it" onclick="speak('la Galleria degli Uffizi')">la Galleria degli Uffizi</td><td>乌菲兹美术馆</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F4AC; 文化注释:</strong><br>
+    • "La grande bellezza" è un film che celebra e critica Roma allo stesso tempo<br>
+    • L'Italia ha il maggior numero di siti UNESCO al mondo (58)<br>
+    • Il concetto di "bella figura" è centrale nella cultura italiana — l'importanza dell'apparenza e della buona impressione<br>
+    • Secondo te, cos'è la "bellezza" nella cultura del tuo paese? — 在你看来，你的文化中的"美"是什么？
+  </div>
+</section>
+
+<!-- Videocorso -->
+<section class="page-section" id="videocorso">
+  <h2>&#x1F39B;&#xFE0F; Videocorso 4 — La grande bellezza · p.52</h2>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">剧情简介:</p>
+  <p style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 0;">视频探讨了意大利艺术之美、文艺复兴的遗产以及当代意大利的美学观念。</p>
+
+  <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Attività di previsione (预测活动):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Cosa significa per te "la grande bellezza"?')">Cosa significa per te "la grande bellezza"?</span></td><td class="zh">"绝美之城"对你来说意味着什么？</td></tr>
+    <tr><td><span class="it" onclick="speak('Qual è il luogo più bello che hai visitato in Italia?')">Qual è il luogo più bello che hai visitato in Italia?</span></td><td class="zh">你在意大利参观过的最美的地方是哪里？</td></tr>
+  </table>
+
+  <p style="font-weight:600;font-size:14px;margin:16px 0 8px;">关键表达 (Espressioni chiave):</p>
+  <table class="dialog-table">
+    <tr><td><span class="it" onclick="speak('Che meraviglia! / Che spettacolo!')">Che meraviglia! / Che spettacolo!</span></td><td class="zh">太美了！/ 太壮观了！</td></tr>
+    <tr><td><span class="it" onclick="speak('Viva...! / Che sia benedetto!')">Viva...! / Che sia benedetto!</span></td><td class="zh">……万岁！/ 愿被保佑！</td></tr>
+    <tr><td><span class="it" onclick="speak('Magari! / Volesse il cielo che...')">Magari! / Volesse il cielo che...</span></td><td class="zh">但愿！/ 真希望……</td></tr>
+    <tr><td><span class="it" onclick="speak('Che sia...? / Forse che...?')">Che sia...? / Forse che...?</span></td><td class="zh">难道……？/ 也许……？</td></tr>
+    <tr><td><span class="it" onclick="speak('Comunque sia / Sia come sia')">Comunque sia / Sia come sia</span></td><td class="zh">不管怎样 / 无论如何</td></tr>
+    <tr><td><span class="it" onclick="speak('Detto questo... / Fatta questa premessa...')">Detto questo... / Fatta questa premessa...</span></td><td class="zh">话虽如此…… / 有了这个前提……</td></tr>
+  </table>
+
+  <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
+    <strong>&#x1F3AD; Dopo aver guardato — 课后活动:</strong><br>
+    &bull; Sei d'accordo con la definizione di "bellezza" proposta nel video?<br>
+    &bull; Discussione: Secondo te, l'Italia è davvero "la grande bellezza" o è un mito?<br>
+    &bull; Produzione scritta: Descrivi il tuo luogo italiano preferito usando almeno 5 aggettivi descrittivi (150 parole)<br>
+    &bull; Crea 3 frasi con il congiuntivo indipendente (esortativo, dubitativo, ottativo)<br>
+    &bull; Usa il participio passato per creare frasi implicite
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="unita-3.html">&larr; Precedente</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+  <a href="unita-5.html">Successiva &rarr;</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 5</div>
+  <p>Corso di lingua italiana per stranieri · Livello C1</p>
+  <p style="margin-top:8px;opacity:0.6;">Maria Bali • Irene Dei · ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>

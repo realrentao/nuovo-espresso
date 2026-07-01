@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eserciziario · C2 · NUOVO Espresso 6</title>
+  <link rel="stylesheet" href="css/ne-styles.css">
+  <!-- audio via JSON -->
+  <script src="js/ne-audio-player.js"></script>
+  <style>
+    body { background: var(--ne-bg); }
+    .unit-hero { background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,230,241,0.5) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 30% 100%, rgba(254,249,231,0.7) 0%, transparent 50%), linear-gradient(180deg, #FEF9E7 0%, #FFF 50%, #FDFCFB 100%); padding: 110px 24px 40px; text-align: center; position: relative; overflow: hidden; }
+    .unit-hero::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); }
+    .unit-hero h1 { font-family: var(--font-serif); font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin: 8px 0; color: var(--ne-blue); background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .page-section { max-width: 960px; margin: 0 auto; padding: 5px 24px; }
+    .page-section h2 { font-family: var(--font-serif); font-size: 24px; font-weight: 800; color: var(--ne-blue); margin: 5px 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 3px solid var(--border-light); padding-bottom: 8px; position: relative; }
+    .page-section h2::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 120px; height: 3px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange), var(--ne-red)); border-radius: 0 0 3px 3px; }
+    .page-section h3 { font-size: 17px; font-weight: 700; color: var(--ne-orange); margin: 18px 0 8px; }
+    .exercise-box { background: #FFF; border: 1px solid var(--border-light); border-radius: 12px; padding: 16px 18px; margin: 12px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04); position: relative; }
+    .exercise-box .num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-bright)); color: #fff; border-radius: 50%; font-size: 12px; font-weight: 700; margin-right: 8px; flex-shrink: 0; }
+    .exercise-box .ex-title { font-weight: 700; font-size: 14px; color: var(--ne-blue); margin-bottom: 6px; }
+    .exercise-box .it { cursor: pointer; }
+    .exercise-box .it:hover { background: rgba(241,196,15,0.15); }
+    .exercise-box .blank { display: inline-block; min-width: 80px; border-bottom: 2px dashed var(--ne-gold-dark); padding: 0 4px; color: var(--ne-red); font-weight: 600; }
+    .exercise-box .hint { font-size: 12px; color: var(--ne-muted); font-style: italic; margin-top: 4px; }
+    .answer-toggle { display: inline-block; padding: 3px 12px; background: var(--ne-cream); border-radius: 12px; font-size: 11px; color: var(--ne-blue); cursor: pointer; border: 1px solid var(--border-light); margin-top: 4px; transition: all 0.2s; }
+    .answer-toggle:hover { background: var(--ne-gold); color: #fff; }
+    .answer-content { display: none; margin-top: 6px; padding: 8px 12px; background: #f0faf0; border-radius: 8px; font-size: 13px; border-left: 3px solid #27ae60; }
+    .answer-content.show { display: block; }
+    .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
+    .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
+    .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
+    .nav-buttons .home-btn { background: linear-gradient(135deg, var(--ne-blue), var(--ne-blue-dark)); box-shadow: 0 3px 12px rgba(26,82,118,0.25); }
+    .nav-buttons .home-btn:hover { box-shadow: 0 6px 20px rgba(26,82,118,0.35); }
+    .ex-unit-tag { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-right: 6px; }
+    .tag-u1 { background: #E8DAEF; color: #7D3C98; }
+    .tag-u2 { background: #D5F5E3; color: #1E8449; }
+    .tag-u3 { background: #FADBD8; color: #C0392B; }
+    .tag-u4 { background: #FDEBD0; color: #CA6F1E; }
+    .tag-u5 { background: #D6EAF8; color: #1F618D; }
+    .tag-u6 { background: #F5EEBE; color: #B7950B; }
+    .tag-u7 { background: #E8DAEF; color: #6C3483; }
+    .tag-u8 { background: #D5F5E3; color: #0E6251; }
+    .tag-u9 { background: #FADBD8; color: #922B21; }
+    .tag-u10 { background: #D6EAF8; color: #154360; }
+    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+  </style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="ne-icon"></div>
+      NUOVO Espresso 6 <span style="font-weight:400;color:var(--ne-muted);font-size:14px;">Italiano C2</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Torna al corso</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="unit-hero">
+  <div class="level-badge"><span class="flag-it"></span> Eserciziario · C2</div>
+  <h1>&#x270F;&#xFE0F; Eserciziario</h1>
+  <p class="subtitle" style="color:var(--ne-muted);font-style:italic;">综合练习册 · 50+ esercizi su tutte le unit&agrave;</p>
+  <p class="tagline" style="max-width:600px;margin:12px auto 0;font-size:14px;color:var(--ne-muted);">涵盖全部10个单元的语法与词汇练习，点击&#x1F441;&#xFE0F;显示答案</p>
+</section>
+
+<!-- Unità 1: Esterofilia -->
+<section class="page-section" id="ex-u1">
+  <h2>&#x1F30D; Unit&agrave; 1 &mdash; Esterofilia</h2>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u1">U1</span><span class="ex-title"><span class="num">1</span>Nomi invariabili &mdash; 将下列名词变为复数</span>
+    <p><span class="it" onclick="speak('La città')">1. La citt&agrave; &rarr; <span class="blank">Le citt&agrave;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Le citt&agrave; (invariabile)</span></p>
+    <p><span class="it" onclick="speak('Il bar')">2. Il bar &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">I bar (invariabile)</span></p>
+    <p><span class="it" onclick="speak('La crisi')">3. La crisi &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Le crisi (invariabile)</span></p>
+    <p><span class="it" onclick="speak('Il problema')">4. Il problema &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">I problemi (regolare)</span></p>
+    <p><span class="it" onclick="speak('Il computer')">5. Il computer &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">I computer (invariabile)</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u1">U1</span><span class="ex-title"><span class="num">2</span>Suffisso -filia &mdash; 用-filia构成复合词</span>
+    <p><span class="it" onclick="speak('amore per il cinema')">1. amore per il cinema &rarr; <span class="blank">cinefilia</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">cinefilia</span></p>
+    <p><span class="it" onclick="speak('amore per i libri')">2. amore per i libri &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">bibliofilia</span></p>
+    <p><span class="it" onclick="speak('amore per l\'Italia')">3. amore per l'Italia &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">italofilia</span></p>
+    <p><span class="it" onclick="speak('amore per la musica')">4. amore per la musica &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">musicofilia</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u1">U1</span><span class="ex-title"><span class="num">3</span>Prefisso pseudo- &mdash; 用pseudo-构成新词</span>
+    <p><span class="it" onclick="speak('falso intellettuale')">1. falso intellettuale &rarr; <span class="blank">pseudointellettuale</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">pseudointellettuale</span></p>
+    <p><span class="it" onclick="speak('nome falso')">2. nome falso &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">pseudonimo</span></p>
+    <p><span class="it" onclick="speak('falsa scienza')">3. falsa scienza &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">pseudoscienza</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u1">U1</span><span class="ex-title"><span class="num">4</span>Verbi con di &mdash; 填空，填入正确的介词</span>
+    <p><span class="it" onclick="speak('Si tratta ___ un problema serio.')">1. Si tratta <span class="blank">di</span> un problema serio.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">di</span></p>
+    <p><span class="it" onclick="speak('Non mi intendo ___ computer.')">2. Non mi intendo <span class="blank">&nbsp;</span> computer.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">di</span></p>
+    <p><span class="it" onclick="speak('Maria si fida solo ___ suo pediatra.')">3. Maria si fida solo <span class="blank">&nbsp;</span> suo pediatra.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">del</span></p>
+    <p><span class="it" onclick="speak('Si è innamorata ___ un ragazzo francese.')">4. Si &egrave; innamorata <span class="blank">&nbsp;</span> un ragazzo francese.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">di</span></p>
+  </div>
+</section>
+
+<!-- Unità 2: È la scienza, bellezza! -->
+<section class="page-section" id="ex-u2">
+  <h2>&#x1F52C; Unit&agrave; 2 &mdash; &Egrave; la scienza, bellezza!</h2>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u2">U2</span><span class="ex-title"><span class="num">5</span>Pronomi relativi partitivi &mdash; 用di cui / dei quali / tra cui填空</span>
+    <p><span class="it" onclick="speak('Ho molti amici, ___ due vivono a Roma.')">1. Ho molti amici, <span class="blank">di cui</span> due vivono a Roma.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">di cui</span></p>
+    <p><span class="it" onclick="speak('Ha pubblicato 10 libri, 5 ___ sono bestseller.')">2. Ha pubblicato 10 libri, 5 <span class="blank">&nbsp;</span> sono bestseller.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">dei quali</span></p>
+    <p><span class="it" onclick="speak('Ci sono molte città italiane, ___ Firenze e Venezia.')">3. Ci sono molte citt&agrave; italiane, <span class="blank">&nbsp;</span> Firenze e Venezia.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">tra cui</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u2">U2</span><span class="ex-title"><span class="num">6</span>Falsa negazione &mdash; 将下列句子改写为假否定形式</span>
+    <p><span class="it" onclick="speak('Tutti sanno che il fumo fa male.')">1. Tutti sanno che il fumo fa male. &rarr; <span class="blank">Non &egrave; un mistero che il fumo faccia male.</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Non &egrave; un mistero che il fumo faccia male.</span></p>
+    <p><span class="it" onclick="speak('È normale che tu sia stanco.')">2. &Egrave; normale che tu sia stanco. &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Non stupisce che tu sia stanco.</span></p>
+    <p><span class="it" onclick="speak('È libero di scegliere.')">3. &Egrave; libero di scegliere. &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Non &egrave; obbligato a scegliere.</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u2">U2</span><span class="ex-title"><span class="num">7</span>Verbi che cambiano significato &mdash; 选择正确的语式</span>
+    <p><span class="it" onclick="speak('Prevedo che lui (arrivi / arriva) in ritardo. (suppongo)")>1. Prevedo che lui <span class="blank">arrivi</span> (congiuntivo - supporre).</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">arrivi (congiuntivo)</span></p>
+    <p><span class="it" onclick="speak('Prevedo che domani (piove / piova). (so per certo)")>2. Prevedo che domani <span class="blank">&nbsp;</span> (indicativo - certezza).</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">piove (indicativo)</span></p>
+    <p><span class="it" onclick="speak('Capisco che tu (sei / sia) arrabbiato. (trovo naturale)")>3. Capisco che tu <span class="blank">&nbsp;</span> (congiuntivo - trovare naturale).</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">sia (congiuntivo)</span></p>
+  </div>
+</section>
+
+<!-- Unità 3: Edizione straordinaria -->
+<section class="page-section" id="ex-u3">
+  <h2>&#x1F4F0; Unit&agrave; 3 &mdash; Edizione straordinaria</h2>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u3">U3</span><span class="ex-title"><span class="num">8</span>Condizionale giornalistico &mdash; 将直陈式改为新闻条件式</span>
+    <p><span class="it" onclick="speak('Il ladro è entrato dalla finestra. (Secondo il giornale)')">1. Il ladro &egrave; entrato dalla finestra. &rarr; <span class="blank">Il ladro sarebbe entrato dalla finestra.</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Il ladro sarebbe entrato dalla finestra.</span></p>
+    <p><span class="it" onclick="speak('C\'è stato un terremoto in Giappone. (Si dice)')">2. C'&egrave; stato un terremoto in Giappone. &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Ci sarebbe stato un terremoto in Giappone.</span></p>
+    <p><span class="it" onclick="speak('Il testimone ha visto l\'uomo fuggire.')">3. Il testimone ha visto l'uomo fuggire. (non confermato) &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Il testimone avrebbe visto l'uomo fuggire.</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u3">U3</span><span class="ex-title"><span class="num">9</span>Imperfetto speciale &mdash; 判断未完成时的用法类型</span>
+    <p><span class="it" onclick="speak('Buongiorno, volevo un caffè macchiato.')">1. "Buongiorno, <span class="blank">volevo</span> un caff&egrave; macchiato." &rarr; <span class="blank">cortesia</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">cortesia</span></p>
+    <p><span class="it" onclick="speak('Se me lo dicevi, non venivo.')">2. "Se me lo <span class="blank">dicevi</span>, non <span class="blank">venivo</span>." &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">ipotetico</span></p>
+    <p><span class="it" onclick="speak('Facciamo che io ero il dottore.')">3. "Facciamo che io <span class="blank">ero</span> il dottore." &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">ludico</span></p>
+    <p><span class="it" onclick="speak('Il ladro si introduceva nel caveau.')">4. "Il ladro si <span class="blank">introduceva</span> nel caveau." &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">narrativo</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u3">U3</span><span class="ex-title"><span class="num">10</span>Infinito nelle secondarie &mdash; 选择正确的连词</span>
+    <p><span class="it" onclick="speak('(Anziché / In modo da) lamentarti, fai qualcosa!')">1. <span class="blank">Anzich&eacute;</span> lamentarti, fai qualcosa!</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Anzich&eacute;</span></p>
+    <p><span class="it" onclick="speak('Parla forte (così da / a costo di) farti sentire.')">2. Parla forte <span class="blank">cos&igrave; da</span> farti sentire.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">cos&igrave; da</span></p>
+    <p><span class="it" onclick="speak('Ha studiato (fino a / in quanto a) diventare esperto.')">3. Ha studiato <span class="blank">fino a</span> diventare esperto.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">fino a</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u3">U3</span><span class="ex-title"><span class="num">11</span>Polisemia animali &mdash; 将动物名词与其比喻义配对</span>
+    <p><span class="it" onclick="speak('bufala')">1. bufala &rarr; <span class="blank">notizia falsa</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">notizia falsa</span></p>
+    <p><span class="it" onclick="speak('gorilla')">2. gorilla &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">guardia del corpo</span></p>
+    <p><span class="it" onclick="speak('papera')">3. papera &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">errore/lapsus in pubblico</span></p>
+    <p><span class="it" onclick="speak('giraffa')">4. giraffa &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">braccio del microfono</span></p>
+  </div>
+</section>
+
+<!-- Unità 4: Letteratura come cura -->
+<section class="page-section" id="ex-u4">
+  <h2>&#x1F4D6; Unit&agrave; 4 &mdash; Letteratura come cura</h2>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u4">U4</span><span class="ex-title"><span class="num">12</span>Falsi alterati &mdash; 判断下列是否为真变形词</span>
+    <p><span class="it" onclick="speak('tacchino')">1. tacchino &mdash; &egrave; l'alterato di tacco? <span class="blank">No (falso alterato)</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">No, &egrave; un falso alterato.</span></p>
+    <p><span class="it" onclick="speak('libricino')">2. libricino &mdash; &egrave; l'alterato di libro? <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">S&igrave;, diminutivo di libro.</span></p>
+    <p><span class="it" onclick="speak('fumetto')">3. fumetto &mdash; &egrave; l'alterato di fumo? <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">No, falso alterato.</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u4">U4</span><span class="ex-title"><span class="num">13</span>Alterazioni &mdash; 将下列词变为指定的变形形式</span>
+    <p><span class="it" onclick="speak('casa (diminutivo)')">1. casa (diminutivo) &rarr; <span class="blank">casetta / casetta</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">casetta</span></p>
+    <p><span class="it" onclick="speak('libro (accrescitivo)')">2. libro (accrescitivo) &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">librone</span></p>
+    <p><span class="it" onclick="speak('tempo (peggiorativo)')">3. tempo (peggiorativo) &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">tempaccio</span></p>
+    <p><span class="it" onclick="speak('cavallo (vezzeggiativo)')">4. cavallo (vezzeggiativo) &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">cavalluccio</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u4">U4</span><span class="ex-title"><span class="num">14</span>Cumulo di alterati &mdash; 变形词叠用</span>
+    <p><span class="it" onclick="speak('libro → libretto → ?')">1. libro &rarr; libretto &rarr; <span class="blank">librettino</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">librettino</span></p>
+    <p><span class="it" onclick="speak('uomo → omone → ?')">2. uomo &rarr; omone &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">omaccione</span></p>
+  </div>
+</section>
+
+<!-- Unità 5: A crepapelle -->
+<section class="page-section" id="ex-u5">
+  <h2>&#x1F604; Unit&agrave; 5 &mdash; A crepapelle</h2>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u5">U5</span><span class="ex-title"><span class="num">15</span>Pure &mdash; 选择正确的含义</span>
+    <p><span class="it" onclick="speak('Domani e pure domenica.')">1. "Domani e <span class="blank">pure</span> domenica." &rarr; <span class="blank">anche</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">anche</span></p>
+    <p><span class="it" onclick="speak('Pur ammettendo che abbia ragione...')">2. "<span class="blank">Pur</span> ammettendo che abbia ragione..." &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">anche se + gerundio</span></p>
+    <p><span class="it" onclick="speak('Andiamo pure!')">3. "Andiamo <span class="blank">pure</span>!" &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">esortazione</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u5">U5</span><span class="ex-title"><span class="num">16</span>Anzi &mdash; 完成句子</span>
+    <p><span class="it" onclick="speak('Non è buono, anzi, è ___.')">1. Non &egrave; buono, anzi, &egrave; <span class="blank">pessimo</span>.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">pessimo</span></p>
+    <p><span class="it" onclick="speak('Ti mando un messaggio, anzi, ti ___.')">2. Ti mando un messaggio, anzi, ti <span class="blank">telefono</span>.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">telefono</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u5">U5</span><span class="ex-title"><span class="num">17</span>Pronome affettivo (dativo etico) &mdash; 填入正确的代词</span>
+    <p><span class="it" onclick="speak('Che ___ combini? (a me)")>1. Che <span class="blank">mi</span> combini?</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">mi</span></p>
+    <p><span class="it" onclick="speak('Sta___ bene! (a te)")>2. Sta<span class="blank">&nbsp;</span> bene!</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">mmi</span></p>
+    <p><span class="it" onclick="speak('Ecco___ le chiavi! (a te)")>3. Ecco<span class="blank">&nbsp;</span> le chiavi!</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">ti</span></p>
+  </div>
+</section>
+
+<!-- Unità 6: Buona la prima -->
+<section class="page-section" id="ex-u6">
+  <h2>&#x1F3AC; Unit&agrave; 6 &mdash; Buona la prima</h2>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u6">U6</span><span class="ex-title"><span class="num">18</span>Connettivi testuali &mdash; 选择正确的连接词</span>
+    <p><span class="it" onclick="speak('(Innanzitutto / Inoltre) vorrei ringraziare tutti. (ordine)")>1. <span class="blank">Innanzitutto</span> vorrei ringraziare tutti.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Innanzitutto</span></p>
+    <p><span class="it" onclick="speak('Non mi ha avvisato. (Oltretutto / Infine), è arrivato in ritardo.')">2. Non mi ha avvisato. <span class="blank">Oltretutto</span>, &egrave; arrivato in ritardo.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Oltretutto</span></p>
+    <p><span class="it" onclick="speak('(Dunque / Invece) dobbiamo cambiare strategia.')">3. <span class="blank">Dunque</span> dobbiamo cambiare strategia.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Dunque</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u6">U6</span><span class="ex-title"><span class="num">19</span>Duplicazione espressiva &mdash; 将下列副词/形容词改为重复形式</span>
+    <p><span class="it" onclick="speak('piano')">1. piano (lentamente) &rarr; <span class="blank">piano piano</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">piano piano</span></p>
+    <p><span class="it" onclick="speak('presto')">2. presto &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">presto presto</span></p>
+    <p><span class="it" onclick="speak('bene')">3. bene &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">ben bene</span></p>
+    <p><span class="it" onclick="speak('quatto')">4. quatto (in silenzio) &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">quatto quatto</span></p>
+  </div>
+</section>
+
+<!-- Unità 7: C'era una volta -->
+<section class="page-section" id="ex-u7">
+  <h2>&#x1F9F0; Unit&agrave; 7 &mdash; C'era una volta</h2>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u7">U7</span><span class="ex-title"><span class="num">20</span>Trapassato remoto &mdash; 变位填空</span>
+    <p><span class="it" onclick="speak('Quando lui (finire) il lavoro, uscì.')">1. Quando lui <span class="blank">ebbe finito</span> il lavoro, usc&igrave;.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">ebbe finito</span></p>
+    <p><span class="it" onclick="speak('Dopo che loro (arrivare), iniziammo la cena.')">2. Dopo che loro <span class="blank">&nbsp;</span>, iniziammo la cena.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">furono arrivati</span></p>
+    <p><span class="it" onclick="speak('Non appena (io - vedere) il film, lo recensii.')">3. Non appena <span class="blank">&nbsp;</span> il film, lo recensii.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">ebbi visto</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u7">U7</span><span class="ex-title"><span class="num">21</span>Fare + infinito &mdash; 翻译成意大利语</span>
+    <p><span class="it" onclick="speak('他让我等了很久。')">1. 他让我等了很久。 &rarr; <span class="blank">Mi ha fatto aspettare a lungo.</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Mi ha fatto aspettare a lungo.</span></p>
+    <p><span class="it" onclick="speak('这让我很生气。')">2. 这让我很生气。 &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Questo mi fa arrabbiare.</span></p>
+    <p><span class="it" onclick="speak('请让我用一下你的手机。')">3. 请让我用一下你的手机。 &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Fammi usare il tuo telefono, per favore.</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u7">U7</span><span class="ex-title"><span class="num">22</span>Articolo con possessivi e parentela &mdash; 填入冠词（如果需要）</span>
+    <p><span class="it" onclick="speak('___ mia mamma è molto gentile.')">1. <span class="blank">La</span> mia mamma &egrave; molto gentile.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">La (variante affettiva)</span></p>
+    <p><span class="it" onclick="speak('___ mia sorella abita a Roma.')">2. <span class="blank">&nbsp;</span> mia sorella abita a Roma.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">(nessun articolo - sorella sing. non alterata)</span></p>
+    <p><span class="it" onclick="speak('___ mio babbo è cuoco.')">3. <span class="blank">&nbsp;</span> mio babbo &egrave; cuoco.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Il (variante affettiva "babbo")</span></p>
+  </div>
+</section>
+
+<!-- Unità 8: Uguale per tutti -->
+<section class="page-section" id="ex-u8">
+  <h2>&#x2696;&#xFE0F; Unit&agrave; 8 &mdash; Uguale per tutti</h2>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u8">U8</span><span class="ex-title"><span class="num">23</span>Omissione dell'articolo &mdash; 删除不必要的冠词</span>
+    <p><span class="it" onclick="speak('Vado in (la) Francia.')">1. Vado in (<del>la</del>) Francia. &rarr; <span class="blank">Vado in Francia.</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Vado in Francia. (dopo "in" senza articolo)</span></p>
+    <p><span class="it" onclick="speak('Ho (la) fame.')">2. Ho (<del>la</del>) fame. &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Ho fame. (verbo + nome unit&agrave; di significato)</span></p>
+    <p><span class="it" onclick="speak('Con (la) calma, tutto si risolve.')">3. Con (<del>la</del>) calma, tutto si risolve. &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Con calma... (dopo "con" modo)</span></p>
+    <p><span class="it" onclick="speak('Con una calma olimpica...')">4. Con <span class="blank">una</span> calma olimpica... (MA con aggettivo serve l'articolo)</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">una (con aggettivo si usa l'articolo)</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u8">U8</span><span class="ex-title"><span class="num">24</span>Subordinate implicite &mdash; 改写从句</span>
+    <p><span class="it" onclick="speak('Dopo che abbiamo visto i precedenti... (→ Visti)')">1. Dopo che abbiamo visto i precedenti... &rarr; <span class="blank">Visti i precedenti...</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Visti i precedenti...</span></p>
+    <p><span class="it" onclick="speak('Se consideriamo i fatti... (→ Considerando)')">2. Se consideriamo i fatti... &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Considerando i fatti...</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u8">U8</span><span class="ex-title"><span class="num">25</span>Vocali E/O aperte e chiuse &mdash; 判断开闭音</span>
+    <p><span class="it" onclick="speak('pesca (frutto)")>1. pesca (frutto) &rarr; e <span class="blank">aperta (&egrave;)</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">aperta (&egrave;)</span></p>
+    <p><span class="it" onclick="speak('pesca (verbo pescare)")>2. pesca (verbo pescare) &rarr; e <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">chiusa (&eacute;)</span></p>
+    <p><span class="it" onclick="speak('botte (contenitore per vino)")>3. botte (contenitore) &rarr; o <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">chiusa (&oacute;)</span></p>
+    <p><span class="it" onclick="speak('botte (plurale di botta)")>4. botte (colpi) &rarr; o <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">aperta (&ograve;)</span></p>
+  </div>
+</section>
+
+<!-- Unità 9: Dica trentatré -->
+<section class="page-section" id="ex-u9">
+  <h2>&#x1F3AD; Unit&agrave; 9 &mdash; Dica trentatr&eacute;</h2>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u9">U9</span><span class="ex-title"><span class="num">26</span>Litote &mdash; 将下列句子改为反叙法</span>
+    <p><span class="it" onclick="speak('Il ragazzo è stupido. (→ non ...)')">1. Il ragazzo &egrave; stupido. (attenuato) &rarr; <span class="blank">Il ragazzo non &egrave; nient'affatto stupido.</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Il ragazzo non &egrave; nient'affatto stupido.</span></p>
+    <p><span class="it" onclick="speak('La cena era buona. (enfatico)')">2. La cena era buona. &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">La cena non era niente male.</span></p>
+    <p><span class="it" onclick="speak('persone con disabilità (eufemismo)')">3. persone con disabilit&agrave; &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">diversamente abili</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u9">U9</span><span class="ex-title"><span class="num">27</span>Verbi frasali &mdash; 选择正确的短语动词</span>
+    <p><span class="it" onclick="speak('Devo (buttare giù / buttare via) questa idea prima che la dimentichi.')">1. Devo <span class="blank">buttare gi&ugrave;</span> questa idea prima che la dimentichi.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">buttare gi&ugrave; (scrivere)</span></p>
+    <p><span class="it" onclick="speak('Non (buttare via / tirare avanti) la carta, si ricicla!')">2. Non <span class="blank">buttare via</span> la carta, si ricicla!</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">buttare via (gettare)</span></p>
+    <p><span class="it" onclick="speak('Nonostante le difficoltà, (tiriamo avanti / tiriamo fuori).')">3. Nonostante le difficolt&agrave;, <span class="blank">tiriamo avanti</span>.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">tiriamo avanti (sopravvivere)</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u9">U9</span><span class="ex-title"><span class="num">28</span>Accento grafico &mdash; 填入正确的重音或区分同音词</span>
+    <p><span class="it" onclick="speak('Lui (da/dà) un libro a Maria.')">1. Lui <span class="blank">d&agrave;</span> un libro a Maria.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">d&agrave; (verbo dare)</span></p>
+    <p><span class="it" onclick="speak('(Se/Sé) stesso')">2. <span class="blank">S&eacute;</span> stesso</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">S&eacute; (pronome tonico)</span></p>
+    <p><span class="it" onclick="speak('Non (ne/né) voglio parlare.')">3. Non <span class="blank">ne</span> voglio parlare.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">ne (pronome)</span></p>
+    <p><span class="it" onclick="speak('(Si/Sì) sono divertito.')">4. <span class="blank">Si</span> sono divertito.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Si (pronome)</span></p>
+  </div>
+</section>
+
+<!-- Unità 10: Terra del "sì" -->
+<section class="page-section" id="ex-u10">
+  <h2>&#x1F30D; Unit&agrave; 10 &mdash; Terra del "s&igrave;"</h2>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u10">U10</span><span class="ex-title"><span class="num">29</span>Duplicazione del verbo &mdash; 判断重复功能</span>
+    <p><span class="it" onclick="speak('Cammina, cammina, cammina, arrivarono al mare.')">1. "Cammina, cammina, cammina, arrivarono al mare." &rarr; <span class="blank">narrativo</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">narrativo</span></p>
+    <p><span class="it" onclick="speak('Guarda guarda! Chi si rivede!')">2. "Guarda guarda! Chi si rivede!" &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">enfatico</span></p>
+    <p><span class="it" onclick="speak('Quello che faccio faccio, sbaglio.')">3. "Quello che faccio faccio, sbaglio." &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">indefinito</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u10">U10</span><span class="ex-title"><span class="num">30</span>Il pronome relativo "il quale" &mdash; 填入正确形式</span>
+    <p><span class="it" onclick="speak('La persona (il quale / la quale) ho incontrato...')">1. La persona <span class="blank">la quale</span> ho incontrato...</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">la quale</span></p>
+    <p><span class="it" onclick="speak('Gli amici (con i quali / con le quali) viaggio...')">2. Gli amici <span class="blank">con i quali</span> viaggio...</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">con i quali</span></p>
+    <p><span class="it" onclick="speak('La città (nella quale / nel quale) vivo...')">3. La citt&agrave; <span class="blank">nella quale</span> vivo...</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">nella quale</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u10">U10</span><span class="ex-title"><span class="num">31</span>Espressioni idiomatiche con numeri &mdash; 配对</span>
+    <p><span class="it" onclick="speak('andare per la tangente')">1. andare per la tangente &rarr; <span class="blank">uscire dal tema</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">uscire dal tema (跑题)</span></p>
+    <p><span class="it" onclick="speak('dare i numeri')">2. dare i numeri &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">dire cose senza senso (胡说八道)</span></p>
+    <p><span class="it" onclick="speak('farsi in quattro')">3. farsi in quattro &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">impegnarsi molto (竭尽全力)</span></p>
+    <p><span class="it" onclick="speak('ogni due per tre')">4. ogni due per tre &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">molto spesso (经常)</span></p>
+  </div>
+</section>
+
+<!-- Exercises across units: Mixed topics -->
+<section class="page-section" id="ex-mix">
+  <h2>&#x1F3B2; Esercizi misti &mdash; 综合练习</h2>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u1">U1</span><span class="ex-unit-tag tag-u2">U2</span><span class="ex-title"><span class="num">32</span>Traduci in italiano &mdash; 译成意大利语</span>
+    <p><span class="it" onclick="speak('Che figuraccia!')">1. 真丢脸！ &rarr; <span class="blank">Che figuraccia!</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Che figuraccia!</span></p>
+    <p><span class="it" onclick="speak('Non è un mistero che lui sia in ritardo.')">2. 他迟到并不是秘密。 &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Non &egrave; un mistero che lui sia in ritardo.</span></p>
+    <p><span class="it" onclick="speak('Ti sei innamorata di un ragazzo francese?')">3. 你爱上了一个法国男孩？ &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Ti sei innamorata di un ragazzo francese?</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u3">U3</span><span class="ex-unit-tag tag-u5">U5</span><span class="ex-title"><span class="num">33</span>Completa con la parola giusta</span>
+    <p><span class="it" onclick="speak('Secondo il giornale, il ladro sarebbe (entrato / entrare) dalla finestra.')">1. Secondo il giornale, il ladro <span class="blank">sarebbe entrato</span> dalla finestra.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">sarebbe entrato</span></p>
+    <p><span class="it" onclick="speak('(Pur / Per) ammettendo che sia vero, non mi interessa.')">2. <span class="blank">Pur</span> ammettendo che sia vero, non mi interessa.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Pur</span></p>
+    <p><span class="it" onclick="speak('Non è buono, anzi, è (peggiore / pessimo)!')">3. Non &egrave; buono, anzi, &egrave; <span class="blank">pessimo</span>!</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">pessimo</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u4">U4</span><span class="ex-unit-tag tag-u6">U6</span><span class="ex-title"><span class="num">34">Forma alterata o duplicazione</span></span>
+    <p><span class="it" onclick="speak('Un libro molto piccolo → un ___')">1. Un libro molto piccolo &rarr; un <span class="blank">libricino</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">libricino</span></p>
+    <p><span class="it" onclick="speak('Camminare lentamente → camminare ___')">2. Camminare lentamente &rarr; camminare <span class="blank">piano piano</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">piano piano</span></p>
+    <p><span class="it" onclick="speak('Una casa brutta e grande → una ___')">3. Una casa brutta e grande &rarr; una <span class="blank">casona / casaccia</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">casona / casaccia</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u7">U7</span><span class="ex-unit-tag tag-u9">U9</span><span class="ex-title"><span class="num">35">Riscrivi la frase &mdash; 改写句子</span></span>
+    <p><span class="it" onclick="speak('Dopo che ebbe finito di mangiare, uscì. (→ Finito di mangiare...)")>1. Dopo che ebbe finito di mangiare, usc&igrave;. &rarr; <span class="blank">Finito di mangiare, usc&igrave;.</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Finito di mangiare, usc&igrave;.</span></p>
+    <p><span class="it" onclick="speak('Ho fame da morire! (→ litote attenuata)")>2. Ho fame da morire! (attenuato) &rarr; <span class="blank">Non ho poca fame.</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Non ho poca fame. / Non &egrave; che non abbia fame.</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u1">U1</span><span class="ex-unit-tag tag-u7">U7</span><span class="ex-unit-tag tag-u10">U10</span><span class="ex-title"><span class="num">36</span>Grammatica mista &mdash; 语法混合练习</span></span>
+    <p><span class="it" onclick="speak('La foto (il / i) ___) della vacanza sono bellissime. (nomi invariabili)">1. <span class="blank">Le</span> foto della vacanza sono bellissime.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Le (foto &egrave; femminile invariabile)</span></p>
+    <p><span class="it" onclick="speak('La persona con (il quale / la quale) parlo è mia madre.')">2. La persona con <span class="blank">&nbsp;</span> parlo &egrave; mia madre.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">la quale</span></p>
+    <p><span class="it" onclick="speak('Si tratta (di / da) un problema serio.')">3. Si tratta <span class="blank">&nbsp;</span> un problema serio.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">di</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u3">U3</span><span class="ex-unit-tag tag-u4">U4</span><span class="ex-unit-tag tag-u8">U8</span><span class="ex-title"><span class="num">37</span>Lessico &mdash; 词汇练习</span></span>
+    <p><span class="it" onclick="speak('Sinonimo di "notizia falsa" in italiano: ___')">1. Sinonimo di "notizia falsa": <span class="blank">bufala</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">bufala</span></p>
+    <p><span class="it" onclick="speak('Contrario di "esterofilia": ___')">2. Contrario di "esterofilia": <span class="blank">esterofobia</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">esterofobia</span></p>
+    <p><span class="it" onclick="speak('Espressione per "molto spesso": ___")>3. "Molto spesso" in espressione idiomatica: <span class="blank">ogni due per tre</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">ogni due per tre</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u2">U2</span><span class="ex-unit-tag tag-u8">U8</span><span class="ex-title"><span class="num">38</span>Forma impersonale &mdash; 变位</span></span>
+    <p><span class="it" onclick="speak('In Italia (si mangia / si mangiano) bene.')">1. In Italia <span class="blank">si mangia</span> bene.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">si mangia</span></p>
+    <p><span class="it" onclick="speak('Ieri (si è mangiato / si è mangiata) bene.')">2. Ieri <span class="blank">si &egrave; mangiato</span> bene.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">si &egrave; mangiato</span></p>
+    <p><span class="it" onclick="speak('(Si mangerà / Si mangerebbe) all\'aperto domani. (futuro)">3. <span class="blank">Si manger&agrave;</span> all'aperto domani.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Si manger&agrave;</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u1">U1</span><span class="ex-unit-tag tag-u3">U3</span><span class="ex-unit-tag tag-u5">U5</span><span class="ex-title"><span class="num">39</span>Completa il dialogo &mdash; 完成对话</span></span>
+    <p><span class="it" onclick="speak('A: Ieri ho fatto una ___ (figuraccia / figura) colossale!')">1. A: Ieri ho fatto una <span class="blank">figuaccia</span> colossale!</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">figuraccia</span></p>
+    <p><span class="it" onclick="speak('B: Ma che vuoi che ___ (sia / fosse)?')">2. B: Ma che vuoi che <span class="blank">&nbsp;</span>?</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">sia</span></p>
+    <p><span class="it" onclick="speak('A: Secondo il giornale, il ministro ___ (sarebbe dimesso / si dimette) ieri.')">3. A: Secondo il giornale, il ministro <span class="blank">&nbsp;</span> ieri.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">si sarebbe dimesso</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u2">U2</span><span class="ex-unit-tag tag-u8">U8</span><span class="ex-unit-tag tag-u9">U9</span><span class="ex-title"><span class="num">40</span>Connettivi &mdash; 填入合适的连接词</span>
+    <p><span class="it" onclick="speak('__(Innanzitutto / Oltretutto), vorrei ringraziare i presenti. (prima di tutto)")>1. <span class="blank">Innanzitutto</span>, vorrei ringraziare i presenti.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Innanzitutto</span></p>
+    <p><span class="it" onclick="speak('Non mi ha aiutato. ___, mi ha criticato. (inoltre / al contrario)">2. Non mi ha aiutato. <span class="blank">Al contrario</span>, mi ha criticato.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Al contrario</span></p>
+    <p><span class="it" onclick="speak('Ha studiato molto, ___ ha superato l\'esame. (di conseguenza / invece)">3. Ha studiato molto, <span class="blank">di conseguenza</span> ha superato l'esame.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">di conseguenza</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u5">U5</span><span class="ex-unit-tag tag-u9">U9</span><span class="ex-title"><span class="num">41</span>Pure, Anzi, Già &mdash; 选择正确的词</span>
+    <p><span class="it" onclick="speak('(Anzi / Pure) ammettendo che sia vero, non cambia nulla.')">1. <span class="blank">Pur</span> ammettendo che sia vero, non cambia nulla.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Pur (anche se + gerundio)</span></p>
+    <p><span class="it" onclick="speak('Non è cattivo, (anzi / pure) è molto gentile!')">2. Non &egrave; cattivo, <span class="blank">anzi</span> &egrave; molto gentile!</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">anzi (rafforzare)</span></p>
+    <p><span class="it" onclick="speak('Andiamo (già / pure) in vacanza! (esortazione)">3. Andiamo <span class="blank">pure</span> in vacanza!</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">pure (esortazione)</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u4">U4</span><span class="ex-unit-tag tag-u6">U6</span><span class="ex-unit-tag tag-u10">U10</span><span class="ex-title"><span class="num">42</span>Trasforma orale in scritto &mdash; 口语转书面语</span>
+    <p><span class="it" onclick="speak('Boh, non lo so. (→ formale)')">1. Boh, non lo so. &rarr; <span class="blank">Non ho idea.</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Non ho idea.</span></p>
+    <p><span class="it" onclick="speak('Mah, forse hai ragione. (→ formale)')">2. Mah, forse hai ragione. &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Forse hai ragione.</span></p>
+    <p><span class="it" onclick="speak('Beh, allora andiamo. (→ formale)')">3. Beh, allora andiamo. &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Dunque, andiamo.</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u6">U6</span><span class="ex-unit-tag tag-u10">U10</span><span class="ex-title"><span class="num">43</span>Gesti italiani &mdash; 配对手势与含义</span>
+    <p><span class="it" onclick="speak('Toccare ferro')">1. Toccare ferro &rarr; <span class="blank">scaramanzia / portafortuna</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">scaramanzia / portafortuna</span></p>
+    <p><span class="it" onclick="speak('Fare le corna')">2. Fare le corna &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">portafortuna / tradimento</span></p>
+    <p><span class="it" onclick="speak('Baciarsi le dita')">3. Baciarsi le dita &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">"Che buono!" / "Eccellente!"</span></p>
+    <p><span class="it" onclick="speak('Alzare le spalle')">4. Alzare le spalle &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">"Non lo so" / "Non mi interessa"</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u3">U3</span><span class="ex-unit-tag tag-u7">U7</span><span class="ex-title"><span class="num">44</span>Imperfetto o passato remoto? &mdash; 选择正确的时态</span>
+    <p><span class="it" onclick="speak('Mentre (camminavo / camminai) per strada, ho visto un incidente.')">1. Mentre <span class="blank">camminavo</span> per strada, ho visto un incidente.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">camminavo (imperfetto descrittivo)</span></p>
+    <p><span class="it" onclick="speak('Quando (ebbe finito / finiva), uscì.')">2. Quando <span class="blank">ebbe finito</span>, usc&igrave;.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">ebbe finito (trapassato remoto)</span></p>
+    <p><span class="it" onclick="speak('Se me lo (dicevi / dicesti), non venivo. (ipotetico)">3. Se me lo <span class="blank">dicevi</span>, non venivo.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">dicevi (imperfetto ipotetico)</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u1">U1</span><span class="ex-unit-tag tag-u2">U2</span><span class="ex-unit-tag tag-u4">U4</span><span class="ex-title"><span class="num">45</span>Formazione delle parole &mdash; 构词练习</span>
+    <p><span class="it" onclick="speak('Dalla parola "estero" → "amore per l\'estero": ___')">1. amore per l'estero &rarr; <span class="blank">esterofilia</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">esterofilia</span></p>
+    <p><span class="it" onclick="speak('Da "libro" + suffisso accrescitivo: ___')">2. libro (grande) &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">librone</span></p>
+    <p><span class="it" onclick="speak('Da "scienza" + prefisso "falso": ___')">3. scienza (falsa) &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">pseudoscienza</span></p>
+    <p><span class="it" onclick="speak('Da "tempo" + suffisso peggiorativo: ___')">4. tempo (brutto) &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">tempaccio</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u5">U5</span><span class="ex-unit-tag tag-u9">U9</span><span class="ex-unit-tag tag-u10">U10</span><span class="ex-title"><span class="num">46</span>Correggi l'errore &mdash; 改错</span>
+    <p><span class="it" onclick="speak('Mi piace *il* mio sorella. (errore)")>1. <del>Il</del> mio sorella &rarr; <span class="blank">mia sorella</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">mia sorella (senza articolo per sing. non alterato)</span></p>
+    <p><span class="it" onclick="speak('Si tratta *da* un problema serio. (errore)")>2. Si tratta <del>da</del> &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Si tratta di</span></p>
+    <p><span class="it" onclick="speak('La foto *sono* belle. (errore invariabile)">3. La foto <del>sono</del> belle &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Le foto sono belle (ma foto &egrave; invariabile, l'articolo cambia)</span></p>
+    <p><span class="it" onclick="speak('*Si mangiano* bene in Italia. (errore)">4. <del>Si mangiano</del> &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Si mangia (forma impersonale sempre singolare)</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u1">U1</span><span class="ex-unit-tag tag-u3">U3</span><span class="ex-unit-tag tag-u7">U7</span><span class="ex-unit-tag tag-u10">U10</span><span class="ex-title"><span class="num">47</span>Domande a risposta multipla &mdash; 选择题</span>
+    <p><span class="it" onclick="speak('Quale di questi NON è un nome invariabile? a) città b) foto c) problema d) bar")>1. Quale NON &egrave; invariabile? a) citt&agrave; b) foto c) problema (i problemi) d) bar &rarr; <span class="blank">c) problema</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">c) problema (fa i problemi)</span></p>
+    <p><span class="it" onclick="speak('"Secondo il giornale, il ladro sarebbe entrato." Che uso del condizionale è? a) desiderio b) giornalistico c) cortesia")>2. "sarebbe entrato" &rarr; <span class="blank">b) giornalistico</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">b) condizionale giornalistico</span></p>
+    <p><span class="it" onclick="speak('"Fare + infinito" può esprimere: a) obbligo b) desiderio c) dubbio')">3. "Fare + infinito" esprime: a) obbligo b) desiderio c) dubbio &rarr; <span class="blank">a) obbligo / permesso / causa</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">a) obbligo, permesso, causa</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u2">U2</span><span class="ex-unit-tag tag-u6">U6</span><span class="ex-unit-tag tag-u8">U8</span><span class="ex-title"><span class="num">48</span>Sinonimi e contrari &mdash; 同义/反义词</span>
+    <p><span class="it" onclick="speak('Sinonimo di "inoltre": ___')">1. Sinonimo di "inoltre": <span class="blank">per di pi&ugrave; / oltretutto</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">per di pi&ugrave; / oltretutto</span></p>
+    <p><span class="it" onclick="speak('Contrario di "esterofilia": ___')">2. Contrario di "esterofilia": <span class="blank">esterofobia</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">esterofobia</span></p>
+    <p><span class="it" onclick="speak('Significato di "non è esente da": ___')">3. "Non &egrave; esente da" significa: <span class="blank">&egrave; soggetto a</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">&egrave; soggetto a</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u4">U4</span><span class="ex-unit-tag tag-u7">U7</span><span class="ex-unit-tag tag-u9">U9</span><span class="ex-title"><span class="num">49</span>Completa con la parola mancante</span>
+    <p><span class="it" onclick="speak('Il Manifesto della comunicazione non ___ (ostile / amichevole)')">1. Il Manifesto della comunicazione non <span class="blank">ostile</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">ostile</span></p>
+    <p><span class="it" onclick="speak('Le idee si possono discutere. Le persone si devono ___. (rispettare / offendere)')">2. Le persone si devono <span class="blank">rispettare</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">rispettare</span></p>
+    <p><span class="it" onclick="speak('"___ a pagarmi non lo farei." (Neanche / Anche)')">3. <span class="blank">Neanche</span> a pagarmi non lo farei.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Neanche</span></p>
+    <p><span class="it" onclick="speak('"___ a essere pigro, ne sai qualcosa!" (In quanto a / A differenza di)')">4. <span class="blank">In quanto a</span> essere pigro, ne sai qualcosa!</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">In quanto a</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u5">U5</span><span class="ex-unit-tag tag-u8">U8</span><span class="ex-unit-tag tag-u10">U10</span><span class="ex-title"><span class="num">50</span>Vero o Falso &mdash; 判断正误</span>
+    <p><span class="it" onclick="speak('"Piano piano" significa "molto velocemente".')">1. "Piano piano" = "molto velocemente" &rarr; <span class="blank">Falso</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Falso. Significa "molto lentamente".</span></p>
+    <p><span class="it" onclick="speak('Dopo "in" (paesi) non si usa l\'articolo: "in Francia".')">2. Dopo "in" (paesi) non si usa l'articolo &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Vero. Si dice "in Francia", non "nella Francia".</span></p>
+    <p><span class="it" onclick="speak('Il pronome relativo "il quale" è invariabile.')">3. "Il quale" &egrave; invariabile &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Falso. Ha forme: il quale, la quale, i quali, le quali.</span></p>
+    <p><span class="it" onclick="speak('"Ogni due per tre" significa "raramente".')">4. "Ogni due per tre" = "raramente" &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">Falso. Significa "molto spesso".</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u3">U3</span><span class="ex-unit-tag tag-u6">U6</span><span class="ex-unit-tag tag-u9">U9</span><span class="ex-title"><span class="num">51</span>Onomatopee &mdash; 配对声音与含义</span>
+    <p><span class="it" onclick="speak('Toc toc')">1. Toc toc &rarr; <span class="blank">bussare alla porta</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">bussare alla porta</span></p>
+    <p><span class="it" onclick="speak('Drin drin')">2. Drin drin &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">suono del telefono</span></p>
+    <p><span class="it" onclick="speak('Chicchirichì')">3. Chicchirich&igrave; &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">verso del gallo</span></p>
+    <p><span class="it" onclick="speak('Ahi!')">4. Ahi! &rarr; <span class="blank">&nbsp;</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">dolore fisico</span></p>
+  </div>
+
+  <div class="exercise-box">
+    <span class="ex-unit-tag tag-u6">U6</span><span class="ex-unit-tag tag-u9">U9</span><span class="ex-unit-tag tag-u10">U10</span><span class="ex-title"><span class="num">52</span>Indovina la parola &mdash; 猜词</span>
+    <p><span class="it" onclick="speak('Persona che parla di tutto fingendo competenza: il ___')">1. Persona che parla di tutto fingendo competenza: il <span class="blank">tuttologo</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">tuttologo</span></p>
+    <p><span class="it" onclick="speak('Gesto che significa "Che buono!": ___ le dita')">2. Gesto che significa "Che buono!": <span class="blank">baciarsi</span> le dita.</span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">baciarsi</span></p>
+    <p><span class="it" onclick="speak('Espressione per "criticare duramente": sparare a ___')">3. Criticare duramente: sparare a <span class="blank">zero</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">zero</span></p>
+    <p><span class="it" onclick="speak('Opposto di "esterofilia": ___')">4. Opposto di "esterofilia": <span class="blank">esterofobia</span></span> <span class="answer-toggle" onclick="this.nextElementSibling.classList.toggle('show')">&#x1F441; Risposta</span><span class="answer-content">esterofobia</span></p>
+  </div>
+</section>
+
+<div class="nav-buttons">
+  <a href="grammatica-riassuntiva.html">&larr; Grammatica</a>
+  <a href="index.html" class="home-btn">Torna al corso</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-logo">NUOVO Espresso 6</div>
+  <p>Corso di lingua italiana per stranieri &middot; Livello C2</p>
+  <p style="margin-top:8px;opacity:0.6;">Ornella Discacciati &middot; ALMA Edizioni</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const st = document.documentElement.scrollTop;
+    const sh = document.documentElement.scrollHeight - window.innerHeight;
+    document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+    document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+  });
+</script>
+</body>
+</html>
