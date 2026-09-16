@@ -1,11 +1,21 @@
 /**
  * NUOVO Espresso - Audio Player
  * Plays from base64 JSON or direct MP3
- * speak(text)            → 默认女声 (it-IT-IsabellaNeural)
- * speak(text, 'male')    → 男声 (it-IT-DiegoNeural)，音频 key 前缀 m_
+ * speak(text)             → 默认女声 (it-IT-IsabellaNeural)
+ * speak(text, 'male')     → 男声1 (it-IT-DiegoNeural)，音频 key 前缀 m_
+ * speak(text, 'male2')    → 男声2 (it-IT-GiuseppeNeural)，音频 key 前缀 m2_
+ * 音频缺失时依次回退：指定男声 → 男声1 → 默认女声
  */
 let ne_currentAudio = null;
 const ne_audioCache = {};
+
+// voice 名 → 音频 key 前缀
+const NE_VOICE_PREFIX = {
+  'male': 'm_',
+  'male1': 'm_',
+  'male2': 'm2_',
+  'female': ''
+};
 
 function ne_makeKey(text) {
   return text.toLowerCase()
@@ -43,7 +53,8 @@ function speak(text, voice) {
   }
 
   var baseKey = ne_makeKey(text);
-  var key = (voice === 'male') ? ('m_' + baseKey) : baseKey;
+  var prefix = NE_VOICE_PREFIX[voice] !== undefined ? NE_VOICE_PREFIX[voice] : '';
+  var key = prefix + baseKey;
 
   if (ne_audioCache[key]) {
     ne_audioCache[key].currentTime = 0;
@@ -55,16 +66,19 @@ function speak(text, voice) {
   // Classify text to find JSON subfolder
   var type = ne_typeOf(text);
 
-  fetch('audio/ne6/' + type + '/' + key + '.json')
-    .then(function(r) { return r.ok ? r.json() : Promise.reject(new Error('404')); })
-    .then(function(data) { ne_playData(data, key); })
-    .catch(function() {
-      // 男声音频缺失时回退到默认（女声）音频
-      if (key !== baseKey) {
-        fetch('audio/ne6/' + type + '/' + baseKey + '.json')
-          .then(function(r) { return r.ok ? r.json() : Promise.reject(new Error('404')); })
-          .then(function(data) { ne_playData(data, baseKey); })
-          .catch(function(){});
-      }
-    });
+  // 候选音频：指定音色 → 男声1 → 默认女声
+  var candidates = [key];
+  if (prefix && prefix !== 'm_') candidates.push('m_' + baseKey);
+  if (prefix) candidates.push(baseKey);
+
+  (function tryNext(i) {
+    if (i >= candidates.length) return;
+    var k = candidates[i];
+    fetch('audio/ne6/' + type + '/' + k + '.json')
+      .then(function(r) { return r.ok ? r.json() : Promise.reject(new Error('404')); })
+      .then(function(data) {
+        if (!ne_playData(data, k)) tryNext(i + 1);
+      })
+      .catch(function() { tryNext(i + 1); });
+  })(0);
 }
