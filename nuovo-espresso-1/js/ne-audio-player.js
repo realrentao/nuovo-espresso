@@ -1,10 +1,11 @@
 /**
  * NUOVO Espresso - Audio Player
  * Plays from base64 JSON or direct MP3
- * speak(text)             → 默认女声 (it-IT-IsabellaNeural)
- * speak(text, 'male')     → 男声1 (it-IT-DiegoNeural)，音频 key 前缀 m_
- * speak(text, 'male2')    → 男声2 (it-IT-GiuseppeNeural)，音频 key 前缀 m2_
- * 音频缺失时依次回退：指定男声 → 男声1 → 默认女声
+ * speak(text)              → 女声1 (it-IT-IsabellaNeural)，默认
+ * speak(text, 'female2')   → 女声2 (it-IT-ElsaNeural)，key 前缀 f2_
+ * speak(text, 'male')      → 男声1 (it-IT-DiegoNeural)，key 前缀 m_
+ * speak(text, 'male2')     → 男声2 (it-IT-GiuseppeNeural)，key 前缀 m2_
+ * 音频缺失时按 NE_VOICE_FALLBACK 逐级回退，最终落到默认女声
  */
 let ne_currentAudio = null;
 const ne_audioCache = {};
@@ -14,7 +15,16 @@ const NE_VOICE_PREFIX = {
   'male': 'm_',
   'male1': 'm_',
   'male2': 'm2_',
-  'female': ''
+  'female': '',
+  'female1': '',
+  'female2': 'f2_'
+};
+
+// 前缀 → 回退前缀链（同性别优先，最后才回退默认女声）
+const NE_VOICE_FALLBACK = {
+  'm2_': ['m_', ''],
+  'm_': [''],
+  'f2_': ['']
 };
 
 function ne_makeKey(text) {
@@ -66,10 +76,9 @@ function speak(text, voice) {
   // Classify text to find JSON subfolder
   var type = ne_typeOf(text);
 
-  // 候选音频：指定音色 → 男声1 → 默认女声
-  var candidates = [key];
-  if (prefix && prefix !== 'm_') candidates.push('m_' + baseKey);
-  if (prefix) candidates.push(baseKey);
+  // 候选音频：指定音色 → 同性别回退 → 默认女声
+  var candidates = [prefix].concat(NE_VOICE_FALLBACK[prefix] || [])
+    .map(function(p) { return p + baseKey; });
 
   (function tryNext(i) {
     if (i >= candidates.length) return;
