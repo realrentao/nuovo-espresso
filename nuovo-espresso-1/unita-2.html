@@ -39,6 +39,15 @@
     .grammar-box tr:last-child td { border-bottom: none; }
     .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
     .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .num-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 10px 0; }
+    .num-block { border: 1px solid var(--border-light); border-radius: 10px; overflow: hidden; background: #fff; }
+    .num-block-title { background: linear-gradient(135deg, rgba(254,249,231,0.9), rgba(253,235,208,0.5)); font-weight: 700; font-size: 13px; text-align: center; padding: 5px 4px; color: var(--ne-blue); border-bottom: 2px solid var(--ne-gold-dark); }
+    .num-row { display: flex; justify-content: space-between; align-items: baseline; gap: 6px; padding: 4px 9px; border-top: 1px solid #f0ece2; font-size: 14px; }
+    .num-row:first-of-type { border-top: none; }
+    .num-n { color: #888; font-variant-numeric: tabular-nums; }
+    .num-w { color: var(--ne-red); font-weight: 700; cursor: pointer; text-align: right; overflow-wrap: anywhere; }
+    .num-w:hover { background: #fff3cd; }
+
     .art-ex { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px 18px; margin: 10px 0; }
     .art-ex .row { display: flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--border-light); border-radius: 8px; padding: 6px 10px; }
     .art-ex input { width: 70px; padding: 5px 7px; font-size: 14px; border: 1.5px solid #d9c9a3; border-radius: 6px; text-align: center; text-transform: lowercase; outline: none; }
@@ -83,6 +92,10 @@
       .grammar-box .verb { word-break: break-word; overflow-wrap: anywhere; }
       .art-ex { grid-template-columns: 1fr; gap: 6px; }
       .art-ex input { width: 60px; font-size: 13px; }
+      .num-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+      .num-row { font-size: 15px; padding: 5px 10px; }
+      .num-block-title { font-size: 14px; }
+
     }
   </style>
 </head>
@@ -627,42 +640,144 @@
   </div>
 
   <!-- 13. Numeri 1-100 -->
-  <h3>13. 数字 1-100 (Numeri da 1 a 100) · p.9, es.8 + p.23</h3>
+  <h3>13. 数字 0-100 (Numeri da 0 a 100) · p.9, es.8 + p.23</h3>
   <div class="grammar-box">
-    <table>
-      <tr><th>数字</th><th>意大利语</th><th>数字</th><th>意大利语</th><th>数字</th><th>意大利语</th><th>数字</th><th>意大利语</th></tr>
-      <tr><td>1</td><td class="verb" onclick="speak('uno')">uno</td><td>11</td><td class="verb" onclick="speak('undici')">undici</td><td>30</td><td class="verb" onclick="speak('trenta')">trenta</td><td>70</td><td class="verb" onclick="speak('settanta')">settanta</td></tr>
-      <tr><td>2</td><td class="verb" onclick="speak('due')">due</td><td>12</td><td class="verb" onclick="speak('dodici')">dodici</td><td>31</td><td class="verb" onclick="speak('trentuno')">trentuno</td><td>71</td><td class="verb" onclick="speak('settantuno')">settantuno</td></tr>
-      <tr><td>3</td><td class="verb" onclick="speak('tre')">tre</td><td>13</td><td class="verb" onclick="speak('tredici')">tredici</td><td>32</td><td class="verb" onclick="speak('trentadue')">trentadue</td><td>72</td><td class="verb" onclick="speak('settantadue')">settantadue</td></tr>
-      <tr><td>4</td><td class="verb" onclick="speak('quattro')">quattro</td><td>14</td><td class="verb" onclick="speak('quattordici')">quattordici</td><td>33</td><td class="verb" onclick="speak('trentatré')">trentatré</td><td>73</td><td class="verb" onclick="speak('settantatré')">settantatré</td></tr>
-      <tr><td>5</td><td class="verb" onclick="speak('cinque')">cinque</td><td>15</td><td class="verb" onclick="speak('quindici')">quindici</td><td>34</td><td class="verb" onclick="speak('trentaquattro')">trentaquattro</td><td>74</td><td class="verb" onclick="speak('settantaquattro')">settantaquattro</td></tr>
-      <tr><td>6</td><td class="verb" onclick="speak('sei')">sei</td><td>16</td><td class="verb" onclick="speak('sedici')">sedici</td><td>35</td><td class="verb" onclick="speak('trentacinque')">trentacinque</td><td>75</td><td class="verb" onclick="speak('settantacinque')">settantacinque</td></tr>
-      <tr><td>7</td><td class="verb" onclick="speak('sette')">sette</td><td>17</td><td class="verb" onclick="speak('diciassette')">diciassette</td><td>36</td><td class="verb" onclick="speak('trentasei')">trentasei</td><td>76</td><td class="verb" onclick="speak('settantasei')">settantasei</td></tr>
-      <tr><td>8</td><td class="verb" onclick="speak('otto')">otto</td><td>18</td><td class="verb" onclick="speak('diciotto')">diciotto</td><td>37</td><td class="verb" onclick="speak('trentasette')">trentasette</td><td>77</td><td class="verb" onclick="speak('settantasette')">settantasette</td></tr>
-      <tr><td>9</td><td class="verb" onclick="speak('nove')">nove</td><td>19</td><td class="verb" onclick="speak('diciannove')">diciannove</td><td>38</td><td class="verb" onclick="speak('trentotto')">trentotto</td><td>78</td><td class="verb" onclick="speak('settantotto')">settantotto</td></tr>
-      <tr><td>10</td><td class="verb" onclick="speak('dieci')">dieci</td><td>20</td><td class="verb" onclick="speak('venti')">venti</td><td>39</td><td class="verb" onclick="speak('trentanove')">trentanove</td><td>79</td><td class="verb" onclick="speak('settantanove')">settantanove</td></tr>
-      <tr><td></td><td></td><td>21</td><td class="verb" onclick="speak('ventuno')">ventuno</td><td>40</td><td class="verb" onclick="speak('quaranta')">quaranta</td><td>80</td><td class="verb" onclick="speak('ottanta')">ottanta</td></tr>
-      <tr><td></td><td></td><td>22</td><td class="verb" onclick="speak('ventidue')">ventidue</td><td>41</td><td class="verb" onclick="speak('quarantuno')">quarantuno</td><td>81</td><td class="verb" onclick="speak('ottantuno')">ottantuno</td></tr>
-      <tr><td></td><td></td><td>23</td><td class="verb" onclick="speak('ventitré')">ventitré</td><td>42</td><td class="verb" onclick="speak('quarantadue')">quarantadue</td><td>82</td><td class="verb" onclick="speak('ottantadue')">ottantadue</td></tr>
-      <tr><td></td><td></td><td>24</td><td class="verb" onclick="speak('ventiquattro')">ventiquattro</td><td>43</td><td class="verb" onclick="speak('quarantatré')">quarantatré</td><td>83</td><td class="verb" onclick="speak('ottantatré')">ottantatré</td></tr>
-      <tr><td></td><td></td><td>25</td><td class="verb" onclick="speak('venticinque')">venticinque</td><td>44</td><td class="verb" onclick="speak('quarantaquattro')">quarantaquattro</td><td>84</td><td class="verb" onclick="speak('ottantaquattro')">ottantaquattro</td></tr>
-      <tr><td></td><td></td><td>26</td><td class="verb" onclick="speak('ventisei')">ventisei</td><td>45</td><td class="verb" onclick="speak('quarantacinque')">quarantacinque</td><td>85</td><td class="verb" onclick="speak('ottantacinque')">ottantacinque</td></tr>
-      <tr><td></td><td></td><td>27</td><td class="verb" onclick="speak('ventisette')">ventisette</td><td>46</td><td class="verb" onclick="speak('quarantasei')">quarantasei</td><td>86</td><td class="verb" onclick="speak('ottantasei')">ottantasei</td></tr>
-      <tr><td></td><td></td><td>28</td><td class="verb" onclick="speak('ventotto')">ventotto</td><td>47</td><td class="verb" onclick="speak('quarantasette')">quarantasette</td><td>87</td><td class="verb" onclick="speak('ottantasette')">ottantasette</td></tr>
-      <tr><td></td><td></td><td>29</td><td class="verb" onclick="speak('ventinove')">ventinove</td><td>48</td><td class="verb" onclick="speak('quarantotto')">quarantotto</td><td>88</td><td class="verb" onclick="speak('ottantotto')">ottantotto</td></tr>
-      <tr><td></td><td></td><td></td><td></td><td>49</td><td class="verb" onclick="speak('quarantanove')">quarantanove</td><td>89</td><td class="verb" onclick="speak('ottantanove')">ottantanove</td></tr>
-      <tr><td></td><td></td><td></td><td></td><td>50</td><td class="verb" onclick="speak('cinquanta')">cinquanta</td><td>90</td><td class="verb" onclick="speak('novanta')">novanta</td></tr>
-      <tr><td></td><td></td><td></td><td></td><td>51</td><td class="verb" onclick="speak('cinquantuno')">cinquantuno</td><td>91</td><td class="verb" onclick="speak('novantuno')">novantuno</td></tr>
-      <tr><td></td><td></td><td></td><td></td><td>52</td><td class="verb" onclick="speak('cinquantadue')">cinquantadue</td><td>92</td><td class="verb" onclick="speak('novantadue')">novantadue</td></tr>
-      <tr><td></td><td></td><td></td><td></td><td>53</td><td class="verb" onclick="speak('cinquantatré')">cinquantatré</td><td>93</td><td class="verb" onclick="speak('novantatré')">novantatré</td></tr>
-      <tr><td></td><td></td><td></td><td></td><td>54</td><td class="verb" onclick="speak('cinquantaquattro')">cinquantaquattro</td><td>94</td><td class="verb" onclick="speak('novantaquattro')">novantaquattro</td></tr>
-      <tr><td></td><td></td><td></td><td></td><td>55</td><td class="verb" onclick="speak('cinquantacinque')">cinquantacinque</td><td>95</td><td class="verb" onclick="speak('novantacinque')">novantacinque</td></tr>
-      <tr><td></td><td></td><td></td><td></td><td>56</td><td class="verb" onclick="speak('cinquantasei')">cinquantasei</td><td>96</td><td class="verb" onclick="speak('novantasei')">novantasei</td></tr>
-      <tr><td></td><td></td><td></td><td></td><td>57</td><td class="verb" onclick="speak('cinquantasette')">cinquantasette</td><td>97</td><td class="verb" onclick="speak('novantasette')">novantasette</td></tr>
-      <tr><td></td><td></td><td></td><td></td><td>58</td><td class="verb" onclick="speak('cinquantotto')">cinquantotto</td><td>98</td><td class="verb" onclick="speak('novantotto')">novantotto</td></tr>
-      <tr><td></td><td></td><td></td><td></td><td>59</td><td class="verb" onclick="speak('cinquantanove')">cinquantanove</td><td>99</td><td class="verb" onclick="speak('novantanove')">novantanove</td></tr>
-      <tr><td></td><td></td><td></td><td></td><td>60</td><td class="verb" onclick="speak('sessanta')">sessanta</td><td>100</td><td class="verb" onclick="speak('cento')">cento</td></tr>
-    </table>
+        <div class="num-grid">
+    <div class="num-block">
+      <div class="num-block-title">0 – 9</div>
+      <div class="num-row"><span class="num-n">0</span><span class="num-w verb" onclick="speak('zero')">zero</span></div>
+      <div class="num-row"><span class="num-n">1</span><span class="num-w verb" onclick="speak('uno')">uno</span></div>
+      <div class="num-row"><span class="num-n">2</span><span class="num-w verb" onclick="speak('due')">due</span></div>
+      <div class="num-row"><span class="num-n">3</span><span class="num-w verb" onclick="speak('tre')">tre</span></div>
+      <div class="num-row"><span class="num-n">4</span><span class="num-w verb" onclick="speak('quattro')">quattro</span></div>
+      <div class="num-row"><span class="num-n">5</span><span class="num-w verb" onclick="speak('cinque')">cinque</span></div>
+      <div class="num-row"><span class="num-n">6</span><span class="num-w verb" onclick="speak('sei')">sei</span></div>
+      <div class="num-row"><span class="num-n">7</span><span class="num-w verb" onclick="speak('sette')">sette</span></div>
+      <div class="num-row"><span class="num-n">8</span><span class="num-w verb" onclick="speak('otto')">otto</span></div>
+      <div class="num-row"><span class="num-n">9</span><span class="num-w verb" onclick="speak('nove')">nove</span></div>
+    </div>
+    <div class="num-block">
+      <div class="num-block-title">10 – 19</div>
+      <div class="num-row"><span class="num-n">10</span><span class="num-w verb" onclick="speak('dieci')">dieci</span></div>
+      <div class="num-row"><span class="num-n">11</span><span class="num-w verb" onclick="speak('undici')">undici</span></div>
+      <div class="num-row"><span class="num-n">12</span><span class="num-w verb" onclick="speak('dodici')">dodici</span></div>
+      <div class="num-row"><span class="num-n">13</span><span class="num-w verb" onclick="speak('tredici')">tredici</span></div>
+      <div class="num-row"><span class="num-n">14</span><span class="num-w verb" onclick="speak('quattordici')">quattordici</span></div>
+      <div class="num-row"><span class="num-n">15</span><span class="num-w verb" onclick="speak('quindici')">quindici</span></div>
+      <div class="num-row"><span class="num-n">16</span><span class="num-w verb" onclick="speak('sedici')">sedici</span></div>
+      <div class="num-row"><span class="num-n">17</span><span class="num-w verb" onclick="speak('diciassette')">diciassette</span></div>
+      <div class="num-row"><span class="num-n">18</span><span class="num-w verb" onclick="speak('diciotto')">diciotto</span></div>
+      <div class="num-row"><span class="num-n">19</span><span class="num-w verb" onclick="speak('diciannove')">diciannove</span></div>
+    </div>
+    <div class="num-block">
+      <div class="num-block-title">20 – 29</div>
+      <div class="num-row"><span class="num-n">20</span><span class="num-w verb" onclick="speak('venti')">venti</span></div>
+      <div class="num-row"><span class="num-n">21</span><span class="num-w verb" onclick="speak('ventuno')">ventuno</span></div>
+      <div class="num-row"><span class="num-n">22</span><span class="num-w verb" onclick="speak('ventidue')">ventidue</span></div>
+      <div class="num-row"><span class="num-n">23</span><span class="num-w verb" onclick="speak('ventitré')">ventitré</span></div>
+      <div class="num-row"><span class="num-n">24</span><span class="num-w verb" onclick="speak('ventiquattro')">ventiquattro</span></div>
+      <div class="num-row"><span class="num-n">25</span><span class="num-w verb" onclick="speak('venticinque')">venticinque</span></div>
+      <div class="num-row"><span class="num-n">26</span><span class="num-w verb" onclick="speak('ventisei')">ventisei</span></div>
+      <div class="num-row"><span class="num-n">27</span><span class="num-w verb" onclick="speak('ventisette')">ventisette</span></div>
+      <div class="num-row"><span class="num-n">28</span><span class="num-w verb" onclick="speak('ventotto')">ventotto</span></div>
+      <div class="num-row"><span class="num-n">29</span><span class="num-w verb" onclick="speak('ventinove')">ventinove</span></div>
+    </div>
+    <div class="num-block">
+      <div class="num-block-title">30 – 39</div>
+      <div class="num-row"><span class="num-n">30</span><span class="num-w verb" onclick="speak('trenta')">trenta</span></div>
+      <div class="num-row"><span class="num-n">31</span><span class="num-w verb" onclick="speak('trentuno')">trentuno</span></div>
+      <div class="num-row"><span class="num-n">32</span><span class="num-w verb" onclick="speak('trentadue')">trentadue</span></div>
+      <div class="num-row"><span class="num-n">33</span><span class="num-w verb" onclick="speak('trentatré')">trentatré</span></div>
+      <div class="num-row"><span class="num-n">34</span><span class="num-w verb" onclick="speak('trentaquattro')">trentaquattro</span></div>
+      <div class="num-row"><span class="num-n">35</span><span class="num-w verb" onclick="speak('trentacinque')">trentacinque</span></div>
+      <div class="num-row"><span class="num-n">36</span><span class="num-w verb" onclick="speak('trentasei')">trentasei</span></div>
+      <div class="num-row"><span class="num-n">37</span><span class="num-w verb" onclick="speak('trentasette')">trentasette</span></div>
+      <div class="num-row"><span class="num-n">38</span><span class="num-w verb" onclick="speak('trentotto')">trentotto</span></div>
+      <div class="num-row"><span class="num-n">39</span><span class="num-w verb" onclick="speak('trentanove')">trentanove</span></div>
+    </div>
+    <div class="num-block">
+      <div class="num-block-title">40 – 49</div>
+      <div class="num-row"><span class="num-n">40</span><span class="num-w verb" onclick="speak('quaranta')">quaranta</span></div>
+      <div class="num-row"><span class="num-n">41</span><span class="num-w verb" onclick="speak('quarantuno')">quarantuno</span></div>
+      <div class="num-row"><span class="num-n">42</span><span class="num-w verb" onclick="speak('quarantadue')">quarantadue</span></div>
+      <div class="num-row"><span class="num-n">43</span><span class="num-w verb" onclick="speak('quarantatré')">quarantatré</span></div>
+      <div class="num-row"><span class="num-n">44</span><span class="num-w verb" onclick="speak('quarantaquattro')">quarantaquattro</span></div>
+      <div class="num-row"><span class="num-n">45</span><span class="num-w verb" onclick="speak('quarantacinque')">quarantacinque</span></div>
+      <div class="num-row"><span class="num-n">46</span><span class="num-w verb" onclick="speak('quarantasei')">quarantasei</span></div>
+      <div class="num-row"><span class="num-n">47</span><span class="num-w verb" onclick="speak('quarantasette')">quarantasette</span></div>
+      <div class="num-row"><span class="num-n">48</span><span class="num-w verb" onclick="speak('quarantotto')">quarantotto</span></div>
+      <div class="num-row"><span class="num-n">49</span><span class="num-w verb" onclick="speak('quarantanove')">quarantanove</span></div>
+    </div>
+    <div class="num-block">
+      <div class="num-block-title">50 – 59</div>
+      <div class="num-row"><span class="num-n">50</span><span class="num-w verb" onclick="speak('cinquanta')">cinquanta</span></div>
+      <div class="num-row"><span class="num-n">51</span><span class="num-w verb" onclick="speak('cinquantuno')">cinquantuno</span></div>
+      <div class="num-row"><span class="num-n">52</span><span class="num-w verb" onclick="speak('cinquantadue')">cinquantadue</span></div>
+      <div class="num-row"><span class="num-n">53</span><span class="num-w verb" onclick="speak('cinquantatré')">cinquantatré</span></div>
+      <div class="num-row"><span class="num-n">54</span><span class="num-w verb" onclick="speak('cinquantaquattro')">cinquantaquattro</span></div>
+      <div class="num-row"><span class="num-n">55</span><span class="num-w verb" onclick="speak('cinquantacinque')">cinquantacinque</span></div>
+      <div class="num-row"><span class="num-n">56</span><span class="num-w verb" onclick="speak('cinquantasei')">cinquantasei</span></div>
+      <div class="num-row"><span class="num-n">57</span><span class="num-w verb" onclick="speak('cinquantasette')">cinquantasette</span></div>
+      <div class="num-row"><span class="num-n">58</span><span class="num-w verb" onclick="speak('cinquantotto')">cinquantotto</span></div>
+      <div class="num-row"><span class="num-n">59</span><span class="num-w verb" onclick="speak('cinquantanove')">cinquantanove</span></div>
+    </div>
+    <div class="num-block">
+      <div class="num-block-title">60 – 69</div>
+      <div class="num-row"><span class="num-n">60</span><span class="num-w verb" onclick="speak('sessanta')">sessanta</span></div>
+      <div class="num-row"><span class="num-n">61</span><span class="num-w verb" onclick="speak('sessantuno')">sessantuno</span></div>
+      <div class="num-row"><span class="num-n">62</span><span class="num-w verb" onclick="speak('sessantadue')">sessantadue</span></div>
+      <div class="num-row"><span class="num-n">63</span><span class="num-w verb" onclick="speak('sessantatré')">sessantatré</span></div>
+      <div class="num-row"><span class="num-n">64</span><span class="num-w verb" onclick="speak('sessantaquattro')">sessantaquattro</span></div>
+      <div class="num-row"><span class="num-n">65</span><span class="num-w verb" onclick="speak('sessantacinque')">sessantacinque</span></div>
+      <div class="num-row"><span class="num-n">66</span><span class="num-w verb" onclick="speak('sessantasei')">sessantasei</span></div>
+      <div class="num-row"><span class="num-n">67</span><span class="num-w verb" onclick="speak('sessantasette')">sessantasette</span></div>
+      <div class="num-row"><span class="num-n">68</span><span class="num-w verb" onclick="speak('sessantotto')">sessantotto</span></div>
+      <div class="num-row"><span class="num-n">69</span><span class="num-w verb" onclick="speak('sessantanove')">sessantanove</span></div>
+    </div>
+    <div class="num-block">
+      <div class="num-block-title">70 – 79</div>
+      <div class="num-row"><span class="num-n">70</span><span class="num-w verb" onclick="speak('settanta')">settanta</span></div>
+      <div class="num-row"><span class="num-n">71</span><span class="num-w verb" onclick="speak('settantuno')">settantuno</span></div>
+      <div class="num-row"><span class="num-n">72</span><span class="num-w verb" onclick="speak('settantadue')">settantadue</span></div>
+      <div class="num-row"><span class="num-n">73</span><span class="num-w verb" onclick="speak('settantatré')">settantatré</span></div>
+      <div class="num-row"><span class="num-n">74</span><span class="num-w verb" onclick="speak('settantaquattro')">settantaquattro</span></div>
+      <div class="num-row"><span class="num-n">75</span><span class="num-w verb" onclick="speak('settantacinque')">settantacinque</span></div>
+      <div class="num-row"><span class="num-n">76</span><span class="num-w verb" onclick="speak('settantasei')">settantasei</span></div>
+      <div class="num-row"><span class="num-n">77</span><span class="num-w verb" onclick="speak('settantasette')">settantasette</span></div>
+      <div class="num-row"><span class="num-n">78</span><span class="num-w verb" onclick="speak('settantotto')">settantotto</span></div>
+      <div class="num-row"><span class="num-n">79</span><span class="num-w verb" onclick="speak('settantanove')">settantanove</span></div>
+    </div>
+    <div class="num-block">
+      <div class="num-block-title">80 – 89</div>
+      <div class="num-row"><span class="num-n">80</span><span class="num-w verb" onclick="speak('ottanta')">ottanta</span></div>
+      <div class="num-row"><span class="num-n">81</span><span class="num-w verb" onclick="speak('ottantuno')">ottantuno</span></div>
+      <div class="num-row"><span class="num-n">82</span><span class="num-w verb" onclick="speak('ottantadue')">ottantadue</span></div>
+      <div class="num-row"><span class="num-n">83</span><span class="num-w verb" onclick="speak('ottantatré')">ottantatré</span></div>
+      <div class="num-row"><span class="num-n">84</span><span class="num-w verb" onclick="speak('ottantaquattro')">ottantaquattro</span></div>
+      <div class="num-row"><span class="num-n">85</span><span class="num-w verb" onclick="speak('ottantacinque')">ottantacinque</span></div>
+      <div class="num-row"><span class="num-n">86</span><span class="num-w verb" onclick="speak('ottantasei')">ottantasei</span></div>
+      <div class="num-row"><span class="num-n">87</span><span class="num-w verb" onclick="speak('ottantasette')">ottantasette</span></div>
+      <div class="num-row"><span class="num-n">88</span><span class="num-w verb" onclick="speak('ottantotto')">ottantotto</span></div>
+      <div class="num-row"><span class="num-n">89</span><span class="num-w verb" onclick="speak('ottantanove')">ottantanove</span></div>
+    </div>
+    <div class="num-block">
+      <div class="num-block-title">90 – 99</div>
+      <div class="num-row"><span class="num-n">90</span><span class="num-w verb" onclick="speak('novanta')">novanta</span></div>
+      <div class="num-row"><span class="num-n">91</span><span class="num-w verb" onclick="speak('novantuno')">novantuno</span></div>
+      <div class="num-row"><span class="num-n">92</span><span class="num-w verb" onclick="speak('novantadue')">novantadue</span></div>
+      <div class="num-row"><span class="num-n">93</span><span class="num-w verb" onclick="speak('novantatré')">novantatré</span></div>
+      <div class="num-row"><span class="num-n">94</span><span class="num-w verb" onclick="speak('novantaquattro')">novantaquattro</span></div>
+      <div class="num-row"><span class="num-n">95</span><span class="num-w verb" onclick="speak('novantacinque')">novantacinque</span></div>
+      <div class="num-row"><span class="num-n">96</span><span class="num-w verb" onclick="speak('novantasei')">novantasei</span></div>
+      <div class="num-row"><span class="num-n">97</span><span class="num-w verb" onclick="speak('novantasette')">novantasette</span></div>
+      <div class="num-row"><span class="num-n">98</span><span class="num-w verb" onclick="speak('novantotto')">novantotto</span></div>
+      <div class="num-row"><span class="num-n">99</span><span class="num-w verb" onclick="speak('novantanove')">novantanove</span></div>
+    </div>
+    <div class="num-block">
+      <div class="num-block-title">100</div>
+      <div class="num-row"><span class="num-n">100</span><span class="num-w verb" onclick="speak('cento')">cento</span></div>
+    </div>
+    </div>
     <div style="background:#fff3cd;border:1px solid #ffc107;border-radius:6px;padding:10px 14px;margin-top:12px;font-size:13px;">
       <strong>⚠️ 规则</strong>:<br>
       • 21-99: 十位数 + 个位数（连写）: venti + uno → ventuno（去掉十位数末尾元音）<br>
