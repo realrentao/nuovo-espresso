@@ -39,6 +39,25 @@
     .grammar-box tr:last-child td { border-bottom: none; }
     .grammar-box tr:nth-child(even) td { background: rgba(254,249,231,0.3); }
     .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
+    .art-ex { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px 18px; margin: 10px 0; }
+    .art-ex .row { display: flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--border-light); border-radius: 8px; padding: 6px 10px; }
+    .art-ex input { width: 70px; padding: 5px 7px; font-size: 14px; border: 1.5px solid #d9c9a3; border-radius: 6px; text-align: center; text-transform: lowercase; outline: none; }
+    .art-ex input:focus { border-color: var(--ne-blue); }
+    .art-ex input.correct { border-color: #27ae60; background: #eafaf1; }
+    .art-ex input.wrong { border-color: #e74c3c; background: #fdecea; }
+    .art-ex .spk { cursor: pointer; opacity: .5; font-size: 13px; user-select: none; }
+    .art-ex .spk:hover { opacity: 1; }
+    .art-ex .noun { font-weight: 600; cursor: pointer; color: var(--ne-dark); border-bottom: 1px dashed #ddd; }
+    .art-ex .noun:hover { color: var(--ne-red); }
+    .art-ex .fb { font-size: 15px; width: 18px; text-align: center; }
+    .art-ex .fb .ok { color: #27ae60; }
+    .art-ex .fb .no { color: #e74c3c; }
+    .art-ex .ans { font-size: 12px; color: #e74c3c; margin-left: 2px; }
+    .art-ex-ctrl { margin: 12px 0 2px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .art-ex-ctrl button { padding: 7px 14px; font-size: 13px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
+    .art-ex-ctrl .check { background: var(--ne-blue); color: #fff; }
+    .art-ex-ctrl .show { background: #f1c40f; color: #5b4500; }
+    .art-ex-ctrl .reset { background: #ecf0f1; color: #555; }
     .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
     .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
     .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
@@ -62,6 +81,8 @@
       .grammar-box th { padding: 4px 3px; font-size: 10px; }
       .grammar-box td { padding: 4px 3px; word-break: break-word; overflow-wrap: anywhere; }
       .grammar-box .verb { word-break: break-word; overflow-wrap: anywhere; }
+      .art-ex { grid-template-columns: 1fr; gap: 6px; }
+      .art-ex input { width: 60px; font-size: 13px; }
     }
   </style>
 </head>
@@ -740,19 +761,74 @@
 
   <h3>es.7 — 将名词与正确冠词配对</h3>
   <p style="font-size:14px;color:var(--ne-muted);">在下列名词前填入 un / uno / una / un':</p>
-  <table class="vocab-table">
-    <tr><th>名词</th><th>冠词</th><th>名词</th><th>冠词</th></tr>
-    <tr><td class="it" onclick="speak('amico')">amico</td><td>___</td><td class="it" onclick="speak('agenzia')">agenzia</td><td>___</td></tr>
-    <tr><td class="it" onclick="speak('architetto')">architetto</td><td>___</td><td class="it" onclick="speak('libreria')">libreria</td><td>___</td></tr>
-    <tr><td class="it" onclick="speak('signore')">signore</td><td>___</td><td class="it" onclick="speak('casa')">casa</td><td>___</td></tr>
-    <tr><td class="it" onclick="speak('ufficio')">ufficio</td><td>___</td><td class="it" onclick="speak('ingegnere')">ingegnere</td><td>___</td></tr>
-    <tr><td class="it" onclick="speak('operaio')">operaio</td><td>___</td><td class="it" onclick="speak('signora')">signora</td><td>___</td></tr>
-    <tr><td class="it" onclick="speak('corso')">corso</td><td>___</td><td class="it" onclick="speak('studente')">studente</td><td>___</td></tr>
-    <tr><td class="it" onclick="speak('amica')">amica</td><td>___</td><td class="it" onclick="speak('numero')">numero</td><td>___</td></tr>
-    <tr><td class="it" onclick="speak('operaia')">operaia</td><td>___</td><td class="it" onclick="speak('studio')">studio</td><td>___</td></tr>
-    <tr><td class="it" onclick="speak('ospedale')">ospedale</td><td>___</td><td class="it" onclick="speak('negozio')">negozio</td><td>___</td></tr>
-    <tr><td class="it" onclick="speak('segretaria')">segretaria</td><td>___</td><td></td><td></td></tr>
-  </table>
+  <div class="art-ex" id="artEx"></div>
+  <div class="art-ex-ctrl">
+    <button class="check" onclick="artCheck()">检查答案</button>
+    <button class="show" onclick="artShow()">显示答案</button>
+    <button class="reset" onclick="artReset()">重置</button>
+  </div>
+  <p id="artMsg" style="font-size:13px;color:var(--ne-muted);margin:6px 0 0;font-weight:600;"></p>
+  <script>
+  (function(){
+    var items = [
+      ["amico","un"],["agenzia","un'"],["architetto","un"],["libreria","una"],
+      ["signore","un"],["casa","una"],["ufficio","un"],["ingegnere","un"],
+      ["operaio","un"],["signora","una"],["corso","un"],["studente","uno"],
+      ["amica","un'"],["numero","un"],["operaia","un'"],["studio","uno"],
+      ["ospedale","un"],["negozio","un"],["segretaria","una"]
+    ];
+    var box = document.getElementById('artEx');
+    function rowIndex(inp){ var rows = box.children; for(var k=0;k<rows.length;k++){ if(rows[k]===inp.parentNode){ return k; } } return -1; }
+    items.forEach(function(it, i){
+      var noun = it[0];
+      var row = document.createElement('div'); row.className = 'row';
+      var inp = document.createElement('input');
+      inp.type = 'text'; inp.maxLength = 4; inp.placeholder = '…'; inp.dataset.ans = it[1];
+      inp.setAttribute('aria-label', '冠词 ' + noun);
+      inp.addEventListener('blur', function(){ artCheckOne(inp); });
+      inp.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ artCheckOne(inp); } });
+      var spk = document.createElement('span'); spk.className = 'spk'; spk.textContent = '🔊'; spk.title = '播放'; spk.onclick = function(){ speak(noun); };
+      var n = document.createElement('span'); n.className = 'noun'; n.textContent = noun; n.title = '点击朗读'; n.onclick = function(){ speak(noun); };
+      var fb = document.createElement('span'); fb.className = 'fb'; fb.id = 'fb' + i;
+      var an = document.createElement('span'); an.className = 'ans'; an.id = 'ans' + i;
+      row.appendChild(inp); row.appendChild(spk); row.appendChild(n); row.appendChild(fb); row.appendChild(an);
+      box.appendChild(row);
+    });
+    window.artCheckOne = function(inp){
+      var v = (inp.value || '').trim().toLowerCase();
+      var idx = rowIndex(inp);
+      var fbEl = document.getElementById('fb' + idx), anEl = document.getElementById('ans' + idx);
+      if(v === ''){ inp.className = ''; fbEl.textContent = ''; anEl.textContent = ''; return; }
+      if(v === inp.dataset.ans){ inp.className = 'correct'; fbEl.innerHTML = '<span class="ok">✓</span>'; anEl.textContent = ''; }
+      else { inp.className = 'wrong'; fbEl.innerHTML = '<span class="no">✗</span>'; anEl.textContent = '正确答案: ' + inp.dataset.ans; }
+    };
+    window.artCheck = function(){
+      var inputs = box.querySelectorAll('input');
+      [].forEach.call(inputs, function(inp){ artCheckOne(inp); });
+      var total = items.length, ok = box.querySelectorAll('input.correct').length, wrong = box.querySelectorAll('input.wrong').length, empty = total - ok - wrong;
+      var msg = document.getElementById('artMsg');
+      if(empty > 0){ msg.textContent = '已判 ' + ok + ' 对 / ' + wrong + ' 错，还有 ' + empty + ' 个未填。'; }
+      else { msg.textContent = '完成！正确 ' + ok + ' / ' + total + (ok === total ? ' 🎉 全部正确！' : ''); }
+    };
+    window.artShow = function(){
+      [].forEach.call(box.querySelectorAll('input'), function(inp){
+        inp.value = inp.dataset.ans; inp.className = 'correct';
+        var idx = rowIndex(inp);
+        document.getElementById('fb' + idx).innerHTML = '<span class="ok">✓</span>';
+        document.getElementById('ans' + idx).textContent = '';
+      });
+      document.getElementById('artMsg').textContent = '';
+    };
+    window.artReset = function(){
+      [].forEach.call(box.querySelectorAll('input'), function(inp){
+        inp.value = ''; inp.className = '';
+        var idx = rowIndex(inp);
+        document.getElementById('fb' + idx).textContent = ''; document.getElementById('ans' + idx).textContent = '';
+      });
+      document.getElementById('artMsg').textContent = '';
+    };
+  })();
+  </script>
 
   <h3>es.8 — 选择正确的动词形式填空</h3>
   <p style="font-size:14px;color:var(--ne-muted);">选择括号中正确的动词变位完成句子。</p>
