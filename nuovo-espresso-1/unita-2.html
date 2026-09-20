@@ -55,7 +55,14 @@
     .alphabet-table tr:last-child td { border-bottom: none; }
     .alphabet-table td:hover { background: rgba(241,196,15,0.15); color: var(--ne-red); }
     .alphabet-table .foreign { color: var(--ne-muted); font-size: 12px; font-style: italic; }
-    @media (max-width: 768px) { .page-section { padding: 5px 16px; } }
+    @media (max-width: 768px) {
+      .page-section { padding: 5px 16px; }
+      .grammar-box { padding: 12px 8px; }
+      .grammar-box table { table-layout: fixed; font-size: 11px; margin: 6px 0; }
+      .grammar-box th { padding: 4px 3px; font-size: 10px; }
+      .grammar-box td { padding: 4px 3px; word-break: break-word; overflow-wrap: anywhere; }
+      .grammar-box .verb { word-break: break-word; overflow-wrap: anywhere; }
+    }
   </style>
 </head>
 <body>
