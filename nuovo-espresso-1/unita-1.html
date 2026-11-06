@@ -41,9 +41,9 @@
     .grammar-box .verb { color: var(--ne-red); font-weight: 700; }
     .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
     .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
-    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; margin: 0 0 2px; }
     .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
-    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; margin: 0 0 14px; padding-left: 12px; border-left: 2px solid var(--ne-gold); }
     .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
     .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
     .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
@@ -442,21 +442,16 @@
   <h3>&#x1F3DB;&#xFE0F; Buongiorno, buona sera o buonanotte?</h3>
 
   <div class="cultura-box">
-    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
     <p class="it" onclick="speak('Gli italiani salutano in modo molto affettuoso, soprattutto amici e parenti, con baci e abbracci.')">Gli italiani salutano in modo molto affettuoso, soprattutto amici e parenti, con baci e abbracci.</p>
+    <p class="zh">意大利人问候时非常热情，尤其是朋友和亲戚之间，常用亲吻和拥抱。</p>
     <p class="it" onclick="speak('Buongiorno: dalla mattina fino alle 13 circa.')"><strong>Buongiorno</strong>: dalla mattina fino alle 13 circa.</p>
+    <p class="zh"><strong>Buongiorno</strong>: 从早晨到大约下午1点。</p>
     <p class="it" onclick="speak('Buona sera: dalle 19 in poi.')"><strong>Buona sera</strong>: dalle 19 in poi.</p>
+    <p class="zh"><strong>Buona sera</strong>: 从晚上7点以后。</p>
     <p class="it" onclick="speak('Ciao / Salve: in qualsiasi momento della giornata, informale.')"><strong>Ciao / Salve</strong>: in qualsiasi momento della giornata (informale).</p>
+    <p class="zh"><strong>Ciao / Salve</strong>: 一天中的任何时间（非正式）。</p>
     <p class="it"><strong>Con il tu</strong>: <span onclick="speak('Arrivederci!')">arrivederci!</span> &nbsp; <strong>Con il Lei</strong>: <span onclick="speak('ArrivederLa!')">arrivederla!</span></p>
-  </div>
-
-  <div class="cultura-box">
-    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
-    <p>意大利人问候时非常热情，尤其是朋友和亲戚之间，常用亲吻和拥抱。</p>
-    <p><strong>Buongiorno</strong>: 从早晨到大约下午1点。</p>
-    <p><strong>Buona sera</strong>: 从晚上7点以后。</p>
-    <p><strong>Ciao / Salve</strong>: 一天中的任何时间（非正式）。</p>
-    <p><strong>非正式告别</strong>: arrivederci! &nbsp; <strong>正式告别</strong>: arrivederla!</p>
+    <p class="zh"><strong>非正式告别</strong>: arrivederci! &nbsp; <strong>正式告别</strong>: arrivederla!</p>
   </div>
 
   <div style="background:#e8f8f5;border:1px solid #1abc9c;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13px;">
