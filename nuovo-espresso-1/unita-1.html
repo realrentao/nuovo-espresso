@@ -477,36 +477,12 @@
   <h2>&#x1F39B;&#xFE0F; Videocorso 1 — Amici · p.14-15</h2>
 
   <div style="margin:0 0 18px;">
-    <video id="videocorso1" controls preload="metadata" playsinline style="display:block;width:100%;max-width:720px;border-radius:8px;background:#000;">
+    <video controls preload="metadata" playsinline style="display:block;width:100%;max-width:720px;border-radius:8px;background:#000;">
       <source src="video/videocorso-1-amici.av1.mp4" type='video/mp4; codecs="av01.0.05M.08, mp4a.40.2"'>
       <source src="video/videocorso-1-amici.mp4" type="video/mp4">
       Il browser non supporta il video HTML5.
     </video>
-    <div style="margin-top:8px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:13px;">
-      <button type="button" id="videocorso1-fs" style="cursor:pointer;padding:6px 14px;border:1px solid var(--ne-gold-dark);border-radius:6px;background:var(--ne-gold);color:#2c3e50;font-size:13px;font-weight:600;">全屏播放</button>
-      <a href="video/videocorso-1-amici.mp4" target="_blank" rel="noopener" style="color:var(--ne-muted);">在新标签页打开视频</a>
-    </div>
   </div>
-  <script>
-    (function () {
-      var v = document.getElementById('videocorso1');
-      var b = document.getElementById('videocorso1-fs');
-      if (!v || !b) return;
-      b.addEventListener('click', function () {
-        var fn = v.requestFullscreen || v.webkitRequestFullscreen || v.msRequestFullscreen;
-        if (fn) {
-          try {
-            var p = fn.call(v);
-            if (p && p.catch) { p.catch(function () { window.open('video/videocorso-1-amici.mp4', '_blank'); }); }
-          } catch (e) { window.open('video/videocorso-1-amici.mp4', '_blank'); }
-        } else if (v.webkitEnterFullscreen) {
-          v.webkitEnterFullscreen();
-        } else {
-          window.open('video/videocorso-1-amici.mp4', '_blank');
-        }
-      });
-    })();
-  </script>
 
   <p style="font-weight:600;font-size:14px;margin-bottom:8px;">Prima di guardare il video:</p>
   <ul style="font-size:14px;color:var(--ne-muted);margin:0 0 16px 20px;">
