@@ -69,9 +69,9 @@
     .art-ex-ctrl .reset { background: #ecf0f1; color: #555; }
     .cultura-box { background: linear-gradient(135deg, var(--ne-cream) 0%, #FFF 100%); border: 1px solid var(--ne-gold-dark); border-radius: 14px; padding: 18px 20px; margin: 16px 0 5px; box-shadow: 0 3px 15px rgba(212,172,13,0.08); position: relative; overflow: hidden; }
     .cultura-box::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--ne-gold), var(--ne-orange)); border-radius: 14px 14px 0 0; }
-    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; }
+    .cultura-box .it { font-style: italic; cursor: pointer; line-height: 1.8; margin: 0 0 2px; }
     .cultura-box .it:hover { background: rgba(241,196,15,0.1); }
-    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; }
+    .cultura-box .zh { color: var(--ne-muted); font-size: 14px; line-height: 1.8; margin: 0 0 14px; padding-left: 12px; border-left: 2px solid var(--ne-gold); }
     .nav-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 24px 24px 8px; }
     .nav-buttons a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 22px; background: linear-gradient(135deg, var(--ne-red), var(--ne-red-dark)); color: #fff; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.25s; box-shadow: 0 3px 12px rgba(192,57,43,0.25); }
     .nav-buttons a:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,0.35); }
@@ -796,15 +796,10 @@
   <h3>🏛️ Qualche dato sull'Italia（关于意大利的一些数据）</h3>
 
   <div class="cultura-box">
-    <p style="font-weight:600;margin-bottom:8px;">Testo originale (意大利原文):</p>
     <p class="it" onclick="speak('L\'Italia ha circa 59 milioni di abitanti. È divisa in 20 regioni.')">L'Italia ha circa 59 milioni di abitanti. È divisa in 20 regioni.</p>
+    <p class="zh">意大利约有5900万居民。分为20个大区。</p>
     <p class="it" onclick="speak('Le città principali sono: Roma (capitale), Milano, Napoli, Torino, Palermo, Genova, Bologna, Firenze, Venezia.')">Le città principali sono: Roma (capitale), Milano, Napoli, Torino, Palermo, Genova, Bologna, Firenze, Venezia.</p>
-  </div>
-
-  <div class="cultura-box">
-    <p style="font-weight:600;margin-bottom:8px;">中文翻译:</p>
-    <p>意大利约有5900万居民。分为20个大区。</p>
-    <p>主要城市有：罗马（首都）、米兰、那不勒斯、都灵、巴勒莫、热那亚、博洛尼亚、佛罗伦萨、威尼斯。</p>
+    <p class="zh">主要城市有：罗马（首都）、米兰、那不勒斯、都灵、巴勒莫、热那亚、博洛尼亚、佛罗伦萨、威尼斯。</p>
   </div>
 
   <h3>意大利主要城市</h3>
