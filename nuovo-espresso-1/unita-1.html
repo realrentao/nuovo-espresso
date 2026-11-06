@@ -537,25 +537,52 @@
   .vc1-g1 .vc1-bub.right,.vc1-g1 .vc1-bub.left{margin-left:0;max-width:100%;}
   .vc1-ricorda{margin-top:8px;}
 }
+
+/* ---- 互动作答（vc1q- 前缀，不影响页面其他部分） ---- */
+.vc1q-rule{margin:8px 0 6px;font-size:12px;color:var(--ne-muted);line-height:1.65;}
+.vc1q-rule b{color:var(--ne-blue);}
+.vc1q-fb{margin:8px 0 0;font-size:12px;font-weight:700;color:var(--ne-muted);}
+.vc1q-fb.ok{color:#1e8449;} .vc1q-fb.part{color:#b9770e;} .vc1q-fb.bad{color:#c0392b;}
+.vc1q-opt{cursor:pointer;border-radius:3px;padding:1px 3px;transition:background .15s;}
+.vc1q-opt:hover{background:#fdf2e9;}
+.vc1q-opt.vc1q-sel{background:#fdebd0;box-shadow:inset 0 0 0 1px var(--ne-red);}
+.vc1q-opt.vc1q-ok{background:#e8f8f5;box-shadow:inset 0 0 0 1px #1abc9c;}
+.vc1q-opt.vc1q-bad{background:#fdedec;box-shadow:inset 0 0 0 1px #e74c3c;}
+.vc1q-text,.vc1q-pick{font-family:inherit;font-size:13px;color:#222;background:#fff;
+  border:1px solid #d5dbdb;border-bottom:1px solid #555;border-radius:3px;
+  padding:3px 6px;outline:none;max-width:100%;}
+.vc1q-text{width:100%;} .vc1q-pick{width:auto;min-width:70px;}
+.vc1q-text:focus,.vc1q-pick:focus{border-bottom:2px solid var(--ne-blue);}
+.vc1q-text.vc1q-ok,.vc1q-pick.vc1q-ok{border-color:#1abc9c;background:#e8f8f5;}
+.vc1q-text.vc1q-bad,.vc1q-pick.vc1q-bad{border-color:#e74c3c;background:#fdedec;}
+.vc1q-panel{margin:10px 0 14px;padding:14px 16px;border:1px solid var(--border-light);
+  border-radius:10px;background:#fff;display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+.vc1q-btn{cursor:pointer;padding:8px 18px;border:0;border-radius:6px;background:var(--ne-red);
+  color:#fff;font-size:14px;font-weight:700;}
+.vc1q-btn.sec{background:#eef2f3;color:var(--ne-dark);}
+.vc1q-score{font-size:14px;font-weight:700;color:var(--ne-blue);}
+.vc1q-note{flex:1 1 100%;font-size:12px;color:var(--ne-muted);line-height:1.65;}
 </style>
 <div class="vc1-book">
 
   <!-- ===== ES. 1 ===== -->
   <div class="vc1-ex">
     <div class="vc1-h"><span class="vc1-n">1</span><span>Prima di guardare il video, osserva i fotogrammi e scegli le frasi da abbinare. Guarda il video per la verifica.</span></div>
+    <div class="vc1q-fb" data-fb="q1">状态：未作答</div>
+    <div class="vc1q-rule"><b>判定规则</b>：三张图各从 a / b 中选一句，与视频中该场景的台词一致即判对；逐图计分（共 3 分）。</div>
     <div class="vc1-g1">
       <img src="images/videocorso-1/es1-foto1.jpg" alt="Fotogramma 1">
-      <div class="vc1-bub left">
+      <div class="vc1-bub left" data-q="q1a">
         <div class="vc1-opt"><span class="vc1-l">a</span><span>Ciao Laura!</span></div>
         <div class="vc1-opt"><span class="vc1-l">b</span><span>Buongiorno, signora!</span></div>
       </div>
-      <div class="vc1-bub right">
+      <div class="vc1-bub right" data-q="q1b">
         <div class="vc1-opt"><span class="vc1-l">a</span><span>Lui &egrave; Chris, americano.</span></div>
         <div class="vc1-opt"><span class="vc1-l">b</span><span>Lei si chiama Ann: &egrave; inglese,<br>di Manchester.</span></div>
       </div>
       <img src="images/videocorso-1/es1-foto2.jpg" alt="Fotogramma 2">
       <img src="images/videocorso-1/es1-foto3.jpg" alt="Fotogramma 3">
-      <div class="vc1-bub left">
+      <div class="vc1-bub left" data-q="q1c">
         <div class="vc1-opt"><span class="vc1-l">a</span><span>Laura, piacere&hellip;</span></div>
         <div class="vc1-opt"><span class="vc1-l">b</span><span>Lei &egrave; italiano?</span></div>
       </div>
@@ -570,16 +597,18 @@
   <!-- ===== ES. 2 ===== -->
   <div class="vc1-ex">
     <div class="vc1-h"><span class="vc1-n">2</span><span>Guarda il video e rispondi alle domande.</span></div>
+    <div class="vc1q-fb" data-fb="q2">状态：未作答</div>
+    <div class="vc1q-rule"><b>判定规则</b>：文字输入，忽略大小写、重音与标点。① 填视频中绿衣男生的名字（Federico）；② 填 Andrew 的国籍或城市（Australia / Sydney / australiano / 澳大利亚 / 悉尼）。逐空计分（共 2 分）。</div>
     <div class="vc1-g2">
       <div>
-        <img src="images/videocorso-1/es2-foto1.jpg" alt="Fotogramma">
+        <img src="images/videocorso-1/es2-foto1-straight.jpg" alt="Fotogramma">
         <div class="vc1-q"><span class="vc1-l">1</span><span>Come si chiama lui?</span></div>
-        <div class="vc1-rule"></div>
+        <input class="vc1q-text" type="text" data-q="q2" autocomplete="off" placeholder="输入答案">
       </div>
       <div>
-        <img src="images/videocorso-1/es2-foto2.jpg" alt="Fotogramma">
+        <img src="images/videocorso-1/es2-foto2-straight.jpg" alt="Fotogramma">
         <div class="vc1-q"><span class="vc1-l">2</span><span>Di dov'&egrave; Andrew?</span></div>
-        <div class="vc1-rule"></div>
+        <input class="vc1q-text" type="text" data-q="q2" autocomplete="off" placeholder="输入答案">
       </div>
     </div>
   </div>
@@ -587,6 +616,8 @@
   <!-- ===== ES. 3 ===== -->
   <div class="vc1-ex">
     <div class="vc1-h"><span class="vc1-n">3</span><span>Rimetti in ordine le frasi di Laura. Se necessario, guarda ancora il video.</span></div>
+    <div class="vc1q-fb" data-fb="q3">状态：未作答</div>
+    <div class="vc1q-rule"><b>判定规则</b>：选项选择，把 a–e 五句按视频对话顺序填入 Laura 的 5 个空；逐空计分（共 5 分）。</div>
     <div class="vc1-g3">
       <div>
         <img src="images/videocorso-1/es3-foto.jpg" alt="Laura e Federico">
@@ -599,15 +630,15 @@
       </div>
       <div class="vc1-dialog">
         <div><span class="vc1-who">Federico</span><span>E lui, di dov'&egrave;?</span></div>
-        <div><span class="vc1-who">Laura</span><span class="vc1-blank"></span></div>
+        <div><span class="vc1-who">Laura</span><select class="vc1q-pick" data-q="q3" aria-label="选择 Laura 的句子"><option value="">—</option><option value="a">a</option><option value="b">b</option><option value="c">c</option><option value="d">d</option><option value="e">e</option></select></div>
         <div><span class="vc1-who">Federico</span><span>Ann!</span></div>
-        <div><span class="vc1-who">Laura</span><span class="vc1-blank"></span></div>
+        <div><span class="vc1-who">Laura</span><select class="vc1q-pick" data-q="q3" aria-label="选择 Laura 的句子"><option value="">—</option><option value="a">a</option><option value="b">b</option><option value="c">c</option><option value="d">d</option><option value="e">e</option></select></div>
         <div><span class="vc1-who">Federico</span><span>Francese.</span></div>
-        <div><span class="vc1-who">Laura</span><span class="vc1-blank"></span></div>
+        <div><span class="vc1-who">Laura</span><select class="vc1q-pick" data-q="q3" aria-label="选择 Laura 的句子"><option value="">—</option><option value="a">a</option><option value="b">b</option><option value="c">c</option><option value="d">d</option><option value="e">e</option></select></div>
         <div><span class="vc1-who">Federico</span><span>Ah, Andrew!</span></div>
-        <div><span class="vc1-who">Laura</span><span class="vc1-blank"></span></div>
+        <div><span class="vc1-who">Laura</span><select class="vc1q-pick" data-q="q3" aria-label="选择 Laura 的句子"><option value="">—</option><option value="a">a</option><option value="b">b</option><option value="c">c</option><option value="d">d</option><option value="e">e</option></select></div>
         <div><span class="vc1-who">Federico</span><span>Ah gi&agrave;, l'australiano.</span></div>
-        <div><span class="vc1-who">Laura</span><span class="vc1-blank"></span></div>
+        <div><span class="vc1-who">Laura</span><select class="vc1q-pick" data-q="q3" aria-label="选择 Laura 的句子"><option value="">—</option><option value="a">a</option><option value="b">b</option><option value="c">c</option><option value="d">d</option><option value="e">e</option></select></div>
       </div>
     </div>
   </div>
@@ -615,6 +646,8 @@
   <!-- ===== ES. 4 ===== -->
   <div class="vc1-ex">
     <div class="vc1-h"><span class="vc1-n">4</span><span>Nel video ci sono tre persone e tre modi di salutarsi. Abbina i saluti.</span></div>
+    <div class="vc1q-fb" data-fb="q4">状态：未作答</div>
+    <div class="vc1q-rule"><b>判定规则</b>：选项选择，为三张图各选一句对应的问候语（1 / 2 / 3 对应上方三个紫色标签）；逐图计分（共 3 分）。</div>
     <div class="vc1-tags">
       <span class="vc1-tag vc1-audio" onclick="speak('Io sono Andrea. E tu come ti chiami?')">Io sono Andrea. E tu come ti chiami?</span>
       <span class="vc1-tag vc1-audio" onclick="speak('Ehi, Federico! Ciao!')">Ehi, Federico! Ciao!</span>
@@ -626,18 +659,20 @@
       <img src="images/videocorso-1/es4-foto-c.jpg" alt="c">
     </div>
     <div class="vc1-g4" style="margin-top:16px;">
-      <div class="vc1-bub up vc1-ans"><span>&ndash; Ciao Laura!</span><span class="vc1-rule"></span></div>
-      <div class="vc1-bub up vc1-ans"><span>&ndash; Ehi Federico! Come stai?</span><span class="vc1-rule"></span></div>
-      <div class="vc1-bub up vc1-ans"><span class="vc1-rule"></span><span>&ndash; Laura. Piacere.</span></div>
+      <div class="vc1-bub up vc1-ans"><span>&ndash; Ciao Laura!</span><select class="vc1q-pick" data-q="q4" aria-label="选择对应的问候语"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>
+      <div class="vc1-bub up vc1-ans"><span>&ndash; Ehi Federico! Come stai?</span><select class="vc1q-pick" data-q="q4" aria-label="选择对应的问候语"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>
+      <div class="vc1-bub up vc1-ans"><select class="vc1q-pick" data-q="q4" aria-label="选择对应的问候语"><option value="">—</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select><span>&ndash; Laura. Piacere.</span></div>
     </div>
   </div>
 
   <!-- ===== ES. 5 ===== -->
   <div class="vc1-ex">
     <div class="vc1-h"><span class="vc1-n">5</span><span>Qual &egrave; il numero di telefono di Laura? Guarda la sequenza finale del video e scegli il numero corretto.</span></div>
+    <div class="vc1q-fb" data-fb="q5">状态：未作答</div>
+    <div class="vc1q-rule"><b>判定规则</b>：单选，与视频结尾 Laura 口述的电话号码一致即判对（共 1 分）。</div>
     <div class="vc1-g5">
       <img src="images/videocorso-1/es5-foto.jpg" alt="Laura">
-      <div class="vc1-nums">
+      <div class="vc1-nums" data-q="q5">
         <div class="vc1-opt"><span class="vc1-l">a</span><span>3492547577</span></div>
         <div class="vc1-opt"><span class="vc1-l">b</span><span>3901566597</span></div>
         <div class="vc1-opt"><span class="vc1-l">c</span><span>3401546547</span></div>
@@ -645,6 +680,140 @@
     </div>
   </div>
 </div>
+
+<!-- VC1-QUIZ -->
+<div class="vc1q-panel">
+  <button type="button" class="vc1q-btn" id="vc1q-submit">提交答案</button>
+  <button type="button" class="vc1q-btn sec" id="vc1q-reset">重做</button>
+  <span class="vc1q-score" id="vc1q-score">尚未提交 · 共 14 小题</span>
+  <div class="vc1q-note">答案依据视频对白（本地语音转写），不引入外部资料。判定规则见每题题干下方；提交后逐题显示「正确 / 部分正确 / 错误 / 未作答」状态与正确答案，绿色为对、红色为错、橙色为部分正确，灰色表示尚未作答。</div>
+</div>
+<script>
+(function () {
+  var ITEMS = [
+    { key: 'q1', type: 'choice', ans: ['a', 'b', 'a'],
+      tip: '图1 a / 图2 b / 图3 a' },
+    { key: 'q2', type: 'text',
+      ans: [['federico'], ['australia', 'sydney', 'australiano', '澳大利亚', '悉尼']],
+      tip: '① Federico ② Australia（Sydney / australiano / 澳大利亚 / 悉尼）' },
+    { key: 'q3', type: 'choice', ans: ['c', 'a', 'e', 'b', 'd'],
+      tip: 'c → a → e → b → d' },
+    { key: 'q4', type: 'choice', ans: ['2', '3', '1'],
+      tip: '图a 2 / 图b 3 / 图c 1' },
+    { key: 'q5', type: 'choice', ans: ['c'], tip: 'c（3401546547）' }
+  ];
+  var LETTERS = 'abcde';
+
+  function norm(v) {
+    return (v || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase().replace(/[^a-z0-9\u4e00-\u9fff]+/g, ' ').trim().replace(/\s+/g, ' ');
+  }
+  function qsa(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+
+  // 给题 1、题 5 的选项行加上可选中的语义（a / b / c…）
+  ['q1a', 'q1b', 'q1c', 'q5'].forEach(function (k) {
+    var box = document.querySelector('[data-q="' + k + '"]');
+    if (!box) return;
+    qsa('.vc1-opt', box).forEach(function (o, i) {
+      o.classList.add('vc1q-opt');
+      o.setAttribute('data-value', LETTERS[i]);
+    });
+  });
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    while (t && t !== document && !(t.classList && t.classList.contains('vc1q-opt'))) t = t.parentNode;
+    if (!t || t === document) return;
+    var box = t.parentNode;
+    if (!box || !box.getAttribute('data-q')) return;
+    qsa('.vc1q-opt', box).forEach(function (o) { o.classList.remove('vc1q-sel'); });
+    t.classList.add('vc1q-sel');
+  });
+
+  function picked(k) {
+    var el = document.querySelector('[data-q="' + k + '"] .vc1-opt.vc1q-sel');
+    return el ? el.getAttribute('data-value') : '';
+  }
+  function values(item) {
+    if (item.key === 'q1') return ['q1a', 'q1b', 'q1c'].map(picked);
+    if (item.key === 'q5') return [picked('q5')];
+    return qsa('[data-q="' + item.key + '"]').map(function (el) { return el.value || ''; });
+  }
+  function controls(item) {
+    if (item.key === 'q1') return ['q1a', 'q1b', 'q1c'].map(function (k) {
+      return document.querySelector('[data-q="' + k + '"]');
+    });
+    if (item.key === 'q5') return [document.querySelector('[data-q="q5"]')];
+    return qsa('[data-q="' + item.key + '"]');
+  }
+
+  function clear() {
+    ITEMS.forEach(function (item) {
+      qsa('.vc1q-opt').forEach(function (o) {
+        o.classList.remove('vc1q-sel', 'vc1q-ok', 'vc1q-bad');
+      });
+      qsa('[data-q="' + item.key + '"]').forEach(function (el) {
+        if (el.value !== undefined) el.value = '';
+        el.classList.remove('vc1q-ok', 'vc1q-bad');
+      });
+      var fb = document.querySelector('[data-fb="' + item.key + '"]');
+      if (fb) { fb.className = 'vc1q-fb'; fb.textContent = '状态：未作答'; }
+    });
+    document.getElementById('vc1q-score').textContent = '尚未提交 · 共 14 小题';
+  }
+
+  function grade() {
+    var total = 0, got = 0;
+    ITEMS.forEach(function (item) {
+      var vals = values(item), ctrls = controls(item), ok = 0, empty = 0, states = [];
+      item.ans.forEach(function (answer, i) {
+        var v = vals[i] || '', pass;
+        if (v === '') { pass = null; empty++; }
+        else if (item.type === 'text') {
+          var nv = norm(v);
+          pass = answer.some(function (a) {
+            var na = norm(a);
+            return nv === na || nv.indexOf(na) !== -1;
+          });
+        } else pass = (v === answer);
+        states.push(pass);
+        if (pass === true) ok++;
+      });
+      total += item.ans.length; got += ok;
+      states.forEach(function (st, i) {
+        if (!ctrls[i]) return;
+        ctrls[i].classList.remove('vc1q-ok', 'vc1q-bad');
+        if (st === true) ctrls[i].classList.add('vc1q-ok');
+        else if (st === false) ctrls[i].classList.add('vc1q-bad');
+        // 选项行本身也标出对错
+        if (item.key === 'q1' || item.key === 'q5') {
+          var chosen = ctrls[i].querySelector('.vc1-opt.vc1q-sel');
+          if (chosen) chosen.classList.add(st === true ? 'vc1q-ok' : 'vc1q-bad');
+        }
+      });
+      var fb = document.querySelector('[data-fb="' + item.key + '"]');
+      if (!fb) return;
+      var hint = ' · 正确答案：' + item.tip;
+      if (ok === item.ans.length) {
+        fb.className = 'vc1q-fb ok';
+        fb.textContent = '✓ 正确（' + ok + '/' + item.ans.length + '）';
+      } else if (empty === item.ans.length) {
+        fb.className = 'vc1q-fb bad';
+        fb.textContent = '✗ 未作答（0/' + item.ans.length + '）' + hint;
+      } else if (ok > 0) {
+        fb.className = 'vc1q-fb part';
+        fb.textContent = '△ 部分正确（' + ok + '/' + item.ans.length + '）' + hint;
+      } else {
+        fb.className = 'vc1q-fb bad';
+        fb.textContent = '✗ 错误（0/' + item.ans.length + '）' + hint;
+      }
+    });
+    document.getElementById('vc1q-score').textContent = '得分 ' + got + ' / ' + total;
+  }
+
+  document.getElementById('vc1q-submit').addEventListener('click', grade);
+  document.getElementById('vc1q-reset').addEventListener('click', clear);
+})();
+</script>
 <!-- VC1-BOOK-END -->
 <details class="vc1-extra">
   <summary>意中对照 &middot; 点读（展开查看原有练习表）</summary>
